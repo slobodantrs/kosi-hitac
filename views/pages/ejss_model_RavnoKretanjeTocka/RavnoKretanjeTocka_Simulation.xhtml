@@ -1,0 +1,987 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet"  type="text/css" href="_ejs_library/css/ejss.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css"></link>
+    <script src="_ejs_library/scripts/common_script.js"></script>
+    <script src="_ejs_library/scripts/textresizedetector.js"></script>
+    <script src="_ejs_library/ejsS.v1.min.js"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+/* _inputParameters: an object with different values for the model parameters */
+function RavnoKretanjeTocka(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
+  var _model = EJSS_CORE.createAnimationLMS();
+  var _view;
+  var _isPlaying = false;
+  var _isPaused = true;
+  var _isMobile = (navigator===undefined) ? false : navigator.userAgent.match(/iPhone|iPad|iPod|Android|BlackBerry|Opera Mini|IEMobile/i);
+
+var _stringProperties = {};
+  var _tools = {
+    showInputDialog : EJSS_INTERFACE.BoxPanel.showInputDialog,
+    showOkDialog : EJSS_INTERFACE.BoxPanel.showOkDialog,
+    showOkCancelDialog : EJSS_INTERFACE.BoxPanel.showOkCancelDialog,
+    downloadText: EJSS_TOOLS.File.downloadText,
+    uploadText: function(action) { EJSS_TOOLS.File.uploadText(_model,action); } 
+  };
+
+  function _play()  { _isPaused = false; _isPlaying = true;  _model.play();  }
+  function _pause() { _isPaused = true;  _isPlaying = false; _model.pause(); }
+  function _step()  { _pause();  _model.step(); }
+  function _reset() { _model.reset();  _isPaused = _model.isPaused(); _isPlaying = _model.isPlaying(); }
+  _model._play  = _play;
+  _model._pause = _pause;
+  _model._step  = _step;
+  _model._reset = _reset;
+  function _update() { _model.update(); }
+  function _initialize() { _model.initialize(); }
+  function _setFPS(_fps) { _model.setFPS(_fps); }
+  function _setDelay(_delay) { _model.setDelay(_delay); }
+  function _setStepsPerDisplay(_spd) { _model.setStepsPerDisplay(_spd); }
+  function _setUpdateView(_updateView) { _model.setUpdateView(_updateView); }
+  function _setAutoplay(_auto) { _model.setAutoplay(_auto); }
+  function _println(_message) { console.log(_message); }
+
+  function _breakAfterThisPage() { _model.setShouldBreak(true); }
+
+  function _resetSolvers() { if (_model.resetSolvers) _model.resetSolvers(); }
+
+  function _saveText(name,type,content) { if (_model.saveText) _model.saveText(name,type,content); }
+
+  function _saveState(name) { if (_model.saveState) _model.saveState(name); }
+
+  function _saveImage(name,panelname) { if (_model.saveImage) _model.saveImage(name,panelname); }
+
+  function _readState(url,type) { if (_model.readState) _model.readState(url,type); }
+
+  function _readText(url,type,varname) { if (_model.readText) _model.readText(url,type,varname); }
+
+  function _getStringProperty(propertyName) {
+    var _value = _stringProperties[propertyName];
+    if (_value===undefined) return propertyName;
+    else return _value;
+  }
+  var __pagesEnabled = [];
+  function _setPageEnabled(pageName,enabled) { __pagesEnabled[pageName] = enabled; }
+
+  var vC; // EjsS Model.Variables.Var Table.vC
+  var xC; // EjsS Model.Variables.Var Table.xC
+  var yC; // EjsS Model.Variables.Var Table.yC
+  var t; // EjsS Model.Variables.Var Table.t
+  var dt; // EjsS Model.Variables.Var Table.dt
+  var w; // EjsS Model.Variables.Var Table.w
+  var R; // EjsS Model.Variables.Var Table.R
+  var fi; // EjsS Model.Variables.Var Table.fi
+  var aC; // EjsS Model.Variables.Var Table.aC
+  var d; // EjsS Model.Variables.Var Table.d
+  var PA; // EjsS Model.Variables.Var Table.PA
+  var cssFlow; // EjsS Model.Variables.Var Table.cssFlow
+  var cssB; // EjsS Model.Variables.Var Table.cssB
+
+  var brzineGl; // EjsS Model.Variables.logicke.brzineGl
+  var brzineKomp; // EjsS Model.Variables.logicke.brzineKomp
+  var brzineIspr; // EjsS Model.Variables.logicke.brzineIspr
+  var ubrzanjaGl; // EjsS Model.Variables.logicke.ubrzanjaGl
+  var ubrzanjeKom; // EjsS Model.Variables.logicke.ubrzanjeKom
+
+  var vAc; // EjsS Model.Variables.brzine.vAc
+  var ugaoVA; // EjsS Model.Variables.brzine.ugaoVA
+  var vAx; // EjsS Model.Variables.brzine.vAx
+  var vAy; // EjsS Model.Variables.brzine.vAy
+  var vA; // EjsS Model.Variables.brzine.vA
+
+  var alfa; // EjsS Model.Variables.ubrzano.alfa
+  var aAparalC; // EjsS Model.Variables.ubrzano.aAparalC
+  var beta; // EjsS Model.Variables.ubrzano.beta
+  var aA; // EjsS Model.Variables.ubrzano.aA
+  var aAcT; // EjsS Model.Variables.ubrzano.aAcT
+  var aAcN; // EjsS Model.Variables.ubrzano.aAcN
+  var aAc; // EjsS Model.Variables.ubrzano.aAc
+  var aAcx; // EjsS Model.Variables.ubrzano.aAcx
+  var aAcy; // EjsS Model.Variables.ubrzano.aAcy
+  var aAx; // EjsS Model.Variables.ubrzano.aAx
+  var aAy; // EjsS Model.Variables.ubrzano.aAy
+  var aAcTx; // EjsS Model.Variables.ubrzano.aAcTx
+  var aAcTy; // EjsS Model.Variables.ubrzano.aAcTy
+  var aAcNx; // EjsS Model.Variables.ubrzano.aAcNx
+  var aAcNy; // EjsS Model.Variables.ubrzano.aAcNy
+  var razA; // EjsS Model.Variables.ubrzano.razA
+
+  var xA; // EjsS Model.Variables.markeri.xA
+  var yA; // EjsS Model.Variables.markeri.yA
+  var xP; // EjsS Model.Variables.markeri.xP
+  var yP; // EjsS Model.Variables.markeri.yP
+  var xB; // EjsS Model.Variables.markeri.xB
+  var yB; // EjsS Model.Variables.markeri.yB
+  var xD; // EjsS Model.Variables.markeri.xD
+  var yD; // EjsS Model.Variables.markeri.yD
+  var rM; // EjsS Model.Variables.markeri.rM
+
+  _model.getOdes = function() { return []; };
+
+  _model.removeEvents = function(){
+  };
+
+  function _serialize() { return _model.serialize(); }
+
+  _model._userSerialize = function() {
+    return {
+      vC : vC,
+      xC : xC,
+      yC : yC,
+      t : t,
+      dt : dt,
+      w : w,
+      R : R,
+      fi : fi,
+      aC : aC,
+      d : d,
+      PA : PA,
+      cssFlow : cssFlow,
+      cssB : cssB,
+      brzineGl : brzineGl,
+      brzineKomp : brzineKomp,
+      brzineIspr : brzineIspr,
+      ubrzanjaGl : ubrzanjaGl,
+      ubrzanjeKom : ubrzanjeKom,
+      vAc : vAc,
+      ugaoVA : ugaoVA,
+      vAx : vAx,
+      vAy : vAy,
+      vA : vA,
+      alfa : alfa,
+      aAparalC : aAparalC,
+      beta : beta,
+      aA : aA,
+      aAcT : aAcT,
+      aAcN : aAcN,
+      aAc : aAc,
+      aAcx : aAcx,
+      aAcy : aAcy,
+      aAx : aAx,
+      aAy : aAy,
+      aAcTx : aAcTx,
+      aAcTy : aAcTy,
+      aAcNx : aAcNx,
+      aAcNy : aAcNy,
+      razA : razA,
+      xA : xA,
+      yA : yA,
+      xP : xP,
+      yP : yP,
+      xB : xB,
+      yB : yB,
+      xD : xD,
+      yD : yD,
+      rM : rM
+    };
+  };
+
+  function _serializePublic() { return _model.serializePublic(); }
+
+  _model._userSerializePublic = function() {
+    return {
+      vC : vC,
+      xC : xC,
+      yC : yC,
+      t : t,
+      dt : dt,
+      w : w,
+      R : R,
+      fi : fi,
+      aC : aC,
+      d : d,
+      PA : PA,
+      cssFlow : cssFlow,
+      cssB : cssB,
+      brzineGl : brzineGl,
+      brzineKomp : brzineKomp,
+      brzineIspr : brzineIspr,
+      ubrzanjaGl : ubrzanjaGl,
+      ubrzanjeKom : ubrzanjeKom,
+      vAc : vAc,
+      ugaoVA : ugaoVA,
+      vAx : vAx,
+      vAy : vAy,
+      vA : vA,
+      alfa : alfa,
+      aAparalC : aAparalC,
+      beta : beta,
+      aA : aA,
+      aAcT : aAcT,
+      aAcN : aAcN,
+      aAc : aAc,
+      aAcx : aAcx,
+      aAcy : aAcy,
+      aAx : aAx,
+      aAy : aAy,
+      aAcTx : aAcTx,
+      aAcTy : aAcTy,
+      aAcNx : aAcNx,
+      aAcNy : aAcNy,
+      razA : razA,
+      xA : xA,
+      yA : yA,
+      xP : xP,
+      yP : yP,
+      xB : xB,
+      yB : yB,
+      xD : xD,
+      yD : yD,
+      rM : rM
+    };
+  };
+
+  _model._readParameters = function(json) {
+    if(typeof json.vC != "undefined") vC = json.vC;
+    if(typeof json.xC != "undefined") xC = json.xC;
+    if(typeof json.yC != "undefined") yC = json.yC;
+    if(typeof json.t != "undefined") t = json.t;
+    if(typeof json.dt != "undefined") dt = json.dt;
+    if(typeof json.w != "undefined") w = json.w;
+    if(typeof json.R != "undefined") R = json.R;
+    if(typeof json.fi != "undefined") fi = json.fi;
+    if(typeof json.aC != "undefined") aC = json.aC;
+    if(typeof json.d != "undefined") d = json.d;
+    if(typeof json.PA != "undefined") PA = json.PA;
+    if(typeof json.cssFlow != "undefined") cssFlow = json.cssFlow;
+    if(typeof json.cssB != "undefined") cssB = json.cssB;
+    if(typeof json.brzineGl != "undefined") brzineGl = json.brzineGl;
+    if(typeof json.brzineKomp != "undefined") brzineKomp = json.brzineKomp;
+    if(typeof json.brzineIspr != "undefined") brzineIspr = json.brzineIspr;
+    if(typeof json.ubrzanjaGl != "undefined") ubrzanjaGl = json.ubrzanjaGl;
+    if(typeof json.ubrzanjeKom != "undefined") ubrzanjeKom = json.ubrzanjeKom;
+    if(typeof json.vAc != "undefined") vAc = json.vAc;
+    if(typeof json.ugaoVA != "undefined") ugaoVA = json.ugaoVA;
+    if(typeof json.vAx != "undefined") vAx = json.vAx;
+    if(typeof json.vAy != "undefined") vAy = json.vAy;
+    if(typeof json.vA != "undefined") vA = json.vA;
+    if(typeof json.alfa != "undefined") alfa = json.alfa;
+    if(typeof json.aAparalC != "undefined") aAparalC = json.aAparalC;
+    if(typeof json.beta != "undefined") beta = json.beta;
+    if(typeof json.aA != "undefined") aA = json.aA;
+    if(typeof json.aAcT != "undefined") aAcT = json.aAcT;
+    if(typeof json.aAcN != "undefined") aAcN = json.aAcN;
+    if(typeof json.aAc != "undefined") aAc = json.aAc;
+    if(typeof json.aAcx != "undefined") aAcx = json.aAcx;
+    if(typeof json.aAcy != "undefined") aAcy = json.aAcy;
+    if(typeof json.aAx != "undefined") aAx = json.aAx;
+    if(typeof json.aAy != "undefined") aAy = json.aAy;
+    if(typeof json.aAcTx != "undefined") aAcTx = json.aAcTx;
+    if(typeof json.aAcTy != "undefined") aAcTy = json.aAcTy;
+    if(typeof json.aAcNx != "undefined") aAcNx = json.aAcNx;
+    if(typeof json.aAcNy != "undefined") aAcNy = json.aAcNy;
+    if(typeof json.razA != "undefined") razA = json.razA;
+    if(typeof json.xA != "undefined") xA = json.xA;
+    if(typeof json.yA != "undefined") yA = json.yA;
+    if(typeof json.xP != "undefined") xP = json.xP;
+    if(typeof json.yP != "undefined") yP = json.yP;
+    if(typeof json.xB != "undefined") xB = json.xB;
+    if(typeof json.yB != "undefined") yB = json.yB;
+    if(typeof json.xD != "undefined") xD = json.xD;
+    if(typeof json.yD != "undefined") yD = json.yD;
+    if(typeof json.rM != "undefined") rM = json.rM;
+  };
+
+  _model._readParametersPublic = function(json) {
+    if(typeof json.vC != "undefined") vC = json.vC;
+    if(typeof json.xC != "undefined") xC = json.xC;
+    if(typeof json.yC != "undefined") yC = json.yC;
+    if(typeof json.t != "undefined") t = json.t;
+    if(typeof json.dt != "undefined") dt = json.dt;
+    if(typeof json.w != "undefined") w = json.w;
+    if(typeof json.R != "undefined") R = json.R;
+    if(typeof json.fi != "undefined") fi = json.fi;
+    if(typeof json.aC != "undefined") aC = json.aC;
+    if(typeof json.d != "undefined") d = json.d;
+    if(typeof json.PA != "undefined") PA = json.PA;
+    if(typeof json.cssFlow != "undefined") cssFlow = json.cssFlow;
+    if(typeof json.cssB != "undefined") cssB = json.cssB;
+    if(typeof json.brzineGl != "undefined") brzineGl = json.brzineGl;
+    if(typeof json.brzineKomp != "undefined") brzineKomp = json.brzineKomp;
+    if(typeof json.brzineIspr != "undefined") brzineIspr = json.brzineIspr;
+    if(typeof json.ubrzanjaGl != "undefined") ubrzanjaGl = json.ubrzanjaGl;
+    if(typeof json.ubrzanjeKom != "undefined") ubrzanjeKom = json.ubrzanjeKom;
+    if(typeof json.vAc != "undefined") vAc = json.vAc;
+    if(typeof json.ugaoVA != "undefined") ugaoVA = json.ugaoVA;
+    if(typeof json.vAx != "undefined") vAx = json.vAx;
+    if(typeof json.vAy != "undefined") vAy = json.vAy;
+    if(typeof json.vA != "undefined") vA = json.vA;
+    if(typeof json.alfa != "undefined") alfa = json.alfa;
+    if(typeof json.aAparalC != "undefined") aAparalC = json.aAparalC;
+    if(typeof json.beta != "undefined") beta = json.beta;
+    if(typeof json.aA != "undefined") aA = json.aA;
+    if(typeof json.aAcT != "undefined") aAcT = json.aAcT;
+    if(typeof json.aAcN != "undefined") aAcN = json.aAcN;
+    if(typeof json.aAc != "undefined") aAc = json.aAc;
+    if(typeof json.aAcx != "undefined") aAcx = json.aAcx;
+    if(typeof json.aAcy != "undefined") aAcy = json.aAcy;
+    if(typeof json.aAx != "undefined") aAx = json.aAx;
+    if(typeof json.aAy != "undefined") aAy = json.aAy;
+    if(typeof json.aAcTx != "undefined") aAcTx = json.aAcTx;
+    if(typeof json.aAcTy != "undefined") aAcTy = json.aAcTy;
+    if(typeof json.aAcNx != "undefined") aAcNx = json.aAcNx;
+    if(typeof json.aAcNy != "undefined") aAcNy = json.aAcNy;
+    if(typeof json.razA != "undefined") razA = json.razA;
+    if(typeof json.xA != "undefined") xA = json.xA;
+    if(typeof json.yA != "undefined") yA = json.yA;
+    if(typeof json.xP != "undefined") xP = json.xP;
+    if(typeof json.yP != "undefined") yP = json.yP;
+    if(typeof json.xB != "undefined") xB = json.xB;
+    if(typeof json.yB != "undefined") yB = json.yB;
+    if(typeof json.xD != "undefined") xD = json.xD;
+    if(typeof json.yD != "undefined") yD = json.yD;
+    if(typeof json.rM != "undefined") rM = json.rM;
+  };
+
+  function _unserializePublic(json) { return _model.unserializePublic(json); }
+
+  _model._userUnserializePublic = function(json) {
+    _model._readParametersPublic(json);
+   _resetSolvers();
+   _model.update();
+  };
+
+  function _unserialize(json) { return _model.unserialize(json); }
+
+  _model._userUnserialize = function(json) {
+    _model._readParameters(json);
+   _resetSolvers();
+   _model.update();
+  };
+
+  _model.addToReset(function() {
+    __pagesEnabled["Init Page"] = true;
+    __pagesEnabled["Evol Page"] = true;
+    __pagesEnabled["FixRel Page"] = true;
+  });
+
+  _model.addToReset(function() {
+    vC = 0; // EjsS Model.Variables.Var Table.vC
+    xC = 0; // EjsS Model.Variables.Var Table.xC
+    yC = 1; // EjsS Model.Variables.Var Table.yC
+    t = 0; // EjsS Model.Variables.Var Table.t
+    dt = 0.05; // EjsS Model.Variables.Var Table.dt
+    w = 0; // EjsS Model.Variables.Var Table.w
+    R = 1.5; // EjsS Model.Variables.Var Table.R
+    fi = 0; // EjsS Model.Variables.Var Table.fi
+    aC = 0; // EjsS Model.Variables.Var Table.aC
+    d = 0.2; // EjsS Model.Variables.Var Table.d
+    cssFlow = {"display":"inline-block","verical-align":"top","margin":"10px 10px 10px 10px"}; // EjsS Model.Variables.Var Table.cssFlow
+    cssB = {"display":"block", "margin":"10px", "vertical-align": "top"}; // EjsS Model.Variables.Var Table.cssB
+  });
+
+  _model.addToReset(function() {
+    brzineGl = false; // EjsS Model.Variables.logicke.brzineGl
+    brzineKomp = false; // EjsS Model.Variables.logicke.brzineKomp
+    brzineIspr = false; // EjsS Model.Variables.logicke.brzineIspr
+    ubrzanjaGl = false; // EjsS Model.Variables.logicke.ubrzanjaGl
+    ubrzanjeKom = false; // EjsS Model.Variables.logicke.ubrzanjeKom
+  });
+
+  _model.addToReset(function() {
+  });
+
+  _model.addToReset(function() {
+    alfa = 0.2; // EjsS Model.Variables.ubrzano.alfa
+    razA = 2; // EjsS Model.Variables.ubrzano.razA
+  });
+
+  _model.addToReset(function() {
+    rM = 0.1; // EjsS Model.Variables.markeri.rM
+  });
+
+  if (_inputParameters) {
+    _inputParameters = _model.parseInputParameters(_inputParameters);
+    if (_inputParameters) _model.addToReset(function() { _model._readParameters(_inputParameters); });
+  }
+
+  _model.addToReset(function() {
+    _model.setAutoplay(false);
+    _model.setPauseOnPageExit(true);
+    _model.setFPS(20);
+    _model.setStepsPerDisplay(1);
+  });
+
+  function brzinaA () {  // > CustomCode.Lib Page:1
+    vAc=R*w;  // > CustomCode.Lib Page:2
+    ugaoVA=Math.atan(vAc/vC);  // > CustomCode.Lib Page:3
+    var teta;  // > CustomCode.Lib Page:4
+    teta=Math.atan((xP-xA)/(yA-yP));  // > CustomCode.Lib Page:5
+    vA=Math.sqrt(vC*vC+vAc*vAc);  // > CustomCode.Lib Page:6
+      // > CustomCode.Lib Page:7
+    vAx=vA*Math.cos(teta);  // > CustomCode.Lib Page:8
+    vAy=vA*Math.sin(teta);  // > CustomCode.Lib Page:9
+  }  // > CustomCode.Lib Page:10
+  /*public Stroke linija(float debljina){  // > CustomCode.Lib Page:11
+    stroke=new java.awt.BasicStroke(debljina,        // Width  // > CustomCode.Lib Page:12
+      java.awt.BasicStroke.CAP_SQUARE,    // End cap  // > CustomCode.Lib Page:13
+      java.awt.BasicStroke.JOIN_MITER,    // Join style  // > CustomCode.Lib Page:14
+      10.0f,                              // Miter limit  // > CustomCode.Lib Page:15
+      new float[] {5.0f,8.0f},          // Dash pattern  // > CustomCode.Lib Page:16
+      1.0f);                             // Dash phase  // > CustomCode.Lib Page:17
+     return stroke;                       // > CustomCode.Lib Page:18
+    }  // > CustomCode.Lib Page:19
+    public Stroke linijaDot(float debljina){  // > CustomCode.Lib Page:20
+    stroke=new java.awt.BasicStroke(debljina,        // Width  // > CustomCode.Lib Page:21
+      java.awt.BasicStroke.CAP_SQUARE,    // End cap  // > CustomCode.Lib Page:22
+      java.awt.BasicStroke.JOIN_MITER,    // Join style  // > CustomCode.Lib Page:23
+      10.0f,                              // Miter limit  // > CustomCode.Lib Page:24
+      new float[] {2.0f,4.0f},          // Dash pattern  // > CustomCode.Lib Page:25
+      2.0f);                             // Dash phase  // > CustomCode.Lib Page:26
+     return stroke;                       // > CustomCode.Lib Page:27
+    }*/  // > CustomCode.Lib Page:28
+
+  function ubrzanja () {  // > CustomCode.ubrzanja:1
+    aAcT=PA*alfa;  // > CustomCode.ubrzanja:2
+    aAcN=PA*w*w;  // > CustomCode.ubrzanja:3
+    aAc=Math.sqrt(aAcT*aAcT+aAcN*aAcN);  // > CustomCode.ubrzanja:4
+    aAcx=aAc*Math.cos(-fi+beta);  // > CustomCode.ubrzanja:5
+    aAcy=aAc*Math.sin(-fi+beta);  // > CustomCode.ubrzanja:6
+    aAx=aAparalC+aAcx;  // > CustomCode.ubrzanja:7
+    aAy=aAcy;  // > CustomCode.ubrzanja:8
+      // > CustomCode.ubrzanja:9
+    aAcNx=aAcN*Math.cos(-fi);  // > CustomCode.ubrzanja:10
+    aAcNy=aAcN*Math.sin(-fi);  // > CustomCode.ubrzanja:11
+    aAcTx=aAcT*Math.cos(-fi+Math.PI/2);  // > CustomCode.ubrzanja:12
+    aAcTy=aAcT*Math.sin(-fi+Math.PI/2);  // > CustomCode.ubrzanja:13
+  }  // > CustomCode.ubrzanja:14
+
+  _model.addToInitialization(function() {
+    if (!__pagesEnabled["Init Page"]) return;
+    yC=R;  // > Initialization.Init Page:1
+    xP=0;  // > Initialization.Init Page:2
+    yP=0;  // > Initialization.Init Page:3
+    aC=alfa*R;  // > Initialization.Init Page:4
+    vC=R*w;  // > Initialization.Init Page:5
+    var ugao;  // > Initialization.Init Page:6
+    ugao=Math.PI-fi;  // > Initialization.Init Page:7
+    xA=xC+R*Math.cos(ugao);  // > Initialization.Init Page:8
+    yA=yC+R*Math.sin(ugao);  // > Initialization.Init Page:9
+    /*_view.segmentA.getStyle().setLineStroke(linija(1.5f));  // > Initialization.Init Page:10
+    _view.segmentC.getStyle().setLineStroke(linijaDot(1.0f));  // > Initialization.Init Page:11
+    _view.segmentCA.getStyle().setLineStroke(linijaDot(1.0f));  // > Initialization.Init Page:12
+    _view.pom1.getStyle().setLineStroke(linijaDot(1.0f));  // > Initialization.Init Page:13
+    _view.pom2.getStyle().setLineStroke(linijaDot(1.0f));  // > Initialization.Init Page:14
+    _view.pom3.getStyle().setLineStroke(linijaDot(1.0f));  // > Initialization.Init Page:15
+    _view.pom4.getStyle().setLineStroke(linijaDot(1.0f));*/  // > Initialization.Init Page:16
+    brzinaA();  // > Initialization.Init Page:17
+    PA=Math.sqrt(Math.pow(xA-xP,2)+Math.pow(yA-yP,2));  // > Initialization.Init Page:18
+    aAparalC=aC;  // > Initialization.Init Page:19
+    beta=Math.atan(alfa/w/w);  // > Initialization.Init Page:20
+    ubrzanja();  // > Initialization.Init Page:21
+  });
+
+  _model.addToEvolution(function() {
+    if (!__pagesEnabled["Evol Page"]) return;
+    t=t+dt;  // > Evolution.Evol Page:1
+    xC=xC+vC*dt+aC*dt*dt/2;  // > Evolution.Evol Page:2
+    //vC=vC+aC*dt;  // > Evolution.Evol Page:3
+    fi=fi+w*dt+alfa*dt*dt/2;  // > Evolution.Evol Page:4
+    w=w+alfa*dt;  // > Evolution.Evol Page:5
+  });
+
+  _model.addToFixedRelations(function() { _isPaused = _model.isPaused(); _isPlaying = _model.isPlaying(); });
+
+  _model.addToFixedRelations(function() {
+    if (!__pagesEnabled["FixRel Page"]) return;
+    yC=R;  // > FixedRelations.FixRel Page:1
+    aC=alfa*R;  // > FixedRelations.FixRel Page:2
+    vC=R*w;  // > FixedRelations.FixRel Page:3
+    var ugao;  // > FixedRelations.FixRel Page:4
+    ugao=Math.PI-fi;  // > FixedRelations.FixRel Page:5
+    xA=xC+R*Math.cos(ugao);  // > FixedRelations.FixRel Page:6
+    yA=yC+R*Math.sin(ugao);  // > FixedRelations.FixRel Page:7
+    xP=xC;  // > FixedRelations.FixRel Page:8
+    brzinaA();  // > FixedRelations.FixRel Page:9
+    PA=Math.sqrt(Math.pow(xA-xP,2)+Math.pow(yA-yP,2));  // > FixedRelations.FixRel Page:10
+    beta=Math.atan(alfa/w/w);  // > FixedRelations.FixRel Page:11
+    ubrzanja();   // > FixedRelations.FixRel Page:12
+  });
+
+  _model.addToFixedRelations(function() { _isPaused = _model.isPaused(); _isPlaying = _model.isPlaying(); });
+
+    _model._fontResized = function(iBase,iSize,iDelta) {
+      _view._fontResized(iBase,iSize,iDelta);
+  }; // end of _fontResized
+
+  function _getViews() {
+    var _viewsInfo = [];
+    var _counter = 0;
+    _viewsInfo[_counter++] = { name : "HtmlView Page", width : 1000, height : 600 };
+    return _viewsInfo;
+  } // end of _getViews
+
+  function _selectView(_viewNumber) {
+    _view = null;
+    _view = new RavnoKretanjeTocka_View(_topFrame,_viewNumber,_libraryPath,_codebasePath);
+    var _view_super_reset = _view._reset;
+    _view._reset = function() {
+      _view_super_reset();
+      switch(_viewNumber) {
+        case -10 : break; // make Lint happy
+        default :
+        case 0:
+          _view.singleDrawingPanel.linkProperty("CSS",  function() { return cssB; }, function(_v) { cssB = _v; } ); // HtmlView Page linking property 'CSS' for element 'singleDrawingPanel'
+          _view.wrappedPanel.linkProperty("CSS",  function() { return cssFlow; }, function(_v) { cssFlow = _v; } ); // HtmlView Page linking property 'CSS' for element 'wrappedPanel'
+          _view.panelSim.linkProperty("CSS",  function() { return cssFlow; }, function(_v) { cssFlow = _v; } ); // HtmlView Page linking property 'CSS' for element 'panelSim'
+          _view.tocak2D.linkProperty("Transformation",  function() { return -w*t/2; } ); // HtmlView Page linking property 'Transformation' for element 'tocak2D'
+          _view.tocak2D.linkProperty("SizeX",  function() { return 2*R; } ); // HtmlView Page linking property 'SizeX' for element 'tocak2D'
+          _view.tocak2D.linkProperty("X",  function() { return xC; }, function(_v) { xC = _v; } ); // HtmlView Page linking property 'X' for element 'tocak2D'
+          _view.tocak2D.linkProperty("Y",  function() { return yC; }, function(_v) { yC = _v; } ); // HtmlView Page linking property 'Y' for element 'tocak2D'
+          _view.tocak2D.linkProperty("SizeY",  function() { return 2*R; } ); // HtmlView Page linking property 'SizeY' for element 'tocak2D'
+          _view.tlo.linkProperty("Y",  function() { return -d/2; } ); // HtmlView Page linking property 'Y' for element 'tlo'
+          _view.tlo.linkProperty("SizeY",  function() { return d; }, function(_v) { d = _v; } ); // HtmlView Page linking property 'SizeY' for element 'tlo'
+          _view.A.linkProperty("SizeX",  function() { return rM*2; } ); // HtmlView Page linking property 'SizeX' for element 'A'
+          _view.A.linkProperty("X",  function() { return xA; }, function(_v) { xA = _v; } ); // HtmlView Page linking property 'X' for element 'A'
+          _view.A.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'A'
+          _view.A.linkProperty("SizeY",  function() { return rM*2; } ); // HtmlView Page linking property 'SizeY' for element 'A'
+          _view.P.linkProperty("SizeX",  function() { return rM; }, function(_v) { rM = _v; } ); // HtmlView Page linking property 'SizeX' for element 'P'
+          _view.P.linkProperty("X",  function() { return xP; }, function(_v) { xP = _v; } ); // HtmlView Page linking property 'X' for element 'P'
+          _view.P.linkProperty("SizeY",  function() { return rM; }, function(_v) { rM = _v; } ); // HtmlView Page linking property 'SizeY' for element 'P'
+          _view.segmentA.linkProperty("SizeX",  function() { return (xA-xP); } ); // HtmlView Page linking property 'SizeX' for element 'segmentA'
+          _view.segmentA.linkProperty("X",  function() { return xP; }, function(_v) { xP = _v; } ); // HtmlView Page linking property 'X' for element 'segmentA'
+          _view.segmentA.linkProperty("Y",  function() { return yP; }, function(_v) { yP = _v; } ); // HtmlView Page linking property 'Y' for element 'segmentA'
+          _view.segmentA.linkProperty("SizeY",  function() { return yA-yP; } ); // HtmlView Page linking property 'SizeY' for element 'segmentA'
+          _view.vC.linkProperty("SizeX",  function() { return vC; }, function(_v) { vC = _v; } ); // HtmlView Page linking property 'SizeX' for element 'vC'
+          _view.vC.linkProperty("X",  function() { return xC; }, function(_v) { xC = _v; } ); // HtmlView Page linking property 'X' for element 'vC'
+          _view.vC.linkProperty("Y",  function() { return yC; }, function(_v) { yC = _v; } ); // HtmlView Page linking property 'Y' for element 'vC'
+          _view.vC.linkProperty("Visibility",  function() { return brzineGl; }, function(_v) { brzineGl = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vC'
+          _view.vA.linkProperty("SizeX",  function() { return vAx; }, function(_v) { vAx = _v; } ); // HtmlView Page linking property 'SizeX' for element 'vA'
+          _view.vA.linkProperty("X",  function() { return xA; }, function(_v) { xA = _v; } ); // HtmlView Page linking property 'X' for element 'vA'
+          _view.vA.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'vA'
+          _view.vA.linkProperty("Visibility",  function() { return brzineGl; }, function(_v) { brzineGl = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vA'
+          _view.vA.linkProperty("SizeY",  function() { return vAy; }, function(_v) { vAy = _v; } ); // HtmlView Page linking property 'SizeY' for element 'vA'
+          _view.vAParC.linkProperty("SizeX",  function() { return vC; }, function(_v) { vC = _v; } ); // HtmlView Page linking property 'SizeX' for element 'vAParC'
+          _view.vAParC.linkProperty("X",  function() { return xA; }, function(_v) { xA = _v; } ); // HtmlView Page linking property 'X' for element 'vAParC'
+          _view.vAParC.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'vAParC'
+          _view.vAParC.linkProperty("Visibility",  function() { return brzineKomp; }, function(_v) { brzineKomp = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vAParC'
+          _view.vAOkoC.linkProperty("SizeX",  function() { return vAc*Math.sin(fi); } ); // HtmlView Page linking property 'SizeX' for element 'vAOkoC'
+          _view.vAOkoC.linkProperty("X",  function() { return xA; }, function(_v) { xA = _v; } ); // HtmlView Page linking property 'X' for element 'vAOkoC'
+          _view.vAOkoC.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'vAOkoC'
+          _view.vAOkoC.linkProperty("Visibility",  function() { return brzineKomp; }, function(_v) { brzineKomp = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vAOkoC'
+          _view.vAOkoC.linkProperty("SizeY",  function() { return vAc*Math.cos(fi); } ); // HtmlView Page linking property 'SizeY' for element 'vAOkoC'
+          _view.segmentC.linkProperty("X",  function() { return xC; }, function(_v) { xC = _v; } ); // HtmlView Page linking property 'X' for element 'segmentC'
+          _view.segmentC.linkProperty("Y",  function() { return yC; }, function(_v) { yC = _v; } ); // HtmlView Page linking property 'Y' for element 'segmentC'
+          _view.segmentC.linkProperty("Visibility",  function() { return brzineIspr; }, function(_v) { brzineIspr = _v; } ); // HtmlView Page linking property 'Visibility' for element 'segmentC'
+          _view.segmentC.linkProperty("SizeY",  function() { return -R; } ); // HtmlView Page linking property 'SizeY' for element 'segmentC'
+          _view.segmentCA.linkProperty("SizeX",  function() { return -xP+xA; } ); // HtmlView Page linking property 'SizeX' for element 'segmentCA'
+          _view.segmentCA.linkProperty("X",  function() { return xC; }, function(_v) { xC = _v; } ); // HtmlView Page linking property 'X' for element 'segmentCA'
+          _view.segmentCA.linkProperty("Y",  function() { return yC; }, function(_v) { yC = _v; } ); // HtmlView Page linking property 'Y' for element 'segmentCA'
+          _view.segmentCA.linkProperty("Visibility",  function() { return brzineIspr; }, function(_v) { brzineIspr = _v; } ); // HtmlView Page linking property 'Visibility' for element 'segmentCA'
+          _view.segmentCA.linkProperty("SizeY",  function() { return yA-R; } ); // HtmlView Page linking property 'SizeY' for element 'segmentCA'
+          _view.vCText.linkProperty("X",  function() { return xC+vC+0.2; } ); // HtmlView Page linking property 'X' for element 'vCText'
+          _view.vCText.linkProperty("Y",  function() { return yC; }, function(_v) { yC = _v; } ); // HtmlView Page linking property 'Y' for element 'vCText'
+          _view.vCText.linkProperty("Visibility",  function() { return brzineGl; }, function(_v) { brzineGl = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vCText'
+          _view.aC.linkProperty("SizeX",  function() { return aC*razA; } ); // HtmlView Page linking property 'SizeX' for element 'aC'
+          _view.aC.linkProperty("X",  function() { return xC; }, function(_v) { xC = _v; } ); // HtmlView Page linking property 'X' for element 'aC'
+          _view.aC.linkProperty("Y",  function() { return yC; }, function(_v) { yC = _v; } ); // HtmlView Page linking property 'Y' for element 'aC'
+          _view.aC.linkProperty("Visibility",  function() { return ubrzanjaGl; }, function(_v) { ubrzanjaGl = _v; } ); // HtmlView Page linking property 'Visibility' for element 'aC'
+          _view.aAparC.linkProperty("SizeX",  function() { return aAparalC*razA; } ); // HtmlView Page linking property 'SizeX' for element 'aAparC'
+          _view.aAparC.linkProperty("X",  function() { return xA; }, function(_v) { xA = _v; } ); // HtmlView Page linking property 'X' for element 'aAparC'
+          _view.aAparC.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'aAparC'
+          _view.aAparC.linkProperty("Visibility",  function() { return ubrzanjeKom; }, function(_v) { ubrzanjeKom = _v; } ); // HtmlView Page linking property 'Visibility' for element 'aAparC'
+          _view.aAcN.linkProperty("SizeX",  function() { return aAcN*Math.cos(-fi)*razA; } ); // HtmlView Page linking property 'SizeX' for element 'aAcN'
+          _view.aAcN.linkProperty("X",  function() { return xA; }, function(_v) { xA = _v; } ); // HtmlView Page linking property 'X' for element 'aAcN'
+          _view.aAcN.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'aAcN'
+          _view.aAcN.linkProperty("Visibility",  function() { return ubrzanjeKom; }, function(_v) { ubrzanjeKom = _v; } ); // HtmlView Page linking property 'Visibility' for element 'aAcN'
+          _view.aAcN.linkProperty("SizeY",  function() { return aAcN*Math.sin(-fi)*razA; } ); // HtmlView Page linking property 'SizeY' for element 'aAcN'
+          _view.aAcT.linkProperty("SizeX",  function() { return aAcT*Math.cos(-fi+Math.PI/2)*razA; } ); // HtmlView Page linking property 'SizeX' for element 'aAcT'
+          _view.aAcT.linkProperty("X",  function() { return xA; }, function(_v) { xA = _v; } ); // HtmlView Page linking property 'X' for element 'aAcT'
+          _view.aAcT.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'aAcT'
+          _view.aAcT.linkProperty("Visibility",  function() { return ubrzanjeKom; }, function(_v) { ubrzanjeKom = _v; } ); // HtmlView Page linking property 'Visibility' for element 'aAcT'
+          _view.aAcT.linkProperty("SizeY",  function() { return aAcT*Math.sin(-fi+Math.PI/2)*razA; } ); // HtmlView Page linking property 'SizeY' for element 'aAcT'
+          _view.aAc.linkProperty("SizeX",  function() { return aAcx*razA; } ); // HtmlView Page linking property 'SizeX' for element 'aAc'
+          _view.aAc.linkProperty("X",  function() { return xA; }, function(_v) { xA = _v; } ); // HtmlView Page linking property 'X' for element 'aAc'
+          _view.aAc.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'aAc'
+          _view.aAc.linkProperty("Visibility",  function() { return ubrzanjeKom; }, function(_v) { ubrzanjeKom = _v; } ); // HtmlView Page linking property 'Visibility' for element 'aAc'
+          _view.aAc.linkProperty("SizeY",  function() { return aAcy*razA; } ); // HtmlView Page linking property 'SizeY' for element 'aAc'
+          _view.aA.linkProperty("SizeX",  function() { return aAx*razA; } ); // HtmlView Page linking property 'SizeX' for element 'aA'
+          _view.aA.linkProperty("X",  function() { return xA; }, function(_v) { xA = _v; } ); // HtmlView Page linking property 'X' for element 'aA'
+          _view.aA.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'aA'
+          _view.aA.linkProperty("Visibility",  function() { return ubrzanjaGl; }, function(_v) { ubrzanjaGl = _v; } ); // HtmlView Page linking property 'Visibility' for element 'aA'
+          _view.aA.linkProperty("SizeY",  function() { return aAy*razA; } ); // HtmlView Page linking property 'SizeY' for element 'aA'
+          _view.pom1.linkProperty("SizeX",  function() { return (-aAcNx+aAcx)*razA; } ); // HtmlView Page linking property 'SizeX' for element 'pom1'
+          _view.pom1.linkProperty("X",  function() { return xA+aAcNx*razA; } ); // HtmlView Page linking property 'X' for element 'pom1'
+          _view.pom1.linkProperty("Y",  function() { return yA+aAcNy*razA; } ); // HtmlView Page linking property 'Y' for element 'pom1'
+          _view.pom1.linkProperty("Visibility",  function() { return ubrzanjeKom; }, function(_v) { ubrzanjeKom = _v; } ); // HtmlView Page linking property 'Visibility' for element 'pom1'
+          _view.pom1.linkProperty("SizeY",  function() { return (-aAcNy+aAcy)*razA; } ); // HtmlView Page linking property 'SizeY' for element 'pom1'
+          _view.pom2.linkProperty("SizeX",  function() { return (-aAcTx+aAcx)*razA; } ); // HtmlView Page linking property 'SizeX' for element 'pom2'
+          _view.pom2.linkProperty("X",  function() { return xA+aAcTx*razA; } ); // HtmlView Page linking property 'X' for element 'pom2'
+          _view.pom2.linkProperty("Y",  function() { return yA+aAcTy*razA; } ); // HtmlView Page linking property 'Y' for element 'pom2'
+          _view.pom2.linkProperty("Visibility",  function() { return ubrzanjeKom; }, function(_v) { ubrzanjeKom = _v; } ); // HtmlView Page linking property 'Visibility' for element 'pom2'
+          _view.pom2.linkProperty("SizeY",  function() { return (-aAcTy+aAcy)*razA; } ); // HtmlView Page linking property 'SizeY' for element 'pom2'
+          _view.pom3.linkProperty("SizeX",  function() { return (-aAparalC+aAx)*razA; } ); // HtmlView Page linking property 'SizeX' for element 'pom3'
+          _view.pom3.linkProperty("X",  function() { return xA+aAparalC*razA; } ); // HtmlView Page linking property 'X' for element 'pom3'
+          _view.pom3.linkProperty("Y",  function() { return yA; }, function(_v) { yA = _v; } ); // HtmlView Page linking property 'Y' for element 'pom3'
+          _view.pom3.linkProperty("Visibility",  function() { return ubrzanjeKom; }, function(_v) { ubrzanjeKom = _v; } ); // HtmlView Page linking property 'Visibility' for element 'pom3'
+          _view.pom3.linkProperty("SizeY",  function() { return aAy*razA; } ); // HtmlView Page linking property 'SizeY' for element 'pom3'
+          _view.pom4.linkProperty("SizeX",  function() { return (aAx-aAcx)*razA; } ); // HtmlView Page linking property 'SizeX' for element 'pom4'
+          _view.pom4.linkProperty("X",  function() { return xA+aAcx*razA; } ); // HtmlView Page linking property 'X' for element 'pom4'
+          _view.pom4.linkProperty("Y",  function() { return yA+aAcy*razA; } ); // HtmlView Page linking property 'Y' for element 'pom4'
+          _view.pom4.linkProperty("Visibility",  function() { return ubrzanjeKom; }, function(_v) { ubrzanjeKom = _v; } ); // HtmlView Page linking property 'Visibility' for element 'pom4'
+          _view.pom4.linkProperty("SizeY",  function() { return (aAy-aAcy)*razA; } ); // HtmlView Page linking property 'SizeY' for element 'pom4'
+          _view.runPauseButton.setAction("OffClick", _pause); // HtmlView Page setting action 'OffClick' for element 'runPauseButton'
+          _view.runPauseButton.linkProperty("State",  function() { return _isPaused; } ); // HtmlView Page linking property 'State' for element 'runPauseButton'
+          _view.runPauseButton.setAction("OnClick", _play); // HtmlView Page setting action 'OnClick' for element 'runPauseButton'
+          _view.stepButton.setAction("OnClick", _step); // HtmlView Page setting action 'OnClick' for element 'stepButton'
+          _view.initButton.setAction("OnClick", _initialize); // HtmlView Page setting action 'OnClick' for element 'initButton'
+          _view.resetButton.setAction("OnClick", _reset); // HtmlView Page setting action 'OnClick' for element 'resetButton'
+          _view.tTF.linkProperty("Value",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'Value' for element 'tTF'
+          _view.brzineCheckBox.linkProperty("Checked",  function() { return brzineGl; }, function(_v) { brzineGl = _v; } ); // HtmlView Page linking property 'Checked' for element 'brzineCheckBox'
+          _view.brzineKomp.linkProperty("Checked",  function() { return brzineKomp; }, function(_v) { brzineKomp = _v; } ); // HtmlView Page linking property 'Checked' for element 'brzineKomp'
+          _view.brzinePom.linkProperty("Checked",  function() { return brzineIspr; }, function(_v) { brzineIspr = _v; } ); // HtmlView Page linking property 'Checked' for element 'brzinePom'
+          _view.ubrzanjeGlChb.linkProperty("Checked",  function() { return ubrzanjaGl; }, function(_v) { ubrzanjaGl = _v; } ); // HtmlView Page linking property 'Checked' for element 'ubrzanjeGlChb'
+          _view.ubrzanjeKomChb.linkProperty("Checked",  function() { return ubrzanjeKom; }, function(_v) { ubrzanjeKom = _v; } ); // HtmlView Page linking property 'Checked' for element 'ubrzanjeKomChb'
+          _view.narrativePanel.linkProperty("CSS",  function() { return cssFlow; }, function(_v) { cssFlow = _v; } ); // HtmlView Page linking property 'CSS' for element 'narrativePanel'
+          break;
+      } // end of switch
+    }; // end of new reset
+
+    _model.setView(_view);
+    _model.reset();
+    _view._enableEPub();
+  } // end of _selectView
+
+  _model.setAutoplay(false);
+  _model.setFPS(20);
+  _model.setStepsPerDisplay(1);
+  _selectView(_model._autoSelectView(_getViews())); // this includes _model.reset()
+  return _model;
+}
+
+function RavnoKretanjeTocka_View (_topFrame,_viewNumber,_libraryPath,_codebasePath) {
+  var _view;
+  switch(_viewNumber) {
+    case -10 : break; // make Lint happy
+    default :
+    case 0: _view = RavnoKretanjeTocka_View_0 (_topFrame); break;
+  } // end of switch
+
+  if (_codebasePath) _view._setResourcePath(_codebasePath);
+
+  if (_libraryPath) _view._setLibraryPath(_libraryPath);
+
+  _view._addDescriptionPage('Uvod','./RavnoKretanjeTocka_Intro_1.html');
+  _view._addDescriptionPage('Zadatak','./RavnoKretanjeTocka_Intro_2.html');
+
+  return _view;
+} // end of main function
+
+function RavnoKretanjeTocka_View_0 (_topFrame) {
+  var _view = EJSS_CORE.createView(_topFrame);
+
+  _view._reset = function() {
+    _view._clearAll();
+    _view._addElement(EJSS_INTERFACE.panel,"singleDrawingPanel", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'singleDrawingPanel'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.panel,"labelPanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'labelPanel'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"topLabel", _view.labelPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'topLabel'
+      .setProperty("Text","<h1>Ravno kretanje točka(krutog tela)</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.wrappedPanel,"wrappedPanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'wrappedPanel'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.panel,"panelSim", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'panelSim'
+      .setProperty("Width",600) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panelSim'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.drawingPanel,"drawingPanel", _view.panelSim) // EJsS HtmlView.HtmlView Page: declaration of element 'drawingPanel'
+      .setProperty("Height",600) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'drawingPanel'
+      .setProperty("Width",600) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'drawingPanel'
+      .setProperty("MinimumX",-2) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'drawingPanel'
+      .setProperty("MinimumY",-1) // EJsS HtmlView.HtmlView Page: setting property 'MinimumY' for element 'drawingPanel'
+      .setProperty("AutoScaleY",false) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleY' for element 'drawingPanel'
+      .setProperty("AutoScaleX",false) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'drawingPanel'
+      .setProperty("SquareAspect",true) // EJsS HtmlView.HtmlView Page: setting property 'SquareAspect' for element 'drawingPanel'
+      .setProperty("MaximumY",10) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'drawingPanel'
+      .setProperty("MaximumX",10) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'drawingPanel'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.shape,"tocak2D", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'tocak2D'
+      .setProperty("ShapeType","WHEEL") // EJsS HtmlView.HtmlView Page: setting property 'ShapeType' for element 'tocak2D'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.shape,"tlo", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'tlo'
+      .setProperty("FillColor","Green") // EJsS HtmlView.HtmlView Page: setting property 'FillColor' for element 'tlo'
+      .setProperty("SizeX",14) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'tlo'
+      .setProperty("ShapeType","RECTANGLE") // EJsS HtmlView.HtmlView Page: setting property 'ShapeType' for element 'tlo'
+      .setProperty("X",5) // EJsS HtmlView.HtmlView Page: setting property 'X' for element 'tlo'
+      .setProperty("DrawFill",true) // EJsS HtmlView.HtmlView Page: setting property 'DrawFill' for element 'tlo'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"xOsa", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'xOsa'
+      .setProperty("MarkEnd","CURVE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'xOsa'
+      .setProperty("SizeX",10) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'xOsa'
+      .setProperty("MarkEndHeight",7) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndHeight' for element 'xOsa'
+      .setProperty("X",0) // EJsS HtmlView.HtmlView Page: setting property 'X' for element 'xOsa'
+      .setProperty("Y",0) // EJsS HtmlView.HtmlView Page: setting property 'Y' for element 'xOsa'
+      .setProperty("MarkStart","NONE") // EJsS HtmlView.HtmlView Page: setting property 'MarkStart' for element 'xOsa'
+      .setProperty("SizeY",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'xOsa'
+      .setProperty("MarkEndWidth",8) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndWidth' for element 'xOsa'
+      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'xOsa'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"yOsa", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'yOsa'
+      .setProperty("MarkEnd","CURVE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'yOsa'
+      .setProperty("SizeX",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'yOsa'
+      .setProperty("MarkEndHeight",6) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndHeight' for element 'yOsa'
+      .setProperty("X",0) // EJsS HtmlView.HtmlView Page: setting property 'X' for element 'yOsa'
+      .setProperty("Y",0) // EJsS HtmlView.HtmlView Page: setting property 'Y' for element 'yOsa'
+      .setProperty("SizeY",8) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'yOsa'
+      .setProperty("MarkEndWidth",8) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndWidth' for element 'yOsa'
+      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'yOsa'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.shape,"A", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'A'
+      .setProperty("FillColor","Yellow") // EJsS HtmlView.HtmlView Page: setting property 'FillColor' for element 'A'
+      .setProperty("ShapeType","ELLIPSE") // EJsS HtmlView.HtmlView Page: setting property 'ShapeType' for element 'A'
+      .setProperty("LineColor","Yellow") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'A'
+      .setProperty("DrawFill",true) // EJsS HtmlView.HtmlView Page: setting property 'DrawFill' for element 'A'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.shape,"P", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'P'
+      .setProperty("FillColor","rgb(255,64,192)") // EJsS HtmlView.HtmlView Page: setting property 'FillColor' for element 'P'
+      .setProperty("ShapeType","ELLIPSE") // EJsS HtmlView.HtmlView Page: setting property 'ShapeType' for element 'P'
+      .setProperty("Y",0) // EJsS HtmlView.HtmlView Page: setting property 'Y' for element 'P'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.segment,"segmentA", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'segmentA'
+      .setProperty("LineColor","Orange") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'segmentA'
+      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'segmentA'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"vC", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vC'
+      .setProperty("MarkEnd","CURVE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'vC'
+      .setProperty("MarkEndHeight",6) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndHeight' for element 'vC'
+      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'vC'
+      .setProperty("SizeY",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'vC'
+      .setProperty("MarkEndWidth",8) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndWidth' for element 'vC'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'vC'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"vA", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vA'
+      .setProperty("MarkEnd","CURVE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'vA'
+      .setProperty("MarkEndHeight",6) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndHeight' for element 'vA'
+      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'vA'
+      .setProperty("MarkEndWidth",8) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndWidth' for element 'vA'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'vA'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"vAParC", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vAParC'
+      .setProperty("MarkEnd","CURVE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'vAParC'
+      .setProperty("MarkEndHeight",6) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndHeight' for element 'vAParC'
+      .setProperty("LineColor","rgb(192,0,128)") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'vAParC'
+      .setProperty("SizeY",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'vAParC'
+      .setProperty("MarkEndWidth",8) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndWidth' for element 'vAParC'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'vAParC'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"vAOkoC", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vAOkoC'
+      .setProperty("MarkEnd","CURVE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'vAOkoC'
+      .setProperty("MarkEndHeight",6) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndHeight' for element 'vAOkoC'
+      .setProperty("LineColor","rgb(192,0,128)") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'vAOkoC'
+      .setProperty("MarkEndWidth",8) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndWidth' for element 'vAOkoC'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'vAOkoC'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.segment,"segmentC", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'segmentC'
+      .setProperty("SizeX",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'segmentC'
+      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'segmentC'
+      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'segmentC'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.segment,"segmentCA", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'segmentCA'
+      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'segmentCA'
+      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'segmentCA'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.text,"vCText", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vCText'
+      .setProperty("FontFamily","Tahoma") // EJsS HtmlView.HtmlView Page: setting property 'FontFamily' for element 'vCText'
+      .setProperty("FontSize",14) // EJsS HtmlView.HtmlView Page: setting property 'FontSize' for element 'vCText'
+      .setProperty("Position",[0,2]) // EJsS HtmlView.HtmlView Page: setting property 'Position' for element 'vCText'
+      .setProperty("Text","vC") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'vCText'
+      .setProperty("FontWeight","BOLD") // EJsS HtmlView.HtmlView Page: setting property 'FontWeight' for element 'vCText'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"aC", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'aC'
+      .setProperty("LineColor","Black") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'aC'
+      .setProperty("SizeY",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'aC'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'aC'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"aAparC", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'aAparC'
+      .setProperty("MarkEnd","CURVE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'aAparC'
+      .setProperty("MarkEndHeight",6) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndHeight' for element 'aAparC'
+      .setProperty("LineColor","Black") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'aAparC'
+      .setProperty("SizeY",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'aAparC'
+      .setProperty("MarkEndWidth",8) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndWidth' for element 'aAparC'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'aAparC'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"aAcN", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'aAcN'
+      .setProperty("MarkEnd","CURVE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'aAcN'
+      .setProperty("MarkEndHeight",6) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndHeight' for element 'aAcN'
+      .setProperty("LineColor","rgb(255,192,0)") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'aAcN'
+      .setProperty("MarkEndWidth",8) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndWidth' for element 'aAcN'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'aAcN'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"aAcT", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'aAcT'
+      .setProperty("LineColor","rgb(255,192,0)") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'aAcT'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'aAcT'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"aAc", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'aAc'
+      .setProperty("LineColor","rgb(255,192,0)") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'aAc'
+      .setProperty("LineWidth",3) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'aAc'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.arrow,"aA", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'aA'
+      .setProperty("LineColor","rgb(64,255,64)") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'aA'
+      .setProperty("LineWidth",4) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'aA'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.segment,"pom1", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'pom1'
+      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'pom1'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.segment,"pom2", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'pom2'
+      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'pom2'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.segment,"pom3", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'pom3'
+      .setProperty("LineColor","rgb(255,64,64)") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'pom3'
+      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'pom3'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.segment,"pom4", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'pom4'
+      .setProperty("LineColor","rgb(255,64,64)") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'pom4'
+      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'pom4'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.panel,"controlPanel", _view.panelSim) // EJsS HtmlView.HtmlView Page: declaration of element 'controlPanel'
+      .setProperty("Width",600) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'controlPanel'
+      .setProperty("CSS",{"display":"block"}) // EJsS HtmlView.HtmlView Page: setting property 'CSS' for element 'controlPanel'
+      .setProperty("BorderStyle","solid") // EJsS HtmlView.HtmlView Page: setting property 'BorderStyle' for element 'controlPanel'
+      .setProperty("BorderColor","Gray") // EJsS HtmlView.HtmlView Page: setting property 'BorderColor' for element 'controlPanel'
+      .setProperty("BorderWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'BorderWidth' for element 'controlPanel'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.panel,"firstRowPanel", _view.controlPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'firstRowPanel'
+      .setProperty("Width",600) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'firstRowPanel'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.panel,"executionPanel", _view.firstRowPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'executionPanel'
+      .setProperty("Width",600) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'executionPanel'
+      .setProperty("Display","inline-block") // EJsS HtmlView.HtmlView Page: setting property 'Display' for element 'executionPanel'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.twoStateButton,"runPauseButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'runPauseButton'
+      .setProperty("Tooltip","Play/Pause") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'runPauseButton'
+      .setProperty("ImageOnUrl","/org/opensourcephysics/resources/controls/images/play.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageOnUrl' for element 'runPauseButton'
+      .setProperty("ImageOffUrl","/org/opensourcephysics/resources/controls/images/pause.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageOffUrl' for element 'runPauseButton'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.button,"stepButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'stepButton'
+      .setProperty("Tooltip","Step") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'stepButton'
+      .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/stepforward.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'stepButton'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.button,"initButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'initButton'
+      .setProperty("Tooltip","Initialize") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'initButton'
+      .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/reset1.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'initButton'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.button,"resetButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'resetButton'
+      .setProperty("Tooltip","Reset") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'resetButton'
+      .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/reset.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'resetButton'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"label", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'label'
+      .setProperty("Text","t=") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'label'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.numberField,"tTF", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'tTF'
+      .setProperty("Format","0.00s") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'tTF'
+      .setProperty("Editable",false) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'tTF'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.checkBox,"brzineCheckBox", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'brzineCheckBox'
+      .setProperty("Text","vektori brzina") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzineCheckBox'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.checkBox,"brzineKomp", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'brzineKomp'
+      .setProperty("Text","vektori komponenti brzina") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzineKomp'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.checkBox,"brzinePom", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'brzinePom'
+      .setProperty("Text","brzine-pomocne linije") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzinePom'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.checkBox,"ubrzanjeGlChb", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'ubrzanjeGlChb'
+      .setProperty("Text","vektori ubrzanja") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ubrzanjeGlChb'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.checkBox,"ubrzanjeKomChb", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'ubrzanjeKomChb'
+      .setProperty("Text","ubrzanja -komponente") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ubrzanjeKomChb'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.panel,"narrativePanel", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel'
+      .setProperty("Width",400) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'narrativePanel'
+      .setProperty("Html","<h2>Simulacija kotrljanja bez klizanja</h2> <p>Pokretanjem simulacije točak počne da se kotrlja bez klizanja pod dejstvom neke sile koja deluje na točak, dajući ubrzanje centru točka aC u pravcu paralelnom sa ravni tla  da se kreće </p> <p>Odgovarajuće brzine, komponente brzina i pomoćne linije mogu se prikazati čekiranjem odgovarajućeg polja za potvrdu.(Check box)</p> <p>prikazane su sve prenosne i relativne brzine kod ravnog kretanja točka</p> <p>kao pol brzina usvojena je tačka u centru točka pa se brzina prikazane tacke a dobija kao vektorski zbir brzine pola C, i brzine obrtanja tacke A oko pola C</p> <p>Do vektora brzine tacke se moze doci i na drugi nacin , posmatranjem ravnog kretanja kao čiste rotacije oku trenutnog nepokretnog pola P, sto je u ovom slucaju tacka dodira točka sa tlom</p>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'
+      ;
+
+  };
+
+  return _view;
+}
+
+
+//--><!]]></script>
+  </head>
+  <body>
+    <div role="button" id="_topFrame" style="text-align:center"></div>
+  <div id="metadata" class="metadata">
+    <br />
+    <div id="title_author">
+      <hr />
+      <b>Title and author:</b>
+      <p>
+      </p>
+      <p>
+ Author name
+      </p>
+    </div>
+    <hr />
+    <p></p>
+    <div id="copyright_message">
+      <div class="cc_left"  style="float:left">&#169; 2019, Author name.</div>
+      <div class="cc_right" style="float:right">    Released under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US"> <img alt="Creative Commons Attribution-NonCommercial-ShareAlike" src="_ejs_library/images/cc_icon.png" /> </a> license.</div>
+    </div>
+  </div>
+    <script type="text/javascript"><!--//--><![CDATA[//><!--
+      var _model;
+      var _scorm;
+      window.addEventListener('load',
+        function () { 
+          _model =  new RavnoKretanjeTocka("_topFrame","_ejs_library/",null);
+          if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
+          TextResizeDetector.TARGET_ELEMENT_ID = '_topFrame';
+          TextResizeDetector.USER_INIT_FUNC = function () {
+            var iBase = TextResizeDetector.addEventListener(function(e,args) {
+              _model._fontResized(args[0].iBase,args[0].iSize,args[0].iDelta);
+              },null);
+            _model._fontResized(iBase);
+          };
+          _model.onload();
+        }, false);
+    //--><!]]></script>
+  </body>
+</html>

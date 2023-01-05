@@ -1,0 +1,16 @@
+generated-with: Easy Java/Javascript Simulations, version 5.3, build 180211. Visit http://www.um.es/fem/Ejs
+title: 
+logo-image: 
+author: Milan Surla
+copyright: 
+preferred-width: 800
+preferred-height: 600
+author-image: 
+source: vertikalanHitac.ejss
+main-script: 
+main-simulation: vertikalanHitac_Simulation.xhtml
+available-languages: 
+html-contents: vertikalanHitac_Contents.xhtml
+html-main: vertikalanHitac.xhtml
+page-title: Simulation
+page-index: vertikalanHitac_Simulation.xhtml

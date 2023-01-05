@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include ../partials/head %>
+   <meta name="description" content="Simulacija rotacije materijalne tačke. 
+   Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
+	<meta name="keywords" content="kružno kretanje, ravnomerno kružno kretanje,materijalne tačke,
+	kretanja materijalne tačke, normalnog ubrzanja, centripetalno ubrzanje, poluprecnikom kružnice" />
+    <title> Home page for KruznoKretanjeMT</title>
+  </head>
+  <body>
+  <div class="container moj-header">
+  <div class="row">
+  
+  <div class="header moj-header content col-xs-12 col-md-12 col-lg-12">
+   
+    <% include ../partials/header %>
+
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+  <%- include(path1); %>
+	</div>
+	
+	<div class="col-xs-12 col-md-12 col-lg-12">
+	
+	<%- include(path2); %>
+
+   </div>
+   </div>
+   
+   <div class="row">
+   <div class="col-xs-12 col-md-12 col-lg-12">
+   <footer>
+	<% include ../partials/scripts %>
+    <% include ../partials/footer %>
+</footer>
+</div>
+   </div>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!-- views/partials/header.ejs -->
+
+
+<nav class="desktop-nav nav-container navbar-expand-lg primary d-flex flex-row p-2 align-items-end" role="navigation">
+<!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+    
+                <!-- Collapse button -->
+                <li class="nav-item active" >
+                    <a class="navbar-brand" href="/">
+            
+                        <img src="/images/harbour-city.png" alt="Logo"  ">
+                    </a>
+                </li>
+        
+		
+		
+	
+            <li class="nav-item active"><a class="nav-link" href="/">		
+			
+			Početna
+			<span class="sr-only">(current)</span>
+			</a></li>
+			<li class="nav-item dropdown">
+         
+			<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+            <span class="full-text" aria-hidden="true">&nbsp;
+									EJS
+								</span></a>
+          </a>
+				 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				<li class="nav-item"><a class="dropdown-item" href="/o_ejsu">
+                      <span class="full-text" aria-hidden="true">&nbsp;
+									Uvod o EJS-u
+								</span></a>
+                 </li>
+				<li class="nav-item "><a class="dropdown-item" href="/o_ejsu_primer">
+                <span class="full-text" aria-hidden="true">&nbsp;
+									Izrada EJSS aplikacije
+								</span>
+                </a></li>
+				<li class="nav-item "><a class="dropdown-item " href="/o_ejsu_primer_napredno">
+                <span class="full-text" aria-hidden="true">&nbsp;
+									Izrada EJSS aplikacije-napredno
+								</span></a></li>
+				
+				 </ul>
+		
+			</li>
+            
+			
+			
+			
+			<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          
+          <span class="full-text" aria-hidden="true">&nbsp;
+									Simulacije
+								</span></a>
+				<ul class="dropdown-menu bg-primary submenu" aria-labelledby="navbarDropdownMenuLink">
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/simulacija_Masa_i_Opruga">Masa i opruga</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/vertikalan_Hitac">Vertikalan hitac</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/kos_Hitac">Kosi hitac</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/Kruzno_Kretanje_MT">Kružno kretanje</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/Rotacija_Diska">Rotacija diska</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/RavnoKretanjeTocka">Ravno kretanje krutog tela</a></li>
+				</span>
+				 </ul>
+			
+			</li>
+		
+    
+  </ul>
+            
+
+
+
+
+        </div>
+</nav>
+ 
+	
+<!--nav class="mobile-nav navbar container-fullwidth navbar-fixed-top bg-info d-flex w-100 h-150 justify-content-between align-self-center"-->
+<!--div class="container-fluid h-150 w-100"-->
+  <!-- Brand -->
+  <nav class="mobile-nav navbar navbar-light navbar-static bg-info w-100 align-self-center container-fullwidth" role="navigation">
+  
+  <div class="row justify-content-center">
+  <div class="d-flex justify-content-between moj-header col-xs-12 col-md-12 col-lg-12">
+  <a class="logo flex-item" href="/">
+            
+            <img src="/images/harbour-city.png" alt="Logo"  ">
+  </a>
+
+  <a class="navbar-brand p-2 text-white flex-item" href="/">
+            
+            Kosi-Hitac
+  </a>
+  <button class="navbar-toggler bg-secondary p-2 mr-auto flex-item" id="navbarSideButton" type="button">
+  <span class="line"></span> 
+        <span class="line"></span> 
+        <span class="line"></span>
+  
+</span>
+      <!--/*&#9776;*/ -->
+    </button>
+  <!-- Navbar links -->
+  <!--div class="collapse navbar-collapse w-100" id="collapsibleNavbar"-->
+  <!--ul class="nav navbar-nav"-->
+    <!-- Collapsible content -->
+		
+        <ul class="navbar-side navbar-side d-flex flex-column" id="navbarSide">
+		
+		<span class="navbar-text bg-info">
+            <li class="nav-item active"><a class="nav-link text-light w-100" href="/">		
+			
+			Početna
+			<span class="sr-only">(current)</span>
+			</a></li></span>
+			<span class="navbar-text bg-info">
+            <li class="nav-item "><a class="nav-link text-light w-100" href="/o_ejsu">EJS</a></li>
+			</span>
+			<span class="navbar-text bg-info">
+			<li class="nav-item dropdown">
+			<a class="nav-link text-light w-100 dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Simulacije</a>
+				<ul class="dropdown-menu bg-primary submenu" aria-labelledby="navbarDropdownMenuLink">
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/simulacija_Masa_i_Opruga">Masa i opruga</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/vertikalan_Hitac">Vertikalan hitac</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/kos_Hitac">Kosi hitac</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/Kruzno_Kretanje_MT">Kružno kretanje</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/Rotacija_Diska">Rotacija diska</a></li>
+				</span>
+				<span class="navbar-text bg-primary">
+				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/RavnoKretanjeTocka">Ravno kretanje krutog tela</a></li>
+				</span>
+				 </ul>
+			
+			</li>
+			</span>
+        </ul>
+		
+  <!--/div--> 
+    <!-- insert more nav-items if you so choose -->
+    
+  <!--/div-->
+  <!-- Toggler/collapsibe Button -->
+  
+  <div class="overlay"></div>
+  </div>
+  </div>
+   
+</nav>

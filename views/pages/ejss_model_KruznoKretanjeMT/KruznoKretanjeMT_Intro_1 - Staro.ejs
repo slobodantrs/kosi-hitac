@@ -1,0 +1,79 @@
+<html>
+  <head>
+  <% include ../partials/head %>
+   <meta name="description" content="Simulacija rotacije materijalne tačke. 
+   Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
+	<meta name="keywords" content="kružno kretanje, ravnomerno kružno kretanje,materijalne tačke,
+	kretanja materijalne tačke, normalnog ubrzanja, centripetalno ubrzanje, poluprecnikom kružnice" />
+    <title> RAVNOMERNO KRUŽNO KRETANjE MATERIJALNE TAČKE-opis</title>
+    <link rel="stylesheet" type="text/css" href="_ejs_library/css/ejss.css"></link>
+  </head>
+  <body > 
+  <div class="">
+ 
+    <h1 class="text-center">RAVNOMERNO KRUŽNO KRETANjE MATERIJALNE TAČKE</h1>
+<p>Najjednostavniji oblik krivolinijskog kretanja materijalne tačke je kružno kretanje.
+ U svakoj tački putanje pravac trenutne brzine se poklapa sa tangentom na putanju.
+ Vektor brzine i radijus vektor su međusobno normalni.
+ </p>
+ <p>Vrste kružnog kretanja:</p>
+ <ul>
+	<ol>ravnomerno kružno kretanje – intenzitet brzine se ne menja</ol>
+	<ol>promenljivo kružno kretanje – intenzitet brzine se menja</ol>
+</ul>
+ <p>Ako se materijalna tačka kreće po kružnici brzinom stalnog intenziteta, takvo kretanje se naziva ravnomerno kružno kretanje.</p>
+ <div><img src="images/KruznoKretanjeMT/KruznoKretanje_1.png"></img></div>
+ <p>Pošto je pri ravnomernom kružnom kretanju brojna vrednost (intenzitet) brzine stalna,
+ tangencijalno ubrzanje je jednako nuli. Međutim, neprekidno se menja pravac brzine, pa postoji normalno ubrzanje.</p>
+ <p>Pravac normalnog ubrzanja se poklapa sa poluprečnikom kružnce, a smer je uvek ka centru kružnice, 
+ pa se zato naziva i radijalno odnosno centripetalno ubrzanje.</p>
+ <div><img src="images/KruznoKretanjeMT/KruznoKretanje_2.png"></img></div>
+ <p>Intenzitet centripetalnog ubrzanja je srazmeran kvadratu brzine materijalne tačke, 
+ a obrnuto srazmeran poluprečniku putanje po kojoj se materijalna tačka kreće.</p>
+ <div><img src="images/KruznoKretanjeMT/aC-Formula.png"></img></div>
+ 
+ <h1 class="text-center"> RAVNOMERNO PROMENLjIVO KRUŽNO KRETANjE MATERIJALNE TAČKE</h1>
+<p> Ako se materijalna tačka kreće po kružnici brzinom čiji se intenzitet ravnomerno menja, 
+ takvo kretanje se naziva ravnomerno promenljivo kružno kretanje.</p>
+ <div><img src="images/KruznoKretanjeMT/KruznoKretanje_3.png"></img></div>
+<p> Pošto se pri ravnomerno promenljivom kružnom kretanju menja i brojna vrednost (intenzitet) brzine, 
+postoji i normalno (radijalno odnosno centripetalno) i tangencijalno UBRZANjE. 
+
+Intenzitet tangencijalnog ubrzanja je konstantan, a intenzitet normalnog ubrzanja nije konstantan (vidi formulu – menja se sa promenom brzine).</p>
+<div><div><img src="images/KruznoKretanjeMT/aT-Formula.png"></img></div>
+ <div><img src="images/KruznoKretanjeMT/KruznoKretanje_4.png"></img></div>
+ </div>
+<p> Vektor ukupnog ubrzanja:<div><div><img src="images/KruznoKretanjeMT/a-Formula.png"></img></div></p>
+<p>Intenzitet ukupnog ubrzanja:<div><div><img src="images/KruznoKretanjeMT/aI-Formula.png"></img></p>
+<p>Kod ravnomerno ubrzanog kružno kretanja:</p>
+<ul>
+<ol>	smer tangencijalnog ubrzanja i smer brzine se poklapaju</ol>
+<ol>	vektor ukupnog ubrzanja i vektor brzine grade oštar ugao</ol>
+</ul>
+<p><strong>Ugaona brzina</strong>   je fizička veličina kojom se opisuje brzina rotacije materijalne tačke.</p>
+
+
+<p><strong>Ugaono ubrzanje</strong>   je fizička veličina kojom se opisuje promena ugaone brzine kod promenljivog rotacionog kretanja.</p>
+
+<h1 class="text-center">CENTRIPETALNA SILA</h1>
+<p>Pravac normalnog ubrzanja se poklapa sa pravcem poluprečnika, a smer je ka centru kružnice. 
+Pošto postoji ubrzanje, mora da postoji i sila koja je uzrok tog ubrzanja.
+ Ova sila ima isti pravac i smer kao i normalno ubrzanje.
+ Pošto je usmerena ka centru rotacije naziva se centripetalna sila.</p>
+  <div><img src="images/KruznoKretanjeMT/KruznoKretanje_5.png"></img></div>
+ <p>Intenzitet centripetalne sile:<div><div><img src="images/KruznoKretanjeMT/Fc1-Formula.png"></img></p>
+ <p>Intenzitet centripetalne sile:<div><div><img src="images/KruznoKretanjeMT/Fc2-Formula.png"></img></p>
+ <p>Konac deluje na kuglicu centripetalnom silom primoravajući je da se kreće po kružnici.
+ <div><img src="images/KruznoKretanjeMT/KruznoKretanje_6.png"></img></div>
+ Ako se konac prekine, kuglica će odleteti pravolinijski po tangenti brzinom koju je imalo u tom trenutku.</p>
+ <p>Ako postoji i tangencijalna sila ona će primoravati da se telo kreće sve brže i brže (postoji i tangencijalno ubrzanje).</p>
+ <div><img src="images/KruznoKretanjeMT/KruznoKretanje_7.png"></img></div>
+ <h2>Tangencijalna sila menja intenzitet brzine tela koje se kreće po kružnoj putanji,
+ a centripetalna sila menja pravac i smer tangencijalne brzine.
+</h2>
+<p>Centripetalna sila nije nikakva posebna vrsta sile već samo naziv za bilo koju silu čije delovanje dovodi do kružnog kretanja tela oko nekog centra.
+ Centripetalna sila je sila koja primorava telo da se kreće po kružnoj putanji.</p>
+
+</div>
+  </body>
+</html>

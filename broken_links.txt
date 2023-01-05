@@ -1,0 +1,2 @@
+http://kosi-hitac.herokuapp.com/about ( parent page: http://kosi-hitac.herokuapp.com/ )
+ 

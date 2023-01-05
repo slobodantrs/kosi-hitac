@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <% include ../partials/head %>
+     <meta charset="utf-8" />
+	 <meta name="description" content="KREIRANJE  SIMULACIJE ROTACIJA DISKA 3D prikaz" />
+	<meta name="keywords" content="KREIRANJE  SIMULACIJE ROTACIJA DISKA,KREIRANJE  SIMULACIJE ROTACIJA DISKA 3D prikaz, 3D Panel objekat,
+diskom oko nepokretne ose,gornjoj površini diska,rotacioni disk ,vektor ugaone brzine, rotira  diskom oko nepokretne ose,
+ trodimenzionalnog koordinatnog sistema , Camera Altitude, Camera Azimuth,Camera, Azimuth, Drawing3DPanel  " />
+	</head>
+    <body>
+	<div class="container">
+	<div class="row">
+	<div class="col-xs-12 col-md-12 col-lg-12">
+        <header>
+			<% include ../partials/header %>
+		</header>
+        </div>
+		</div>
+        <div class="d-flex flex-column justify-content-center">
+		
+        
+                <h1 class="naslov">KREIRANJE  SIMULACIJE ROTACIJA DISKA 3D prikaz</h1>
+		
+		 <hr>
+          
+            
+         
+                <p class="" style="height:auto;text-align: center;">Isto kretanje ali u 3D prikazu prikazano je na drugom panelu singleDrawing3DPanel, objekat klase Drawing3DPanel sa palete Interface. Prevlačenjem na drvo objekata dobiće se struktura prikazana na sledećoj slici:   
+              </p>
+
+
+       
+ 
+     
+		
+                <div class="margine_oko_slike">
+				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_14.png" 
+				alt="HtmlView, drvo prikaza, 3DPanel-objekat klase Drawing3DPanel sa palete Interface" />
+                <p><b>Slika 16: HtmlView, drvo prikaza, 3DPanel-objekat klase Drawing3DPanel sa palete Interface</b></p>
+				</div>
+                
+                <ol class="moj_pasus" style="list-style-type: none;">
+
+<li> 1.	<b>1.	disk3D(3D shape)</b> objekat koji predstavlja rotacioni disk klase Cylinder3D</li>
+<li><b> 2.	2.	osovina</b>,takođe cilindričnog oblika, dakle objekat iste klase kao disk3D </li>
+<li> 3.	<b>3.	marker3D</b>, duž na gornjoj površini diska koja rotira zajedno sa diskom oko nepokretne ose(osovina). Slično kao markeri u 2D prikazu, ali ovog puta se bira sa palete 3D drawable</li>
+<li> 4.	<b>&omega;3D</b>, vektor ugaone brzine. Objekat koji se bira sa palete 3D Drawable sa trećeg taba je objekat klase Arrow3D(vidi sliku)</li>
+ <li> 5.  <b>&omega;text3D</b>, je 3D tekst koji označava ugaonu brzinu</li>
+
+<br></ol>
+                <div class="margine_oko_slike">
+				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_15.png" 
+				alt="HtmlView, drvo prikaza, &omega;3D, objekat klase Arrow3D sa palete Interface" />
+                <p><b>Slika 17: HtmlView, drvo prikaza, &omega;3D, objekat klase Arrow3D sa palete Interface</b></p>
+				</div>
+                <p class="" >Na sledećoj slici se vidi kompletan 3D prikaz
+				</p>
+                 <div class="margine_oko_slike">
+                <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_16.png" 
+				alt=" Rotacija diska-3D prikaz" />
+                <p><b>Slika 18: Rotacija diska-3D prikaz</b></p>
+				</div>
+				<p class="" >
+				Na objektu panela treba podesiti minimalne i maksimalne koordinate koje se prikazuju,
+                vrstu prikaza, kao i parametre kamere koja prikazuje 3D prikaz. Osobine koje treba
+                podesiti za panel možemo podeliti na glavne osobine, kao i za prikaz kamere:
+
+				</p>
+                <div class="margine_oko_slike">
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_17.png" 
+				alt="3DPanel-objekat klase Drawing3DPanel sa palete Interface-osobine" />
+                <p><b>Slika 19:  3DPanel-objekat klase Drawing3DPanel sa palete Interface-osobine</b></p>
+				</div>
+				<p class="" >
+				Za kameru:
+				</p>
+				
+                <div class="margine_oko_slike">
+				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_18.png" 
+				alt="3DPanel-objekat klase Drawing3DPanel sa palete Interface-osobine kamere" />
+                <p><b>Slika 20: 3DPanel-objekat klase Drawing3DPanel sa palete Interface-osobine kamere</b></p>
+				</div>
+                <p class="" >
+				Kamera ima focus o koordinatnom početku trodimenzionalnog koordinatnog sistema, 
+                odaljena je duž negativnog dela y ose za 0.8 i zaokrenuta je u
+                ekvatorijalnoj ravni(analogija sa planetom zemljom) i ravni upravnoj na nju,
+                za određene sferne uglove prikazane u dijalogu Properties na slici iznad(Camera Altitude i Camera Azimuth).
+                Kompletan primer, je prikazan na videu na strani.
+                <b><a href="/o_ejsu_primer_napredno">Rotacija diska simulacija kreiranje simulacije</a></b>
+				</p>
+                 
+		</div>
+		<div class="row">
+		<div class="col-xs-12 col-md-12 col-lg-12">
+        <% include ../partials/scripts %>
+        <% include ../partials/footer %>
+		</div>
+		</div>
+		</div>
+	
+    </body>
+</html>

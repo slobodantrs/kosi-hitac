@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <% include ../partials/head %>
+	 <meta charset="utf-8" />
+	 <meta name="description" content="Simulacija kosog hica - primer. 
+   Simulacija kreirana pomoću alata Easy Java Simulation(EJS) na primeru kosog hica." />
+	<meta name="keywords" content="kosog hica,javascript verziju EJS,HtmlView ejss,Promenljive,
+	EJS console,projekcije brzina u x i y pravcu,ugla  stepenima  radijane, pravca početne brzine,
+	Kreiranje aplikacije u EJSS,Single drawing panel,2D Drawable,Simulacija kosog hica,2D Shape,
+	koordinate centra kruga,Evolution ejss,Evolution,
+	 " />
+	</head>
+    <body>
+	<div class="container">
+	<div class="row">
+	<div class="col-xs-12 col-md-12 col-lg-12">
+        <header>
+			<% include ../partials/header %>
+		</header>
+        </div>
+		</div>
+		<div class="row">
+         <div class="naslov col-xs-12 col-md-12 col-lg-12">
+                <h1>Primer kreiranja aplikacije kosog hica u EJSS-u.</h1>
+		 </div>
+		 <hr>
+            </div>
+            
+           <!--div class="row">
+                <p class="col-xs-12 col-md-12 col-lg-12" style="height:300px;text-align: center;">Web stranica je u izradi...</p>
+         
+        </div-->
+		<div class="row">
+                <p class="col-xs-12 col-md-12 col-lg-12" >
+				Startujmo EJS console i pokrenimo javascript verziju EJS-a.
+				</p>
+				
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Pocetni ekran1.png"
+				alt="Kreiranje modela u EJSS-u, Početni ekran" />
+				</p>
+				
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				U gornjem delu prozora postoji izbor: Opis(Description engl.) Model i HtmlView.
+				U opisu se može dodati opis dvoklikom na stranu, U modelu se definišu promenljive i funkcije, 
+				a u HtmlView vizuelni deo aplikacije. 
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/model view.png"
+				alt="Kreiranje modela u EJSS-u, kreiranje modela" />
+				
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				U modelu definišemo promenljive(engl. variable), u initialisation inicijalizujemo promenljive
+				na neko početno stanje i ovde se vraćamo svaki put posle restarta animacije.
+				Tab evalution se definišu jednačine kretanja, a na custom tabu se definišu funkcije 
+				koje programer sam kreira. U Fixed Relation definišemo jednačine koje zavise 
+				od osnovnih jednačina koje se definišu u Evolution tabu. 
+				</p>
+				
+        </div>
+		<div class="row">
+		<h2>Promenljive(Variables).</h2>
+                <p class="col-xs-12 col-md-12 col-lg-12" >Kod kosog hica je potrebno definisani promenljiveprojekcija položaja,
+				brzina, ubrzanja na X, kao i na Y osu. Takođe je potrebno definisati konstante g(gravitaciono ubrzanje, vreme t i
+				vremenski interval promene dt. Što je ovaj vremenski interval manji dobiće se tačnije vrednosti promenljivih,
+				ali sa druge strane previše mala vrednost može ukočiti animaciju, tako da, treba naći neku optimalnu vrednost, npr. 0,05s.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Klikom na prikazani prozor, otavara se mali prozor, gde je potrebno dati ime novog taba za promenljive.
+				Mi ćemo ga jednostavno nazvati promenljive i otvoriti kasnije još jedan tab za smeštaj konstanti.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Ime Taba.png"
+				alt="Kreiranje modela u EJSS-u, Naziv stranice za definisanje promenljivih" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Kreirajmo za sada nekoliko početnih, naj neophodnijih promenljivih, vreme t, promena vremena dt,
+				položaj tela u x pravcu X, položaj u y pravcu Y, vx i vy, odgovarajuće projekcije brzina na x i y pravac.
+				</p>
+				
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/variable1.png"
+				alt="Kreiranje modela u EJSS-u, Promenljive" />
+				
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				U tabeli su date 4 kolone, prva za ime promenljive, početna vrednost promenljive, tip podatka, 
+				gde je podrazumevani tip podatka double i dimenzija u slučaju da je promenljiva niz. 
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Za opis kretanja u x i y pravcu potrebne su projekcije brzina u x i y pravcu vx i vy, 
+				ali njih neće unositi korisnik, nego će se one dobiti računski za unete vrednosti početne brzine v
+				i ugla pravca vektora v u odnosu na pravac x ose(ugaoSt). Ova vrednost će se uneti u stepenima, 
+				a za potrebe izračunavanja je potrebna vrednost u radijanima(ugao). 
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Dodaćemo još jedan tab za konstante. To ćemo uraditi tako što pored naslova prvog taba,
+				negde na sivoj površini kliknemo desnim klikom i onda na “create new page”. Nazvaćemo je “konstante”.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/novaStrana.png" 
+				alt="Kreiranje nove strane promenljivih u EJSS-u" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Dodajmo konstantu G tipa double i inicijalizujemo je na vrednost 9.81.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Konstante.png" 
+				alt="Kreiranje nove strane konstanti u EJSS-u" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Sačuvajmo sada dokument klikom na save pod imenom KosiHitac.ejss kao na slici:
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Konstante.png" 
+				alt="Kreiranje modela u EJSS-u, save dialog" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Dodajmo još jednu konstantu PI i zadajmo vrednost 3.14.
+				</p>
+        </div>
+		<div class="row">
+		<h2>Inicijalizacija(model).</h2>
+                <p class="col-xs-12 col-md-12 col-lg-12" >
+				U ovom tabu inicijalizujemo sve promenljive koje želimo da budu na početku animacije. 
+				Ova strana će se pozivati prilikom restartovanja animacije. Izaberimo Initialisation i
+				tamo otvorimo novu stranicu pod imenom inicijalizacija.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Ovde je potrebno pretvoriti početnu vrednost ugla datu u stepenima u radijane (ugao).
+				Potrebno je odrediti početne vrednosti projekcija početne brzine na izračunatog pravca početne brzine(ugao).
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<span class="formule">vx=v*Math.cos(ugao);</span>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<span class="formule">vy=v*Math.sin(ugao);</span>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				U ovom slučaju je upotrebljena klasa Math je sa svojim funkcijama sinus i kosinus ugla.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Takođe je potrebno postaviti početne vrednosti položaja, u ovom slučaju na vrednos 0:
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				x=0 i y=0;
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Inicijalizacija1.png" 
+				alt="Kreiranje aplikacije u EJSS-u.Inicijalizacija u modelu" />
+				</p>
+				
+			
+        </div>
+		<div class="row">
+		<h2>Evolucija(model).</h2>
+                <p class="col-xs-12 col-md-12 col-lg-12" >
+				Kreirajmo novu stranicu u delu Evolution pod nazivom “Kretanje”, klikom na gornji deo „Click to create page of code“.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Evolution.png" 
+				alt="Kreiranje aplikacije u EJSS-u.Evolucija" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Sa leve strane pomoću klizača treba odrediti broj okvira u sekundi, tj. broj iteracija u sekundi, 
+				gde jedna iteracija predstavlja promene promenljivih u oku vremenskog intervala dt. 
+				Pošto smo mi podesili dt na 0.05s to znači da u okviru 1s treba da bude 20 ponavljanja pa 
+				ćemo ostaviti podrazumevanu vrednost za FPS na 20.
+				</p>
+				
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Broj SPD predstavlja vrednost koja pokazuje posle koliko koraka će se osvežiti ekran, 
+				na kojem se prikazuje animacija. Ostavićemo podrazumevanu vrednost.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				I na kraju autoplay neka bude deštikliran, što znači da će se animacija neće 
+				odmah pokrenuti prilikom starta, nego klikom na dugme play.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				U okviru evolution taba, definišemo promene promenljivih po iteraciji, odnosno posle vremena dt.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Ubrzanje je konstantno i iznosi G u vertikalnom pravcu i 0 u x pravcu.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Položaj se menja po formulama za ravnomerno ubrzano kretanje. Brzina se u x pravcu neće promeniti jer nema ubrzanja,
+				a u y pravcu se menja i to tako da se u svakoj sekundi poveća za vrednost <span class="formule">G=9.81.</span>
+				Za dt sekundi će se promeniti za vrednost <span class="formule">(-G*dt)</span>, dakle
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<span class="formule">vy=vy-G*dt;</span>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				dok je promena položaja u y pravcu 
+				<span class="formule">(vy*dt-G*dt<sup>2</sup>/2). </span>
+				Znak „-„je jer <strong>vy</strong> ima negativnu vrednost ako telo pada, a pozitivnu u pravcu y ose, tj. ako telo ide na više.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				S, obzirom da su početna i krajnja brzina jedne iteracije označene isto tj. sa „v“,
+				za početnu brzinu se uzima vrednost vy pre nego što se promeni, pa zaključujemo da formula 
+				za promenu vy mora biti napisana posle promene položaja. Dakle formule u okviru evolution će biti:
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<span class="formule">t=t+dt;</span>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<span class="formule">x=x+vx*dt;</span>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<span class="formule">y=y+(vy*dt-G*dt<sup>2</sup>/2);</span>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<span class="formule">vy=vy-G*dt;</span>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Evolution1.png" 
+				alt="Kreiranje aplikacije u EJSS-u.Inicijalizacija u modelu" />
+				</p>
+				
+			
+        </div>
+		<div class="row">
+		<h2>Prikaz animacije(HtmlView).</h2>
+                <p class="col-xs-12 col-md-12 col-lg-12" >
+				Da bi se prikazala animacija potrebno je uraditi grafički deo aplikacije kreiranjem vizuelnih 
+				objekata i povezati te objekte sa promenljivim iz modela, čije se vrednosti menjaju tokom vremena.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Kreirajmo stranu u okviru HtmlView-a.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/HtmlView1.png" 
+				alt="Kreiranje aplikacije u EJSS-u.HtmlView" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Svi objekti se međusobno povezuju i čine drvo objekata, gde se u korenu nalazi Simulation view
+				objekat prikazan u delu “Tree of elements”. Grafičke elemente dalje dodajemo kao grane,
+				tako što sa paleta na desnom delu odaberemo grafički element i kliknemo na odgovarajući element 
+				koji je već dodat u drvo elemenata sa leve strane.
+				</p>
+				
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Prvo ćemo dodati iz oblasti interfejsa(Interface engl.) prvi prozor “Single drawing panel”. 
+				Posle klika na <strong>“Simulation view” </strong>sa leve strane ubaciće se grupa elemenata kao na sledećoj slici:
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/HtmlView2.png" 
+				alt="Kreiranje aplikacije u EJSS-u.Panel za crtanje(drawing panel engl.)" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Vidimo, da su ubačena 3 panela koja se podrazumevano kreiraju jedan ispod drugog:
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<ul>
+				<ol><strong>LabelPanel</strong> za prikaz naslova animacije</ol>
+				<ol><strong>wrappedPanel</strong> koji u sebi sadrži drawingPanel za prikaz animacije i controlPanel gde se nalaze dugmad za kontrolu: play, reset, pause itd.</ol>
+				<ol><strong>narrativePanel</strong> gde se ubacuje html tekst koji opisuje animaciju</ol>
+				</ul>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Dvoklikom na odgovarajući objekat otvara se dijalog Properties gde se podešavaju osobine određenog grafičkog elementa .
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Podesimo prvo tekst Naslova koji predstavlja zapravo jedno od polja(osobina) labele “topLabel”.
+				Dvoklikom na ovu labelu otvara se dijalog <strong>“Properties”:</strong>
+				</p>
+				
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/topLabel.png" 
+				alt="Kreiranje aplikacije u EJSS-u.Labela za naslov" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Vidimo da u okviru osobine “Text” stoji podrazumevano neki HTML kod.
+				Zamenimo tekst TopLabel sa “Simulacija kosog hica” i onda zatvorimo dijalog.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Otvorima dijalog za osobine drawingPanel-a i podesimo ih kao na sledećoj slici:
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/drawingPanel-osobine.png" 
+				alt="Kreiranje aplikacije u EJSS-u.Panel za crtanje, osobine" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Minimum i maksimum se odnosi na najmanje i najveće prikazane dimenzije prikazane na web stranici 
+				animacije koja zauzima u pikselima Width(600px u našem primeru) i visinu Height(600px). 
+				Osobina SquareAspect = true znači da se zadržava konstantan odnos između visine i širine prikaza.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Ostaje da ubacimo neko telo koje će se kretati, npr. krug i koordinate centra kruga povezati sa promenljivima x i y definisanih u modelu.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Dodajmo sa palete 2D Shape sa palete <strong>2D Drawable</strong> i postavimo na drawingPanel. Za naziv elementa ćemo odabrati “Telo”.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/teloDrawing.png" 
+				alt="Kreiranje aplikacije u EJSS-u. 2D drawable objekat" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Podesimo osobine tela x,y i r kao na slici:
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/OsobineTela.png" 
+				alt="Kreiranje aplikacije u EJSS-u. 2D drawable, osobine" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Klikom na drugo dugme, desno od odgovarajuće osobine otvara se novi prozor 
+				sa promenljivima definisanih u okviru modela i onda izborom odgovarajuće npr.
+				x povezujemo sa odgovarajućom geometrijskom (x koordinata centra kruga)-vidi sliku ispod.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Povezivanje promenljivih.png" 
+				alt="Kreiranje aplikacije u EJSS-u. 2D drawable, Povezivanje promenljivih u dijalogu Properties" />
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Dodajmo sada kod koji će zaustaviti animaciju kosog hica, kada telo padne na zemlju.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				To će se desiti kad y koordinata bude <strong> <=0 </strong>;
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Dakle, u Evolution  treba dodati kod:
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<span class="formule">if(y<=0){</span><br>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<span class="formule">_model.pause();</span><br>
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" ><br>
+				<span class="formule">}{</span>
+				</p>
+
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Dodajmo još na panel za crtanje objekat Trace, skup tačaka koji će iscrtati trag putanje kosog hica i podesimo osobine kao na slici.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/TragKosog hica.png" 
+				alt="Kreiranje aplikacije u EJSS-u. 2D drawable, Trag kosog hica" />
+				</p>
+				
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Polja <strong>inputX</strong> i <strong>InputY</strong> treba povezati sa koordinatama x i y iz modela.
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				Posle pokretanja animacije:
+				</p>
+				<p class="col-xs-12 col-md-12 col-lg-12" >
+				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Simulacija kosog hica.png" 
+				alt="Kreiranje aplikacije u EJSS-u.Inicijalizacija u modelu" />
+				</p>
+				
+			
+        </div>
+			
+        </div>
+		<div class="row">
+		<div class="col-xs-12 col-md-12 col-lg-12">
+        <% include ../partials/scripts %>
+        <% include ../partials/footer %>
+		</div>
+		</div>
+		</div>
+	
+    </body>
+</html>

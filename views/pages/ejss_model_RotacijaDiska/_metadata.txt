@@ -1,0 +1,51 @@
+generated-with: Easy Java/Javascript Simulations, version 5.3, build 180211. Visit http://www.um.es/fem/Ejs
+title: 
+logo-image: 
+author: Author name
+copyright: 
+preferred-width: 1000
+preferred-height: 600
+author-image: 
+source: RotacijaDiska.ejss
+main-script: 
+main-simulation: RotacijaDiska_Simulation.xhtml
+available-languages: 
+html-description: RotacijaDiska_Intro_3.html
+html-description: RotacijaDiska_Intro_2.html
+html-description: RotacijaDiska_Intro_1.html
+html-contents: RotacijaDiska_Contents.xhtml
+html-description: RotacijaDiska_Intro_4.html
+html-main: RotacijaDiska.xhtml
+page-title: Uvod
+page-index: RotacijaDiska_Intro_1.html
+page-title: Zadaci
+page-index: RotacijaDiska_Intro_2.html
+page-title: Opis zadatka 1
+page-index: RotacijaDiska_Intro_3.html
+page-title: Opis zadatka 2
+page-index: RotacijaDiska_Intro_4.html
+page-title: Simulation
+page-index: RotacijaDiska_Simulation.xhtml
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_7.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_12.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_2.png
+resource: images/RotacijaDiska/SmerUgaonogUbrzanja1.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_13.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_8.png
+resource: images/RotacijaDiska/UgaoniPomeraj.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_6.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak2.png
+resource: images/RotacijaDiska/TranslatornoKretanje.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_1.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_16.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_9.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_5.png
+resource: images/RotacijaDiska/RotacijaDiska2.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_4.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_15.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_11.png
+resource: images/RotacijaDiska/RotacijaDiska1.png
+resource: images/RotacijaDiska/SmerUgaonogUbrzanja2.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_14.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_10.png
+resource: images/RotacijaDiska/RotacijaDiskaZadatak1_3.png
