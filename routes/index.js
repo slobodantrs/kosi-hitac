@@ -192,6 +192,9 @@ router.get('/robots.txt', function (req, res) {
     res.type('text/plain');
     res.send("User-agent: *\nDisallow: /");
 });
+router.get('/sitemap.xml', function(req, res) {
+res.sendFile('sitemap.xml');
+});
 
 
 
