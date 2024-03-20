@@ -10,10 +10,10 @@ margin-right:7rem;
 
     }
 a{
-  color:#2411dd;
+  color:#2411dd !important;
 }
 a:visited{
-   color:#dd1124;
+   color:#dd1124 !important;
 }
 h1{
  border: none;
