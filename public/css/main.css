@@ -584,6 +584,7 @@ div#narrativePanel{
 	.moj-header{
 		padding-left:0px !important;
 		padding-right:0px !important;
+		text-align:justify;
 	}
 	header{
 		padding-right: 0px;
