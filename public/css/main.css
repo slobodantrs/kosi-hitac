@@ -12,6 +12,9 @@ margin-right:7rem;
 a{
   color:#2411dd;
 }
+a:visited{
+   color:#dd1124;
+}
 h1{
  border: none;
 }
