@@ -10,13 +10,23 @@ margin-right:7rem;
 
     }
 a{
-  color:#2411dd !important;
+  color:#24678d !important;
 }
 a:visited{
-   color:#dd1124 !important;
+   color:#8d2467 !important;
 }
 h1{
  border: none;
+}
+.okvir_animacija_srednja{
+	width:640px;
+	height:237px;
+	border: solid thin #0000ff;
+}
+.okvir_animacija{
+	width:400px;
+	height:400px;
+	border: solid thin #0000ff;
 }
 ol.moj_pasus, ol.moj_pasus  li {
 	margin-left: 40px;
