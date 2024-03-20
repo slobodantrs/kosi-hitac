@@ -4,6 +4,10 @@ padding:5px 10px;
 margin-left:7rem;
 margin-right:7rem;
 }
+
+.section{
+       padding:20px 10px;
+    }
 ol.moj_pasus, ol.moj_pasus  li {
 	margin-left: 40px;
 
@@ -602,6 +606,7 @@ div#narrativePanel{
       border-top: solid thin blue;
       border-bottom: solid thin blue;
   }
+    
 	
 	
 }
