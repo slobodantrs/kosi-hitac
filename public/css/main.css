@@ -28,7 +28,31 @@ h1{
 	height:400px;
 	border: solid thin #0000ff;
 }
+.moj_pasus{
+	font-family: 'Roboto',sans-serif;
+	text-rendering: optimizeLegibility;
+    color: rgba(0,0,0,.84);
+	text-align:justify;
+	
+	 border-radius: 25px;
+     background: #D8D8D8;
+     padding: 20px;
+	 line-height: 1.2;
+	 margin:1rem;
 
+}
+.moj_kod{
+	
+    background-color: rgb(240,240,250);
+	color:rgb(10,10,10);
+	font-weight: bold;
+	font-family: 'Roboto',sans-serif;
+	text-rendering: optimizeLegibility;
+	font-size:16px;
+	padding-left:2em;
+	border-left:solid thin rgba(240,200,200,0.5);
+
+}
 ol.moj_pasus, ol.moj_pasus  li {
 	margin-left: 40px;
 
