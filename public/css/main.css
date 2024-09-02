@@ -201,8 +201,8 @@ nav .container-fluid{
 	z-index:10;
 }
 .navbar-brand img{
-	width:50px;
-	height:50px;
+	width:5em;
+	height:4em;
 	background-size: contain;
 }
 .intro_1 h1.jumbotron{
