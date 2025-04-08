@@ -1,6 +1,6 @@
 var methods={
 
-P5js: function(req, res) {
+uvod_u_p5js: function(req, res) {
 	
     res.render('pages/upotrebaP5js/opis_p5js');
 
