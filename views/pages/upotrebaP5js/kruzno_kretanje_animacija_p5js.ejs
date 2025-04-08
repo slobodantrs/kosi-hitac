@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <% include ../partials/head %>
+    <meta charset="utf-8" />
+    <meta name="description" content="Kružna animacija objekta pomoću biblioteke p5.js u JavaScript jeziku. Vizuelni primer i objašnjenje trigonometrijskih funkcija u animaciji." />
+    <meta name="keywords" content="p5.js, JavaScript animacija, kružno kretanje, sin, cos, trigonometrija, animacija, vizualizacija, primer koda" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <% include ../partials/header %>
+        </header>
+
+        <main class="py-4">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Animacija kružnog kretanja pomoću alata p5.js</h2>
+
+                    <p>
+                        Ova jednostavna animacija demonstrira kako objekat može da se kreće po kružnici
+                        koristeći JavaScript biblioteku <strong>p5.js</strong>. U središtu se nalazi nepomična tačka,
+                        a crveni krug se kreće oko nje po unapred zadatoj putanji.
+                    </p>
+
+                    <p>
+                        Pomoću trigonometrijskih funkcija <code>cos()</code> i <code>sin()</code>, izračunava se pozicija objekta na osnovu ugla
+                        koji se uvećava tokom vremena. Na taj način postiže se neprekidno kružno kretanje.
+                    </p>
+
+                    <h3>Primer animacije:</h3>
+
+                    <div id="kruzni-canvas" style="margin-top: 20px;"></div>
+
+                    <p class="mt-4">
+                        Kasnije ćemo prikazati dodatne efekte, kao što su trag kretanja, više objekata i kontrola brzine pomoću tastature.
+                        Takođe ćemo objasniti koje matematičke funkcije stoje iza ove vrste animacije.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+    </div>
+
+    <!-- p5.js CDN + sketch -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+    <script>
+        new p5((sketch) => {
+            let angle = 0;
+            let radius = 100;
+
+            sketch.setup = () => {
+                const canvas = sketch.createCanvas(400, 400);
+                canvas.parent("kruzni-canvas");
+                sketch.angleMode(sketch.RADIANS);
+            };
+
+            sketch.draw = () => {
+                sketch.background(245);
+
+                let centerX = sketch.width / 2;
+                let centerY = sketch.height / 2;
+
+                let x = centerX + radius * sketch.cos(angle);
+                let y = centerY + radius * sketch.sin(angle);
+
+                sketch.fill(100, 150, 255);
+                sketch.stroke(0);
+                sketch.ellipse(centerX, centerY, 10, 10); // centar
+
+                sketch.fill(255, 0, 0);
+                sketch.ellipse(x, y, 20, 20); // objekat u kretanju
+
+                angle += 0.03;
+            };
+        });
+    </script>
+</body>
+</html>

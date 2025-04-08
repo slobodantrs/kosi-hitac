@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <header>
+          <% include ../partials/header %>
+        </header>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="naslov col-xs-12">
+        <h1>Klizanje tela niz strmu ravan</h1>
+      </div>
+      <hr>
+    </div>
+
+    <div class="row">
+      <div class="moj_tekst col-xs-12">
+        <p>
+          Klizanje tela niz strmu ravan je klasičan problem iz dinamike u fizici. 
+          Kada telo klizi po ravni koja zaklapa ugao <code>α</code> sa horizontalom, 
+          komponenta gravitacione sile duž ravni je <code>m·g·sin(α)</code>. 
+          Ako zanemarimo trenje, ubrzanje tela je:
+        </p>
+        <p style="text-align: center;"><strong>a = g·sin(α)</strong></p>
+        <p>
+          U realnim uslovima često se uvodi koeficijent trenja <code>μ</code>, pa se 
+          rezultujuća sila duž ravni smanjuje za <code>μ·m·g·cos(α)</code>, 
+          a ubrzanje postaje:
+        </p>
+        <p style="text-align: center;"><strong>a = g·(sin(α) – μ·cos(α))</strong></p>
+        <h2>Simulacija u Processing‑u</h2>
+        <p>
+          Za interaktivnu simulaciju klizanja tela niz strmu ravan u Processing‑u, pogledajte primer:
+          <a href="https://www.svetprogramiranja.com/primer_strma_ravan_u_processingu.html" target="_blank">
+            Primer strma ravan u Processing‑u
+          </a>.
+        </p>
+        <h2>Cilj sajta</h2>
+        <p>
+          Ovaj sajt je posvećen kreiranju kompjuterskih simulacija i animacija iz fizike. 
+          Pored p5.js i Processing‑a, prikazujemo i Easy Java Simulation (EJS) iz Open Source Physics (OSP) paketa.
+        </p>
+        <h2>Prednosti i mane</h2>
+        <ul>
+          <li><strong>p5.js / Processing:</strong> radi direktno u web pregledaču, jednostavno interaktivno crtanje, velika zajednica.</li>
+          <li><strong>EJS / OSP:</strong> moćan za numeričke proračune i kompleksne simulacije, podrška za Java modele, ali zahteva instalaciju Jave.</li>
+        </ul>
+        <h2>Resursi</h2>
+        <ul>
+          <li><a href="https://p5js.org/" target="_blank">p5.js zvanični sajt</a></li>
+          <li><a href="https://processing.org/" target="_blank">Processing zvanični sajt</a></li>
+          <li><a href="https://www.svetprogramiranja.com/primer_strma_ravan_u_processingu.html" target="_blank">Primer strma ravan u Processing‑u</a></li>
+          <li><a href="https://www.um.es/fem/EjsWiki/Main/Download" target="_blank">Easy Java Simulation (EJS)</a></li>
+          <li><a href="https://www.compadre.org/osp/" target="_blank">Open Source Physics (OSP)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <% include ../partials/scripts %>
+        <% include ../partials/footer %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

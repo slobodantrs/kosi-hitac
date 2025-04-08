@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../partials/header %>
+            </header>
+        </div>
+    </div>
+    <div class="row">
+        <div class="naslov col-xs-12 col-md-12 col-lg-12">
+            <h1>O alatu P5.js (Processing)</h1>
+        </div>
+        <hr>
+    </div>
+
+    <div class="row">
+        <p class="col-xs-12 col-md-12 col-lg-12">
+            P5.js je JavaScript biblioteka razvijena sa ciljem da umetnicima, dizajnerima, edukatorima i početnicima
+            u programiranju omogući lak način za kreiranje interaktivnih vizualizacija, animacija i simulacija. Ovaj
+            alat je inspirisan originalnim jezikom Processing koji je razvijen u Javi, ali omogućava razvoj direktno u
+            web okruženju koristeći standardne web tehnologije poput HTML-a, CSS-a i JavaScript-a.
+        </p>
+
+        <p class="col-xs-12 col-md-12 col-lg-12">
+            Cilj ovog veb sajta je prikazivanje i kreiranje edukativnih kompjuterskih simulacija iz fizike. Osim alata
+            P5.js, koristi se i Easy Java Simulation (EJS/EJSS), u okviru Open Source Physics (OSP) projekta.
+        </p>
+
+        <h2 class="col-xs-12 col-md-12 col-lg-12">Zašto koristiti P5.js?</h2>
+        <p class="col-xs-12 col-md-12 col-lg-12">
+            P5.js omogućava vrlo jednostavno kreiranje simulacija direktno u browseru bez potrebe za dodatnim softverom
+            ili instalacijama. Pogodan je za brzo prototipiranje i pruža okruženje koje olakšava učenje i eksperimentisanje
+            sa kodom. Podržava dinamičku vizualizaciju, interakciju sa korisnikom i može se koristiti u kombinaciji sa
+            HTML elementima i drugim bibliotekama.
+        </p>
+
+        <h2 class="col-xs-12 col-md-12 col-lg-12">Primeri resursa i tutorijala</h2>
+        <ul class="col-xs-12 col-md-12 col-lg-12">
+            <li><a href="https://p5js.org/" target="_blank">Zvanični sajt P5.js</a></li>
+            <li><a href="https://editor.p5js.org/" target="_blank">Online Editor</a></li>
+            <li><a href="https://github.com/processing/p5.js/wiki" target="_blank">P5.js Wiki i dokumentacija</a></li>
+            <li><a href="https://www.youtube.com/results?search_query=p5js+tutorial" target="_blank">YouTube tutorijali</a></li>
+        </ul>
+
+        <h2 class="col-xs-12 col-md-12 col-lg-12">Prednosti i mane u odnosu na EJS i OSP</h2>
+        <ul class="col-xs-12 col-md-12 col-lg-12">
+            <li><strong>Prednosti:</strong>
+                <ul>
+                    <li>Ne zahteva instalaciju – sve radi u web browseru</li>
+                    <li>Jednostavan za korišćenje i idealan za početnike</li>
+                    <li>Moderno web okruženje (HTML + JS + CSS)</li>
+                    <li>Velika zajednica i puno dostupnih primera i tutorijala</li>
+                </ul>
+            </li>
+            <li><strong>Mane:</strong>
+                <ul>
+                    <li>Manje podrške za kompleksnu numeriku i fizičke modele u poređenju sa EJS/OSP</li>
+                    <li>Nema ugrađenu strukturu Model-View-Control kao EJS</li>
+                    <li>Nema direktnu integraciju sa OSP Java bibliotekama</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p class="col-xs-12 col-md-12 col-lg-12">
+            P5.js se odlično pokazuje za izradu lakših, vizualno privlačnih simulacija i interaktivnih animacija iz
+            oblasti fizike, posebno u edukativne svrhe. U kombinaciji sa drugim alatima kao što su EJS i OSP, pruža
+            kompletan paket za nastavnike, studente i zaljubljenike u fiziku.
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <% include ../partials/scripts %>
+            <% include ../partials/footer %>
+        </div>
+    </div>
+</div>
+</body>
+</html>
