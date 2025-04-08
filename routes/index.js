@@ -40,10 +40,11 @@ var OpsteController = require('../controllers/OpsteController');
  router.get('/o_ejsu_primer', OpsteController.O_Ejsu_primer);
  router.get('/o_ejsu_primer_napredno', OpsteController.O_Ejsu_primer_napredno);
  router.get('/o_ejsu_primer_napredno_2', OpsteController.O_Ejsu_primer_napredno_2);
+ router.get('/p5js', OpsteController.O_Ejsu_opis);
  
  // p5js 
 var P5jsController = require('../controllers/P5JSController');
- router.get('/p5js', P5jsController.P5js);
+ //router.get('/p5js', P5jsController.P5js);
  router.get('/animacija_kruznog_kretanja', P5jsController.Animacija_kruznog_kretanja);
  router.get('/klizanje_tela_niz_strmu_ravan', P5jsController.Klizanje_tela_niz_strmu_ravan);
  

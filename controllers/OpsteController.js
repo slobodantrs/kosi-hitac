@@ -20,6 +20,10 @@ O_Ejsu_primer_napredno_2: function(req, res) {
     res.render('pages/upotrebaEJS-a/primer_easy_java_simulation_napredno_2');
 
 },
+O_Ejsu_opis: function(req, res) {
+	
+    res.render('pages/upotrebaEJS-a/opis_p5js');
 
+},
 }
 module.exports=methods;
