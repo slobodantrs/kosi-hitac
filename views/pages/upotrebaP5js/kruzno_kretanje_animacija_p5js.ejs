@@ -12,6 +12,38 @@
     <div class="container">
         <header>
             <% include ../partials/header %>
+			 <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+     .canvasForHTML{
+      width:100%;
+      height:auto;
+      border: solid thin #0000ff;
+
+    }
+    .inputContainer{
+      margin:10px
+      padding:10px;
+      width:100%;
+    }
+    .outputResult{
+       font-weight:bold;
+       font-size:16px;
+       color:#ffbb55;
+    }
+    .infoPanel{
+       border-top:solid thick #000;
+border-bottom:solid thick #000;
+       background-color:#fff;
+    }
+    .p5Canvas{
+    
+      margin-bottom:auto;
+    }
+  </style>
+ 
         </header>
 
         <main class="py-4">
@@ -40,6 +72,10 @@
                     </p>
                 </div>
             </div>
+			<div id="container" class="d-flex flex-column bd-highlight mb-3">
+<div id="canvasForHTML" class="d-flex flex-row bd-highlight justify-content-center mb-3"></div>
+<div id="infoPanel" class="d-flex flex-row align-items-start justify-content-left flex-wrap  bd-highlight infoPanel"></div>
+</div>
         </main>
 
         <footer>
@@ -80,5 +116,7 @@
             };
         });
     </script>
+	  
+<script language="javascript" type="text/javascript" src="js/p5js/KruznoKretanje/KruznoKretanje.js"></script>
 </body>
 </html>
