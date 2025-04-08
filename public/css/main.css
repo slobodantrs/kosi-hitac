@@ -33,7 +33,7 @@ margin-right:7rem;
   position: relative;
   width: 100%;
   max-width: 500px;     /* po potrebi prilagodite maksimalnu širinu */
-  margin: 20px auto;     /* centriranje i vertikalni razmak */
+  margin: 20px auto !important;     /* centriranje i vertikalni razmak */
   padding-bottom: 56.25%;/* odnos 16:9 za video */
   height: auto;
   overflow: hidden;
