@@ -145,6 +145,173 @@ v(t) = v₀ + a·t
     </p>
   </div>
 </div>
+
+
+<div class="moj_tekst">
+  <p>Ova simulacija prikazuje klizanje tela niz strmu ravan i koristi biblioteku <strong>p5.js</strong>. Prikazani su i vektori sila koji deluju na telo: težina (<code>Q</code>), njene komponente (<code>Qₓ</code> i <code>Qᵧ</code>), normalna sila (<code>N</code>) i sila trenja (<code>Fₜᵣ</code>).</p>
+
+  <p><strong>Parametri simulacije</strong> su definisani kao globalne promenljive: ugao nagiba, početna pozicija bloka, veličina bloka, gravitaciono ubrzanje i koeficijent trenja. U <code>setup()</code> funkciji kreira se canvas i smešta se u <code>div</code> sa ID-jem <code>sketch-holder</code>.</p>
+
+  <p>Koordinatni sistem je rotiran tako da <code>x</code> osa prati nagib, što omogućava jednostavnije izračunavanje položaja tela i komponenti sila. Funkcije <code>translate()</code>, <code>rotate()</code>, <code>push()</code> i <code>pop()</code> koriste se za lokalnu transformaciju sistema i vraćanje na prethodno stanje nakon crtanja pojedinačnih elemenata.</p>
+
+  <p><strong>Struktura koda</strong> je podeljena u više funkcija:</p>
+  <ul>
+    <li><code>drawIncline()</code> — crta nagib</li>
+    <li><code>drawBlockAndForces()</code> — crta telo i vektore sila</li>
+    <li><code>updateMotion()</code> — izračunava pomeraj tela uz simulaciju trenja</li>
+    <li><code>drawArrow()</code> — pomoćna funkcija za crtanje strelica</li>
+  </ul>
+</div>
+
+<div class="moj_kod">
+<pre><code><span class="kom">// index.html</span>
+<span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> charset="utf-8" <span class="tag">/&gt;</span>
+  <span class="tag">&lt;meta</span> name="viewport" content="width=device-width, initial-scale=1.0" <span class="tag">/&gt;</span>
+  <span class="tag">&lt;script</span> src="libraries/p5.min.js" <span class="tag">&gt;&lt;/script&gt;</span>
+  <span class="tag">&lt;script</span> src="StrmaRavanOsnovnaSaVektorima.js" <span class="tag">&gt;&lt;/script&gt;</span>
+  <span class="tag">&lt;style&gt;</span>
+    body { margin: 0; padding: 0; }
+    #sketch-holder {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+    }
+  <span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+  <span class="tag">&lt;div</span> id="sketch-holder"<span class="tag">&gt;&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<div class="moj_kod">
+<pre><code><span class="kom">// StrmaRavanOsnovnaSaVektorima.js</span>
+<span class="rez">let</span> alpha;
+<span class="rez">const</span> blockSize = <span class="broj">50</span>;
+<span class="rez">const</span> g = <span class="broj">9.81</span>;
+<span class="rez">const</span> mu = <span class="broj">0.2</span>;
+
+<span class="rez">let</span> a, v = <span class="broj">0</span>, s = <span class="broj">0</span>;
+<span class="rez">const</span> dt = <span class="broj">1</span>/<span class="broj">60</span>;
+
+<span class="rez">const</span> startX = <span class="broj">150</span>;
+<span class="rez">let</span> inclineY, maxS;
+
+<span class="rez">let</span> state = <span class="str">'running'</span>, pauseStart = <span class="broj">0</span>;
+<span class="rez">const</span> pauseDuration = <span class="broj">1000</span>;
+
+<span class="funk">function</span> setup() {
+  <span class="rez">const</span> canvas = createCanvas(<span class="broj">600</span>, <span class="broj">400</span>);
+  canvas.parent(<span class="str">'sketch-holder'</span>);
+  
+  alpha = PI/<span class="broj">6</span>;
+  inclineY = height/<span class="broj">3</span>;
+  maxS = width - startX;
+
+  a = g * sin(alpha) - mu * g * cos(alpha);
+
+  angleMode(RADIANS);
+  rectMode(CENTER);
+  textAlign(LEFT, CENTER);
+}
+
+<span class="funk">function</span> draw() {
+  background(<span class="broj">240</span>);
+  drawIncline();
+  updateMotion();
+  drawBlockAndForces();
+}
+
+<span class="funk">function</span> updateMotion() {
+  <span class="rez">if</span> (state === <span class="str">'running'</span>) {
+    v += a * dt;
+    s += v * dt;
+    <span class="rez">if</span> (s >= maxS) {
+      s = maxS;
+      state = <span class="str">'pause'</span>;
+      pauseStart = millis();
+    }
+  } <span class="rez">else if</span> (state === <span class="str">'pause'</span>) {
+    <span class="rez">if</span> (millis() - pauseStart >= pauseDuration) {
+      s = <span class="broj">0</span>;
+      v = <span class="broj">0</span>;
+      state = <span class="str">'running'</span>;
+    }
+  }
+}
+
+<span class="funk">function</span> drawIncline() {
+  push();
+  translate(<span class="broj">0</span>, inclineY);
+  rotate(alpha);
+  noStroke();
+  fill(<span class="broj">220</span>, <span class="broj">230</span>, <span class="broj">255</span>);
+  triangle(<span class="broj">0</span>, <span class="broj">0</span>, width*<span class="broj">1.5</span>, <span class="broj">0</span>, <span class="broj">0</span>, height);
+  stroke(<span class="broj">0</span>);
+  strokeWeight(<span class="broj">2</span>);
+  line(<span class="broj">0</span>, <span class="broj">0</span>, width*<span class="broj">1.5</span>, <span class="broj">0</span>);
+  pop();
+}
+
+<span class="funk">function</span> drawBlockAndForces() {
+  <span class="rez">const</span> Qx = g * sin(alpha),
+        Qy = g * cos(alpha),
+        N = Qy,
+        Ftr = mu * N,
+        scaleF = <span class="broj">20</span>;
+
+  <span class="rez">let</span> bx = startX + s,
+      by = inclineY + bx * tan(alpha);
+
+  push();
+  translate(bx, by);
+  rotate(alpha);
+  translate(<span class="broj">0</span>, -blockSize/<span class="broj">2</span>);
+
+  fill(<span class="broj">200</span>);
+  stroke(<span class="broj">0</span>);
+  rect(<span class="broj">0</span>, <span class="broj">0</span>, blockSize, blockSize);
+
+  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(Qx*scaleF, <span class="broj">0</span>), <span class="str">'red'</span>);
+  text(<span class="str">'Qₓ'</span>, Qx*scaleF+<span class="broj">5</span>, -<span class="broj">5</span>);
+
+  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(<span class="broj">0</span>, Qy*scaleF), <span class="str">'red'</span>);
+  text(<span class="str">'Qᵧ'</span>, <span class="broj">5</span>, Qy*scaleF+<span class="broj">15</span>);
+
+  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(Qx*scaleF, Qy*scaleF), <span class="str">'purple'</span>);
+  text(<span class="str">'Q'</span>, Qx*scaleF/<span class="broj">2</span>+<span class="broj">5</span>, Qy*scaleF/<span class="broj">2</span>+<span class="broj">5</span>);
+
+  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(<span class="broj">0</span>, -N*scaleF), <span class="str">'green'</span>);
+  text(<span class="str">'N'</span>, <span class="broj">5</span>, -N*scaleF-<span class="broj">10</span>);
+
+  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(-Ftr*scaleF, <span class="broj">0</span>), <span class="str">'orange'</span>);
+  text(<span class="str">'Fₜᵣ'</span>, -Ftr*scaleF-<span class="broj">30</span>, -<span class="broj">5</span>);
+  pop();
+}
+
+<span class="funk">function</span> drawArrow(base, vec, col) {
+  push();
+  stroke(col);
+  strokeWeight(<span class="broj">3</span>);
+  fill(col);
+  translate(base.x, base.y);
+  line(<span class="broj">0</span>, <span class="broj">0</span>, vec.x, vec.y);
+  <span class="rez">const</span> arrowSize = <span class="broj">7</span>;
+  push();
+  translate(vec.x, vec.y);
+  rotate(vec.heading());
+  triangle(<span class="broj">0</span>, <span class="broj">0</span>, -arrowSize, arrowSize/<span class="broj">2</span>, -arrowSize, -arrowSize/<span class="broj">2</span>);
+  pop();
+  pop();
+}
+</code></pre>
+</div>
+
 <div class="moj_tekst">
   <h3 class="okvir_3">Objašnjenje koda animacije klizanja</h3>
 
