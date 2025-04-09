@@ -29,6 +29,54 @@ margin-right:7rem;
   font-family: 'Roboto', sans-serif; font-size: 16px;
 }
 
+.moj_kod pre{
+ font-size:16px;
+}
+h1 {
+font-weight: bold;
+}
+.plavo {
+    color: #0000FF;
+}
+.plava {
+    color: #0000FF;
+}
+
+.zelena {
+    color: #008000;
+}
+
+.bela {
+    color: #FFFFFF;
+}
+
+.narandzasta {
+    color: #FFA500;
+}
+
+.crvena {
+    color: #FF0000;
+}
+.siva,.sivi {
+    color: #aaaaaa;
+}
+.pink {
+    color: #ff55ff;
+}
+.ljubicasta{
+   color: #800080;
+}
+.bordo{
+   color: #800000;
+}
+.link{
+   color: #5000aa;
+}
+
+.komentar{
+   color: #aaa;
+}
+
 .video-container {
   position: relative;
   width: 100%;

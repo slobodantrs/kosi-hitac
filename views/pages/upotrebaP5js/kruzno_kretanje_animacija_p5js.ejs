@@ -106,8 +106,109 @@ border-bottom:solid thick #000;
     </a>
   </p>
 </div>
+
+
+
 <div id="canvasForHTML" class="d-flex flex-row bd-highlight justify-content-center mb-2"></div>
 <div id="infoPanel" class="d-flex flex-row align-items-start justify-content-left flex-wrap  bd-highlight infoPanel"></div>
+
+
+<div class="moj_tekst">
+  <h2 class="okvir_3">Objašnjenje animacije kružnog kretanja</h2>
+  <p>
+    Animacija je rađena u <strong>Processing 4</strong> koristeći biblioteku <strong>p5.js</strong>. 
+    Kao ulaz kreiramo skeč <code>KruznoKretanjeSimulacija.js</code>, a alat automatski generiše i 
+    <code>index.html</code> u kojem je definisan glavni <em>canvas</em> za crtanje.
+  </p>
+  <p>
+    Za kružno kretanje definišemo dve promenljive:
+    <code>radius</code> (radijus, početna vrednost <span class="crvena">100</span>) i
+    <code>angle</code> (ugao, početna vrednost <span class="crvena">0</span>).
+  </p>
+  <p>
+    U <code>setup()</code>:
+    <ul>
+      <li>pozivamo <code>createCanvas(500, 500, P2D)</code> za dimenzije platna,</li>
+      <li>podešavamo režim uglova na radijane (<code>angleMode(RADIANS)</code>) i centriramo elipse (<code>ellipseMode(CENTER)</code>),</li>
+      <li>kanvas vezujemo za HTML kontejner <code>kruzni-canvas</code> (<code>canvas.parent(container)</code>).</li>
+    </ul>
+  </p>
+  <p>
+    U <code>draw()</code>:
+    <ul>
+      <li>pozadina je svetlosiva (<code>background(245)</code>),</li>
+      <li>računamo centar: <code>centerX = width/2</code>, <code>centerY = height/2</code>,</li>
+      <li>poziciju tela: 
+        <code>x = centerX + radius*cos(angle)</code>, 
+        <code>y = centerY + radius*sin(angle)</code>,</li>
+      <li>crtamo centar i pokretni objekat (<code>ellipse</code>),</li>
+      <li>ugao uvećavamo za <span class="crvena">0.03</span> radi animacije.</li>
+    </ul>
+  </p>
+</div>
+
+<div class="moj_kod">
+  <pre><code>
+<span class="siva">// KruznoKretanjeSimulacija.js</span>
+<span class="plava">let</span> <span class="pink">angle</span> = <span class="crvena">0</span>;
+<span class="plava">let</span> <span class="pink">radius</span> = <span class="crvena">100</span>;
+<span class="plava">let</span> <span class="pink">canvas</span>;
+<span class="plava">let</span> <span class="pink">container</span>;
+
+<span class="plava">function</span> <span class="pink">setup</span>() {
+  <span class="pink">canvas</span> = <span class="zelena">createCanvas</span>(<span class="crvena">500</span>, <span class="crvena">500</span>, P2D);
+  <span class="pink">container</span> = <span class="zelena">document.getElementById</span>(<span class="ljubicasta">'kruzni-canvas'</span>);
+  <span class="zelena">angleMode</span>(RADIANS);
+  <span class="zelena">ellipseMode</span>(CENTER);
+  <span class="pink">canvas</span>.<span class="pink">parent</span>(<span class="pink">container</span>);
+}
+
+<span class="plava">function</span> <span class="pink">draw</span>() {
+  <span class="zelena">background</span>(<span class="crvena">245</span>);
+
+  <span class="plava">let</span> centerX = <span class="zelena">width</span> / <span class="crvena">2</span>;
+  <span class="plava">let</span> centerY = <span class="zelena">height</span> / <span class="crvena">2</span>;
+
+  <span class="plava">let</span> x = centerX + <span class="pink">radius</span> * <span class="zelena">cos</span>(<span class="pink">angle</span>);
+  <span class="plava">let</span> y = centerY + <span class="pink">radius</span> * <span class="zelena">sin</span>(<span class="pink">angle</span>);
+
+  <span class="zelena">fill</span>(<span class="crvena">100</span>, <span class="crvena">150</span>, <span class="crvena">255</span>);
+  <span class="zelena">stroke</span>(<span class="crvena">0</span>);
+  <span class="zelena">ellipse</span>(centerX, centerY, <span class="crvena">100</span>, <span class="crvena">100</span>);
+
+  <span class="zelena">fill</span>(<span class="crvena">255</span>, <span class="crvena">0</span>, <span class="crvena">0</span>);
+  <span class="zelena">ellipse</span>(x, y, <span class="crvena">20</span>, <span class="crvena">20</span>);
+
+  <span class="pink">angle</span> += <span class="crvena">0.03</span>;
+}
+  </code></pre>
+</div>
+
+<div class="moj_kod">
+  <pre><code>
+<span class="siva">&lt;!-- index.html --&gt;</span>
+<span class="plava">&lt;!DOCTYPE html&gt;</span>
+<span class="plava">&lt;html lang="sr"&gt;</span>
+<span class="plava">&lt;head&gt;</span>
+  <span class="siva">&lt;!-- meta tagovi, p5.js CDN, Bootstrap... --&gt;</span>
+  <span class="plava">&lt;script src="libraries/p5.min.js"&gt;&lt;/script&gt;</span>
+  <span class="plava">&lt;script src="KruznoKretanjeSimulacija.js"&gt;&lt;/script&gt;</span>
+  <span class="plava">&lt;style&gt;</span>
+    body { margin: <span class="crvena">0</span>; padding: <span class="crvena">0</span>; }
+    .canvasForHTML { width: <span class="crvena">100%</span>; border: solid thin #0000ff; }
+  <span class="plava">&lt;/style&gt;</span>
+<span class="plava">&lt;/head&gt;</span>
+<span class="plava">&lt;body&gt;</span>
+  <span class="plava">&lt;div</span> <span class="pink">id</span>=<span class="ljubicasta">"containerKruznoKretanje"</span> class=<span class="ljubicasta">"d-flex flex-column justify-content-center bd-highlight mb-3"</span><span class="plava">&gt;</span>
+    <span class="plava">&lt;div</span> <span class="pink">id</span>=<span class="ljubicasta">"kruzni-canvas"</span> class=<span class="ljubicasta">"d-flex justify-content-center canvasForHTML"</span><span class="plava">&gt;&lt;/div&gt;</span>
+  <span class="plava">&lt;/div&gt;</span>
+<span class="plava">&lt;/body&gt;</span>
+<span class="plava">&lt;/html&gt;</span>
+  </code></pre>
+</div>
+
+
+
 </div>
         </main>
 
