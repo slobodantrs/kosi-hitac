@@ -6,9 +6,19 @@
 	
   <meta name="description" content="Kružna animacija u p5.js uz vizuelizaciju kretanja tela niz strmu ravan.">
   <link rel="canonical" href="https://kosi-hitac.onrender.com/klizanje_tela_niz_strmu_ravan" />
+  
+   <style>
+  
+    #sketch-holder {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container d-flex flex-column align-items-start justify-content-center mb-3">
     <div class="row">
       <div class="col-xs-12">
         <header>
@@ -102,6 +112,93 @@ v(t) = v₀ + a·t
   </p>
 </div>
 
+<div class="moj_tekst">
+  <div class="col-12">
+    <h2>Animacija klizanja tela niz strmu ravan pomoću alata p5.js</h2>
+
+    <p>
+      Ova animacija prikazuje kako blok klizi niz nagib pod uglom <code>α</code> koristeći JavaScript biblioteku 
+      <strong>p5.js</strong>. U centru bloka crtaju se sile:
+      <code>Qₓ</code> (paralelna komponenta težine), <code>Qᵧ</code> (normalna komponenta), 
+      <code>N</code> (normalna sila) i <code>Fₜᵣ</code> (trenje).
+    </p>
+
+    <p>
+      U svakoj iteraciji izračunavamo ubrzanje
+      <code>a = g·sin(α) – μ·g·cos(α)</code>, ažuriramo brzinu i položaj bloka, i crtamo
+      strelice koje predstavljaju sve sile. Kada blok stigne do kraja ravni, animacija se kratko zaustavlja,
+      blok se vraća u početni položaj i proces se ponavlja.
+    </p>
+
+    <h3>Primer animacije:</h3>
+    <div id="sketch-holder" style="margin-top: 20px;"></div>
+
+    <p class="mt-4">
+      U nastavku možete dodati kontrole za ugao nagiba, koeficijent trenja ili početnu brzinu bloka, 
+      kako biste eksperimentisali sa ponašanjem simulacije.
+    </p>
+  </div>
+</div>
+<div class="moj_tekst">
+  <h3 class="okvir_3">Objašnjenje koda animacije klizanja</h3>
+
+  <ul>
+    <li>
+      <strong>Globalne promenljive:</strong>
+      ugao nagiba <code>alpha</code> (pozitivno: ravan pada s leva na desno naniže),  
+      pozicija centra bloka <code>blockPos</code>,  
+      veličina bloka <code>blockSize</code>,  
+      gravitaciono ubrzanje <code>g</code>,  
+      koeficijent trenja <code>mu</code>.
+    </li>
+    <li>
+      U <code>setup()</code> metodu:
+      <ol>
+        <li>Napraviti <code>createCanvas(600,400)</code> i ugraditi ga u <code>&lt;div id="sketch-holder"&gt;</code> sa <code>canvas.parent(...)</code>.</li>
+        <li>Postaviti <code>alpha = PI/6</code> i izračunati startnu poziciju:
+          <pre><code>startX = 150;
+startY = startX * tan(alpha);
+blockPos = createVector(startX, startY);</code></pre>
+        </li>
+        <li>Podesiti <code>angleMode(RADIANS)</code>, <code>rectMode(CENTER)</code>, <code>textAlign(LEFT,CENTER)</code>.</li>
+      </ol>
+    </li>
+    <li>
+      U <code>draw()</code> metodu:
+      <ol>
+        <li>Podešavanje pozadine: <code>background(240)</code>.</li>
+        <li>Pozivi <code>drawIncline()</code> (linija i ispunjeni trougao) i <code>drawBlockAndForces()</code> (blok + sile).</li>
+        <li>Poziv <code>updateMotion()</code> za ažuriranje brzine i položaja, pauzu i resetovanje.</li>
+      </ol>
+    </li>
+    <li>
+      Metode za crtanje koriste:
+      <ul>
+        <li><code>push()</code> / <code>pop()</code> — čuvanje i vraćanje transformacione matrice.</li>
+        <li><code>translate(x,y)</code> — pomeranje koordinatnog sistema.</li>
+        <li><code>rotate(α)</code> — rotacija koordinata.</li>
+      </ul>
+      … (tačkice označavaju da između push() i pop() možete kombinovati više translate/rotate poziva, a sve će se vratiti na početno stanje nakon pop()).
+    </li>
+    <li>
+      Funkcija <code>updateMotion()</code> (ili inline kod u <code>draw()</code>) radi ovako:
+      <pre><code>// ubrzanje niz ravan
+blockAcc = g*sin(alpha) - mu*g*cos(alpha);
+// svaka iteracija:
+blockVel += blockAcc * deltaT;
+blockPos.x += blockVel * deltaT;
+// provera da li je blok stigao do desne ivice i pauza/reset…
+</code></pre>
+    </li>
+  </ul>
+
+  <p>
+    Ovako definisani koraci čine kod modularnim, lakšim za razumevanje i održavanje.  
+    Za detaljnije objašnjenje transformacija, pogledajte dokumentaciju p5.js za <code>push()/pop()</code>, 
+    <code>translate()</code> i <code>rotate()</code>.
+  </p>
+</div>
+
 
     <div class="row">
       <div class="col-xs-12">
@@ -110,5 +207,8 @@ v(t) = v₀ + a·t
       </div>
     </div>
   </div>
+  
+  
+  <script language="javascript" type="text/javascript" src="js/p5js/StrmaRavan/StrmaRavanTelo.js"></script>
 </body>
 </html>
