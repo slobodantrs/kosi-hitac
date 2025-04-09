@@ -164,53 +164,64 @@ v(t) = v₀ + a·t
 </div>
 
 <div class="moj_kod">
-<pre><code><span class="kom">// index.html</span>
-<span class="tag">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;html&gt;</span>
-<span class="tag">&lt;head&gt;</span>
-  <span class="tag">&lt;meta</span> charset="utf-8" <span class="tag">/&gt;</span>
-  <span class="tag">&lt;meta</span> name="viewport" content="width=device-width, initial-scale=1.0" <span class="tag">/&gt;</span>
-  <span class="tag">&lt;script</span> src="libraries/p5.min.js" <span class="tag">&gt;&lt;/script&gt;</span>
-  <span class="tag">&lt;script</span> src="StrmaRavanOsnovnaSaVektorima.js" <span class="tag">&gt;&lt;/script&gt;</span>
-  <span class="tag">&lt;style&gt;</span>
-    body { margin: 0; padding: 0; }
-    #sketch-holder {
-      width: 100%;
-      max-width: 600px;
-      margin: 20px auto;
-      border: 1px solid #ccc;
-    }
-  <span class="tag">&lt;/style&gt;</span>
-<span class="tag">&lt;/head&gt;</span>
-<span class="tag">&lt;body&gt;</span>
-  <span class="tag">&lt;div</span> id="sketch-holder"<span class="tag">&gt;&lt;/div&gt;</span>
-<span class="tag">&lt;/body&gt;</span>
-<span class="tag">&lt;/html&gt;</span>
+<h3>index.html</h3>
+<pre><code><span class="plava">&lt;!DOCTYPE html&gt;</span>
+<span class="plava">&lt;html&gt;</span>
+<span class="plava">&lt;head&gt;</span>
+  <span class="plava">&lt;meta</span> <span class="crvena">charset=</span><span class="braon">"utf-8"</span><span class="plava">&gt;</span>
+  <span class="plava">&lt;meta</span> <span class="crvena">name=</span><span class="braon">"viewport"</span> <span class="crvena">content=</span><span class="braon">"width=device-width, initial-scale=1.0"</span><span class="plava">&gt;</span>
+
+  <span class="zelena">&lt;!-- Učitavanje biblioteka --&gt;</span>
+  <span class="plava">&lt;script</span> <span class="crvena">language=</span><span class="braon">"javascript"</span> <span class="crvena">type=</span><span class="braon">"text/javascript"</span> <span class="crvena">src=</span><span class="braon">"libraries/p5.min.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
+  <span class="plava">&lt;script</span> <span class="crvena">language=</span><span class="braon">"javascript"</span> <span class="crvena">type=</span><span class="braon">"text/javascript"</span> <span class="crvena">src=</span><span class="braon">"StrmaRavanOsnovnaSaVektorima.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
+
+  <span class="plava">&lt;style&gt;</span>
+  <span class="crna">body</span> { <span class="crvena">margin</span>: <span class="braon">0</span>; <span class="crvena">padding</span>: <span class="braon">0</span>; }
+  <span class="crna">#sketch-holder</span> {
+    <span class="crvena">width</span>: <span class="braon">100%</span>;
+    <span class="crvena">max-width</span>: <span class="braon">600px</span>;
+    <span class="crvena">margin</span>: <span class="braon">20px auto</span>;
+    <span class="crvena">border</span>: <span class="braon">1px solid #ccc</span>;
+  }
+  <span class="plava">&lt;/style&gt;</span>
+<span class="plava">&lt;/head&gt;</span>
+
+<span class="plava">&lt;body&gt;</span>
+  <span class="plava">&lt;div</span> <span class="crvena">id=</span><span class="braon">"sketch-holder"</span><span class="plava">&gt;&lt;/div&gt;</span>
+<span class="plava">&lt;/body&gt;</span>
+<span class="plava">&lt;/html&gt;</span>
 </code></pre>
 </div>
 
+
 <div class="moj_kod">
-<pre><code><span class="kom">// StrmaRavanOsnovnaSaVektorima.js</span>
-<span class="rez">let</span> alpha;
-<span class="rez">const</span> blockSize = <span class="broj">50</span>;
-<span class="rez">const</span> g = <span class="broj">9.81</span>;
-<span class="rez">const</span> mu = <span class="broj">0.2</span>;
+<h3>StrmaRavanOsnovnaSaVektorima.js</h3>
+<pre><code><span class="zelena">// Simulacija klizanja niz strmu ravan</span>
 
-<span class="rez">let</span> a, v = <span class="broj">0</span>, s = <span class="broj">0</span>;
-<span class="rez">const</span> dt = <span class="broj">1</span>/<span class="broj">60</span>;
+<span class="plava">let</span> alpha;
+<span class="plava">const</span> blockSize = <span class="braon">50</span>;
+<span class="plava">const</span> g = <span class="braon">9.81</span>;
+<span class="plava">const</span> mu = <span class="braon">0.2</span>;
 
-<span class="rez">const</span> startX = <span class="broj">150</span>;
-<span class="rez">let</span> inclineY, maxS;
+<span class="plava">let</span> a;
+<span class="plava">let</span> v = <span class="braon">0</span>;
+<span class="plava">let</span> s = <span class="braon">0</span>;
+<span class="plava">const</span> dt = <span class="braon">1</span>/<span class="braon">60</span>;
 
-<span class="rez">let</span> state = <span class="str">'running'</span>, pauseStart = <span class="broj">0</span>;
-<span class="rez">const</span> pauseDuration = <span class="broj">1000</span>;
+<span class="plava">const</span> startX = <span class="braon">150</span>;
+<span class="plava">let</span> inclineY;
+<span class="plava">let</span> maxS;
 
-<span class="funk">function</span> setup() {
-  <span class="rez">const</span> canvas = createCanvas(<span class="broj">600</span>, <span class="broj">400</span>);
-  canvas.parent(<span class="str">'sketch-holder'</span>);
-  
-  alpha = PI/<span class="broj">6</span>;
-  inclineY = height/<span class="broj">3</span>;
+<span class="plava">let</span> state = <span class="braon">'running'</span>;
+<span class="plava">let</span> pauseStart = <span class="braon">0</span>;
+<span class="plava">const</span> pauseDuration = <span class="braon">1000</span>;
+
+<span class="plava">function</span> setup() {
+  <span class="plava">const</span> canvas = createCanvas(<span class="braon">600</span>, <span class="braon">400</span>);
+  canvas.parent(<span class="braon">'sketch-holder'</span>);
+
+  alpha = PI / <span class="braon">6</span>;
+  inclineY = height / <span class="braon">3</span>;
   maxS = width - startX;
 
   a = g * sin(alpha) - mu * g * cos(alpha);
@@ -220,93 +231,78 @@ v(t) = v₀ + a·t
   textAlign(LEFT, CENTER);
 }
 
-<span class="funk">function</span> draw() {
-  background(<span class="broj">240</span>);
+<span class="plava">function</span> draw() {
+  background(<span class="braon">240</span>);
   drawIncline();
   updateMotion();
   drawBlockAndForces();
 }
 
-<span class="funk">function</span> updateMotion() {
-  <span class="rez">if</span> (state === <span class="str">'running'</span>) {
+<span class="plava">function</span> updateMotion() {
+  <span class="plava">if</span> (state === <span class="braon">'running'</span>) {
     v += a * dt;
     s += v * dt;
-    <span class="rez">if</span> (s >= maxS) {
+
+    <span class="plava">if</span> (s &gt;= maxS) {
       s = maxS;
-      state = <span class="str">'pause'</span>;
+      state = <span class="braon">'pause'</span>;
       pauseStart = millis();
     }
-  } <span class="rez">else if</span> (state === <span class="str">'pause'</span>) {
-    <span class="rez">if</span> (millis() - pauseStart >= pauseDuration) {
-      s = <span class="broj">0</span>;
-      v = <span class="broj">0</span>;
-      state = <span class="str">'running'</span>;
+  } <span class="plava">else if</span> (state === <span class="braon">'pause'</span>) {
+    <span class="plava">if</span> (millis() - pauseStart &gt;= pauseDuration) {
+      s = <span class="braon">0</span>;
+      v = <span class="braon">0</span>;
+      state = <span class="braon">'running'</span>;
     }
   }
 }
 
-<span class="funk">function</span> drawIncline() {
+<span class="plava">function</span> drawIncline() {
   push();
-  translate(<span class="broj">0</span>, inclineY);
+  translate(<span class="braon">0</span>, inclineY);
   rotate(alpha);
   noStroke();
-  fill(<span class="broj">220</span>, <span class="broj">230</span>, <span class="broj">255</span>);
-  triangle(<span class="broj">0</span>, <span class="broj">0</span>, width*<span class="broj">1.5</span>, <span class="broj">0</span>, <span class="broj">0</span>, height);
-  stroke(<span class="broj">0</span>);
-  strokeWeight(<span class="broj">2</span>);
-  line(<span class="broj">0</span>, <span class="broj">0</span>, width*<span class="broj">1.5</span>, <span class="broj">0</span>);
+  fill(<span class="braon">220</span>, <span class="braon">230</span>, <span class="braon">255</span>);
+  triangle(<span class="braon">0</span>, <span class="braon">0</span>, width*<span class="braon">1.5</span>, <span class="braon">0</span>, <span class="braon">0</span>, height);
+  stroke(<span class="braon">0</span>);
+  strokeWeight(<span class="braon">2</span>);
+  line(<span class="braon">0</span>, <span class="braon">0</span>, width*<span class="braon">1.5</span>, <span class="braon">0</span>);
   pop();
 }
 
-<span class="funk">function</span> drawBlockAndForces() {
-  <span class="rez">const</span> Qx = g * sin(alpha),
+<span class="plava">function</span> drawBlockAndForces() {
+  <span class="plava">const</span> Qx = g * sin(alpha),
         Qy = g * cos(alpha),
-        N = Qy,
-        Ftr = mu * N,
-        scaleF = <span class="broj">20</span>;
+        N  = Qy,
+        Ftr= mu * N,
+        scaleF = <span class="braon">20</span>;
 
-  <span class="rez">let</span> bx = startX + s,
+  <span class="plava">let</span> bx = startX + s,
       by = inclineY + bx * tan(alpha);
 
   push();
   translate(bx, by);
   rotate(alpha);
-  translate(<span class="broj">0</span>, -blockSize/<span class="broj">2</span>);
+  translate(<span class="braon">0</span>, -blockSize/<span class="braon">2</span>);
 
-  fill(<span class="broj">200</span>);
-  stroke(<span class="broj">0</span>);
-  rect(<span class="broj">0</span>, <span class="broj">0</span>, blockSize, blockSize);
+  fill(<span class="braon">200</span>);
+  stroke(<span class="braon">0</span>);
+  rect(<span class="braon">0</span>, <span class="braon">0</span>, blockSize, blockSize);
 
-  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(Qx*scaleF, <span class="broj">0</span>), <span class="str">'red'</span>);
-  text(<span class="str">'Qₓ'</span>, Qx*scaleF+<span class="broj">5</span>, -<span class="broj">5</span>);
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(Qx*scaleF, <span class="braon">0</span>), <span class="braon">'red'</span>);
+  text(<span class="braon">'Qₓ'</span>, Qx*scaleF+<span class="braon">5</span>, -<span class="braon">5</span>);
 
-  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(<span class="broj">0</span>, Qy*scaleF), <span class="str">'red'</span>);
-  text(<span class="str">'Qᵧ'</span>, <span class="broj">5</span>, Qy*scaleF+<span class="broj">15</span>);
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(<span class="braon">0</span>,Qy*scaleF), <span class="braon">'red'</span>);
+  text(<span class="braon">'Qᵧ'</span>, <span class="braon">5</span>, Qy*scaleF+<span class="braon">15</span>);
 
-  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(Qx*scaleF, Qy*scaleF), <span class="str">'purple'</span>);
-  text(<span class="str">'Q'</span>, Qx*scaleF/<span class="broj">2</span>+<span class="broj">5</span>, Qy*scaleF/<span class="broj">2</span>+<span class="broj">5</span>);
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(Qx*scaleF,Qy*scaleF), <span class="braon">'purple'</span>);
+  text(<span class="braon">'Q'</span>, Qx*scaleF/<span class="braon">2</span>+<span class="braon">5</span>, Qy*scaleF/<span class="braon">2</span>+<span class="braon">5</span>);
 
-  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(<span class="broj">0</span>, -N*scaleF), <span class="str">'green'</span>);
-  text(<span class="str">'N'</span>, <span class="broj">5</span>, -N*scaleF-<span class="broj">10</span>);
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(<span class="braon">0</span>, -N*scaleF), <span class="braon">'green'</span>);
+  text(<span class="braon">'N'</span>, <span class="braon">5</span>, -N*scaleF-<span class="braon">10</span>);
 
-  drawArrow(createVector(<span class="broj">0</span>,<span class="broj">0</span>), createVector(-Ftr*scaleF, <span class="broj">0</span>), <span class="str">'orange'</span>);
-  text(<span class="str">'Fₜᵣ'</span>, -Ftr*scaleF-<span class="broj">30</span>, -<span class="broj">5</span>);
-  pop();
-}
-
-<span class="funk">function</span> drawArrow(base, vec, col) {
-  push();
-  stroke(col);
-  strokeWeight(<span class="broj">3</span>);
-  fill(col);
-  translate(base.x, base.y);
-  line(<span class="broj">0</span>, <span class="broj">0</span>, vec.x, vec.y);
-  <span class="rez">const</span> arrowSize = <span class="broj">7</span>;
-  push();
-  translate(vec.x, vec.y);
-  rotate(vec.heading());
-  triangle(<span class="broj">0</span>, <span class="broj">0</span>, -arrowSize, arrowSize/<span class="broj">2</span>, -arrowSize, -arrowSize/<span class="broj">2</span>);
-  pop();
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(-Ftr*scaleF, <span class="braon">0</span>), <span class="braon">'orange'</span>);
+  text(<span class="braon">'Fₜᵣ'</span>, -Ftr*scaleF-<span class="braon">30</span>, -<span class="braon">5</span>);
   pop();
 }
 </code></pre>
