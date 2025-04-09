@@ -96,14 +96,18 @@ function setup() {
  
   infoText.html( exprLang[8]);
 }
-function createExpressionLang(){
-  if(usrlang!=="sr-RS"){
-    exprLang=enLang;
-  }
-  else{
-    exprLang=srLang;
+function createExpressionLang() {
+  // Pretpostavimo da usrlang dolazi iz navigator.language ili slično
+  const lang = (usrlang || '').toLowerCase();
+  
+  // Ako je bilo koja varijanta srpskog jezika (npr. "sr", "sr-rs", "sr-cyrl-rs"...)
+  if (lang.startsWith('sr')) {
+    exprLang = srLang;
+  } else {
+    exprLang = enLang;
   }
 }
+
 function reset(){
   createExpressionLang();
   t=0;
