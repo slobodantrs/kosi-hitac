@@ -66,6 +66,51 @@
         </ul>
       </div>
     </div>
+	
+	<div class="moj_tekst">
+  <h3 class="okvir_3">Teorija: Sile na nagnutoj ravni</h3>
+  <p>
+    Na telo mase <code>m</code> koje leži na ravni nagnutoj pod uglom <code>α</code> deluju sledeće sile:
+  </p>
+  <ul>
+    <li><strong>Težina</strong> <code>Q = m·g</code>, usmerena vertikalno naniže.</li>
+    <li><strong>Komponenta težine paralelna ravan</strong>  
+      <code>Qₓ = Q·sin(α) = m·g·sin(α)</code>, usmerena naniže duž ravni.</li>
+    <li><strong>Komponenta težine normalna na ravan</strong>  
+      <code>Qᵧ = Q·cos(α) = m·g·cos(α)</code>, usmerena u ravni prema unutra.</li>
+    <li><strong>Normalna sila</strong> <code>N = Qᵧ = m·g·cos(α)</code>, suprotna <code>Qᵧ</code>.</li>
+    <li><strong>Trenje</strong> <code>Fₜᵣ = μ·N = μ·m·g·cos(α)</code>, suprotno smeru klizanja.</li>
+  </ul>
+
+  <p style="text-align:center;">
+    <img src="images/StrmaRavan/StrmaRavanTelo.jpg" 
+         alt="Telo na nagnutoj ravni sa silama" 
+         style="max-width:100%; height:auto; border:1px solid #ccc;">
+  </p>
+
+  <p>
+    U simulaciji računamo akceleraciju duž ravni kao razliku paralelne komponente težine i trenja, podeljenu sa masom:
+  </p>
+  <pre><code>
+a = (Qₓ – Fₜᵣ) / m 
+  = [m·g·sin(α) – μ·m·g·cos(α)] / m
+  = g·sin(α) – μ·g·cos(α)
+  </code></pre>
+
+  <p>
+    Pozicija <code>x(t)</code> i brzina <code>v(t)</code> duž ravni dobijaju se standardnim kinematičkim izrazima:
+  </p>
+  <pre><code>
+x(t) = x₀ + v₀·t + ½·a·t²
+v(t) = v₀ + a·t
+  </code></pre>
+
+  <p>
+    Ovako definisani izrazi ulaze u p5.js petlju <code>draw()</code>, gde se u svakoj iteraciji 
+    ažuriraju položaj i brzina tela po formuli iznad, a zatim se sve sile crtaju kao strelice u centru bloka.
+  </p>
+</div>
+
 
     <div class="row">
       <div class="col-xs-12">
