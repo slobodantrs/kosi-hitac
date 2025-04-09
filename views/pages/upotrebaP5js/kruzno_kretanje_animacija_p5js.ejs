@@ -147,38 +147,74 @@ border-bottom:solid thick #000;
   </p>
 </div>
 
+<div class="moj_tekst">
+  <h2 class="okvir_3">Detaljno objašnjenje strukture i koda</h2>
+  <p>
+    Projekat se sastoji od dva glavna fajla:
+    <ul>
+      <li><code>KruznoKretanjeSimulacija.js</code> – p5.js skeč koji definiše ponašanje animacije.</li>
+      <li><code>index.html</code> – HTML stranica koja sadrži <code>&lt;div&gt;</code> kontejner za <em>canvas</em> i učitava p5.js i skeč.</li>
+    </ul>
+  </p>
+  <p>
+    U <code>index.html</code> kreiramo <code>&lt;div id="kruzni-canvas"&gt;&lt;/div&gt;</code> 
+    koji služi kao roditelj za p5.js <em>canvas</em>. U JavaScript kodu, u <code>setup()</code> pozivamo 
+    <code>canvas.parent(container)</code> da bi p5.js ubacio kanvas baš u taj <code>div</code>.
+  </p>
+  <p>
+    U skeču definišemo:
+    <ul>
+      <li><code>radius</code> – radijus kružne putanje</li>
+      <li><code>angle</code> – trenutni ugao u radijanima</li>
+    </ul>
+    Funkcije <code>setup()</code> i <code>draw()</code> postavljaju okolinu i crtaju animaciju.
+  </p>
+</div>
+
+
 <div class="moj_kod">
   <pre><code>
 <span class="siva">// KruznoKretanjeSimulacija.js</span>
-<span class="plava">let</span> <span class="pink">angle</span> = <span class="crvena">0</span>;
-<span class="plava">let</span> <span class="pink">radius</span> = <span class="crvena">100</span>;
+// Definišemo globalne promenljive
+<span class="plava">let</span> <span class="pink">angle</span> = <span class="crvena">0</span>;           <span class="siva">// početni ugao</span>
+<span class="plava">let</span> <span class="pink">radius</span> = <span class="crvena">100</span>;       <span class="siva">// radijus putanje</span>
 <span class="plava">let</span> <span class="pink">canvas</span>;
 <span class="plava">let</span> <span class="pink">container</span>;
 
 <span class="plava">function</span> <span class="pink">setup</span>() {
+  <span class="siva">// Kreiramo canvas dimenzija 500×500</span>
   <span class="pink">canvas</span> = <span class="zelena">createCanvas</span>(<span class="crvena">500</span>, <span class="crvena">500</span>, P2D);
+  <span class="siva">// Pronalazimo div kontejner u index.html</span>
   <span class="pink">container</span> = <span class="zelena">document.getElementById</span>(<span class="ljubicasta">'kruzni-canvas'</span>);
+  <span class="siva">// Uglovi u radijanima i centriranje elipsi</span>
   <span class="zelena">angleMode</span>(RADIANS);
   <span class="zelena">ellipseMode</span>(CENTER);
+  <span class="siva">// Vežemo canvas za pronađeni div</span>
   <span class="pink">canvas</span>.<span class="pink">parent</span>(<span class="pink">container</span>);
 }
 
 <span class="plava">function</span> <span class="pink">draw</span>() {
+  <span class="siva">// Očistimo pozadinu</span>
   <span class="zelena">background</span>(<span class="crvena">245</span>);
 
+  <span class="siva">// Izračunavamo centar kanvasa</span>
   <span class="plava">let</span> centerX = <span class="zelena">width</span> / <span class="crvena">2</span>;
   <span class="plava">let</span> centerY = <span class="zelena">height</span> / <span class="crvena">2</span>;
 
+  <span class="siva">// Položaj objekta na kružnici</span>
   <span class="plava">let</span> x = centerX + <span class="pink">radius</span> * <span class="zelena">cos</span>(<span class="pink">angle</span>);
   <span class="plava">let</span> y = centerY + <span class="pink">radius</span> * <span class="zelena">sin</span>(<span class="pink">angle</span>);
 
+  <span class="siva">// Crtamo centar rotacije</span>
   <span class="zelena">fill</span>(<span class="crvena">100</span>, <span class="crvena">150</span>, <span class="crvena">255</span>);
   <span class="zelena">stroke</span>(<span class="crvena">0</span>);
-  <span class="zelena">ellipse</span>(centerX, centerY, <span class="crvena">100</span>, <span class="crvena">100</span>);
+  <span class="zelena">ellipse</span>(centerX, centerY, <span class="crvena">10</span>, <span class="crvena">10</span>);
 
+  <span class="siva">// Crtamo objekat koji se kreće</span>
   <span class="zelena">fill</span>(<span class="crvena">255</span>, <span class="crvena">0</span>, <span class="crvena">0</span>);
   <span class="zelena">ellipse</span>(x, y, <span class="crvena">20</span>, <span class="crvena">20</span>);
 
+  <span class="siva">// Uvećavamo ugao za animaciju</span>
   <span class="pink">angle</span> += <span class="crvena">0.03</span>;
 }
   </code></pre>
@@ -190,7 +226,7 @@ border-bottom:solid thick #000;
 <span class="plava">&lt;!DOCTYPE html&gt;</span>
 <span class="plava">&lt;html lang="sr"&gt;</span>
 <span class="plava">&lt;head&gt;</span>
-  <span class="siva">&lt;!-- meta tagovi, p5.js CDN, Bootstrap... --&gt;</span>
+  <span class="siva">&lt;!-- Meta tagovi, CSS i CDN za p5.js --&gt;</span>
   <span class="plava">&lt;script src="libraries/p5.min.js"&gt;&lt;/script&gt;</span>
   <span class="plava">&lt;script src="KruznoKretanjeSimulacija.js"&gt;&lt;/script&gt;</span>
   <span class="plava">&lt;style&gt;</span>
@@ -199,14 +235,12 @@ border-bottom:solid thick #000;
   <span class="plava">&lt;/style&gt;</span>
 <span class="plava">&lt;/head&gt;</span>
 <span class="plava">&lt;body&gt;</span>
-  <span class="plava">&lt;div</span> <span class="pink">id</span>=<span class="ljubicasta">"containerKruznoKretanje"</span> class=<span class="ljubicasta">"d-flex flex-column justify-content-center bd-highlight mb-3"</span><span class="plava">&gt;</span>
-    <span class="plava">&lt;div</span> <span class="pink">id</span>=<span class="ljubicasta">"kruzni-canvas"</span> class=<span class="ljubicasta">"d-flex justify-content-center canvasForHTML"</span><span class="plava">&gt;&lt;/div&gt;</span>
-  <span class="plava">&lt;/div&gt;</span>
+  <span class="siva">&lt;!-- Kontejner u koji će p5.js umetnuti canvas --&gt;</span>
+  <span class="plava">&lt;div</span> <span class="pink">id</span>=<span class="ljubicasta">"kruzni-canvas"</span> class=<span class="ljubicasta">"canvasForHTML"</span><span class="plava">&gt;&lt;/div&gt;</span>
 <span class="plava">&lt;/body&gt;</span>
 <span class="plava">&lt;/html&gt;</span>
   </code></pre>
 </div>
-
 
 
 </div>
