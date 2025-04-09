@@ -198,53 +198,59 @@ v(t) = v₀ + a·t
 <h3>StrmaRavanOsnovnaSaVektorima.js</h3>
 <pre><code><span class="zelena">// Simulacija klizanja niz strmu ravan</span>
 
-<span class="plava">let</span> alpha;
-<span class="plava">const</span> blockSize = <span class="braon">50</span>;
-<span class="plava">const</span> g = <span class="braon">9.81</span>;
-<span class="plava">const</span> mu = <span class="braon">0.2</span>;
+<span class="zelena">// Definisanje fizičkih i geometrijskih parametara</span>
+<span class="plava">let</span> alpha; <span class="zelena">// Ugao nagiba ravni</span>
+<span class="plava">const</span> blockSize = <span class="braon">50</span>; <span class="zelena">// Veličina bloka (kvadrata)</span>
+<span class="plava">const</span> g = <span class="braon">9.81</span>; <span class="zelena">// Gravitaciono ubrzanje</span>
+<span class="plava">const</span> mu = <span class="braon">0.2</span>; <span class="zelena">// Koeficijent trenja</span>
 
-<span class="plava">let</span> a;
-<span class="plava">let</span> v = <span class="braon">0</span>;
-<span class="plava">let</span> s = <span class="braon">0</span>;
-<span class="plava">const</span> dt = <span class="braon">1</span>/<span class="braon">60</span>;
+<span class="zelena">// Veličine za praćenje kretanja</span>
+<span class="plava">let</span> a; <span class="zelena">// Ubrzanje</span>
+<span class="plava">let</span> v = <span class="braon">0</span>; <span class="zelena">// Brzina</span>
+<span class="plava">let</span> s = <span class="braon">0</span>; <span class="zelena">// Pređeni put</span>
+<span class="plava">const</span> dt = <span class="braon">1</span>/<span class="braon">60</span>; <span class="zelena">// Vremenski korak (60 FPS)</span>
 
-<span class="plava">const</span> startX = <span class="braon">150</span>;
-<span class="plava">let</span> inclineY;
-<span class="plava">let</span> maxS;
+<span class="zelena">// Početne pozicije i granice</span>
+<span class="plava">const</span> startX = <span class="braon">150</span>; <span class="zelena">// Početna x koordinata bloka</span>
+<span class="plava">let</span> inclineY; <span class="zelena">// Vertikalna pozicija nagiba</span>
+<span class="plava">let</span> maxS; <span class="zelena">// Maksimalno rastojanje koje blok može preći</span>
 
-<span class="plava">let</span> state = <span class="braon">'running'</span>;
-<span class="plava">let</span> pauseStart = <span class="braon">0</span>;
-<span class="plava">const</span> pauseDuration = <span class="braon">1000</span>;
+<span class="zelena">// Promenljive za kontrolu stanja simulacije</span>
+<span class="plava">let</span> state = <span class="braon">'running'</span>; <span class="zelena">// Trenutno stanje ('running' ili 'pause')</span>
+<span class="plava">let</span> pauseStart = <span class="braon">0</span>; <span class="zelena">// Vreme početka pauze</span>
+<span class="plava">const</span> pauseDuration = <span class="braon">1000</span>; <span class="zelena">// Trajanje pauze u milisekundama</span>
 
 <span class="plava">function</span> setup() {
+  <span class="zelena">// Inicijalizacija platna i podešavanja</span>
   <span class="plava">const</span> canvas = createCanvas(<span class="braon">600</span>, <span class="braon">400</span>);
   canvas.parent(<span class="braon">'sketch-holder'</span>);
 
-  alpha = PI / <span class="braon">6</span>;
+  alpha = PI / <span class="braon">6</span>; <span class="zelena">// 30 stepeni</span>
   inclineY = height / <span class="braon">3</span>;
   maxS = width - startX;
 
-  a = g * sin(alpha) - mu * g * cos(alpha);
+  a = g * sin(alpha) - mu * g * cos(alpha); <span class="zelena">// Ubrzanje niz nagib</span>
 
+  <span class="zelena">// Podešavanja za crtanje</span>
   angleMode(RADIANS);
   rectMode(CENTER);
   textAlign(LEFT, CENTER);
 }
 
 <span class="plava">function</span> draw() {
-  background(<span class="braon">240</span>);
-  drawIncline();
-  updateMotion();
-  drawBlockAndForces();
+  background(<span class="braon">240</span>); <span class="zelena">// Osvežavanje pozadine</span>
+  drawIncline(); <span class="zelena">// Crtanje strme ravni</span>
+  updateMotion(); <span class="zelena">// Ažuriranje pozicije bloka</span>
+  drawBlockAndForces(); <span class="zelena">// Crtanje bloka i sila</span>
 }
 
 <span class="plava">function</span> updateMotion() {
   <span class="plava">if</span> (state === <span class="braon">'running'</span>) {
-    v += a * dt;
-    s += v * dt;
+    v += a * dt; <span class="zelena">// Povećanje brzine</span>
+    s += v * dt; <span class="zelena">// Povećanje pređenog puta</span>
 
     <span class="plava">if</span> (s &gt;= maxS) {
-      s = maxS;
+      s = maxS; <span class="zelena">// Zaustavi kretanje kada stigne do kraja</span>
       state = <span class="braon">'pause'</span>;
       pauseStart = millis();
     }
@@ -252,18 +258,22 @@ v(t) = v₀ + a·t
     <span class="plava">if</span> (millis() - pauseStart &gt;= pauseDuration) {
       s = <span class="braon">0</span>;
       v = <span class="braon">0</span>;
-      state = <span class="braon">'running'</span>;
+      state = <span class="braon">'running'</span>; <span class="zelena">// Resetuj simulaciju</span>
     }
   }
 }
 
 <span class="plava">function</span> drawIncline() {
   push();
-  translate(<span class="braon">0</span>, inclineY);
-  rotate(alpha);
+  translate(<span class="braon">0</span>, inclineY); <span class="zelena">// Pomeri poreklo</span>
+  rotate(alpha); <span class="zelena">// Rotiraj celu ravan</span>
+
+  <span class="zelena">// Crtanje trougla koji predstavlja nagnutu ravan</span>
   noStroke();
   fill(<span class="braon">220</span>, <span class="braon">230</span>, <span class="braon">255</span>);
   triangle(<span class="braon">0</span>, <span class="braon">0</span>, width*<span class="braon">1.5</span>, <span class="braon">0</span>, <span class="braon">0</span>, height);
+
+  <span class="zelena">// Linija po kojoj se kliza blok</span>
   stroke(<span class="braon">0</span>);
   strokeWeight(<span class="braon">2</span>);
   line(<span class="braon">0</span>, <span class="braon">0</span>, width*<span class="braon">1.5</span>, <span class="braon">0</span>);
@@ -271,12 +281,14 @@ v(t) = v₀ + a·t
 }
 
 <span class="plava">function</span> drawBlockAndForces() {
+  <span class="zelena">// Računanje komponenti sila</span>
   <span class="plava">const</span> Qx = g * sin(alpha),
         Qy = g * cos(alpha),
         N  = Qy,
         Ftr= mu * N,
-        scaleF = <span class="braon">20</span>;
+        scaleF = <span class="braon">20</span>; <span class="zelena">// Faktor skaliranja za prikaz vektora</span>
 
+  <span class="zelena">// Izračunavanje pozicije bloka</span>
   <span class="plava">let</span> bx = startX + s,
       by = inclineY + bx * tan(alpha);
 
@@ -285,10 +297,12 @@ v(t) = v₀ + a·t
   rotate(alpha);
   translate(<span class="braon">0</span>, -blockSize/<span class="braon">2</span>);
 
+  <span class="zelena">// Crtanje bloka</span>
   fill(<span class="braon">200</span>);
   stroke(<span class="braon">0</span>);
   rect(<span class="braon">0</span>, <span class="braon">0</span>, blockSize, blockSize);
 
+  <span class="zelena">// Crtanje vektora sila i oznaka</span>
   drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(Qx*scaleF, <span class="braon">0</span>), <span class="braon">'red'</span>);
   text(<span class="braon">'Qₓ'</span>, Qx*scaleF+<span class="braon">5</span>, -<span class="braon">5</span>);
 
@@ -307,6 +321,7 @@ v(t) = v₀ + a·t
 }
 </code></pre>
 </div>
+
 
 <div class="moj_tekst">
   <h3 class="okvir_3">Objašnjenje koda animacije klizanja</h3>
