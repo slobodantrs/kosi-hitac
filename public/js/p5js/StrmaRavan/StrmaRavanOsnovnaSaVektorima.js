@@ -36,6 +36,7 @@ let pauseStart = 0;
 const pauseDuration = 1000;  // pauza na kraju (ms)
 
 function setup() {
+	pixelDensity(1);
   const canvas = createCanvas(600, 400);
   canvas.parent('sketch-holder');
 
