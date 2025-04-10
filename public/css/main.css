@@ -218,7 +218,8 @@ margin-right: 10px;
      height: auto;
   max-height: 600px;
   overflow-x: visible;
-  overflow-y: scroll;
+  overflow-y: auto;
+  transform: translate3d(0px, 0px, 0px) !important;
 }
 .dropdown-submenu{position:relative;}
 .dropdown-submenu>.dropdown-menu{top:0;right:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
@@ -235,6 +236,8 @@ margin-right: 10px;
     border-left: 2px solid #cccfff;
     opacity:0.8;
 }
+
+
 .linkovi-simulacija{
 	display:inline-block;
 	/*vertical-align:center;*/
