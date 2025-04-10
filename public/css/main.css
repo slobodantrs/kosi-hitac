@@ -209,8 +209,9 @@ margin-right: 10px;
 	display:inline-block !important;
 }
 .submenu{
+	display:none;
     position:absolute !important;
-    top:50px !important;
+    top:100px !important;
 	width:300px;
     opacity:0.9;
 	/*height:250px;*/
@@ -220,6 +221,12 @@ margin-right: 10px;
   overflow-x: visible;
   overflow-y: auto;
   transform: translate3d(0px, 0px, 0px) !important;
+  left: 0;
+  z-index: 1000;
+  background-color: #bbd2da;
+  opacity: 0.95;
+  
+  padding: 10px 0;
 }
 .dropdown-submenu{position:relative;}
 .dropdown-submenu>.dropdown-menu{top:0;right:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
