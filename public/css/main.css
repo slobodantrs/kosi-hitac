@@ -446,7 +446,7 @@ div#wrappedPanel svg{
   }
  .navbar-side {
   height: 100%;
-  width: 70%;
+  width: 90%;
   position: fixed;
   top: 0;
   right: 0;
@@ -454,8 +454,9 @@ div#wrappedPanel svg{
   list-style: none;
   border-left: 2px solid #ccc;
   background-color: #f7f7f9;
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 1000;
+  opacity:0.9;
 }
 .navbar-side {
     /* other code omitted*/
