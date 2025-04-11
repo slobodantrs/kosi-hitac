@@ -436,10 +436,10 @@ div#wrappedPanel svg{
   .desktop{
 	  display:none !important;
   }
-  .mobile-nav{
+ /* .mobile-nav{
 	 /* display:block ;*/
-	 display: flex !important;
-  }
+	 /*display: flex !important;
+  }*/
   .mobile{
 	  width:100%;
 	  display:block !important;
@@ -510,7 +510,7 @@ div#wrappedPanel svg{
     display: block;
     width: 100%;
     padding: 0.75rem 1rem;
-    color: #fff;
+    color: #5555bb;
     text-align: left;
   }
 
@@ -520,27 +520,7 @@ div#wrappedPanel svg{
     background-color: #0056b3 !important;
     color: #fff !important;
   }
-/*
-.reveal {
-  -webkit-transform: translateX(0%);
-  -ms-transform: translateX(0%);
-  transform: translateX(0%);
-  -webkit-transition: 300ms ease;
-  transition: 300ms ease;
-}
-.overlay {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  cursor: pointer;
-  background-color: #ccc;
-  opacity: 0.6;
-  z-index: 990;
-}
-*/
+
 
 .navbar-brand{
 	padding-right: 15px;

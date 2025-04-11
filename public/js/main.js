@@ -1,7 +1,4 @@
 $( document ).ready(function() {
-	
-	
-
   // Open navbarSide when button is clicked
   $('#navbarSideButton').on('click', function() {
     $('#navbarSide').addClass('reveal');
