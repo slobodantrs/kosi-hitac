@@ -66,11 +66,7 @@ router.get('/contents_Vertikalan_Hitac', VertikalanHitacController.VertikalanHit
 router.get('/VertikalanHitac_Intro_1', VertikalanHitacController.VertikalanHitac1);
 router.get('/VertikalanHitac_Intro_2', VertikalanHitacController.VertikalanHitac2);
 router.get('/simulacija_Vertikalan_Hitac', VertikalanHitacController.VertikalanHitac_Simulation);
-/*router.get('/simulacija_Vertikalan_Hitac', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_vertikalanHitac/vertikalanHitac_Simulation');
-});*/
+
 
 //Kos hitac
 var KosHitacController = require('../controllers/KosHitacController');
@@ -85,23 +81,6 @@ router.get('/simulacija_Kos_Hitac', function(req, res) {
 	//res.render('pages/simulacija');
     res.render('pages/ejss_model_KosHitac/KosHitac_Simulation');
 });
-
-//Kružno kretanje materijalne tačke
-/*router.get('/Kruzno_Kretanje_MT', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT');
-});
-router.get('/contents_Kruzno_Kretanje_MT', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_KruznoKretanjeMT/Kruzno_Kretanje_MT_Contents');
-});
-router.get('/Kruzno_Kretanje_MT_Intro_1', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_1');
-});*/
 
 
 var KruznoKretanjeMTController = require('../controllers/KruznoKretanjeMTController');
