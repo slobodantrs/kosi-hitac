@@ -211,7 +211,7 @@ margin-right: 10px;
 .submenu{
 	display:none;
     position:absolute !important;
-    top:100px !important;
+    top:0px !important;/*bilo je 100px*/
 	width:300px;
     opacity:0.9;
 	/*height:250px;*/
