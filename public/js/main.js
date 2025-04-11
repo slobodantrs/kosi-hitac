@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
 
   // 3) Toggle podmenija
-  $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+  $('.navbar-side .dropdown-toggle').on('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
 
