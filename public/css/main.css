@@ -711,6 +711,12 @@ div#narrativePanel{
   .navbar-side .dropdown-item {
     border-bottom: 1px solid #6c757d;
   }
+  .dropdown-menu {
+    display: none; /* jer slideDown ne radi sa display: none u Bootstrap */
+}
+.dropdown.show > .dropdown-menu {
+    display: block;
+}
 
 }
 
