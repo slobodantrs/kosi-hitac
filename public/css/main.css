@@ -460,23 +460,43 @@ div#wrappedPanel svg{
 	  background-size:contain;
   }
  
-/* bočna traka (side‑nav) zauzima celu širinu */
-  .navbar-side {
-    position: static !important;
-    width: 100% !important;
-    transform: none !important;
-    margin: 0;
-    background: #f0f2fd;
-  }
+/* —————— Off‑canvas bočna traka —————— */
+.navbar-side {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 85%;
+  max-width: 300px;
+  background: #f0f2fd;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* kada dodamo klasu .reveal, traka se izvuče na ekran */
+.navbar-side.reveal {
+  transform: translateX(0);
+}
+
+/* overlay iza trake */
+.overlay {
+  display: none;
+}
+.overlay.active {
+  display: block;
+}
+
 
   /* podmeni se izbacuje u toku toka, odmah ispod parent‑a */
   .navbar-side .dropdown-menu {
-    position: static !important;
-    width: 100% !important;
-    margin: 0;
-    background: #f0f2fd;
-    box-shadow: none;
-    display: none; /* sakrij po defaultu */
+   position: static !important;
+  width: 100% !important;
+  margin: 0;
+  background: #f0f2fd;
+  box-shadow: none;
+  display: none;
   }
 
   /* prikaži podmeni kada je parent otvoren */
@@ -500,7 +520,7 @@ div#wrappedPanel svg{
     background-color: #0056b3 !important;
     color: #fff !important;
   }
-
+/*
 .reveal {
   -webkit-transform: translateX(0%);
   -ms-transform: translateX(0%);
@@ -520,6 +540,7 @@ div#wrappedPanel svg{
   opacity: 0.6;
   z-index: 990;
 }
+*/
 
 .navbar-brand{
 	padding-right: 15px;
