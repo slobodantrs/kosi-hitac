@@ -429,7 +429,9 @@ div#wrappedPanel svg{
 		margin-left:auto;
 		margin-right:auto;
 		font-size:1.2rem;
+		padding-top: 56px; /* ili tačna visina tvog navbar-a */
 	}
+	
 	.desktop-nav{
 	  display:none !important;
   }
@@ -745,12 +747,7 @@ div#narrativePanel{
   .navbar-side .dropdown-item {
     border-bottom: 1px solid #6c757d;
   }
-  .dropdown-menu {
-    display: none; /* jer slideDown ne radi sa display: none u Bootstrap */
-}
-.dropdown.show > .dropdown-menu {
-    display: block;
-}
+ 
 
 }
 
