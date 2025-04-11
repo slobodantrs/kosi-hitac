@@ -498,7 +498,7 @@ div#wrappedPanel svg{
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -300px; /* skriven izvan ekrana */
+ /* left: -300px;*/ /* skriven izvan ekrana */
   width: 250px;
   background-color: #fff;
   box-shadow: 2px 0 5px rgba(0,0,0,0.3);
@@ -508,7 +508,7 @@ div#wrappedPanel svg{
 
 /* Kada je prikazan */
 #navbarSide.show {
-  left: 0; /* pomeri u kadar */
+  left: 0px; /* pomeri u kadar */
 }
 
 /* Overlay preko ostatka stranice */
