@@ -459,42 +459,47 @@ div#wrappedPanel svg{
 	  /*width:auto;*//*poremeti izgled*/
 	  background-size:contain;
   }
- /* 1) Bočna lista je sada statična i puna širina */
-.navbar-side {
-  position: static !important;
-  width: 100% !important;
-  transform: none !important;
-  margin: 0;
-  background: #f0f2fd;    /* svetloplava pozadina */
-}
+ 
+/* bočna traka (side‑nav) zauzima celu širinu */
+  .navbar-side {
+    position: static !important;
+    width: 100% !important;
+    transform: none !important;
+    margin: 0;
+    background: #f0f2fd;
+  }
 
-/* 2) Podmeni se uvek pojavljuje kao obična lista */
-.navbar-side .dropdown-menu {
-  position: static !important;
-  width: 100% !important;
-  margin: 0;
-  background: #f0f2fd;
-  box-shadow: none;
-}
+  /* podmeni se izbacuje u toku toka, odmah ispod parent‑a */
+  .navbar-side .dropdown-menu {
+    position: static !important;
+    width: 100% !important;
+    margin: 0;
+    background: #f0f2fd;
+    box-shadow: none;
+    display: none; /* sakrij po defaultu */
+  }
 
-/* 3) Stavke pune širine i vertikalno */
-.navbar-side .dropdown-item,
-.navbar-side .nav-link {
-  display: block;
-  width: 100%;
-  padding: 0.75rem 1rem;
-  color: #fff;
-  text-align: left;
-}
+  /* prikaži podmeni kada je parent otvoren */
+  .navbar-side .dropdown.show > .dropdown-menu {
+    display: block !important;
+  }
 
-/* 4) Hover kontrast */
-.navbar-side .nav-link:hover,
-.navbar-side .dropdown-item:hover {
-  background-color: #0056b3 !important;
-  color: #fff !important;
-}
+  /* glavne stavke i podstavke pune širine */
+  .navbar-side .nav-link,
+  .navbar-side .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    text-align: left;
+  }
 
-
+  /* kontrastni hover */
+  .navbar-side .nav-link:hover,
+  .navbar-side .dropdown-item:hover {
+    background-color: #0056b3 !important;
+    color: #fff !important;
+  }
 
 .reveal {
   -webkit-transform: translateX(0%);
@@ -515,47 +520,7 @@ div#wrappedPanel svg{
   opacity: 0.6;
   z-index: 990;
 }
-navbar-side > .nav-item {
-  width:100%;
-  padding: 1.0rem 0;
-  margin: 0;
-  /*border-bottom: 2px solid #ccc;*/
-  height: 2rem;
-  text-align:center;
-}
-.submenu .nav-item {
-  width:100%;
-  /*padding: 0.5rem 0;*/
-  margin: 0;
-  border-bottom: 2px solid #ccc;
-  height: 2rem;
-  text-align:center;
-}
-.submenu {
-    width: 95%;
-    height: auto;
-    background: #f0f2fd;
-}
-.nav-item, .nav-link {
-    float: none;
-}
-.nav-link {
-  padding: 0.5rem 0;
-  margin: 0;
-  border-bottom: 2px solid #ccc;
-  height: 3rem;
-  font:1rem;
-}
-li {
-    text-align: left;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em ;
-}
 
-.nav-link {
-  padding-left: 2rem;
-  
-}
 .navbar-brand{
 	padding-right: 15px;
 	margin-left:auto;
