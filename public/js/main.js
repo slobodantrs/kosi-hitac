@@ -1,18 +1,19 @@
+$( document ).ready(function() {
+	
+	
 
-$(document).ready(function() {
-
-  // 1) Otvori/zatvori bočnu traku
+  // Open navbarSide when button is clicked
   $('#navbarSideButton').on('click', function() {
-    $('#navbarSide').toggleClass('reveal');
-    $('.overlay').toggle();
+    $('#navbarSide').addClass('reveal');
+    $('.overlay').show();
   });
-
-  // 2) Klik na overlay zatvara bočnu traku
+  
+   // Close navbarSide when the outside of menu is clicked
   $('.overlay').on('click', function(){
     $('#navbarSide').removeClass('reveal');
-    $(this).hide();
+    $('.overlay').hide();
   });
-
+  
   // 3) Mobile: otvaranje podmenija na klik
   //   sprečavamo default navigaciju i samo toggle-ujemo klasu .show
   $('.navbar-side .dropdown-toggle').on('click', function(e) {
@@ -23,5 +24,4 @@ $(document).ready(function() {
     // otvori/zatvori ovaj
     $li.toggleClass('show');
   });
-
 });
