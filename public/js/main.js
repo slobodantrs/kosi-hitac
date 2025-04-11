@@ -11,15 +11,35 @@ $(document).ready(function() {
   });
 
   // 2) Toggle podmeni na klik
-  $('.navbar-side .dropdown-toggle').on('click', function(e) {
+  $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
     e.preventDefault();
-    var $li = $(this).closest('li.nav-item');
-    // zatvori sve ostale otvorene
-    $li.siblings('.show').removeClass('show')
-       .find('> .dropdown-menu').slideUp(200);
-    // otvori/ zatvori ovaj
-    $li.toggleClass('show');
-    $li.find('> .dropdown-menu').slideToggle(200);
-  });
+    e.stopPropagation();
+
+    var $subMenu = $(this).next('.dropdown-menu');
+    var $parentLi = $(this).parent('li');
+
+    if ($parentLi.hasClass('show')) {
+        // Ako je već otvoreno, zatvori
+        $subMenu.slideUp(200);
+        $parentLi.removeClass('show');
+    } else {
+        // Zatvori sve ostale otvorene
+        $parentLi.siblings('.show').removeClass('show')
+            .find('> .dropdown-menu').slideUp(200);
+
+        // Otvori izabrani
+        $subMenu.slideDown(200);
+        $parentLi.addClass('show');
+    }
+});
+
+$(document).on('click', function (e) {
+    // Ako klik nije unutar .dropdown-menu ili .dropdown
+    if (!$(e.target).closest('.dropdown-menu, .dropdown').length) {
+        $('.dropdown-menu').slideUp(200);
+        $('.dropdown').removeClass('show');
+        $('.dropdown-menu .show').removeClass('show');
+    }
+});
 
 });
