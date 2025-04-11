@@ -436,10 +436,7 @@ div#wrappedPanel svg{
   .desktop{
 	  display:none !important;
   }
- /* .mobile-nav{
-	 /* display:block ;*/
-	 /*display: flex !important;
-  }*/
+ 
   .mobile{
 	  width:100%;
 	  display:block !important;
@@ -471,8 +468,15 @@ div#wrappedPanel svg{
   background: #f0f2fd;
   transform: translateX(100%);
   transition: transform 0.3s ease;
-  z-index: 1000;
+  z-index: 1050;
   overflow-y: auto;
+}
+#navbarSide.show {
+  transform: translateX(0);
+}
+
+#navbarSideButton {
+  z-index: 1100; /* Viši od menija */
 }
 
 /* kada dodamo klasu .reveal, traka se izvuče na ekran */
@@ -487,6 +491,36 @@ div#wrappedPanel svg{
 .overlay.active {
   display: block;
 }
+/* Početno skriven meni sa leve strane */
+#navbarSide {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -250px; /* skriven izvan ekrana */
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  transition: left 0.3s ease;
+  z-index: 1045; /* iznad svega osim modala */
+}
+
+/* Kada je prikazan */
+#navbarSide.show {
+  left: 0; /* pomeri u kadar */
+}
+
+/* Overlay preko ostatka stranice */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* sakriveno dok se ne aktivira */
+  z-index: 1040; /* odmah ispod off-canvas menija */
+}
+
 
 
   /* podmeni se izbacuje u toku toka, odmah ispod parent‑a */
@@ -586,7 +620,7 @@ svg#drawingPanel path{
 div#executionPanel,div#executionPanel2{
 	height:6rem !important;
 }
-#.myPanel{
+#myPanel{
 	width:100% !important;
 	height:auto !important;
 }

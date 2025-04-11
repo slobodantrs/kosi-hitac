@@ -1,16 +1,18 @@
 $(document).ready(function() {
 
-  // 1) Off‑canvas meni
-  $('#navbarSideButton').on('click', function() {
-    $('#navbarSide').toggleClass('reveal');
+  // 1) Otvaranje/gašenje off-canvas menija i overlay
+  $('#navbarSideButton').on('click', function () {
+    $('#navbarSide').toggleClass('show');
     $('.overlay').toggle();
   });
+
+  // 2) Klik na overlay zatvara meni
   $('.overlay').on('click', function(){
-    $('#navbarSide').removeClass('reveal');
+    $('#navbarSide').removeClass('show');
     $(this).hide();
   });
 
-  // 2) Toggle podmeni na klik
+  // 3) Toggle podmenija
   $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -19,27 +21,26 @@ $(document).ready(function() {
     var $parentLi = $(this).parent('li');
 
     if ($parentLi.hasClass('show')) {
-        // Ako je već otvoreno, zatvori
-        $subMenu.slideUp(200);
-        $parentLi.removeClass('show');
+      $subMenu.slideUp(200);
+      $parentLi.removeClass('show');
     } else {
-        // Zatvori sve ostale otvorene
-        $parentLi.siblings('.show').removeClass('show')
-            .find('> .dropdown-menu').slideUp(200);
+      // Zatvori ostale otvorene
+      $parentLi.siblings('.show').removeClass('show')
+               .find('> .dropdown-menu').slideUp(200);
 
-        // Otvori izabrani
-        $subMenu.slideDown(200);
-        $parentLi.addClass('show');
+      // Otvori izabrani
+      $subMenu.slideDown(200);
+      $parentLi.addClass('show');
     }
-});
+  });
 
-$(document).on('click', function (e) {
-    // Ako klik nije unutar .dropdown-menu ili .dropdown
-    if (!$(e.target).closest('.dropdown-menu, .dropdown').length) {
-        $('.dropdown-menu').slideUp(200);
-        $('.dropdown').removeClass('show');
-        $('.dropdown-menu .show').removeClass('show');
+  // 4) Klik van menija zatvara meni i overlay
+  $(document).on('click', function (e) {
+    const target = $(e.target);
+    if (!target.closest('#navbarSide').length && !target.closest('#navbarSideButton').length) {
+      $('#navbarSide').removeClass('show');
+      $('.overlay').hide();
     }
-});
+  });
 
 });
