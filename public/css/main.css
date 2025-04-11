@@ -678,6 +678,40 @@ div#narrativePanel{
   display: block;
 }
 
+/* 1) Tamna pozadina cele bočne trake */
+  .navbar-side {
+    background-color: #343a40 !important;  /* tamno siva/plava */
+  }
+
+  /* 2) Glavne stavke (linkovi) */
+  .navbar-side .nav-link {
+    color: #f8f9fa !important;             /* skoro bela */
+  }
+  .navbar-side .nav-link:hover {
+    background-color: #495057 !important;  /* svetlija siva/plava */
+    color: #fff !important;
+  }
+
+  /* 3) Podmeni (dropdown‑menu) */
+  .navbar-side .dropdown-menu {
+    background-color: #495057 !important;  /* malo svetlija od trake */
+  }
+
+  /* 4) Stavke podmenija */
+  .navbar-side .dropdown-item {
+    color: #f8f9fa !important;
+  }
+  .navbar-side .dropdown-item:hover {
+    background-color: #6c757d !important;  /* još svetlija */
+    color: #fff !important;
+  }
+
+  /* 5) Granične linije između stavki (opciono) */
+  .navbar-side .nav-item,
+  .navbar-side .dropdown-item {
+    border-bottom: 1px solid #6c757d;
+  }
+
 }
 
 @media screen and (max-width: 992px) and (orientation: landscape) {
