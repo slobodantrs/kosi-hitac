@@ -646,6 +646,38 @@ div#narrativePanel{
         width:95%;
         
     }
+	
+	/* 1) Strelice na desnoj strani stavki koje imaju podmeni */
+.navbar-side .dropdown-toggle {
+  position: relative;
+  cursor: pointer;
+}
+.navbar-side .dropdown-toggle::after {
+  content: '\25BA'; /* ► */
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  color: #fff;
+}
+.navbar-side li.show > .dropdown-toggle::after {
+  content: '\25BC'; /* ▼ */
+}
+
+/* 2) Osiguraj da se dropdown‑item vide (bele na tamnoj pozadini) */
+.navbar-side .dropdown-item {
+  color: #fff !important;
+}
+
+/* 3) Ukloni marginu/padding koja skriva stavke pre klika */
+.navbar-side .dropdown-menu {
+  padding: 0;
+}
+.navbar-side .dropdown-menu li {
+  display: block;
+}
+
 }
 
 @media screen and (max-width: 992px) and (orientation: landscape) {

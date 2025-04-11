@@ -1,24 +1,25 @@
-$( document ).ready(function() {
-  // Open navbarSide when button is clicked
+$(document).ready(function() {
+
+  // 1) Off‑canvas meni
   $('#navbarSideButton').on('click', function() {
-    $('#navbarSide').addClass('reveal');
-    $('.overlay').show();
+    $('#navbarSide').toggleClass('reveal');
+    $('.overlay').toggle();
   });
-  
-   // Close navbarSide when the outside of menu is clicked
   $('.overlay').on('click', function(){
     $('#navbarSide').removeClass('reveal');
-    $('.overlay').hide();
+    $(this).hide();
   });
-  
-  // 3) Mobile: otvaranje podmenija na klik
-  //   sprečavamo default navigaciju i samo toggle-ujemo klasu .show
+
+  // 2) Toggle podmeni na klik
   $('.navbar-side .dropdown-toggle').on('click', function(e) {
     e.preventDefault();
-    var $li = $(this).closest('.dropdown');
-    // zatvori sve ostale otvorene podmenije (opciono)
-    $li.siblings('.dropdown').removeClass('show');
-    // otvori/zatvori ovaj
+    var $li = $(this).closest('li.nav-item');
+    // zatvori sve ostale otvorene
+    $li.siblings('.show').removeClass('show')
+       .find('> .dropdown-menu').slideUp(200);
+    // otvori/ zatvori ovaj
     $li.toggleClass('show');
+    $li.find('> .dropdown-menu').slideToggle(200);
   });
+
 });
