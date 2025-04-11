@@ -459,58 +459,42 @@ div#wrappedPanel svg{
 	  /*width:auto;*//*poremeti izgled*/
 	  background-size:contain;
   }
- .navbar-side {
-  height: 100%;
-  width: 90%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 0;
-  list-style: none;
-  border-left: 2px solid #ccc;
-  background-color: #f7f7f9;
-  overflow-y: auto;
-  z-index: 1000;
-  opacity:0.9;
-}
+ /* 1) Bočna lista je sada statična i puna širina */
 .navbar-side {
-    /* other code omitted*/
-  -webkit-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  transform: translateX(100%);
-  -webkit-transition: 300ms ease;
-  transition: 300ms ease;
-}
-.navbar-side {
-	/* other code omitted*/
-  @include media-breakpoint-up(xs) { width: 85%; } // Small
-  @include media-breakpoint-up(sm) { width: 50%; } // Medium
-  @include media-breakpoint-up(md) { width: 25%; } // Large
+  position: static !important;
+  width: 100% !important;
+  transform: none !important;
+  margin: 0;
+  background: #f0f2fd;    /* svetloplava pozadina */
 }
 
-/* 1) Drop‑meni u bočnoj traci da bude statičan i punih 100% širine */
+/* 2) Podmeni se uvek pojavljuje kao obična lista */
 .navbar-side .dropdown-menu {
-  position: static !important;   /* više nije apsolutno */
+  position: static !important;
   width: 100% !important;
   margin: 0;
-  background: #f0f2fd;           /* ili koju god pozadinu hoćeš */
+  background: #f0f2fd;
   box-shadow: none;
 }
 
-/* 2) Stavke u drop‑meniju da budu pune širine i vertikalno */
-.navbar-side .dropdown-item {
+/* 3) Stavke pune širine i vertikalno */
+.navbar-side .dropdown-item,
+.navbar-side .nav-link {
   display: block;
   width: 100%;
   padding: 0.75rem 1rem;
-  color: #fff;                   /* bela tekst boja */
+  color: #fff;
+  text-align: left;
 }
 
-/* 3) Hover kontrast za stavke glavnog i podmenija */
+/* 4) Hover kontrast */
 .navbar-side .nav-link:hover,
 .navbar-side .dropdown-item:hover {
-  background-color: #0056b3 !important;  /* tamnija nijansa plave */
+  background-color: #0056b3 !important;
   color: #fff !important;
 }
+
+
 
 .reveal {
   -webkit-transform: translateX(0%);
