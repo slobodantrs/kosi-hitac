@@ -211,7 +211,7 @@ margin-right: 10px;
 .submenu{
 	display:none;
     position:absolute !important;
-    top:0px !important;/*bilo je 100px*/
+    top:0px;/*bilo je 100px*/
 	width:300px;
     opacity:0.9;
 	/*height:250px;*/
@@ -242,6 +242,9 @@ margin-right: 10px;
     color:#fff;
     border-left: 2px solid #cccfff;
     opacity:0.8;
+}
+.dropdown-submenu>.li:hover>.submenu{
+	top:100px!important;
 }
 
 
