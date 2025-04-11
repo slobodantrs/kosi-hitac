@@ -1,16 +1,21 @@
 <!-- views/partials/header.ejs -->
-
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDQ4LT95"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <nav class="desktop-nav nav-container navbar-expand-lg primary d-flex flex-row p-2 align-items-end" role="navigation">
 <!-- Items -->
         <div class="collapse navbar-collapse" id="topNavBar">
-            <ul class="nav navbar-nav">
+            <ul class="d-flex align-items-center nav navbar-nav">
     
                 <!-- Collapse button -->
                 <li class="nav-item active" >
                     <a class="navbar-brand" href="/">
             
-                        <img src="/images/harbour-city.png" alt="Logo"  ">
+                        <img src="/images/logo1.png" alt="Logo"  ">
                     </a>
                 </li>
         
@@ -22,17 +27,17 @@
 			Početna
 			<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item dropdown">
+			<li class="nav-item dropdown dropdown-submenu">
          
 			<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
             <span class="full-text" aria-hidden="true">&nbsp;
 									EJS
 								</span></a>
-          </a>
-				 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-				<li class="nav-item"><a class="dropdown-item" href="/o_ejsu">
-                      <span class="full-text" aria-hidden="true">&nbsp;
+         
+				 <ul class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink">
+				<li class="nav-item "><a class="dropdown-item" href="/o_ejsu">
+                      <span class="full-text " aria-hidden="true">&nbsp;
 									Uvod o EJS-u
 								</span></a>
                  </li>
@@ -49,36 +54,77 @@
 				 </ul>
 		
 			</li>
-            
+			
+			
+            	<li class="nav-item dropdown dropdown-submenu">
+         
+			<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+            <span class="full-text" aria-hidden="true">&nbsp;
+									P5 javascript
+								</span></a>
+         
+				 <ul class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink">
+				<li class="nav-item "><a class="dropdown-item" href="/p5js">
+                      <span class="full-text " aria-hidden="true">&nbsp;
+									Uvod o P5JS simulacijama
+								</span></a>
+                 </li>
+				<li class="nav-item "><a class="dropdown-item" href="/animacija_kruznog_kretanja">
+                <span class="full-text" aria-hidden="true">&nbsp;
+									Animacija kružnog kretanja
+								</span>
+                </a></li>
+				<li class="nav-item "><a class="dropdown-item " href="/klizanje_tela_niz_strmu_ravan">
+                <span class="full-text" aria-hidden="true">&nbsp;
+									Klizanje tela niz strmu ravan
+								</span></a></li>
+				
+				 </ul>
+		
+			</li>
 			
 			
 			
-			<li class="nav-item dropdown">
+			
+			<li class="nav-item dropdown dropdown-submenu">
 			<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           
           <span class="full-text" aria-hidden="true">&nbsp;
 									Simulacije
 								</span></a>
-				<ul class="dropdown-menu bg-primary submenu" aria-labelledby="navbarDropdownMenuLink">
-				<span class="navbar-text bg-primary">
-				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/simulacija_Masa_i_Opruga">Masa i opruga</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
-				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/vertikalan_Hitac">Vertikalan hitac</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
-				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/kos_Hitac">Kosi hitac</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
-				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/Kruzno_Kretanje_MT">Kružno kretanje</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
-				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/Rotacija_Diska">Rotacija diska</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
-				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/RavnoKretanjeTocka">Ravno kretanje krutog tela</a></li>
-				</span>
+				<ul class="dropdown-menu  submenu" aria-labelledby="navbarDropdownMenuLink">
+			
+				<li class="nav-item "><a class="dropdown-item" href="/simulacija_Masa_i_Opruga">
+                <span class="full-text" aria-hidden="true">&nbsp;
+                Masa i opruga</span></a></li>
+				
+				
+				<li class="nav-item ">
+                
+                <a class="dropdown-item " href="/vertikalan_Hitac"><span class="full-text" aria-hidden="true">&nbsp;
+                Vertikalan hitac</span></a></li>
+				
+				
+				<li class="nav-item ">
+                <a class="dropdown-item " href="/kos_Hitac"><span class="full-text " aria-hidden="true">&nbsp;
+                Kosi hitac</span></a></li>
+				
+				
+				<li class="nav-item "><a class="dropdown-item " href="/Kruzno_Kretanje_MT">
+                <span class="full-text " aria-hidden="true">&nbsp;
+                Kružno kretanje</span></a></li>
+				
+				
+				<li class="nav-item "><a class="dropdown-item " href="/Rotacija_Diska">
+                <span class="full-text " aria-hidden="true">&nbsp;
+                Rotacija diska</span></a></li>
+				
+				
+				<li class="nav-item "><a class="dropdown-item " href="/RavnoKretanjeTocka">
+                <span class="full-text " aria-hidden="true">&nbsp;Ravno kretanje krutog tela</span></a></li>
+				
 				 </ul>
 			
 			</li>
@@ -103,7 +149,7 @@
   <div class="d-flex justify-content-between moj-header col-xs-12 col-md-12 col-lg-12">
   <a class="logo flex-item" href="/">
             
-            <img src="/images/harbour-city.png" alt="Logo"  ">
+            <img src="/images/logo1.png" alt="Logo"  ">
   </a>
 
   <a class="navbar-brand p-2 text-white flex-item" href="/">
@@ -125,42 +171,95 @@
 		
         <ul class="navbar-side navbar-side d-flex flex-column" id="navbarSide">
 		
-		<span class="navbar-text bg-info">
+		
             <li class="nav-item active"><a class="nav-link text-light w-100" href="/">		
 			
 			Početna
 			<span class="sr-only">(current)</span>
 			</a></li></span>
-			<span class="navbar-text bg-info">
-            <li class="nav-item "><a class="nav-link text-light w-100" href="/o_ejsu">EJS</a></li>
-			</span>
-			<span class="navbar-text bg-info">
+			
+            <!--li class="nav-item "-->
+            
+            <!--a class="nav-link text-light w-100" href="/o_ejsu">EJS</a-->
+            
+            <li class="nav-item dropdown">
+         
+			<a class="nav-link text-light w-100 dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">EJS</a>
+            <ul class="dropdown-menu bg-primary submenu" aria-labelledby="navbarDropdownMenuLink">
+				<li class="nav-item bg-primary"><a class="dropdown-item" href="/o_ejsu">
+                      &nbsp;
+									Uvod o EJS-u
+								</a>
+                 </li>
+				<li class="nav-item bg-primary"><a class="dropdown-item" href="/o_ejsu_primer">
+                &nbsp;
+									Izrada EJSS aplikacije
+								
+                </a></li>
+				<li class="nav-item bg-primary"><a class="dropdown-item " href="/o_ejsu_primer_napredno">
+               &nbsp;
+									Izrada EJSS aplikacije<br>napredno
+								</a></li>
+				
+				 </ul>
+            
+            </li>
+			
+			
+			
+			<li class="nav-item dropdown dropdown-submenu">
+         
+			<a class="nav-link text-light w-100 dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">P5 javascript	</a>
+         
+				 <ul class="dropdown-menu bg-primary submenu" aria-labelledby="navbarDropdownMenuLink">
+				<li class="nav-item "><a class="dropdown-item" href="/p5js">
+                      &nbsp;
+									Uvod o P5JS simulacijama
+								</a>
+                 </li>
+				<li class="nav-item "><a class="dropdown-item" href="/animacija_kruznog_kretanja">
+                &nbsp;
+									Animacija kružnog kretanja
+								
+                </a></li>
+				<li class="nav-item "><a class="dropdown-item " href="/klizanje_tela_niz_strmu_ravan">
+               &nbsp;
+									Klizanje tela niz strmu ravan
+								</a></li>
+				
+				 </ul>
+		
+			</li>
+			
 			<li class="nav-item dropdown">
 			<a class="nav-link text-light w-100 dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">Simulacije</a>
+		  
 				<ul class="dropdown-menu bg-primary submenu" aria-labelledby="navbarDropdownMenuLink">
-				<span class="navbar-text bg-primary">
+				
 				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/simulacija_Masa_i_Opruga">Masa i opruga</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
+				
+				
 				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/vertikalan_Hitac">Vertikalan hitac</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
+				
+				
 				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/kos_Hitac">Kosi hitac</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
+				
+				
 				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/Kruzno_Kretanje_MT">Kružno kretanje</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
+				
+				
 				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/Rotacija_Diska">Rotacija diska</a></li>
-				</span>
-				<span class="navbar-text bg-primary">
+				
+				
 				<li class="nav-item bg-primary"><a class="dropdown-item text-light" href="/RavnoKretanjeTocka">Ravno kretanje krutog tela</a></li>
-				</span>
+				
 				 </ul>
 			
 			</li>
-			</span>
+			
         </ul>
 		
   <!--/div--> 
