@@ -684,10 +684,10 @@ div#narrativePanel{
     }
 	
 	/*Gasi Bootstrap-ovu strelicu*/
-/*	.navbar-side .dropdown-toggle::after {
+	.navbar-side .dropdown-toggle::after {
   background-image: none !important;
   content: none !important;
-}*/
+}
 
 	
 	/* 1) Strelice na desnoj strani stavki koje imaju podmeni */
