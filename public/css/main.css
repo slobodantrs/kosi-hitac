@@ -730,7 +730,7 @@ div#narrativePanel{
 
   /* 3) Podmeni (dropdown‑menu) */
   .navbar-side .dropdown-menu {
-    background-color: #495057 !important;  /* malo svetlija od trake */
+   /* background-color: #495057;  *//* malo svetlija od trake */
   }
 
   /* 4) Stavke podmenija */
