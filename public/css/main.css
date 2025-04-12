@@ -700,7 +700,7 @@ div#narrativePanel{
 /* isključi Bootstrapovu strelicu */
 .navbar-side .dropdown-toggle::after {
   /* Bootstrapova strelica */
-  display: none !important;
+ /* display: none;*/
 }
 .navbar-side li.show > .dropdown-toggle::after {
   content: '\25BC'; /* ▼ */
