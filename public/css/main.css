@@ -706,10 +706,10 @@ div#narrativePanel{
   font-size: 0.8em;
   color: #fff;
 }
-/*
+
 .navbar-side li.show > .dropdown-toggle::after {
-  content: '\25BC'; *//* ▼ *//*
-}*/
+  content: '\25BC'; /* ▼ */
+}
 
 /* 2) Osiguraj da se dropdown‑item vide (bele na tamnoj pozadini) */
 .navbar-side .dropdown-item {
