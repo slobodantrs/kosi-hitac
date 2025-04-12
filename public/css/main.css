@@ -724,7 +724,7 @@ div#narrativePanel{
     color: #f8f9fa !important;             /* skoro bela */
   }
   .navbar-side .nav-link:hover {
-    background-color: #495057 !important;  /* svetlija siva/plava */
+   /* background-color: #495057;  *//* svetlija siva/plava */
     color: #fff !important;
   }
 
