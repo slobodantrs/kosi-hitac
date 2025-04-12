@@ -697,6 +697,11 @@ div#narrativePanel{
   font-size: 0.8em;
   color: #fff;
 }
+/* isključi Bootstrapovu strelicu */
+.navbar-side .dropdown-toggle::after {
+  /* Bootstrapova strelica */
+  display: none !important;
+}
 .navbar-side li.show > .dropdown-toggle::after {
   content: '\25BC'; /* ▼ */
 }
