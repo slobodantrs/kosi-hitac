@@ -759,7 +759,7 @@ div#narrativePanel{
 
 /* ukloni granicu posle poslednje stavke */
 .navbar-side .dropdown-menu .dropdown-item:last-child {
-/*  border-bottom: none;*/
+  border-bottom: none;
 }
 
 /* isto za glavne stavke, ako si dodao border-bottom i njima */
