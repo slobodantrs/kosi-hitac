@@ -696,17 +696,16 @@ div#narrativePanel{
   position: relative;
   cursor: pointer;
 }
-/*
+
 .navbar-side .dropdown-toggle::after {
   content: '\25BA'; *//* ► */
- /* position: absolute;
+  position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.8em;
   color: #fff;
 }
-*/
 /*
 .navbar-side li.show > .dropdown-toggle::after {
   content: '\25BC'; *//* ▼ *//*
