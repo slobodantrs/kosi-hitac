@@ -44,6 +44,7 @@ var OpsteController = require('../controllers/OpsteController');
  
  // p5js 
 var P5jsController = require('../controllers/P5JSController');
+alert("index.js>P5jsController");
  router.get('/p5js', P5jsController.Uvod_u_p5js);
  router.get('/animacija_kruznog_kretanja', P5jsController.Animacija_kruznog_kretanja);
  router.get('/klizanje_tela_niz_strmu_ravan', P5jsController.Klizanje_tela_niz_strmu_ravan);
