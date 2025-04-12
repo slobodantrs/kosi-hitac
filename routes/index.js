@@ -2,9 +2,7 @@
    
 const express = require('express');
 const router = express.Router();
-alert("router");
-console.log("router");
-console.log(`r!!!!!`);
+
 
  // index page 
  router.get('/', function(req, res) {
