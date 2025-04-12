@@ -7,6 +7,8 @@ Uvod_u_p5js: function(req, res) {
 
 },
 Animacija_kruznog_kretanja: function(req, res) {
+	alert("Animacija_kruznog_kretanja");
+	
 	
     res.render('pages/upotrebaP5js/kruzno_kretanje_animacija_p5js');
 
