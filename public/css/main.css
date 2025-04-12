@@ -688,7 +688,7 @@ div#narrativePanel{
   position: relative;
   cursor: pointer;
 }
-.navbar-side .dropdown-toggle::after {
+.navbar-side .custom-toggle::after {
   content: '\25BA'; /* ► */
   position: absolute;
   right: 1rem;
@@ -702,7 +702,7 @@ div#narrativePanel{
   /* Bootstrapova strelica */
   display: none !important;
 }
-.navbar-side li.show > .dropdown-toggle::after {
+.navbar-side li.show > .custom-toggle::after {
   content: '\25BC'; /* ▼ */
 }
 
@@ -750,7 +750,7 @@ div#narrativePanel{
   /* 5) Granične linije između stavki (opciono) */
   .navbar-side .nav-item,
   .navbar-side .dropdown-item {
-    border-bottom: 1px solid #6c757d;
+  /*  border-bottom: 1px solid #6c757d;*/
   }
   /* granica samo između, a ne posle poslednje stavke */
 .navbar-side .dropdown-menu .dropdown-item {
