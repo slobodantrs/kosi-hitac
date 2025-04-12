@@ -688,7 +688,7 @@ div#narrativePanel{
   position: relative;
   cursor: pointer;
 }
-.navbar-side .custom-toggle::after {
+.navbar-side .dropdown-toggle::after {
   content: '\25BA'; /* ► */
   position: absolute;
   right: 1rem;
@@ -698,11 +698,11 @@ div#narrativePanel{
   color: #fff;
 }
 /* isključi Bootstrapovu strelicu */
-.navbar-side .custom-toggle::after {
+.navbar-side .dropdown-toggle::after {
   /* Bootstrapova strelica */
   display: none !important;
 }
-.navbar-side li.show > .custom-toggle::after {
+.navbar-side li.show > .dropdown-toggle::after {
   content: '\25BC'; /* ▼ */
 }
 
