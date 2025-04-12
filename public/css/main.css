@@ -683,6 +683,13 @@ div#narrativePanel{
         
     }
 	
+	/*Gasi Bootstrap-ovu strelicu*/
+	.navbar-side .dropdown-toggle::after {
+  background-image: none !important;
+  content: none !important;
+}
+
+	
 	/* 1) Strelice na desnoj strani stavki koje imaju podmeni */
 .navbar-side .dropdown-toggle {
   position: relative;
@@ -697,11 +704,7 @@ div#narrativePanel{
   font-size: 0.8em;
   color: #fff;
 }
-/* isključi Bootstrapovu strelicu */
-.navbar-side .dropdown-toggle::after {
-  /* Bootstrapova strelica */
- /* display: none;*/
-}
+
 .navbar-side li.show > .dropdown-toggle::after {
   content: '\25BC'; /* ▼ */
 }
