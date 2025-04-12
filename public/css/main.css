@@ -698,7 +698,7 @@ div#narrativePanel{
   color: #fff;
 }
 /* isključi Bootstrapovu strelicu */
-.navbar-side .dropdown-toggle::after {
+.navbar-side .custom-toggle::after {
   /* Bootstrapova strelica */
   display: none !important;
 }
