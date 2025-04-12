@@ -752,6 +752,21 @@ div#narrativePanel{
   .navbar-side .dropdown-item {
     border-bottom: 1px solid #6c757d;
   }
+  /* granica samo između, a ne posle poslednje stavke */
+.navbar-side .dropdown-menu .dropdown-item {
+  border-bottom: 1px solid #6c757d;
+}
+
+/* ukloni granicu posle poslednje stavke */
+.navbar-side .dropdown-menu .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+/* isto za glavne stavke, ako si dodao border-bottom i njima */
+.navbar-side .nav-item:last-child {
+  border-bottom: none;
+}
+
  
 
 }
