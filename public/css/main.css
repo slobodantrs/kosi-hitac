@@ -684,32 +684,32 @@ div#narrativePanel{
     }
 	
 	/*Gasi Bootstrap-ovu strelicu*/
-	.navbar-side .dropdown-toggle::after {
+/*	.navbar-side .dropdown-toggle::after {
   background-image: none !important;
   content: none !important;
-}
+}*/
 
 	
 	/* 1) Strelice na desnoj strani stavki koje imaju podmeni */
 	
-.navbar-side .dropdown-toggle {
+/*.navbar-side .dropdown-toggle {
   position: relative;
   cursor: pointer;
-}
-
+}*/
+/*
 .navbar-side .dropdown-toggle::after {
   content: '\25BA'; *//* ► */
-  position: absolute;
+ /* position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.8em;
-  color: #fff;
+  color: #fff;*/
 }
-
+/*
 .navbar-side li.show > .dropdown-toggle::after {
   content: '\25BC'; /* ▼ */
-}
+}*/
 
 /* 2) Osiguraj da se dropdown‑item vide (bele na tamnoj pozadini) */
 .navbar-side .dropdown-item {

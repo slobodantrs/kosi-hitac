@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
 
   // 3) Toggle podmenija
-  $('.navbar-side .dropdown-toggle').on('click', function (e) {
+ /* $('.navbar-side .dropdown-toggle').on('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
 
@@ -32,7 +32,7 @@ $(document).ready(function() {
       $subMenu.slideDown(200);
       $parentLi.addClass('show');
     }
-  });
+  });*/
 
   // 4) Klik van menija zatvara meni i overlay
   $(document).on('click', function (e) {
