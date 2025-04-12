@@ -764,7 +764,7 @@ div#narrativePanel{
 
 /* isto za glavne stavke, ako si dodao border-bottom i njima */
 .navbar-side .nav-item:last-child {
-  border-bottom: none;
+ /* border-bottom: none;*/
 }
 
  
