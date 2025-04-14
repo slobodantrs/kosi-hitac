@@ -13,6 +13,27 @@ color:darkblue;
   padding: 1rem;           /* razmak od ivica */
   box-sizing: border-box;
 }
+
+header,
+header .container {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.canvas-wrapper,
+.moj_kod {
+  width: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+}
+.canvas-wrapper .canvasForHTML canvas {
+  display: block;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
 p{
 	color:darkblue;
 }
