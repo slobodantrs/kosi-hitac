@@ -432,6 +432,42 @@ div#wrappedPanel svg{
 	/*	padding-top: 56px;*/ /* ili tačna visina tvog navbar-a */
 	}
 	
+	.content-wrapper {
+    max-width: 992px;      /* ili bilo koja širina teksta na vašoj stranici */
+    margin: 0 auto;        /* centriranje */
+    padding: 1rem;
+  }
+
+  /* --- scrollable kod blokovi --- */
+  .moj_kod {
+    width: 100%;
+    overflow-x: auto;      /* dodaje scrollbar ako je pre širi od roditelja */
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
+  }
+  .moj_kod pre {
+    white-space: pre;      /* zadržava formatiranje */
+    margin: 0;             
+    padding: 0.5rem;
+  }
+
+  /* --- kontejner za canvas --- */
+  .canvas-wrapper {
+    width: 100%;
+    overflow-x: auto;      /* scrollbar kad je canvas širi od roditelja */
+    box-sizing: border-box;
+    margin: 1rem 0;
+  }
+  .canvas-wrapper .canvasForHTML {
+    /* granica i visina po potrebi */
+    border: 1px solid #00f;
+  }
+  .canvas-wrapper .canvasForHTML canvas {
+    display: block;
+    max-width: 100% !important;  /* skaluje canvas da ne prelazi roditelja */
+    height: auto !important;
+  }
+	
 	.desktop-nav{
 	  display:none !important;
   }
@@ -683,33 +719,7 @@ div#narrativePanel{
         
     }
 	
-	/*Gasi Bootstrap-ovu strelicu*/
-/*	.navbar-side .dropdown-toggle::after {
-  background-image: none !important;
-  content: none !important;
-}*/
-
 	
-	/* 1) Strelice na desnoj strani stavki koje imaju podmeni */
-	
-/*.navbar-side .dropdown-toggle {
-  position: relative;
-  cursor: pointer;
-}*/
-/*
-.navbar-side .dropdown-toggle::after {
-  content: '\25BA'; *//* ► */
- /* position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.8em;
-  color: #fff;*/
-}
-/*
-.navbar-side li.show > .dropdown-toggle::after {
-  content: '\25BC'; /* ▼ */
-}*/
 
 /* 2) Osiguraj da se dropdown‑item vide (bele na tamnoj pozadini) */
 .navbar-side .dropdown-item {
@@ -799,6 +809,13 @@ div#narrativePanel{
 	margin:0px !important;
    
   }
+  
+  .content-wrapper {
+    max-width: 720px;      /* ili bilo koja širina teksta na vašoj stranici */
+    margin: 0 auto;        /* centriranje */
+    padding: 1rem;
+  }
+
  
   .container{
 	  margin-left:auto;
