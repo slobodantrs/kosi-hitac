@@ -5,6 +5,14 @@ margin-left:7rem;
 margin-right:7rem;
 color:darkblue;
 }
+
+.content-wrapper {
+  width: 100%;
+  max-width: 720px;        /* desktop limit */
+  margin: 0 auto;          /* centriranje */
+  padding: 1rem;           /* razmak od ivica */
+  box-sizing: border-box;
+}
 p{
 	color:darkblue;
 }
@@ -432,10 +440,9 @@ div#wrappedPanel svg{
 	/*	padding-top: 56px;*/ /* ili tačna visina tvog navbar-a */
 	}
 	
-	.content-wrapper {
-    max-width: 992px;      /* ili bilo koja širina teksta na vašoj stranici */
-    margin: 0 auto;        /* centriranje */
-    padding: 1rem;
+	 .content-wrapper {
+    max-width: 100%;
+    padding: 0.5rem;      /* možeš smanjiti padding na mobilu */
   }
 
   /* --- scrollable kod blokovi --- */
@@ -810,10 +817,9 @@ div#narrativePanel{
    
   }
   
-  .content-wrapper {
-    max-width: 720px;      /* ili bilo koja širina teksta na vašoj stranici */
-    margin: 0 auto;        /* centriranje */
-    padding: 1rem;
+   .content-wrapper {
+    max-width: 100%;
+    padding: 0.5rem;      /* možeš smanjiti padding na mobilu */
   }
 
  
