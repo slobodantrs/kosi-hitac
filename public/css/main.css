@@ -8,7 +8,7 @@ color:darkblue;
 
 .content-wrapper {
   width: 100%;
-  max-width: 720px;        /* desktop limit */
+  max-width: 1200px;        /* desktop limit */
   margin: 0 auto;          /* centriranje */
   padding: 1rem;           /* razmak od ivica */
   box-sizing: border-box;
