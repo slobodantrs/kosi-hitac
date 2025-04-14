@@ -721,8 +721,16 @@ function MassAndSpring_View_0 (_topFrame) {
   </head>
   <body>
    <div class="content-wrapper moj-header">
-   <div class="moj_tekst">
-  <div class="col-12">
+  
+   
+	<div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../../partials/header %>
+            </header>
+        </div>
+
+	  <div class="moj_tekst">
+ 
     <h2>Teorija masa–opruga u horizontalnoj ravni</h2>
 
     <p>
@@ -767,9 +775,7 @@ function MassAndSpring_View_0 (_topFrame) {
       U nastavku možete podešavati parametre mase <code>m</code>, krutosti opruge <code>k</code> i početno istezanje <code>A</code>, kako biste videli kako se menja frekvencija i oblik oscilacija u realnom vremenu.
     </p>
   </div>
-</div>
-
-   <div class="video-container" style="text-align:center;">
+<div class="video-container" style="text-align:center;">
     <iframe width="560" height="315"
       src="https://www.youtube.com/watch?v=-OpQgBYOFao&t=5s&ab_channel=Vozilaiprogramiranje"
       title="Linijski harmonijski oscilator"
@@ -778,28 +784,18 @@ function MassAndSpring_View_0 (_topFrame) {
       allowfullscreen>
     </iframe>
   </div>
-  <div class="row">
-   <div class=" nav content d-flex  col-xs-12 col-md-12 col-lg-12">
-    <!--% include('partials/header') %-->
-	
-	</div>
-	</div>
-	<div class="col-xs-12 col-md-12 col-lg-12">
-            <header>
-                <% include ../../partials/header %>
-            </header>
-        </div>
-	 <div class="row">
+ 
+
     <div role="button" id="_topFrame" style="text-align:center"></div>
-	</div>
+	
 	 <div class="row">
   <div id="metadata" class="metadata">
     <br />
     <div id="title_author">
       <hr />
-      <b>Title and author:</b>
+      <b>Naslov i autor:</b>
       <p>
-      Mass and Spring<br />
+      Masa i opruga<br />
      <img alt="Logo" src="images/MassAndSpring/MassAndSpring.png" />
       </p>
       <p>
@@ -817,14 +813,14 @@ function MassAndSpring_View_0 (_topFrame) {
     </div>
   </div>
   </div>
-  <div class="content">
+ 
    <footer>
 	<!--% include ('partials/scripts') %-->
     <!--% include ('partials/footer') %-->
 	<% include ../../partials/scripts %>
             <% include ../../partials/footer %>
 </footer>
-</div>
+
   
     <script type="text/javascript"><!--//--><![CDATA[//><!--
       var _model;
