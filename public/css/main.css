@@ -824,7 +824,32 @@ div#narrativePanel{
 .navbar-side .nav-item:last-child {
   border-bottom: none;
 }
+/* 1) Ukloni bilo kakve margin/padding između <li> elemenata da ne bi bilo "praznih" zona kroz koje se klik probije */
+.navbar-side .dropdown-menu li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
+/* 2) Osiguraj da se podmeni pojavljuje u višem sloju od ostalih stavki */
+.navbar-side .dropdown.show {
+  position: relative;   /* stvara novi kontekst */
+  z-index: 1060;        /* iznad običnih nav-item-a */
+}
+.navbar-side .dropdown.show > .dropdown-menu {
+  position: relative;   /* dozvoljava z-index na podmeniju */
+  z-index: 1061;        /* iznad samog .dropdown kontejnera */
+}
+
+/* 3) Još malo “tap‑target” finog podešavanja */
+.navbar-side .dropdown-item {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 1rem !important;  /* već si imao, ali da ponovimo */
+  min-height: 44px;               /* bar 44px visine */
+  line-height: 1.2;
+  pointer-events: auto;           /* osiguraj da hvata klikove */
+}
  
 
 }
