@@ -619,8 +619,13 @@ div#wrappedPanel svg{
     display: block;
     width: 100%;
     padding: 0.75rem 1rem;
-    color: #5555bb;
+   /* color: #5555bb;*/
     text-align: left;
+	
+  padding: 1rem 1rem !important;   /* povećan padding */
+  color: #f8f9fa !important;       /* svetlija boja teksta za kontrast */
+  text-align: left;
+  line-height: 1.2;
   }
 
   /* kontrastni hover */
@@ -803,6 +808,7 @@ div#narrativePanel{
   .navbar-side .nav-item,
   .navbar-side .dropdown-item {
   /*  border-bottom: 1px solid #6c757d;*/
+ 
   }
   /* granica samo između, a ne posle poslednje stavke */
 .navbar-side .dropdown-menu .dropdown-item {
