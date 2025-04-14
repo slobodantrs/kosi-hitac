@@ -439,11 +439,17 @@ div#wrappedPanel svg{
 		font-size:1.2rem;
 	/*	padding-top: 56px;*/ /* ili tačna visina tvog navbar-a */
 	}
+	header{
+		width:100%;
+	}
 	
-	 .content-wrapper {
+  .content-wrapper {
     max-width: 100%;
     padding: 0.5rem;      /* možeš smanjiti padding na mobilu */
   }
+   .content-wrapper p {
+	   text-align:justify;
+   }
 
   /* --- scrollable kod blokovi --- */
   .moj_kod {
@@ -891,6 +897,7 @@ div#narrativePanel{
 	header{
 		padding-right: 0px;
 		padding-left:0px;
+		width:100%;
 	}
 	h1{
 		border:none;
