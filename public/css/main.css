@@ -837,7 +837,7 @@ div#narrativePanel{
 }
 .navbar-side .dropdown.show > .dropdown-menu {
   position: relative;   /* dozvoljava z-index na podmeniju */
-  z-index: 1061;        /* iznad samog .dropdown kontejnera */
+  z-index: 2061;        /* iznad samog .dropdown kontejnera */
 }
 
 /* 3) Još malo “tap‑target” finog podešavanja */
