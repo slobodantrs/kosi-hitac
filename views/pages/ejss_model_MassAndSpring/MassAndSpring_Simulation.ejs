@@ -721,6 +721,63 @@ function MassAndSpring_View_0 (_topFrame) {
   </head>
   <body>
    <div class="content-wrapper moj-header">
+   <div class="moj_tekst">
+  <div class="col-12">
+    <h2>Teorija masa–opruga u horizontalnoj ravni</h2>
+
+    <p>
+      Razmatramo sistem u kome je kuglica mase <code>m</code> pričvršćena za jednu kraj opruge sa konstantom krutosti <code>k</code>, dok je drugi kraj opruge učvršćen za čvrstu podlogu. Ovaj sistem leži na horizontalnoj ravni bez trenja, pa se kuglica može slobodno kretati duž ose opruge.
+    </p>
+
+    <p>
+      Kada primenimo spoljašnju silu <code>F</code> na kuglicu i istegnemo oprugu za udaljenost <code>x</code> od ravnotežnog položaja, opruga reaguje povratnom silom prema Hooke‑ovom zakonu:
+      <br>
+      <code>F<sub>s</sub> = −k·x</code>
+      <br>
+      Pri čemu znak „−“ označava da je sila usmerena suprotno pomeranju, vraćajući sistem ka ravnoteži.
+    </p>
+
+    <p>
+      Kada sila <code>F</code> prestane da deluje, nema više spoljašnjeg uzroka pomeranja, ali povratna sila opruge pokreće kuglicu nazad prema sredini. Zbog inercije, kuglica promašuje ravnotežni položaj i nastavlja dalje na suprotnu stranu, gde je ponovo usporena i vraćena nazad. Ovaj ciklus se ponavlja – kuglica osciluje oko ravnoteže.
+    </p>
+
+    <p>
+      Jednačina kretanja je data diferencijalnom jednačinom:
+      <br>
+      <code>m·d²x/dt² + k·x = 0</code>
+      <br>
+      Ovo je klasična forma linearno harmonijskog oscilatora. Rešenje je:
+      <br>
+      <code>x(t) = A·cos(ω·t + φ)</code>,
+      <br>
+      gde je <code>ω = √(k/m)</code> ugaona frekvencija, <code>A</code> amplituda oscilacije, a <code>φ</code> fazni pomak.
+    </p>
+
+    <p>
+      U harmonijskom oscilatoru energija se naizmenično čuva između potencijalne energije opruge
+      <code>U = ½·k·x²</code>
+      i kinetičke energije kuglice
+      <code>K = ½·m·v²</code>,
+      pri čemu je ukupna energija konstanta.
+    </p>
+
+    <h3>Primer animacije:</h3>
+    <div id="sketch-holder"></div>
+    <p class="mt-4">
+      U nastavku možete podešavati parametre mase <code>m</code>, krutosti opruge <code>k</code> i početno istezanje <code>A</code>, kako biste videli kako se menja frekvencija i oblik oscilacija u realnom vremenu.
+    </p>
+  </div>
+</div>
+
+   <div class="video-container" style="text-align:center;">
+    <iframe width="560" height="315"
+      src="https://www.youtube.com/watch?v=-OpQgBYOFao&t=5s&ab_channel=Vozilaiprogramiranje"
+      title="Linijski harmonijski oscilator"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
   <div class="row">
    <div class=" nav content d-flex  col-xs-12 col-md-12 col-lg-12">
     <!--% include('partials/header') %-->
