@@ -446,6 +446,7 @@ div#wrappedPanel svg{
   .content-wrapper {
     max-width: 100%;
     padding: 0.5rem;      /* možeš smanjiti padding na mobilu */
+	margin:1rem;
   }
    .content-wrapper p {
 	   text-align:justify;
