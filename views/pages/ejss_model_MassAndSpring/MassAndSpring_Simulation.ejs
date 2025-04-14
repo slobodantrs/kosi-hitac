@@ -3,7 +3,8 @@
 <html lang="sr">
 
   <head>
-  <% include('partials/head') %>
+  <% include ../partials/head %>
+  <!--% include('partials/head') %-->
     <meta charset="utf-8" />
 	<meta name="keywords" content="masa i opruga, masa, opruga" />
     <title>Masa i opruga</title>
@@ -722,9 +723,15 @@ function MassAndSpring_View_0 (_topFrame) {
    <div class="content-wrapper moj-header">
   <div class="row">
    <div class=" nav content d-flex  col-xs-12 col-md-12 col-lg-12">
-    <% include('partials/header') %>
+    <!--% include('partials/header') %-->
+	
 	</div>
 	</div>
+	<div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../partials/header %>
+            </header>
+        </div>
 	 <div class="row">
     <div role="button" id="_topFrame" style="text-align:center"></div>
 	</div>
@@ -755,8 +762,10 @@ function MassAndSpring_View_0 (_topFrame) {
   </div>
   <div class="content">
    <footer>
-	<% include ('partials/scripts') %>
-    <% include ('partials/footer') %>
+	<!--% include ('partials/scripts') %-->
+    <!--% include ('partials/footer') %-->
+	<% include ../partials/scripts %>
+            <% include ../partials/footer %>
 </footer>
 </div>
   
