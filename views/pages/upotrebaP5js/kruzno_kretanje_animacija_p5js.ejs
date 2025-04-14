@@ -9,8 +9,9 @@
 	<link rel="canonical" href="https://kosi-hitac.onrender.com/animacija_kruznog_kretanja" />
 </head>
 <body>
-<div class="container d-flex flex-column align-items-around">
-    <div class="container d-flex flex-column align-items-around justify-content-center mb-3">
+
+    <div class="container d-flex flex-column">
+	<div id="gornji_kontejner" class="d-flex flex-column align-items-start justify-content-center mb-3">
         <header>
             <% include ../partials/header %>
 			 <style>
@@ -48,7 +49,7 @@ border-bottom:solid thick #000;
         </header>
 
       
-		<div id="gornji_kontejner" class="d-flex flex-column align-items-start justify-content-center mb-3">
+		
             <div class="moj_tekst">
                 <div class="col-12">
                     <h2>Animacija kružnog kretanja pomoću alata p5.js</h2>
@@ -253,7 +254,7 @@ border-bottom:solid thick #000;
             <% include ../partials/footer %>
         </footer>
     </div>
-</div>
+
     <!-- p5.js CDN + sketch -->
     <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
     <script>
