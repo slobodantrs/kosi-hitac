@@ -51,6 +51,7 @@ p{
 .moj_tekst ul {
     list-style-type: disc; /* Postavlja tačke za ul listu */
     margin-left: 1rem; /* Dodaje razmak sa leve strane za ul listu */
+	padding-left: 1rem!important; /* Dodaje razmak sa leve strane za ul listu */
 }
 
 .moj_tekst ul li, .moj_tekst ol li {
