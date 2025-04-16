@@ -849,6 +849,8 @@ div#narrativePanel{
   min-height: 44px;               /* bar 44px visine */
   line-height: 1.2;
   pointer-events: auto;           /* osiguraj da hvata klikove */
+  position: relative;   /* dozvoljava z-index na podmeniju */
+  z-index: 2061;        /* iznad samog .dropdown kontejnera */
 }
  
 
