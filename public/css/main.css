@@ -600,7 +600,7 @@ div#wrappedPanel svg{
 
   /* podmeni se izbacuje u toku toka, odmah ispod parent‑a */
   .navbar-side .dropdown-menu {
-   position: static !important;
+   position: relative !important;
   width: 100% !important;
   margin: 0;
   background: #f0f2fd;
