@@ -205,13 +205,13 @@ margin-right: 10px;
     .margine_oko_slike{
        margin:3em;
        padding-bottom:2em;
-       border: 2px solid #000055;
+    /*   border: 2px solid #000055;*/
        text-align:center;
     }
     .margine_oko_slike img{
       /*  margin: 5 auto;*/
     background-size:content;
-        width:80%;
+        width:50%;
         height:auto;
         text-align:center;
     }
@@ -466,7 +466,13 @@ div#wrappedPanel svg{
 	header{
 		width:100%;
 	}
-	
+	.margine_oko_slike img{
+      /*  margin: 5 auto;*/
+    background-size:content;
+        width:90%;
+        height:auto;
+        text-align:center;
+    }
   .content-wrapper {
     max-width: 100%;
     padding: 0.5rem;      /* možeš smanjiti padding na mobilu */
