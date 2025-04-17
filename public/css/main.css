@@ -441,9 +441,9 @@ div#wrappedPanel svg{
 }
 /* DESKTOP (širina > 767px) */
 figure.margine_oko_slike {
-  float: left;            /* lebdi levo */
-  margin: 0 1em 1em 0;     /* razmak desno i dole */
-  width: 800px;            /* slika prirodne širine */
+              
+  margin: 1rem 1rem 1rem 0;     /* razmak desno i dole */
+  width: 600px;            /* slika prirodne širine */
 }
 
 figure.margine_oko_slike img {
