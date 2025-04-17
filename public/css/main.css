@@ -760,10 +760,10 @@ div#narrativePanel{
      .margine_oko_slike{
        margin:1em;
        padding-bottom:0.2em;
-      
+       text-align:left:
     }
     .margine_oko_slike img{   
-   
+        
         width:95%;
         
     }
