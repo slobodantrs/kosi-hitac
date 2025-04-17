@@ -8,7 +8,7 @@ $(document).ready(function() {
         console.error("MathJax typeset failed: " + err.message);
       });
   }
-  });
+  
 
   // 1) Otvaranje/gašenje off-canvas menija i overlay
   $('#navbarSideButton').on('click', function () {
