@@ -1,4 +1,5 @@
 $(document).ready(function() {
+MathJax.typeset();
 
   // 1) Otvaranje/gašenje off-canvas menija i overlay
   $('#navbarSideButton').on('click', function () {
