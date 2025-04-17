@@ -1,5 +1,14 @@
 $(document).ready(function() {
-MathJax.typeset();
+// — Ponovo renderuj MathJax (i ako si već pozvao typesetPromise u onload-u,
+  //   ovo je opcionalno, ali ne škodi):
+  
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise()
+      .catch(function (err) {
+        console.error("MathJax typeset failed: " + err.message);
+      });
+  }
+  });
 
   // 1) Otvaranje/gašenje off-canvas menija i overlay
   $('#navbarSideButton').on('click', function () {
@@ -13,29 +22,8 @@ MathJax.typeset();
     $(this).hide();
   });
 
-  // 3) Toggle podmenija
- /* $('.navbar-side .dropdown-toggle').on('click', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
 
-    var $subMenu = $(this).next('.dropdown-menu');
-    var $parentLi = $(this).parent('li');
-
-    if ($parentLi.hasClass('show')) {
-      $subMenu.slideUp(200);
-      $parentLi.removeClass('show');
-    } else {
-      // Zatvori ostale otvorene
-      $parentLi.siblings('.show').removeClass('show')
-               .find('> .dropdown-menu').slideUp(200);
-
-      // Otvori izabrani
-      $subMenu.slideDown(200);
-      $parentLi.addClass('show');
-    }
-  });*/
-
-  // 4) Klik van menija zatvara meni i overlay
+  // 3) Klik van menija zatvara meni i overlay
   $(document).on('click', function (e) {
     const target = $(e.target);
     if (!target.closest('#navbarSide').length && !target.closest('#navbarSideButton').length) {
