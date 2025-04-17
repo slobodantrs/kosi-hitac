@@ -448,7 +448,7 @@ div#wrappedPanel svg{
 figure.margine_oko_slike {
   float: left;            /* lebdi levo */
   margin: 0 1em 1em 0;     /* razmak desno i dole */
-  width: 50%;            /* slika prirodne širine */
+  width: 800px;            /* slika prirodne širine */
 }
 
 figure.margine_oko_slike img {
@@ -769,11 +769,7 @@ div#narrativePanel{
 		margin-bottom: 5px;
 	}
     
-     .margine_oko_slike{
-       margin:1em;
-       padding-bottom:0.2em;
-       text-align:left:
-    }
+    
     .margine_oko_slike img{   
         
         width:95%;
@@ -783,8 +779,8 @@ div#narrativePanel{
 	
 figure.margine_oko_slike {
     float: none;          /* ukloni lebdenje */
-    margin: 1em auto;     /* centriraj figure */
-    width: 90%;           /* širina figure = 90% roditelja */
+    margin: 1rem auto;     /* centriraj figure */
+    width: 95%;           /* širina figure = 90% roditelja */
     text-align: center;   /* centriraj i sliku i caption */
   }	
 
