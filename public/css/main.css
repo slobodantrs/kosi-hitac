@@ -448,7 +448,7 @@ div#wrappedPanel svg{
 figure.margine_oko_slike {
   float: left;            /* lebdi levo */
   margin: 0 1em 1em 0;     /* razmak desno i dole */
-  width: auto;            /* slika prirodne širine */
+  width: 50%;            /* slika prirodne širine */
 }
 
 figure.margine_oko_slike img {
