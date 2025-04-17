@@ -2,12 +2,12 @@ $(document).ready(function() {
 // — Ponovo renderuj MathJax (i ako si već pozvao typesetPromise u onload-u,
   //   ovo je opcionalno, ali ne škodi):
   
-  if (window.MathJax && MathJax.typesetPromise) {
+ /* if (window.MathJax && MathJax.typesetPromise) {
     MathJax.typesetPromise()
       .catch(function (err) {
         console.error("MathJax typeset failed: " + err.message);
       });
-  }
+  }*/
   
 
   // 1) Otvaranje/gašenje off-canvas menija i overlay
