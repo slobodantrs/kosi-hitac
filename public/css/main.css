@@ -444,6 +444,18 @@ div#wrappedPanel svg{
 	margin-left: auto!important;
 	margin-right:auto !important;
 }
+/* DESKTOP (širina > 767px) */
+figure.margine_oko_slike {
+  float: left;            /* lebdi levo */
+  margin: 0 1em 1em 0;     /* razmak desno i dole */
+  width: auto;            /* slika prirodne širine */
+}
+
+figure.margine_oko_slike img {
+  display: block;         /* za centrirani caption */
+  max-width: 100%;        /* ne izlazi iz figure */
+  height: auto;
+}
 
 }
 @media screen and (max-width: 1200px) {
@@ -769,6 +781,12 @@ div#narrativePanel{
     }
 	
 	
+figure.margine_oko_slike {
+    float: none;          /* ukloni lebdenje */
+    margin: 1em auto;     /* centriraj figure */
+    width: 90%;           /* širina figure = 90% roditelja */
+    text-align: center;   /* centriraj i sliku i caption */
+  }	
 
 /* 2) Osiguraj da se dropdown‑item vide (bele na tamnoj pozadini) */
 .navbar-side .dropdown-item {
