@@ -128,6 +128,16 @@
 				 </ul>
 			
 			</li>
+			<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Jezik
+  </a>
+  <div class="dropdown-menu" aria-labelledby="langDropdown">
+    <a class="dropdown-item" href="<%= currentPath.replace('/en_', '/') %>">Srpski</a>
+    <a class="dropdown-item" href="<%= currentPath.startsWith('/en_') ? currentPath : '/en_' + currentPath.slice(1) %>">English</a>
+  </div>
+</li>
+
 		
     
   </ul>
@@ -255,6 +265,16 @@
 				 </ul>
 			
 			</li>
+			<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle text-light" href="#" id="langDropdownMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Jezik
+  </a>
+  <ul class="dropdown-menu submenu" aria-labelledby="langDropdownMobile">
+    <li><a class="dropdown-item" href="<%= currentPath.replace('/en_', '/') %>">Srpski</a></li>
+    <li><a class="dropdown-item" href="<%= currentPath.startsWith('/en_') ? currentPath : '/en_' + currentPath.slice(1) %>">English</a></li>
+  </ul>
+</li>
+
 			
         </ul>
 		
@@ -269,3 +289,15 @@
   </div>
    
 </nav>
+<%
+// Detekcija jezika na osnovu URL-a
+const isEnglish = req.originalUrl.includes('/en') || req.originalUrl.includes('-en');
+%>
+
+<div class="language-switcher">
+  <% if (isEnglish) { %>
+    <a href="<%= req.originalUrl.replace('/en', '') %>">🇷🇸 Српски</a>
+  <% } else { %>
+    <a href="/en<%= req.originalUrl %>">🇬🇧 English</a>
+  <% } %>
+</div>

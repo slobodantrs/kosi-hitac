@@ -45,6 +45,10 @@ app.use((req, res, next) => {
   res.locals.locale = req.getLocale();
   next();
 });
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
 
 
 app.use(express.static(path.join(__dirname,'public')));
