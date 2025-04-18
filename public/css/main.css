@@ -452,6 +452,20 @@ figure.margine_oko_slike img {
 width:100%;  /* ne izlazi iz figure */
   height: auto;
 }
+.language-switcher {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.language-switcher a {
+  text-decoration: none;
+  padding: 5px 10px;
+  background: #eee;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
 
 }
 @media screen and (max-width: 1200px) {
