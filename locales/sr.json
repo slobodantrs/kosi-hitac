@@ -1,8 +1,8 @@
 {
-	
-	"nav":{
-		"home":"Početna",
-		"about":"O nama",
-		"contact":"Kontakt"
-	}
+  "title": "Kreiranje kompjuterskih simulacija i animacija u fizici",
+  "nav": {
+    "home": "Početna",
+    "about": "O nama",
+    "contact": "Kontakt"
+  }
 }
