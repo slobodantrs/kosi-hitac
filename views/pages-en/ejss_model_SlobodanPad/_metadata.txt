@@ -1,0 +1,19 @@
+generated-with: Easy Java/Javascript Simulations, version 5.3, build 180211. Visit http://www.um.es/fem/Ejs
+title: 
+logo-image: 
+author: Author name
+copyright: 
+preferred-width: 500
+preferred-height: 500
+author-image: 
+source: SlobodanPad.ejss
+main-script: 
+main-simulation: SlobodanPad_Simulation.xhtml
+available-languages: 
+html-contents: SlobodanPad_Contents.xhtml
+html-main: SlobodanPad.xhtml
+page-title: Simulation
+page-index: SlobodanPad_Simulation.xhtml
+resource: zvuk/Reloaded Installer #4.mp3
+resource: zvuk/boing.mp3
+resource: zvuk/padTela.mp4

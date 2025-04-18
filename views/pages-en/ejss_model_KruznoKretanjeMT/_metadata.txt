@@ -1,0 +1,21 @@
+generated-with: Easy Java/Javascript Simulations, version 5.3, build 180211. Visit http://www.um.es/fem/Ejs
+title: 
+logo-image: 
+author: Author name
+copyright: 
+preferred-width: 800
+preferred-height: 600
+author-image: 
+source: KruznoKretanjeMT.ejss
+main-script: 
+main-simulation: KruznoKretanjeMT_Simulation.xhtml
+available-languages: 
+html-description: KruznoKretanjeMT_Intro_1.html
+html-contents: KruznoKretanjeMT_Contents.xhtml
+html-main: KruznoKretanjeMT.xhtml
+page-title: Uvod
+page-index: KruznoKretanjeMT_Intro_1.html
+page-title: Simulation
+page-index: KruznoKretanjeMT_Simulation.xhtml
+resource: images/KruznoKretanje_2.png
+resource: images/KruznoKretanje_1.png

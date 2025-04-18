@@ -1,0 +1,37 @@
+generated-with: Easy Java/Javascript Simulations, version 5.3, build 180211. Visit http://www.um.es/fem/Ejs
+title: 
+logo-image: 
+author: Author name
+copyright: 
+preferred-width: 1000
+preferred-height: 600
+author-image: 
+source: RavnoKretanjeTocka.ejss
+main-script: 
+main-simulation: RavnoKretanjeTocka_Simulation.xhtml
+available-languages: 
+html-description: RavnoKretanjeTocka_Intro_2.html
+html-description: RavnoKretanjeTocka_Intro_1.html
+html-contents: RavnoKretanjeTocka_Contents.xhtml
+html-main: RavnoKretanjeTocka.xhtml
+page-title: Uvod
+page-index: RavnoKretanjeTocka_Intro_1.html
+page-title: Zadatak
+page-index: RavnoKretanjeTocka_Intro_2.html
+page-title: Simulation
+page-index: RavnoKretanjeTocka_Simulation.xhtml
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_5.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_10.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_2.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_4.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_Primeri_1.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_Zadatak_1.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_8.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_Formula_2.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_6.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_Primeri_2.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_1.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_3.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_7.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_Formula_3.png
+resource: images/RavnoKretanjeTocak/RavnoKretanje_KT_Formula_1.png

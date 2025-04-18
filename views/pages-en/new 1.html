@@ -1,0 +1,71 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+	<meta name="description" content="Simulaciju kreirane korišćenjem alata Easy Java Simulation(EJS). 
+Simulacije koje objašnjavaju i demonstriraju  neke fizičke pojave." />
+<meta name="keywords" content="Simulacije kreirane pomoću alata EJS,Simulacije ejs, easy java simulation, ejs, Ravno kretanje krutog tela,
+ kružno kretanje materijalne tačke,simulacija iz fizike,pomoću Java,JavaScript programskog jezika,kreiranje simulacija,JavaScript apleti,Ravno kretanje krutog tela,Rotacija diska" />
+<meta name="author" content="Slobodan Trsek"/>
+	<title>Simulacije kreirane pomoću alata EJS</title/>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<header class="col-xs-12 col-md-12 col-lg-12">
+<div class=" nav content d-flex justify-content-center bg-info">
+    <% include ../partials/header %>
+	</div>
+	
+</header>
+
+</div>
+
+
+<div class="row">
+    <div class="jumbotron .flex-column  justify-content-center col-xs-12 col-md-12 col-lg-12">
+        <h2 class="text-center">Simulacije kreirane pomoću alata EJS</h2>
+        <h4 class="text-center">Dobrodošli  na web prezentaciju simulacija iz fizike.</h4>
+    </div>
+	</div>
+	
+	<div class="row">
+	
+	<p> Ovaj sajt je posvećen kreiranju kompjuterskih simulacija iz fizike korišćenjem alata Easy JavaScript Simulation(EJSS) koji je deo softverskog alata 
+ otvorenog koda (tzv. open source). Ovaj alat je deo "the Open Source Physics project" koji je dizajniran za pravljenje kompjuterskih simulacija.</p>
+ <p>Alat je namenjen fizičarima i svima onima koji žele da proučavaju fizičke pojave uz manje truda oko pisanja programskog koda, jer isti alat to omogućava.
+ Alat omogućava kreiranje simulacija ili pomoću Java ili JavaScript programskog jezika. Ekstenzije fajlova kreiranih pomoću Java programskog jezika je
+ <strong>.ejs</strong>, dok je ona izrađena pomoću JavaScript-a sa ekstenzijom <strong>.ejss.</strong>
+</p>
+<p>Ovaj alat može biti namenjen u edukativne ili naučne svrhe, takođe može služiti kreiranju kompjuterskih igrica.</p>
+<p>Simulacija kreirana pomoću Jave zahteva da na racunaru bude instalirana Java Virtuelna Masina(JVM)koja je sastavni deo platforme za Javu(JRE ili JDK).
+Za razliku od Jave, JavaScript apleti se mogu izvršavati na skoro svim uređajima danas uključujući Android i iOS.</p>
+	</div>
+	<div class="row">
+	<div class="desktop d-flex justify-content-around flex-wrap align-content-center">
+	
+	<% include ./Simulations_Contents %>
+	</div>
+	</div>
+		<div class="row">
+	<div class="mobile d-flex flex-column col-xs-12 col-md-12 col-lg-12">
+
+	<% include ./Simulations_Contents %>
+	</div>
+	</div>
+
+
+<div class="row">
+<div class="container jumbotron content col-xs-12 col-md-12 col-lg-12">
+
+	<% include ../partials/scripts %>
+    <% include ../partials/footer %>
+
+	</div>
+</div>
+</div>
+
+</body>
+</html>

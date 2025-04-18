@@ -1,0 +1,22 @@
+generated-with: Easy Java/Javascript Simulations, version 5.3, build 180211. Visit http://www.um.es/fem/Ejs
+title: 
+logo-image: 
+author: Author name
+copyright: 
+preferred-width: 800
+preferred-height: 600
+author-image: 
+source: KosHitac.ejss
+main-script: 
+main-simulation: KosHitac_Simulation.xhtml
+available-languages: 
+html-description: KosHitac_Intro_2.html
+html-description: KosHitac_Intro_1.html
+html-contents: KosHitac_Contents.xhtml
+html-main: KosHitac.xhtml
+page-title: kos hitac opis
+page-index: KosHitac_Intro_1.html
+page-title: Aktivnosti
+page-index: KosHitac_Intro_2.html
+page-title: Simulation
+page-index: KosHitac_Simulation.xhtml
