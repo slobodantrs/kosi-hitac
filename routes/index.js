@@ -10,6 +10,43 @@ const router = express.Router();
 	res.render('pages/index');
     //res.render('pages/ejss_model_MassAndSpring/MassAndSpring_Simulation.xhtml');
 });
+router.get('/en', function(req, res) {
+	
+	res.render('pages-en/index');
+    
+});
+// English - Mass and Spring
+router.get('/en/simulation_MassAndSpring', function(req, res) {
+    res.render('pages-en/ejss_model_MassAndSpring/MassAndSpring_Simulation');
+});
+router.get('/en/simulation_MassAndSpring/Intro_1', function(req, res) {
+    res.render('pages-en/ejss_model_MassAndSpring/MassAndSpring_Intro_1');
+});
+router.get('/en/simulation_MassAndSpring/Intro_2', function(req, res) {
+    res.render('pages-en/ejss_model_MassAndSpring/MassAndSpring_Intro_2');
+});
+
+// English - Free Fall
+router.get('/en/free_fall', SlobodanPadController.SlobodanPad_EN);
+router.get('/en/free_fall/:id', SlobodanPadController.SlobodanPad_EN);
+router.get('/en/contents_free_fall', SlobodanPadController.SlobodanPadContents_EN);
+router.get('/en/free_fall_intro_1', SlobodanPadController.SlobodanPad1_EN);
+router.get('/en/free_fall_intro_2', SlobodanPadController.SlobodanPad2_EN);
+router.get('/en/simulation_free_fall', SlobodanPadController.SlobodanPadSimulacija_EN);
+
+// English - Vertical Throw
+router.get('/en/vertical_throw', VertikalanHitacController.VertikalanHitac_EN);
+router.get('/en/vertical_throw/:id', VertikalanHitacController.VertikalanHitac_EN);
+router.get('/en/contents_vertical_throw', VertikalanHitacController.VertikalanHitacContents_EN);
+router.get('/en/vertical_throw_intro_1', VertikalanHitacController.VertikalanHitac1_EN);
+router.get('/en/vertical_throw_intro_2', VertikalanHitacController.VertikalanHitac2_EN);
+router.get('/en/simulation_vertical_throw', VertikalanHitacController.VertikalanHitac_Simulation_EN);
+
+// English - Projectile Motion
+router.get('/en/projectile_motion', KosHitacController.KosHitac_EN);
+router.get('/en/projectile_motion/:id', KosHitacController.KosHitac_EN);
+router.get('/en/contents_projectile_motion', KosHitacController.kosHit
+
 
 // index page of test
  router.get('/test', function(req, res) {
