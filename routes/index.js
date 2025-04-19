@@ -42,10 +42,14 @@ router.get('/en/vertical_throw_intro_1', VertikalanHitacController.VertikalanHit
 router.get('/en/vertical_throw_intro_2', VertikalanHitacController.VertikalanHitac2_EN);
 router.get('/en/simulation_vertical_throw', VertikalanHitacController.VertikalanHitac_Simulation_EN);
 
-// English - Projectile Motion
-router.get('/en/projectile_motion', KosHitacController.KosHitac_EN);
-router.get('/en/projectile_motion/:id', KosHitacController.KosHitac_EN);
-router.get('/en/contents_projectile_motion', KosHitacController.kosHit
+// English - Projectile Motion (Kosi hitac)
+router.get('/en/projectile_motion',                            KosHitacController.KosHitac_EN);
+router.get('/en/projectile_motion/:id',                        KosHitacController.KosHitac_EN);
+router.get('/en/contents_projectile_motion',                   KosHitacController.kosHitacContents_EN);
+router.get('/en/projectile_motion_intro_1',                    KosHitacController.KosHitac1_EN);
+router.get('/en/projectile_motion_intro_2',                    KosHitacController.KosHitac2_EN);
+router.get('/en/simulation_projectile_motion',                 KosHitacController.KosHitacSimulacija_EN);
+
 
 
 // index page of test

@@ -1,45 +1,60 @@
-var methods={
-//Vertikalan hitac
-KruznoKretanjeMT1: function(req, res) {
-	
-		res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_1');
-	
-},
-KruznoKretanjeMT2: function(req, res) {
-	
-		res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_2');
-	
-},
-KruznoKretanjeMT: function(req, res) {
-	var id=req.params.id;
-	res.id=id;
+// controllers/KruznoKretanjeMTController.js
+var methods = {
 
-	res.path1='./KruznoKretanjeMT_Contents';
-	res.path2='./KruznoKretanjeMT_Intro_1';
-	if(id==2){
-		res.path2='./KruznoKretanjeMT_Intro_2';
-	}	
-	else{
-		res.path2='./KruznoKretanjeMT_Intro_1';
-	}
-		console.log(`Kruzno kretanje kontroler %d, %s, %s`,id,res.path1,res.path2);
-	
-	// res.path1='./KosHitac_Contents';
-	// res.path2='./KosHitac_Intro_2';
-	// if(id==1){
-		// res.path2='./KosHitac_Intro_1';
-	// }	
-	// else{
-		// res.path2='./KosHitac_Intro_2';
-	// }
-	//res.render('pages/ejss_model_vertikalanHitac/vertikalanHitac_Contents',res);
+  // — srpska verzija — 
+  KruznoKretanjeMT1: function(req, res) {
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_1');
+  },
 
-   res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT',res);
+  KruznoKretanjeMT2: function(req, res) {
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_2');
+  },
 
-},
-KruznoKretanjeMTContents: function(req, res) {
-	
+  KruznoKretanjeMT: function(req, res) {
+    var id = req.params.id;
+    res.id = id;
+    res.path1 = './KruznoKretanjeMT_Contents';
+    // biramo intro zavisno od id-a
+    res.path2 = (id == 2)
+      ? './KruznoKretanjeMT_Intro_2'
+      : './KruznoKretanjeMT_Intro_1';
+    console.log(`Kruž. kretanje kontroler %d, %s, %s`, id, res.path1, res.path2);
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT', res);
+  },
+
+  KruznoKretanjeMTContents: function(req, res) {
     res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Contents');
-},
-}
-module.exports=methods;
+  },
+
+  // — ENGLISH VERSION —
+
+  KruznoKretanjeMT1_EN: function(req, res) {
+    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_1');
+  },
+
+  KruznoKretanjeMT2_EN: function(req, res) {
+    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_2');
+  },
+
+  KruznoKretanjeMT_EN: function(req, res) {
+    var id = req.params.id;
+    res.id = id;
+    res.path1 = './KruznoKretanjeMT_Contents';   // English partial: kosHitac -> same naming
+    res.path2 = (id == 2)
+      ? './KruznoKretanjeMT_Intro_2'
+      : './KruznoKretanjeMT_Intro_1';
+    console.log(`Circular motion EN ctrl %d, %s, %s`, id, res.path1, res.path2);
+    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT', res);
+  },
+
+  KruznoKretanjeMTContents_EN: function(req, res) {
+    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Contents');
+  },
+
+  KruznoKretanjeMTSim_EN: function(req, res) {
+    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Simulation');
+  }
+
+};
+
+module.exports = methods;
