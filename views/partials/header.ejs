@@ -290,14 +290,13 @@
    
 </nav>
 <%
-// Detekcija jezika na osnovu URL-a
-const isEnglish = req.originalUrl.includes('/en') || req.originalUrl.includes('-en');
+  const isEnglish = locale === 'en';
 %>
-
 <div class="language-switcher">
   <% if (isEnglish) { %>
-    <a href="<%= req.originalUrl.replace('/en', '') %>">🇷🇸 Српски</a>
+    <a href="<%= currentPath.replace(/^\/en/, '') %>">🇷🇸 Српски</a>
   <% } else { %>
-    <a href="/en<%= req.originalUrl %>">🇬🇧 English</a>
+    <a href="/en<%= currentPath %>">🇬🇧 English</a>
   <% } %>
 </div>
+

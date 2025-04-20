@@ -24,31 +24,33 @@ i18n.configure({
 app.use(cookieParser());
 app.use(i18n.init);
 
+
 //  –––––––––––––––––––––––––––––––––––––––––––––––––
-// Middleware: promena jezika preko ?lang=xx i kolačići
+// 1) Промена језика преко ?lang=xx и чување у cookies
 app.use((req, res, next) => {
-  // 1) Ako u URL‑u stoji ?lang=sr ili ?lang=en …
   if (req.query.lang) {
-    // 2) … sačuvaj ga u kolačić
     res.cookie('lang', req.query.lang, {
-      maxAge: 30 * 24 * 60 * 60 * 1000, // npr. 30 dana
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 дана
       httpOnly: true
     });
-    // 3) i odmah namesti locale na req
     req.setLocale(req.query.lang);
   }
   next();
 });
-//  –––––––––––––––––––––––––––––––––––––––––––––––––
+
+// 2) Прослеђивање помоћних ф-ја и текућег језика у template
 app.use((req, res, next) => {
-  res.locals.__     = res.__;
-  res.locals.locale = req.getLocale();
+  res.locals.__     = res.__;            // за __('key')
+  res.locals.locale = req.getLocale();   // 'sr' или 'en'
   next();
 });
+
+// 3) **Додај** ово после претходна два, да би у EJS-у имао currentPath
 app.use((req, res, next) => {
-  res.locals.currentPath = req.path;
+  res.locals.currentPath = req.originalUrl; // или req.path, како ти одговара
   next();
 });
+
 
 
 app.use(express.static(path.join(__dirname,'public')));
