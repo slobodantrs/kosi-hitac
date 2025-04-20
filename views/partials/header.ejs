@@ -5,7 +5,11 @@
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 <!-- End Google Tag Manager (noscript) -->
+<%
 
+const isEn = locale === 'en';
+const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако постоји
+%>
 <nav class="desktop-nav nav-container navbar-expand-lg primary d-flex flex-row p-2 align-items-end" role="navigation">
 <!-- Items -->
         <div class="collapse navbar-collapse" id="topNavBar">
@@ -128,11 +132,7 @@
 				 </ul>
 			
 			</li>
-			<%
-// Избаците препреку "/en_" и замените га коректним "/en/"
-const isEn = locale === 'en';
-const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако постоји
-%>
+			
 
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle text-light" href="#" id="langDropdownMobile" role="button"
@@ -293,7 +293,7 @@ const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако
     <li>
       <a class="dropdown-item"
          href="<%= basePath %>">
-        🇷🇸 Српски
+        🇷🇸 Srpski
       </a>
     </li>
     <li>
@@ -320,14 +320,5 @@ const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако
   </div>
    
 </nav>
-<%
-  const isEnglish = locale === 'en';
-%>
-<div class="language-switcher">
-  <% if (isEnglish) { %>
-    <a href="<%= currentPath.replace(/^\/en/, '') %>">🇷🇸 Српски</a>
-  <% } else { %>
-    <a href="/en<%= currentPath %>">🇬🇧 English</a>
-  <% } %>
-</div>
+
 
