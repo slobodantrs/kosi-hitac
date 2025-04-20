@@ -84,7 +84,10 @@ app.use("/analytics", proxy("www.google-analytics.com", {
 }));
 
 // 6) SEO
-seo(app);
+// 1) Прихватање повратне вредности приликом инициализације
+const seo = require('express-seo')(app);
+
+// 2) Сада 'seo' има методе setConfig и setDefaults
 seo.setConfig({ langs: ["en","fr","sr-rs"] });
 seo.setDefaults({
   html: "<a href='https://www.facebook.com/svetprogramiranja'>Prati nas na Facebook‑u</a>",
