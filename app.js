@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const proxy        = require('express-http-proxy');
 const i18n         = require('i18n');
 const routes       = require('./routes');
-const seo          = require('express-seo');
+
 
 // 2) init
 const app  = express();
