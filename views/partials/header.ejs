@@ -128,14 +128,31 @@
 				 </ul>
 			
 			</li>
-			<li class="nav-item dropdown dropdown-submenu">
-  <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<%
+// Избаците препреку "/en_" и замените га коректним "/en/"
+const isEn = locale === 'en';
+const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако постоји
+%>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle text-light" href="#" id="langDropdownMobile" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">
     Jezik
   </a>
-  <div class="dropdown-menu" aria-labelledby="langDropdown">
-    <a class="dropdown-item" href="<%= currentPath.replace('/en_', '/') %>">Srpski</a>
-    <a class="dropdown-item" href="<%= currentPath.startsWith('/en_') ? currentPath : '/en_' + currentPath.slice(1) %>">English</a>
-  </div>
+  <ul class="dropdown-menu submenu" aria-labelledby="langDropdownMobile">
+    <li>
+      <a class="dropdown-item"
+         href="<%= basePath %>">
+        🇷🇸 Српски
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item"
+         href="/en<%= basePath %>">
+        🇬🇧 English
+      </a>
+    </li>
+  </ul>
 </li>
 
 		
@@ -265,15 +282,33 @@
 				 </ul>
 			
 			</li>
-			<li class="nav-item dropdown dropdown-submenu">
-  <a class="nav-link dropdown-toggle text-light" href="#" id="langDropdownMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<%
+// Избаците препреку "/en_" и замените га коректним "/en/"
+const isEn = locale === 'en';
+const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако постоји
+%>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle text-light" href="#" id="langDropdownMobile" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">
     Jezik
   </a>
   <ul class="dropdown-menu submenu" aria-labelledby="langDropdownMobile">
-    <li><a class="dropdown-item" href="<%= currentPath.replace('/en_', '/') %>">Srpski</a></li>
-    <li><a class="dropdown-item" href="<%= currentPath.startsWith('/en_') ? currentPath : '/en_' + currentPath.slice(1) %>">English</a></li>
+    <li>
+      <a class="dropdown-item"
+         href="<%= basePath %>">
+        🇷🇸 Српски
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item"
+         href="/en<%= basePath %>">
+        🇬🇧 English
+      </a>
+    </li>
   </ul>
 </li>
+
 
 			
         </ul>
