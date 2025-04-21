@@ -146,45 +146,7 @@ const isEn = locale === 'en';
 			</li>
 			
 
-<li class="nav-item dropdown dropdown-submenu">
-  <a class="nav-link dropdown-toggle text-light" href="#" id="langDropdownMobile" role="button"
-     data-bs-toggle="dropdown" aria-expanded="false">
-    Jezik
-  </a>
-  <ul class="dropdown-menu submenu" aria-labelledby="langDropdownMobile">
-    <li>
-      <a class="dropdown-item"
-         href="<%= basePath %>">
-        🇷🇸 Srpski<%
-  // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
-  // у супротном је to само currentPath
-  let basePath;
-  if (locale === 'en') {
-    // ако је currentPath == '/en' -> уместо празног стринга врати '/'
-    basePath = currentPath.replace(/^\/en/, '') || '/';
-  } else {
-    basePath = currentPath;
-  }
-%>
 
-<div class="language-switcher">
-  <% if (locale === 'en') { %>
-    <!-- На енглеској страници нудимо прелазак на српску -->
-    <a href="<%= basePath %>">🇷🇸 Српски</a>
-  <% } else { %>
-    <!-- На српској страници нудимо прелазак на енглеску -->
-    <a href="/en<%= basePath === '/' ? '' : basePath %>">🇬🇧 English</a>
-  <% } %>
-</div>
-
-      </a>
-    </li>
-    <li>
-      <a class="dropdown-item"
-         href="/en<%= basePath %>">
-        🇬🇧 English
-      </a>
-    </li>
   </ul>
 </li>
 
