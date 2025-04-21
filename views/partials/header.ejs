@@ -6,14 +6,14 @@
   </noscript>
 <!-- End Google Tag Manager (noscript) -->
 <%
-
+  let basePath;
 const isEn = locale === 'en';
 
 %>
 <%
   // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
   // у супротном је to само currentPath
-  let basePath;
+
   if (locale === 'en') {
     // ако је currentPath == '/en' -> уместо празног стринга врати '/'
     basePath = currentPath.replace(/^\/en/, '') || '/';
@@ -316,7 +316,17 @@ const isEn = locale === 'en';
    
 </nav>
 
+<%
+  // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
+  // у супротном је to само currentPath
 
+  if (locale === 'en') {
+    // ако је currentPath == '/en' -> уместо празног стринга врати '/'
+    basePath = currentPath.replace(/^\/en/, '') || '/';
+  } else {
+    basePath = currentPath;
+  }
+%>
 
 <div class="language-switcher">
   <% if (locale === 'en') { %>
@@ -327,4 +337,3 @@ const isEn = locale === 'en';
     <a href="/en<%= basePath === '/' ? '' : basePath %>">🇬🇧 English</a>
   <% } %>
 </div>
-
