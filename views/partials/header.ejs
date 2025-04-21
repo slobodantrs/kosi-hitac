@@ -143,7 +143,28 @@ const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако
     <li>
       <a class="dropdown-item"
          href="<%= basePath %>">
-        🇷🇸 Srpski
+        🇷🇸 Srpski<%
+  // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
+  // у супротном је to само currentPath
+  let basePath;
+  if (locale === 'en') {
+    // ако је currentPath == '/en' -> уместо празног стринга врати '/'
+    basePath = currentPath.replace(/^\/en/, '') || '/';
+  } else {
+    basePath = currentPath;
+  }
+%>
+
+<div class="language-switcher">
+  <% if (locale === 'en') { %>
+    <!-- На енглеској страници нудимо прелазак на српску -->
+    <a href="<%= basePath %>">🇷🇸 Српски</a>
+  <% } else { %>
+    <!-- На српској страници нудимо прелазак на енглеску -->
+    <a href="/en<%= basePath === '/' ? '' : basePath %>">🇬🇧 English</a>
+  <% } %>
+</div>
+
       </a>
     </li>
     <li>
@@ -321,4 +342,25 @@ const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако
    
 </nav>
 
+<%
+  // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
+  // у супротном је to само currentPath
+  let basePath;
+  if (locale === 'en') {
+    // ако је currentPath == '/en' -> уместо празног стринга врати '/'
+    basePath = currentPath.replace(/^\/en/, '') || '/';
+  } else {
+    basePath = currentPath;
+  }
+%>
+
+<div class="language-switcher">
+  <% if (locale === 'en') { %>
+    <!-- На енглеској страници нудимо прелазак на српску -->
+    <a href="<%= basePath %>">🇷🇸 Српски</a>
+  <% } else { %>
+    <!-- На српској страници нудимо прелазак на енглеску -->
+    <a href="/en<%= basePath === '/' ? '' : basePath %>">🇬🇧 English</a>
+  <% } %>
+</div>
 
