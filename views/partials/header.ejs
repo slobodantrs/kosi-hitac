@@ -315,25 +315,21 @@ const isEn = locale === 'en';
   </div>
    
 </nav>
-
 <%
-  // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
-  // у супротном је to само currentPath
-
-  if (locale === 'en') {
-    // ако је currentPath == '/en' -> уместо празног стринга врати '/'
-    basePath = currentPath.replace(/^\/en/, '') || '/';
-  } else {
-    basePath = currentPath;
-  }
+  // Да ли смо на енглеском (пут почиње са /en)
+  const isEng = currentPath.startsWith('/en');
+  // Уклонимо префикс '/en' да бисмо добили "базни" пут
+   basePath = isEng
+    ? (currentPath.replace(/^\/en/, '') || '/')
+    : currentPath;
 %>
 
 <div class="language-switcher">
-  <% if (locale === 'en') { %>
-    <!-- На енглеској страници нудимо прелазак на српску -->
-    <a href="<%= basePath %>">🇷🇸 Српски</a>
+  <% if (isEng) { %>
+    <!-- Ако смо на /en/..., покажи дугме за српски -->
+    <a href="<%= basePath %>">🇷🇸 Srpski</a>
   <% } else { %>
-    <!-- На српској страници нудимо прелазак на енглеску -->
+    <!-- У супротном, покажи дугме за енглески -->
     <a href="/en<%= basePath === '/' ? '' : basePath %>">🇬🇧 English</a>
   <% } %>
 </div>
