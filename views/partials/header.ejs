@@ -8,8 +8,20 @@
 <%
 
 const isEn = locale === 'en';
-const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако постоји
+
 %>
+<%
+  // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
+  // у супротном је to само currentPath
+  let basePath;
+  if (locale === 'en') {
+    // ако је currentPath == '/en' -> уместо празног стринга врати '/'
+    basePath = currentPath.replace(/^\/en/, '') || '/';
+  } else {
+    basePath = currentPath;
+  }
+%>
+
 <nav class="desktop-nav nav-container navbar-expand-lg primary d-flex flex-row p-2 align-items-end" role="navigation">
 <!-- Items -->
         <div class="collapse navbar-collapse" id="topNavBar">
@@ -342,17 +354,7 @@ const basePath = currentPath.replace(/^\/en/, '');  // уклони '/en' ако
    
 </nav>
 
-<%
-  // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
-  // у супротном је to само currentPath
-  let basePath;
-  if (locale === 'en') {
-    // ако је currentPath == '/en' -> уместо празног стринга врати '/'
-    basePath = currentPath.replace(/^\/en/, '') || '/';
-  } else {
-    basePath = currentPath;
-  }
-%>
+
 
 <div class="language-switcher">
   <% if (locale === 'en') { %>
