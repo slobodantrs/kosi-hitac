@@ -75,7 +75,7 @@ app.use((req, res, next) => {
 //});
 
 // app.js (posle svih `app.use(...)` pre `app.listen(...)`)
-
+console.log('app.js');
 const slugMap = {
   // Почетна
   '/':                                 '/en/',

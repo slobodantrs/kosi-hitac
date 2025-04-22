@@ -188,17 +188,20 @@ router.get('/en/p5js', P5jsController.Uvod_u_p5js_EN);
  router.get('en/animacija_kruznog_kretanja', P5jsController.Animacija_kruznog_kretanja_EN);
  router.get('en/klizanje_tela_niz_strmu_ravan', P5jsController.Klizanje_tela_niz_strmu_ravan_EN);
  
+ console.log('Registering EN route handler:', OpsteController.O_Ejsu_EN);
  router.get('/en/o_ejsu', OpsteController.O_Ejsu_EN);
  router.get('/en/o_ejsu_primer', OpsteController.O_Ejsu_primer_EN);
  router.get('/en/o_ejsu_primer_napredno', OpsteController.O_Ejsu_primer_napredno_EN);
  router.get('/en/o_ejsu_primer_napredno_2', OpsteController.O_Ejsu_primer_napredno_2_EN);
  
  // p5js animations
+ console.log('Registering EN route handler:', P5jsController.Uvod_u_p5js_EN);
 router.get('/en/p5js', P5jsController.Uvod_u_p5js_EN);
 router.get('/en/circular-motion', P5jsController.Animacija_kruznog_kretanja_EN);
 router.get('/en/inclined-plane-slide', P5jsController.Klizanje_tela_niz_strmu_ravan_EN);
 
 // О EJS
+console.log('Registering EN route handler:', OpsteController.O_Ejsu_EN);
 router.get('/en/about-ejs',           OpsteController.O_Ejsu_EN);
 router.get('/en/ejs-example',         OpsteController.O_Ejsu_primer_EN);
 router.get('/en/ejs-example-advanced',    OpsteController.O_Ejsu_primer_napredno_EN);
@@ -206,6 +209,7 @@ router.get('/en/ejs-example-advanced-2',  OpsteController.O_Ejsu_primer_napredno
 
 
 // English - Free Fall
+console.log('Registering EN route handler:', SlobodanPadController.SlobodanPad_EN);
 router.get('/en/free_fall', SlobodanPadController.SlobodanPad_EN);
 router.get('/en/free_fall/:id', SlobodanPadController.SlobodanPad_EN);
 router.get('/en/contents_free_fall', SlobodanPadController.SlobodanPadContents_EN);
@@ -214,6 +218,7 @@ router.get('/en/free_fall_intro_2', SlobodanPadController.SlobodanPad2_EN);
 router.get('/en/simulation_free_fall', SlobodanPadController.SlobodanPadSimulacija_EN);
 
 // English - Vertical Throw
+console.log('Registering EN route handler:', VertikalanHitacController.VertikalanHitac_EN);
 router.get('/en/vertical_throw', VertikalanHitacController.VertikalanHitac_EN);
 router.get('/en/vertical_throw/:id', VertikalanHitacController.VertikalanHitac_EN);
 router.get('/en/contents_vertical_throw', VertikalanHitacController.VertikalanHitacContents_EN);
@@ -222,6 +227,7 @@ router.get('/en/vertical_throw_intro_2', VertikalanHitacController.VertikalanHit
 router.get('/en/simulation_vertical_throw', VertikalanHitacController.VertikalanHitac_Simulation_EN);
 
 // English - Projectile Motion (Kosi hitac)
+console.log('Registering EN route handler:', KosHitacController.KosHitac_EN);
 router.get('/en/projectile_motion',                            KosHitacController.KosHitac_EN);
 router.get('/en/projectile_motion/:id',                        KosHitacController.KosHitac_EN);
 router.get('/en/contents_projectile_motion',                   KosHitacController.kosHitacContents_EN);
