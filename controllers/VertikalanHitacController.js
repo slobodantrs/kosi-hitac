@@ -29,11 +29,11 @@ var methods = {
 	console.log('path 1>'+res.path1);
 	console.log('path 2>'+res.path2);
 	
-console.log("Render attempt:", 'pages/ejss_model_VertikalniHitac/vertikalanHitac');
+console.log("Render attempt:", 'pages/ejss_model_VertikalanHitac/vertikalanHitac');
 
    
 	
-   res.render('pages/ejss_model_VertikalniHitac/vertikalanHitac', res);
+   res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
   },
 
   VertikalanHitacContents: function(req, res) {
