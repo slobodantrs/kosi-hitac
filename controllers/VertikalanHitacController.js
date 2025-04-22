@@ -20,6 +20,9 @@ var methods = {
       ? './vertikalanHitac_Intro_2'
       : './vertikalanHitac_Intro_1';
     console.log(`U Controleru: Vertikalan hitac kontroler ${id}, ${res.path1}, ${res.path2}`);
+	console.log(__dirname);
+console.log("Render attempt:", 'pages/ejss_model_VertikalanHitac/vertikalanHitac');
+
     res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
   },
 
