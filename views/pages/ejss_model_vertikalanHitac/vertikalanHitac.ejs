@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="<%= locale %>" xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
-   <% include ../../partials/head %>
+   <% include ../partials/head %>
    <meta name="description" content="Simulacija vertikalnog hica naviše zajedno sa kratkim uvidom u teoriju vertikalnog hica. 
    Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
 	<meta name="keywords" content="Vertikalan hitac, kretanje tela, gravitacionom polju zemlje, intenziteta vektora početne brzine, 
@@ -12,7 +12,11 @@
     <title> Početna strana za vertikalan hitac</title>
   </head>
   <body>
-  <script>console.log('vertikalan hitac.ejs');</script>
+  <script>
+// prvo je definiši kao JS promenljivu iz EJS-a:
+  var path1 = "<%= path1 %>";
+  console.log('path1 u verikalniHitac.ejs =', path1);
+  <script>
    <div class="content-wrapper moj-header">
 <div class="col-xs-12 col-md-12 col-lg-12">
             <header>
@@ -20,11 +24,7 @@
             </header>
         </div>
 </div>
-<script>
-// prvo je definiši kao JS promenljivu iz EJS-a:
-  var path1 = "<%= path1 %>";
-  console.log('path1 u verikalniHitac.ejs =', path1);
-  <script>
+
 <div class="content intro_1">
   <div class="intro_1">
   <%- include(path1); %>
