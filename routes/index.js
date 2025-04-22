@@ -183,35 +183,34 @@ router.get('/en/simulation_MassAndSpring/Intro_1', function(req, res) {
 router.get('/en/simulation_MassAndSpring/Intro_2', function(req, res) {
     res.render('pages-en/ejss_model_MassAndSpring/MassAndSpring_Intro_2');
 });
-// English - Upotreba p5.js
-router.get('/en/p5js', P5jsController.Uvod_u_p5js_en);
-router.get('/en/animacija_kruznog_kretanja', P5jsController.Animacija_kruznog_kretanja_en);
-router.get('/en/klizanje_tela_niz_strmu_ravan', P5jsController.Klizanje_tela_niz_strmu_ravan_en);
+
+router.get('/en/p5js', P5jsController.Uvod_u_p5js_EN);
+ router.get('en/animacija_kruznog_kretanja', P5jsController.Animacija_kruznog_kretanja_EN);
+ router.get('en/klizanje_tela_niz_strmu_ravan', P5jsController.Klizanje_tela_niz_strmu_ravan_EN);
 
 // English - Free Fall
-router.get('/en/free_fall', SlobodanPadController.SlobodanPad_en);
-router.get('/en/free_fall/:id', SlobodanPadController.SlobodanPad_en);
-router.get('/en/contents_free_fall', SlobodanPadController.SlobodanPadContents_en);
-router.get('/en/free_fall_intro_1', SlobodanPadController.SlobodanPad1_en);
-router.get('/en/free_fall_intro_2', SlobodanPadController.SlobodanPad2_en);
-router.get('/en/simulation_free_fall', SlobodanPadController.SlobodanPadSimulacija_en);
+router.get('/en/free_fall', SlobodanPadController.SlobodanPad_EN);
+router.get('/en/free_fall/:id', SlobodanPadController.SlobodanPad_EN);
+router.get('/en/contents_free_fall', SlobodanPadController.SlobodanPadContents_EN);
+router.get('/en/free_fall_intro_1', SlobodanPadController.SlobodanPad1_EN);
+router.get('/en/free_fall_intro_2', SlobodanPadController.SlobodanPad2_EN);
+router.get('/en/simulation_free_fall', SlobodanPadController.SlobodanPadSimulacija_EN);
 
 // English - Vertical Throw
-router.get('/en/vertical_throw', VertikalanHitacController.VertikalanHitac_en);
-router.get('/en/vertical_throw/:id', VertikalanHitacController.VertikalanHitac_en);
-router.get('/en/contents_vertical_throw', VertikalanHitacController.VertikalanHitacContents_en);
-router.get('/en/vertical_throw_intro_1', VertikalanHitacController.VertikalanHitac1_en);
-router.get('/en/vertical_throw_intro_2', VertikalanHitacController.VertikalanHitac2_en);
-router.get('/en/simulation_vertical_throw', VertikalanHitacController.VertikalanHitac_Simulation_en);
+router.get('/en/vertical_throw', VertikalanHitacController.VertikalanHitac_EN);
+router.get('/en/vertical_throw/:id', VertikalanHitacController.VertikalanHitac_EN);
+router.get('/en/contents_vertical_throw', VertikalanHitacController.VertikalanHitacContents_EN);
+router.get('/en/vertical_throw_intro_1', VertikalanHitacController.VertikalanHitac1_EN);
+router.get('/en/vertical_throw_intro_2', VertikalanHitacController.VertikalanHitac2_EN);
+router.get('/en/simulation_vertical_throw', VertikalanHitacController.VertikalanHitac_Simulation_EN);
 
 // English - Projectile Motion (Kosi hitac)
-router.get('/en/projectile_motion',                            KosHitacController.KosHitac_en);
-router.get('/en/projectile_motion/:id',                        KosHitacController.KosHitac_en);
-router.get('/en/contents_projectile_motion',                   KosHitacController.kosHitacContents_en);
-router.get('/en/projectile_motion_intro_1',                    KosHitacController.KosHitac1_en);
-router.get('/en/projectile_motion_intro_2',                    KosHitacController.KosHitac2_en);
-router.get('/en/simulation_projectile_motion',                 KosHitacController.KosHitacSimulacija_en);
-
+router.get('/en/projectile_motion',                            KosHitacController.KosHitac_EN);
+router.get('/en/projectile_motion/:id',                        KosHitacController.KosHitac_EN);
+router.get('/en/contents_projectile_motion',                   KosHitacController.kosHitacContents_EN);
+router.get('/en/projectile_motion_intro_1',                    KosHitacController.KosHitac1_EN);
+router.get('/en/projectile_motion_intro_2',                    KosHitacController.KosHitac2_EN);
+router.get('/en/simulation_projectile_motion',                 KosHitacController.KosHitacSimulacija_EN);
 
 
 const path = require('path');
