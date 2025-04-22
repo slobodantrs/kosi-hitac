@@ -67,7 +67,7 @@ VertikalanHitac2_EN: function(req, res) {
 
 // Main dynamic page
 VertikalanHitac_EN: function(req, res) {
-  var id = req.params.id;
+  const id = parseInt(req.params.id, 10) || 1;
   res.id = id;
   res.path1 = './verticalThrow_Contents';
   res.path2 = (id == 2)
@@ -84,7 +84,11 @@ VertikalanHitacContents_EN: function(req, res) {
 
 // Simulation page
 VertikalanHitac_Simulation_EN: function(req, res) {
-  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow_Simulation');
+	res.path1 = './vertikalanHitac_Contents';
+   
+   
+	console.log('path 1>'+res.path1);
+  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow_Simulation',res);
 }
 
 };

@@ -26,33 +26,42 @@ var methods = {
     res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Contents');
   },
 
-  // — ENGLISH VERSION —
-
+   // — ENGLISH VERSION —
   KruznoKretanjeMT1_EN: function(req, res) {
-    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_1');
+    // страница Intro 1
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_1');
   },
 
   KruznoKretanjeMT2_EN: function(req, res) {
-    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_2');
+    // страница Intro 2
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_2');
   },
 
   KruznoKretanjeMT_EN: function(req, res) {
-    var id = req.params.id;
+    // основна динамичка страница
+    const id = parseInt(req.params.id, 10) || 1;  // ако није prosleђено, узми 1
     res.id = id;
-    res.path1 = './KruznoKretanjeMT_Contents';   // English partial: kosHitac -> same naming
-    res.path2 = (id == 2)
-      ? './KruznoKretanjeMT_Intro_2'
-      : './KruznoKretanjeMT_Intro_1';
-    console.log(`Circular motion EN ctrl %d, %s, %s`, id, res.path1, res.path2);
-    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT', res);
+
+    // oве путanje користиш у view-у са <% include(path1) %>
+    res.path1 = './CircularMotionMT_Contents';
+    res.path2 = id === 2
+      ? './CircularMotionMT_Intro_2'
+      : './CircularMotionMT_Intro_1';
+
+    console.log(`Circular motion EN ctrl ${id}, ${res.path1}, ${res.path2}`);
+
+    // главни EJS шаблон
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT', res);
   },
 
   KruznoKretanjeMTContents_EN: function(req, res) {
-    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Contents');
+    // садржај странице (partials)
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Contents');
   },
 
   KruznoKretanjeMTSim_EN: function(req, res) {
-    res.render('pages-en/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Simulation');
+    // страница симулације
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Simulation');
   }
 
 };
