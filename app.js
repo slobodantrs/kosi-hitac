@@ -42,8 +42,14 @@ app.use((req, res, next) => {
   // Ako URL počinje sa '/en/' ili je tačno '/en'
   if (req.path === '/en' || req.path.startsWith('/en/')) {
     req.setLocale('en');
-    res.locals.locale = 'en';
+   
   }
+  else {
+    // OVDE SILOM nameštamo српски
+    req.setLocale('sr');
+  }
+  // ažuriramo locals
+  res.locals.locale = req.getLocale();
   next();
 });
 
