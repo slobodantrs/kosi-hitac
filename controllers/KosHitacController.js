@@ -12,7 +12,7 @@ var methods = {
   
   KosHitac: function(req, res) {
     var id = req.params.id;
-	res.id = id;
+	const id = parseInt(req.params.id, 10) || 1;
     // ovi pathi se kasnije koriste u view-u za include
  //   res.path1 = './KosHitac_Contents';
  /*   res.path2 = (id == 1)
