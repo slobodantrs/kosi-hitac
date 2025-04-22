@@ -7,15 +7,20 @@
 <!-- End Google Tag Manager (noscript) -->
 
 
-<% 
-  const isEn    = locale === 'en';
-  const prefix  = isEn ? '/en' : ''; 
-  // basePath без /en префикса, за language‑switcher
-  const basePath = isEn
-    ? (currentPath.replace(/^\/en/, '') || '/')
-    : currentPath;
-%>
 
+<%
+let basePath;
+const prefix  = isEn ? '/en' : ''; 
+  // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
+  // у супротном је to само currentPath
+
+  if (locale === 'en') {
+    // ако је currentPath == '/en' -> уместо празног стринга врати '/'
+    basePath = currentPath.replace(/^\/en/, '') || '/';
+  } else {
+    basePath = currentPath;
+  }
+%>
 <nav class="desktop-nav nav-container navbar-expand-lg primary d-flex flex-row p-2 align-items-end" role="navigation">
   <div class="collapse navbar-collapse" id="topNavBar">
     <ul class="d-flex align-items-center nav navbar-nav">
@@ -232,7 +237,7 @@ debugger;
 %>
 
 <div class="language-switcher">
-  <% if (isEng) { %>
+  <% if (isEn) { %>
     <a href="<%= target %>">🇷🇸 Српски</a>
   <% } else { %>
     <a href="<%= target %>">🇬🇧 English</a>
