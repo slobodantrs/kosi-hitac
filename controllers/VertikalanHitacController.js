@@ -26,11 +26,11 @@ var methods = {
 	console.log(__dirname);
 console.log("Render attempt:", 'pages/ejss_model_VertikalanHitac/vertikalanHitac');*/
 console.log("Render attempt:", 'pages/ejss_model_KosHitac/KosHitac');
-res.path1 = './vertikalanHitac_Contents';
-    res.path2 = (id == 2)
-      ? './vertikalanHitac_Intro_2'
-      : './vertikalanHitac_Intro_1';
-  
+res.path1 = './KosHitac_Contents';
+    res.path2 = (id == 1)
+      ? './KosHitac_Intro_1'
+      : './KosHitac_Intro_2';
+    res.id = id;
 	console.log('path 1>'+res.path1);
     res.render('pages/ejss_model_VertikalanHitac/KosHitac', res);
 
