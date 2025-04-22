@@ -9,6 +9,7 @@
 
 
 <%
+const isEn = locale === 'en';
 let basePath;
 const prefix  = isEn ? '/en' : ''; 
   // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
@@ -222,7 +223,7 @@ const prefix  = isEn ? '/en' : '';
 </nav>
 
 <%
-  const isEng = locale === 'en';
+ 
 
   // кад смо на српском, циљна en-рутa је slugMap[currentPath]
   // кад смо на енглеском, циљна sr-рутa је slugMapInverse[currentPath]
@@ -230,7 +231,7 @@ const prefix  = isEn ? '/en' : '';
   const srSlug = slugMapInverse[currentPath];     // нпр. '/en/' → '/'
 debugger;
   // fallback: ако рутa није у мапи, једноставно уклони `^/en` или додај `'/en'`
-  const target = isEng
+  const target = isEn
     ? (srSlug || currentPath.replace(/^\/en/, '') || '/')
     : (enSlug || `/en${currentPath}`);
 
