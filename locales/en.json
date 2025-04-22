@@ -1,9 +1,23 @@
+// locales/en.json
 {
-	"title": "Creating computer simulations and animations in physics",
-	"welcome": "Welcome to our interactive physics simulations site.",
-	"nav":{
-		"home":"Home",
-		"about":"About us",
-		"contact":"Contact"
-	}
+  "title": "Creating Computer Simulations and Animations in Physics",
+  "welcome": "Welcome to our interactive physics simulations site.",
+  "nav": {
+    "home": "Home",
+    "o_ejsu": "EJS Introduction",
+    "o_ejsu_primer": "EJSS Tutorial",
+    "o_ejsu_primer_napredno": "EJSS Advanced Tutorial",
+    "o_ejsu_primer_napredno_2": "EJSS Advanced Tutorial 2",
+    "simulacija_Masa_i_Opruga": "Mass and Spring Simulation",
+    "p5js": "Introduction to p5.js",
+    "animacija_kruznog_kretanja": "Circular Motion Animation",
+    "klizanje_tela_niz_strmu_ravan": "Inclined Plane Slide",
+    "simulacija_Slobodan_Pad": "Free Fall Simulation",
+    "vertikalan_Hitac": "Vertical Throw",
+    "kos_Hitac": "Projectile Motion",
+    "Kruzno_Kretanje_MT": "Circular Motion",
+    "Rotacija_Diska": "Disk Rotation",
+    "RavnoKretanjeTocka": "Rigid Body Motion",
+	"simulacije": "Simulations",
+  }
 }

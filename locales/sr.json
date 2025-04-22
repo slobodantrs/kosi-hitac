@@ -1,9 +1,23 @@
+// locales/sr.json
 {
   "title": "Kreiranje kompjuterskih simulacija i animacija u fizici",
   "welcome": "Dobrodošli na naš sajt za interaktivne fizičke simulacije.",
   "nav": {
     "home": "Početna",
-    "about": "O nama",
-    "contact": "Kontakt"
+    "o_ejsu": "Uvod o EJS‑u",
+    "o_ejsu_primer": "Izrada EJSS aplikacije",
+    "o_ejsu_primer_napredno": "Izrada EJSS aplikacije – napredno",
+    "o_ejsu_primer_napredno_2": "Izrada EJSS aplikacije – napredno 2",
+    "simulacija_Masa_i_Opruga": "Masa i opruga",
+    "p5js": "Uvod u P5JS",
+    "animacija_kruznog_kretanja": "Animacija kružnog kretanja",
+    "klizanje_tela_niz_strmu_ravan": "Klizanje tela niz strmu ravan",
+    "simulacija_Slobodan_Pad": "Slobodan pad",
+    "vertikalan_Hitac": "Vertikalan hitac",
+    "kos_Hitac": "Kosi hitac",
+    "Kruzno_Kretanje_MT": "Kružno kretanje",
+    "Rotacija_Diska": "Rotacija diska",
+    "RavnoKretanjeTocka": "Ravno kretanje točka",
+	"simulacije": "Simulacije",
   }
 }
