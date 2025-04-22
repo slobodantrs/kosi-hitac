@@ -18,7 +18,7 @@ var methods = {
  /*   res.path2 = (id == 1)
       ? './KosHitac_Intro_1'
       : './KosHitac_Intro_2';*/
-	  
+	  console.log('id=>'+id);
 	  res.path1 = './vertikalanHitac_Contents';
     res.path2 = (id == 1)
       ? './vertikalanHitac_Intro_1'
