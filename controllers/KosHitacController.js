@@ -16,6 +16,7 @@ var methods = {
       ? './KosHitac_Intro_1'
       : './KosHitac_Intro_2';
     res.id = id;
+	console.log('path 1>'+res.path1);
     res.render('pages/ejss_model_KosHitac/KosHitac', res);
   },
   kosHitacContents: function(req, res) {
