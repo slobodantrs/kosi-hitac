@@ -33,7 +33,7 @@ console.log("Render attempt:", 'pages/ejss_model_KosHitac/vertikalanHitac');
 
    
 	
-   res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
+   res.render('pages/ejss_model_KosHitac/vertikalanHitac', res);
   },
 
   VertikalanHitacContents: function(req, res) {
