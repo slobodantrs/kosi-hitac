@@ -24,7 +24,7 @@ var methods = {
 
 Klizanje_tela_niz_strmu_ravan: function(req, res) {
   console.log("Klizanje_tela_niz_strmu_ravan");
-  res.render('pages/usingP5js/klizanje_tela_niz_strmu_ravan_animacija');
+  res.render('pages/upotrebaP5js/klizanje_tela_niz_strmu_ravan_animacija');
 },
 
 Klizanje_tela_niz_strmu_ravan_EN: function(req, res) {
