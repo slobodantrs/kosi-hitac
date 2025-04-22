@@ -10,9 +10,24 @@ var methods = {
   VertikalanHitac2: function(req, res) {
     res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac_Intro_2');
   },
+  
+  VertikalanHitac: function(req, res) {
+  const id = parseInt(req.params.id) || 1;
+  const path1 = './vertikalanHitac_Contents';
+  const path2 = id === 2
+              ? './vertikalanHitac_Intro_2'
+              : './vertikalanHitac_Intro_1';
+
+  console.log(`Rendering vertikalanHitac id=${id}, ${path1}, ${path2}`);
+  res.render(
+    'pages/ejss_model_VertikalanHitac/vertikalanHitac',
+    { id, path1, path2 }
+  );
+},
+
 
   // Главна динамична страница
-  VertikalanHitac: function(req, res) {
+ /* VertikalanHitac: function(req, res) {
     var id = req.params.id || 1;  // ako nije dato, uzmi 1
     res.id = id;
     res.path1 = './vertikalanHitac_Contents';
@@ -24,7 +39,7 @@ var methods = {
 console.log("Render attempt:", 'pages/ejss_model_VertikalanHitac/vertikalanHitac');
 
     res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
-  },
+  },*/
 
   VertikalanHitacContents: function(req, res) {
     res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac_Contents');
