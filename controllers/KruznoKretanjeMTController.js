@@ -12,7 +12,7 @@ var methods = {
 
   KruznoKretanjeMT: function(req, res) {
     var id = req.params.id;
-    res.id = = (id == 1);
+    res.id = req.params.id || 1;  // ako nije dato, uzmi 1
     res.path1 = './KruznoKretanjeMT_Contents';
     // biramo intro zavisno od id-a
     res.path2 = (id == 2)
