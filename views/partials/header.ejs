@@ -317,15 +317,15 @@ const isEn = locale === 'en';
 </nav>
 <%
   // Да ли смо на енглеском (пут почиње са /en)
-  const isEn = currentPath.startsWith('/en');
+  const isEng = currentPath.startsWith('/en');
   // Уклонимо префикс '/en' да бисмо добили "базни" пут
-  let basePath = isEn
+  let basePath = isEng
     ? (currentPath.replace(/^\/en/, '') || '/')
     : currentPath;
 %>
 
 <div class="language-switcher">
-  <% if (isEn) { %>
+  <% if (isEng) { %>
     <!-- Ако смо на /en/..., покажи дугме за српски -->
     <a href="<%= basePath %>">🇷🇸 Српски</a>
   <% } else { %>
