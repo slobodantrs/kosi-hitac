@@ -13,7 +13,7 @@ var methods = {
 
   // Главна динамична страница
   VertikalanHitac: function(req, res) {
-    var id = req.params.id;
+    var id = req.params.id || 1;  // ako nije dato, uzmi 1
     res.id = id;
     res.path1 = './vertikalanHitac_Contents';
     res.path2 = (id == 2)
