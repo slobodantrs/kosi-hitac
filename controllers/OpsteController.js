@@ -22,6 +22,9 @@ var methods = {
   },
 
   // --- English ---
+  O_Ejsu_EN: function(req, res) {
+    res.render('pages-en/upotrebaEJS-a/opis_easy_java_simulation');
+  },
   O_Ejsu_primer_EN: function(req, res) {
     res.render('pages-en/upotrebaEJS-a/example_easy_java_simulation');
   },
