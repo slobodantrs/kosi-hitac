@@ -33,37 +33,38 @@ var methods = {
   },
 
 
-  // **English methods** //
+ // **English methods** //
 
-  // Intro pages
-  VertikalanHitac1_EN: function(req, res) {
-    res.render('pages-en/ejss_model_VertikalanHitac/verticalThrow_Intro_1');
-  },
-  VertikalanHitac2_EN: function(req, res) {
-    res.render('pages-en/ejss_model_VertikalanHitac/verticalThrow_Intro_2');
-  },
+// Intro pages
+VertikalanHitac1_EN: function(req, res) {
+  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow_Intro_1');
+},
+VertikalanHitac2_EN: function(req, res) {
+  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow_Intro_2');
+},
 
-  // Main dynamic page
-  VertikalanHitac_EN: function(req, res) {
-    var id = req.params.id;
-    res.id = id;
-    res.path1 = './verticalThrow_Contents';
-    res.path2 = (id == 2)
-      ? './verticalThrow_Intro_2'
-      : './verticalThrow_Intro_1';
-    console.log(`Vertical throw controller EN ${id}, ${res.path1}, ${res.path2}`);
-    res.render('pages-en/ejss_model_VertikalanHitac/verticalThrow', res);
-  },
+// Main dynamic page
+VertikalanHitac_EN: function(req, res) {
+  var id = req.params.id;
+  res.id = id;
+  res.path1 = './verticalThrow_Contents';
+  res.path2 = (id == 2)
+    ? './verticalThrow_Intro_2'
+    : './verticalThrow_Intro_1';
+  console.log(`Vertical throw controller EN ${id}, ${res.path1}, ${res.path2}`);
+  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow', res);
+},
 
-  // Contents page
-  VertikalanHitacContents_EN: function(req, res) {
-    res.render('pages-en/ejss_model_VertikalanHitac/verticalThrow_Contents');
-  },
+// Contents page
+VertikalanHitacContents_EN: function(req, res) {
+  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow_Contents');
+},
 
-  // Simulation page
-  VertikalanHitac_Simulation_EN: function(req, res) {
-    res.render('pages-en/ejss_model_VertikalanHitac/VerticalThrow_Simulation');
-  }
+// Simulation page
+VertikalanHitac_Simulation_EN: function(req, res) {
+  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow_Simulation');
+}
+
 };
 
 module.exports = methods;
