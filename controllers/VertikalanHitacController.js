@@ -19,7 +19,7 @@ var methods = {
     res.path2 = (id == 2)
       ? './vertikalanHitac_Intro_2'
       : './vertikalanHitac_Intro_1';
-    console.log(`Vertikalan hitac kontroler ${id}, ${res.path1}, ${res.path2}`);
+    console.log(`U Controleru: Vertikalan hitac kontroler ${id}, ${res.path1}, ${res.path2}`);
     res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
   },
 
