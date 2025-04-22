@@ -19,8 +19,8 @@ var methods = {
       : './KosHitac_Intro_2';
     res.id = id;
 	console.log('path 1>'+res.path1);
-	res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
-   // res.render('pages/ejss_model_KosHitac/KosHitac', res);
+	//res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
+    res.render('pages/ejss_model_KosHitac/KosHitac', res);
   },
   
   

@@ -32,9 +32,9 @@ res.path1 = './vertikalanHitac_Contents';
       : './vertikalanHitac_Intro_1';
   
 	console.log('path 1>'+res.path1);
- //   res.render('pages/ejss_model_KosHitac/KosHitac', res);
+    res.render('pages/ejss_model_KosHitac/KosHitac', res);
 
-    res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
+  //  res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
   },
 
   VertikalanHitacContents: function(req, res) {
