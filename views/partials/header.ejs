@@ -5,16 +5,15 @@
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 <!-- End Google Tag Manager (noscript) -->
-
-
-
 <%
+
 const isEn = locale === 'en';
-let basePath;
-const prefix  = isEn ? '/en' : ''; 
+
+%>
+<%
   // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
   // у супротном је to само currentPath
-
+  let basePath;
   if (locale === 'en') {
     // ако је currentPath == '/en' -> уместо празног стринга врати '/'
     basePath = currentPath.replace(/^\/en/, '') || '/';
@@ -22,70 +21,174 @@ const prefix  = isEn ? '/en' : '';
     basePath = currentPath;
   }
 %>
+
 <nav class="desktop-nav nav-container navbar-expand-lg primary d-flex flex-row p-2 align-items-end" role="navigation">
-  <div class="collapse navbar-collapse" id="topNavBar">
-    <ul class="d-flex align-items-center nav navbar-nav">
+<!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="d-flex align-items-center nav navbar-nav">
+    
+                <!-- Collapse button -->
+                <li class="nav-item active" >
+                    <a class="navbar-brand" href="/">
+            
+                        <img src="/images/logo1.png" alt="Logo">
+                    </a>
+                </li>
+        
+		
+		
+	
+            <li class="nav-item active"><a class="nav-link" href="/">		
+			
+			Početna
+			<span class="sr-only">(current)</span>
+			</a></li>
+			<li class="nav-item dropdown dropdown-submenu">
+         
+			<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+            <span class="full-text" aria-hidden="true">
+									EJS
+								</span></a>
+         
+				 <ul class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink">
+				<li class="nav-item "><a class="dropdown-item" href="/o_ejsu">
+                      <span class="full-text " aria-hidden="true">&nbsp;
+									Uvod o EJS-u
+								</span></a>
+                 </li>
+				<li class="nav-item "><a class="dropdown-item" href="/o_ejsu_primer">
+                <span class="full-text" aria-hidden="true">&nbsp;
+									Izrada EJSS aplikacije
+								</span>
+                </a></li>
+				<li class="nav-item "><a class="dropdown-item " href="/o_ejsu_primer_napredno">
+                <span class="full-text" aria-hidden="true">&nbsp;
+									Izrada EJSS aplikacije-napredno
+								</span></a></li>
+				
+				 </ul>
+		
+			</li>
+			
+			
+            	<li class="nav-item dropdown dropdown-submenu">
+         
+			<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+            <span class="full-text" aria-hidden="true">
+									P5 javascript
+								</span></a>
+         
+				 <ul class="dropdown-menu submenu" aria-labelledby="navbarDropdownMenuLink">
+				<li class="nav-item "><a class="dropdown-item" href="/p5js">
+                      <span class="full-text " aria-hidden="true">
+									Uvod o P5JS simulacijama
+								</span></a>
+                 </li>
+				<li class="nav-item "><a class="dropdown-item" href="/animacija_kruznog_kretanja">
+                <span class="full-text" aria-hidden="true">
+									Animacija kružnog kretanja
+								</span>
+                </a></li>
+				<li class="nav-item "><a class="dropdown-item " href="/klizanje_tela_niz_strmu_ravan">
+                <span class="full-text" aria-hidden="true">
+									Klizanje tela niz strmu ravan
+								</span></a></li>
+				
+				 </ul>
+		
+			</li>
+			
+			
+			
+			
+			<li class="nav-item dropdown dropdown-submenu">
+			<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          
+          <span class="full-text" aria-hidden="true">&nbsp;
+									Simulacije
+								</span></a>
+				<ul class="dropdown-menu  submenu" aria-labelledby="navbarDropdownMenuLink">
+			
+				<li class="nav-item "><a class="dropdown-item" href="/simulacija_Masa_i_Opruga">
+                <span class="full-text" aria-hidden="true">&nbsp;
+                Masa i opruga</span></a></li>
+				
+				
+				<li class="nav-item ">
+                
+                <a class="dropdown-item " href="/vertikalan_Hitac"><span class="full-text" aria-hidden="true">&nbsp;
+                Vertikalan hitac</span></a></li>
+				
+				
+				<li class="nav-item ">
+                <a class="dropdown-item " href="/kos_Hitac"><span class="full-text " aria-hidden="true">&nbsp;
+                Kosi hitac</span></a></li>
+				
+				
+				<li class="nav-item "><a class="dropdown-item " href="/Kruzno_Kretanje_MT">
+                <span class="full-text " aria-hidden="true">&nbsp;
+                Kružno kretanje</span></a></li>
+				
+				
+				<li class="nav-item "><a class="dropdown-item " href="/Rotacija_Diska">
+                <span class="full-text " aria-hidden="true">&nbsp;
+                Rotacija diska</span></a></li>
+				
+				
+				<li class="nav-item "><a class="dropdown-item " href="/RavnoKretanjeTocka">
+                <span class="full-text " aria-hidden="true">&nbsp;Ravno kretanje krutog tela</span></a></li>
+				
+				 </ul>
+			
+			</li>
+			
 
-      <!-- Лого и Home -->
-      <li class="nav-item">
-        <a class="navbar-brand" href="<%= prefix %>/">
-          <img src="/images/logo1.png" alt="Logo">
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= prefix %>/">
-          <%= __('nav.home') %>
-        </a>
-      </li>
+<li class="nav-item dropdown dropdown-submenu">
+  <a class="nav-link dropdown-toggle text-light" href="#" id="langDropdownMobile" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">
+    Jezik
+  </a>
+  <ul class="dropdown-menu submenu" aria-labelledby="langDropdownMobile">
+    <li>
+      <a class="dropdown-item"
+         href="<%= basePath %>">
+        🇷🇸 Srpski
 
-      <!-- EJS падајући мени -->
-      <li class="nav-item dropdown dropdown-submenu">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-          <%= __('nav.o_ejsu') %>
-        </a>
-        <ul class="dropdown-menu submenu">
-          <li><a class="dropdown-item" href="<%= prefix %>/o_ejsu"><%= __('nav.o_ejsu') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/o_ejsu_primer"><%= __('nav.o_ejsu_primer') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/o_ejsu_primer_napredno"><%= __('nav.o_ejsu_primer_napredno') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/o_ejsu_primer_napredno_2"><%= __('nav.o_ejsu_primer_napredno_2') %></a></li>
-        </ul>
-      </li>
+<div class="language-switcher">
+  <% if (locale === 'en') { %>
+    <!-- На енглеској страници нудимо прелазак на српску -->
+    <a href="<%= basePath %>">🇷🇸 Српски</a>
+  <% } else { %>
+    <!-- На српској страници нудимо прелазак на енглеску -->
+    <a href="/en<%= basePath === '/' ? '' : basePath %>">🇬🇧 English</a>
+  <% } %>
+</div>
 
-      <!-- P5.js падајући мени -->
-      <li class="nav-item dropdown dropdown-submenu">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-          <%= __('nav.p5js') %>
-        </a>
-        <ul class="dropdown-menu submenu">
-          <li><a class="dropdown-item" href="<%= prefix %>/p5js"><%= __('nav.p5js') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/animacija_kruznog_kretanja"><%= __('nav.animacija_kruznog_kretanja') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/klizanje_tela_niz_strmu_ravan"><%= __('nav.klizanje_tela_niz_strmu_ravan') %></a></li>
-        </ul>
-      </li>
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item"
+         href="/en<%= basePath %>">
+        🇬🇧 English
+      </a>
+    </li>
+  </ul>
+</li>
 
-      <!-- Simulacije падајући мени -->
-      <li class="nav-item dropdown dropdown-submenu">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-          <%= __('nav.simulacije') %>
-        </a>
-        <ul class="dropdown-menu submenu">
-          <li><a class="dropdown-item" href="<%= prefix %>/simulacija_Masa_i_Opruga"><%= __('nav.simulacija_Masa_i_Opruga') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/slobodan_Pad"><%= __('nav.simulacija_Slobodan_Pad') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/vertikalan_Hitac"><%= __('nav.vertikalan_Hitac') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/kos_Hitac"><%= __('nav.kos_Hitac') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/Kruzno_Kretanje_MT"><%= __('nav.Kruzno_Kretanje_MT') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/Rotacija_Diska"><%= __('nav.Rotacija_Diska') %></a></li>
-          <li><a class="dropdown-item" href="<%= prefix %>/RavnoKretanjeTocka"><%= __('nav.RavnoKretanjeTocka') %></a></li>
-        </ul>
-      </li>
+		
+    
+  </ul>
+            
 
-    </ul>
-  </div>
+
+
+
+        </div>
 </nav>
-
-
-
-
+ 
 	
 <!--nav class="mobile-nav navbar container-fullwidth navbar-fixed-top bg-info d-flex w-100 h-150 justify-content-between align-self-center"-->
 <!--div class="container-fluid h-150 w-100"-->
@@ -204,7 +307,26 @@ const prefix  = isEn ? '/en' : '';
 			</li>
 			
 
-
+<li class="nav-item dropdown dropdown-submenu">
+  <a class="nav-link dropdown-toggle text-light" href="#" id="langDropdownMobile" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">
+    Jezik
+  </a>
+  <ul class="dropdown-menu submenu" aria-labelledby="langDropdownMobile">
+    <li>
+      <a class="dropdown-item"
+         href="<%= basePath %>">
+        🇷🇸 Srpski
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item"
+         href="/en<%= basePath %>">
+        🇬🇧 English
+      </a>
+    </li>
+  </ul>
+</li>
 
 
 			
@@ -222,25 +344,15 @@ const prefix  = isEn ? '/en' : '';
    
 </nav>
 
-<%
- 
 
-  // кад смо на српском, циљна en-рутa је slugMap[currentPath]
-  // кад смо на енглеском, циљна sr-рутa је slugMapInverse[currentPath]
-  const enSlug = slugMap[currentPath];            // нпр. '/' → '/en/'
-  const srSlug = slugMapInverse[currentPath];     // нпр. '/en/' → '/'
-debugger;
-  // fallback: ако рутa није у мапи, једноставно уклони `^/en` или додај `'/en'`
-  const target = isEn
-    ? (srSlug || currentPath.replace(/^\/en/, '') || '/')
-    : (enSlug || `/en${currentPath}`);
-
-%>
 
 <div class="language-switcher">
-  <% if (isEn) { %>
-    <a href="<%= target %>">🇷🇸 Српски</a>
+  <% if (locale === 'en') { %>
+    <!-- На енглеској страници нудимо прелазак на српску -->
+    <a href="<%= basePath %>">🇷🇸 Српски</a>
   <% } else { %>
-    <a href="<%= target %>">🇬🇧 English</a>
+    <!-- На српској страници нудимо прелазак на енглеску -->
+    <a href="/en<%= basePath === '/' ? '' : basePath %>">🇬🇧 English</a>
   <% } %>
 </div>
+
