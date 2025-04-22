@@ -166,7 +166,7 @@ router.get('/RavnoKretanjeTocka_Intro_2', function(req, res) {
 	//res.render('pages/simulacija');
     res.render('pages/ejss_model_RavnoKretanjeTocka/RavnoKretanjeTocka_Intro_2');
 });
-
+console.log('RavnoKretanjeTocka_Intro_2');
 
 router.get('/en', function(req, res) {
 	
@@ -183,7 +183,7 @@ router.get('/en/simulation_MassAndSpring/Intro_1', function(req, res) {
 router.get('/en/simulation_MassAndSpring/Intro_2', function(req, res) {
     res.render('pages-en/ejss_model_MassAndSpring/MassAndSpring_Intro_2');
 });
-
+console.log('Registering EN route handler:', P5jsController.Animacija_kruznog_kretanja_EN);
 router.get('/en/p5js', P5jsController.Uvod_u_p5js_EN);
  router.get('en/animacija_kruznog_kretanja', P5jsController.Animacija_kruznog_kretanja_EN);
  router.get('en/klizanje_tela_niz_strmu_ravan', P5jsController.Klizanje_tela_niz_strmu_ravan_EN);

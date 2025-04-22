@@ -1,6 +1,7 @@
 var methods = {
 
   Uvod_u_p5js: function(req, res) {
+	  debbuger;
     console.log("Uvod_u_p5js");
     res.render('pages/upotrebaP5js/opis_p5js');
   },
