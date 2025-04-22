@@ -315,21 +315,26 @@ const isEn = locale === 'en';
   </div>
    
 </nav>
+
 <%
-  // Да ли смо на енглеском (пут почиње са /en)
-  const isEng = currentPath.startsWith('/en');
-  // Уклонимо префикс '/en' да бисмо добили "базни" пут
-   basePath = isEng
-    ? (currentPath.replace(/^\/en/, '') || '/')
-    : currentPath;
+  const isEng = locale === 'en';
+
+  // кад смо на српском, циљна en-рутa је slugMap[currentPath]
+  // кад смо на енглеском, циљна sr-рутa је slugMapInverse[currentPath]
+  const enSlug = slugMap[currentPath];            // нпр. '/' → '/en/'
+  const srSlug = slugMapInverse[currentPath];     // нпр. '/en/' → '/'
+debugger;
+  // fallback: ако рутa није у мапи, једноставно уклони `^/en` или додај `'/en'`
+  const target = isEng
+    ? (srSlug || currentPath.replace(/^\/en/, '') || '/')
+    : (enSlug || `/en${currentPath}`);
+
 %>
 
 <div class="language-switcher">
   <% if (isEng) { %>
-    <!-- Ако смо на /en/..., покажи дугме за српски -->
-    <a href="<%= basePath %>">🇷🇸 Srpski</a>
+    <a href="<%= target %>">🇷🇸 Српски</a>
   <% } else { %>
-    <!-- У супротном, покажи дугме за енглески -->
-    <a href="/en<%= basePath === '/' ? '' : basePath %>">🇬🇧 English</a>
+    <a href="<%= target %>">🇬🇧 English</a>
   <% } %>
 </div>

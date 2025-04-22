@@ -187,6 +187,23 @@ router.get('/en/simulation_MassAndSpring/Intro_2', function(req, res) {
 router.get('/en/p5js', P5jsController.Uvod_u_p5js_EN);
  router.get('en/animacija_kruznog_kretanja', P5jsController.Animacija_kruznog_kretanja_EN);
  router.get('en/klizanje_tela_niz_strmu_ravan', P5jsController.Klizanje_tela_niz_strmu_ravan_EN);
+ 
+ router.get('/en/o_ejsu', OpsteController.O_Ejsu_EN);
+ router.get('/en/o_ejsu_primer', OpsteController.O_Ejsu_primer_EN);
+ router.get('/en/o_ejsu_primer_napredno', OpsteController.O_Ejsu_primer_napredno_EN);
+ router.get('/en/o_ejsu_primer_napredno_2', OpsteController.O_Ejsu_primer_napredno_2_EN);
+ 
+ // p5js animations
+router.get('/en/p5js', P5jsController.Uvod_u_p5js_EN);
+router.get('/en/circular-motion', P5jsController.Animacija_kruznog_kretanja_EN);
+router.get('/en/inclined-plane-slide', P5jsController.Klizanje_tela_niz_strmu_ravan_EN);
+
+// О EJS
+router.get('/en/about-ejs',           OpsteController.O_Ejsu_EN);
+router.get('/en/ejs-example',         OpsteController.O_Ejsu_primer_EN);
+router.get('/en/ejs-example-advanced',    OpsteController.O_Ejsu_primer_napredno_EN);
+router.get('/en/ejs-example-advanced-2',  OpsteController.O_Ejsu_primer_napredno_2_EN);
+
 
 // English - Free Fall
 router.get('/en/free_fall', SlobodanPadController.SlobodanPad_EN);
