@@ -12,6 +12,7 @@ var methods = {
   
   KosHitac: function(req, res) {
     var id = req.params.id;
+	res.id = id;
     // ovi pathi se kasnije koriste u view-u za include
  //   res.path1 = './KosHitac_Contents';
  /*   res.path2 = (id == 1)
@@ -22,8 +23,9 @@ var methods = {
     res.path2 = (id == 1)
       ? './vertikalanHitac_Intro_1'
       : './vertikalanHitac_Intro_2';
-    res.id = id;
+ //   res.id = id;
 	console.log('path 1>'+res.path1);
+	console.log('path 2>'+res.path2);
 	res.render('pages/ejss_model_KosHitac/vertikalanHitac', res);
    // res.render('pages/ejss_model_KosHitac/KosHitac', res);
   },
