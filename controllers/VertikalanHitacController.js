@@ -51,7 +51,7 @@ console.log("Render attempt:", 'pages/ejss_model_VertikalanHitac/vertikalanHitac
    
 	console.log('path 1>'+res.path1);
 	
-    res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac_Simulation');
+    res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac_Simulation',res);
   },
 
 
