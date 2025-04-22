@@ -61,6 +61,7 @@ router.get('/simulacija_Slobodan_Pad',SlobodanPadController.SlobodanPadSimulacij
 
 //Vertikalan hitac
 var VertikalanHitacController = require('../controllers/VertikalanHitacController');
+console.log(`VertikalanHitacController: `+VertikalanHitacController);
  router.get('/vertikalan_Hitac', VertikalanHitacController.VertikalanHitac);
 router.get('/vertikalan_Hitac/:id', VertikalanHitacController.VertikalanHitac);
 router.get('/contents_Vertikalan_Hitac', VertikalanHitacController.VertikalanHitacContents);
