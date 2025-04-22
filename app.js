@@ -37,6 +37,16 @@ app.use((req, res, next) => {
   }
   next();
 });
+// POSLE ovog bloka koji čuva lang iz ?lang=xx u kolačić ...
+app.use((req, res, next) => {
+  // Ako URL počinje sa '/en/' ili je tačno '/en'
+  if (req.path === '/en' || req.path.startsWith('/en/')) {
+    req.setLocale('en');
+    res.locals.locale = 'en';
+  }
+  next();
+});
+
 
 // 2) Прослеђивање помоћних ф-ја и текућег језика у template
 app.use((req, res, next) => {
