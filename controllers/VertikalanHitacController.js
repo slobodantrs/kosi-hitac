@@ -42,6 +42,15 @@ console.log("Render attempt:", 'pages/ejss_model_VertikalanHitac/vertikalanHitac
 
   VertikalanHitac_Simulation: function(req, res) {
     console.log('Vertikalan hitac simulation');
+	
+    // ovi pathi se kasnije koriste u view-u za include
+ 
+	 
+	  res.path1 = './vertikalanHitac_Contents';
+   
+   
+	console.log('path 1>'+res.path1);
+	
     res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac_Simulation');
   },
 
