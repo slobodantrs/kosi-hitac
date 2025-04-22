@@ -11,7 +11,7 @@ var methods = {
   KosHitac: function(req, res) {
     var id = req.params.id;
     // ovi pathi se kasnije koriste u view-u za include
-    res.path1 = './kosHitac_Contents';
+    res.path1 = './KosHitac_Contents';
     res.path2 = (id == 1)
       ? './KosHitac_Intro_1'
       : './KosHitac_Intro_2';
