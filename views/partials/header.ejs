@@ -5,25 +5,16 @@
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 <!-- End Google Tag Manager (noscript) -->
-<%
-  let basePath;
-const isEn = locale === 'en';
-const prefix = isEn ? '/en' : '';
 
+
+<% 
+  const isEn    = locale === 'en';
+  const prefix  = isEn ? '/en' : ''; 
+  // basePath без /en префикса, за language‑switcher
+  const basePath = isEn
+    ? (currentPath.replace(/^\/en/, '') || '/')
+    : currentPath;
 %>
-<%
-  // Израчунај „базни“ пут без '/en' ако је тренутни језик енглески;
-  // у супротном је to само currentPath
-
-  if (locale === 'en') {
-    // ако је currentPath == '/en' -> уместо празног стринга врати '/'
-    basePath = currentPath.replace(/^\/en/, '') || '/';
-  } else {
-    basePath = currentPath;
-  }
-%>
-
-
 
 <nav class="desktop-nav nav-container navbar-expand-lg primary d-flex flex-row p-2 align-items-end" role="navigation">
   <div class="collapse navbar-collapse" id="topNavBar">
@@ -43,11 +34,10 @@ const prefix = isEn ? '/en' : '';
 
       <!-- EJS падајући мени -->
       <li class="nav-item dropdown dropdown-submenu">
-        <a class="nav-link dropdown-toggle" id="ejsDropdown" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
           <%= __('nav.o_ejsu') %>
         </a>
-        <ul class="dropdown-menu submenu" aria-labelledby="ejsDropdown">
+        <ul class="dropdown-menu submenu">
           <li><a class="dropdown-item" href="<%= prefix %>/o_ejsu"><%= __('nav.o_ejsu') %></a></li>
           <li><a class="dropdown-item" href="<%= prefix %>/o_ejsu_primer"><%= __('nav.o_ejsu_primer') %></a></li>
           <li><a class="dropdown-item" href="<%= prefix %>/o_ejsu_primer_napredno"><%= __('nav.o_ejsu_primer_napredno') %></a></li>
@@ -57,11 +47,10 @@ const prefix = isEn ? '/en' : '';
 
       <!-- P5.js падајући мени -->
       <li class="nav-item dropdown dropdown-submenu">
-        <a class="nav-link dropdown-toggle" id="p5jsDropdown" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
           <%= __('nav.p5js') %>
         </a>
-        <ul class="dropdown-menu submenu" aria-labelledby="p5jsDropdown">
+        <ul class="dropdown-menu submenu">
           <li><a class="dropdown-item" href="<%= prefix %>/p5js"><%= __('nav.p5js') %></a></li>
           <li><a class="dropdown-item" href="<%= prefix %>/animacija_kruznog_kretanja"><%= __('nav.animacija_kruznog_kretanja') %></a></li>
           <li><a class="dropdown-item" href="<%= prefix %>/klizanje_tela_niz_strmu_ravan"><%= __('nav.klizanje_tela_niz_strmu_ravan') %></a></li>
@@ -70,11 +59,10 @@ const prefix = isEn ? '/en' : '';
 
       <!-- Simulacije падајући мени -->
       <li class="nav-item dropdown dropdown-submenu">
-        <a class="nav-link dropdown-toggle" id="simDropdown" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
           <%= __('nav.simulacije') %>
         </a>
-        <ul class="dropdown-menu submenu" aria-labelledby="simDropdown">
+        <ul class="dropdown-menu submenu">
           <li><a class="dropdown-item" href="<%= prefix %>/simulacija_Masa_i_Opruga"><%= __('nav.simulacija_Masa_i_Opruga') %></a></li>
           <li><a class="dropdown-item" href="<%= prefix %>/slobodan_Pad"><%= __('nav.simulacija_Slobodan_Pad') %></a></li>
           <li><a class="dropdown-item" href="<%= prefix %>/vertikalan_Hitac"><%= __('nav.vertikalan_Hitac') %></a></li>
@@ -88,6 +76,9 @@ const prefix = isEn ? '/en' : '';
     </ul>
   </div>
 </nav>
+
+
+
 
 	
 <!--nav class="mobile-nav navbar container-fullwidth navbar-fixed-top bg-info d-flex w-100 h-150 justify-content-between align-self-center"-->
@@ -207,26 +198,7 @@ const prefix = isEn ? '/en' : '';
 			</li>
 			
 
-<li class="nav-item dropdown dropdown-submenu">
-  <a class="nav-link dropdown-toggle text-light" href="#" id="langDropdownMobile" role="button"
-     data-bs-toggle="dropdown" aria-expanded="false">
-    Jezik
-  </a>
-  <ul class="dropdown-menu submenu" aria-labelledby="langDropdownMobile">
-    <li>
-      <a class="dropdown-item"
-         href="<%= basePath %>">
-        🇷🇸 Srpski
-      </a>
-    </li>
-    <li>
-      <a class="dropdown-item"
-         href="/en<%= basePath %>">
-        🇬🇧 English
-      </a>
-    </li>
-  </ul>
-</li>
+
 
 
 			
