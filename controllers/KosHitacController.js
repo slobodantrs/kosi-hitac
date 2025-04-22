@@ -8,6 +8,8 @@ var methods = {
   KosHitac2: function(req, res) {
     res.render('pages/ejss_model_KosHitac/KosHitac_Intro_2');
   },
+  
+  
   KosHitac: function(req, res) {
     var id = req.params.id;
     // ovi pathi se kasnije koriste u view-u za include
@@ -17,8 +19,12 @@ var methods = {
       : './KosHitac_Intro_2';
     res.id = id;
 	console.log('path 1>'+res.path1);
-    res.render('pages/ejss_model_KosHitac/KosHitac', res);
+	res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
+   // res.render('pages/ejss_model_KosHitac/KosHitac', res);
   },
+  
+  
+  
   kosHitacContents: function(req, res) {
     res.render('pages/ejss_model_KosHitac/kosHitac_Contents');
   },
