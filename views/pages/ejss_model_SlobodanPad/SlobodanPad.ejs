@@ -9,12 +9,9 @@
     <title> Početna strana za slobodan pad </title>
   </head>
   <body>
-    <frameset cols="25%,*">
-      <frame src="SlobodanPad_Contents.xhtml" name="contents" scrolling="auto" target="_self" />
-      <frame src="SlobodanPad_Simulation.xhtml" name="central" scrolling="auto" target="_self" />
-      <noframes>
-        Gee! Your browser is really old and doesn't support frames. You better update!!!
-      </noframes>
-    </frameset> 
+   <div class="freefall-wrapper">
+    <!-- Uključujemo kompletan sadržaj iz FreeFall_Contents.ejs -->
+    <%- include('./SlobodanPad_Contents') %>
+  </div>
   </body>
 </html>
