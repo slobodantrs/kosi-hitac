@@ -80,10 +80,11 @@
 </nav>
 
 <!-- Jeziчки „toggle“ -->
+
 <div class="language-switcher">
   <% if (isEn) { %>
-    <a href="<%= basePath %>">🇷🇸 Српски</a>
+    <a href="<%= target %>">🇷🇸 Srpski</a>
   <% } else { %>
-    <a href="/en<%= basePath === '/' ? '' : basePath %>">🇬🇧 English</a>
+    <a href="<%= target %>">🇬🇧 English</a>
   <% } %>
 </div>
