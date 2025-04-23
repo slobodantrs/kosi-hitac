@@ -4,9 +4,25 @@
           height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 
-<% 
+<%# 
   const isEn    = locale === 'en';
   const prefix  = isEn ? '/en' : '';
+  // basePath без /en префикса за језички тастер
+  const basePath = isEn 
+    ? (currentPath.replace(/^\/en/, '') || '/') 
+    : currentPath;
+%>
+
+<% 
+  const isEn = locale === 'en';
+  const key = currentPath; 
+  const target = isEn
+    // if we’re on an /en/... URL, look it up in the inverse map, fall back to stripping "/en"
+    ? (slugMapInverse[key] || key.replace(/^\/en/, '') || '/')
+    // if we’re on a Serbian URL, map it to English via slugMap
+    : (slugMap[key]    || ('/en' + key));
+	
+	const prefix  = isEn ? '/en' : '';
   // basePath без /en префикса за језички тастер
   const basePath = isEn 
     ? (currentPath.replace(/^\/en/, '') || '/') 
