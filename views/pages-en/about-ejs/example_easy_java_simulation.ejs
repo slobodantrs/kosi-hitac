@@ -208,8 +208,7 @@
                 In the “Custom” tab, we can define additional functions that are needed in the simulation and are created by the user.
                 </p>
                 <p class="col-xs-12 col-md-12 col-lg-12">
-                <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/custom.png" 
-                alt="EJSS Custom tab - user-defined functions" />
+                <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Evolution1.png" alt="EJSS Custom tab - user-defined functions" />
                 </p>
                 <p class="col-xs-12 col-md-12 col-lg-12">
                 In the “Fixed Relations” tab, we define equations that depend on the basic variables defined in the Evolution tab.
@@ -218,36 +217,118 @@
         </div>
 
         <div class="row">
-        <h2>HTML View.</h2>
-                <p class="col-xs-12 col-md-12 col-lg-12">
-                In the HtmlView tab, we define the visual part of the application.
-                It is here that we add graphical elements, buttons, text fields, and other interface components.
-                </p>
-                <p class="col-xs-12 col-md-12 col-lg-12">
-                For example, we can add a graph that shows the trajectory of the motion, or fields where users can input initial values.
-                </p>
-                <p class="col-xs-12 col-md-12 col-lg-12">
-                <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/HtmlView.png" 
-                alt="Visual part of EJSS application - HTML View" />
-                </p>
-                <p class="col-xs-12 col-md-12 col-lg-12">
-                Each element can be linked to a variable from the model to update in real-time during the animation.
-                </p>
-        </div>
+  <h2>Animation Display (HtmlView)</h2>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    To display the animation, you need to build the visual part of the application by creating graphic objects 
+    and linking them to the model variables whose values change over time.
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Let’s create a view inside HtmlView.
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/HtmlView1.png" 
+         alt="Creating the application in EJSS – HtmlView" />
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    All objects are connected together to form the element tree, rooted at the Simulation view object shown in the “Tree of elements.” 
+    You add further graphic elements as branches by selecting an element from the palette on the right and clicking on the target node in the tree.
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    First, from the Interface section, add the “Single drawing panel” window. After clicking on 
+    <strong>“Simulation view”</strong> on the left, a group of elements will be inserted as shown below:
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/HtmlView2.png" 
+         alt="Creating the application in EJSS – drawing panel (HtmlView)" />
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    You will see three panels added by default, arranged one below the other:
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <ul>
+      <li><strong>LabelPanel</strong> for displaying the animation title</li>
+      <li><strong>wrappedPanel</strong> containing the drawingPanel for the animation and the controlPanel for buttons: play, reset, pause, etc.</li>
+      <li><strong>narrativePanel</strong> for embedding HTML text that describes the animation</li>
+    </ul>
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Double-clicking on an object opens the Properties dialog, where you can configure that graphic element’s settings.
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    First, set the Title text, which is one of the “topLabel” label’s properties. Double-click this label to open the <strong>Properties</strong> dialog:
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/topLabel.png" 
+         alt="Creating the application in EJSS – title label" />
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    In the Properties panel, you’ll see some HTML code in the “Text” field by default. Replace “TopLabel” with “Projectile Motion Simulation” and close the dialog.
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Next, open the Properties dialog for the drawingPanel and configure it as shown below:
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/drawingPanel-osobine.png" 
+         alt="Creating the application in EJSS – drawing panel properties" />
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    The Minimum and Maximum settings define the smallest and largest dimensions (in pixels) displayed on the animation page – e.g., Width (600px) and Height (600px). 
+    The SquareAspect = true property ensures the aspect ratio (height vs. width) remains constant.
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Now add a body to animate, for example a circle, and bind its center’s X and Y coordinates to the model variables.
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    From the <strong>2D Drawable</strong> palette, drag a 2D Shape onto the drawingPanel. Name this element “Body.”
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/teloDrawing.png" 
+         alt="Creating the application in EJSS – 2D drawable object" />
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Configure the body’s X, Y, and R properties as shown:
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/OsobineTela.png" 
+         alt="Creating the application in EJSS – 2D drawable properties" />
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Clicking the link-icon button next to a property opens a dialog where you can bind it to a model variable (e.g., X coordinate).
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Povezivanje promenljivih.png" 
+         alt="Creating the application in EJSS – binding variables in Properties dialog" />
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Finally, add code to stop the animation when the body hits the ground (Y ≤ 0).
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Insert into Evolution:
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <span class="formule">if(y<=0){</span><br>
+    <span class="formule">  _model.pause();</span><br>
+    <span class="formule">}</span>
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Then add a Trace object to the drawing panel: a series of points that will draw the projectile’s path. Configure its properties as shown:
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/TragKosog hica.png" 
+         alt="Creating the application in EJSS – 2D drawable Trace object" />
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    Bind <strong>inputX</strong> and <strong>inputY</strong> fields to the model’s X and Y variables as before.
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    After running the animation:
+  </p>
+  <p class="col-xs-12 col-md-12 col-lg-12">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/Simulacija kosog hica.png" 
+         alt="Creating the application in EJSS – model initialization" />
+  </p>
+</div>
 
-        <div class="row">
-        <h2>Simulation Test.</h2>
-                <p class="col-xs-12 col-md-12 col-lg-12">
-                After setting up the model, variables, and visual components, we can run the simulation by pressing the “Play” button.
-                </p>
-                <p class="col-xs-12 col-md-12 col-lg-12">
-                <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/kosHitacOEjsu/RunSimulation.png" 
-                alt="Running simulation in EJSS" />
-                </p>
-                <p class="col-xs-12 col-md-12 col-lg-12">
-                The object should move along a parabolic trajectory defined by the initial speed, angle, and gravity.
-                </p>
-        </div>
 
 		<div class="col-xs-12 col-md-12 col-lg-12">
         <% include ../partials/scripts %>
