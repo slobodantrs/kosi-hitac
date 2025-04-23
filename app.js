@@ -21,6 +21,16 @@ i18n.configure({
   syncFiles: true
 });
 
+const fs = require('fs');
+console.log('>>> i18n.getLocales()  =', i18n.getLocales());
+console.log('>>> expecting in:', path.join(__dirname,'locales'));
+try {
+  console.log('>>> actual files:', fs.readdirSync(path.join(__dirname,'locales')));
+} catch(e) {
+  console.error('!!! cannot read locales dir:', e.message);
+}
+
+
 app.use(cookieParser());
 app.use(i18n.init);
 console.log('SR catalog:', i18n.getCatalog('sr'));
@@ -41,17 +51,7 @@ try {
 
 //  –––––––––––––––––––––––––––––––––––––––––––––––––
 // 1) Промена језика преко ?lang=xx и чување у cookies
-/*app.use((req, res, next) => {
-  if (req.query.lang) {
-    res.cookie('lang', req.query.lang, {
-      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 дана
-      httpOnly: true
-    });
-    req.setLocale(req.query.lang);
-  }
-  next();
-});
-*/
+
 
 app.use((req, res, next) => {
   // POSLE ovog bloka koji čuva lang iz ?lang=xx u kolačić ...
@@ -70,7 +70,8 @@ app.use((req, res, next) => {
     // OVDE SILOM nameštamo српски
     req.setLocale('sr');
   }
- 
+  console.log('>> req.getLocale() =', req.getLocale());
+  console.log('>> res.locals.locale =', res.locals.locale);
   next();
 });
 
