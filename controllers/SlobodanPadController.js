@@ -44,7 +44,7 @@ var methods = {
       ? './freeFall_Intro_2'
       : './freeFall_Intro_1';
     console.log(`Free fall controller EN ${id}, ${res.path1}, ${res.path2}`);
-    res.render('pages-en/ejss_model_FreeFall/freeFall', res);
+    res.render('pages-en/ejss_model_FreeFall/FreeFall', res);
   },
 
   // Free Fall contents
