@@ -23,6 +23,8 @@ i18n.configure({
 
 app.use(cookieParser());
 app.use(i18n.init);
+console.log('SR catalog:', i18n.getCatalog('sr'));
+console.log('EN catalog:', i18n.getCatalog('en'));
 
 
 //  –––––––––––––––––––––––––––––––––––––––––––––––––
