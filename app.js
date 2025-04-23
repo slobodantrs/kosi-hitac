@@ -89,9 +89,9 @@ const slugMap = {
   '/klizanje_tela_niz_strmu_ravan':    '/en/inclined-plane-slide',
 
   // Slobodan pad
-  '/slobodan_Pad':                     '/en/free-fall',
-  '/slobodan_Pad/1':                   '/en/free-fall/1',   // опциони
-  '/slobodan_Pad/2':                   '/en/free-fall/2',   // опциони
+  '/slobodan_Pad':                     '/en/free_fall',
+  '/slobodan_Pad/1':                   '/en/free_fall/1',   // опциони
+  '/slobodan_Pad/2':                   '/en/free_fall/2',   // опциони
   '/contents_Slobodan_Pad':            '/en/contents_free_fall',
   '/SlobodanPad_Intro_1':              '/en/free_fall_intro_1',
   '/SlobodanPad_2':                    '/en/free_fall_intro_2',
