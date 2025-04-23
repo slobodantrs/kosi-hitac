@@ -3,10 +3,12 @@
 	<head>
     <% include ../partials/head %>
      <meta charset="utf-8" />
-	 <meta name="description" content="KREIRANJE  SIMULACIJE ROTACIJA DISKA" />
-	<meta name="keywords" content="KREIRANJE  SIMULACIJE ROTACIJA DISKA,Rotacija diska oko nepokretne ose,Rotacija diska,EJS Console,
-	 JAVA  programming language, obrtanje konstantnom ugaonom brzinom oko nepokretne ose,obrtanje konstantnom ugaonom brzinom, oko nepokretne ose,
-     rotira  sa diskom ugaonom brzinom W,Definisanje promenljivih u EJS-u,Polarne i dekartove koordinate , rotacije u ravni,Fizičke veličine  " />
+	 <meta name="description" content="CREATING A SIMULATION OF DISK ROTATION using EJS with 2D and 3D visual representation and detailed 
+	 configuration of graphical properties." />
+<meta name="keywords" content="disk rotation simulation,EJS simulation,Java programming language,constant angular velocity,rotating disk,
+rotation around a fixed axis,2D drawing panel,3D view,EJS variables,polar and Cartesian coordinates,rotation in a plane,graphical object properties,
+trail visualization,model-view connection,HtmlView,EJS advanced examples,physics simulation" />
+
 	</head>
     <body>
 	<div class="content-wrapper">
@@ -17,219 +19,84 @@
 		</header>
         </div>
 		</div>
-        <div class="d-flex flex-column justify-content-center">
-		
-        
-                <h1 class="naslov">KREIRANJE  SIMULACIJE ROTACIJA DISKA</h1>
-		
-		 <hr>
-          
-            
-         
-                <p class="" style="height:auto;text-align: center;">Rotacija diska oko nepokretne ose je opisana na strani   
-                <b><a href="/Rotacija_Diska">Rotacija diska</a></b></p>
-<p>Aplikacija je kreirana pomoću alata EJS verzija 5.3. Posle pokretanja EJS Console treba proveriti 
-putanju do output foldera(u Basic option) kao i to da se aplikacija izvršava u Jacascript-u(EJSS)</p>
-<div class="moj_video">
-<h3>Simulacija rotacije diska-video</h3>
-<iframe width="auto" height="auto"
-src="https://www.youtube.com/embed/UZRAnQ0mSZ0" frameborder="0" allowfullscreen>
-</iframe>
+       <div class="d-flex flex-column justify-content-center"> <h1 class="naslov">CREATING A DISK ROTATION SIMULATION</h1> <hr> <p style="height:auto;text-align: center;">The rotation of a disk around a fixed axis is explained on the page <b><a href="/Rotacija_Diska">Disk Rotation</a></b></p> <p>The application was created using EJS version 5.3. After launching the EJS Console, you should check the path to the output folder (under Basic option), as well as ensure that the application is set to run in Javascript mode (EJSS).</p> <div class="moj_video"> <h3>Disk Rotation Simulation - Video</h3> <iframe width="auto" height="auto" src="https://www.youtube.com/embed/UZRAnQ0mSZ0" frameborder="0" allowfullscreen> </iframe> </div> <div class="margine_oko_slike"> <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/EjssConsolePodesavanja.png" alt="EJS Console Settings" /> <p><b>Figure 1: EJS Console Settings</b></p> </div> <p>If JAVA is set as the programming language, change it to Javascript. In the main window, you start creating a new simulation by clicking the NewSimulation button, as shown in the image below:</p> <div class="margine_oko_slike"> <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/Pokretanje.png" alt="Starting the EJS Application" /> <p><b>Figure 2: Starting the EJS Application</b></p> </div> <p>Within the model, we define the necessary variables. In the Evolution tab, we define the number of frames per second, which will change during the simulation runtime. We leave the default value of 20 FPS (frames per second). This means that if 20 frames change per second, then each frame changes every 0.05 seconds.</p> <p>To create the application, let's review the mechanics laws that describe disk rotation about its axis. The first part of the task involves rotation at a constant angular velocity around a fixed axis. The task on which we base this simulation reads:</p>
+<b>Create a simulation of a disk with mass m and radius r rotating around a vertical axis at an angular velocity ω = 1 rad/s.</b>
 
-</div>
-
-       
- 
-     
-		
-                <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/EjssConsolePodesavanja.png" 
-				alt="Podešavanja EJS Console" />
-                <p><b>Slika 1: Podešavanja EJS Console</b></p>
-				</div>
-                <p class="" >Ako je podešena JAVA za programming language, 
-                treba promeniti u Javascript. U glavnom prozoru pokreće se kreiranje nove simulacije klikom na
-                dugme NewSimulation kao što je obeleženo na slici ispod:
-				</p>
-                 <div class="margine_oko_slike">
-                <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/Pokretanje.png" 
-				alt="Pokretanje Eesy Java Simulation(EJS) aplikacije" />
-                <p><b>Slika 2: Pokretanje Eesy Java Simulation(EJS) aplikacije</b></p>
-				</div>
-				<p class="" >
-				U okviru modela definišemo potrebne promenljive. U tabu Evolution definišemo broj potrebnih frejmova u sekundi,
-                koji će se menjati u toku izvršenja simulacije. Ostavimo podrazumevanu vrednost od 20 FPS(Frame per second). 
-                Dakle, ako se izvrši 20 promena frejma u sekundi, zaključujemo da se na svakih 0.05 sekundi izvrši po jedna promena frejma.
-                
-Da bi smo mogli da kreiramo aplikaciju, osvrnimo se na zakone mehanike koje opisuju rotaciju diska oko svoje ose.
- Prvi deo zadatka podrazumeva obrtanje konstantnom ugaonom brzinom oko nepokretne ose. 
- Zadatak na osnovu kojeg kreiramo ovu simulaciju glasi:
-<b>Napraviti simulaciju obrtanja diska mase m i poluprečnika r tako da rotira oko vertikalne ose ugaonom brzinom w = 1 rad/s</b><hr>
-Kreiraćemo prvo simulaciju u dvodimenzionalnoj ravni, na kome će se disk videti odozgo kao na sledećoj slici:
-
-				</p>
-                <div class="margine_oko_slike">
-				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_1.png" 
-				alt="Podešavanja EJS Console" />
-                <p><b>Slika 3: Podešavanja EJS Console</b></p>
-				</div>
-				<p class="" >
-				Tačka M koja se nalazi fiksirana na disku rotira zajedno sa diskom ugaonom brzinom W[rad/s]. Duž OM koja spaja centar kruga i tačku M obrće se oko ose za ugao fi, što ujedno predstavlja ugaoni pomeraj.
-Za vreme dt između dve iteracije, ukupno vreme će biti promenjeno:
-
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				<b>t=t+dt</b>
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Ugao će se za to isto vreme promeniti za
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				<b>d&phi;=&omega;*dt</b>
-				</p>
-                <p class="col-xs-12 col-md-12 col-lg-12" >
-				tako da će novi ugao biti:
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				<b>&phi;=&phi;+d&phi;</b>
-				</p>
-                <p class="col-xs-12 col-md-12 col-lg-12" >
-				Ovo su ujedno i formule koje treba uneti u deo “Evolution” unutar EJS-a.(vidi sliku)
-				</p>
-                <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_2.png" 
-				alt="Formule u Evolution" />
-                <p><b>Slika 4: Definisanje Formula u kartici Evolution u EJS-u</b></p>
-				</div>
-                <p class="col-xs-12 col-md-12 col-lg-12" >
-				Promenljive koje se koriste treba definisati u tab-u “Variable”. 
-                Pored promenljivih koje su upotrebljene u formulama, prikazanim na prethodnim slikama, 
-                treba dodati i dekartove coordinate x i y. Pregled promenljivih, njihov tip podataka kao i početne 
-                vrednosti vide se na sledećoj slici:
-
-				</p>
-                 <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_3.png" 
-				alt="Definisanje promenljivih u EJS-u" />
-                <p><b>Slika 5: Definisanje promenljivih u EJS-u</b></p>
-				</div>
-                <p class="" >
-				R predstavlja poluprečnik diska, dok su razW icssFlow, promenljive koje će se upotrebiti u grafičkom delu aplikacije, 
-                kao razmera i tekst koji će se koristiti kao css za raspored komponenti u jednom redu(FlowLayout u javi).
-                </p>
-                <p class="" style="height:auto;text-align: center;">Rotacija diska oko nepokretne ose je opisana na strani   
-                <b><a href="https://izprogramiranja.weebly.com/grafika_u_javi.html">Izrada grafičkih aplikacija u JAVI</a></b></p>
-                <p>
-Vidimo da su skoro sve promenljive tipa double(realni brojevi) sem cssFlow koja je tipa String.
-Dekartove koordinate su pogodnije za iscrtavanje tačke M i one se mogu povezati sa već izračunatim polarnim koordinatama,
- koje zavise od vremena i odrećene su u tab-u “Evolution”. Sve ostale izvedene promenljive koje su nekim formulama povezane
- sa ovim treba napisati u tab-u “Fixed Relation”. Polarne i dekartove koordinate su povezane relacijama koje su prikazane na sledećoj slici:
-
-
-				</p>
-                <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_4.png" 
-				alt="Rotacija diska. Veza Dekartovih i polarnih koordinata" />
-                <p><b>Slika 6: Rotacija diska. Veza Dekartovih i polarnih koordinata</b></p>
-				</div>
-      <p>U EJS-u:</p>
-      <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_5.png" 
-				alt="Definisanje promenljivih u FixedRelation EJS-u" />
-                <p><b>Slika 7: Definisanje promenljivih u FixedRelation EJS-u</b></p>
-				</div>
-                <p>Sledeće što treba uraditi je da se kreira grafički deo aplikacije. 
-                Sa modela treba preći na karticu HtmlView. Ovo je deo zadužen za grafikau u
-                varijanti EJS-a sa javascript-om. Sa desne strane se nalaze različiti grafički objekti
-                kako za 2D tako i za 3D grafiku.
-Objekti su organizovani kao stablo sa granama, gde se u korenu nalazi objekat SimulationView,
- a ostali objekti se dodaju i povezuju tako što se odgovarajući objekat odabere sa palete i premesti
- na drvo objekata sa leve strane. U ovom primeru struktura objekata izgleda kao na sledećoj slici:
-</p>
-<div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_6.png" 
-				alt="Kreiranje grafike. HtmlView" />
-                <p><b>Slika 8: Kreiranje grafike. HtmlView</b></p>
-				</div>
-                <p>Grane koje su prvo dodate su objekti koji predstavljaju panele-komponente,
-                pravougaonog oblika koji predstavljaju kontejner(sadrži u sebi druge komponente) za ostale komponente.
-                Mogu se uočiti 4 panela. Prvi je naslov aplikacije, panelUnos i panelPrikaz nose polja za unos teksta,
-                odnosno polja za prikaz nekih fizičkih veličina, kako i samo njihovo ime sugeriše.
-Četvrti panel “container” nosi dva pod panela od kojih je jedan za prikaz rotacije u ravni(2D), a drugi za prikaz u 
-trodimenzionom prostoru(3D).
-Detaljno objašnjenje o tome kako se kreira aplikacija, pogledajte u priloženom videu.
-Objekti koje treba postaviti na panel za 2D prikaz simulacije “singleDrawingPanel” vide se na sledećoj slici:
-</p>
-<div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_7.png" 
-				alt="HtmlView. Drvo grafičkih objekata" />
-                <p><b>Slika 9: HtmlView. Drvo grafičkih objekata</b></p>
-				</div>
-                <p>Kada se sa palete interface odabere objekat singleDrawing panel objekat sa kompletnom grupom potrebnoh podobjekata se takođe doda na drvo elemenata(Tree of elements engl.)
-Za 3D prikaz se sa iste palete doda Drawing3DPanel objekat čija je struktura prikazana na slici.
-Detalnija struktura objekata na 2D panelu je prikazana na sledećoj slici:
-</p>
-<div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_8.png" 
-				alt="HtmlView. Detalnija struktura objekata na 2D panelu " />
-                <p><b>Slika 10: HtmlView. Detalnija struktura objekata na 2D panelu </b></p>
-				</div>
-                <p>Na panelu za crtanje(drawingPanel) su postavljeni sledeći objekti: </p>
-                <ol class="moj_pasus" style="list-style-type: none;">
-
-<li> 1.	<b>rotacioniDisk(2D shape)</b> sa palete 2D Drawables, predstavlja u stvari krug(pogled diska odozgo)</li>
-<li><b> 2.	marker(segment)</b>,to je duž koja prati rotaciju diska. Duž spaja centar diska sa tačkom M, na obodu diska </li>
-<li> 3.	<b>osa(2D shape)</b>, je takođe krug, koji predstavlja osu rotacije, gledane odozgo</li>
-<li> 4.	<b>trail(2D trail)</b>, kriva linija(kružni luk) koja prikazuje ugao rotiranja</li>
- <li> 5.  <b>pocetakUgla(segment)</b>, duž koja pokazuje početni položaj markera, u tom položaju ugao rotacije je bio nula</li>
-
-<br></ol>
-<p>Klikom na odgovarajući object, npr na rotacioniDisk, možemo menjati njegove osobine, kao što je pokazano na sledećoj slici:</p>
-<div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_9.png" 
-				alt="HtmlView. Rotacioni disk-osobine. " />
-                <p><b>Slika 11: HtmlView. Rotacioni disk-osobine. </b></p>
-				</div>
-                <p>Veličine X, Y i  SizeX , SizeY određuju pravougaonik u koji je upisana elipsa, koja se u ovom slučaju svodi na krug jer su širina i visina stranice pravougaonika jednake i iznose R*2(prečnik diska). X i  su koordinate gornjeg levog temena pravougaonika u koji je elipsa, odnosno krug u ovom slučaju, upisan.
-Osobine duži označene kao marker možemo videti na sledećoj slici:
-</p>
-<div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_10.png" 
-				alt=" HtmlView. marker(segment)-osobine.  " />
-                <p><b>Slika 12: HtmlView. marker(segment)-osobine. </b></p>
-				</div>
-                <p>X i Y su koordinate početne tačke duži, dok su SizeX i SizeY katete pravouglog trougla 
-                koje se dobiju kada hipotenuzu OM(sama duž-marker) projektujemo na koordinatne ose x, odnosno y.(vidi sliku dole)</p>
-                <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_11.png" 
-				alt=" Rotacija Diska. Fizičke veličine.  " />
-                <p><b>Slika 13: Rotacija Diska. Fizičke veličine. </b></p>
-				</div>
-                <p>Pojedine osobine grafičkih objekata možemo povezati sa promenljivima i njihovim vrednostima.
-                Npr trag obrtanja(trial) možemo povezati sa dekartovim koordinatama x i y, tako da trag prati trenutne vrednosti. 
-                Skup tacaka svih trenutnih položaja traga je zapravo kružnica sa centrom u tački O(centar rotacije diska), 
-                a poluprečnik je neki deo od poluprečnika diska, u našem primeru 0.3 od poluprečnika(vidi osobinu sizeX i SizeY 
-                na sledećoj slici). Osobne koje treba definisati da bi dobili trag vide se takođe na istoj slici.</p>
-                 <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_12.png" 
-				alt=" HtmlView. Putanja(trial) -osobine. " />
-                <p><b>Slika 14: HtmlView. Putanja(trial) -osobine.</b></p>
-				</div>
-                <p>Osobinu InputX i Input Y ćemo povezati sa promenljivima(varijablama) ako kliknemo na
-                drugo dugme desno od Input-a(slika sa karikom lanca)</p>
-                <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_13.png" 
-				alt=" HtmlView. Povezivanje grafičkih osobina sa promenljivima iz modela. " />
-                <p><b>Slika 15: HtmlView. Povezivanje grafičkih osobina sa promenljivima iz modela. </b></p>
-				</div>
-                
-                
-
-         <h3 class="naslov">KREIRANJE 3D PRIKAZA SIMULACIJE</h3>
-         <p>Pročitajte više o tome na webstrani:</p>
-        <p><b><a href="/o_ejsu_primer_napredno_2">Rotacija diska simulacija - 3D prikaz</a></b></p>
-     
-                
+<hr> <p>We will first create the simulation in a two-dimensional plane, where the disk is viewed from above, as shown in the image below:</p> 
+<div class="margine_oko_slike"> <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_1.png" alt="EJS Console Settings" />
+ <p><b>Figure 3: Top view of disk</b></p> 
+ </div> 
+ <p>Point M, which is fixed to the disk, rotates along with the disk at angular velocity W [rad/s]. The line OM connecting the center 
+ of the circle and point M rotates by an angle φ, representing the angular displacement. Over a time interval dt between two iterations, total time is updated as:</p>
+ <p><b>t = t + dt</b></p> <p>The angle changes accordingly:</p> <p><b>d&phi; = &omega; * dt</b></p> <p>And the new angle becomes:</p>
+ <p><b>&phi; = &phi; + d&phi;</b></p> <p>These are the formulas to be entered in the “Evolution” section of EJS. (see image)</p>
+ <div class="margine_oko_slike"> <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_2.png" alt="Evolution Formulas" />
+ <p><b>Figure 4: Defining formulas in the Evolution tab in EJS</b></p> 
+ </div>
+ <p>The variables used must be defined in the “Variable” tab. In addition to the variables used in the formulas shown earlier,
+ Cartesian coordinates x and y should also be added. A preview of the variables, their data types, and initial values is shown in the image below:</p> 
+ <div class="margine_oko_slike"> <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_3.png" alt="Variable Definition in EJS" />
+ <p><b>Figure 5: Variable Definition in EJS</b></p> </div> <p>R represents the radius of the disk, while variables razW and cssFlow are used in 
+ the graphical part of the application — as a scale and as CSS layout instructions for component alignment (like FlowLayout in Java).</p> 
+ <p style="height:auto;text-align: center;">The rotation of a disk around a fixed axis is further explained on the page 
+ <b><a href="https://www.svetprogramiranja.com/grafika_u_javi.html">Creating Graphic Applications in JAVA</a></b></p> <p>We see that almost all variables 
+ are of type double (real numbers), except for cssFlow, which is a String. Cartesian coordinates are useful for drawing point M and can be linked to already 
+ calculated polar coordinates, which depend on time and are defined in the “Evolution” tab. All other derived variables related to these formulas should be entered in 
+ the “Fixed Relation” tab. Polar and Cartesian coordinates are linked by the relations shown in the following image:</p> 
+ <div class="margine_oko_slike"> <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_4.png" alt="Disk Rotation. Relation between Cartesian and Polar Coordinates" /> 
+ <p><b>Figure 6: Disk Rotation. Relation between Cartesian and Polar Coordinates</b></p> 
+ </div> <p>In EJS:</p> <div class="margine_oko_slike"> <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_5.png" alt="Defining Variables in FixedRelation in EJS" /> 
+ <p><b>Figure 7: Defining Variables in FixedRelation in EJS</b></p> </div> <p>The next step is to create the graphical part of the application. 
+ Switch from the model tab to the HtmlView tab. This tab is responsible for the graphical interface in the Javascript version of EJS. On the right side,
+ there are various graphical objects for both 2D and 3D graphics.</p> <p>The objects are organized as a tree structure, with SimulationView at the root. 
+ Other objects are added and connected by dragging the desired object from the palette onto the object tree on the left side. In this example, 
+ the object structure looks like the following:</p> <div class="margine_oko_slike"> 
+ <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_6.png" alt="Creating Graphics - HtmlView" /> 
+ <p><b>Figure 8: Creating Graphics - HtmlView</b></p> </div> <p>The first branches added are panel components — rectangular containers that hold other components. 
+ We can see four panels: the first is the application title, panelUnos and panelPrikaz contain input and output fields for physical values,
+ respectively, as their names suggest. The fourth panel, “container”, contains two sub-panels — one for 2D rotation display, and another for 3D display.</p>
+ <p>For a detailed explanation on how to create the application, watch the attached video. The objects that need to be placed on the 2D simulation display panel
+ “singleDrawingPanel” are shown in the next image:</p> <!-- (Here you can continue with the rest if there's more content or images.) -->
+<div class="margine_oko_slike"> <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_7.png" alt="HtmlView. Tree of graphical objects" />
+ <p><b>Figure 9: HtmlView. Tree of graphical objects</b></p> </div>
+ <p>When an object is selected from the interface palette, such as a singleDrawingPanel, it is added to the tree
+ of elements along with its entire group of required sub-objects. For 3D visualization, a Drawing3DPanel object is added from the same palette,
+ and its structure is shown in the figure. The detailed structure of objects on the 2D panel is shown in the following figure:</p>
+ <div class="margine_oko_slike"> <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_8.png" alt="HtmlView. Detailed structure of objects on the 2D panel" />
+ <p><b>Figure 10: HtmlView. Detailed structure of objects on the 2D panel</b></p> </div> 
+ <p>The following objects are placed on the drawing panel (drawingPanel): </p> 
+ <ol class="moj_pasus" style="list-style-type: none;"> <li>1. <b>rotacioniDisk (2D shape)</b> from the 2D Drawables palette,
+ actually represents a circle (top view of the disk)</li>
+ <li>2. <b>marker (segment)</b>, a line segment that follows the rotation of the disk. The line connects the center of
+ the disk with point M on the disk’s edge</li> 
+ <li>3. <b>osa (2D shape)</b>, also a circle, represents the rotation axis as seen from above</li>
+ <li>4. <b>trail (2D trail)</b>, a curved line (circular arc) showing the angle of rotation</li> 
+ <li>5. <b>pocetakUgla (segment)</b>, a line indicating the initial position of the marker, when the rotation angle was zero</li>
+ </ol> <p>By clicking on a particular object, for example on <i>rotacioniDisk</i>, you can change its properties, as shown in the next image:</p> 
+ <div class="margine_oko_slike"> <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_9.png" alt="HtmlView. Rotating disk - properties" />
+ <p><b>Figure 11: HtmlView. Rotating disk - properties</b></p> </div>
+ <p>The values X, Y and SizeX, SizeY define the rectangle into which the ellipse is drawn — in this case,
+ it becomes a circle because the width and height of the rectangle are equal to R*2 (the disk's diameter).
+ X and Y are the coordinates of the top-left corner of the rectangle in which the ellipse (circle in this case) is inscribed.</p>
+ <p>The properties of the line segment marked as <i>marker</i> can be seen in the next figure:</p>
+ <div class="margine_oko_slike"> <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_10.png" alt="HtmlView. marker(segment) - properties" /> 
+ <p><b>Figure 12: HtmlView. marker (segment) - properties</b></p> </div> <p>X and Y are the coordinates of the line's starting point,
+ while SizeX and SizeY are the legs of the right triangle obtained when the hypotenuse OM (the line segment - marker) is projected onto 
+ the x and y axes (see the image below).</p> <div class="margine_oko_slike">
+ <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_11.png" alt="Disk Rotation. Physical quantities" />
+ <p><b>Figure 13: Disk Rotation. Physical quantities</b></p> </div> <p>Some graphical object properties can be linked 
+ to variables and their values. For example, the rotation trail can be linked to Cartesian coordinates x and y so the trail
+ follows the current values. The set of points representing all current trail positions forms a circle centered at point O 
+ (disk rotation center), with a radius equal to a portion of the disk radius — in our case, 0.3 of the disk's radius 
+ (see properties SizeX and SizeY in the next figure). The properties that need to be defined to obtain the trail are also 
+ shown in the same image.</p> 
+ <div class="margine_oko_slike"> <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_12.png" alt="HtmlView. Trail - properties" /> 
+ <p><b>Figure 14: HtmlView. Trail - properties</b></p> </div> <p>The InputX and InputY properties can be linked to variables by clicking the 
+ second button to the right of the Input field (the one with the chain icon).</p> <div class="margine_oko_slike">
+ <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_13.png" alt="HtmlView. Linking graphical properties to model variables" /> 
+ <p><b>Figure 15: HtmlView. Linking graphical properties to model variables</b></p> </div> <h3 class="naslov">CREATING A 3D SIMULATION VIEW</h3> 
+ <p>Read more about this on the webpage:</p>
+ <p><b><a href="/o_ejsu_primer_napredno_2">Disk Rotation Simulation - 3D View</a></b></p>  
 		</div>
         
 		<div class="row">

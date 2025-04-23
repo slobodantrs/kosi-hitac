@@ -2,6 +2,9 @@
 <html lang="en">
 	<head>
     <% include ../partials/head %>
+	<meta name="description" content="A step-by-step guide to installing and using Easy Java/JavaScript Simulation (EJS/EJSS) for creating interactive physics simulations with minimal programming knowledge." />
+<meta name="keywords" content="Easy Java Simulation,EJSS tutorial,install EJS,Easy JavaScript Simulation,open source physics,create physics simulations,JavaScript physics applet,EJS installation guide,EjsConsole,workspace folder,EJSS sources folder,EJSS output folder,physics animation,interactive simulations,Java simulations,JavaScript simulations,education tool for physics,EJSS MVC architecture" />
+
 	</head>
     <body>
 	<div class="content-wrapper">
@@ -12,108 +15,113 @@
 		</header>
         </div>
 		</div>
-		<div class="row">
-         <div class="naslov col-xs-12 col-md-12 col-lg-12">
-                <h1>O alatu Easy Java Simulation</h1>
-		 </div>
-		 <hr>
-            </div>
-            
-           <!--div class="row">
-                <p class="col-xs-12 col-md-12 col-lg-12" style="height:300px;text-align: center;">Web stranica je u izradi...</p>
-         
-        </div-->
-		<div class="row">
-                <p class="col-xs-12 col-md-12 col-lg-12" >Da bi kreirali kompjutersku simulaciju 
-				koja opisuje neku fizičku pojavu iz bilo koje oblasti fizike, potrebno je prilično znanja iz programiranja.
-				To znači da, ako neko koje ekspert za fiziku, a želi da napravi simulaciju koja mu pomaže da izučava određenu fizičku pojavu,
-				treba da potroši mnogo dodatnog vremena i truda da savlada onoliko programiranja koliko mu je potrebno da uspešno kreira neku 
-				čak i jednostavnu kompjutersku simulaciju.
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Alat EJS(engl. Easy Java Simulation) je alat koji znatno olakšava kreiranje kompjuterskih simulacija, 
-				tako da omogućava fizičarima, a i drugim licima da uz neko minimalno znanje iz programiranja
-				kreiraju kompjuterske simulacije simulacije.
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Easy Java Simulation je program otvorenog koda, je deo paketa open source phisics(OSP)  projekta,
-				kreirane u programskom jeziku JAVA, kao i novija verzija Easy Javascript Simulation(EJSS),
-				kreirane u JAVA programskom jeziku i omogućava kreiranje kompjuterskih simulacija u Javi ili Javascriptu.
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				U ovom članku će biti opisano pisanje javascript apleta.
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				EJS je dizajniran u Maurica univerzitetu, u Španiji
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Programiranje korišćenjem EJS-a zasnovana je na MVC(Model View Controller) arhitekturi,
-				koja predstavlja standard u arhitekturi, jer razdvaja vizuelni deo od računskog dela i podataka, 
-				kao i upravljanje istim.
-				</p>
-        </div>
-		<div class="row">
-		<h2>Instalacija EJS-a</h2>
-                <p class="col-xs-12 col-md-12 col-lg-12" >Ejs se može preuzeti sa sajta
-				<a href="https://www.um.es/fem/EjsWiki/Main/Download">EJS preuzimanje</a>
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Sa sajta treba preuzeti najnoviju stabilnu verziju ili neku stariju po potrebi. 
-				Ovaj tutorijal koristi verziju  EjsS_5.3_180211.zip , vidi sliku ispod:
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/Instalacija EJS.png"/>
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Zip arhivu treba raspakovati u neki željeni folder.
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Sadržaj raspakovanog foldera sadrži u sebi sledeće foldere:
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/instalacijaEJS-2.png"/>
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Ovde vidimo jar fajl EjsConsole za startovanje EJS-a, kao i tri foldera, 
-				od kojih je nama značjan workspace folder u kome se nalaze kreirane simulacije.
-				Sadržaj workspace foldera:
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/Instalacija EJS-3.png"/>
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				U okviru foldera sources treba sačuvati simulacije tj. fajlove sa ekstenzijom .ejs ili .ejss u zavisnosti da li se prave java 
-				ili javascript simulacije.
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				U output folderu se nalaze kreirane simulacije koje će se koristiti u web stranicama. Program se startuje klikom na jar fajl EjsConsole.
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/Instalacija EJS-4.png"/>
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Prozor Ejs console ima 3 tab-a: Basic option u kome se nalaze osnovna podešavanja, 
-				Advanced option i Output area. U pozadini se vidi da je startovan Ejs u ovom primeru jer je u
-				osnovnim opcijama za programski  jezik odabrana Java.
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				U osnovnim opcijama treba odabrati: podrazumevanu virtuelnu mašinu, tj. Java JRE verziju. 
-				Takođe treba odabrati radni prostor(engl. workspace) i programski jezik u kome se prave simulacije.
-				Kao podrazumevano stoji java, ali ćemo mi promeniti u javascript.
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/basicOption.png"/>
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				Iako je odabrana Java, i dalje se može pokrenuti javascript varijanta klikom na dugme “Lunch Easy Java(script) Simulation.
-				Međutim mi ćemo promeniti Programski jezika na javascript, da bi se u sledećem pokretanju Ejs 
-				console automatski pokrenuo i EjsS za rad u javascriptu. Posle ponovnog startovanja Ejs Console pokreće 
-				se i EjsS aplikacija za izradu simulacija u javascript-u:
-				</p>
-				<p class="col-xs-12 col-md-12 col-lg-12" >
-				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/startovanje EjsS.png"/>
-				</p>
-        </div>
+	<div class="row">
+    <div class="naslov col-xs-12 col-md-12 col-lg-12">
+        <h1>About the Easy Java Simulation Tool</h1>
+    </div>
+    <hr>
+</div>
+
+<!--div class="row">
+    <p class="col-xs-12 col-md-12 col-lg-12" style="height:300px;text-align: center;">Website under construction...</p>
+</div-->
+
+<div class="row">
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        To create a computer simulation that describes a physical phenomenon from any field of physics, 
+        one needs considerable programming knowledge. This means that if someone is an expert in physics 
+        and wants to create a simulation to help study a specific physical phenomenon, 
+        they will need to spend a lot of additional time and effort to learn enough programming 
+        just to successfully create even a simple computer simulation.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        The EJS (Easy Java Simulation) tool significantly simplifies the process of creating computer simulations, 
+        enabling physicists and others to develop simulations with only minimal programming knowledge.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        Easy Java Simulation is an open-source program that is part of the Open Source Physics (OSP) project. 
+        It is developed in the Java programming language, as is its newer version, Easy JavaScript Simulation (EJSS), 
+        which allows for the creation of simulations in either Java or JavaScript.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        This article will describe how to create JavaScript applets.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        EJS was developed at the University of Murcia, Spain.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        Programming with EJS is based on the MVC (Model-View-Controller) architecture, 
+        which is a standard approach in software architecture. It separates the visual part from 
+        the computational part and the data, as well as their management.
+    </p>
+</div>
+
+<div class="row">
+    <h2>Installing EJS</h2>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        EJS can be downloaded from the website 
+        <a href="https://www.um.es/fem/EjsWiki/Main/Download">EJS download</a>
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        Download the latest stable version or an older one if needed. 
+        This tutorial uses the version EjsS_5.3_180211.zip, see the image below:
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/Instalacija EJS.png"/>
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        The zip archive should be extracted into a desired folder.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        The extracted folder contains the following directories:
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/instalacijaEJS-2.png"/>
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        Here we can see the EjsConsole JAR file used to start EJS, and three folders. 
+        The most important one is the "workspace" folder, where the created simulations are stored.  
+        Contents of the workspace folder:
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/Instalacija EJS-3.png"/>
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        Within the "sources" folder, you should save simulations with the .ejs or .ejss extension, 
+        depending on whether you are creating Java or JavaScript simulations.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        The "output" folder contains the generated simulations that will be used on websites. 
+        The program is started by clicking on the EjsConsole JAR file.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/Instalacija EJS-4.png"/>
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        The Ejs console window has three tabs: Basic options (for general settings), 
+        Advanced options, and Output area. In the background, you can see that Ejs is running 
+        in this example, with Java selected as the programming language in the basic options.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        In the basic options, you need to select the default virtual machine (i.e., Java JRE version), 
+        as well as the workspace and the programming language for simulations. 
+        By default, it is set to Java, but we will change it to JavaScript.
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/basicOption.png"/>
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        Even if Java is selected, you can still run the JavaScript version by clicking 
+        the "Launch Easy Java(script) Simulation" button. However, we will change the programming 
+        language to JavaScript so that the next time Ejs Console is started, 
+        EjsS will automatically launch for working with JavaScript simulations. 
+        After restarting Ejs Console, the EjsS application for creating simulations in JavaScript will launch:
+    </p>
+    <p class="col-xs-12 col-md-12 col-lg-12">
+        <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/startovanje EjsS.png"/>
+    </p>
+</div>
+
 		<div class="row">
 		<div class="col-xs-12 col-md-12 col-lg-12">
         <% include ../partials/scripts %>

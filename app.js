@@ -37,19 +37,6 @@ app.use(i18n.init);
 console.log('SR catalog:', i18n.getCatalog('sr'));
 console.log('EN catalog:', i18n.getCatalog('en'));
 
-
-// после i18n.init
-console.log('i18n locales:', i18n.getLocales());
-//console.log('i18n directory:', i18n.settings.directory);
-/*
-try {
-  const files = fs.readdirSync(i18n.settings.directory);
-  console.log('Files in locales dir:', files);
-} catch (err) {
-  console.error('Error reading locales directory:', err);
-}
-*/
-
 //  –––––––––––––––––––––––––––––––––––––––––––––––––
 // 1) Промена језика преко ?lang=xx и чување у cookies
 
@@ -77,18 +64,6 @@ app.use((req, res, next) => {
 });
 
 
-// 2) Прослеђивање помоћних ф-ја и текућег језика у template
-//app.use((req, res, next) => {
-//  res.locals.__     = res.__;            // за __('key')
- // res.locals.locale = req.getLocale();   // 'sr' или 'en'
- // next();
-//});
-
-// 3) **Додај** ово после претходна два, да би у EJS-у имао currentPath
-//app.use((req, res, next) => {
- // res.locals.currentPath = req.originalUrl; // или req.path, како ти одговара
- // next();
-//});
 
 // app.js (posle svih `app.use(...)` pre `app.listen(...)`)
 console.log('app.js');

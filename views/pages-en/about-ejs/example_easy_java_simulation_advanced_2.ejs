@@ -17,80 +17,78 @@ diskom oko nepokretne ose,gornjoj površini diska,rotacioni disk ,vektor ugaone 
 		</header>
         </div>
 		</div>
-        <div class="d-flex flex-column justify-content-center">
-		
-        
-                <h1 class="naslov">KREIRANJE  SIMULACIJE ROTACIJA DISKA 3D prikaz</h1>
-		
-		 <hr>
-          
-            
-         
-                <p class="" style="height:auto;text-align: center;">Isto kretanje ali u 3D prikazu prikazano je na drugom panelu singleDrawing3DPanel, objekat klase Drawing3DPanel sa palete Interface. Prevlačenjem na drvo objekata dobiće se struktura prikazana na sledećoj slici:   
-              </p>
+      <div class="d-flex flex-column justify-content-center">
+  <h1 class="naslov">CREATING A 3D DISK ROTATION SIMULATION</h1>
+  <hr>
+  <p class="" style="height:auto;text-align: center;">
+    The same motion rendered in 3D is displayed on the second panel, <code>singleDrawing3DPanel</code>, 
+    which is a <code>Drawing3DPanel</code> object from the Interface palette. 
+    Dragging it into the element tree produces the structure shown below:
+  </p>
 
+  <div class="margine_oko_slike">
+    <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_14.png"
+         alt="HtmlView, element tree, Drawing3DPanel object from the Interface palette" />
+    <p><b>Figure 16: HtmlView element tree, Drawing3DPanel object from the Interface palette</b></p>
+  </div>
 
-       
- 
-     
-		
-                <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_14.png" 
-				alt="HtmlView, drvo prikaza, 3DPanel-objekat klase Drawing3DPanel sa palete Interface" />
-                <p><b>Slika 16: HtmlView, drvo prikaza, 3DPanel-objekat klase Drawing3DPanel sa palete Interface</b></p>
-				</div>
-                
-                <ol class="moj_pasus" style="list-style-type: none;">
+  <ol class="moj_pasus" style="list-style-type: none;">
+    <li><b>1. disk3D (3D shape)</b> — represents the rotating disk, implemented as a <code>Cylinder3D</code> object.</li>
+    <li><b>2. axle</b> — also cylindrical, so it uses the same <code>Cylinder3D</code> class as <code>disk3D</code>.</li>
+    <li><b>3. marker3D</b> — a segment on the top surface of the disk that rotates with it around the fixed axis. 
+      Similar to the 2D marker, but selected from the 3D Drawable palette.</li>
+    <li><b>4. ω3D</b> — the angular velocity vector, chosen from the 3D Drawable palette’s third tab as an <code>Arrow3D</code> object.</li>
+    <li><b>5. ωtext3D</b> — a 3D text object displaying the angular velocity.</li>
+  </ol>
 
-<li> 1.	<b>1.	disk3D(3D shape)</b> objekat koji predstavlja rotacioni disk klase Cylinder3D</li>
-<li><b> 2.	2.	osovina</b>,takođe cilindričnog oblika, dakle objekat iste klase kao disk3D </li>
-<li> 3.	<b>3.	marker3D</b>, duž na gornjoj površini diska koja rotira zajedno sa diskom oko nepokretne ose(osovina). Slično kao markeri u 2D prikazu, ali ovog puta se bira sa palete 3D drawable</li>
-<li> 4.	<b>&omega;3D</b>, vektor ugaone brzine. Objekat koji se bira sa palete 3D Drawable sa trećeg taba je objekat klase Arrow3D(vidi sliku)</li>
- <li> 5.  <b>&omega;text3D</b>, je 3D tekst koji označava ugaonu brzinu</li>
+  <div class="margine_oko_slike">
+    <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_15.png"
+         alt="HtmlView element tree, ω3D Arrow3D object from the Interface palette" />
+    <p><b>Figure 17: HtmlView element tree, ω3D Arrow3D object from the Interface palette</b></p>
+  </div>
 
-<br></ol>
-                <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_15.png" 
-				alt="HtmlView, drvo prikaza, &omega;3D, objekat klase Arrow3D sa palete Interface" />
-                <p><b>Slika 17: HtmlView, drvo prikaza, &omega;3D, objekat klase Arrow3D sa palete Interface</b></p>
-				</div>
-                <p class="" >Na sledećoj slici se vidi kompletan 3D prikaz
-				</p>
-                 <div class="margine_oko_slike">
-                <img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_16.png" 
-				alt=" Rotacija diska-3D prikaz" />
-                <p><b>Slika 18: Rotacija diska-3D prikaz</b></p>
-				</div>
-				<p class="" >
-				Na objektu panela treba podesiti minimalne i maksimalne koordinate koje se prikazuju,
-                vrstu prikaza, kao i parametre kamere koja prikazuje 3D prikaz. Osobine koje treba
-                podesiti za panel možemo podeliti na glavne osobine, kao i za prikaz kamere:
+  <p class="">
+    The complete 3D view appears as follows:
+  </p>
 
-				</p>
-                <div class="margine_oko_slike">
-				<img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_17.png" 
-				alt="3DPanel-objekat klase Drawing3DPanel sa palete Interface-osobine" />
-                <p><b>Slika 19:  3DPanel-objekat klase Drawing3DPanel sa palete Interface-osobine</b></p>
-				</div>
-				<p class="" >
-				Za kameru:
-				</p>
-				
-                <div class="margine_oko_slike">
-				<img class="" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_18.png" 
-				alt="3DPanel-objekat klase Drawing3DPanel sa palete Interface-osobine kamere" />
-                <p><b>Slika 20: 3DPanel-objekat klase Drawing3DPanel sa palete Interface-osobine kamere</b></p>
-				</div>
-                <p class="" >
-				Kamera ima focus o koordinatnom početku trodimenzionalnog koordinatnog sistema, 
-                odaljena je duž negativnog dela y ose za 0.8 i zaokrenuta je u
-                ekvatorijalnoj ravni(analogija sa planetom zemljom) i ravni upravnoj na nju,
-                za određene sferne uglove prikazane u dijalogu Properties na slici iznad(Camera Altitude i Camera Azimuth).
-                Kompletan primer, je prikazan na videu na strani.
-                <b><a href="/o_ejsu_primer_napredno">Rotacija diska simulacija kreiranje simulacije</a></b>
-				</p>
-                 
-		</div>
+  <div class="margine_oko_slike">
+    <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_16.png"
+         alt="Disk rotation 3D view" />
+    <p><b>Figure 18: Disk rotation 3D view</b></p>
+  </div>
+
+  <p class="">
+    On the panel object, set the minimum and maximum coordinates to display, 
+    the display mode, and the camera parameters. The panel properties are divided 
+    into main panel settings and camera settings:
+  </p>
+
+  <div class="margine_oko_slike">
+    <img class="slike_u_tekstu" src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_17.png"
+         alt="3DPanel object properties from the Interface palette" />
+    <p><b>Figure 19: 3DPanel object properties from the Interface palette</b></p>
+  </div>
+
+  <p class="">
+    For the camera:
+  </p>
+
+  <div class="margine_oko_slike">
+    <img src="images/upotrebaEjsaOpis/IzradaNapredneApp/RD_18.png"
+         alt="Camera settings for the 3DPanel object from the Interface palette" />
+    <p><b>Figure 20: Camera settings for the 3DPanel object from the Interface palette</b></p>
+  </div>
+
+  <p class="">
+    The camera is focused at the origin of the 3D coordinate system, positioned 
+    along the negative Y-axis at 0.8 units, and oriented in the equatorial plane 
+    (analogous to Earth’s equator) and its perpendicular plane by the spherical 
+    angles shown in the Properties dialog above (Camera Altitude and Camera Azimuth). 
+    See the full example in the video on the page: 
+    <b><a href="/o_ejsu_primer_napredno">Disk Rotation Simulation – Creating the Simulation</a></b>
+  </p>
+</div>
+
 		<div class="row">
 		<div class="col-xs-12 col-md-12 col-lg-12">
         <% include ../partials/scripts %>
