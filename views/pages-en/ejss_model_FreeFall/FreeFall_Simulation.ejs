@@ -1,23 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
-     <% include ../partials/head %>
+    <% include ../../partials/head %>
     <meta charset="utf-8" />
-	 <meta name="description" content="Simulacija slobodnog pada - uvod. 
-   Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
-	<meta name="keywords" content="Slobodan pad,
-	Opis simulacije,površine zemlje, sile zemljine teže, zemljine teže,
-	ravnomerno ubrzano kretanje,vakuumu,udaru o zemlju,panelu za unos,
-	početna visina,masa tela,položaj tela,
-	trenutna brzina ,brzina pri zaustavljanju,kinetička energija,potencijalna energija,vektor brzine tela,vektor brzine, sila teže,
-	 " />
-    <title>Simulacija slobodnog pada</title>
-    <link rel="stylesheet"  type="text/css" href="_ejs_library/css/ejss.css" />
+    <meta name="description" content="Free fall simulation - introduction. 
+    Simulation created using Easy Java Simulation (EJS) tool." />
+    <meta name="keywords" content="Free fall,
+    Simulation overview, Earth's surface, gravitational force, Earth's gravity,
+    uniformly accelerated motion, vacuum, ground impact, input panel,
+    initial height, object mass, object position,
+    current velocity, stopping velocity, kinetic energy, potential energy, velocity vector, gravity force vector" />
+    <title>Free Fall Simulation</title>
+    <link rel="stylesheet" type="text/css" href="_ejs_library/css/ejss.css" />
     <script src="_ejs_library/scripts/common_script.js"></script>
     <script src="_ejs_library/scripts/textresizedetector.js"></script>
     <script src="_ejs_library/ejsS.v1.min.js"></script>
-	
+
 <script type="text/javascript"><!--//--><![CDATA[//><!--
 /* _inputParameters: an object with different values for the model parameters */
 function SlobodanPad(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
@@ -1298,77 +1296,63 @@ function SlobodanPad_View_0 (_topFrame) {
 //--><!]]></script>
   </head>
   <body>
-  <div class="container moj-header"><!--Kontejner tela-->
-   <div class="row"><!-- Header-->
-  
+  <div class="container moj-header"><!-- Body container -->
+    <div class="row"><!-- Header -->
+      <header class="moj-header col-xs-12 col-md-12 col-lg-12 nav-fill w-100">
+        <% include ../../partials/header %>
+      </header>
+    </div><!-- End Header -->
 
-<header class="moj-header col-xs-12 col-md-12 col-lg-12 nav-fill w-100">
-   <!--div class=" nav content d-flex justify-content-center bg-info col-xs-12 col-md-12 col-lg-12"-->
-    <% include ../partials/header %>
-	<!--/div-->
-    </header>
-	</div><!-- End Header-->
+    <div class="content p-2">
+      <h1 class="d-flex justify-content-center">Free Fall Simulation</h1>
 
-	<div class="content p-2">
-		  <h1 class="d-flex justify-content-center">Simulacija slobodan pad</h1>
-	<p>Ova simulacija vizualizuje kako se objekat kreće kada se oslobađa od početne visine i pada pod uticajem gravitacije,
-	zanemarujući otpor vazduha. Ova pojava je ključna za razumevanje osnovnih zakona kretanja u fizici.</p>
-	
-	<p>Ova simulacija prikazuje kako se objekat kreće kada pada pod uticajem gravitacije, zanemarujući otpor vazduha. </p>
-	<p>Istražite kako promena parametara kao što su početna visina i brzina utiču na putanju objekta. Slobodan pad je ključan za razumevanje osnovnih zakona kretanja u fizici, 
-	i ova simulacija vam omogućava da vizualizujete i analizirate efekte gravitacije.</p>
+      <p>This simulation visualizes how an object moves when released from an initial height and falls under the influence of gravity, neglecting air resistance. This phenomenon is key to understanding the basic laws of motion in physics.</p>
 
-<h2>Teorija</h2>
-<p>Slobodan pad opisuje kretanje objekta koji pada pod uticajem gravitacije. Osnovne jednačine uključuju:</p>
-<code>
-<p>v=u+gt</p>
+      <p>This simulation shows how an object moves when falling under the influence of gravity, neglecting air resistance.</p>
 
-<p>s=ut+ 1/2* g*t<sup>2</sup></sup>
- </code>
-<p>Gde:</p>
+      <p>Explore how changing parameters such as initial height and velocity affect the object's trajectory. Free fall is essential for understanding fundamental motion laws, and this simulation lets you visualize and analyze the effects of gravity.</p>
 
-<ul><li>v je krajnja brzina</li>
+      <h2>Theory</h2>
+      <p>Free fall describes the motion of an object falling under the influence of gravity. The basic equations include:</p>
+      <code>
+        <p>v = u + g·t</p>
+        <p>s = u·t + 1/2·g·t<sup>2</sup></p>
+      </code>
+      <p>Where:</p>
+      <ul>
+        <li><strong>v</strong> is the final velocity</li>
+        <li><strong>u</strong> is the initial velocity</li>
+        <li><strong>g</strong> is the acceleration due to gravity</li>
+        <li><strong>t</strong> is time</li>
+        <li><strong>s</strong> is the distance traveled</li>
+      </ul>
 
-<li><strong>u</strong> je početna brzina</li>
+      <h2>Interactivity</h2>
+      <p>Experiment with different initial heights and gravitational accelerations to see how the object moves over time. Change parameters and observe the resulting path.</p>
 
-<li><strong>g</strong> je ubrzanje zbog gravitacije</li>
-
-<li><strong>t</strong> je vreme</li>
-
-<li><strong>s</strong> je pređeni put</li>
-</ul>
-<h2>Interaktivnost</h2>
-<p>Eksperimentišite sa različitim početnim visinama i ubrzanjima kako biste videli kako se objekat kreće tokom vremena.
- Promenite parametre i posmatrajte kako se putanja menja.</p>
-
-<h2>Praktične Primene</h2>
-<p>Koncept slobodnog pada se koristi u mnogim stvarnim situacijama, uključujući padanje objekata sa visine i analize u astronautici.</p>
-	</div>
-
-
-	  
-	 <div class="row">
-    <div role="button" id="_topFrame" style="text-align:center"></div>
-	</div>
-	
-	<!--Metadata-->
-	 <div class="row">
- <div id="metadata" class="metadata">
-    <br />
-    <div id="title_author">
-      <hr />
-      <b>Autor simulacije:</b>
-      <p>
-      </p>
-      <p>
- Slobodan Tršek
-      </p>
+      <h2>Practical Applications</h2>
+      <p>The concept of free fall is used in many real-world situations, including dropping objects from heights and analyses in astronautics.</p>
     </div>
-    <hr />
-    <p></p>
-	</div><!-- End Metadata-->
-  </div>
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
+
+    <div class="row">
+      <div role="button" id="_topFrame" style="text-align:center"></div>
+    </div>
+
+    <!-- Metadata -->
+    <div class="row">
+      <div id="metadata" class="metadata">
+        <br />
+        <div id="title_author">
+          <hr />
+          <b>Simulation Author:</b>
+          <p>Slobodan Tršek</p>
+        </div>
+        <hr />
+        <p></p>
+      </div><!-- End Metadata -->
+    </div>
+
+    <script type="text/javascript">
       var _model;
       var _scorm;
       window.addEventListener('load',
@@ -1379,22 +1363,23 @@ function SlobodanPad_View_0 (_topFrame) {
           TextResizeDetector.USER_INIT_FUNC = function () {
             var iBase = TextResizeDetector.addEventListener(function(e,args) {
               _model._fontResized(args[0].iBase,args[0].iSize,args[0].iDelta);
-              },null);
+            },null);
             _model._fontResized(iBase);
           };
           _model.onload();
         }, false);
-    //--><!]]></script>
-	<!-- Donje zaglavlje-->
-		<div class="row">
-	 <div class="content">
-   <footer>
-	<% include ../partials/scripts %>
-    <% include ../partials/footer %>
-</footer>
-</div>
-</div><!-- Donje zaglavlje kraj-->
+    </script>
 
-</div><!--Kontejner tela kraj-->
-  </body>
+    <!-- Footer -->
+    <div class="row">
+      <div class="content">
+        <footer>
+          <% include ../partials/scripts %>
+          <% include ../partials/footer %>
+        </footer>
+      </div>
+    </div><!-- End Footer -->
+  </div><!-- End Body container -->
+</body>
+
 </html>

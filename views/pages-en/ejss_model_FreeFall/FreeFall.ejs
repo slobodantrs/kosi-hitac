@@ -1,20 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-  <head>
+<html lang="<%= locale %>">
+<head>
   <% include ../partials/head %>
-   <meta name="description" content="Free fall simulation. 
-   Simulation created using the Easy Java Simulation (EJS) tool." />
-   <meta name="keywords" content="Free fall simulation description, Simulation description, Free fall" />
-    <title> Home page for free fall simulation </title>
-  </head>
-  <body>
-    <frameset cols="25%,*">
-      <frame src="FreeFall_Contents.ejs" name="contents" scrolling="auto" target="_self" />
-      <frame src="FreeFall_Simulation.ejs" name="central" scrolling="auto" target="_self" />
-      <noframes>
-        Gee! Your browser is really old and doesn't support frames. You better update!!!
-      </noframes>
-    </frameset> 
-  </body>
+  <meta name="description" content="Free fall simulation. Simulation created using the Easy Java Simulation (EJS) tool." />
+  <meta name="keywords" content="Free fall simulation description, Simulation description, Free fall" />
+  <title><%= __('nav.simulacija_Slobodan_Pad') %></title>
+</head>
+<body>
+  <div class="freefall-wrapper">
+    <!-- Uključujemo kompletan sadržaj iz FreeFall_Contents.ejs -->
+    <%- include('./FreeFall_Contents') %>
+  </div>
+
+  <% include ../partials/footer %>
+</body>
 </html>
