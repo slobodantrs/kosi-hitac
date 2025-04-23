@@ -9,9 +9,26 @@
     <title> Početna strana za slobodan pad </title>
   </head>
   <body>
+  <div class="container moj-header">
+  <div class="row">
+  <div class="header moj-header nav-fill w-100 col-xs-12 col-md-12 col-lg-12">
+   
+    <% include ../partials/header %>
+
+</div>
+</div>
    <div class="freefall-wrapper">
     <!-- Uključujemo kompletan sadržaj iz FreeFall_Contents.ejs -->
     <%- include('./SlobodanPad_Contents') %>
   </div>
+   <div class="row">
+   <div class="content col-xs-12 col-md-12 col-lg-12">
+   <footer>
+	<% include ../partials/scripts %>
+    <% include ../partials/footer %>
+</footer>
+</div>
+</div>
+</div>
   </body>
 </html>
