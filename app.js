@@ -153,6 +153,7 @@ app.use((req, res, next) => {
   res.locals.currentPath    = req.originalUrl;   
   res.locals.slugMap        = slugMap;
   res.locals.slugMapInverse = slugMapInverse;
+  console.log('res.locals.currentPath: '+res.locals.currentPath );
   next();
 });
 
