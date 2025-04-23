@@ -15,10 +15,10 @@ var methods = {
     res.path1 = './slobodanPad_Contents';
     res.path2 = (id == 2) ? './slobodanPad_Intro_2' : './slobodanPad_Intro_1';
     console.log(`Slobodan pad kontroler ${id}, ${res.path1}, ${res.path2}`);
-    res.render('pages/ejss_model_SlobodanPad/slobodanPad', res);
+    res.render('pages/ejss_model_SlobodanPad/SlobodanPad', res);
   },
   SlobodanPadContents: function(req, res) {
-    res.render('pages/ejss_model_SlobodanPad/slobodanPad_Contents');
+    res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Contents');
   },
   SlobodanPadSimulacija: function(req, res) {
     res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Simulation');

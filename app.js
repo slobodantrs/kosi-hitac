@@ -23,12 +23,12 @@ i18n.configure({
 });
 
 const fs = require('fs');
-console.log('>>> i18n.getLocales()  =', i18n.getLocales());
-console.log('>>> expecting in:', path.join(__dirname,'locales'));
+//console.log('>>> i18n.getLocales()  =', i18n.getLocales());
+//console.log('>>> expecting in:', path.join(__dirname,'locales'));
 try {
-  console.log('>>> actual files:', fs.readdirSync(path.join(__dirname,'locales')));
+ // console.log('>>> actual files:', fs.readdirSync(path.join(__dirname,'locales')));
 } catch(e) {
-  console.error('!!! cannot read locales dir:', e.message);
+ // console.error('!!! cannot read locales dir:', e.message);
 }
 
 
@@ -58,8 +58,8 @@ app.use((req, res, next) => {
     // OVDE SILOM nameštamo српски
     req.setLocale('sr');
   }
-  console.log('>> req.getLocale() =', req.getLocale());
-  console.log('>> res.locals.locale =', res.locals.locale);
+//  console.log('>> req.getLocale() =', req.getLocale());
+ // console.log('>> res.locals.locale =', res.locals.locale);
   next();
 });
 
