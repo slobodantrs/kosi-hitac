@@ -17,6 +17,7 @@ i18n.configure({
   defaultLocale: 'sr',
   queryParameter: 'lang',
   cookie: 'lang',
+  objectNotation: true,   
   autoReload: true,
   syncFiles: true
 });
