@@ -153,6 +153,12 @@ app.use((req, res, next) => {
   res.locals.currentPath    = req.originalUrl;   
   res.locals.slugMap        = slugMap;
   res.locals.slugMapInverse = slugMapInverse;
+  res.locals.navHref = function(srPath) {
+    if (res.locals.locale === 'en') {
+      return slugMap[srPath] || '/';
+    }
+    return srPath;
+  };
   console.log('res.locals.currentPath: '+res.locals.currentPath );
   next();
 });
