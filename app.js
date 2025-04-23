@@ -39,10 +39,10 @@ console.log('EN catalog:', i18n.getCatalog('en'));
 
 // после i18n.init
 console.log('i18n locales:', i18n.getLocales());
-console.log('i18n directory:', i18n.options.directory);
+console.log('i18n directory:', i18n.settings.directory);
 
 try {
-  const files = fs.readdirSync(i18n.options.directory);
+  const files = fs.readdirSync(i18n.settings.directory);
   console.log('Files in locales dir:', files);
 } catch (err) {
   console.error('Error reading locales directory:', err);
