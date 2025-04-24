@@ -56,11 +56,11 @@ var methods = {
   RotacijaDiska2_EN: function(req, res) {
     res.render('pages-en/ejss_model_DiskRotation/DiskRotation_Intro_2');
   },
-  RotacijaDiska2_EN: function(req, res) {
+  RotacijaDiska3_EN: function(req, res) {
     res.render('pages-en/ejss_model_DiskRotation/DiskRotation_Intro_3');
   },
 
-  RotacijaDiska3_EN: function(req, res) {
+  RotacijaDiska4_EN: function(req, res) {
     res.render('pages-en/ejss_model_DiskRotation/DiskRotation_Intro_4');
   },
 
