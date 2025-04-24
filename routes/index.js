@@ -72,6 +72,7 @@ router.get('/simulacija_Vertikalan_Hitac', VertikalanHitacController.VertikalanH
 
 //Kos hitac
 var KosHitacController = require('../controllers/KosHitacController');
+console.log(`KosHitacController u index.js: `+KosHitacController);
  router.get('/kos_Hitac', KosHitacController.KosHitac);
 router.get('/kos_Hitac/:id', KosHitacController.KosHitac);
 router.get('/contents_Kos_Hitac', KosHitacController.kosHitacContents);
@@ -86,6 +87,7 @@ router.get('/simulacija_Kos_Hitac', function(req, res) {
 
 //Kružno kretanje
 var KruznoKretanjeMTController = require('../controllers/KruznoKretanjeMTController');
+console.log(`KruznoKretanjeMTController u index.js: `+KruznoKretanjeMTController);
  router.get('/Kruzno_Kretanje_MT', KruznoKretanjeMTController.KruznoKretanjeMT);
 router.get('/Kruzno_Kretanje_MT/:id', KruznoKretanjeMTController.KruznoKretanjeMT);
 router.get('/contents_Kruzno_Kretanje_MT', KruznoKretanjeMTController.KruznoKretanjeMTContents);
@@ -100,7 +102,7 @@ router.get('/simulacija_Kruzno_Kretanje_MT', function(req, res) {
 
 // Rotacija diska
 var RotacijaDiskaController = require('../controllers/RotacijaDiskaController');
-
+console.log(`RotacijaDiskaController u index.js: `+RotacijaDiskaController);
 router.get('/rotacija_diska', RotacijaDiskaController.RotacijaDiska);
 router.get('/rotacija_diska/:id', RotacijaDiskaController.RotacijaDiska);
 router.get('/contents_rotacija_diska', RotacijaDiskaController.RotacijaDiskaContents);
