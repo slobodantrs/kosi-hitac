@@ -114,7 +114,7 @@ router.get('/simulacija_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaSi
 
 
 //Rotacija diska
-/*
+
 router.get('/Rotacija_Diska', function(req, res) {
 	console.log(`Correct!!!!!`);
 	//res.render('pages/simulacija');
@@ -150,7 +150,7 @@ router.get('/Rotacija_Diska_Intro_4', function(req, res) {
 	//res.render('pages/simulacija');
     res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska_Intro_4');
 });
-*/
+
 //Ravno kretanje tocka
 router.get('/RavnoKretanjeTocka', function(req, res) {
 	console.log(`Correct!!!!!`);
