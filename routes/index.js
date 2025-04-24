@@ -112,6 +112,7 @@ router.get('/simulacija_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaSi
 
 
 //Rotacija diska
+/*
 router.get('/Rotacija_Diska', function(req, res) {
 	console.log(`Correct!!!!!`);
 	//res.render('pages/simulacija');
@@ -147,7 +148,7 @@ router.get('/Rotacija_Diska_Intro_4', function(req, res) {
 	//res.render('pages/simulacija');
     res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska_Intro_4');
 });
-
+*/
 //Ravno kretanje tocka
 router.get('/RavnoKretanjeTocka', function(req, res) {
 	console.log(`Correct!!!!!`);
@@ -252,11 +253,11 @@ router.get('/en/simulation_projectile_motion',                 KosHitacControlle
 console.log('Registering EN route handler for Disk Rotation:', RotacijaDiskaController.RotacijaDiska_EN);
 router.get('/en/disk_rotation',                              RotacijaDiskaController.RotacijaDiska_EN);
 router.get('/en/disk_rotation/:id',                          RotacijaDiskaController.RotacijaDiska_EN);
-router.get('/en/contents_disk_rotation',                     RotacijaDiskaController.rotacijaDiskaContents_EN);
+router.get('/en/contents_disk_rotation',                     RotacijaDiskaController.RotacijaDiskaContents_EN);
 router.get('/en/disk_rotation_intro_1',                      RotacijaDiskaController.RotacijaDiska1_EN);
 router.get('/en/disk_rotation_intro_2',                      RotacijaDiskaController.RotacijaDiska2_EN);
-router.get('/en/disk_rotation_intro_3',                      RotacijaDiskaController.RotacijaDiska2_EN);
-router.get('/en/disk_rotation_intro_4',                      RotacijaDiskaController.RotacijaDiska3_EN);
+router.get('/en/disk_rotation_intro_3',                      RotacijaDiskaController.RotacijaDiska3_EN);
+router.get('/en/disk_rotation_intro_4',                      RotacijaDiskaController.RotacijaDiska4_EN);
 router.get('/en/simulation_disk_rotation',                   RotacijaDiskaController.RotacijaDiskaSimulacija_EN);
 
 
