@@ -103,7 +103,7 @@ var RotacijaDiskaController = require('../controllers/RotacijaDiskaController');
 
 router.get('/rotacija_diska', RotacijaDiskaController.RotacijaDiska);
 router.get('/rotacija_diska/:id', RotacijaDiskaController.RotacijaDiska);
-router.get('/contents_rotacija_diska', RotacijaDiskaController.rotacijaDiskaContents);
+router.get('/contents_rotacija_diska', RotacijaDiskaController.RotacijaDiskaContents);
 router.get('/RotacijaDiska_Intro_1', RotacijaDiskaController.RotacijaDiska1);
 router.get('/RotacijaDiska_Intro_2', RotacijaDiskaController.RotacijaDiska2);
 router.get('/RotacijaDiska_Intro_3', RotacijaDiskaController.RotacijaDiska3);

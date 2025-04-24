@@ -68,7 +68,7 @@ var methods = {
     res.render('pages-en/ejss_model_DiskRotation/DiskRotation', res);
   },
 
-  rotacijaDiskaContents_EN: function(req, res) {
+  RotacijaDiskaContents_EN: function(req, res) {
     res.render('pages-en/ejss_model_DiskRotation/DiskRotation_Contents');
   },
 
