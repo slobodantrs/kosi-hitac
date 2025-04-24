@@ -1,5 +1,12 @@
-
-    
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+  <% include ../partials/head %>
+    <meta charset="utf-8" />
+	
+    <title></title>
+    <link rel="stylesheet"  type="text/css" href="_ejs_library/css/ejss.css" />
     <script src="_ejs_library/scripts/common_script.js"></script>
     <script src="_ejs_library/scripts/textresizedetector.js"></script>
     <script src="_ejs_library/ejsS.v1.min.js"></script>
@@ -1302,13 +1309,18 @@ function RotacijaDiska_View_0 (_topFrame) {
 
 
 //--><!]]></script>
-  
+  </head>
+  <body>
    <div class="container moj-header">
-    
-	  
+     <div class="row">
+   <div class=" nav content d-flex justify-content-center bg-info col-xs-12 col-md-12 col-lg-12">
+    <% include ../partials/header %>
+	</div>
+	</div>
+	  <div class="row">
     <div role="button" id="_topFrame" style="text-align:center"></div>
-	
-	  
+	</div>
+	  <div class="row">
   <div id="metadata" class="metadata">
     <br />
     <div id="title_author">
@@ -1317,19 +1329,18 @@ function RotacijaDiska_View_0 (_topFrame) {
       <p>
       </p>
       <p>
- Slobodan 
+ Slobodan Tršek
       </p>
     </div>
     <hr />
     <p></p>
 	</div>
-	  
+	  <div class="row">
     <div id="copyright_message">
       <!--div class="cc_left"  style="float:left">&#169; 2019, Slobodan Tršek.</div-->
       <div class="cc_right" style="float:right">    Released under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US"> <img alt="Creative Commons Attribution-NonCommercial-ShareAlike" src="_ejs_library/images/cc_icon.png" /> </a> license.</div>
-    
+    </div>
 	</div>
-  
   </div>
     <script type="text/javascript"><!--//--><![CDATA[//><!--
       var _model;
@@ -1348,4 +1359,14 @@ function RotacijaDiska_View_0 (_topFrame) {
           _model.onload();
         }, false);
     //--><!]]></script>
-	
+	<div class="row">
+	 <div class="content">
+   <footer>
+	<% include ../partials/scripts %>
+    <% include ../partials/footer %>
+</footer>
+</div>
+</div>
+	</div>
+  </body>
+</html>
