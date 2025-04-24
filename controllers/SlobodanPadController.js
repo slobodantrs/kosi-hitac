@@ -10,7 +10,7 @@ var methods = {
     res.render('pages/ejss_model_SlobodanPad/slobodanPad_Intro_2');
   },
   SlobodanPad: function(req, res) {
-    var id = id = parseInt(req.params.id, 10) || 1;
+    var id = parseInt(req.params.id, 10) || 1;
     res.id = id;
     res.path1 = './slobodanPad_Contents';
     res.path2 = (id == 2) ? './slobodanPad_Intro_2' : './slobodanPad_Intro_1';
