@@ -84,7 +84,7 @@ router.get('/simulacija_Kos_Hitac', function(req, res) {
     res.render('pages/ejss_model_KosHitac/KosHitac_Simulation');
 });
 
-
+//Kružno kretanje
 var KruznoKretanjeMTController = require('../controllers/KruznoKretanjeMTController');
  router.get('/Kruzno_Kretanje_MT', KruznoKretanjeMTController.KruznoKretanjeMT);
 router.get('/Kruzno_Kretanje_MT/:id', KruznoKretanjeMTController.KruznoKretanjeMT);
@@ -97,6 +97,18 @@ router.get('/simulacija_Kruzno_Kretanje_MT', function(req, res) {
 	//res.render('pages/simulacija');
     res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Simulation');
 });
+
+// Rotacija diska
+var RotacijaDiskaController = require('../controllers/RotacijaDiskaController');
+
+router.get('/rotacija_diska', RotacijaDiskaController.RotacijaDiska);
+router.get('/rotacija_diska/:id', RotacijaDiskaController.RotacijaDiska);
+router.get('/contents_rotacija_diska', RotacijaDiskaController.rotacijaDiskaContents);
+router.get('/RotacijaDiska_Intro_1', RotacijaDiskaController.RotacijaDiska1);
+router.get('/RotacijaDiska_Intro_2', RotacijaDiskaController.RotacijaDiska2);
+router.get('/RotacijaDiska_Intro_3', RotacijaDiskaController.RotacijaDiska3);
+router.get('/RotacijaDiska_Intro_4', RotacijaDiskaController.RotacijaDiska4)
+router.get('/simulacija_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaSimulacija);
 
 
 //Rotacija diska
@@ -235,6 +247,18 @@ router.get('/en/contents_projectile_motion',                   KosHitacControlle
 router.get('/en/projectile_motion_intro_1',                    KosHitacController.KosHitac1_EN);
 router.get('/en/projectile_motion_intro_2',                    KosHitacController.KosHitac2_EN);
 router.get('/en/simulation_projectile_motion',                 KosHitacController.KosHitacSimulacija_EN);
+
+// English - Disk Rotation
+console.log('Registering EN route handler for Disk Rotation:', RotacijaDiskaController.RotacijaDiska_EN);
+router.get('/en/disk_rotation',                              RotacijaDiskaController.RotacijaDiska_EN);
+router.get('/en/disk_rotation/:id',                          RotacijaDiskaController.RotacijaDiska_EN);
+router.get('/en/contents_disk_rotation',                     RotacijaDiskaController.rotacijaDiskaContents_EN);
+router.get('/en/disk_rotation_intro_1',                      RotacijaDiskaController.RotacijaDiska1_EN);
+router.get('/en/disk_rotation_intro_2',                      RotacijaDiskaController.RotacijaDiska2_EN);
+router.get('/en/disk_rotation_intro_3',                      RotacijaDiskaController.RotacijaDiska2_EN);
+router.get('/en/disk_rotation_intro_4',                      RotacijaDiskaController.RotacijaDiska3_EN);
+router.get('/en/simulation_disk_rotation',                   RotacijaDiskaController.RotacijaDiskaSimulacija_EN);
+
 
 
 const path = require('path');

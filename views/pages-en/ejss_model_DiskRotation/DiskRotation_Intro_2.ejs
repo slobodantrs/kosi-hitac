@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <% include ../partials/head %>
+    <title> Tasks</title>
+    <link rel="stylesheet" type="text/css" href="_ejs_library/css/ejss.css"></link>
+  </head>
+  <body> 
+    <div class="container moj-header">
+      <div class="nav content d-flex justify-content-center bg-info">
+        <% include ../partials/header %>
+      </div>
+      <h1>
+        Disk Rotation, Uniform Spinning
+      </h1>
+      <h2>
+        Task 1
+      </h2>
+      <p>
+        Create a simulation of a disk with radius <strong>r</strong> and mass <strong>m</strong>, 
+        rotating around a vertical axis with angular velocity <strong>ω = 1 rad/s</strong>.
+      </p>
+      <h2>
+        Task 2
+      </h2>
+      <p>
+        Create a simulation of a disk with radius <strong>r</strong> and mass <strong>m</strong>, 
+        rotating around a vertical axis.<br>From the start, a force acts on the disk at an angle relative 
+        to the radial direction for a duration of <strong>t</strong> seconds, as shown in the image:<br>
+      </p>
+      <div>
+        <img src="./images/RotacijaDiska/RotacijaDiskaZadatak2.png"/>
+      </div>
+    </div>
+    <div class="content">
+      <footer>
+        <% include ../partials/scripts %>
+        <% include ../partials/footer %>
+      </footer>
+    </div>
+  </body>
+</html>
