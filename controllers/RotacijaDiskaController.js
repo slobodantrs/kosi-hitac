@@ -70,8 +70,8 @@ var methods = {
 
     res.path1 = './DiskRotation_Contents';
     res.path2 = (id == 1)
-      ? './diskRotation_Intro_1'
-      : './diskRotation_Intro_2';
+      ? './DiskRotation_Intro_1'
+      : './DiskRotation_Intro_2';
     res.id = id;
 
     res.render('pages-en/ejss_model_DiskRotation/DiskRotation', res);
