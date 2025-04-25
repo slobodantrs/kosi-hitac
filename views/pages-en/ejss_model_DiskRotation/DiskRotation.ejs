@@ -78,6 +78,10 @@
     const frag = tmp.querySelector('#_topFrame');
     introEl.innerHTML = '';
     if (frag) introEl.appendChild(frag);
+	// 5) иницијализуј симулацију одмах
+   if (typeof initDiskRotationSimulation === 'function') {
+       initDiskRotationSimulation();
+   }
   });
 });
 
