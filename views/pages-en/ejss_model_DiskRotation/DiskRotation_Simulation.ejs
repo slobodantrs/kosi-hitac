@@ -1351,7 +1351,7 @@ function RotacijaDiska_View_0 (_topFrame) {
     _model = new RotacijaDiska("_topFrame", "/_ejs_library/", null);
     if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
 
-    TextResizeDetector.TARGET_ELEMENT_ID = '_topFrame';
+    TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
     TextResizeDetector.USER_INIT_FUNC = function () {
       var iBase = TextResizeDetector.addEventListener(function(e, args) {
         _model._fontResized(args[0].iBase, args[0].iSize, args[0].iDelta);
