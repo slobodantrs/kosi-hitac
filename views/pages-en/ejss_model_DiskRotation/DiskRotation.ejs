@@ -75,9 +75,15 @@
     });
     
     // 4) убaci саму симулацију у intro
-    const frag = tmp.querySelector('#_topFrame');
-    introEl.innerHTML = '';
-    if (frag) introEl.appendChild(frag);
+    if (a.dataset.id === 'Simulation') {
+      // simulacija: izvuci njen kontejner
+      frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
+      introEl.innerHTML = '';
+      if (frag) introEl.appendChild(frag);
+    } else {
+      // intro stranice: uzmi sav HTML
+      introEl.innerHTML = tmp.innerHTML;
+    }
 	// 5) иницијализуј симулацију одмах
    if (typeof initDiskRotationSimulation === 'function') {
        initDiskRotationSimulation();
