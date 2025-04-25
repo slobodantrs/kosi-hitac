@@ -84,6 +84,10 @@
        initDiskRotationSimulation();
    }
     } else {
+	 if (window._model && typeof window._model.pause === 'function') {
+        window._model.pause();        // stop its internal timer
+        window._model = null;         // forget it entirely
+      }
       // intro stranice: uzmi sav HTML
       introEl.innerHTML = tmp.innerHTML;
     }
