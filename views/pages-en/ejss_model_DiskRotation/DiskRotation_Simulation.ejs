@@ -1,4 +1,4 @@
-<div id="ejs-container"></div>
+<div id="_topFrame"></div>
     
     
     <script src="/_ejs_library/scripts/common_script.js"></script>
@@ -1337,9 +1337,9 @@ function RotacijaDiska_View_0 (_topFrame) {
       var _scorm;
       window.addEventListener('load',
         function () { 
-          _model =  new RotacijaDiska("ejs-container","_ejs_library/",null);
+          _model =  new RotacijaDiska("_topFrame","_ejs_library/",null);
           if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
-          TextResizeDetector.TARGET_ELEMENT_ID = 'ejs-container';
+          TextResizeDetector.TARGET_ELEMENT_ID = '_topFrame';
           TextResizeDetector.USER_INIT_FUNC = function () {
             var iBase = TextResizeDetector.addEventListener(function(e,args) {
               _model._fontResized(args[0].iBase,args[0].iSize,args[0].iDelta);

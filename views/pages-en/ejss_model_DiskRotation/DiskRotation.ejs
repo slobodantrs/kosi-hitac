@@ -53,29 +53,33 @@
  
   document.addEventListener('DOMContentLoaded', () => {
   const introEl = document.getElementById('intro');
-  document.getElementById('contents')
-    .addEventListener('click', async e => {
-      const a = e.target.closest('a[data-id]');
-      if (!a) return;
-      e.preventDefault();
-
-      // дохвати HTML фрагмент
-      const resp = await fetch(a.href);
-      const html  = await resp.text();
-
-      // убачи га у intro (са <div id="ejs-container"> + <script> блоком)
-      introEl.innerHTML = html;
-
-      // затим све нове <script> у intro поново учитај
-      introEl.querySelectorAll('script').forEach(old => {
-        const s = document.createElement('script');
-        if (old.src)      s.src = old.src;
-        else              s.textContent = old.textContent;
-        document.body.appendChild(s);
-      });
+  document.getElementById('contents').addEventListener('click', async e => {
+    const a = e.target.closest('a[data-id]');
+    if (!a) return;
+    e.preventDefault();
+    
+    // 1) дохвати HTML фрагмент
+    const resp = await fetch(a.href);
+    const html  = await resp.text();
+    
+    // 2) парсирај у привремени DIV
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    
+    // 3) ишчупај <script> тагове и премести их у body
+    tmp.querySelectorAll('script').forEach(old => {
+      const s = document.createElement('script');
+      if (old.src)        s.src = old.src;
+      else                 s.textContent = old.textContent;
+      document.body.appendChild(s);
     });
+    
+    // 4) убaci саму симулацију у intro
+    const frag = tmp.querySelector('#ejs-container');
+    introEl.innerHTML = '';
+    if (frag) introEl.appendChild(frag);
+  });
 });
-
 
 </script>
 </body>
