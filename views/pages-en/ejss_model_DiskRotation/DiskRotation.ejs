@@ -79,14 +79,15 @@
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
       if (frag) introEl.appendChild(frag);
+	  // 5) иницијализуј симулацију одмах
+   if (typeof initDiskRotationSimulation === 'function') {
+       initDiskRotationSimulation();
+   }
     } else {
       // intro stranice: uzmi sav HTML
       introEl.innerHTML = tmp.innerHTML;
     }
-	// 5) иницијализуј симулацију одмах
-   if (typeof initDiskRotationSimulation === 'function') {
-       initDiskRotationSimulation();
-   }
+	
   });
 });
 
