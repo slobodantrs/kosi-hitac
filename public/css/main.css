@@ -439,7 +439,7 @@ div#wrappedPanel svg{
 	margin-left: auto!important;
 	margin-right:auto !important;
 }
-div#plottingPanel{
+div#panelSimulacija{
 	max-width:100%;
 	overflow-x:auto;
 }
