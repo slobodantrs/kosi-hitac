@@ -66,7 +66,7 @@ var methods = {
 
   RotacijaDiska_EN: function(req, res) {
 	  console.log("RDC: RotacijaDiska_EN");
-    var id = req.params.id;
+    var id = parseInt(req.params.id, 10) || 1;
 
     res.path1 = './DiskRotation_Contents';
     res.path2 = (id == 1)

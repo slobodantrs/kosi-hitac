@@ -1,11 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-  <head>
-  
-    <meta charset="utf-8" />
-	
-    <title></title>
+
     <link rel="stylesheet"  type="text/css" href="_ejs_library/css/ejss.css" />
     <script src="_ejs_library/scripts/common_script.js"></script>
     <script src="_ejs_library/scripts/textresizedetector.js"></script>
@@ -1309,8 +1302,7 @@ function RotacijaDiska_View_0 (_topFrame) {
 
 
 //--><!]]></script>
-  </head>
-  <body>
+ 
    <div class="container moj-header">
      
 	  <div class="row">
@@ -1354,8 +1346,38 @@ function RotacijaDiska_View_0 (_topFrame) {
           };
           _model.onload();
         }, false);
-    //--><!]]></script>
+    //--><!]]>
+	
+	// Глобалне променљиве за модел
+  var _model;
+  var _scorm;
+
+  // Замени HTML-коментаре са JS-коментарима:
+  /*
+  window.addEventListener('load', function () {
+    _model = new RotacijaDiska("_topFrame", "/_ejs_library/", null);
+    …  
+    _model.onload();
+  }, false);
+  */
+
+  // Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
+  function initDiskRotationSimulation() {
+    // Постављамо модел у глобалну променљиву
+    _model = new RotacijaDiska("_topFrame", "/_ejs_library/", null);
+    if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
+
+    TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
+    TextResizeDetector.USER_INIT_FUNC = function () {
+      var iBase = TextResizeDetector.addEventListener(function(e, args) {
+        _model._fontResized(args[0].iBase, args[0].iSize, args[0].iDelta);
+      }, null);
+      _model._fontResized(iBase);
+    };
+
+    _model.onload();
+  }
+	</script>
 
 	</div>
-  </body>
-</html>
+ 

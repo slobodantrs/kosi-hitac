@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-<link rel="stylesheet" type="text/css" href="_ejs_library/css/ejss.css"></link>
+
 
   <head>
-  <% include ../partials/head %>
+  <% include ../../partials/head %>
+  <link rel="stylesheet"  type="text/css" href="/_ejs_library/css/ejss.css" />
+  
+    <link rel="stylesheet" type="text/css" href="/_ejs_library/css/ejsContentsLeft.css"></link>
+	
    <meta name="description" content="Simulacija rotacije krutog tela, gde je kao primer uzet disk koji rotira oko nepokretne ose. 
    Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
 	<meta name="keywords" content="Kruto telo,kružno kretanje, kružno kretanje krutog tela,rotacija diska,
@@ -19,20 +23,23 @@
    <div class="row">
   <div class="header moj-header content col-xs-12 col-md-12 col-lg-12">
    
-    <% include ../partials/header %>
+    <% include ../../partials/header %>
 
 </div>
 </div>
- <div class="row">
-  <div class="intro_1">
-  <div class="intro_1">
-	<% include ./RotacijaDiska_Contents %>
-	</div>
-	<div class="intro_2">
-	<% include ./RotacijaDiska_Intro_1 %>
-   </div>
-   </div>
-   </div>
+ 
+   
+    <div class="row">
+      <div id="contents" class="intro_1">
+        <div class="intro_1">
+          <% include ./RotacijaDiska_Contents %>
+        </div>
+        <div id="intro" class="intro_2">
+          <% include ./RotacijaDiska_Intro_1 %>
+        </div>
+      </div>
+    </div>
+	
     <div class="row">
    <div class="content">
    <footer>
@@ -42,5 +49,55 @@
 </div>
 </div>
     </div>
+	
+	 <script>
+ 
+  document.addEventListener('DOMContentLoaded', () => {
+  const introEl = document.getElementById('intro');
+  document.getElementById('contents').addEventListener('click', async e => {
+    const a = e.target.closest('a[data-id]');
+    if (!a) return;
+    e.preventDefault();
+    
+    // 1) дохвати HTML фрагмент
+    const resp = await fetch(a.href);
+    const html  = await resp.text();
+    
+    // 2) парсирај у привремени DIV
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    
+    // 3) ишчупај <script> тагове и премести их у body
+    tmp.querySelectorAll('script').forEach(old => {
+	  if (old.src && old.src.includes('textresizedetector.js')) return;
+      const s = document.createElement('script');
+      if (old.src)        s.src = old.src;
+      else                 s.textContent = old.textContent;
+      document.body.appendChild(s);
+    });
+    
+    // 4) убaci саму симулацију у intro
+    if (a.dataset.id === 'Simulation') {
+      // simulacija: izvuci njen kontejner
+      frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
+      introEl.innerHTML = '';
+      if (frag) introEl.appendChild(frag);
+	  // 5) иницијализуј симулацију одмах
+   if (typeof initDiskRotationSimulation === 'function') {
+       initDiskRotationSimulation();
+   }
+    } else {
+	 if (window._model && typeof window._model.pause === 'function') {
+        window._model.pause();        // stop its internal timer
+        window._model = null;         // forget it entirely
+      }
+      // intro stranice: uzmi sav HTML
+      introEl.innerHTML = tmp.innerHTML;
+    }
+	
+  });
+});
+
+</script>
   </body>
 </html>
