@@ -1,32 +1,31 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="en">
 <head>
-    <% include ../partials/head %>
+    <% include ../../partials/head %>
     <meta charset="utf-8" />
-    <meta name="description" content="Kružna animacija objekta pomoću biblioteke p5.js u JavaScript jeziku. Vizuelni primer i objašnjenje trigonometrijskih funkcija u animaciji." />
-    <title>Kružna animacija objekta pomoću biblioteke p5.js</title>
-	<meta name="keywords" content="p5.js, JavaScript animacija, kružno kretanje, sin, cos, trigonometrija, animacija, vizualizacija, primer koda" />
-	<link rel="canonical" href="https://kosi-hitac.onrender.com/animacija_kruznog_kretanja" />
+    <meta name="description" content="Circular animation of an object using the p5.js library in JavaScript. Visual example and explanation of trigonometric functions in animation." />
+    <title>Circular animation of an object using the p5.js library</title>
+    <meta name="keywords" content="p5.js, JavaScript animation, circular motion, sin, cos, trigonometry, animation, visualization, code example" />
+    <link rel="canonical" href="https://kosi-hitac.onrender.com/en/circular_motion_animation_p5js" />
 </head>
 <body>
 
     <div class="content-wrapper d-flex flex-column">
 	
         <header>
-            <% include ../partials/header %>
-			 <style>
+            <% include ../../partials/header %>
+            <style>
     body {
       padding: 0;
       margin: 0;
     }
-     .canvasForHTML{
+    .canvasForHTML{
       width:100%;
       height:auto;
       border: solid thin #0000ff;
-
     }
     .inputContainer{
-      margin:10px
+      margin:10px;
       padding:10px;
       width:100%;
     }
@@ -37,260 +36,151 @@
     }
     .infoPanel{
        border-top:solid thick #000;
-border-bottom:solid thick #000;
+       border-bottom:solid thick #000;
        background-color:#fff;
     }
     .p5Canvas{
-    
       margin-bottom:auto;
     }
   </style>
  
         </header>
 
-			
-      
-		
-            <div class="moj_tekst">
-               
-                    <h2>Animacija kružnog kretanja pomoću alata p5.js</h2>
+        <div class="moj_tekst">
+            <h2>Animating Circular Motion Using p5.js</h2>
 
-                    <p>
-                        Ova jednostavna animacija demonstrira kako objekat može da se kreće po kružnici
-                        koristeći JavaScript biblioteku <strong>p5.js</strong>. U središtu se nalazi nepomična tačka,
-                        a crveni krug se kreće oko nje po unapred zadatoj putanji.
-                    </p>
+            <p>
+                This simple animation demonstrates how an object can move along a circular path
+                using the JavaScript library <strong>p5.js</strong>. In the center, there is a fixed point,
+                and a red circle moves around it along a predefined path.
+            </p>
 
-                    <p>
-                        Pomoću trigonometrijskih funkcija <code>cos()</code> i <code>sin()</code>, izračunava se pozicija objekta na osnovu ugla
-                        koji se uvećava tokom vremena. Na taj način postiže se neprekidno kružno kretanje.
-                    </p>
+            <p>
+                Using the trigonometric functions <code>cos()</code> and <code>sin()</code>, the position of the object is calculated based on an angle
+                that increases over time. This achieves continuous circular motion.
+            </p>
 
-                    <h3>Primer animacije:</h3>
+            <h3>Animation Example:</h3>
 
-                    <div class="canvas-wrapper" id="kruzni-canvas">
-					</div>
- 
-                    <p class="mt-4">
-                        Kasnije ćemo prikazati dodatne efekte, kao što su trag kretanja, više objekata i kontrola brzine pomoću tastature.
-                        Takođe ćemo objasniti koje matematičke funkcije stoje iza ove vrste animacije.
-                    </p>
-              
+            <div class="canvas-wrapper" id="kruzni-canvas">
             </div>
-			
+
+            <p class="mt-4">
+                Later we will introduce additional effects, such as a motion trail, multiple objects, and speed control using the keyboard.
+                We will also explain the mathematical functions behind this type of animation.
+            </p>
+        </div>
+		
 		<div class="container d-flex flex-column">
 
 <div class="moj_tekst">
-  <h2 class="okvir_3">Objašnjenje animacije kružnog kretanja</h2>
+  <h2 class="okvir_3">Explanation of Circular Motion Animation</h2>
   <p>
-    Animacija je rađena u <strong>Processing 4</strong> koristeći biblioteku <strong>p5.js</strong>. 
-    Kao ulaz kreiramo skeč <code>KruznoKretanjeSimulacija.js</code>, a alat automatski generiše i 
-    <code>index.html</code> u kojem je definisan glavni <em>canvas</em> za crtanje.
+    The animation was created in <strong>Processing 4</strong> using the <strong>p5.js</strong> library. 
+    As input, we create a sketch named <code>KruznoKretanjeSimulacija.js</code>, and the tool automatically generates an
+    <code>index.html</code> that defines the main <em>canvas</em> for drawing.
   </p>
   <p>
-    Za kružno kretanje definišemo dve promenljive:
-    <code>radius</code> (radijus, početna vrednost <span class="crvena">100</span>) i
-    <code>angle</code> (ugao, početna vrednost <span class="crvena">0</span>).
+    For circular motion, we define two variables:
+    <code>radius</code> (radius, initial value <span class="crvena">100</span>) and
+    <code>angle</code> (angle, initial value <span class="crvena">0</span>).
   </p>
   <p>
-    U <code>setup()</code>:
+    In <code>setup()</code>:
     <ul>
-      <li>pozivamo <code>createCanvas(500, 500, P2D)</code> za dimenzije platna,</li>
-      <li>podešavamo režim uglova na radijane (<code>angleMode(RADIANS)</code>) i centriramo elipse (<code>ellipseMode(CENTER)</code>),</li>
-      <li>kanvas vezujemo za HTML kontejner <code>kruzni-canvas</code> (<code>canvas.parent(container)</code>).</li>
+      <li>we call <code>createCanvas(500, 500, P2D)</code> to set canvas dimensions,</li>
+      <li>set the angle mode to radians (<code>angleMode(RADIANS)</code>) and center the ellipses (<code>ellipseMode(CENTER)</code>),</li>
+      <li>bind the canvas to the HTML container <code>kruzni-canvas</code> (<code>canvas.parent(container)</code>).</li>
     </ul>
   </p>
   <p>
-    U <code>draw()</code>:
+    In <code>draw()</code>:
     <ul>
-      <li>pozadina je svetlosiva (<code>background(245)</code>),</li>
-      <li>računamo centar: <code>centerX = width/2</code>, <code>centerY = height/2</code>,</li>
-      <li>poziciju tela: 
+      <li>the background is light gray (<code>background(245)</code>),</li>
+      <li>we calculate the center: <code>centerX = width/2</code>, <code>centerY = height/2</code>,</li>
+      <li>the position of the object: 
         <code>x = centerX + radius*cos(angle)</code>, 
         <code>y = centerY + radius*sin(angle)</code>,</li>
-      <li>crtamo centar i pokretni objekat (<code>ellipse</code>),</li>
-      <li>ugao uvećavamo za <span class="crvena">0.03</span> radi animacije.</li>
+      <li>we draw the center and the moving object (<code>ellipse</code>),</li>
+      <li>we increase the angle by <span class="crvena">0.03</span> for animation.</li>
     </ul>
   </p>
 </div>
 
 <div class="moj_tekst">
-  <h2 class="okvir_3">Detaljno objašnjenje strukture i koda</h2>
+  <h2 class="okvir_3">Detailed Explanation of Structure and Code</h2>
   <p>
-    Projekat se sastoji od dva glavna fajla:
+    The project consists of two main files:
     <ul>
-      <li><code>KruznoKretanjeSimulacija.js</code> – p5.js skeč koji definiše ponašanje animacije.</li>
-      <li><code>index.html</code> – HTML stranica koja sadrži <code>&lt;div&gt;</code> kontejner za <em>canvas</em> i učitava p5.js i skeč.</li>
+      <li><code>KruznoKretanjeSimulacija.js</code> – p5.js sketch defining the animation behavior.</li>
+      <li><code>index.html</code> – HTML page containing the <code>&lt;div&gt;</code> container for the <em>canvas</em> and loading p5.js and the sketch.</li>
     </ul>
   </p>
   <p>
-    U <code>index.html</code> kreiramo <code>&lt;div id="kruzni-canvas"&gt;&lt;/div&gt;</code> 
-    koji služi kao roditelj za p5.js <em>canvas</em>. U JavaScript kodu, u <code>setup()</code> pozivamo 
-    <code>canvas.parent(container)</code> da bi p5.js ubacio kanvas baš u taj <code>div</code>.
+    In <code>index.html</code>, we create a <code>&lt;div id="kruzni-canvas"&gt;&lt;/div&gt;</code> 
+    which serves as the parent for the p5.js <em>canvas</em>. In the JavaScript code, inside <code>setup()</code>, we call 
+    <code>canvas.parent(container)</code> to attach the canvas into that specific <code>div</code>.
   </p>
   <p>
-    U skeču definišemo:
+    In the sketch, we define:
     <ul>
-      <li><code>radius</code> – radijus kružne putanje</li>
-      <li><code>angle</code> – trenutni ugao u radijanima</li>
+      <li><code>radius</code> – radius of the circular path</li>
+      <li><code>angle</code> – current angle in radians</li>
     </ul>
-    Funkcije <code>setup()</code> i <code>draw()</code> postavljaju okolinu i crtaju animaciju.
+    The functions <code>setup()</code> and <code>draw()</code> set up the environment and draw the animation.
   </p>
 </div>
-
 
 <div class="moj_kod">
   <pre><code>
 <span class="siva">// KruznoKretanjeSimulacija.js</span>
-// Definišemo globalne promenljive
-<span class="plava">let</span> <span class="pink">angle</span> = <span class="crvena">0</span>;           <span class="siva">// početni ugao</span>
-<span class="plava">let</span> <span class="pink">radius</span> = <span class="crvena">100</span>;       <span class="siva">// radijus putanje</span>
+// Define global variables
+<span class="plava">let</span> <span class="pink">angle</span> = <span class="crvena">0</span>;           <span class="siva">// initial angle</span>
+<span class="plava">let</span> <span class="pink">radius</span> = <span class="crvena">100</span>;       <span class="siva">// radius of the path</span>
 <span class="plava">let</span> <span class="pink">canvas</span>;
 <span class="plava">let</span> <span class="pink">container</span>;
 
 <span class="plava">function</span> <span class="pink">setup</span>() {
-  <span class="siva">// Kreiramo canvas dimenzija 500×500</span>
+  <span class="siva">// Create a canvas of size 500×500</span>
   <span class="pink">canvas</span> = <span class="zelena">createCanvas</span>(<span class="crvena">500</span>, <span class="crvena">500</span>, P2D);
-  <span class="siva">// Pronalazimo div kontejner u index.html</span>
+  <span class="siva">// Find the div container in index.html</span>
   <span class="pink">container</span> = <span class="zelena">document.getElementById</span>(<span class="ljubicasta">'kruzni-canvas'</span>);
-  <span class="siva">// Uglovi u radijanima i centriranje elipsi</span>
+  <span class="siva">// Set angles to radians and center ellipses</span>
   <span class="zelena">angleMode</span>(RADIANS);
   <span class="zelena">ellipseMode</span>(CENTER);
-  <span class="siva">// Vežemo canvas za pronađeni div</span>
+  <span class="siva">// Bind the canvas to the found div</span>
   <span class="pink">canvas</span>.<span class="pink">parent</span>(<span class="pink">container</span>);
 }
 
 <span class="plava">function</span> <span class="pink">draw</span>() {
-  <span class="siva">// Očistimo pozadinu</span>
+  <span class="siva">// Clear the background</span>
   <span class="zelena">background</span>(<span class="crvena">245</span>);
 
-  <span class="siva">// Izračunavamo centar kanvasa</span>
+  <span class="siva">// Calculate the center of the canvas</span>
   <span class="plava">let</span> centerX = <span class="zelena">width</span> / <span class="crvena">2</span>;
   <span class="plava">let</span> centerY = <span class="zelena">height</span> / <span class="crvena">2</span>;
 
-  <span class="siva">// Položaj objekta na kružnici</span>
+  <span class="siva">// Object position on the circle</span>
   <span class="plava">let</span> x = centerX + <span class="pink">radius</span> * <span class="zelena">cos</span>(<span class="pink">angle</span>);
   <span class="plava">let</span> y = centerY + <span class="pink">radius</span> * <span class="zelena">sin</span>(<span class="pink">angle</span>);
 
-  <span class="siva">// Crtamo centar rotacije</span>
-  <span class="zelena">fill</span>(<span class="crvena">100</span>, <span class="crvena">150</span>, <span class="crvena">255</span>);
-  <span class="zelena">stroke</span>(<span class="crvena">0</span>);
+  <span class="siva">// Draw the rotation center</span>
+  <span class="zelena">fill</span>(<span class="crvena">0</span>);
   <span class="zelena">ellipse</span>(centerX, centerY, <span class="crvena">10</span>, <span class="crvena">10</span>);
 
-  <span class="siva">// Crtamo objekat koji se kreće</span>
+  <span class="siva">// Draw the moving object</span>
   <span class="zelena">fill</span>(<span class="crvena">255</span>, <span class="crvena">0</span>, <span class="crvena">0</span>);
   <span class="zelena">ellipse</span>(x, y, <span class="crvena">20</span>, <span class="crvena">20</span>);
 
-  <span class="siva">// Uvećavamo ugao za animaciju</span>
+  <span class="siva">// Increase the angle for the next frame</span>
   <span class="pink">angle</span> += <span class="crvena">0.03</span>;
 }
   </code></pre>
 </div>
 
-<div class="moj_kod">
-  <pre><code>
-<span class="siva">&lt;!-- index.html --&gt;</span>
-<span class="plava">&lt;!DOCTYPE html&gt;</span>
-<span class="plava">&lt;html lang="sr"&gt;</span>
-<span class="plava">&lt;head&gt;</span>
-  <span class="siva">&lt;!-- Meta tagovi, CSS i CDN za p5.js --&gt;</span>
-  <span class="plava">&lt;script src="libraries/p5.min.js"&gt;&lt;/script&gt;</span>
-  <span class="plava">&lt;script src="KruznoKretanjeSimulacija.js"&gt;&lt;/script&gt;</span>
-  <span class="plava">&lt;style&gt;</span>
-    body { margin: <span class="crvena">0</span>; padding: <span class="crvena">0</span>; }
-    .canvasForHTML { width: <span class="crvena">100%</span>; border: solid thin #0000ff; }
-  <span class="plava">&lt;/style&gt;</span>
-<span class="plava">&lt;/head&gt;</span>
-<span class="plava">&lt;body&gt;</span>
-  <span class="siva">&lt;!-- Kontejner u koji će p5.js umetnuti canvas --&gt;</span>
-  <span class="plava">&lt;div</span> <span class="pink">id</span>=<span class="ljubicasta">"kruzni-canvas"</span> class=<span class="ljubicasta">"canvasForHTML"</span><span class="plava">&gt;&lt;/div&gt;</span>
-<span class="plava">&lt;/body&gt;</span>
-<span class="plava">&lt;/html&gt;</span>
-  </code></pre>
 </div>
 
 </div>
-			<div id="container" class="d-flex flex-column justify-content-center bd-highlight mb-3">
-			
-			<div class="d-flex flex-column justify-content-center  moj_tekst">
-  <h1 class="okvir_3">Kružno kretanje aplikacija</h1>
-  <p>
-    Ova sekcija prikazuje interaktivnu aplikaciju za modelovanje kružnog kretanja. Cilj je omogućiti korisnicima da 
-    eksperimentisanje sa parametrima putanje i dinamike postane jednostavno i vizuelno.
-  </p>
-  <p>
-    U nastavku je prikazana aplikacija za prikaz kružnog kretanja. U plavom panelu mogu se menjati polazne vrednosti: 
-    poluprečnik putanje <code>R</code>, početna ugaona brzina, ugaono ubrzanje – sve pomoću slajdera. Ispod toga se 
-    nalazi panel sa dugmadima za navigaciju: <strong>Start</strong>, <strong>Jedan korak</strong>, <strong>Pauza</strong> 
-    i <strong>Reset</strong>. Takođe u istom panelu postoje <em>checkbox</em> za izbor smera obrtanja, prikaz informacija, 
-    brzine i ubrzanja. Animaciju je moguće usporiti do 20× preko dodatnog slajdera za usporenje, takođe smeštenog na 
-    plavom panelu.
-  </p>
-  <div class="video-container" style="text-align:center;">
-    <iframe width="560" height="315"
-      src="https://www.youtube.com/embed/XsV_2bbV5g8"
-      title="Kružno kretanje p5.js simulacija"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <p>
-    Za više o tome pročitajte: 
-    <a href="https://www.svetprogramiranja.com/animacija_kruznog_kretanja_processing.html" target="_blank">
-      Animacija kružnog kretanja u Processing‑u
-    </a>
-  </p>
-</div>
 
-
-
-<div id="canvasForHTML" class="d-flex flex-row bd-highlight justify-content-center mb-2"></div>
-<div id="infoPanel" class="d-flex flex-row align-items-start justify-content-left flex-wrap  bd-highlight infoPanel"></div>
-
-
-</div>
-       
-        <footer>
-		     <% include ../partials/scripts %>
-            <% include ../partials/footer %>
-        </footer>
-    </div>
-
-    <!-- p5.js CDN + sketch -->
-    
-    <script>
-        new p5((sketch) => {
-            let angle = 0;
-            let radius = 100;
-
-            sketch.setup = () => {
-                const canvas = sketch.createCanvas(400, 400);
-                canvas.parent("kruzni-canvas");
-                sketch.angleMode(sketch.RADIANS);
-            };
-
-            sketch.draw = () => {
-                sketch.background(245);
-
-                let centerX = sketch.width / 2;
-                let centerY = sketch.height / 2;
-
-                let x = centerX + radius * sketch.cos(angle);
-                let y = centerY + radius * sketch.sin(angle);
-
-                sketch.fill(100, 150, 255);
-                sketch.stroke(0);
-                sketch.ellipse(centerX, centerY, 10, 10); // centar
-
-                sketch.fill(255, 0, 0);
-                sketch.ellipse(x, y, 20, 20); // objekat u kretanju
-
-                angle += 0.03;
-            };
-        });
-    </script>
-	  
-<script language="javascript" type="text/javascript" src="js/p5js/KruznoKretanje/KruznoKretanje.js"></script>
 </body>
 </html>
