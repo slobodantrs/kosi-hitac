@@ -34,7 +34,7 @@
         <div class="intro_1">
           <% include ./RotacijaDiska_Contents %>
         </div>
-        <div id="intro" class="intro_2">
+        <div id="uvod_rotacija" class="intro_2">
           <% include ./RotacijaDiska_Intro_1 %>
         </div>
       </div>
@@ -53,7 +53,7 @@
 	 <script>
  
   document.addEventListener('DOMContentLoaded', () => {
-  const introEl = document.getElementById('intro');
+  const introEl = document.getElementById('uvod_rotacija');
   document.getElementById('contents').addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
@@ -76,7 +76,7 @@
       document.body.appendChild(s);
     });
     
-    // 4) убaci саму симулацију у intro
+    // 4) убaci саму симулацију у uvod_rotacija
     if (a.dataset.id === 'Simulation') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
