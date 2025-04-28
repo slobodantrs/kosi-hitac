@@ -906,26 +906,23 @@ function SlobodanPad_View_0 (_topFrame) {
       .setProperty("Display","inline-block") // EJsS HtmlView.HtmlView Page: setting property 'Display' for element 'executionPanel'
       ;
 
-    _view._addElement(EJSS_INTERFACE.twoStateButton,"runPauseButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'runPauseButton'
-      .setProperty("Tooltip","Play/Pause") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'runPauseButton'
-      .setProperty("ImageOnUrl","/org/opensourcephysics/resources/controls/images/play.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageOnUrl' for element 'runPauseButton'
-      .setProperty("ImageOffUrl","/org/opensourcephysics/resources/controls/images/pause.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageOffUrl' for element 'runPauseButton'
-      ;
+   _view._addElement(EJSS_INTERFACE.twoStateButton, "runPauseButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'runPauseButton'
+  .setProperty("Tooltip", "Play/Pause") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'runPauseButton'
+  .setProperty("ImageOnUrl", "/_ejs_library/images/org/opensourcephysics/resources/controls/images/play.gif") // ISPRAVLJENO
+  .setProperty("ImageOffUrl", "/_ejs_library/images/org/opensourcephysics/resources/controls/images/pause.gif"); // ISPRAVLJENO
 
-    _view._addElement(EJSS_INTERFACE.button,"stepButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'stepButton'
-      .setProperty("Tooltip","Step") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'stepButton'
-      .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/stepforward.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'stepButton'
-      ;
+_view._addElement(EJSS_INTERFACE.button, "stepButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'stepButton'
+  .setProperty("Tooltip", "Step") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'stepButton'
+  .setProperty("ImageUrl", "/_ejs_library/images/org/opensourcephysics/resources/controls/images/stepforward.gif"); // ISPRAVLJENO
 
-    _view._addElement(EJSS_INTERFACE.button,"initButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'initButton'
-      .setProperty("Tooltip","Initialize") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'initButton'
-      .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/reset1.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'initButton'
-      ;
+_view._addElement(EJSS_INTERFACE.button, "initButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'initButton'
+  .setProperty("Tooltip", "Initialize") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'initButton'
+  .setProperty("ImageUrl", "/_ejs_library/images/org/opensourcephysics/resources/controls/images/reset1.gif"); // ISPRAVLJENO
 
-    _view._addElement(EJSS_INTERFACE.button,"resetButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'resetButton'
-      .setProperty("Tooltip","Reset") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'resetButton'
-      .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/reset.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'resetButton'
-      ;
+_view._addElement(EJSS_INTERFACE.button, "resetButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'resetButton'
+  .setProperty("Tooltip", "Reset") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'resetButton'
+  .setProperty("ImageUrl", "/_ejs_library/images/org/opensourcephysics/resources/controls/images/reset.gif"); // ISPRAVLJENO
+
 
     _view._addElement(EJSS_INTERFACE.audio,"audio", _view.controlPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'audio'
       .setProperty("Height",20) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'audio'
