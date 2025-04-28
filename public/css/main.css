@@ -754,6 +754,12 @@ div#wrappedPanel svg{
 	/*height:80vw !important;*/
 	margin-left: auto!important;
 	margin-right:auto !important;
+	max-width:100%;
+	overflow-x:auto;
+}
+#plottingPanel{
+	max-width:100%;
+	overflow-x:auto;
 }
 div#wrappedPanel2 canvas{
 	width:100% !important;
