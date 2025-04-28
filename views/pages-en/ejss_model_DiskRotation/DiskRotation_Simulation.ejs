@@ -3,7 +3,7 @@
    
 <script type="text/javascript"><!--//--><![CDATA[//><!--
 /* _inputParameters: an object with different values for the model parameters */
-function RotacijaDiska(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
+function DiskRotation(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
   var _view;
   var _isPlaying = false;
@@ -1337,7 +1337,7 @@ function RotacijaDiska_View_0 (_topFrame) {
   // Замени HTML-коментаре са JS-коментарима:
   /*
   window.addEventListener('load', function () {
-    _model = new RotacijaDiska("_topFrame", "/_ejs_library/", null);
+    _model = new DiskRotation("_topFrame", "/_ejs_library/", null);
     …  
     _model.onload();
   }, false);
@@ -1346,7 +1346,7 @@ function RotacijaDiska_View_0 (_topFrame) {
   // Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
   function initDiskRotationSimulation() {
     // Постављамо модел у глобалну променљиву
-    _model = new RotacijaDiska("_topFrame", "/_ejs_library/", null);
+    _model = new DiskRotation("_topFrame", "/_ejs_library/", null);
     if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
 
     TextResizeDetector.TARGET_ELEMENT_ID = 'intro';

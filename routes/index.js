@@ -103,9 +103,9 @@ router.get('/simulacija_Kruzno_Kretanje_MT', function(req, res) {
 // Rotacija diska
 var RotacijaDiskaController = require('../controllers/RotacijaDiskaController');
 console.log(`RotacijaDiskaController u index.js: `+RotacijaDiskaController);
-router.get('/rotacija_diska', RotacijaDiskaController.RotacijaDiska);
-router.get('/rotacija_diska/:id', RotacijaDiskaController.RotacijaDiska);
-router.get('/contents_rotacija_diska', RotacijaDiskaController.RotacijaDiskaContents);
+router.get('/Rotacija_Diska', RotacijaDiskaController.RotacijaDiska);
+router.get('/Rotacija_Diska/:id', RotacijaDiskaController.RotacijaDiska);
+router.get('/contents_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaContents);
 router.get('/RotacijaDiska_Intro_1', RotacijaDiskaController.RotacijaDiska1);
 router.get('/RotacijaDiska_Intro_2', RotacijaDiskaController.RotacijaDiska2);
 router.get('/RotacijaDiska_Intro_3', RotacijaDiskaController.RotacijaDiska3);
@@ -113,8 +113,7 @@ router.get('/RotacijaDiska_Intro_4', RotacijaDiskaController.RotacijaDiska4)
 router.get('/simulacija_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaSimulacija);
 
 
-//Rotacija diska
-
+/*
 router.get('/Rotacija_Diska', function(req, res) {
 	console.log(`Correct!!!!!`);
 	//res.render('pages/simulacija');
@@ -150,6 +149,8 @@ router.get('/Rotacija_Diska_Intro_4', function(req, res) {
 	//res.render('pages/simulacija');
     res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska_Intro_4');
 });
+*/
+
 
 //Ravno kretanje tocka
 router.get('/RavnoKretanjeTocka', function(req, res) {

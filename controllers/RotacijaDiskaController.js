@@ -35,6 +35,8 @@ var methods = {
 
     res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska', res);
   },
+  
+
 
   RotacijaDiskaContents: function(req, res) {
 	  console.log("RDC: RotacijaDiskaContents");
