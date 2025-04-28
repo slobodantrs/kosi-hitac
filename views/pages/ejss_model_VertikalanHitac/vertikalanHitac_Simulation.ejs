@@ -305,26 +305,24 @@ function vertikalanHitac_View_0 (_topFrame) {
       .setProperty("Display","inline-block") // EJsS HtmlView.HtmlView Page: setting property 'Display' for element 'executionPanel'
       ;
 
-    _view._addElement(EJSS_INTERFACE.twoStateButton,"runPauseButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'runPauseButton'
-      .setProperty("Tooltip","Play/Pause") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'runPauseButton'
-      .setProperty("ImageOnUrl","/org/opensourcephysics/resources/controls/images/play.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageOnUrl' for element 'runPauseButton'
-      .setProperty("ImageOffUrl","/org/opensourcephysics/resources/controls/images/pause.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageOffUrl' for element 'runPauseButton'
-      ;
+    _view._addElement(EJSS_INTERFACE.twoStateButton,"runPauseButton", _view.executionPanel)
+  .setProperty("Tooltip","Play/Pause")
+  .setProperty("ImageOnUrl","/_ejs_library/images/org/opensourcephysics/resources/controls/images/play.gif")
+  .setProperty("ImageOffUrl","/_ejs_library/images/org/opensourcephysics/resources/controls/images/pause.gif");
 
-    _view._addElement(EJSS_INTERFACE.button,"stepButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'stepButton'
-      .setProperty("Tooltip","Step") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'stepButton'
-      .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/stepforward.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'stepButton'
-      ;
 
-    _view._addElement(EJSS_INTERFACE.button,"initButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'initButton'
-      .setProperty("Tooltip","Initialize") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'initButton'
-      .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/reset1.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'initButton'
-      ;
+   _view._addElement(EJSS_INTERFACE.button,"stepButton", _view.executionPanel)
+  .setProperty("Tooltip","Step")
+  .setProperty("ImageUrl","/_ejs_library/images/org/opensourcephysics/resources/controls/images/stepforward.gif");
 
-    _view._addElement(EJSS_INTERFACE.button,"resetButton", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'resetButton'
-      .setProperty("Tooltip","Reset") // EJsS HtmlView.HtmlView Page: setting property 'Tooltip' for element 'resetButton'
-      .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/reset.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'resetButton'
-      ;
+_view._addElement(EJSS_INTERFACE.button,"initButton", _view.executionPanel)
+  .setProperty("Tooltip","Initialize")
+  .setProperty("ImageUrl","/_ejs_library/images/org/opensourcephysics/resources/controls/images/reset1.gif");
+
+_view._addElement(EJSS_INTERFACE.button,"resetButton", _view.executionPanel)
+  .setProperty("Tooltip","Reset")
+  .setProperty("ImageUrl","/_ejs_library/images/org/opensourcephysics/resources/controls/images/reset.gif");
+
 
     _view._addElement(EJSS_INTERFACE.panel,"narrativePanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel'
       .setProperty("Html","<h1>Vertikalni hitac</h1> <p>Ovo je vrlo jednostavna simulacija vertikalnog hica. Prikazuje kretanje u jednoj dimenziji(vertikalnoj) tela mase m(lopta)</p> <p>Telo je bačeno sa površine yemlje nekom početnom brzinom v0. Na telo deluje samo sila zemljine teže G=mg</p> <p>Telo će se kretati vertikalno naviše i pri tome se trenutna brzina izračunava iterativno za svakih dt sekundi po formuli <strong>v=v0-g*t</strong>. S obzirom da se posmatra vreme od dt sekundi i da je početna brzina u tekućoj iteraciji zapravo krajnja brzina izračunata za  prethodnu iteraciju, formula koja se upisuje u tab evolucije je :<strong>v=v-g*dt</strong>, gde je g gravitaciono ubrzanje i iznosi 9.81 m/s^2.</p> <p>Telo će dostići neku maksimalnu visinu HMax, a zatim će početi da pada istim ubrzanjem g. Trenutna brzina se dalje izračunava po formuli <strong>v=v+g*dt</strong> </p>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'

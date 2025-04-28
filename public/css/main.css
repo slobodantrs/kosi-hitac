@@ -439,6 +439,10 @@ div#wrappedPanel svg{
 	margin-left: auto!important;
 	margin-right:auto !important;
 }
+div#simulacijaPanel{
+	max-width:100%;
+	overflow-x:auto;
+}
 /* DESKTOP (širina > 767px) */
 figure.margine_oko_slike {
               
