@@ -743,10 +743,11 @@ div#executionPanel > button,div#executionPanel2 > button{
 	
 }
 div#kontejnerPanel,div#wrappedPanel,div#controlPanel,div#drawingPanel3D,div#wrappedPanel2,div#labelPanel2{
-	width:100% !important;
+	max-width:100% !important;
 	/*height:80vw !important;*/
 	margin-left: auto!important;
 	margin-right:auto !important;
+	overflow-x:auto;
 }
 div#wrappedPanel svg{
 	width:100% !important;
