@@ -184,46 +184,44 @@
 
 
 
-			<div id="container" class="d-flex flex-column justify-content-center bd-highlight mb-3">
-			
-			<div class="d-flex flex-column justify-content-center  moj_tekst">
-  <h1 class="okvir_3">Kružno kretanje aplikacija</h1>
-  <p>
-    Ova sekcija prikazuje interaktivnu aplikaciju za modelovanje kružnog kretanja. Cilj je omogućiti korisnicima da 
-    eksperimentisanje sa parametrima putanje i dinamike postane jednostavno i vizuelno.
-  </p>
-  <p>
-    U nastavku je prikazana aplikacija za prikaz kružnog kretanja. U plavom panelu mogu se menjati polazne vrednosti: 
-    poluprečnik putanje <code>R</code>, početna ugaona brzina, ugaono ubrzanje – sve pomoću slajdera. Ispod toga se 
-    nalazi panel sa dugmadima za navigaciju: <strong>Start</strong>, <strong>Jedan korak</strong>, <strong>Pauza</strong> 
-    i <strong>Reset</strong>. Takođe u istom panelu postoje <em>checkbox</em> za izbor smera obrtanja, prikaz informacija, 
-    brzine i ubrzanja. Animaciju je moguće usporiti do 20× preko dodatnog slajdera za usporenje, takođe smeštenog na 
-    plavom panelu.
-  </p>
-  <div class="video-container" style="text-align:center;">
-    <iframe width="560" height="315"
-      src="https://www.youtube.com/embed/XsV_2bbV5g8"
-      title="Kružno kretanje p5.js simulacija"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+		<div id="container" class="d-flex flex-column justify-content-center bd-highlight mb-3">
+  
+  <div class="d-flex flex-column justify-content-center moj_tekst">
+    <h1 class="okvir_3">Circular Motion Applications</h1>
+    <p>
+      This section showcases an interactive application for modeling circular motion. The goal is to make experimenting 
+      with trajectory and dynamics parameters simple and visual for users.
+    </p>
+    <p>
+      Below, you will find the application for displaying circular motion. In the blue panel, you can adjust the initial values: 
+      the radius of the path <code>R</code>, the initial angular velocity, and angular acceleration – all through sliders. 
+      Below that, there is a panel with navigation buttons: <strong>Start</strong>, <strong>Step</strong>, <strong>Pause</strong>, 
+      and <strong>Reset</strong>. Additionally, in the same panel, there are checkboxes for selecting the rotation direction, 
+      displaying information, speed, and acceleration. The animation can be slowed down up to 20× using an extra slowdown slider, 
+      which is also located on the blue panel.
+    </p>
+    <div class="video-container" style="text-align:center;">
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/XsV_2bbV5g8"
+        title="Circular motion p5.js simulation"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p>
+      For more details, read: 
+      <a href="https://www.svetprogramiranja.com//circular_motion_animation_in_processing.html" target="_blank">
+        Circular Motion Animation in Processing
+      </a>
+    </p>
   </div>
-  <p>
-    Za više o tome pročitajte: 
-    <a href="https://www.svetprogramiranja.com/animacija_kruznog_kretanja_processing.html" target="_blank">
-      Animacija kružnog kretanja u Processing‑u
-    </a>
-  </p>
-</div>
 
-
-
-<div id="canvasForHTML" class="d-flex flex-row bd-highlight justify-content-center mb-2"></div>
-<div id="infoPanel" class="d-flex flex-row align-items-start justify-content-left flex-wrap  bd-highlight infoPanel"></div>
-
+  <div id="canvasForHTML" class="d-flex flex-row bd-highlight justify-content-center mb-2"></div>
+  <div id="infoPanel" class="d-flex flex-row align-items-start justify-content-left flex-wrap bd-highlight infoPanel"></div>
 
 </div>
+
        
         <footer>
 		     <% include ../../partials/scripts %>
