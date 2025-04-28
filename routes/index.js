@@ -106,10 +106,10 @@ console.log(`RotacijaDiskaController u index.js: `+RotacijaDiskaController);
 router.get('/Rotacija_Diska', RotacijaDiskaController.RotacijaDiska);
 router.get('/Rotacija_Diska/:id', RotacijaDiskaController.RotacijaDiska);
 router.get('/contents_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaContents);
-router.get('/RotacijaDiska_Intro_1', RotacijaDiskaController.RotacijaDiska1);
-router.get('/RotacijaDiska_Intro_2', RotacijaDiskaController.RotacijaDiska2);
-router.get('/RotacijaDiska_Intro_3', RotacijaDiskaController.RotacijaDiska3);
-router.get('/RotacijaDiska_Intro_4', RotacijaDiskaController.RotacijaDiska4)
+router.get('/Rotacija_iska_Intro_1', RotacijaDiskaController.RotacijaDiska1);
+router.get('/Rotacija_Diska_Intro_2', RotacijaDiskaController.RotacijaDiska2);
+router.get('/Rotacija_Diska_Intro_3', RotacijaDiskaController.RotacijaDiska3);
+router.get('/Rotacija_Diska_Intro_4', RotacijaDiskaController.RotacijaDiska4)
 router.get('/simulacija_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaSimulacija);
 
 
