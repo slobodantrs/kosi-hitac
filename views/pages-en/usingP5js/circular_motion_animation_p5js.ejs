@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="<%= locale %>">
 <head>
+<script>
+  console.log('Server-side locale:', '<%= locale %>');
+  console.log('document.documentElement.lang =', document.documentElement.lang);
+</script>
+
     <% include ../../partials/head %>
     <meta charset="utf-8" />
     <meta name="description" content="Circular animation of an object using the p5.js library in JavaScript. Visual example and explanation of trigonometric functions in animation." />

@@ -51,12 +51,16 @@ app.use((req, res, next) => {
     req.setLocale(req.query.lang);
   }// Ako URL počinje sa '/en/' ili je tačno '/en'
   else if (req.path === '/en' || req.path.startsWith('/en/')) {
+    res.cookie('lang', 'en', { maxAge: 30*24*60*60*1000, httpOnly: true });
+    
     req.setLocale('en');
-   
+	
   }
   else {
     // OVDE SILOM nameštamo српски
     req.setLocale('sr');
+	console.log('srpski: res.locals.currentPath: '+res.locals.currentPath );
+	
   }
   res.locals.locale = req.getLocale();
 

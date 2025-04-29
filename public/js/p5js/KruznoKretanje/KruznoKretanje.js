@@ -67,7 +67,7 @@ function setup() {
    
   
   usrlang = navigator.language      || navigator.userLanguage; 
-  console.log(     "User's preferred language is: "    + usrlang); 
+  console.log(     "Setup animacije: User's preferred language is: "    + usrlang); 
   createExpressionLang();
 
   frameRate(FRAME_RATE);
@@ -406,7 +406,7 @@ function draw() {
   background(255); 
   
   usrlang = navigator.language      || navigator.userLanguage; 
-  console.log(     "User's preferred language is: "    + usrlang); 
+  console.log(     "draw metodaa, User's preferred language is: "    + usrlang); 
  
    
    textFont(f);
