@@ -58,8 +58,10 @@ app.use((req, res, next) => {
     // OVDE SILOM nameštamo српски
     req.setLocale('sr');
   }
-//  console.log('>> req.getLocale() =', req.getLocale());
- // console.log('>> res.locals.locale =', res.locals.locale);
+  res.locals.locale = req.getLocale();
+
+  console.log('>> req.getLocale() =', req.getLocale());
+  console.log('>> res.locals.locale =', res.locals.locale);
   next();
 });
 
@@ -159,7 +161,7 @@ app.use((req, res, next) => {
     }
     return srPath;
   };
-  console.log('res.locals.currentPath: '+res.locals.currentPath );
+  //console.log('res.locals.currentPath: '+res.locals.currentPath );
   next();
 });
 
