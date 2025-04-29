@@ -169,6 +169,224 @@ v(t) = v₀ + a·t
         <li><code>drawArrow()</code> — helper for drawing arrows</li>
       </ul>
     </div>
+	
+	<div class="moj_kod">
+<h3>index.html</h3>
+<pre><code><span class="plava">&lt;!DOCTYPE html&gt;</span>
+<span class="plava">&lt;html&gt;</span>
+<span class="plava">&lt;head&gt;</span>
+  <span class="plava">&lt;meta</span> <span class="crvena">charset=</span><span class="braon">"utf-8"</span><span class="plava">&gt;</span>
+  <span class="plava">&lt;meta</span> <span class="crvena">name=</span><span class="braon">"viewport"</span> <span class="crvena">content=</span><span class="braon">"width=device-width, initial-scale=1.0"</span><span class="plava">&gt;</span>
+
+  <span class="zelena">&lt;!-- Učitavanje biblioteka --&gt;</span>
+  <span class="plava">&lt;script</span> <span class="crvena">language=</span><span class="braon">"javascript"</span> <span class="crvena">type=</span><span class="braon">"text/javascript"</span> <span class="crvena">src=</span><span class="braon">"libraries/p5.min.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
+  <span class="plava">&lt;script</span> <span class="crvena">language=</span><span class="braon">"javascript"</span> <span class="crvena">type=</span><span class="braon">"text/javascript"</span> <span class="crvena">src=</span><span class="braon">"StrmaRavanOsnovnaSaVektorima.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
+
+  <span class="plava">&lt;style&gt;</span>
+  <span class="crna">body</span> { <span class="crvena">margin</span>: <span class="braon">0</span>; <span class="crvena">padding</span>: <span class="braon">0</span>; }
+  <span class="crna">#sketch-holder</span> {
+    <span class="crvena">width</span>: <span class="braon">100%</span>;
+    <span class="crvena">max-width</span>: <span class="braon">600px</span>;
+    <span class="crvena">margin</span>: <span class="braon">20px auto</span>;
+    <span class="crvena">border</span>: <span class="braon">1px solid #ccc</span>;
+  }
+  <span class="plava">&lt;/style&gt;</span>
+<span class="plava">&lt;/head&gt;</span>
+
+<span class="plava">&lt;body&gt;</span>
+  <span class="plava">&lt;div</span> <span class="crvena">id=</span><span class="braon">"sketch-holder"</span><span class="plava">&gt;&lt;/div&gt;</span>
+<span class="plava">&lt;/body&gt;</span>
+<span class="plava">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<div class="moj_kod">
+<h3>StrmaRavanOsnovnaSaVektorima.js</h3>
+<pre><code><span class="zelena">// Simulation of sliding down an inclined plane</span>
+
+<span class="zelena">// Define physical and geometric parameters</span>
+<span class="plava">let</span> alpha; <span class="zelena">// Angle of incline</span>
+<span class="plava">const</span> blockSize = <span class="braon">50</span>; <span class="zelena">// Size of the block (square)</span>
+<span class="plava">const</span> g = <span class="braon">9.81</span>; <span class="zelena">// Gravitational acceleration</span>
+<span class="plava">const</span> mu = <span class="braon">0.2</span>; <span class="zelena">// Coefficient of friction</span>
+
+<span class="zelena">// Variables for tracking motion</span>
+<span class="plava">let</span> a; <span class="zelena">// Acceleration</span>
+<span class="plava">let</span> v = <span class="braon">0</span>; <span class="zelena">// Velocity</span>
+<span class="plava">let</span> s = <span class="braon">0</span>; <span class="zelena">// Distance traveled</span>
+<span class="plava">const</span> dt = <span class="braon">1</span>/<span class="braon">60</span>; <span class="zelena">// Time step (60 FPS)</span>
+
+<span class="zelena">// Initial positions and limits</span>
+<span class="plava">const</span> startX = <span class="braon">150</span>; <span class="zelena">// Initial x-coordinate of the block</span>
+<span class="plava">let</span> inclineY; <span class="zelena">// Vertical position of the incline</span>
+<span class="plava">let</span> maxS; <span class="zelena">// Maximum distance the block can travel</span>
+
+<span class="zelena">// Variables for simulation state control</span>
+<span class="plava">let</span> state = <span class="braon">'running'</span>; <span class="zelena">// Current state ('running' or 'pause')</span>
+<span class="plava">let</span> pauseStart = <span class="braon">0</span>; <span class="zelena">// Start time of pause</span>
+<span class="plava">const</span> pauseDuration = <span class="braon">1000</span>; <span class="zelena">// Pause duration in milliseconds</span>
+
+<span class="plava">function</span> setup() {
+  <span class="zelena">// Initialize canvas and settings</span>
+  <span class="plava">const</span> canvas = createCanvas(<span class="braon">600</span>, <span class="braon">400</span>);
+  canvas.parent(<span class="braon">'sketch-holder'</span>);
+
+  alpha = PI / <span class="braon">6</span>; <span class="zelena">// 30 degrees</span>
+  inclineY = height / <span class="braon">3</span>;
+  maxS = width - startX;
+
+  a = g * sin(alpha) - mu * g * cos(alpha); <span class="zelena">// Acceleration along the incline</span>
+
+  <span class="zelena">// Drawing settings</span>
+  angleMode(RADIANS);
+  rectMode(CENTER);
+  textAlign(LEFT, CENTER);
+}
+
+<span class="plava">function</span> draw() {
+  background(<span class="braon">240</span>); <span class="zelena">// Refresh background</span>
+  drawIncline(); <span class="zelena">// Draw incline</span>
+  updateMotion(); <span class="zelena">// Update block position</span>
+  drawBlockAndForces(); <span class="zelena">// Draw block and forces</span>
+}
+
+<span class="plava">function</span> updateMotion() {
+  <span class="plava">if</span> (state === <span class="braon">'running'</span>) {
+    v += a * dt; <span class="zelena">// Increase velocity</span>
+    s += v * dt; <span class="zelena">// Increase traveled distance</span>
+
+    <span class="plava">if</span> (s &gt;= maxS) {
+      s = maxS; <span class="zelena">// Stop movement when reaching the end</span>
+      state = <span class="braon">'pause'</span>;
+      pauseStart = millis();
+    }
+  } <span class="plava">else if</span> (state === <span class="braon">'pause'</span>) {
+    <span class="plava">if</span> (millis() - pauseStart &gt;= pauseDuration) {
+      s = <span class="braon">0</span>;
+      v = <span class="braon">0</span>;
+      state = <span class="braon">'running'</span>; <span class="zelena">// Reset simulation</span>
+    }
+  }
+}
+
+<span class="plava">function</span> drawIncline() {
+  push();
+  translate(<span class="braon">0</span>, inclineY); <span class="zelena">// Translate origin</span>
+  rotate(alpha); <span class="zelena">// Rotate entire incline</span>
+
+  <span class="zelena">// Draw triangle representing the incline</span>
+  noStroke();
+  fill(<span class="braon">220</span>, <span class="braon">230</span>, <span class="braon">255</span>);
+  triangle(<span class="braon">0</span>, <span class="braon">0</span>, width*<span class="braon">1.5</span>, <span class="braon">0</span>, <span class="braon">0</span>, height);
+
+  <span class="zelena">// Line along which the block slides</span>
+  stroke(<span class="braon">0</span>);
+  strokeWeight(<span class="braon">2</span>);
+  line(<span class="braon">0</span>, <span class="braon">0</span>, width*<span class="braon">1.5</span>, <span class="braon">0</span>);
+  pop();
+}
+
+<span class="plava">function</span> drawBlockAndForces() {
+  <span class="zelena">// Calculate force components</span>
+  <span class="plava">const</span> Qx = g * sin(alpha),
+        Qy = g * cos(alpha),
+        N  = Qy,
+        Ftr= mu * N,
+        scaleF = <span class="braon">20</span>; <span class="zelena">// Scaling factor for force vectors</span>
+
+  <span class="zelena">// Calculate block position</span>
+  <span class="plava">let</span> bx = startX + s,
+      by = inclineY + bx * tan(alpha);
+
+  push();
+  translate(bx, by);
+  rotate(alpha);
+  translate(<span class="braon">0</span>, -blockSize/<span class="braon">2</span>);
+
+  <span class="zelena">// Draw block</span>
+  fill(<span class="braon">200</span>);
+  stroke(<span class="braon">0</span>);
+  rect(<span class="braon">0</span>, <span class="braon">0</span>, blockSize, blockSize);
+
+  <span class="zelena">// Draw force vectors and labels</span>
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(Qx*scaleF, <span class="braon">0</span>), <span class="braon">'red'</span>);
+  text(<span class="braon">'Qₓ'</span>, Qx*scaleF+<span class="braon">5</span>, -<span class="braon">5</span>);
+
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(<span class="braon">0</span>,Qy*scaleF), <span class="braon">'red'</span>);
+  text(<span class="braon">'Qᵧ'</span>, <span class="braon">5</span>, Qy*scaleF+<span class="braon">15</span>);
+
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(Qx*scaleF,Qy*scaleF), <span class="braon">'purple'</span>);
+  text(<span class="braon">'Q'</span>, Qx*scaleF/<span class="braon">2</span>+<span class="braon">5</span>, Qy*scaleF/<span class="braon">2</span>+<span class="braon">5</span>);
+
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(<span class="braon">0</span>, -N*scaleF), <span class="braon">'green'</span>);
+  text(<span class="braon">'N'</span>, <span class="braon">5</span>, -N*scaleF-<span class="braon">10</span>);
+
+  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(-Ftr*scaleF, <span class="braon">0</span>), <span class="braon">'orange'</span>);
+  text(<span class="braon">'Fₜᵣ'</span>, -Ftr*scaleF-<span class="braon">30</span>, -<span class="braon">5</span>);
+  pop();
+}
+</code></pre>
+
+
+<div class="moj_tekst">
+  <h3 class="okvir_3">Explanation of the Sliding Animation Code</h3>
+
+  <ul>
+    <li>
+      <strong>Global variables:</strong>
+      incline angle <code>alpha</code> (positive means the plane slopes down from left to right),  
+      center position of the block <code>blockPos</code>,  
+      block size <code>blockSize</code>,  
+      gravitational acceleration <code>g</code>,  
+      friction coefficient <code>mu</code>.
+    </li>
+    <li>
+      In the <code>setup()</code> method:
+      <ol>
+        <li>Create the canvas with <code>createCanvas(600, 400)</code> and attach it to the <code>&lt;div id="sketch-holder"&gt;</code> using <code>canvas.parent(...)</code>.</li>
+        <li>Set <code>alpha = PI/6</code> and calculate the starting position:
+          <pre><code>startX = 150;
+startY = startX * tan(alpha);
+blockPos = createVector(startX, startY);</code></pre>
+        </li>
+        <li>Configure drawing modes with <code>angleMode(RADIANS)</code>, <code>rectMode(CENTER)</code>, and <code>textAlign(LEFT, CENTER)</code>.</li>
+      </ol>
+    </li>
+    <li>
+      In the <code>draw()</code> method:
+      <ol>
+        <li>Set background color: <code>background(240)</code>.</li>
+        <li>Call <code>drawIncline()</code> (to draw the line and filled triangle) and <code>drawBlockAndForces()</code> (to draw the block and force vectors).</li>
+        <li>Call <code>updateMotion()</code> to update velocity and position, handle pause, and reset.</li>
+      </ol>
+    </li>
+    <li>
+      The drawing routines use:
+      <ul>
+        <li><code>push()</code> / <code>pop()</code> — save and restore the transformation matrix.</li>
+        <li><code>translate(x, y)</code> — move the coordinate system.</li>
+        <li><code>rotate(α)</code> — rotate the coordinate system.</li>
+      </ul>
+      … (the ellipsis indicates that you can apply multiple <code>translate</code>/<code>rotate</code> calls between <code>push()</code> and <code>pop()</code>, and all transformations will be undone after <code>pop()</code>).
+    </li>
+    <li>
+      The <code>updateMotion()</code> function (or inline code in <code>draw()</code>) works as follows:
+      <pre><code>// acceleration along the incline
+blockAcc = g * sin(alpha) - mu * g * cos(alpha);
+// each frame:
+blockVel += blockAcc * deltaT;
+blockPos.x += blockVel * deltaT;
+// check if the block reached the end, then pause/reset…
+</code></pre>
+    </li>
+  </ul>
+
+  <p>
+    These steps make the code modular, easier to understand and maintain.  
+    For more details on transformations, see the p5.js documentation for <code>push()/pop()</code>, 
+    <code>translate()</code>, and <code>rotate()</code>.
+  </p>
+</div>
 
     <div class="row">
       <div class="col-xs-12">
