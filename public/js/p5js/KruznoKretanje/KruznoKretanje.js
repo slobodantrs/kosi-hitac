@@ -100,7 +100,7 @@ function setup() {
 }
 function createExpressionLang() {
   // Pretpostavimo da usrlang dolazi iz navigator.language ili slično
-  const lang = (usrlang || '').toLowerCase();
+  const lang = (usrlang || '').substring(0, 2).toLowerCase();
   
   // Ako je bilo koja varijanta srpskog jezika (npr. "sr", "sr-rs", "sr-cyrl-rs"...)
   if (lang.startsWith('sr')) {

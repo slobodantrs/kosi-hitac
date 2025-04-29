@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="<%= locale %>">
 <head>
-    <% include ../partials/head %>
-	<title>Klizanje tela niz strmu ravan</title>
-	
-  <meta name="description" content="Kružna animacija u p5.js uz vizuelizaciju kretanja tela niz strmu ravan.">
-  <link rel="canonical" href="https://kosi-hitac.onrender.com/klizanje_tela_niz_strmu_ravan" />
+<script>
+window.serverLocale = '<%= locale %>';
+  console.log('Server-side locale:', '<%= locale %>');
+  console.log('document.documentElement.lang =', document.documentElement.lang);
+</script>
+    <% include ../../partials/head %>
+    <title>Sliding on an Inclined Plane</title>
+  
+  <meta name="description" content="Circular animation in p5.js with visualization of a body sliding down an inclined plane.">
+  <link rel="canonical" href="https://kosi-hitac.onrender.com//en/inclined-plane-slide" />
   
    <style>
-  
     #sketch-holder {
       width: 100%;
       max-width: 600px;
-      margin: 20px auto;
-      
+      margin: 20px auto;  
     }
-	 .p5Canvas{
-	  width: 600px;
-  height: 400px;
+    .p5Canvas {
+      width: 600px;
+      height: 400px;
       border: solid thin #0000ff;
-      margin-bottom:auto;
+      margin-bottom: auto;
     }
   </style>
 </head>
@@ -28,14 +31,14 @@
     <div class="row">
       <div class="col-xs-12">
         <header>
-          <% include ../partials/header %>
+          <% include ../../partials/header %>
         </header>
       </div>
     </div>
 
     <div class="row">
       <div class="naslov col-xs-12">
-        <h1>Klizanje tela niz strmu ravan</h1>
+        <h1>Sliding on an Inclined Plane</h1>
       </div>
       <hr>
     </div>
@@ -43,358 +46,139 @@
     <div class="row">
       <div class="moj_tekst col-xs-12">
         <p>
-          Klizanje tela niz strmu ravan je klasičan problem iz dinamike u fizici. 
-          Kada telo klizi po ravni koja zaklapa ugao <code>α</code> sa horizontalom, 
-          komponenta gravitacione sile duž ravni je <code>m·g·sin(α)</code>. 
-          Ako zanemarimo trenje, ubrzanje tela je:
+          Sliding on an inclined plane is a classic dynamics problem in physics.
+          When a block slides down a plane tilted at angle <code>α</code> to the horizontal,
+          the component of the gravitational force along the plane is <code>m·g·sin(α)</code>.
+          Neglecting friction, the block’s acceleration is:
         </p>
         <p style="text-align: center;"><strong>a = g·sin(α)</strong></p>
         <p>
-          U realnim uslovima često se uvodi koeficijent trenja <code>μ</code>, pa se 
-          rezultujuća sila duž ravni smanjuje za <code>μ·m·g·cos(α)</code>, 
-          a ubrzanje postaje:
+          In real situations, we often introduce a friction coefficient <code>μ</code>,
+          reducing the net force along the plane by <code>μ·m·g·cos(α)</code>,
+          so the acceleration becomes:
         </p>
         <p style="text-align: center;"><strong>a = g·(sin(α) – μ·cos(α))</strong></p>
-        <h2>Simulacija u Processing‑u</h2>
+
+        <h2>Processing Simulation</h2>
         <p>
-          Za interaktivnu simulaciju klizanja tela niz strmu ravan u Processing‑u, pogledajte primer:
-          <a href="https://www.svetprogramiranja.com/primer_strma_ravan_u_processingu.html" target="_blank">
-            Primer strma ravan u Processing‑u
+          For an interactive Processing simulation of sliding on an inclined plane, see:
+          <a href="https://www.svetprogramiranja.com/exampla_of_body_sliding_down_a_inclined_plane_in_processing.html" target="_blank">
+            Example of inclined plane in Processing
           </a>.
         </p>
         
-        <h2>Resursi</h2>
+        <h2>Resources</h2>
         <ul>
-          <li><a href="https://p5js.org/" target="_blank">p5.js zvanični sajt</a></li>
-          <li><a href="https://processing.org/" target="_blank">Processing zvanični sajt</a></li>
-          <li><a href="https://www.svetprogramiranja.com/primer_strma_ravan_u_processingu.html" target="_blank">Primer strma ravan u Processing‑u</a></li>
-		  <li><a href="https://www.svetprogramiranja.com/analiza_klizanja_tela_niz_strmu_ravan_primer.html" target="_blank">ANALIZA KLIZANJA TELA NIZ STRMU RAVAN - PRIMER U PROCESSING-U</a></li>
+          <li><a href="https://p5js.org/" target="_blank">p5.js official site</a></li>
+          <li><a href="https://processing.org/" target="_blank">Processing official site</a></li>
+          <li><a href="https://www.svetprogramiranja.com/exampla_of_body_sliding_down_a_inclined_plane_in_processing.html" target="_blank">Example of inclined plane in Processing</a></li>
+          <li><a href="https://www.svetprogramiranja.com/analysis_of_sliding_of_a_body_down_an_inclined_plane_example.html" target="_blank">ANALYSIS OF SLIDING ON AN INCLINED PLANE – PROCESSING EXAMPLE</a></li>
           <li><a href="https://www.um.es/fem/EjsWiki/Main/Download" target="_blank">Easy Java Simulation (EJS)</a></li>
           <li><a href="https://www.compadre.org/osp/" target="_blank">Open Source Physics (OSP)</a></li>
         </ul>
       </div>
     </div>
-	
-	<div class="moj_tekst">
-  <h3 class="okvir_3">Teorija: Sile na nagnutoj ravni</h3>
-  <p>
-    Na telo mase <code>m</code> koje leži na ravni nagnutoj pod uglom <code>α</code> deluju sledeće sile:
-  </p>
-  <ul>
-    <li><strong>Težina</strong> <code>Q = m·g</code>, usmerena vertikalno naniže.</li>
-    <li><strong>Komponenta težine paralelna ravan</strong>  
-      <code>Qₓ = Q·sin(α) = m·g·sin(α)</code>, usmerena naniže duž ravni.</li>
-    <li><strong>Komponenta težine normalna na ravan</strong>  
-      <code>Qᵧ = Q·cos(α) = m·g·cos(α)</code>, usmerena u ravni prema unutra.</li>
-    <li><strong>Normalna sila</strong> <code>N = Qᵧ = m·g·cos(α)</code>, suprotna <code>Qᵧ</code>.</li>
-    <li><strong>Trenje</strong> <code>Fₜᵣ = μ·N = μ·m·g·cos(α)</code>, suprotno smeru klizanja.</li>
-  </ul>
+  
+    <div class="moj_tekst">
+      <h3 class="okvir_3">Theory: Forces on an Inclined Plane</h3>
+      <p>
+        A block of mass <code>m</code> on a plane inclined at angle <code>α</code> is subject to:
+      </p>
+      <ul>
+        <li><strong>Weight</strong> <code>Q = m·g</code>, directed vertically downward.</li>
+        <li><strong>Component of weight parallel to plane</strong>  
+          <code>Qₓ = Q·sin(α) = m·g·sin(α)</code>, directed down the slope.</li>
+        <li><strong>Component of weight normal to plane</strong>  
+          <code>Qᵧ = Q·cos(α) = m·g·cos(α)</code>, directed into the plane.</li>
+        <li><strong>Normal force</strong> <code>N = Qᵧ = m·g·cos(α)</code>, opposing <code>Qᵧ</code>.</li>
+        <li><strong>Friction</strong> <code>Fₜᵣ = μ·N = μ·m·g·cos(α)</code>, opposing motion down the plane.</li>
+      </ul>
 
-  <p style="text-align:center;">
-    <img src="/images/StrmaRavan/StrmaRavanTelo.jpg" 
-         alt="Telo na nagnutoj ravni sa silama" 
-         style="max-width:100%; height:auto; border:1px solid #ccc;">
-  </p>
+      <p style="text-align:center;">
+        <img src="/images/StrmaRavan/StrmaRavanTelo.jpg" 
+             alt="Block on an inclined plane with forces" 
+             style="max-width:100%; height:auto; border:1px solid #ccc;">
+      </p>
 
-  <p>
-    U simulaciji računamo akceleraciju duž ravni kao razliku paralelne komponente težine i trenja, podeljenu sa masom:
-  </p>
-  <pre><code>
+      <p>
+        In the simulation we compute the acceleration along the plane as the net force divided by mass:
+      </p>
+      <pre><code>
 a = (Qₓ – Fₜᵣ) / m 
   = [m·g·sin(α) – μ·m·g·cos(α)] / m
   = g·sin(α) – μ·g·cos(α)
-  </code></pre>
+      </code></pre>
 
-  <p>
-    Pozicija <code>x(t)</code> i brzina <code>v(t)</code> duž ravni dobijaju se standardnim kinematičkim izrazima:
-  </p>
-  <pre><code>
+      <p>
+        The position <code>x(t)</code> and velocity <code>v(t)</code> along the plane follow standard kinematic formulas:
+      </p>
+      <pre><code>
 x(t) = x₀ + v₀·t + ½·a·t²
 v(t) = v₀ + a·t
-  </code></pre>
+      </code></pre>
 
-  <p>
-    Ovako definisani izrazi ulaze u p5.js petlju <code>draw()</code>, gde se u svakoj iteraciji 
-    ažuriraju položaj i brzina tela po formuli iznad, a zatim se sve sile crtaju kao strelice u centru bloka.
-  </p>
-</div>
+      <p>
+        These expressions drive the p5.js <code>draw()</code> loop, updating the block’s position and velocity each frame and drawing all force vectors.
+      </p>
+    </div>
 
-<div class="moj_tekst">
-  <div class="col-12">
-    <h2>Animacija klizanja tela niz strmu ravan pomoću alata p5.js</h2>
+    <div class="moj_tekst">
+      <div class="col-12">
+        <h2>Inclined Plane Simulation with p5.js</h2>
 
-    <p>
-      Ova animacija prikazuje kako blok klizi niz nagib pod uglom <code>α</code> koristeći JavaScript biblioteku 
-      <strong>p5.js</strong>. U centru bloka crtaju se sile:
-      <code>Qₓ</code> (paralelna komponenta težine), <code>Qᵧ</code> (normalna komponenta), 
-      <code>N</code> (normalna sila) i <code>Fₜᵣ</code> (trenje).
-    </p>
+        <p>
+          This animation shows a block sliding down a slope at angle <code>α</code> using the 
+          JavaScript <strong>p5.js</strong> library. Force vectors are drawn at the block’s center:
+          <code>Qₓ</code> (parallel weight), <code>Qᵧ</code> (normal weight), 
+          <code>N</code> (normal force) and <code>Fₜᵣ</code> (friction).
+        </p>
 
-    <p>
-      U svakoj iteraciji izračunavamo ubrzanje
-      <code>a = g·sin(α) – μ·g·cos(α)</code>, ažuriramo brzinu i položaj bloka, i crtamo
-      strelice koje predstavljaju sve sile. Kada blok stigne do kraja ravni, animacija se kratko zaustavlja,
-      blok se vraća u početni položaj i proces se ponavlja.
-    </p>
+        <p>
+          Each frame we compute acceleration
+          <code>a = g·sin(α) – μ·g·cos(α)</code>, update velocity and position, and draw
+          arrows representing each force. When the block reaches the end of the incline, the animation pauses briefly,
+          resets the block to the start, and repeats.
+        </p>
 
-    <h3>Primer animacije:</h3>
-    
-    <div id="sketch-holder"></div>
-    <p class="mt-4">
-      U nastavku možete dodati kontrole za ugao nagiba, koeficijent trenja ili početnu brzinu bloka, 
-      kako biste eksperimentisali sa ponašanjem simulacije.
-    </p>
-  </div>
-</div>
+        <h3>Animation Example:</h3>
+        
+        <div id="sketch-holder"></div>
+        <p class="mt-4">
+          You can add controls for the incline angle, friction coefficient, or initial block speed
+          to experiment with the simulation’s behavior.
+        </p>
+      </div>
+    </div>
 
+    <div class="moj_tekst">
+      <p>
+        This simulation uses the <strong>p5.js</strong> library to model sliding on an inclined plane.
+        The force vectors shown are: weight (<code>Q</code>), its components (<code>Qₓ</code>, <code>Qᵧ</code>),
+        normal force (<code>N</code>) and friction (<code>Fₜᵣ</code>).
+      </p>
 
-<div class="moj_tekst">
-  <p>Ova simulacija prikazuje klizanje tela niz strmu ravan i koristi biblioteku <strong>p5.js</strong>. Prikazani su i vektori sila koji deluju na telo: težina (<code>Q</code>), njene komponente (<code>Qₓ</code> i <code>Qᵧ</code>), normalna sila (<code>N</code>) i sila trenja (<code>Fₜᵣ</code>).</p>
+      <p><strong>Simulation parameters</strong> are defined as global variables: incline angle, block start position, block size, gravitational acceleration, and friction coefficient. In <code>setup()</code>, the canvas is created and placed into the <code>div</code> with ID <code>sketch-holder</code>.</p>
 
-  <p><strong>Parametri simulacije</strong> su definisani kao globalne promenljive: ugao nagiba, početna pozicija bloka, veličina bloka, gravitaciono ubrzanje i koeficijent trenja. U <code>setup()</code> funkciji kreira se canvas i smešta se u <code>div</code> sa ID-jem <code>sketch-holder</code>.</p>
+      <p>The coordinate system is rotated so the <code>x</code>-axis aligns with the slope, simplifying position and force computations. The <code>translate()</code>, <code>rotate()</code>, <code>push()</code> and <code>pop()</code> functions handle local transformations and reset the drawing state.</p>
 
-  <p>Koordinatni sistem je rotiran tako da <code>x</code> osa prati nagib, što omogućava jednostavnije izračunavanje položaja tela i komponenti sila. Funkcije <code>translate()</code>, <code>rotate()</code>, <code>push()</code> i <code>pop()</code> koriste se za lokalnu transformaciju sistema i vraćanje na prethodno stanje nakon crtanja pojedinačnih elemenata.</p>
-
-  <p><strong>Struktura koda</strong> je podeljena u više funkcija:</p>
-  <ul>
-    <li><code>drawIncline()</code> — crta nagib</li>
-    <li><code>drawBlockAndForces()</code> — crta telo i vektore sila</li>
-    <li><code>updateMotion()</code> — izračunava pomeraj tela uz simulaciju trenja</li>
-    <li><code>drawArrow()</code> — pomoćna funkcija za crtanje strelica</li>
-  </ul>
-</div>
-
-<div class="moj_kod">
-<h3>index.html</h3>
-<pre><code><span class="plava">&lt;!DOCTYPE html&gt;</span>
-<span class="plava">&lt;html&gt;</span>
-<span class="plava">&lt;head&gt;</span>
-  <span class="plava">&lt;meta</span> <span class="crvena">charset=</span><span class="braon">"utf-8"</span><span class="plava">&gt;</span>
-  <span class="plava">&lt;meta</span> <span class="crvena">name=</span><span class="braon">"viewport"</span> <span class="crvena">content=</span><span class="braon">"width=device-width, initial-scale=1.0"</span><span class="plava">&gt;</span>
-
-  <span class="zelena">&lt;!-- Učitavanje biblioteka --&gt;</span>
-  <span class="plava">&lt;script</span> <span class="crvena">language=</span><span class="braon">"javascript"</span> <span class="crvena">type=</span><span class="braon">"text/javascript"</span> <span class="crvena">src=</span><span class="braon">"libraries/p5.min.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
-  <span class="plava">&lt;script</span> <span class="crvena">language=</span><span class="braon">"javascript"</span> <span class="crvena">type=</span><span class="braon">"text/javascript"</span> <span class="crvena">src=</span><span class="braon">"StrmaRavanOsnovnaSaVektorima.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
-
-  <span class="plava">&lt;style&gt;</span>
-  <span class="crna">body</span> { <span class="crvena">margin</span>: <span class="braon">0</span>; <span class="crvena">padding</span>: <span class="braon">0</span>; }
-  <span class="crna">#sketch-holder</span> {
-    <span class="crvena">width</span>: <span class="braon">100%</span>;
-    <span class="crvena">max-width</span>: <span class="braon">600px</span>;
-    <span class="crvena">margin</span>: <span class="braon">20px auto</span>;
-    <span class="crvena">border</span>: <span class="braon">1px solid #ccc</span>;
-  }
-  <span class="plava">&lt;/style&gt;</span>
-<span class="plava">&lt;/head&gt;</span>
-
-<span class="plava">&lt;body&gt;</span>
-  <span class="plava">&lt;div</span> <span class="crvena">id=</span><span class="braon">"sketch-holder"</span><span class="plava">&gt;&lt;/div&gt;</span>
-<span class="plava">&lt;/body&gt;</span>
-<span class="plava">&lt;/html&gt;</span>
-</code></pre>
-</div>
-
-
-<div class="moj_kod">
-<h3>StrmaRavanOsnovnaSaVektorima.js</h3>
-<pre><code><span class="zelena">// Simulacija klizanja niz strmu ravan</span>
-
-<span class="zelena">// Definisanje fizičkih i geometrijskih parametara</span>
-<span class="plava">let</span> alpha; <span class="zelena">// Ugao nagiba ravni</span>
-<span class="plava">const</span> blockSize = <span class="braon">50</span>; <span class="zelena">// Veličina bloka (kvadrata)</span>
-<span class="plava">const</span> g = <span class="braon">9.81</span>; <span class="zelena">// Gravitaciono ubrzanje</span>
-<span class="plava">const</span> mu = <span class="braon">0.2</span>; <span class="zelena">// Koeficijent trenja</span>
-
-<span class="zelena">// Veličine za praćenje kretanja</span>
-<span class="plava">let</span> a; <span class="zelena">// Ubrzanje</span>
-<span class="plava">let</span> v = <span class="braon">0</span>; <span class="zelena">// Brzina</span>
-<span class="plava">let</span> s = <span class="braon">0</span>; <span class="zelena">// Pređeni put</span>
-<span class="plava">const</span> dt = <span class="braon">1</span>/<span class="braon">60</span>; <span class="zelena">// Vremenski korak (60 FPS)</span>
-
-<span class="zelena">// Početne pozicije i granice</span>
-<span class="plava">const</span> startX = <span class="braon">150</span>; <span class="zelena">// Početna x koordinata bloka</span>
-<span class="plava">let</span> inclineY; <span class="zelena">// Vertikalna pozicija nagiba</span>
-<span class="plava">let</span> maxS; <span class="zelena">// Maksimalno rastojanje koje blok može preći</span>
-
-<span class="zelena">// Promenljive za kontrolu stanja simulacije</span>
-<span class="plava">let</span> state = <span class="braon">'running'</span>; <span class="zelena">// Trenutno stanje ('running' ili 'pause')</span>
-<span class="plava">let</span> pauseStart = <span class="braon">0</span>; <span class="zelena">// Vreme početka pauze</span>
-<span class="plava">const</span> pauseDuration = <span class="braon">1000</span>; <span class="zelena">// Trajanje pauze u milisekundama</span>
-
-<span class="plava">function</span> setup() {
-  <span class="zelena">// Inicijalizacija platna i podešavanja</span>
-  <span class="plava">const</span> canvas = createCanvas(<span class="braon">600</span>, <span class="braon">400</span>);
-  canvas.parent(<span class="braon">'sketch-holder'</span>);
-
-  alpha = PI / <span class="braon">6</span>; <span class="zelena">// 30 stepeni</span>
-  inclineY = height / <span class="braon">3</span>;
-  maxS = width - startX;
-
-  a = g * sin(alpha) - mu * g * cos(alpha); <span class="zelena">// Ubrzanje niz nagib</span>
-
-  <span class="zelena">// Podešavanja za crtanje</span>
-  angleMode(RADIANS);
-  rectMode(CENTER);
-  textAlign(LEFT, CENTER);
-}
-
-<span class="plava">function</span> draw() {
-  background(<span class="braon">240</span>); <span class="zelena">// Osvežavanje pozadine</span>
-  drawIncline(); <span class="zelena">// Crtanje strme ravni</span>
-  updateMotion(); <span class="zelena">// Ažuriranje pozicije bloka</span>
-  drawBlockAndForces(); <span class="zelena">// Crtanje bloka i sila</span>
-}
-
-<span class="plava">function</span> updateMotion() {
-  <span class="plava">if</span> (state === <span class="braon">'running'</span>) {
-    v += a * dt; <span class="zelena">// Povećanje brzine</span>
-    s += v * dt; <span class="zelena">// Povećanje pređenog puta</span>
-
-    <span class="plava">if</span> (s &gt;= maxS) {
-      s = maxS; <span class="zelena">// Zaustavi kretanje kada stigne do kraja</span>
-      state = <span class="braon">'pause'</span>;
-      pauseStart = millis();
-    }
-  } <span class="plava">else if</span> (state === <span class="braon">'pause'</span>) {
-    <span class="plava">if</span> (millis() - pauseStart &gt;= pauseDuration) {
-      s = <span class="braon">0</span>;
-      v = <span class="braon">0</span>;
-      state = <span class="braon">'running'</span>; <span class="zelena">// Resetuj simulaciju</span>
-    }
-  }
-}
-
-<span class="plava">function</span> drawIncline() {
-  push();
-  translate(<span class="braon">0</span>, inclineY); <span class="zelena">// Pomeri poreklo</span>
-  rotate(alpha); <span class="zelena">// Rotiraj celu ravan</span>
-
-  <span class="zelena">// Crtanje trougla koji predstavlja nagnutu ravan</span>
-  noStroke();
-  fill(<span class="braon">220</span>, <span class="braon">230</span>, <span class="braon">255</span>);
-  triangle(<span class="braon">0</span>, <span class="braon">0</span>, width*<span class="braon">1.5</span>, <span class="braon">0</span>, <span class="braon">0</span>, height);
-
-  <span class="zelena">// Linija po kojoj se kliza blok</span>
-  stroke(<span class="braon">0</span>);
-  strokeWeight(<span class="braon">2</span>);
-  line(<span class="braon">0</span>, <span class="braon">0</span>, width*<span class="braon">1.5</span>, <span class="braon">0</span>);
-  pop();
-}
-
-<span class="plava">function</span> drawBlockAndForces() {
-  <span class="zelena">// Računanje komponenti sila</span>
-  <span class="plava">const</span> Qx = g * sin(alpha),
-        Qy = g * cos(alpha),
-        N  = Qy,
-        Ftr= mu * N,
-        scaleF = <span class="braon">20</span>; <span class="zelena">// Faktor skaliranja za prikaz vektora</span>
-
-  <span class="zelena">// Izračunavanje pozicije bloka</span>
-  <span class="plava">let</span> bx = startX + s,
-      by = inclineY + bx * tan(alpha);
-
-  push();
-  translate(bx, by);
-  rotate(alpha);
-  translate(<span class="braon">0</span>, -blockSize/<span class="braon">2</span>);
-
-  <span class="zelena">// Crtanje bloka</span>
-  fill(<span class="braon">200</span>);
-  stroke(<span class="braon">0</span>);
-  rect(<span class="braon">0</span>, <span class="braon">0</span>, blockSize, blockSize);
-
-  <span class="zelena">// Crtanje vektora sila i oznaka</span>
-  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(Qx*scaleF, <span class="braon">0</span>), <span class="braon">'red'</span>);
-  text(<span class="braon">'Qₓ'</span>, Qx*scaleF+<span class="braon">5</span>, -<span class="braon">5</span>);
-
-  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(<span class="braon">0</span>,Qy*scaleF), <span class="braon">'red'</span>);
-  text(<span class="braon">'Qᵧ'</span>, <span class="braon">5</span>, Qy*scaleF+<span class="braon">15</span>);
-
-  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(Qx*scaleF,Qy*scaleF), <span class="braon">'purple'</span>);
-  text(<span class="braon">'Q'</span>, Qx*scaleF/<span class="braon">2</span>+<span class="braon">5</span>, Qy*scaleF/<span class="braon">2</span>+<span class="braon">5</span>);
-
-  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(<span class="braon">0</span>, -N*scaleF), <span class="braon">'green'</span>);
-  text(<span class="braon">'N'</span>, <span class="braon">5</span>, -N*scaleF-<span class="braon">10</span>);
-
-  drawArrow(createVector(<span class="braon">0</span>,<span class="braon">0</span>), createVector(-Ftr*scaleF, <span class="braon">0</span>), <span class="braon">'orange'</span>);
-  text(<span class="braon">'Fₜᵣ'</span>, -Ftr*scaleF-<span class="braon">30</span>, -<span class="braon">5</span>);
-  pop();
-}
-</code></pre>
-</div>
-
-
-<div class="moj_tekst">
-  <h3 class="okvir_3">Objašnjenje koda animacije klizanja</h3>
-
-  <ul>
-    <li>
-      <strong>Globalne promenljive:</strong>
-      ugao nagiba <code>alpha</code> (pozitivno: ravan pada s leva na desno naniže),  
-      pozicija centra bloka <code>blockPos</code>,  
-      veličina bloka <code>blockSize</code>,  
-      gravitaciono ubrzanje <code>g</code>,  
-      koeficijent trenja <code>mu</code>.
-    </li>
-    <li>
-      U <code>setup()</code> metodu:
-      <ol>
-        <li>Napraviti <code>createCanvas(600,400)</code> i ugraditi ga u <code>&lt;div id="sketch-holder"&gt;</code> sa <code>canvas.parent(...)</code>.</li>
-        <li>Postaviti <code>alpha = PI/6</code> i izračunati startnu poziciju:
-          <pre><code>startX = 150;
-startY = startX * tan(alpha);
-blockPos = createVector(startX, startY);</code></pre>
-        </li>
-        <li>Podesiti <code>angleMode(RADIANS)</code>, <code>rectMode(CENTER)</code>, <code>textAlign(LEFT,CENTER)</code>.</li>
-      </ol>
-    </li>
-    <li>
-      U <code>draw()</code> metodu:
-      <ol>
-        <li>Podešavanje pozadine: <code>background(240)</code>.</li>
-        <li>Pozivi <code>drawIncline()</code> (linija i ispunjeni trougao) i <code>drawBlockAndForces()</code> (blok + sile).</li>
-        <li>Poziv <code>updateMotion()</code> za ažuriranje brzine i položaja, pauzu i resetovanje.</li>
-      </ol>
-    </li>
-    <li>
-      Metode za crtanje koriste:
+      <p><strong>Code structure</strong> is modularized into several functions:</p>
       <ul>
-        <li><code>push()</code> / <code>pop()</code> — čuvanje i vraćanje transformacione matrice.</li>
-        <li><code>translate(x,y)</code> — pomeranje koordinatnog sistema.</li>
-        <li><code>rotate(α)</code> — rotacija koordinata.</li>
+        <li><code>drawIncline()</code> — draws the inclined plane</li>
+        <li><code>drawBlockAndForces()</code> — draws the block and force vectors</li>
+        <li><code>updateMotion()</code> — updates block motion with friction</li>
+        <li><code>drawArrow()</code> — helper for drawing arrows</li>
       </ul>
-      … (tačkice označavaju da između push() i pop() možete kombinovati više translate/rotate poziva, a sve će se vratiti na početno stanje nakon pop()).
-    </li>
-    <li>
-      Funkcija <code>updateMotion()</code> (ili inline kod u <code>draw()</code>) radi ovako:
-      <pre><code>// ubrzanje niz ravan
-blockAcc = g*sin(alpha) - mu*g*cos(alpha);
-// svaka iteracija:
-blockVel += blockAcc * deltaT;
-blockPos.x += blockVel * deltaT;
-// provera da li je blok stigao do desne ivice i pauza/reset…
-</code></pre>
-    </li>
-  </ul>
-
-  <p>
-    Ovako definisani koraci čine kod modularnim, lakšim za razumevanje i održavanje.  
-    Za detaljnije objašnjenje transformacija, pogledajte dokumentaciju p5.js za <code>push()/pop()</code>, 
-    <code>translate()</code> i <code>rotate()</code>.
-  </p>
-</div>
-
+    </div>
 
     <div class="row">
       <div class="col-xs-12">
-        <% include ../partials/scripts %>
-        <% include ../partials/footer %>
+        <% include ../../partials/scripts %>
+        <% include ../../partials/footer %>
       </div>
     </div>
   </div>
   
   <!-- p5.js CDN + sketch -->
-    
   <script language="javascript" type="text/javascript" src="js/p5js/StrmaRavan/StrmaRavanOsnovnaSaVektorima.js"></script>
 </body>
 </html>
