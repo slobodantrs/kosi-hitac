@@ -19,6 +19,8 @@ var methods = {
 
  Animacija_kruznog_kretanja_EN: function(req, res) {
   console.log("Animacija_kruznog_kretanja_en");
+  console.log('app.js>> req.getLocale() =', req.getLocale());
+  console.log('Kontroler P5js>> res.locals.locale =', res.locals.locale);
   res.render('pages-en/usingP5js/circular_motion_animation_p5js');
 },
 
