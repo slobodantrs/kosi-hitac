@@ -15,6 +15,7 @@ var isMobile;
  let LEFT_PADDING_TEXT=50;
  let rPocetka=4;
  let expression;
+ let langFromHTML = document.documentElement.lang; 
 
 let srLang=["KRUŽNO KRETANJE: ","Instrukcije: ",'Ulazni podaci','pozitivan smer rot.',"usporenje:",'Informacije','Prikaz brzine','Prikaz ubrzanja',
   "<p>Zdravo!</p><p> Podesite poluprečnik kružne putanje,ugaono ubrzanje, &alpha;, ugaonu brzinu &omega; korišćenjem slajdera i pritisnite start dugmeda startujete animaciju!</p>"+
@@ -66,7 +67,8 @@ function setup() {
   isMobile = window.orientation > -1;
    
   
-  usrlang = navigator.language      || navigator.userLanguage; 
+  //usrlang = navigator.language      || navigator.userLanguage; 
+  usrlang=langFromHTML;
   console.log(     "Setup animacije: User's preferred language is: "    + usrlang); 
   createExpressionLang();
 
