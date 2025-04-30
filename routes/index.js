@@ -55,8 +55,8 @@ var SlobodanPadController = require('../controllers/SlobodanPadController');
  router.get('/slobodan_pad', SlobodanPadController.SlobodanPad);
 router.get('/slobodan_pad/:id', SlobodanPadController.SlobodanPad);
 router.get('/contents_slobodan_pad', SlobodanPadController.SlobodanPadContents);
-router.get('/slobodan_pad_Intro_1', SlobodanPadController.SlobodanPad1);
-router.get('/slobodan_pad_2', SlobodanPadController.SlobodanPad2);
+router.get('/slobodan_pad_intro_1', SlobodanPadController.SlobodanPad1);
+router.get('/slobodan_pad_intro_2', SlobodanPadController.SlobodanPad2);
 router.get('/simulacija_slobodan_pad',SlobodanPadController.SlobodanPadSimulacija);
 
 //Vertikalan hitac

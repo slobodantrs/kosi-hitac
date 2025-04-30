@@ -68,13 +68,13 @@
     });
     
     // 4) убaci саму симулацију у uvod_slobodan_pad
-    if (a.dataset.id === 'Simulacija') {
+    if (a.dataset.id === 'uvod_slobodan_pad') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
       if (frag) introEl.appendChild(frag);
 	  // 5) иницијализуј симулацију одмах
-   if (typeof initDiskRotationSimulation === 'function') {
+   if (typeof initSlobodanPadSimulation === 'function') {
        initSlobodanPadSimulation();
    }
     } else {

@@ -4,7 +4,8 @@ var methods = {
   // **Српски методи** //
 
   SlobodanPad1: function(req, res) {
-    res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Intro_1');
+	  console.log("SPC: SlobodanPadContents");
+    res.render('pages/ejss_model_SlobodanPad/SlobodanPad1');
   },
   SlobodanPad2: function(req, res) {
     res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Intro_2');
@@ -19,6 +20,7 @@ var methods = {
     res.render('pages/ejss_model_SlobodanPad/SlobodanPad', res);
   },
   SlobodanPadContents: function(req, res) {
+	   console.log("SPC: SlobodanPadContents");
     res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Contents');
   },
   SlobodanPadSimulacija: function(req, res) {
@@ -30,6 +32,7 @@ var methods = {
 
   // Free Fall Intro pages
   SlobodanPad1_EN: function(req, res) {
+	 
     res.render('pages-en/ejss_model_FreeFall/FreeFall_Intro_1');
   },
 
