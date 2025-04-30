@@ -44,6 +44,7 @@ var methods = {
   SlobodanPad_EN: function(req, res) {
     const id = parseInt(req.params.id, 10) || 1;
     res.id = id;
+	console.log("SPC: SlobodanPad_EN"+id);
     res.path1 = './freeFall_Contents';
     res.path2 = (id === 2)
       ? './freeFall_Intro_2'
@@ -59,6 +60,7 @@ var methods = {
 
   // Free Fall simulation
   SlobodanPadSimulacija_EN: function(req, res) {
+	  console.log("SPC: SlobodanPadSimulacija_EN");
     res.render('pages-en/ejss_model_FreeFall/FreeFall_Simulation');
   }
 };
