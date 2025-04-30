@@ -4,16 +4,16 @@ var methods = {
   // **Српски методи** //
 
   SlobodanPad1: function(req, res) {
-    res.render('pages/ejss_model_SlobodanPad/slobodanPad_Intro_1');
+    res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Intro_1');
   },
   SlobodanPad2: function(req, res) {
-    res.render('pages/ejss_model_SlobodanPad/slobodanPad_Intro_2');
+    res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Intro_2');
   },
   SlobodanPad: function(req, res) {
     var id = parseInt(req.params.id, 10) || 1;
     res.id = id;
     res.path1 = './slobodanPad_Contents';
-    res.path2 = (id == 2) ? './slobodanPad_Intro_2' : './slobodanPad_Intro_1';
+    res.path2 = (id == 2) ? './slobodanPad_Intro_2' : './SlobodanPad_Intro_1';
     console.log(`Slobodan pad kontroler ${id}, ${res.path1}, ${res.path2}`);
     res.render('pages/ejss_model_SlobodanPad/SlobodanPad', res);
   },
@@ -28,11 +28,11 @@ var methods = {
 
   // Free Fall Intro pages
   SlobodanPad1_EN: function(req, res) {
-    res.render('pages-en/ejss_model_FreeFall/freeFall_Intro_1');
+    res.render('pages-en/ejss_model_FreeFall/FreeFall_Intro_1');
   },
 
   SlobodanPad2_EN: function(req, res) {
-    res.render('pages-en/ejss_model_FreeFall/freeFall_Intro_2');
+    res.render('pages-en/ejss_model_FreeFall/FreeFall_Intro_2');
   },
 
   // Free Fall main page (dynamic)
@@ -49,7 +49,7 @@ var methods = {
 
   // Free Fall contents
   SlobodanPadContents_EN: function(req, res) {
-    res.render('pages-en/ejss_model_FreeFall/freeFall_Contents');
+    res.render('pages-en/ejss_model_FreeFall/FreeFall_Contents');
   },
 
   // Free Fall simulation

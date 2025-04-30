@@ -52,12 +52,12 @@ var P5jsController = require('../controllers/P5JSController');
  
  //Slobodan pad
 var SlobodanPadController = require('../controllers/SlobodanPadController');
- router.get('/slobodan_Pad', SlobodanPadController.SlobodanPad);
-router.get('/slobodan_Pad/:id', SlobodanPadController.SlobodanPad);
-router.get('/contents_Slobodan_Pad', SlobodanPadController.SlobodanPadContents);
-router.get('/SlobodanPad_Intro_1', SlobodanPadController.SlobodanPad1);
-router.get('/SlobodanPad_2', SlobodanPadController.SlobodanPad2);
-router.get('/simulacija_Slobodan_Pad',SlobodanPadController.SlobodanPadSimulacija);
+ router.get('/slobodan_pad', SlobodanPadController.SlobodanPad);
+router.get('/slobodan_pad/:id', SlobodanPadController.SlobodanPad);
+router.get('/contents_slobodan_pad', SlobodanPadController.SlobodanPadContents);
+router.get('/slobodan_pad_Intro_1', SlobodanPadController.SlobodanPad1);
+router.get('/slobodan_pad_2', SlobodanPadController.SlobodanPad2);
+router.get('/simulacija_slobodan_pad',SlobodanPadController.SlobodanPadSimulacija);
 
 //Vertikalan hitac
 var VertikalanHitacController = require('../controllers/VertikalanHitacController');

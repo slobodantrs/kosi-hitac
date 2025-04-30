@@ -1,19 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-  <head>
-     <% include ../../partials/head %>
-    <meta charset="utf-8" />
-	 <meta name="description" content="Simulacija slobodnog pada - uvod. 
-   Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
-	<meta name="keywords" content="Slobodan pad,
-	Opis simulacije,površine zemlje, sile zemljine teže, zemljine teže,
-	ravnomerno ubrzano kretanje,vakuumu,udaru o zemlju,panelu za unos,
-	početna visina,masa tela,položaj tela,
-	trenutna brzina ,brzina pri zaustavljanju,kinetička energija,potencijalna energija,vektor brzine tela,vektor brzine, sila teže,
-	 " />
-    <title>Simulacija slobodnog pada</title>
-   
+
 	
 <script type="text/javascript"><!--//--><![CDATA[//><!--
 /* _inputParameters: an object with different values for the model parameters */
@@ -1290,18 +1275,7 @@ _view._addElement(EJSS_INTERFACE.button, "resetButton", _view.executionPanel) //
 
 
 //--><!]]></script>
-  </head>
-  <body>
-  <div class="container moj-header"><!--Kontejner tela-->
-   <div class="row"><!-- Header-->
-  
 
-<header class="moj-header col-xs-12 col-md-12 col-lg-12 nav-fill w-100">
-   <!--div class=" nav content d-flex justify-content-center bg-info col-xs-12 col-md-12 col-lg-12"-->
-    <% include ../../partials/header %>
-	<!--/div-->
-    </header>
-	</div><!-- End Header-->
 
 	<div class="content p-2">
 		  <h1 class="d-flex justify-content-center">Simulacija slobodan pad</h1>
@@ -1365,7 +1339,7 @@ _view._addElement(EJSS_INTERFACE.button, "resetButton", _view.executionPanel) //
     <script type="text/javascript"><!--//--><![CDATA[//><!--
       var _model;
       var _scorm;
-      window.addEventListener('load',
+  /*    window.addEventListener('load',
         function () { 
           _model =  new SlobodanPad("_topFrame","_ejs_library/",null);
           if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
@@ -1378,17 +1352,23 @@ _view._addElement(EJSS_INTERFACE.button, "resetButton", _view.executionPanel) //
           };
           _model.onload();
         }, false);
-    //--><!]]></script>
-	<!-- Donje zaglavlje-->
-		<div class="row">
-	 <div class="content">
-   <footer>
-	<% include ../../partials/scripts %>
-    <% include ../../partials/footer %>
-</footer>
-</div>
-</div><!-- Donje zaglavlje kraj-->
+		*/
+		
+		// Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
+  function initSlobodanPadSimulation() {
+    // Постављамо модел у глобалну променљиву
+    _model = new SlobodanPad("_topFrame", "/_ejs_library/", null);
+    if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
 
-</div><!--Kontejner tela kraj-->
-  </body>
-</html>
+    TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
+    TextResizeDetector.USER_INIT_FUNC = function () {
+      var iBase = TextResizeDetector.addEventListener(function(e, args) {
+        _model._fontResized(args[0].iBase, args[0].iSize, args[0].iDelta);
+      }, null);
+      _model._fontResized(iBase);
+    };
+
+    _model.onload();
+  }
+    //--><!]]></script>
+	

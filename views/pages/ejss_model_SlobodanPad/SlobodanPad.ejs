@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
-  <% include ../partials/head %>
+  <% include ../../partials/head %>
    <meta name="description" content="Simulacija slobodnog pada. 
    Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
 	<meta name="keywords" content="Opis simulacije slobodnog pada,Opis simulacije, slobodnog pada" />
@@ -13,22 +13,83 @@
   <div class="row">
   <div class="header moj-header nav-fill w-100 col-xs-12 col-md-12 col-lg-12">
    
-    <% include ../partials/header %>
+    <% include ../../partials/header %>
 
 </div>
 </div>
-   <div class="freefall-wrapper">
-    <!-- Uključujemo kompletan sadržaj iz FreeFall_Contents.ejs -->
-    <%- include('./SlobodanPad_Contents') %>
-  </div>
+
+
+   <div class="row">
+      <div id="contents_slobodan_pad" class="intro_1">
+        <div class="intro_1">
+          <% include ./SlobodanPad_Contents %>
+        </div>
+        <div id="uvod_slobodan_pad" class="intro_2">
+          <% include ./SlobodanPad_Intro_1 %>
+        </div>
+      </div>
+    </div>
+  
+  
+  
    <div class="row">
    <div class="content col-xs-12 col-md-12 col-lg-12">
    <footer>
-	<% include ../partials/scripts %>
-    <% include ../partials/footer %>
+	<% include ../../partials/scripts %>
+    <% include ../../partials/footer %>
 </footer>
 </div>
 </div>
 </div>
+ <script>
+ 
+  document.addEventListener('DOMContentLoaded', () => {
+  const introEl = document.getElementById('uvod_slobodan_pad');
+  document.getElementById('contents_slobodan_pad').addEventListener('click', async e => {
+    const a = e.target.closest('a[data-id]');
+    if (!a) return;
+    e.preventDefault();
+    
+    // 1) дохвати HTML фрагмент
+    const resp = await fetch(a.href);
+    const html  = await resp.text();
+    
+    // 2) парсирај у привремени DIV
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    
+    // 3) ишчупај <script> тагове и премести их у body
+    tmp.querySelectorAll('script').forEach(old => {
+	  if (old.src && old.src.includes('textresizedetector.js')) return;
+      const s = document.createElement('script');
+      if (old.src)        s.src = old.src;
+      else                 s.textContent = old.textContent;
+      document.body.appendChild(s);
+    });
+    
+    // 4) убaci саму симулацију у uvod_slobodan_pad
+    if (a.dataset.id === 'Simulacija') {
+      // simulacija: izvuci njen kontejner
+      frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
+      introEl.innerHTML = '';
+      if (frag) introEl.appendChild(frag);
+	  // 5) иницијализуј симулацију одмах
+   if (typeof initDiskRotationSimulation === 'function') {
+       initSlobodanPadSimulation();
+   }
+    } else {
+	 if (window._model && typeof window._model.pause === 'function') {
+        window._model.pause();        // stop its internal timer
+        window._model = null;         // forget it entirely
+      }
+      // intro stranice: uzmi sav HTML
+	  
+      introEl.innerHTML = tmp.innerHTML;
+    }
+	
+  });
+});
+
+</script>
   </body>
 </html>
