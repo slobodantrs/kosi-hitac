@@ -5,7 +5,7 @@ var methods = {
 
   SlobodanPad1: function(req, res) {
 	  console.log("SPC: SlobodanPadContents");
-    res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Intro1');
+    res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Intro_1');
   },
   SlobodanPad2: function(req, res) {
     res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Intro_2');
