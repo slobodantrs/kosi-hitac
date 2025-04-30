@@ -1,39 +1,14 @@
 <!-- views/pages/FreeFall_Contents.ejs -->
 
-<h1>Free Fall Simulation</h1>
 
-<div class="">
-  <p>This simulation visualizes how an object moves when released from an initial height and falls under the influence of gravity, neglecting air resistance. This phenomenon is key to understanding the fundamental laws of motion in physics.</p>
-  <p>Explore how changing parameters such as initial height and initial velocity affect the object’s trajectory. Free fall is essential for grasping basic motion laws, and this simulation lets you visualize and analyze gravitational effects.</p>
-
-  <h2>Theory</h2>
-  <p>Free fall describes the motion of an object under gravity alone. The basic equations are:</p>
-  <pre><code>
-v = u + g·t
-s = u·t + ½·g·t²
-  </code></pre>
-  <p>Where:</p>
-  <ul>
-    <li><strong>v</strong> is the final velocity</li>
-    <li><strong>u</strong> is the initial velocity</li>
-    <li><strong>g</strong> is the acceleration due to gravity</li>
-    <li><strong>t</strong> is the time</li>
-    <li><strong>s</strong> is the distance traveled</li>
-  </ul>
-
-  <h2>Interactivity</h2>
-  <p>Experiment with different initial heights and gravitational accelerations to see how the object’s motion changes over time. Adjust parameters and observe the trajectory.</p>
-
-  <h2>Practical Applications</h2>
-  <p>The concept of free fall is used in many real-world contexts, including dropping objects from heights and analyses in astronautics.</p>
-</div>
-
-<h2>Contents</h2>
-<div class="contents">
-  <div class="simulation">
-    <a href="<%= navHref('/simulacija_Slobodan_Pad') %>" target="central"><%= __('nav.simulacija_Slobodan_Pad') %></a>
-  </div>
-</div>
+<h2><b>Contents</b></h2>
+    <div class="contents">
+     <div class="intro"><a href="<%= navHref('/free_fall_intro_1') %>" data-id="introduction_free_fall_1"><%= __('nav.slobodan_Pad_Uvod1') %></a></div>
+      
+	  <div class="Simulation"><a href="<%= navHref('/simulation_free_fall') %>" data-id="simulation_free_fall" ><%= __('nav.simulacija_Slobodan_Pad') %></a></div>
+    </div>
+    <div class="signature">Created with <a href="http://www.um.es/fem/EjsWiki" target="_blank">Easy Java Simulations</a></div>
+  
 
 <div class="signature">
   Created with <a href="http://www.um.es/fem/EjsWiki" target="_blank">Easy Java Simulations</a>

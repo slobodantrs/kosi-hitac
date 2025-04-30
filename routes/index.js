@@ -113,43 +113,6 @@ router.get('/Rotacija_Diska_Intro_4', RotacijaDiskaController.RotacijaDiska4)
 router.get('/simulacija_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaSimulacija);
 
 
-/*
-router.get('/Rotacija_Diska', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska');
-});
-router.get('/contents_Rotacija_Diska', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska_Contents');
-});
-router.get('/simulacija_Rotacija_Diska', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska_Simulation');
-});
-router.get('/Rotacija_Diska_Intro_1', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska_Intro_1');
-});
-router.get('/Rotacija_Diska_Intro_2', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska_Intro_2');
-});
-router.get('/Rotacija_Diska_Intro_3', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska_Intro_3');
-});
-router.get('/Rotacija_Diska_Intro_4', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska_Intro_4');
-});
-*/
 
 
 //Ravno kretanje tocka

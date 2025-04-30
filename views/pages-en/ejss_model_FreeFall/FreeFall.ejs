@@ -1,32 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
-<html lang="<%= locale %>">
-<head>
-  <% include ../partials/head %>
-  <meta name="description" content="Free fall simulation. Simulation created using the Easy Java Simulation (EJS) tool." />
-  <meta name="keywords" content="Free fall simulation description, Simulation description, Free fall" />
-  <title><%= __('nav.simulacija_Slobodan_Pad') %></title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+  <% include ../../partials/head %>
+   <meta name="description" content="Simulacija slobodnog pada. 
+   Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
+	<meta name="keywords" content="Opis simulacije slobodnog pada,Opis simulacije, slobodnog pada" />
+    <title> Home page for free fall </title>
+  </head>
+  <body>
   <div class="container moj-header">
-<div class="row">
+  <div class="row">
   <div class="header moj-header nav-fill w-100 col-xs-12 col-md-12 col-lg-12">
    
-    <% include ../partials/header %>
+    <% include ../../partials/header %>
 
 </div>
 </div>
-  <div class="freefall-wrapper">
-    <!-- Uključujemo kompletan sadržaj iz FreeFall_Contents.ejs -->
-    <%- include('./FreeFall_Contents') %>
-  </div>
-  <div class="row">
+
+
+   <div class="row">
+      <div id="contents_free_fall" class="intro_1">
+        <div class="intro_1">
+          <% include ./FreeFall_Contents %>
+        </div>
+        <div id="intriduction_free_fall" class="intro_2">
+          <% include ./FreeFall_Intro_1 %>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+   <div class="row">
    <div class="content col-xs-12 col-md-12 col-lg-12">
    <footer>
-	<% include ../partials/scripts %>
-    <% include ../partials/footer %>
+	<% include ../../partials/scripts %>
+    <% include ../../partials/footer %>
 </footer>
 </div>
 </div>
-  </div>
-</body>
+</div>
+ <script>
+ 
+  document.addEventListener('DOMContentLoaded', () => {
+  const introEl = document.getElementById('intriduction_free_fall');
+  document.getElementById('contents_free_fall').addEventListener('click', async e => {
+    const a = e.target.closest('a[data-id]');
+    if (!a) return;
+    e.preventDefault();
+    
+    /* 1) дохвати HTML фрагмент*/
+    const resp = await fetch(a.href);
+    const html  = await resp.text();
+    
+    // 2) парсирај у привремени DIV
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    
+    // 3) ишчупај script тагове и премести их у body
+    tmp.querySelectorAll('script').forEach(old => {
+	  if (old.src && old.src.includes('textresizedetector.js')) return;
+      const s = document.createElement('script');
+      if (old.src)        s.src = old.src;
+      else                 s.textContent = old.textContent;
+      document.body.appendChild(s);
+    });
+    
+    // 4) убaci саму симулацију у uvod_slobodan_pad
+    if (a.dataset.id === 'simulation_free_fall') {
+      // simulacija: izvuci njen kontejner
+      frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
+      introEl.innerHTML = '';
+      if (frag) introEl.appendChild(frag);
+	  // 5) иницијализуј симулацију одмах
+   if (typeof initSlobodanPadSimulation === 'function') {
+       initFreeFallSimulation();
+   }
+    } else {
+	 if (window._model && typeof window._model.pause === 'function') {
+        window._model.pause();        // stop its internal timer
+        window._model = null;         // forget it entirely
+      }
+      // intro stranice: uzmi sav HTML
+	  
+      introEl.innerHTML = tmp.innerHTML;
+    }
+	
+  });
+});
+
+</script>
+  </body>
 </html>

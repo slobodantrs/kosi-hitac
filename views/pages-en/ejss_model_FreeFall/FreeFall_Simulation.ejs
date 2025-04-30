@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-  <head>
-    <% include ../../partials/head %>
-    <meta charset="utf-8" />
-    <meta name="description" content="Free fall simulation - introduction. 
-    Simulation created using Easy Java Simulation (EJS) tool." />
-    <meta name="keywords" content="Free fall,
-    Simulation overview, Earth's surface, gravitational force, Earth's gravity,
-    uniformly accelerated motion, vacuum, ground impact, input panel,
-    initial height, object mass, object position,
-    current velocity, stopping velocity, kinetic energy, potential energy, velocity vector, gravity force vector" />
-    <title>Free Fall Simulation</title>
-    <link rel="stylesheet" type="text/css" href="_ejs_library/css/ejss.css" />
-    <script src="_ejs_library/scripts/common_script.js"></script>
-    <script src="_ejs_library/scripts/textresizedetector.js"></script>
-    <script src="_ejs_library/ejsS.v1.min.js"></script>
+
 
 <script type="text/javascript"><!--//--><![CDATA[//><!--
 /* _inputParameters: an object with different values for the model parameters */
-function SlobodanPad(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
+function FreeFall(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
   var _view;
   var _isPlaying = false;
@@ -1325,15 +1309,8 @@ function SlobodanPad_View_0 (_topFrame) {
 
 
 //--><!]]></script>
-  </head>
-  <body>
-  <div class="container moj-header"><!-- Body container -->
-    <div class="row"><!-- Header -->
-      <header class="moj-header col-xs-12 col-md-12 col-lg-12 nav-fill w-100">
-        <% include ../../partials/header %>
-      </header>
-    </div><!-- End Header -->
-
+ 
+ 
     <div class="content p-2">
       <h1 class="d-flex justify-content-center">Free Fall Simulation</h1>
 
@@ -1386,9 +1363,9 @@ function SlobodanPad_View_0 (_topFrame) {
     <script type="text/javascript">
       var _model;
       var _scorm;
-      window.addEventListener('load',
+   /*   window.addEventListener('load',
         function () { 
-          _model =  new SlobodanPad("_topFrame","_ejs_library/",null);
+          _model =  new FreeFall("_topFrame","_ejs_library/",null);
           if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
           TextResizeDetector.TARGET_ELEMENT_ID = '_topFrame';
           TextResizeDetector.USER_INIT_FUNC = function () {
@@ -1398,7 +1375,24 @@ function SlobodanPad_View_0 (_topFrame) {
             _model._fontResized(iBase);
           };
           _model.onload();
-        }, false);
+        }, false);*/
+		
+		// Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
+  function initFreeFallSimulation() {
+    // Постављамо модел у глобалну променљиву
+    _model = new FreeFall("_topFrame", "/_ejs_library/", null);
+    if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
+
+    TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
+    TextResizeDetector.USER_INIT_FUNC = function () {
+      var iBase = TextResizeDetector.addEventListener(function(e, args) {
+        _model._fontResized(args[0].iBase, args[0].iSize, args[0].iDelta);
+      }, null);
+      _model._fontResized(iBase);
+    };
+
+    _model.onload();
+  }
     </script>
 
     <!-- Footer -->
