@@ -101,7 +101,7 @@ const slugMap = {
   '/contents_plobodan_pad':            '/en/contents_free_fall',
   '/slobodan_pad_intro_1':              '/en/free_fall_intro_1',
   '/slobodan_pad_2':                    '/en/free_fall_intro_2',
-  '/simulacija_slobodan_sad':          '/en/simulation_free_fall',
+  '/simulacija_slobodan_pad':          '/en/simulation_free_fall',
 
   // Vertikalan hitac
   '/vertikalan_Hitac':                 '/en/vertical_throw',
