@@ -12,6 +12,7 @@ var methods = {
   SlobodanPad: function(req, res) {
     var id = parseInt(req.params.id, 10) || 1;
     res.id = id;
+	console.log("SPC: SlobodanPad"+id);
     res.path1 = './slobodanPad_Contents';
     res.path2 = (id == 2) ? './slobodanPad_Intro_2' : './SlobodanPad_Intro_1';
     console.log(`Slobodan pad kontroler ${id}, ${res.path1}, ${res.path2}`);
@@ -21,6 +22,7 @@ var methods = {
     res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Contents');
   },
   SlobodanPadSimulacija: function(req, res) {
+	  console.log("SPC: SlobodanPadSimulacija");
     res.render('pages/ejss_model_SlobodanPad/SlobodanPad_Simulation');
   },
 
