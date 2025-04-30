@@ -58,7 +58,7 @@
     const tmp = document.createElement('div');
     tmp.innerHTML = html;
     
-     3) ишчупај script тагове и премести их у body
+    // 3) ишчупај script тагове и премести их у body
     tmp.querySelectorAll('script').forEach(old => {
 	  if (old.src && old.src.includes('textresizedetector.js')) return;
       const s = document.createElement('script');
