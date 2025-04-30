@@ -923,11 +923,11 @@ function SlobodanPad_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.checkBox,"prikazV", _view.panelBool) // EJsS HtmlView.HtmlView Page: declaration of element 'prikazV'
-      .setProperty("Text","prikaz brzina") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'prikazV'
+      .setProperty("Text","velocity display") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'prikazV'
       ;
 
     _view._addElement(EJSS_INTERFACE.checkBox,"prikazSilaChb", _view.panelBool) // EJsS HtmlView.HtmlView Page: declaration of element 'prikazSilaChb'
-      .setProperty("Text","prikaz sila") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'prikazSilaChb'
+      .setProperty("Text","forces display") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'prikazSilaChb'
       ;
 
     _view._addElement(EJSS_INTERFACE.checkBox,"zvukChb", _view.panelBool) // EJsS HtmlView.HtmlView Page: declaration of element 'zvukChb'
@@ -949,7 +949,7 @@ function SlobodanPad_View_0 (_topFrame) {
       .setProperty("CSS",{"display":"block","border-style":"solid",
   "border-width":"1px",
   "border-color":"gray"}) // EJsS HtmlView.HtmlView Page: setting property 'CSS' for element 'labelPanelUnos'
-      .setProperty("Text","<h3>Unos promenljivih</h3>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelPanelUnos'
+      .setProperty("Text","<h3>Input variables</h3>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelPanelUnos'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"hPan", _view.panelUnos) // EJsS HtmlView.HtmlView Page: declaration of element 'hPan'
@@ -978,14 +978,14 @@ function SlobodanPad_View_0 (_topFrame) {
 
     _view._addElement(EJSS_INTERFACE.checkBox,"zaustaviChB", _view.panZaust) // EJsS HtmlView.HtmlView Page: declaration of element 'zaustaviChB'
       .setProperty("Height",25) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'zaustaviChB'
-      .setProperty("Text","zaustavljanje") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'zaustaviChB'
+      .setProperty("Text","stopping") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'zaustaviChB'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"panelTZaust", _view.panelUnos) // EJsS HtmlView.HtmlView Page: declaration of element 'panelTZaust'
       ;
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"labelZaust", _view.panelTZaust) // EJsS HtmlView.HtmlView Page: declaration of element 'labelZaust'
-      .setProperty("Text","tZ") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelZaust'
+      .setProperty("Text","tS") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelZaust'
       ;
 
     _view._addElement(EJSS_INTERFACE.slider,"sliderTz", _view.panelTZaust) // EJsS HtmlView.HtmlView Page: declaration of element 'sliderTz'
@@ -1001,7 +1001,7 @@ function SlobodanPad_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.checkBox,"odbijanjeChB", _view.panelOdbijanje) // EJsS HtmlView.HtmlView Page: declaration of element 'odbijanjeChB'
-      .setProperty("Text","odbijanje") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'odbijanjeChB'
+      .setProperty("Text","bounce") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'odbijanjeChB'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"panelMasa", _view.panelUnos) // EJsS HtmlView.HtmlView Page: declaration of element 'panelMasa'
@@ -1031,7 +1031,7 @@ function SlobodanPad_View_0 (_topFrame) {
       .setProperty("CSS",{"display":"block","border-style":"solid",
   "border-width":"1px",
   "border-color":"gray"}) // EJsS HtmlView.HtmlView Page: setting property 'CSS' for element 'labelPanelPrikaz'
-      .setProperty("Text","<h3>Prikaz promenljivih dobijenih</h3>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelPanelPrikaz'
+      .setProperty("Text","<h3>Display of variables obtained by</h3>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelPanelPrikaz'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"panelPromenljiveSimulacijom", _view.panelPrikaz) // EJsS HtmlView.HtmlView Page: declaration of element 'panelPromenljiveSimulacijom'
@@ -1044,7 +1044,7 @@ function SlobodanPad_View_0 (_topFrame) {
       .setProperty("CSS",{"display":"block","border-style":"solid",
   "border-width":"1px",
   "border-color":"gray"}) // EJsS HtmlView.HtmlView Page: setting property 'CSS' for element 'labelPanelPrikazSimulacijom'
-      .setProperty("Text","<h5>SIMULACIJOM</h5>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelPanelPrikazSimulacijom'
+      .setProperty("Text","<h5>SIMULATION</h5>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelPanelPrikazSimulacijom'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"vPanel", _view.panelPromenljiveSimulacijom) // EJsS HtmlView.HtmlView Page: declaration of element 'vPanel'
@@ -1070,7 +1070,7 @@ function SlobodanPad_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"vTzLab", _view.panelTz) // EJsS HtmlView.HtmlView Page: declaration of element 'vTzLab'
-      .setProperty("Text","vTz") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'vTzLab'
+      .setProperty("Text","vTs") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'vTzLab'
       ;
 
     _view._addElement(EJSS_INTERFACE.numberField,"vTzTF", _view.panelTz) // EJsS HtmlView.HtmlView Page: declaration of element 'vTzTF'
@@ -1151,7 +1151,7 @@ function SlobodanPad_View_0 (_topFrame) {
       .setProperty("CSS",{"display":"block","border-style":"solid",
   "border-width":"1px",
   "border-color":"gray"}) // EJsS HtmlView.HtmlView Page: setting property 'CSS' for element 'labelPanelPrikazRacunski'
-      .setProperty("Text","<h5>RAČUNSKI</h5>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelPanelPrikazRacunski'
+      .setProperty("Text","<h5>CALCULATION</h5>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelPanelPrikazRacunski'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"vPanel2", _view.panelPromenljiveRacunski) // EJsS HtmlView.HtmlView Page: declaration of element 'vPanel2'
