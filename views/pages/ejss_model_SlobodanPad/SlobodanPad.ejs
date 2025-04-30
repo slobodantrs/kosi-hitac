@@ -50,7 +50,7 @@
     if (!a) return;
     e.preventDefault();
     
-    // 1) дохвати HTML фрагмент
+    /* 1) дохвати HTML фрагмент*/
     const resp = await fetch(a.href);
     const html  = await resp.text();
     
@@ -58,7 +58,7 @@
     const tmp = document.createElement('div');
     tmp.innerHTML = html;
     
-    // 3) ишчупај <script> тагове и премести их у body
+     3) ишчупај script тагове и премести их у body
     tmp.querySelectorAll('script').forEach(old => {
 	  if (old.src && old.src.includes('textresizedetector.js')) return;
       const s = document.createElement('script');
@@ -68,7 +68,7 @@
     });
     
     // 4) убaci саму симулацију у uvod_slobodan_pad
-    if (a.dataset.id === 'uvod_slobodan_pad') {
+    if (a.dataset.id === 'simulacija_slobodnog_pada') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
