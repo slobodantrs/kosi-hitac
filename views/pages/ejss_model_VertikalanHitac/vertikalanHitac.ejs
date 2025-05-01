@@ -9,11 +9,7 @@
   </head>
   <body>
 
-    <!-- logovanje iz EJS promenljive u browser konzolu -->
-    <script>
-      var path1 = "<%= path1 %>";
-      console.log('path1 u vertikalniHitac.ejs =', path1);
-    </script>
+   
 
     <div class="content-wrapper moj-header">
       <div class="col-xs-12 col-md-12 col-lg-12">
@@ -47,8 +43,8 @@
 <script>
  
   document.addEventListener('DOMContentLoaded', () => {
-  const introEl = document.getElementById('uvod_vertikalan_hitac');
-  document.getElementById('contents_vertikalan_hitac').addEventListener('click', async e => {
+  const introEl = document.getElementById('uvod_vertikalni_hitac');
+  document.getElementById('contents_vertikalni_hitac').addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
     e.preventDefault();
