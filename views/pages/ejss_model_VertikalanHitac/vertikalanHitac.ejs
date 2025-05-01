@@ -71,14 +71,14 @@
     });
     
     // 4) убaci саму симулацију у uvod_vertikalni_hitac
-    if (a.dataset.id === 'simulacija_vertikalni_hitac') {
+    if (a.dataset.id === 'simulacija_vertikalan_hitac') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
       if (frag) introEl.appendChild(frag);
 	  // 5) иницијализуј симулацију одмах
-   if (typeof initVertikalniHitacSimulation === 'function') {
-       initVertikalniHitacSimulation();
+   if (typeof initVertikalanHitacSimulation === 'function') {
+       initVertikalanHitacSimulation();
    }
     } else {
 	 if (window._model && typeof window._model.pause === 'function') {
