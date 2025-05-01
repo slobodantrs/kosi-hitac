@@ -19,7 +19,7 @@ var methods = {
    const id = parseInt(req.params.id, 10) || 1;
     // ovi pathi se kasnije koriste u view-u za include
  
-	  console.log('id=>'+id);
+	  console.log('Controller VertikalanHitac, id=>'+id);
 	  res.path1 = './VertikalanHitac_Contents';
     res.path2 = (id == 1)
       ? './VertikalanHitac_Intro_1'
@@ -33,7 +33,7 @@ console.log("Render attempt:", 'pages/ejss_model_VertikalanHitac/VertikalanHitac
 
    
 	
-   res.render('pages/ejss_model_VertikalanHitac/vertikalanHitac', res);
+   res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', res);
   },
 
   VertikalanHitacContents: function(req, res) {
