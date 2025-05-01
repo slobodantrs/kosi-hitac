@@ -62,12 +62,12 @@ router.get('/simulacija_slobodan_pad',SlobodanPadController.SlobodanPadSimulacij
 //Vertikalan hitac
 var VertikalanHitacController = require('../controllers/VertikalanHitacController');
 console.log(`VertikalanHitacController u index.js: `+VertikalanHitacController);
- router.get('/vertikalan_Hitac', VertikalanHitacController.VertikalanHitac);
-router.get('/vertikalan_Hitac/:id', VertikalanHitacController.VertikalanHitac);
-router.get('/contents_Vertikalan_Hitac', VertikalanHitacController.VertikalanHitacContents);
-router.get('/VertikalanHitac_Intro_1', VertikalanHitacController.VertikalanHitac1);
-router.get('/VertikalanHitac_Intro_2', VertikalanHitacController.VertikalanHitac2);
-router.get('/simulacija_Vertikalan_Hitac', VertikalanHitacController.VertikalanHitac_Simulation);
+ router.get('/vertikalan_hitac', VertikalanHitacController.VertikalanHitac);
+router.get('/vertikalan_hitac/:id', VertikalanHitacController.VertikalanHitac);
+router.get('/contents_vertikalan_hitac', VertikalanHitacController.VertikalanHitacContents);
+router.get('/vertikalan_hitac_intro_1', VertikalanHitacController.VertikalanHitac1);
+router.get('/vertikalan_hitac_intro_2', VertikalanHitacController.VertikalanHitac2);
+router.get('/simulacija_vertikalan_hitac', VertikalanHitacController.VertikalanHitac_Simulation);
 
 
 //Kos hitac

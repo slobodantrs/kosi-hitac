@@ -104,13 +104,13 @@ const slugMap = {
   '/simulacija_slobodan_pad':          '/en/simulation_free_fall',
 
   // Vertikalan hitac
-  '/vertikalan_Hitac':                 '/en/vertical_throw',
-  '/vertikalan_Hitac/1':               '/en/vertical_throw/1',  // опциони
-  '/vertikalan_Hitac/2':               '/en/vertical_throw/2',  // опциони
-  '/contents_Vertikalan_Hitac':        '/en/contents_vertical_throw',
-  '/VertikalanHitac_Intro_1':          '/en/vertical_throw_intro_1',
-  '/VertikalanHitac_Intro_2':          '/en/vertical_throw_intro_2',
-  '/simulacija_Vertikalan_Hitac':      '/en/simulation_vertical_throw',
+  '/vertikalan_hitac':                 '/en/vertical_throw',
+  '/vertikalan_hitac/1':               '/en/vertical_throw/1',  // опциони
+  '/vertikalan_hitac/2':               '/en/vertical_throw/2',  // опциони
+  '/contents_vertikalan_hitac':        '/en/contents_vertical_throw',
+  '/vertikalan_hitac_intro_1':          '/en/vertical_throw_intro_1',
+  '/vertikalan_hitac_intro_2':          '/en/vertical_throw_intro_2',
+  '/simulacija_vertikalan_hitac':      '/en/simulation_vertical_throw',
 
   // Kos hitac (Projectile Motion)
   '/kos_Hitac':                        '/en/projectile_motion',
