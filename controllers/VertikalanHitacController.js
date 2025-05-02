@@ -5,10 +5,10 @@ var methods = {
 
   // Уводне странице
   VertikalanHitac1: function(req, res) {
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Intro_1');
+    res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac_Intro_1');
   },
   VertikalanHitac2: function(req, res) {
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Intro_2');
+    res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac_Intro_2');
   },
   
   
@@ -31,7 +31,7 @@ res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac', data);
   },
 
   VertikalanHitacContents: function(req, res) {
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Contents');
+    res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac_Contents');
   },
 
   VertikalanHitac_Simulation: function(req, res) {
@@ -40,12 +40,12 @@ res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac', data);
     // ovi pathi se kasnije koriste u view-u za include
  
 	 
-	  res.path1 = './VertikalanHitac_Contents';
+	  res.path1 = './VertikalniHitac_Contents';
    
    
 	console.log('path 1>'+res.path1);
 	
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Simulation',res);
+    res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac_Simulation',res);
   },
 
 
