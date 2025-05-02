@@ -8,9 +8,9 @@ preferred-height: 600
 author-image: 
 source: vertikalanHitac.ejss
 main-script: 
-main-simulation: vertikalanHitac_Simulation.xhtml
+main-simulation: VertikalanHitac_Simulation.ejs
 available-languages: 
-html-contents: vertikalanHitac_Contents.xhtml
-html-main: vertikalanHitac.xhtml
+html-contents: VertikalanHitac_Contents.ejs
+html-main: VertikalanHitac.ejs
 page-title: Simulation
-page-index: vertikalanHitac_Simulation.xhtml
+page-index: VertikalanHitac_Simulation.ejs
