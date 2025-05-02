@@ -25,7 +25,7 @@ const data = {
   locale: 'sr' // ili uzmi iz req.locale ako koristiš i18n
 };
 
-console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
+console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac_Intro_2');
 res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', data);
 
   },
