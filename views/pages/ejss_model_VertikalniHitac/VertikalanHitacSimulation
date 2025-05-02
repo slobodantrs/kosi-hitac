@@ -1,6 +1,5 @@
 
-<script type="text/javascript"><!--//-->
-<![CDATA[//><!--
+<script type="text/javascript"><!--//--><![CDATA[//><!--
 /* _inputParameters: an object with different values for the model parameters */
 function VertikalanHitac(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
@@ -359,19 +358,7 @@ _view._addElement(EJSS_INTERFACE.button,"resetButton", _view.executionPanel)
     <script type="text/javascript"><!--//--><![CDATA[//><!--
       var _model;
       var _scorm;
-    /*  window.addEventListener('load',
-        function () { 
-          _model =  new vertikalanHitac("_topFrame","_ejs_library/",null);
-          if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
-          TextResizeDetector.TARGET_ELEMENT_ID = '_topFrame';
-          TextResizeDetector.USER_INIT_FUNC = function () {
-            var iBase = TextResizeDetector.addEventListener(function(e,args) {
-              _model._fontResized(args[0].iBase,args[0].iSize,args[0].iDelta);
-              },null);
-            _model._fontResized(iBase);
-          };
-          _model.onload();
-        }, false);*/
+    
 		
 		// Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
   function initVertikalanHitacSimulation() {
