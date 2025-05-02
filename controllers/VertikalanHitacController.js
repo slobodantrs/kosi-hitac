@@ -20,13 +20,13 @@ var methods = {
    const id = parseInt(req.params.id, 10) || 1;
 const data = {
   id: id,
-  path1: './VertikalanHitac_Contents',
+  path1: './VertikalniHitac_Contents',
   path2: (id == 1) ? './VertikalanHitac_Intro_1' : './VertikalanHitac_Intro_2',
   locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
 };
 
-console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
-res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', data);
+console.log('Render attempt:', 'pages/ejss_model_VertikalniHitac/VertikalanHitac');
+res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac', data);
 
   },
 
