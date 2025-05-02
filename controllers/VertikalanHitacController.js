@@ -13,27 +13,21 @@ var methods = {
   
   
 
+  
 
   // Главна динамична страница
   VertikalanHitac: function(req, res) {
    const id = parseInt(req.params.id, 10) || 1;
-    // ovi pathi se kasnije koriste u view-u za include
- 
-	  console.log('Controller VertikalanHitac, id=>'+id);
-	  res.path1 = './VertikalanHitac_Contents';
-    res.path2 = (id == 1)
-      ? './VertikalanHitac_Intro_1'
-      : './VertikalanHitac_Intro_2';
-    res.id = id;
-	  console.log('id=>'+id);
-	console.log('path 1>'+res.path1);
-	console.log('path 2>'+res.path2);
-	
-console.log("Render attempt:", 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
+const data = {
+  id: id,
+  path1: './VertikalanHitac_Contents',
+  path2: (id == 1) ? './VertikalanHitac_Intro_1' : './VertikalanHitac_Intro_2',
+  locale: 'sr' // ili uzmi iz req.locale ako koristiš i18n
+};
 
-   
-	
-   res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', res);
+console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
+res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', data);
+
   },
 
   VertikalanHitacContents: function(req, res) {
