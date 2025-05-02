@@ -45,7 +45,8 @@
  
   document.addEventListener('DOMContentLoaded', () => {
   const introEl = document.getElementById('uvod_vertikalni_hitac');
-  document.getElementById('contents_vertikalni_hitac').addEventListener('click', async e => {
+  const sadrzaj=document.getElementById('contents_vertikalni_hitac');
+  sadrzaj.addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
     e.preventDefault();
