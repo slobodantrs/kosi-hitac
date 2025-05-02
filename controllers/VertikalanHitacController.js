@@ -22,7 +22,7 @@ const data = {
   id: id,
   path1: './VertikalanHitac_Contents',
   path2: (id == 1) ? './VertikalanHitac_Intro_1' : './VertikalanHitac_Intro_2',
-  locale: req.locale; // ili uzmi iz req.locale ako koristiš i18n
+  locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
 };
 
 console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
