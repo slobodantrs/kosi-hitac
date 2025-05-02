@@ -59,13 +59,13 @@ app.use((req, res, next) => {
   else {
     // OVDE SILOM nameštamo српски
     req.setLocale('sr');
-	console.log('srpski: res.locals.currentPath: '+res.locals.currentPath );
+	//console.log('srpski: res.locals.currentPath: '+res.locals.currentPath );
 	
   }
   res.locals.locale = req.getLocale();
 
-  console.log('app.js>> req.getLocale() =', req.getLocale());
-  console.log('app.js>> res.locals.locale =', res.locals.locale);
+ // console.log('app.js>> req.getLocale() =', req.getLocale());
+ // console.log('app.js>> res.locals.locale =', res.locals.locale);
   next();
 });
 
