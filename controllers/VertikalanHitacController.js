@@ -25,27 +25,27 @@ const data = {
   locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
 };
 
-console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
-res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', data);
+console.log('Render attempt:', 'pages/ejss_model_VertikalniHitac/VertikalanHitac');
+res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac', data);
 
   },
 
   VertikalanHitacContents: function(req, res) {
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Contents');
+    res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac_Contents');
   },
 
   VertikalanHitac_Simulation: function(req, res) {
-    console.log('Vertikalan hitac simulation');
+    console.log('Vertikalni hitac simulation');
 	
     // ovi pathi se kasnije koriste u view-u za include
  
 	 
-	  res.path1 = './VertikalniHitac_Contents';
+	  res.path1 = './VertikalanHitac_Contents';
    
    
 	console.log('path 1>'+res.path1);
 	
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Simulation',res);
+    res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac_Simulation',res);
   },
 
 
