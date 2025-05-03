@@ -176,14 +176,11 @@ app.use((req, res, next) => {
 
 
 
-app.use('/static', express.static(path.join(__dirname,'public')));
-app.use('/test',  express.static(path.join(__dirname,'testHTML5')));
-// ukini node_modules i root-static ili bar stavi pod prefiks
 
-
-//app.use(express.static(path.join(__dirname,'testHTML5')));
-//app.use(express.static(path.join(__dirname,'node_modules')));
-//app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'testHTML5')));
+app.use(express.static(path.join(__dirname,'node_modules')));
+app.use(express.static(__dirname));
 
 // 3) robots.txt
 const router = express.Router();
