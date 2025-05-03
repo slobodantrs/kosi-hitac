@@ -14,17 +14,20 @@ var methods = {
    
 	const id = parseInt(req.params.id, 10) || 1;
     // ovi pathi se kasnije koriste u view-u za include
-    res.path1 = './KosiHitac_Contents';
-    res.path2 = (id == 1)
-      ? './KosiHitac_Intro_1'
-      : './KosiHitac_Intro_2';
+    const data = {
+  id: id,
+  path1: './KosiHitac_Contents',
+  path2: (id == 1) ? './KosiHitac_Intro_1' : './KosiHitac_Simulation',
+  locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
+};
 	  console.log('id=>'+id);
+	  
 	 
-	console.log('path 1>'+res.path1);
-	console.log('path 2>'+res.path2);
+	console.log('path 1>'+data.path1);
+	console.log('path 2>'+data.path2);
 console.log('Render attempt:', 'pages/ejss_model_KosiHitac/KosiHitac');
 	
-   res.render('pages/ejss_model_KosiHitac/KosiHitac', res);
+   res.render('pages/ejss_model_KosiHitac/KosiHitac', data);
   },
   
   
