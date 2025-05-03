@@ -66,7 +66,7 @@ VertikalanHitac_EN: function(req, res) {
 	
 	const data = {
   id: id,
-  path1: './verticalThrow_Contents',
+  path1: './VerticalThrow_Contents',
   path2: (id == 1) ? './VerticalThrow_Intro_1' : './VerticalThrow_Intro_2',
   locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
 };
@@ -77,6 +77,7 @@ VertikalanHitac_EN: function(req, res) {
 
 // Contents page
 VertikalanHitacContents_EN: function(req, res) {
+	console.log(`VertikalanHitacContents_EN`);
   res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow_Contents');
 },
 
