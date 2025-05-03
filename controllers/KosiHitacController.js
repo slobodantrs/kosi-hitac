@@ -2,35 +2,49 @@
 var methods = {
 
   // — srpska verzija — 
-  KosHitac1: function(req, res) {
-    res.render('pages/ejss_model_KosHitac/KosHitac_Intro_1');
+  KosiHitac1: function(req, res) {
+    res.render('pages/ejss_model_KosiHitac/KosiHitac_Intro_1');
   },
-  KosHitac2: function(req, res) {
-    res.render('pages/ejss_model_KosHitac/KosHitac_Intro_2');
+  KosiHitac2: function(req, res) {
+    res.render('pages/ejss_model_KosiHitac/KosiHitac_Intro_2');
   },
   
   
-  KosHitac: function(req, res) {
+  KosiHitac: function(req, res) {
    
 	const id = parseInt(req.params.id, 10) || 1;
     // ovi pathi se kasnije koriste u view-u za include
-    res.path1 = './KosHitac_Contents';
+    res.path1 = './KosiHitac_Contents';
     res.path2 = (id == 1)
-      ? './KosHitac_Intro_1'
-      : './KosHitac_Intro_2';
+      ? './KosiHitac_Intro_1'
+      : './KosiHitac_Intro_2';
 	  console.log('id=>'+id);
 	 
 	console.log('path 1>'+res.path1);
 	console.log('path 2>'+res.path2);
 	
-   res.render('pages/ejss_model_KosHitac/KosHitac', res);
+   res.render('pages/ejss_model_KosiHitac/KosiHitac', res);
   },
   
   
   
-  kosHitacContents: function(req, res) {
-    res.render('pages/ejss_model_KosHitac/kosHitac_Contents');
+  KosiHitacContents: function(req, res) {
+    res.render('pages/ejss_model_KosiHitac/KosiHitac_Contents');
   },
+  KosiHitac_Simulation: function(req, res) {
+    console.log('Kosi hitac simulation');
+	
+    // ovi pathi se kasnije koriste u view-u za include
+ 
+	 
+	  res.path1 = './KosiHitac_Contents';
+   
+   
+	console.log('path 1>'+res.path1);
+	
+    res.render('pages/ejss_model_KosiHitac/KosiHitac_Simulation',res);
+  },
+
 
  // — ENGLISH VERSION —
 KosHitac1_EN: function(req, res) {

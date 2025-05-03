@@ -118,13 +118,13 @@ const slugMap = {
   '/simulacija_vertikalan_hitac':      '/en/simulation_vertical_throw',
 
   // Kos hitac (Projectile Motion)
-  '/kos_Hitac':                        '/en/projectile_motion',
-  '/kos_Hitac/1':                      '/en/projectile_motion/1',  // опциони
-  '/kos_Hitac/2':                      '/en/projectile_motion/2',  // опциони
-  '/contents_Kos_Hitac':               '/en/contents_projectile_motion',
-  '/KosHitac_Intro_1':                 '/en/projectile_motion_intro_1',
-  '/KosHitac_Intro_2':                 '/en/projectile_motion_intro_2',
-  '/simulacija_Kos_Hitac':             '/en/simulation_projectile_motion',
+  '/kosi_hitac':                        '/en/projectile_motion',
+  '/kosi_hitac/1':                      '/en/projectile_motion/1',  // опциони
+  '/kosi_hitac/2':                      '/en/projectile_motion/2',  // опциони
+  '/contents_kosi_hitac':               '/en/contents_projectile_motion',
+  '/kosi_hitac_intro_1':                 '/en/projectile_motion_intro_1',
+  '/kosi_hitac_Intro_2':                 '/en/projectile_motion_intro_2',
+  '/simulacija_kosi_hitac':             '/en/simulation_projectile_motion',
 
   // Kružno kretanje mater. tačke (Circular Motion)
   '/Kruzno_Kretanje_MT':               '/en/circular_motion',

@@ -71,19 +71,16 @@ router.get('/simulacija_vertikalan_hitac', VertikalanHitacController.VertikalanH
 
 
 //Kos hitac
-var KosHitacController = require('../controllers/KosHitacController');
-console.log(`KosHitacController u index.js: `+KosHitacController);
- router.get('/kos_Hitac', KosHitacController.KosHitac);
-router.get('/kos_Hitac/:id', KosHitacController.KosHitac);
-router.get('/contents_Kos_Hitac', KosHitacController.kosHitacContents);
-router.get('/KosHitac_Intro_1', KosHitacController.KosHitac1);
-router.get('/KosHitac_Intro_2', KosHitacController.KosHitac2);
+var KosiHitacController = require('../controllers/KosiHitacController');
+console.log(`KosiHitacController u index.js: `+KosiHitacController);
+ router.get('/kosi_hitac', KosiHitacController.KosiHitac);
+router.get('/kosi_hitac/:id', KosiHitacController.KosiHitac);
+router.get('/contents_kosi_hitac', KosiHitacController.kosiHitacContents);
+router.get('/kosi_hitac_intro_1', KosiHitacController.KosiHitac1);
+router.get('/kosi_hitac_intro_2', KosiHitacController.KosiHitac2);
+router.get('/simulacija_kosi_hitac', KosiHitacController.KosiHitac_Simulation);
 
-router.get('/simulacija_Kos_Hitac', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_KosHitac/KosHitac_Simulation');
-});
+
 
 //Kružno kretanje
 var KruznoKretanjeMTController = require('../controllers/KruznoKretanjeMTController');
