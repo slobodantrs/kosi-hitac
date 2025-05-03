@@ -22,12 +22,12 @@
 
     
 	 <div class="row">
-      <div id="contents_vertikalan_hitac" class="intro_1">
+      <div id="contents_vertikalni_hitac" class="intro_1">
         <div class="intro_1">
 		<% include ./VertikalanHitac_Contents %>
       
         </div>
-        <div id="uvod_vertikalan_hitac" class="intro_2">
+        <div id="uvod_vertikalni_hitac" class="intro_2">
          <% include ./VertikalanHitac_Intro_1 %>
         </div>
       </div>
@@ -44,8 +44,8 @@
 <script>
  
   document.addEventListener('DOMContentLoaded', () => {
-  const introEl = document.getElementById('uvod_vertikalan_hitac');
-  const sadrzaj=document.getElementById('contents_vertikalan_hitac');
+  const introEl = document.getElementById('uvod_vertikalni_hitac');
+  const sadrzaj=document.getElementById('contents_vertikalni_hitac');
   sadrzaj.addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
