@@ -53,10 +53,10 @@ res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac', data);
 
 // Intro pages
 VertikalanHitac1_EN: function(req, res) {
-  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow_Intro_1');
+  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow_Intro_1');
 },
 VertikalanHitac2_EN: function(req, res) {
-  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow_Intro_2');
+  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow_Intro_2');
 },
 
 // Main dynamic page
@@ -86,7 +86,7 @@ VertikalanHitac_Simulation_EN: function(req, res) {
    
    
 	console.log('path 1>'+res.path1);
-  res.render('pages-en/ejss_model_VerticalThrow/verticalThrow_Simulation',res);
+  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow_Simulation',res);
 }
 
 };
