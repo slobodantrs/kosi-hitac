@@ -5,10 +5,10 @@ var methods = {
 
   // Уводне странице
   VertikalanHitac1: function(req, res) {
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Intro_1');
+    res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac_Intro_1');
   },
   VertikalanHitac2: function(req, res) {
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Intro_2');
+    res.render('pages/ejss_model_VertikalniHitac/VertikalanHitac_Intro_2');
   },
   
   
