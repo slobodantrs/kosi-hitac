@@ -1,16 +1,17 @@
 
-<html>
- 
-  <body>
-      
-    <h3><b>Sadržaj</b></h3>
+	 <h2><b>Contents</b></h2>
     <div class="contents">
-      <div class="intro"><a href="/vertikalan_Hitac/1" target="central">Vertikalan hitac opis</a></div>
-      <div class="intro"><a href="/vertikalan_Hitac/2" target="central">Aktivnosti</a></div>      
-	  <div class="simulation"><a href="/simulacija_Vertikalan_Hitac" target="central">Simulacija</a></div>
-      <div class="simulation"><a href="/simulacija_Slobodan_Pad" target="central">Simulacija slobodnog pada</a></div>
+     <div class="intro">
+	 <a href="<%= navHref('/vertikalan_hitac_intro_1') %>" data-id="Uvod_vertikalan_hitac_1">
+	 <%= __('nav.vertikalan_Hitac_Uvod1') %>
+	 </a>
+	 </div>
+     
+     
+	  <div class="Simulation">
+	  <a href="<%= navHref('/simulacija_vertikalan_hitac') %>" data-id="simulacija_vertikalan_hitac" >
+	  <%= __('nav.vertikalan_Hitac_Simulacija') %></a>
+	  </div>
     </div>
     <div class="signature">Created with <a href="http://www.um.es/fem/EjsWiki" target="_blank">Easy Java Simulations</a></div>
-	
-  </body>
-</html>
+  

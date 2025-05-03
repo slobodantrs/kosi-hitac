@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-  <head>
-    <meta charset="utf-8" />
-    <title>Simulacija vertikalnog hica</title>
-	 <% include ../partials/head %>
-    <link rel="stylesheet"  type="text/css" href="_ejs_library/css/ejss.css" />
-    <script src="_ejs_library/scripts/common_script.js" type="text/javascript"></script>
-    <script src="_ejs_library/scripts/textresizedetector.js" type="text/javascript"></script>
-    <script src="_ejs_library/ejsS.v1.min.js" type="text/javascript"></script>
-<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+<script>
 /* _inputParameters: an object with different values for the model parameters */
-function vertikalanHitac(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
+function VerticalThrow(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
   var _view;
   var _isPlaying = false;
@@ -335,19 +325,11 @@ function vertikalanHitac_View_0 (_topFrame) {
   return _view;
 }
 
-
-//--><!]]></script>
-  </head>
-  <body>
+</script>
+ 
   <div class="container moj-header">
-   <div class="row">
- <header>
-    <% include ../partials/header %>
-	</header>
-	</div>
-     <div class="intro_1">
-  <%- include(path1); %>
-	</div>
+
+   
 	 <div class="row">
     <div role="button" id="_topFrame" style="text-align:center"></div>
 	</div>
@@ -375,31 +357,29 @@ function vertikalanHitac_View_0 (_topFrame) {
 	</div>
  
  
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
+   <script>
       var _model;
       var _scorm;
-      window.addEventListener('load',
-        function () { 
-          _model =  new vertikalanHitac("_topFrame","_ejs_library/",null);
-          if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
-          TextResizeDetector.TARGET_ELEMENT_ID = '_topFrame';
-          TextResizeDetector.USER_INIT_FUNC = function () {
-            var iBase = TextResizeDetector.addEventListener(function(e,args) {
-              _model._fontResized(args[0].iBase,args[0].iSize,args[0].iDelta);
-              },null);
-            _model._fontResized(iBase);
-          };
-          _model.onload();
-        }, false);
-    //--><!]]></script>
-	 <div class="row">
-	 <div class="content">
-   <footer>
-	<% include ../partials/scripts %>
-    <% include ../partials/footer %>
-</footer>
-</div>
-</div>
+    
+		
+		// Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
+  function initVerticalThrowSimulation() {
+    // Постављамо модел у глобалну променљиву
+    _model = new VerticalThrow("_topFrame", "/_ejs_library/", null);
+    if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
+
+    TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
+    TextResizeDetector.USER_INIT_FUNC = function () {
+      var iBase = TextResizeDetector.addEventListener(function(e, args) {
+        _model._fontResized(args[0].iBase, args[0].iSize, args[0].iDelta);
+      }, null);
+      _model._fontResized(iBase);
+    };
+
+    _model.onload();
+  }
+    
+	</script>
+	
  </div>
-  </body>
-</html>
+ 
