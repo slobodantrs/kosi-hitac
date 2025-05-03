@@ -62,13 +62,17 @@ VertikalanHitac2_EN: function(req, res) {
 // Main dynamic page
 VertikalanHitac_EN: function(req, res) {
   const id = parseInt(req.params.id, 10) || 1;
-  res.id = id;
-  res.path1 = './verticalThrow_Contents';
-  res.path2 = (id == 2)
-    ? './VerticalThrow_Intro_2'
-    : './VerticalThrow_Intro_1';
-  console.log(`Vertical throw controller EN ${id}, ${res.path1}, ${res.path2}`);
-  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow', res);
+  
+	
+	const data = {
+  id: id,
+  path1: './verticalThrow_Contents',
+  path2: (id == 1) ? './VerticalThrow_Intro_1' : './VerticalThrow_Intro_2',
+  locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
+};
+
+  console.log(`Vertical throw controller EN ${id}, ${data.path1}, ${data.path2}`);
+  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow', data);
 },
 
 // Contents page
