@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"build:sitemap": "node scripts/generate-sitemap.js"
+    "build:sitemap": "node scripts/generate-sitemap.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "cool": "0.0.1",
     "cool-ascii-faces": "^1.3.4",
     "ejs": "^2.6.2",
+    "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "express-http-proxy": "^1.5.1",
     "express-seo": "0.0.1",
