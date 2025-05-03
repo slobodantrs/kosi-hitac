@@ -75,7 +75,7 @@ var KosiHitacController = require('../controllers/KosiHitacController');
 console.log(`KosiHitacController u index.js: `+KosiHitacController);
  router.get('/kosi_hitac', KosiHitacController.KosiHitac);
 router.get('/kosi_hitac/:id', KosiHitacController.KosiHitac);
-router.get('/contents_kosi_hitac', KosiHitacController.kosiHitacContents);
+router.get('/contents_kosi_hitac', KosiHitacController.KosiHitacContents);
 router.get('/kosi_hitac_intro_1', KosiHitacController.KosiHitac1);
 router.get('/kosi_hitac_intro_2', KosiHitacController.KosiHitac2);
 router.get('/simulacija_kosi_hitac', KosiHitacController.KosiHitac_Simulation);
