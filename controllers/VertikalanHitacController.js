@@ -72,7 +72,7 @@ VertikalanHitac_EN: function(req, res) {
 };
 
   console.log(`Vertical throw controller EN ${id}, ${data.path1}, ${data.path2}`);
-  res.render('pages-en/ejss_model_VerticalThrow/VerticalProjectile', data);
+  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow', data);
 },
 
 // Contents page
