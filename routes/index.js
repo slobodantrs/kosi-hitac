@@ -204,13 +204,13 @@ router.get('/en/vertical_throw_intro_2', VertikalanHitacController.VertikalanHit
 router.get('/en/simulation_vertical_throw', VertikalanHitacController.VertikalanHitac_Simulation_EN);
 
 // English - Projectile Motion (Kosi hitac)
-console.log('Registering EN route handler:', KosHitacController.KosHitac_EN);
-router.get('/en/projectile_motion',                            KosHitacController.KosHitac_EN);
-router.get('/en/projectile_motion/:id',                        KosHitacController.KosHitac_EN);
-router.get('/en/contents_projectile_motion',                   KosHitacController.kosHitacContents_EN);
-router.get('/en/projectile_motion_intro_1',                    KosHitacController.KosHitac1_EN);
-router.get('/en/projectile_motion_intro_2',                    KosHitacController.KosHitac2_EN);
-router.get('/en/simulation_projectile_motion',                 KosHitacController.KosHitacSimulacija_EN);
+console.log('Registering EN route handler:', KosiHitacController.KosHitac_EN);
+router.get('/en/projectile_motion',                            KosiHitacController.KosHitac_EN);
+router.get('/en/projectile_motion/:id',                        KosiHitacController.KosHitac_EN);
+router.get('/en/contents_projectile_motion',                   KosiHitacController.kosHitacContents_EN);
+router.get('/en/projectile_motion_intro_1',                    KosiHitacController.KosHitac1_EN);
+router.get('/en/projectile_motion_intro_2',                    KosiHitacController.KosHitac2_EN);
+router.get('/en/simulation_projectile_motion',                 KosiHitacController.KosHitacSimulacija_EN);
 
 // English - Disk Rotation
 console.log('Registering EN route handler for Disk Rotation:', RotacijaDiskaController.RotacijaDiska_EN);
