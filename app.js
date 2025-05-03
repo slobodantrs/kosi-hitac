@@ -176,14 +176,11 @@ app.use((req, res, next) => {
 
 
 
-app.use('/static', express.static(path.join(__dirname,'public')));
-app.use('/test',  express.static(path.join(__dirname,'testHTML5')));
-// ukini node_modules i root-static ili bar stavi pod prefiks
 
-
-//app.use(express.static(path.join(__dirname,'testHTML5')));
-//app.use(express.static(path.join(__dirname,'node_modules')));
-//app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'testHTML5')));
+app.use(express.static(path.join(__dirname,'node_modules')));
+app.use(express.static(__dirname));
 
 // 3) robots.txt
 const router = express.Router();
@@ -193,15 +190,13 @@ router.get('/robots.txt', (req, res) => {
 });
 app.use(router);
 
-app.set('view engine', 'ejs');
-
 // 4) views
-app.set('views', path.join(__dirname, 'views'));
-
-
-
+app.set('views', [
+  path.join(__dirname,'views'),
+  path.join(__dirname,'views/partials')
+]);
+app.set('view engine', 'ejs');
 app.use('/', routes);
-
 
 // 5) analytics proxy
 function getIpFromReq(req) {
