@@ -14,35 +14,31 @@
   </head>
   <body>
   <div class="container moj-header">
-  <div class="row">
-  <div class="header moj-header nav-fill w-100 col-xs-12 col-md-12 col-lg-12">
+ 
+  <div class="content-wrapper moj-header">
    
     <% include ../../partials/header %>
 
 </div>
-</div>
+
 <h1>Simulacija kosog hica</h1>
-<div class="row">
 
-  <div class="d-flex align-content-center">
-  <div class="intro_1">
-  <script>
-  // prvo je definiši kao JS promenljivu iz EJS-a:
-  var path1 = "<%= path1 %>";
-  console.log('path1 u kosiHitac.ejs =', path1);
-  </script>
-  <%- include(path1); %>
-	</div>
-	
-	<div class="intro_2">
-	
-	<%- include(path2); %>
 
-   </div>
-   </div>
-   </div>
+ 
+     <div id="contents_vertikalni_hitac" class="intro_1">
+        <div class="intro_1">
+		<%- include(path1); %>
+      
+        </div>
+        <div id="uvod_vertikalni_hitac" class="intro_2">
+         <%- include(path2); %>
+
+        </div>
+      </div>
+    
+  
    
-   <div class="row">
+   
    <div class="content col-xs-12 col-md-12 col-lg-12">
    <footer>
 	<% include ../../partials/scripts %>
@@ -50,6 +46,6 @@
 </footer>
 </div>
 </div>
-</div>
+
   </body>
 </html>
