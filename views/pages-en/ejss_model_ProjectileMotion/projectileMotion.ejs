@@ -30,7 +30,7 @@
 		<%- include(path1); %>
       
         </div>
-        <div id="uvod_kosi_hitac" class="intro_2">
+        <div id="introduction_projectile_motion" class="intro_2">
          <%- include(path2); %>
 
         </div>
@@ -49,8 +49,8 @@
 <script>
  
   document.addEventListener('DOMContentLoaded', () => {
-  const introEl = document.getElementById('uvod_kosi_hitac');
-  const sadrzaj=document.getElementById('contents_kosi_hitac');
+  const introEl = document.getElementById('introduction_projectile_motion');
+  const sadrzaj=document.getElementById('contents_projectile_motion');
   sadrzaj.addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
@@ -74,14 +74,14 @@
     });
     
     // 4) убaci саму симулацију у uvod_vertikalni_hitac
-    if (a.dataset.id === 'simulacija_kosi_hitac') {
+    if (a.dataset.id === 'simulation_projectile_motion') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
       if (frag) introEl.appendChild(frag);
 	  // 5) иницијализуј симулацију одмах
-   if (typeof initKosiHitacSimulation === 'function') {
-       initKosiHitacSimulation();
+   if (typeof initProjectileMotionSimulation === 'function') {
+       initProjectileMotionSimulation();
    }
     } else {
 	 if (window._model && typeof window._model.pause === 'function') {

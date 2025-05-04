@@ -52,25 +52,29 @@ console.log('Render attempt:', 'pages/ejss_model_KosiHitac/KosiHitac');
 
  // — ENGLISH VERSION —
 KosHitac1_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/projectileMotion_Intro_1');
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Intro_1');
 },
 KosHitac2_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/projectileMotion_Intro_2');
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Intro_2');
 },
 KosHitac_EN: function(req, res) {
   var id = req.params.id;
-  res.path1 = './projectileMotion_Contents'; // updated partial path
-  res.path2 = (id == 1)
-    ? './projectileMotion_Intro_1'
-    : './projectileMotion_Intro_2';
-  res.id = id;
-  res.render('pages-en/ejss_model_ProjectileMotion/projectileMotion', res);
+  
+    const data = {
+  id: id,
+  path1: './ProjectileMotion_Contents',
+  path2: (id == 1) ? './ProjectileMotion_Intro_1' : './ProjectileMotion_Simulation',
+  locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
+};
+	  console.log('id=>'+id);
+	  
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion', data);
 },
-kosHitacContents_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/projectileMotion_Contents');
+KosHitacContents_EN: function(req, res) {
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Contents');
 },
 KosHitacSimulacija_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/projectileMotion_Simulation');
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Simulation');
 }
 
 
