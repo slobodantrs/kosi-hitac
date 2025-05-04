@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const proxy        = require('express-http-proxy');
 const i18n         = require('i18n');
 const routes       = require('./routes');
-
+const isProd = (process.env.NODE_ENV === 'production');
+const morgan = require('morgan');
 
 // 2) init
 const app  = express();
@@ -32,6 +33,17 @@ try {
 }
 
 app.set('env', 'production');
+app.set('view engine', 'ejs');
+
+// 4) views
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(
+  process.env.NODE_ENV === 'production'
+    ? morgan('combined')    // samo zahtevi, minimalno
+    : morgan('dev')         // detaljni log pri razvoju
+);
+
 app.set('view cache', false);
 app.locals.pretty = true;     // kad koristiš HTML prettifier
 
@@ -190,10 +202,7 @@ router.get('/robots.txt', (req, res) => {
 });
 app.use(router);
 
-app.set('view engine', 'ejs');
 
-// 4) views
-app.set('views', path.join(__dirname, 'views'));
 
 
 
@@ -232,7 +241,7 @@ app.locals.compileDebug = true;   // ili
 app.set('view options', { debug: true });
 
 const errorhandler = require('errorhandler');
-if (app.get('env') === 'development') {
+if (!isProd) {
   app.use(errorhandler());
   app.set('view cache', false);
   app.locals.pretty = true;
