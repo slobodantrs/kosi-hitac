@@ -237,11 +237,12 @@ seo.setDefaults({
 });
 
 
-app.locals.compileDebug = true;   // ili
-app.set('view options', { debug: true });
 
 const errorhandler = require('errorhandler');
 if (!isProd) {
+	app.locals.compileDebug = true;   // ili
+    app.set('view options', { debug: true });
+
   app.use(errorhandler());
   app.set('view cache', false);
   app.locals.pretty = true;
