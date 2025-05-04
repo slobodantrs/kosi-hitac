@@ -62,19 +62,19 @@ KosHitac_EN: function(req, res) {
   
     const data = {
   id: id,
-  path1: './ProjectileMotion_Contents1',
+  path1: './ProjectileMotion_Contents',
   path2: (id == 1) ? './ProjectileMotion_Intro_1' : './ProjectileMotion_Simulation1',
   locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
 };
 	  console.log('id=>'+id);
 	  
-  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion1', data);
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion', data);
 },
 KosHitacContents_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Contents1');
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Contents');
 },
 KosHitacSimulacija_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Simulation1');
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Simulation');
 }
 
 
