@@ -68,7 +68,7 @@ KosHitac_EN: function(req, res) {
 };
 	  console.log('id=>'+id);
 	  
-  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion', data);
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion1', data);
 },
 KosHitacContents_EN: function(req, res) {
   res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Contents');
