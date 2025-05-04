@@ -52,10 +52,10 @@ console.log('Render attempt:', 'pages/ejss_model_KosiHitac/KosiHitac');
 
  // — ENGLISH VERSION —
 KosHitac1_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Intro_11');
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Intro_1');
 },
 KosHitac2_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Intro_22');
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Intro_2');
 },
 KosHitac_EN: function(req, res) {
   // parsiraj id iz URL-a, npr. /vertical_throw/:id
@@ -66,9 +66,9 @@ KosHitac_EN: function(req, res) {
     id: id,
     path1: './ProjectileMotion_Contents',
     path2: (id === 1)
-      ? './ProjectileMotion_Intro_11'
+      ? './ProjectileMotion_Intro_1'
       : (id === 2)
-        ? './ProjectileMotion_Intro_22'
+        ? './ProjectileMotion_Intro_2'
         : './ProjectileMotion_Simulation',
     locale: req.locale
   };

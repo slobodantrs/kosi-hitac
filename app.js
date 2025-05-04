@@ -123,7 +123,7 @@ const slugMap = {
   '/kosi_hitac/2':                      '/en/projectile_motion/2',  // опциони
   '/contents_kosi_hitac':               '/en/contents_projectile_motion',
   '/kosi_hitac_intro_1':                 '/en/projectile_motion_intro_1',
-  '/kosi_hitac_Intro_2':                 '/en/projectile_motion_intro_2',
+  '/kosi_hitac_intro_2':                 '/en/projectile_motion_intro_2',
   '/simulacija_kosi_hitac':             '/en/simulation_projectile_motion',
 
   // Kružno kretanje mater. tačke (Circular Motion)
