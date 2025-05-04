@@ -317,7 +317,17 @@ function vertikalanHitac_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"narrativePanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel'
-      .setProperty("Html","<h1>Vertikalni hitac</h1> <p>Ovo je vrlo jednostavna simulacija vertikalnog hica. Prikazuje kretanje u jednoj dimenziji(vertikalnoj) tela mase m(lopta)</p> <p>Telo je bačeno sa površine yemlje nekom početnom brzinom v0. Na telo deluje samo sila zemljine teže G=mg</p> <p>Telo će se kretati vertikalno naviše i pri tome se trenutna brzina izračunava iterativno za svakih dt sekundi po formuli <strong>v=v0-g*t</strong>. S obzirom da se posmatra vreme od dt sekundi i da je početna brzina u tekućoj iteraciji zapravo krajnja brzina izračunata za  prethodnu iteraciju, formula koja se upisuje u tab evolucije je :<strong>v=v-g*dt</strong>, gde je g gravitaciono ubrzanje i iznosi 9.81 m/s^2.</p> <p>Telo će dostići neku maksimalnu visinu HMax, a zatim će početi da pada istim ubrzanjem g. Trenutna brzina se dalje izračunava po formuli <strong>v=v+g*dt</strong> </p>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'
+      .setProperty("Html",`<h1>Vertical Throw</h1> 
+<p>This is a very simple simulation of vertical throw. It shows the motion in one dimension (vertical) of a body of mass m (a ball).</p> 
+<p>The body is thrown from the surface of the Earth with some initial velocity v₀. The only force acting on the body is the gravitational force G = mg.</p>
+<p>The body will move vertically upward, and during that motion, the current velocity is calculated iteratively every dt
+ seconds using the formula <strong>v = v<sub>0</sub> - g*t</strong>.
+Since the time step dt is considered, and the initial velocity in the current iteration is actually the final velocity from the previous iteration,
+ the formula used in the evolution table is: <strong>v = v - g*dt</strong>, 
+where g is the gravitational acceleration and equals 9.81 m/s².</p> 
+<p>The body will reach a certain maximum height H<sub>Max</sub>, and then it will start to fall down with the same acceleration g.
+ The current velocity is then calculated using the formula <strong>v = v + g*dt</strong>.</p>
+`) // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'
       ;
 
   };
