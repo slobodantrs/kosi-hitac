@@ -27,6 +27,7 @@
     "handlebar": "^1.0.0",
     "i18n": "^0.15.1",
     "jquery": "^3.4.1",
+    "morgan": "^1.10.0",
     "pear": "^0.2.1",
     "sitemap": "^8.0.0",
     "templatesjs": "^2.0.0",
