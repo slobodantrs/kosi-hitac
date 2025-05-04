@@ -207,7 +207,7 @@ router.get('/en/simulation_vertical_throw', VertikalanHitacController.Vertikalan
 console.log('Registering EN route handler:', KosiHitacController.KosHitac_EN);
 router.get('/en/projectile_motion',                            KosiHitacController.KosHitac_EN);
 router.get('/en/projectile_motion/:id',                        KosiHitacController.KosHitac_EN);
-router.get('/en/contents_projectile_motion',                   KosiHitacController.kosHitacContents_EN);
+router.get('/en/contents_projectile_motion',                   KosiHitacController.KosHitacContents_EN);
 router.get('/en/projectile_motion_intro_1',                    KosiHitacController.KosHitac1_EN);
 router.get('/en/projectile_motion_intro_2',                    KosiHitacController.KosHitac2_EN);
 router.get('/en/simulation_projectile_motion',                 KosiHitacController.KosHitacSimulacija_EN);
