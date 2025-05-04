@@ -31,7 +31,7 @@ try {
  // console.error('!!! cannot read locales dir:', e.message);
 }
 
-app.set('env', 'development');
+app.set('env', 'production');
 app.set('view cache', false);
 app.locals.pretty = true;     // kad koristiš HTML prettifier
 

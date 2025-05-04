@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
-   <% include ../partials/head %>
-    <title> Početna strana simulacije kosog hica </title>
+   <% include ../../partials/head %>
+    <title> Main Page of the Projectile Motion Simulation</title>
 	
 	
 
@@ -14,37 +14,87 @@
   </head>
   <body>
   <div class="container moj-header">
-  <div class="row">
-  <div class="header moj-header nav-fill w-100 col-xs-12 col-md-12 col-lg-12">
+ 
+  <div class="content-wrapper moj-header">
    
-    <% include ../partials/header %>
+    <% include ../../partials/header %>
 
 </div>
-</div>
-<h1>Simulacija kosog hica</h1>
-<div class="row">
 
-  <div class="d-flex align-content-center">
-  <div class="intro_1">
-  <%- include(path1); %>
-	</div>
-	
-	<div class="intro_2">
-	
-	<%- include(path2); %>
+<h1>Projectile motion simulation</h1>
 
-   </div>
-   </div>
-   </div>
+
+ 
+     <div id="contents_projectile_motion" class="intro_1">
+        <div class="intro_1">
+		<%- include(path1); %>
+      
+        </div>
+        <div id="uvod_kosi_hitac" class="intro_2">
+         <%- include(path2); %>
+
+        </div>
+      </div>
+    
+  
    
-   <div class="row">
+   
    <div class="content col-xs-12 col-md-12 col-lg-12">
    <footer>
-	<% include ../partials/scripts %>
-    <% include ../partials/footer %>
+	<% include ../../partials/scripts %>
+    <% include ../../partials/footer %>
 </footer>
 </div>
 </div>
-</div>
+<script>
+ 
+  document.addEventListener('DOMContentLoaded', () => {
+  const introEl = document.getElementById('uvod_kosi_hitac');
+  const sadrzaj=document.getElementById('contents_kosi_hitac');
+  sadrzaj.addEventListener('click', async e => {
+    const a = e.target.closest('a[data-id]');
+    if (!a) return;
+    e.preventDefault();
+    
+    /* 1) дохвати HTML фрагмент*/
+    const resp = await fetch(a.href);
+    const html  = await resp.text();
+    
+    // 2) парсирај у привремени DIV
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    
+    // 3) ишчупај script тагове и премести их у body
+    tmp.querySelectorAll('script').forEach(old => {
+	  if (old.src && old.src.includes('textresizedetector.js')) return;
+      const s = document.createElement('script');
+      if (old.src)        s.src = old.src;
+      else                 s.textContent = old.textContent;
+      document.body.appendChild(s);
+    });
+    
+    // 4) убaci саму симулацију у uvod_vertikalni_hitac
+    if (a.dataset.id === 'simulacija_kosi_hitac') {
+      // simulacija: izvuci njen kontejner
+      frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
+      introEl.innerHTML = '';
+      if (frag) introEl.appendChild(frag);
+	  // 5) иницијализуј симулацију одмах
+   if (typeof initKosiHitacSimulation === 'function') {
+       initKosiHitacSimulation();
+   }
+    } else {
+	 if (window._model && typeof window._model.pause === 'function') {
+        window._model.pause();        // stop its internal timer
+        window._model = null;         // forget it entirely
+      }
+      // intro stranice: uzmi sav HTML
+	  
+      introEl.innerHTML = tmp.innerHTML;
+    }
+	
+  });
+});
+</script>
   </body>
 </html>
