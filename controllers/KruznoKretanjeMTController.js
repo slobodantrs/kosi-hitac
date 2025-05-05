@@ -65,18 +65,21 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
   KruznoKretanjeMT_EN: function(req, res) {
     // основна динамичка страница
     const id = parseInt(req.params.id, 10) || 1;  // ако није prosleђено, узми 1
-    res.id = id;
+    const data = {
+    id: id,
+    path1: './CircularMotion_Contents',
+    path2: (id === 1)
+      ? './CircularMotionMT_Intro_11'
+      : (id === 2)
+        ? './CircularMotionMT_Intro_22'
+        : './CircularMotionMT_Simulation',
+    locale: req.locale
+  };
 
-    // oве путanje користиш у view-у са <% include(path1) %>
-    res.path1 = './CircularMotionMT_Contents1';
-    res.path2 = id === 2
-      ? './CircularMotionMT_Intro_22'
-      : './CircularMotionMT_Intro_11';
-
-    console.log(`Circular motion EN ctrl ${id}, ${res.path1}, ${res.path2}`);
+    console.log(`Circular motion EN ctrl ${id}, ${data.path1}, ${data.path2}`);
 
     // главни EJS шаблон
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT1', res);
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT1', data);
   },
 
   KruznoKretanjeMTContents_EN: function(req, res) {
