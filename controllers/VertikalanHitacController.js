@@ -5,10 +5,10 @@ var methods = {
 
   // Уводне странице
   VertikalanHitac1: function(req, res) {
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Intro_1');
+    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Intro_11');
   },
   VertikalanHitac2: function(req, res) {
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Intro_2');
+    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Intro_22');
   },
   
   
@@ -21,17 +21,17 @@ var methods = {
 const data = {
   id: id,
   path1: './VertikalanHitac_Contents',
-  path2: (id == 1) ? './VertikalanHitac_Intro_1' : './VertikalanHitac_Intro_2',
+  path2: (id == 1) ? './VertikalanHitac_Intro_11' : './VertikalanHitac_Intro_22',
   locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
 };
 
-console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
-res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', data);
+console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac1');
+res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac1', data);
 
   },
 
   VertikalanHitacContents: function(req, res) {
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Contents');
+    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Contents1');
   },
 
   VertikalanHitac_Simulation: function(req, res) {
@@ -40,12 +40,12 @@ res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', data);
     // ovi pathi se kasnije koriste u view-u za include
  
 	 
-	  res.path1 = './VertikalanHitac_Contents';
+	  res.path1 = './VertikalanHitac_Contents1';
    
    
 	console.log('path 1>'+res.path1);
 	
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Simulation',res);
+    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Simulation1',res);
   },
 
 
