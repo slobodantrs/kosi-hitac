@@ -3,11 +3,11 @@ var methods = {
 
   // — srpska verzija — 
   KruznoKretanjeMT1: function(req, res) {
-    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_11');
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_1');
   },
 
   KruznoKretanjeMT2: function(req, res) {
-    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_22');
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Intro_2');
   },
 
   KruznoKretanjeMT: function(req, res) {
@@ -15,12 +15,12 @@ var methods = {
     // ovi pathi se kasnije koriste u view-u za include
     const data = {
     id: id,
-    path1: './KruznoKretanjeMT_Contents1',
+    path1: './KruznoKretanjeMT_Contents',
     path2: (id === 1)
-      ? './KruznoKretanjeMT_Intro_11'
+      ? './KruznoKretanjeMT_Intro_1'
       : (id === 2)
-        ? './KruznoKretanjeMT_Intro_22'
-        : './KruznoKretanjeMT_Simulation1',
+        ? './KruznoKretanjeMT_Intro_2'
+        : './KruznoKretanjeMT_Simulation',
     locale: req.locale
   };
 	  console.log('id=>'+id);
@@ -28,13 +28,13 @@ var methods = {
 	 
 	console.log('path 1>'+data.path1);
 	console.log('path 2>'+data.path2);
-console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT1');
+console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT');
  
-    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT1', data);
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT', data);
   },
 
   KruznoKretanjeMTContents: function(req, res) {
-    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Contents1');
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Contents');
   },
    KruznoKretanjeMT_Simulation: function(req, res) {
     console.log('KruznoKretanjeMT_Simulation simulation');
@@ -42,12 +42,12 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
     // ovi pathi se kasnije koriste u view-u za include
  
 	 
-	  res.path1 = './KruznoKretanjeMT_Contents1';
+	  res.path1 = './KruznoKretanjeMT_Contents';
    
    
 
 	
-    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Simulation1',res);
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Simulation',res);
   },
   
 
