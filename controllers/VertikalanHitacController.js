@@ -20,7 +20,7 @@ var methods = {
    const id = parseInt(req.params.id, 10) || 1;
 const data = {
   id: id,
-  path1: './VertikalanHitac_Contents',
+  path1: './VertikalanHitac_Contents1',
   path2: (id == 1) ? './VertikalanHitac_Intro_11' : './VertikalanHitac_Intro_22',
   locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
 };
