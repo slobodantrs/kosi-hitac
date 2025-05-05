@@ -30,7 +30,7 @@ var methods = {
 	console.log('path 2>'+data.path2);
 console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT1');
  
-    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT1', res);
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT1', data);
   },
 
   KruznoKretanjeMTContents: function(req, res) {
