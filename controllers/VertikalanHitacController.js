@@ -26,7 +26,7 @@ const data = {
 };
 
 console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
-res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac1', data);
+res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', data);
 
   },
 
@@ -40,12 +40,12 @@ res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac1', data);
     // ovi pathi se kasnije koriste u view-u za include
  
 	 
-	  res.path1 = './VertikalanHitac_Contents1';
+	  res.path1 = './VertikalanHitac_Contents';
    
    
 	console.log('path 1>'+res.path1);
 	
-    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Simulation1',res);
+    res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Simulation',res);
   },
 
 
