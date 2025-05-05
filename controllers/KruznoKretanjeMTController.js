@@ -11,14 +11,25 @@ var methods = {
   },
 
   KruznoKretanjeMT: function(req, res) {
-    var id = req.params.id;
-    res.id = req.params.id || 1;  // ako nije dato, uzmi 1
-    res.path1 = './KruznoKretanjeMT_Contents';
-    // biramo intro zavisno od id-a
-    res.path2 = (id == 2)
-      ? './KruznoKretanjeMT_Intro_2'
-      : './KruznoKretanjeMT_Intro_1';
-    console.log(`Kruž. kretanje kontroler %d, %s, %s`, id, res.path1, res.path2);
+    const id = parseInt(req.params.id, 10) || 1;
+    // ovi pathi se kasnije koriste u view-u za include
+    const data = {
+    id: id,
+    path1: './KruznoKretanjeMT_Contents',
+    path2: (id === 1)
+      ? './KruznoKretanjeMT_Intro_1'
+      : (id === 2)
+        ? './KruznoKretanjeMT_Intro_2'
+        : './KruznoKretanjeMT_Simulation',
+    locale: req.locale
+  };
+	  console.log('id=>'+id);
+	  
+	 
+	console.log('path 1>'+data.path1);
+	console.log('path 2>'+data.path2);
+console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT');
+ 
     res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT', res);
   },
 

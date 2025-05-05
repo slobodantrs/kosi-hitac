@@ -1,24 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-  <head>
-   <% include ../partials/head %>
-   <meta name="description" content="Simulacija rotacije materijalne tačke. 
-   Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
-	<meta name="keywords" content="Opis simulacije,Normalna komponenta,centrifugalnom silom,
-	 sila zatezanja konca,centripetalna sila,Komponenta sile F u tangentnom pravcu,
-	 ugaono ubrzanje,ugaona brzina,linijska brzina,kretanje ravnomerno,Ukupno ubrzanje,
-	 " />
-    <title> RAVNOMERNO KRUŽNO KRETANjE MATERIJALNE TAČKE-opis</title>
-    <link rel="stylesheet" type="text/css" href="_ejs_library/css/ejss.css"></link>
-  
-    <meta charset="utf-8" />
-    <title></title>
-    <link rel="stylesheet"  type="text/css" href="_ejs_library/css/ejss.css" />
-    <script src="_ejs_library/scripts/common_script.js"></script>
-    <script src="_ejs_library/scripts/textresizedetector.js"></script>
-    <script src="_ejs_library/ejsS.v1.min.js"></script>
-<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+<script>
 /* _inputParameters: an object with different values for the model parameters */
 function KruznoKretanjeMT(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
@@ -683,16 +664,10 @@ function KruznoKretanjeMT_View_0 (_topFrame) {
 }
 
 
-//--><!]]></script>
-  </head>
-  <body>
+</script>
+ 
     <div class="container moj-header">
-  <div class="row">
-  
-   <header class="moj-header content col-xs-12 col-md-12 col-lg-12">
-    <% include ../partials/header %>
-	</header>
-	</div>
+ 
 
   <div class="row">
     <div role="button" id="_topFrame" class="col-xs-12 col-md-12 col-lg-12" style="text-align:center"></div>
@@ -719,17 +694,12 @@ function KruznoKretanjeMT_View_0 (_topFrame) {
       <div class="cc_right" style="float:right">    Released under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US"> <img alt="Creative Commons Attribution-NonCommercial-ShareAlike" src="_ejs_library/images/cc_icon.png" /> </a> license.</div>
     </div>
   </div>
-  <div class="row">
-  <footer class="col-xs-12 col-md-12 col-lg-12">
-	<% include ../partials/scripts %>
-    <% include ../partials/footer %>
-</footer>
+
 </div>
-</div>
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
+    <script">
       var _model;
       var _scorm;
-      window.addEventListener('load',
+     /* window.addEventListener('load',
         function () { 
           _model =  new KruznoKretanjeMT("_topFrame","_ejs_library/",null);
           if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
@@ -741,8 +711,26 @@ function KruznoKretanjeMT_View_0 (_topFrame) {
             _model._fontResized(iBase);
           };
           _model.onload();
-        }, false);
-    //--><!]]></script>
+        }, false);*/
+		
+		// Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
+  function initKruznoKretanjeSimulation() {
+    // Постављамо модел у глобалну променљиву
+    _model = new KruznoKretanjeMT("_topFrame", "/_ejs_library/", null);
+    if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
+
+    TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
+    TextResizeDetector.USER_INIT_FUNC = function () {
+      var iBase = TextResizeDetector.addEventListener(function(e, args) {
+        _model._fontResized(args[0].iBase, args[0].iSize, args[0].iDelta);
+      }, null);
+      _model._fontResized(iBase);
+    };
+
+    _model.onload();
+  }
+  
+    </script>
 	
   </body>
 </html>

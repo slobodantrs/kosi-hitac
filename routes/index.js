@@ -85,11 +85,11 @@ router.get('/simulacija_kosi_hitac', KosiHitacController.KosiHitac_Simulation);
 //Kružno kretanje
 var KruznoKretanjeMTController = require('../controllers/KruznoKretanjeMTController');
 console.log(`KruznoKretanjeMTController u index.js: `+KruznoKretanjeMTController);
- router.get('/Kruzno_Kretanje_MT', KruznoKretanjeMTController.KruznoKretanjeMT);
-router.get('/Kruzno_Kretanje_MT/:id', KruznoKretanjeMTController.KruznoKretanjeMT);
-router.get('/contents_Kruzno_Kretanje_MT', KruznoKretanjeMTController.KruznoKretanjeMTContents);
-router.get('/Kruzno_Kretanje_MT_Intro_1', KruznoKretanjeMTController.KruznoKretanjeMT1);
-router.get('/Kruzno_Kretanje_MT_Intro_2', KruznoKretanjeMTController.KruznoKretanjeMT2);
+ router.get('/kruzno_kretanje', KruznoKretanjeMTController.KruznoKretanjeMT);
+router.get('/kruzno_kretanje/:id', KruznoKretanjeMTController.KruznoKretanjeMT);
+router.get('/contents_kruzno_kretanje_MT', KruznoKretanjeMTController.KruznoKretanjeMTContents);
+router.get('/kruzno_kretanje_intro_1', KruznoKretanjeMTController.KruznoKretanjeMT1);
+router.get('/kruzno_kretanje_intro_2', KruznoKretanjeMTController.KruznoKretanjeMT2);
 
 router.get('/simulacija_Kruzno_Kretanje_MT', function(req, res) {
 	console.log(`Correct!!!!!`);

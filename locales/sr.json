@@ -24,7 +24,12 @@
 	"kosi_Hitac_Uvod2": "Kosi hitac – Zadatak",	
 	
 	"kosi_Hitac_Simulacija": "Simulacija",
-    "Kruzno_Kretanje_MT": "Kružno kretanje",
+    "kruzno_Kretanje": "Kružno kretanje",
+	"kruzno_Kretanje_Uvod1": "Kružno kretanje - Uvod",
+	"kruzno_Kretanje_Uvod2": "Kružno kretanje – Zadatak",	
+	
+	"kruzno_Kretanje_Simulacija": "Simulacija",
+	
     "Rotacija_Diska": "Rotacija diska",
     "RavnoKretanjeTocka": "Ravno kretanje točka",
 	"simulacije": "Simulacije",

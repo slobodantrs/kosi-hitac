@@ -22,8 +22,13 @@
     "kosi_Hitac": "Projectile Motion",
 	"kosi_Hitac_Uvod1": "Projectile Motion – Introduction",	
 	"kosi_Hitac_Uvod2": "Projectile Motion – Task",	
-	"kosi_Hitac_Simulacija": "Simulation",
-    "Kruzno_Kretanje_MT": "Circular Motion",
+	"kosi_Hitac_Simulacija": "Simulation",    
+	"kruzno_Kretanje": "Circular Motion",
+	"kruzno_Kretanje_Uvod1": "Circular Motion - Introduction",
+	"kruzno_Kretanje_Uvod2": "Circular Motion – Task",	
+	
+	"kruzno_Kretanje_Simulacija": "Simulation",
+	
     "Rotacija_Diska": "Disk Rotation",
     "RavnoKretanjeTocka": "Rigid Body Motion",
 	"simulacije": "Simulations",

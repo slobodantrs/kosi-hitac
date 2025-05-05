@@ -2,42 +2,43 @@
 <!DOCTYPE html>
 <html lang="<%= locale %>">
   <head>
-  <% include ../partials/head %>
+  <% include ../../partials/head %>
    <meta name="description" content="Simulacija kružnog kretanja materijalne tačke. 
    Simulacija kreirana pomoću alata Easy Java Simulation(EJS)." />
 	<meta name="keywords" content="kružno kretanje, ravnomerno kružno kretanje,materijalne tačke,
 	kretanja materijalne tačke, normalnog ubrzanja, centripetalno ubrzanje, poluprecnikom kružnice" />
     <title> Početna strana za Kruzno Kretanje </title>
-	 <link rel="canonical" href="https://kosi-hitac.onrender.com/Kruzno_Kretanje_MT" />
+	 <link rel="canonical" href="https://kosi-hitac.onrender.com/kruzno_kretanje" />
   </head>
   <body>
   <div class="container moj-header">
-  <div class="row">
+ <% include ../../partials/head %>
   
-  <div class="header moj-header content col-xs-12 col-md-12 col-lg-12">
+  <div class="content-wrapper moj-header">
    
-    <% include ../partials/header %>
+    <% include ../../partials/header %>
+
 
 </div>
-</div>
 
-<div class="row">
-  <div class="col-xs-12 col-md-12 col-lg-12">
-  <%- include(path1); %>
-	</div>
-	
-	<div class="col-xs-12 col-md-12 col-lg-12">
-	
-	<%- include(path2); %>
+   
+     <div id="contents_kruzno_kretanje" class="intro_1">
+        <div class="intro_1">
+		<%- include(path1); %>
+      
+        </div>
+        <div id="uvod_kruzno_kretanje" class="intro_2">
+        <%- include(path2); %>
 
-   </div>
-   </div>
+        </div>
+      </div>
+	  
    
    <div class="row">
    <div class="col-xs-12 col-md-12 col-lg-12">
    <footer>
-	<% include ../partials/scripts %>
-    <% include ../partials/footer %>
+	<% include ../../partials/scripts %>
+    <% include ../../partials/footer %>
 </footer>
 </div>
    </div>

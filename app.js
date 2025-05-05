@@ -139,13 +139,13 @@ const slugMap = {
   '/simulacija_kosi_hitac':             '/en/simulation_projectile_motion',
 
   // Kružno kretanje mater. tačke (Circular Motion)
-  '/Kruzno_Kretanje_MT':               '/en/circular_motion',
-  '/Kruzno_Kretanje_MT/1':             '/en/circular_motion/1',   // опциони
-  '/Kruzno_Kretanje_MT/2':             '/en/circular_motion/2',   // опциони
-  '/contents_Kruzno_Kretanje_MT':      '/en/contents_circular_motion',
-  '/Kruzno_Kretanje_MT_Intro_1':       '/en/circular_motion_intro_1',
-  '/Kruzno_Kretanje_MT_Intro_2':       '/en/circular_motion_intro_2',
-  '/simulacija_Kruzno_Kretanje_MT':    '/en/simulation_circular_motion',
+  '/kruzno_kretanje':               '/en/circular_motion',
+  '/kruzno_kretanje/1':             '/en/circular_motion/1',   // опциони
+  '/kruzno_kretanje/2':             '/en/circular_motion/2',   // опциони
+  '/contents_kruzno_kretanje':      '/en/contents_circular_motion',
+  '/kruzno_kretanje_intro_1':       '/en/circular_motion_intro_1',
+  '/kruzno_kretanje_intro_2':       '/en/circular_motion_intro_2',
+  '/simulacija_kruzno_kretanje':    '/en/simulation_circular_motion',
 
   // Rotacija diska
   '/Rotacija_Diska':                   '/en/disk_rotation',
