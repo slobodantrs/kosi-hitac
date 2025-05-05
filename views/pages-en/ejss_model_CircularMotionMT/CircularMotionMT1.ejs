@@ -1,12 +1,10 @@
 
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="<%= locale %>">
   <head>
   <% include ../../partials/head %>
-  <meta name="description" content="Simulation of circular motion of a material point. 
-   Simulation created using the Easy Java Simulation (EJS) tool." />
-<meta name="keywords" content="circular motion, uniform circular motion, material point, 
-motion of a material point, normal acceleration, centripetal acceleration, radius of the circle" />
+  <meta name="description" content="Simulation of circular motion of a material point.    Simulation created using the Easy Java Simulation (EJS) tool." />
+<meta name="keywords" content="circular motion, uniform circular motion, material point, motion of a material point, normal acceleration, centripetal acceleration, radius of the circle" />
 <title> Home Page for Circular Motion </title>
 
 	 <link rel="canonical" href="https://kosi-hitac.onrender.com/circular_motion" />
@@ -24,7 +22,7 @@ motion of a material point, normal acceleration, centripetal acceleration, radiu
 
 <div id="contents_circular_motion" class="intro_1">
         <div class="intro_1">
-		
+		<%- include(path1); %>
       
         </div>
         <div id="introduction_circular_motion" class="intro_2">
@@ -33,12 +31,13 @@ motion of a material point, normal acceleration, centripetal acceleration, radiu
       </div>
     
    
-
+<div class="row">
    <div class="col-xs-12 col-md-12 col-lg-12">
    <footer>
 	<% include ../../partials/scripts %>
     <% include ../../partials/footer %>
 </footer>
+</div>
 </div>
    
 	</div>
