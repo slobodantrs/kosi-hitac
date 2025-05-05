@@ -84,7 +84,7 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
     res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Contents1');
   },
 
-  KruznoKretanjeMTSim_EN: function(req, res) {
+  KruznoKretanjeMT_Simulation_EN: function(req, res) {
     // страница симулације
     res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Simulation1');
   }
