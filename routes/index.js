@@ -220,6 +220,15 @@ router.get('/en/simulation_disk_rotation',                   RotacijaDiskaContro
 
 
 
+// English routes for Circular Motion
+router.get('/en/circular_motion', KruznoKretanjeMTController.KruznoKretanjeMT_EN);
+router.get('/en/circular_motion/:id', KruznoKretanjeMTController.KruznoKretanjeMT_EN);
+router.get('/en/contents_circular_motion', KruznoKretanjeMTController.KruznoKretanjeMTContents_EN);
+router.get('/en/circular_motion_intro_1', KruznoKretanjeMTController.KruznoKretanjeMT1_EN);
+router.get('/en/circular_motion_intro_2', KruznoKretanjeMTController.KruznoKretanjeMT2_EN);
+router.get('/en/simulation_circular_motion', KruznoKretanjeMTController.KruznoKretanjeMT_Simulation_EN);
+
+
 const path = require('path');
 const options = {
   root: path.join(__dirname, '/static'),
