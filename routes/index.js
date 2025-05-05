@@ -90,12 +90,7 @@ router.get('/kruzno_kretanje/:id', KruznoKretanjeMTController.KruznoKretanjeMT);
 router.get('/contents_kruzno_kretanje_MT', KruznoKretanjeMTController.KruznoKretanjeMTContents);
 router.get('/kruzno_kretanje_intro_1', KruznoKretanjeMTController.KruznoKretanjeMT1);
 router.get('/kruzno_kretanje_intro_2', KruznoKretanjeMTController.KruznoKretanjeMT2);
-
-router.get('/simulacija_Kruzno_Kretanje_MT', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Simulation');
-});
+router.get('/simulacija_kruzno_kretanje', KruznoKretanjeMTController.KruznoKretanjeMT_Simulation);
 
 // Rotacija diska
 var RotacijaDiskaController = require('../controllers/RotacijaDiskaController');

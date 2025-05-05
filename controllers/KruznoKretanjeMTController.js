@@ -36,6 +36,20 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
   KruznoKretanjeMTContents: function(req, res) {
     res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Contents1');
   },
+   KruznoKretanjeMT_Simulation: function(req, res) {
+    console.log('KruznoKretanjeMT_Simulation simulation');
+	
+    // ovi pathi se kasnije koriste u view-u za include
+ 
+	 
+	  res.path1 = './KruznoKretanjeMT_Contents1';
+   
+   
+
+	
+    res.render('pages/ejss_model_KruznoKretanjeMT/KruznoKretanjeMT_Simulation1',res);
+  },
+  
 
    // — ENGLISH VERSION —
   KruznoKretanjeMT1_EN: function(req, res) {
