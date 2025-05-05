@@ -67,7 +67,7 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
     const id = parseInt(req.params.id, 10) || 1;  // ако није prosleђено, узми 1
     const data = {
     id: id,
-    path1: './CircularMotion_Contents1',
+    path1: './CircularMotionMT_Contents1',
     path2: (id === 1)
       ? './CircularMotionMT_Intro_11'
       : (id === 2)
