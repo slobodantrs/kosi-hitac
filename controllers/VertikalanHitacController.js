@@ -87,7 +87,7 @@ VertikalanHitac_Simulation_EN: function(req, res) {
    
    
 	console.log('path 1>'+res.path1);
-  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow_Simulation1',res);
+  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow_Simulation',res);
 }
 
 };

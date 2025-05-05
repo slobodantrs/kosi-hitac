@@ -1,0 +1,140 @@
+<div class="content-wrapper">
+
+  <h1 class="text-center">UNIFORM CIRCULAR MOTION OF A MATERIAL POINT</h1><br><br>
+
+  <div class="dodatak-simulacija m-3">
+    <div class="p-2  dodatak-tekst border-info">
+      <p>
+        Circular motion is motion along a curved path in the shape of a circle, in contrast to rectilinear motion where the body moves along a straight path.
+        In this article, an animation of the circular motion of a material point will be shown.
+        Unlike rectilinear motion, where the physical quantities describing the motion are distance s [m],
+        velocity v [m/s], and acceleration a [m/s²], in circular motion we consider quantities such as the angle φ [rad] between the position vector and the X-axis,
+        angular velocity ω [rad/s], and angular acceleration α [rad/s²].
+      </p>
+      <p>
+        The simplest form of curved motion of a material point is circular motion. At every point on the path, the direction of the instantaneous velocity
+        matches the tangent to the path. The velocity vector and the radius vector are perpendicular to each other.
+      </p>
+
+      <p>Types of circular motion:</p>
+      <ul>
+        <ol>uniform circular motion – the magnitude of the velocity does not change</ol>
+        <ol>non-uniform circular motion – the magnitude of the velocity changes</ol>
+      </ul>
+      <p>
+        If a material point moves along a circular path with constant speed, such motion is called uniform circular motion.
+      </p>
+    </div>
+
+    <div class="link-simulacije_2 w-40 d-flex flex-column justify-content-center margine_oko_slike">
+      <a href="/simulacija_Kruzno_Kretanje_MT"><h4 class="jumbotron text-center">Circular motion simulation</h4></a>
+      <a href="/simulacija_Kruzno_Kretanje_MT"><img src="images/KruznoKretanjeMT/KruznoKretanjeMT.png" alt="Circular motion of a material point"></a>
+    </div>
+  </div>
+
+  <br>
+  <figure class="margine_oko_slike">
+    <img src="images/KruznoKretanjeMT/RavnomernoKruznoKretanje.jpg" alt="Uniform circular motion of a material point"></img>
+    <figcaption>Figure 1. Uniform circular motion of a material point</figcaption>
+  </figure>
+  <br>
+
+  <p>
+    Since in uniform circular motion the magnitude of velocity is constant, the tangential acceleration is zero.
+    However, the direction of velocity continuously changes, so there is a normal (centripetal) acceleration.
+  </p>
+  <p>
+    The direction of normal acceleration coincides with the radius of the circle, and it always points toward the center of the circle.
+    That is why it is called radial or centripetal acceleration.
+  </p><br>
+
+  <figure class="margine_oko_slike">
+    <img src="images/KruznoKretanjeMT/kruznoKretanjeRavnomernoVektori.jpg" alt="Normal acceleration in circular motion"></img>
+    <figcaption>Figure 2. Normal acceleration in circular motion</figcaption>
+  </figure>
+
+  <p>
+    The magnitude of centripetal acceleration is directly proportional to the square of the velocity of the material point
+    and inversely proportional to the radius of the path along which the point moves.
+  </p>
+
+  <div>
+    <p class="moj_kod"><code>a<sub>c</sub> = v<sup>2</sup> / r</code></p><br>
+  </div>
+
+  <h1 class="text-center">UNIFORMLY ACCELERATED CIRCULAR MOTION OF A MATERIAL POINT</h1>
+  <p>
+    If a material point moves along a circle with a velocity whose magnitude changes uniformly,
+    such motion is called uniformly accelerated circular motion.
+  </p><br>
+
+  <figure class="margine_oko_slike">
+    <img src="images/KruznoKretanjeMT/KruznoKretanjeUbrzanje.jpg" alt="Uniformly accelerated circular motion">
+    <figcaption>Figure 3. Tangential and centripetal acceleration</figcaption>
+  </figure>
+  <br>
+
+  <p>
+    Since in uniformly accelerated circular motion the magnitude of velocity changes,
+    there is both normal (radial or centripetal) and tangential acceleration.
+    The magnitude of tangential acceleration is constant, while the magnitude of normal acceleration is not (see formula – it varies with speed).
+  </p>
+
+  <div>
+    <p class="moj_kod">a<sub>T</sub> = &Delta;v / &Delta;t</p>
+    <p class="moj_kod">a<sub>T</sub> = (v<sub>2</sub> - v<sub>1</sub>) / (t<sub>2</sub> - t<sub>1</sub>) = <i>const</i></p>
+    <br>
+    <p>Resultant acceleration vector: \( \vec{a} = \vec{a}_n + \vec{a}_t \)</p>
+    <p class="moj_kod">a = &radic;<span style="border-top: solid thin #000 ;">a<sub>c</sub><sup>2</sup> + a<sub>T</sub><sup>2</sup></span></p>
+    <p class="moj_kod">a = &radic;<span style="border-top: solid thin #000 ;">(v<sup>2</sup>/r)<sup>2</sup> + a<sub>T</sub><sup>2</sup></span></p><br>
+    <p>In uniformly accelerated circular motion:</p>
+    <ul>
+      <ol>the direction of tangential acceleration and velocity coincide</ol>
+      <ol>the resultant acceleration vector and the velocity vector form an acute angle</ol>
+    </ul>
+
+    <p><strong>Angular velocity</strong> is a physical quantity that describes the rate of rotation of a material point.</p>
+    <p><strong>Angular acceleration</strong> is a physical quantity that describes the change of angular velocity in variable rotational motion.</p><br><br>
+  </div>
+
+  <h1 class="text-center">CENTRIPETAL FORCE</h1>
+  <p>
+    The direction of normal acceleration coincides with the radius and points toward the center of the circle.
+    Since there is acceleration, there must also be a force causing it.
+    This force has the same direction and orientation as the normal acceleration.
+    Because it is directed toward the center of rotation, it is called the centripetal force.
+  </p><br>
+
+  <figure class="margine_oko_slike">
+    <img src="images/KruznoKretanjeMT/KruznoKretanjeVektori.jpg" alt="Centripetal force and acceleration in circular motion">
+    <figcaption>Figure 4. Centripetal force and acceleration in circular motion</figcaption>
+  </figure>
+  <br>
+
+  <p>Magnitude of centripetal force:</p>
+  <p class="moj_kod"><code>F<sub>cp</sub> = m * v<sup>2</sup> / r</code></p>
+  <p>Another formula for centripetal force:</p>
+  <p class="moj_kod"><code>F<sub>cp</sub> = m * r * &omega;<sup>2</sup></code></p>
+
+  <p>
+    The string exerts a centripetal force on the ball, forcing it to move in a circle.
+    <div id="kruzni-canvas" class="kruzni-canvas canvas-wrapper" style="margin-top: 20px;"></div>
+    If the string breaks, the ball will fly off tangentially in a straight line at the velocity it had at that moment.
+  </p>
+  <p>
+    If there is also a tangential force, it will cause the body to accelerate (tangential acceleration will appear).
+  </p>
+
+  <h2>
+    Tangential force changes the magnitude of the speed of the body moving along the circular path,
+    while the centripetal force changes the direction of the tangential velocity.
+  </h2>
+
+  <p>
+    Centripetal force is not a specific type of force but rather a name for any force whose effect causes circular motion of a body around some center.
+    Centripetal force is the force that forces a body to move along a circular path.
+  </p>
+
+</div>
+
+<script language="javascript" type="text/javascript" src="js/p5js/KruznoKretanje/KruznoKretanjeSimulacijaNaprednoSile.js"></script>

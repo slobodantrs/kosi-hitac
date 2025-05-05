@@ -54,12 +54,12 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
    // — ENGLISH VERSION —
   KruznoKretanjeMT1_EN: function(req, res) {
     // страница Intro 1
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_1');
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_11');
   },
 
   KruznoKretanjeMT2_EN: function(req, res) {
     // страница Intro 2
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_2');
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_22');
   },
 
   KruznoKretanjeMT_EN: function(req, res) {
@@ -68,25 +68,25 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
     res.id = id;
 
     // oве путanje користиш у view-у са <% include(path1) %>
-    res.path1 = './CircularMotionMT_Contents';
+    res.path1 = './CircularMotionMT_Contents1';
     res.path2 = id === 2
-      ? './CircularMotionMT_Intro_2'
-      : './CircularMotionMT_Intro_1';
+      ? './CircularMotionMT_Intro_22'
+      : './CircularMotionMT_Intro_11';
 
     console.log(`Circular motion EN ctrl ${id}, ${res.path1}, ${res.path2}`);
 
     // главни EJS шаблон
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT', res);
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT1', res);
   },
 
   KruznoKretanjeMTContents_EN: function(req, res) {
     // садржај странице (partials)
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Contents');
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Contents1');
   },
 
   KruznoKretanjeMTSim_EN: function(req, res) {
     // страница симулације
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Simulation');
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Simulation1');
   }
 
 };

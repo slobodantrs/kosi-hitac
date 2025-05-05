@@ -1,16 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-  <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <link rel="stylesheet"  type="text/css" href="_ejs_library/css/ejss.css" />
-    <script src="_ejs_library/scripts/common_script.js"></script>
-    <script src="_ejs_library/scripts/textresizedetector.js"></script>
-    <script src="_ejs_library/ejsS.v1.min.js"></script>
-<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+<script>
 /* _inputParameters: an object with different values for the model parameters */
-function KruznoKretanjeMT(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
+function CircularMotion(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
   var _view;
   var _isPlaying = false;
@@ -556,8 +547,8 @@ function KruznoKretanjeMT_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_DRAWING2D.drawingPanel,"drawingPanel", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'drawingPanel'
-      .setProperty("Height",500) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'drawingPanel'
-      .setProperty("Width",500) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'drawingPanel'
+      .setProperty("Height","100%") // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'drawingPanel'
+      .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'drawingPanel'
       .setProperty("MinimumX",-5.0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'drawingPanel'
       .setProperty("MinimumY",-5.0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumY' for element 'drawingPanel'
       .setProperty("AutoScaleY",false) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleY' for element 'drawingPanel'
@@ -664,7 +655,25 @@ function KruznoKretanjeMT_View_0 (_topFrame) {
 
     _view._addElement(EJSS_INTERFACE.panel,"narrativePanel", _view.kontejnerPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel'
       .setProperty("Width",500) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'narrativePanel'
-      .setProperty("Html","<h2>Opis simulacije</h2> <p>Na početku simulcije na kuglu deluje sila F pod nekim uglom <strong>psi</strong> u odnosu na pravac poliprečnika.  Ova sila se vidi na simulaciji(sila) plavom bojom, deblja linija, dok su tanje linije njene projekcije na normalni i tangentni pravac.</p> <p>Normalna komponenta zajedno sa centrifugalnom silom deluje u normalnom pravcu od centra,  dok se tome suprotstavlja sila zatezanja konca tj. centripetalna sila koja je istog intenziteta ali suprotnog smera i deluje ka centru(Sile obojene ljubičastom bojom).</p> <p>Komponenta sile <strong>F</strong> u tangentnom pravcu daje ugaono ubrzanje kuglici <strong>alfa</strong> tako da ugaona brzina <strong>w</strong>, kao i linijska brzina raste. Može se videti vektor brzine crvene boje, ako se uključi prikaz brzina, čiji se intenzitet povećava tokom vremena.</p> <p>Narandžastom bojom je obojena centripetalna sila koja bi bila u slučaju a je kretanje ravnomerno.</p> <p>Ukupno ubrzanje <strong>a</strong> je vektorski zbir normalnog <strong>aN</strong> i tangencijalnog <strong>aT</strong> ubrzanja.</p> <p>Posle nekog vremena, sila <strong>F</strong> prestaje da deluje i tada kuglica nastavlja da se kreće ravnomerno. Dalje, više nema sile <strong>F</strong>, samim tim ni njenih projekcija u normalnom i tangencijalnom pravcu.</p> <p>Ugaono ubrzanje je jednako nuli, dok je ugaona brzina konstantna.</p> <p>Linijska brzina je takođe konstantna i sada se dužina vektora brzine ne menja tokom vremena.</p> <p>Što se ubrzanja tiče, postoji samo normalno ubrzanje zbog promene pravca vektora brzine, ali ne i tangencijalno.</p>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'
+      .setProperty("Html",`<h2>Simulation Description</h2>
+<p>At the beginning of the simulation, a force <strong>F</strong> acts on the ball at an angle <strong>psi</strong> relative to the direction of the radius. This force is shown in the simulation (as "force") in blue color with a thicker line, while its projections on the normal and tangential directions are represented by thinner lines.</p>
+
+<p>The normal component, together with the centrifugal force, acts along the normal direction away from the center. Opposing this is the tension in the string, i.e., the centripetal force, which has the same magnitude but opposite direction, acting toward the center (these forces are shown in purple).</p>
+
+<p>The component of the force <strong>F</strong> in the tangential direction produces angular acceleration <strong>alpha</strong>, causing the angular velocity <strong>w</strong> and linear speed to increase. You can see the velocity vector in red if the velocity display is enabled, and its magnitude increases over time.</p>
+
+<p>The centripetal force that would exist in the case of uniform circular motion is shown in orange.</p>
+
+<p>The total acceleration <strong>a</strong> is the vector sum of the normal acceleration <strong>aN</strong> and the tangential acceleration <strong>aT</strong>.</p>
+
+<p>After some time, the force <strong>F</strong> stops acting, and the ball continues to move uniformly. At that point, the force <strong>F</strong> and its projections in the normal and tangential directions no longer exist.</p>
+
+<p>The angular acceleration becomes zero, while the angular velocity remains constant.</p>
+
+<p>The linear speed is also constant, and the length of the velocity vector no longer changes over time.</p>
+
+<p>As for acceleration, only the normal acceleration remains due to the change in the direction of the velocity vector, while tangential acceleration is absent.</p>
+`) // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'
       ;
 
   };
@@ -673,15 +682,19 @@ function KruznoKretanjeMT_View_0 (_topFrame) {
 }
 
 
-//--><!]]></script>
-  </head>
-  <body>
-    <div role="button" id="_topFrame" style="text-align:center"></div>
-  <div id="metadata" class="metadata">
+</script>
+  
+    <div class="container moj-header">
+ 
+  <div class="row">
+    <div role="button" id="_topFrame" class="col-xs-12 col-md-12 col-lg-12" style="text-align:center"></div>
+	</div>
+	<div class="row">
+  <div id="metadata" class="metadata col-xs-12 col-md-12 col-lg-12">
     <br />
     <div id="title_author">
       <hr />
-      <b>Simulaciju izradio:</b>
+      <b>Naslov i autor:</b>
       <p>
       </p>
       <p>
@@ -690,17 +703,22 @@ function KruznoKretanjeMT_View_0 (_topFrame) {
     </div>
     <hr />
     <p></p>
-    <div id="copyright_message">
-      <!--div class="cc_left"  style="float:left">&#169; 2019, Author name.</div-->
+	</div>
+	  </div>
+	  <div class="row">
+    <div id="copyright_message col-xs-12 col-md-12 col-lg-12">
+      <!--div class="cc_left"  style="float:left">&#169; 2019, Slobodan Tršek.</div-->
       <div class="cc_right" style="float:right">    Released under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US"> <img alt="Creative Commons Attribution-NonCommercial-ShareAlike" src="_ejs_library/images/cc_icon.png" /> </a> license.</div>
     </div>
   </div>
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
+ 
+</div>
+    <script>
       var _model;
       var _scorm;
-      window.addEventListener('load',
+    /*  window.addEventListener('load',
         function () { 
-          _model =  new KruznoKretanjeMT("_topFrame","_ejs_library/",null);
+          _model =  new CircularMotion("_topFrame","_ejs_library/",null);
           if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
           TextResizeDetector.TARGET_ELEMENT_ID = '_topFrame';
           TextResizeDetector.USER_INIT_FUNC = function () {
@@ -710,7 +728,20 @@ function KruznoKretanjeMT_View_0 (_topFrame) {
             _model._fontResized(iBase);
           };
           _model.onload();
-        }, false);
-    //--><!]]></script>
-  </body>
-</html>
+        }, false);*/
+		
+		// Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
+  function initCircularMotionSimulation() {
+    // Постављамо модел у глобалну променљиву
+    _model = new CircularMotion("_topFrame", "/_ejs_library/", null);
+    if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
+
+    TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
+    TextResizeDetector.USER_INIT_FUNC = function () {
+      var iBase = TextResizeDetector.addEventListener(function(e, args) {
+        _model._fontResized(args[0].iBase, args[0].iSize, args[0].iDelta);
+      }, null);
+      _model._fontResized(iBase);
+    };
+   </script>
+	
