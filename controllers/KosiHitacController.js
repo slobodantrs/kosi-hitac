@@ -15,11 +15,15 @@ var methods = {
 	const id = parseInt(req.params.id, 10) || 1;
     // ovi pathi se kasnije koriste u view-u za include
     const data = {
-  id: id,
-  path1: './KosiHitac_Contents',
-  path2: (id == 1) ? './KosiHitac_Intro_1' : './KosiHitac_Simulation',
-  locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
-};
+    id: id,
+    path1: './KosiHitac_Contents',
+    path2: (id === 1)
+      ? './KosiHitac_Intro_1'
+      : (id === 2)
+        ? './KosiHitac_Intro_2'
+        : './KosiHitac_Simulation',
+    locale: req.locale
+  };
 	  console.log('id=>'+id);
 	  
 	 
