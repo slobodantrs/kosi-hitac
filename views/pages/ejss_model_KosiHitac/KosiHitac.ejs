@@ -6,7 +6,7 @@
     <title> Početna strana simulacije kosog hica </title>
 	
 	
-
+<% include ../../partials/head %>
 <meta name="description" content="Simulaciju kreirane korišćenjem alata Easy Java Simulation(EJS). Simulacije koje objašnjavaju i demonstriraju  neke fizičke pojave." />
 <meta name="keywords" content="Kos hitac, easy java simulation, ejs, Ravno kretanje krutog tela, kružno kretanje materijalne tačke" />
 <meta name="author" content="Slobodan Trsek"/>
@@ -27,11 +27,11 @@
  
      <div id="contents_kosi_hitac" class="intro_1">
         <div class="intro_1">
-		
+		<%- include(path1); %>
       
         </div>
         <div id="uvod_kosi_hitac" class="intro_2">
-       
+         <%- include(path2); %>
 
         </div>
       </div>
@@ -39,7 +39,7 @@
   
    
    
-   <div class="content col-xs-12 col-md-12 col-lg-12">
+   <div class="content">
    <footer>
 	<% include ../../partials/scripts %>
     <% include ../../partials/footer %>
