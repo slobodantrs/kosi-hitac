@@ -249,7 +249,8 @@ if (!isProd) {
   app.locals.compileDebug = true;
 }
 
-
+// Izvozimo aplikaciju radi sitemap gen.
+module.exports = app;
 
 // 7) start
 app.listen(PORT, () => {
