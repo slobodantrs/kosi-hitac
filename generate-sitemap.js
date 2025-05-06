@@ -1,38 +1,37 @@
 const fs = require('fs');
-const { SitemapStream, streamToPromise } = require('sitemap');
-const app = require('./app'); // ili ./index.js ako je tamo app
+const path = require('path');
+const { SitemapStream } = require('sitemap');
 
-const hostname = 'https://kosi-hitac.onrender.com/'; // Zameni sa tvojim domenom
+// 1) Import express app (kao i ranije)
+const app = require('./app');
+
+const hostname = 'https://kosi-hitac.onrender.com';
 const sitemap = new SitemapStream({ hostname });
+const writeStream = fs.createWriteStream(path.join(__dirname, 'public', 'sitemap.xml'));
 
-const writeStream = fs.createWriteStream('./public/sitemap.xml');
+// 2) Pipe sitemap u fajl
+sitemap.pipe(writeStream);
 
-// Uzmi sve definisane rute iz Express aplikacije
-const routes = [];
-
-app._router.stack.forEach((middleware) => {
-  if (middleware.route) {
-    // Direktna ruta
-    routes.push(middleware.route.path);
-  } else if (middleware.name === 'router') {
-    // Router unutar drugog fajla
-    middleware.handle.stack.forEach((handler) => {
-      if (handler.route) {
-        routes.push(handler.route.path);
+// 3) Zapiši sve rute (kao što si već implementirao)
+app._router.stack.forEach(layer => {
+  if (layer.route && layer.route.path && !layer.route.path.includes(':')) {
+    sitemap.write({ url: layer.route.path, changefreq: 'weekly', priority: 0.7 });
+  } else if (layer.name === 'router') {
+    layer.handle.stack.forEach(handler => {
+      if (handler.route && handler.route.path && !handler.route.path.includes(':')) {
+        sitemap.write({ url: handler.route.path, changefreq: 'weekly', priority: 0.7 });
       }
     });
   }
 });
 
-// Piši u sitemap
-routes.forEach((route) => {
-  if (!route.includes(':')) { // preskoči dinamičke rute
-    sitemap.write({ url: route, changefreq: 'weekly', priority: 0.7 });
-  }
-});
-
+// 4) Zatvori sitemap stream
 sitemap.end();
 
-streamToPromise(sitemap.pipe(writeStream)).then(() =>
-  console.log('✅ Sitemap generated from Express routes.')
-);
+// 5) Čekaj da se fajl napiše
+writeStream.on('finish', () => {
+  console.log('✅ Sitemap generated at public/sitemap.xml');
+});
+writeStream.on('error', err => {
+  console.error('❌ Error writing sitemap:', err);
+});
