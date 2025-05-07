@@ -95,50 +95,28 @@ router.get('/simulacija_kruzno_kretanje', KruznoKretanjeMTController.KruznoKreta
 // Rotacija diska
 var RotacijaDiskaController = require('../controllers/RotacijaDiskaController');
 console.log(`RotacijaDiskaController u index.js: `+RotacijaDiskaController);
-router.get('/Rotacija_Diska', RotacijaDiskaController.RotacijaDiska);
-router.get('/Rotacija_Diska/:id', RotacijaDiskaController.RotacijaDiska);
-router.get('/contents_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaContents);
-router.get('/Rotacija_iska_Intro_1', RotacijaDiskaController.RotacijaDiska1);
-router.get('/Rotacija_Diska_Intro_2', RotacijaDiskaController.RotacijaDiska2);
-router.get('/Rotacija_Diska_Intro_3', RotacijaDiskaController.RotacijaDiska3);
-router.get('/Rotacija_Diska_Intro_4', RotacijaDiskaController.RotacijaDiska4)
-router.get('/simulacija_Rotacija_Diska', RotacijaDiskaController.RotacijaDiskaSimulacija);
+router.get('/rotacija_diska', RotacijaDiskaController.RotacijaDiska);
+router.get('/rotacija_diska/:id', RotacijaDiskaController.RotacijaDiska);
+router.get('/contents_rotacija_diska', RotacijaDiskaController.RotacijaDiskaContents);
+router.get('/rotacija_diska_intro_1', RotacijaDiskaController.RotacijaDiska1);
+router.get('/rotacija_diska_intro_2', RotacijaDiskaController.RotacijaDiska2);
+router.get('/rotacija_diska_intro_3', RotacijaDiskaController.RotacijaDiska3);
+router.get('/rotacija_Diska_Intro_4', RotacijaDiskaController.RotacijaDiska4)
+router.get('/simulacija_rotacija_diska', RotacijaDiskaController.RotacijaDiskaSimulacija);
 
 
+// Ravno kretanje
+var RavnoKretanjeController = require('../controllers/RavnoKretanjeController');
+console.log(`RavnoKretanjeController u index.js: ` + RavnoKretanjeController);
 
-
-//Ravno kretanje tocka
-router.get('/RavnoKretanjeTocka', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RavnoKretanjeTocka/RavnoKretanjeTocka');
-});
-router.get('/contents_RavnoKretanjeTocka', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RavnoKretanjeTocka/RavnoKretanjeTocka_Contents');
-});
-router.get('/simulacija_RavnoKretanjeTocka', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RavnoKretanjeTocka/RavnoKretanjeTocka_Simulation');
-});
-router.get('/RavnoKretanjeTocka_Intro', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RavnoKretanjeTocka/RavnoKretanjeTocka_Intro');
-});
-router.get('/RavnoKretanjeTocka_Intro_1', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RavnoKretanjeTocka/RavnoKretanjeTocka_Intro_1');
-});
-router.get('/RavnoKretanjeTocka_Intro_2', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_RavnoKretanjeTocka/RavnoKretanjeTocka_Intro_2');
-});
-console.log('RavnoKretanjeTocka_Intro_2');
+router.get('/ravno_kretanje', RavnoKretanjeController.RavnoKretanje);
+router.get('/ravno_kretanje/:id', RavnoKretanjeController.RavnoKretanje);
+router.get('/contents_ravno_kretanje', RavnoKretanjeController.RavnoKretanjeContents);
+router.get('/ravno_kretanje_intro_1', RavnoKretanjeController.RavnoKretanje1);
+router.get('/ravno_kretanje_intro_2', RavnoKretanjeController.RavnoKretanje2);
+router.get('/ravno_kretanje_intro_3', RavnoKretanjeController.RavnoKretanje3);
+router.get('/ravno_kretanje_intro_4', RavnoKretanjeController.RavnoKretanje4);
+router.get('/simulacija_ravno_kretanje', RavnoKretanjeController.RavnoKretanjeSimulacija);
 
 router.get('/en', function(req, res) {
 	

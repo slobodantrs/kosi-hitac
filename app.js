@@ -148,21 +148,21 @@ const slugMap = {
   '/simulacija_kruzno_kretanje':    '/en/simulation_circular_motion',
 
   // Rotacija diska
-  '/Rotacija_Diska':                   '/en/disk_rotation',
-  '/contents_Rotacija_Diska':          '/en/contents_disk_rotation',
-  '/simulacija_Rotacija_Diska':        '/en/simulation_disk_rotation',
-  '/Rotacija_Diska_Intro_1':           '/en/disk_rotation_intro_1',
-  '/Rotacija_Diska_Intro_2':           '/en/disk_rotation_intro_2',
-  '/Rotacija_Diska_Intro_3':           '/en/disk_rotation_intro_3',
-  '/Rotacija_Diska_Intro_4':           '/en/disk_rotation_intro_4',
+  '/rotacija_Diska':                   '/en/disk_rotation',
+  '/contents_rotacija_diska':          '/en/contents_disk_rotation',
+  '/simulacija_rotacija_diska':        '/en/simulation_disk_rotation',
+  '/rotacija_diska_intro_1':           '/en/disk_rotation_intro_1',
+  '/rotacija_diska_intro_2':           '/en/disk_rotation_intro_2',
+  '/rotacija_diska_intro_3':           '/en/disk_rotation_intro_3',
+  '/rotacija_diska_intro_4':           '/en/disk_rotation_intro_4',
 
   // Ravno kretanje točka (Rigid Body Motion)
-  '/RavnoKretanjeTocka':               '/en/rigid_body_motion',
-  '/contents_RavnoKretanjeTocka':      '/en/contents_rigid_body_motion',
-  '/simulacija_RavnoKretanjeTocka':    '/en/simulation_rigid_body_motion',
-  '/RavnoKretanjeTocka_Intro':         '/en/rigid_body_motion_intro',
-  '/RavnoKretanjeTocka_Intro_1':       '/en/rigid_body_motion_intro_1',
-  '/RavnoKretanjeTocka_Intro_2':       '/en/rigid_body_motion_intro_2'
+  '/ravno_kretanje_tocka':               '/en/rigid_body_motion',
+  '/contents_ravno_kretanje_tocka':      '/en/contents_rigid_body_motion',
+  '/simulacija_ravno_kretanje_tocka':    '/en/simulation_rigid_body_motion',
+  '/ravno_kretanje_tocka_intro_1':         '/en/rigid_body_motion_intro_1',
+  '/ravno_kretanje_tocka_intro_2':       '/en/rigid_body_motion_intro_2',
+  '/ravno_kretanje_tocka_Intro_3':       '/en/rigid_body_motion_intro_3'
 };
 
 

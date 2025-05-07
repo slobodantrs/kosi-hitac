@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ravno kretanje točka</title>
-    <link rel="stylesheet"  type="text/css" href="_ejs_library/css/ejss.css" />
-	<link rel="stylesheet" type="text/css" href="css/main.css"></link>
-    <script src="_ejs_library/scripts/common_script.js"></script>
-    <script src="_ejs_library/scripts/textresizedetector.js"></script>
-    <script src="_ejs_library/ejsS.v1.min.js"></script>
-<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+<script>
 /* _inputParameters: an object with different values for the model parameters */
-function RavnoKretanjeTocka(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
+function RavnoKretanje(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
   var _view;
   var _isPlaying = false;
@@ -944,18 +934,11 @@ function RavnoKretanjeTocka_View_0 (_topFrame) {
 }
 
 
-//--><!]]></script>
+</script>
 
-<% include ../partials/head %>
-  </head>
-  <body>
+
   <div class="container moj-header">
-  <div class="row">
-  
-  <div class=" nav content d-flex justify-content-center bg-info col-xs-12 col-md-12 col-lg-12">
-    <% include ../partials/header %>
-	</div>
-	</div>
+ 
 	<div class="row">
     <div role="button" id="_topFrame" style="text-align:center"></div>
 	</div>
@@ -981,13 +964,13 @@ function RavnoKretanjeTocka_View_0 (_topFrame) {
       <div class="cc_right" style="float:right">    Released under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US"> <img alt="Creative Commons Attribution-NonCommercial-ShareAlike" src="_ejs_library/images/cc_icon.png" /> </a> license.</div>
     </div>
 	</div>
-  
+   </div>
 
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
+    <script>
       var _model;
       var _scorm;
       window.addEventListener('load',
-        function () { 
+     /*   function () { 
           _model =  new RavnoKretanjeTocka("_topFrame","_ejs_library/",null);
           if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
           TextResizeDetector.TARGET_ELEMENT_ID = '_topFrame';
@@ -998,8 +981,24 @@ function RavnoKretanjeTocka_View_0 (_topFrame) {
             _model._fontResized(iBase);
           };
           _model.onload();
-        }, false);
-    //--><!]]></script>
-	  </div>
+        }, false);*/
+		// Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
+  function initRavnoKretanjeSimulation() {
+    // Постављамо модел у глобалну променљиву
+    _model = new RavnoKretanje("_topFrame", "/_ejs_library/", null);
+    if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
+
+    TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
+    TextResizeDetector.USER_INIT_FUNC = function () {
+      var iBase = TextResizeDetector.addEventListener(function(e, args) {
+        _model._fontResized(args[0].iBase, args[0].iSize, args[0].iDelta);
+      }, null);
+      _model._fontResized(iBase);
+    };
+
+    _model.onload();
+  }
+    </script>
+	 
   </body>
 </html>
