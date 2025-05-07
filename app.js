@@ -148,7 +148,7 @@ const slugMap = {
   '/simulacija_kruzno_kretanje':    '/en/simulation_circular_motion',
 
   // Rotacija diska
-  '/rotacija_Diska':                   '/en/disk_rotation',
+  '/rotacija_diska':                   '/en/disk_rotation',
   '/contents_rotacija_diska':          '/en/contents_disk_rotation',
   '/simulacija_rotacija_diska':        '/en/simulation_disk_rotation',
   '/rotacija_diska_intro_1':           '/en/disk_rotation_intro_1',
