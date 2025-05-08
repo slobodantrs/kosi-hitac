@@ -101,7 +101,7 @@ router.get('/contents_rotacija_diska', RotacijaDiskaController.RotacijaDiskaCont
 router.get('/rotacija_diska_intro_1', RotacijaDiskaController.RotacijaDiska1);
 router.get('/rotacija_diska_intro_2', RotacijaDiskaController.RotacijaDiska2);
 router.get('/rotacija_diska_intro_3', RotacijaDiskaController.RotacijaDiska3);
-router.get('/rotacija_Diska_Intro_4', RotacijaDiskaController.RotacijaDiska4)
+router.get('/rotacija_diska_Intro_4', RotacijaDiskaController.RotacijaDiska4)
 router.get('/simulacija_rotacija_diska', RotacijaDiskaController.RotacijaDiskaSimulacija);
 
 

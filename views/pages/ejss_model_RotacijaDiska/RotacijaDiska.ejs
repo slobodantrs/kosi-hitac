@@ -6,7 +6,7 @@
   <head>
   <% include ../../partials/head %>
  
-	<link rel="canonical" href="https://kosi-hitac.onrender.com/Rotacija_Diska" />
+	<link rel="canonical" href="https://kosi-hitac.onrender.com/rotacija_diska" />
 
 <meta name="description" content="Istražite rotaciju krutog tela kroz interaktivnu simulaciju rotacije diska oko fiksne ose. Upoznajte se sa pojmovima kao što su ugaona brzina, moment inercije i centripetalno ubrzanje, uz vizuelne prikaze i objašnjenja." />
 
@@ -18,27 +18,27 @@
   </head>
   <body>
   <div class="container moj-header">
-   <div class="row">
-  <div class="header moj-header content col-xs-12 col-md-12 col-lg-12">
+  
+  <div class="content-wrapper moj-header">
    
     <% include ../../partials/header %>
 
 </div>
-</div>
+
  
    
-    <div class="row">
-      <div id="contents" class="intro_1">
+  <div id="contents_rotacija_diska" class="intro_1">
         <div class="intro_1">
-          <% include ./RotacijaDiska_Contents %>
+		<%- include(path1); %>
+      
         </div>
-        <div id="uvod_rotacija" class="intro_2">
-          <% include ./RotacijaDiska_Intro_1 %>
+        <div id="uvod_rotacija_diska" class="intro_2">
+        <%- include(path2); %>
+
         </div>
       </div>
-    </div>
-	
-    <div class="row">
+   
+  
    <div class="content">
    <footer>
 	<% include ../../partials/scripts %>
@@ -46,13 +46,13 @@
 </footer>
 </div>
 </div>
-    </div>
+   
 	
 	 <script>
  
   document.addEventListener('DOMContentLoaded', () => {
   const introEl = document.getElementById('uvod_rotacija');
-  document.getElementById('contents').addEventListener('click', async e => {
+  document.getElementById('contents_rotacija_diska').addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
     e.preventDefault();
@@ -81,8 +81,8 @@
       introEl.innerHTML = '';
       if (frag) introEl.appendChild(frag);
 	  // 5) иницијализуј симулацију одмах
-   if (typeof initDiskRotationSimulation === 'function') {
-       initDiskRotationSimulation();
+   if (typeof initRotacijaDiskaSimulation === 'function') {
+       initRotacijaDiskaSimulation();
    }
     } else {
 	 if (window._model && typeof window._model.pause === 'function') {

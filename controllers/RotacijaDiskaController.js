@@ -25,15 +25,27 @@ var methods = {
 	  console.log("RDC: RotacijaDiska");
     const id = parseInt(req.params.id, 10) || 1;
 
-    res.path1 = './RotacijaDiska_Contents';
-    res.path2 = (id == 1)
-      ? './RotacijaDiska_Intro_1'
-      : './RotacijaDiska_Intro_2';
-    console.log('id => ' + id);
-    console.log('path 1 > ' + res.path1);
-    console.log('path 2 > ' + res.path2);
+    
+	   const data = {
+  id: id,
+  path1: './RotacijaDiska_Contents',
+  path2: (id === 1)
+    ? './RotacijaDiska_Intro_1'
+    : (id === 2)
+      ? './RotacijaDiska_Intro_2'
+      : (id === 3)
+        ? './RotacijaDiska_Intro_3'
+        : (id === 4)
+          ? './RotacijaDiska_Intro_4'
+          : './RotacijaDiska_Simulation',
+  locale: req.locale
+};
 
-    res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska', res);
+    console.log('id => ' + id);
+    console.log('path 1 > ' + data.path1);
+    console.log('path 2 > ' + data.path2);
+
+    res.render('pages/ejss_model_RotacijaDiska/RotacijaDiska', data);
   },
   
 
@@ -68,15 +80,31 @@ var methods = {
 
   RotacijaDiska_EN: function(req, res) {
 	  console.log("RDC: RotacijaDiska_EN");
-    var id = parseInt(req.params.id, 10) || 1;
+    const id = parseInt(req.params.id, 10) || 1;
 
-    res.path1 = './DiskRotation_Contents';
-    res.path2 = (id == 1)
-      ? './DiskRotation_Intro_1'
-      : './DiskRotation_Intro_2';
-    res.id = id;
+const data = {
+  id,
+  path1: './DiskRotation_Contents',
+  path2: (id === 1)
+    ? './DiskRotation_Intro_1'
+    : (id === 2)
+      ? './DiskRotation_Intro_2'
+      : (id === 3)
+        ? './DiskRotation_Intro_3'
+        : (id === 4)
+          ? './DiskRotation_Intro_4'
+          : './DiskRotation_Simulation',
+  locale: req.locale
+};
 
-    res.render('pages-en/ejss_model_DiskRotation/DiskRotation', res);
+console.log('EN id =>', id);
+console.log('EN path1 =>', data.path1);
+console.log('EN path2 =>', data.path2);
+
+res.render('pages-en/ejss_model_DiskRotation/DiskRotation', data);
+
+
+ 
   },
 
   RotacijaDiskaContents_EN: function(req, res) {

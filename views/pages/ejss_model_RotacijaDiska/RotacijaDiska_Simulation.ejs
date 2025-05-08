@@ -1,6 +1,6 @@
 
     
-<script type="text/javascript"><!--//--><![CDATA[//><!--
+<script>
 /* _inputParameters: an object with different values for the model parameters */
 function RotacijaDiska(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
@@ -1298,7 +1298,7 @@ function RotacijaDiska_View_0 (_topFrame) {
 }
 
 
-//--><!]]></script>
+</script>
  
    <div class="container moj-header">
      
@@ -1322,12 +1322,12 @@ function RotacijaDiska_View_0 (_topFrame) {
 	</div>
 	  <div class="row">
     <div id="copyright_message">
-      <!--div class="cc_left"  style="float:left">&#169; 2019, Slobodan Tršek.</div-->
+      <!--div class="cc_left"  style="float:left">&#169; 2025, Slobodan Tršek.</div-->
       <div class="cc_right" style="float:right">    Released under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US"> <img alt="Creative Commons Attribution-NonCommercial-ShareAlike" src="_ejs_library/images/cc_icon.png" /> </a> license.</div>
     </div>
 	</div>
   </div>
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
+    <script>
     
 	// Глобалне променљиве за модел
   var _model;
@@ -1343,7 +1343,7 @@ function RotacijaDiska_View_0 (_topFrame) {
   */
 
   // Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
-  function initDiskRotationSimulation() {
+  function initRotacijaDiskaSimulation() {
     // Постављамо модел у глобалну променљиву
     _model = new RotacijaDiska("_topFrame", "/_ejs_library/", null);
     if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
