@@ -3,14 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
    <% include ../../partials/head %>
-   <meta name="description" content="A simulation of vertical upward throw along with a brief overview of the theory behind vertical motion. 
-   Simulation created using Easy Java Simulation (EJS)." />
-<meta name="keywords" content="Vertical throw, motion of a body, Earth's gravitational field, magnitude of initial velocity vector, 
-   gravitational force, free fall, gravitational acceleration, highest point of the trajectory, measuring maximum height, 
-   potential energy, potential energy in vertical throw" />
+   <title>Vertical Throw Simulation – Explore Upward Motion Under Gravity</title>
+  <meta name="description" content="Interactive simulation of vertical upward motion under gravity. Learn about velocity, displacement, and maximum height through formulas and visualizations. Created using Easy Java Simulations (EJS).">
+  <meta name="keywords" content="vertical throw, upward motion, projectile motion, gravity, free fall, initial velocity, maximum height, gravitational acceleration, vertical displacement, physics simulation, Easy Java Simulations, EJS, kinematics, motion equations, vertical motion">
+  <link rel="canonical" href="https://kosi-hitac.onrender.com/en/vertical_throw" />
 
 	<meta name="author" content="Slobodan Trsek"/>
-    <title>Home Page for Vertical Throw</title>
+    
 
   </head>
   <body>
@@ -22,18 +21,18 @@
             </header>
         </div>
 </div>
-<div id="contents_vertical_throw" class="content intro_1">
-  <div class="intro_1">
-  <% console.log('ulazim u partial Contents'); %>
-  <% include ./VerticalThrow_Contents %>
-	</div>
-	
-	<div id="introduction_vertical_throw" class="intro_2">
-	
-	<% include ./VerticalThrow_Intro_1 %>
 
-   </div>
-   </div>
+   
+	   <div id="contents_vertical_throw" class="intro_1">
+        <div class="intro_1">
+		<%- include(path1); %>
+      
+        </div>
+        <div id="introduction_vertical_throw" class="intro_2">
+        <%- include(path2); %>
+
+        </div>
+      </div>
    
    
    <div class="content">
