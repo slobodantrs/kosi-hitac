@@ -18,7 +18,7 @@ const router = express.Router();
 	res.render('pages/testHTML5/index');
     //res.render('pages/ejss_model_MassAndSpring/MassAndSpring_Simulation.xhtml');
 });
-
+/*
 router.get('/simulacija_Masa_i_Opruga', function(req, res) {
 	console.log(`Correct!!!!!`);
 	//res.render('pages/simulacija');
@@ -34,7 +34,7 @@ router.get('/simulacija_Masa_i_Opruga/MassAndSpring_Intro_2', function(req, res)
 	
     res.render('pages/ejss_model_MassAndSpring/MassAndSpring_Intro_2');
 });
-
+*/
 // about page 
 var OpsteController = require('../controllers/OpsteController');
  router.get('/o_ejsu', OpsteController.O_Ejsu);
