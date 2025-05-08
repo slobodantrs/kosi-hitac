@@ -51,7 +51,12 @@
 	 <script>
  
   document.addEventListener('DOMContentLoaded', () => {
-  const introEl = document.getElementById('uvod_rotacija');
+  // Sad element već treba da postoji (ili ga dinamički kreiraj)
+    const introEl = document.getElementById('uvod_rotacija_diska');
+    if (!introEl) {
+      console.warn('Container #uvod_rotacija_diska not found in DOM');
+      return;
+    }
   document.getElementById('contents_rotacija_diska').addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
