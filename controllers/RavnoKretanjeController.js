@@ -29,6 +29,8 @@ const methods = {
       ? './RavnoKretanje_Intro_1'
       : (id === 2)
         ? './RavnoKretanje_Intro_2'
+		 : (id === 3)
+		 ? './RavnoKretanje_Intro_3'
         : './RavnoKretanje_Simulation',
     locale: req.locale
   };
@@ -79,6 +81,7 @@ const methods = {
       ? './RigidBodyMotion_Intro_1'
       : (id === 2)
         ? './RigidBodyMotion_Intro_2'
+		: (id === 3) ? './RigidBodyMotion_Intro_3'
         : './RigidBodyMotion_Simulation',
     locale: req.locale
   };
