@@ -115,7 +115,7 @@ router.get('/contents_ravno_kretanje', RavnoKretanjeController.RavnoKretanjeCont
 router.get('/ravno_kretanje_intro_1', RavnoKretanjeController.RavnoKretanje1);
 router.get('/ravno_kretanje_intro_2', RavnoKretanjeController.RavnoKretanje2);
 router.get('/ravno_kretanje_intro_3', RavnoKretanjeController.RavnoKretanje3);
-router.get('/ravno_kretanje_intro_4', RavnoKretanjeController.RavnoKretanje4);
+
 router.get('/simulacija_ravno_kretanje', RavnoKretanjeController.RavnoKretanjeSimulacija);
 
 router.get('/en', function(req, res) {
@@ -214,7 +214,7 @@ router.get('/en/contents_rigid_body_motion', RavnoKretanjeController.RavnoKretan
 router.get('/en/rigid_body_motion_intro_1',  RavnoKretanjeController.RavnoKretanje1_EN);
 router.get('/en/rigid_body_motion_intro_2',  RavnoKretanjeController.RavnoKretanje2_EN);
 router.get('/en/rigid_body_motion_intro_3',  RavnoKretanjeController.RavnoKretanje3_EN);
-router.get('/en/rigid_body_motion_intro_4',  RavnoKretanjeController.RavnoKretanje4_EN);
+
 router.get('/en/simulation_rigid_body_motion', RavnoKretanjeController.RavnoKretanjeSimulacija_EN);
 
 

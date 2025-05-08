@@ -16,11 +16,7 @@ const methods = {
     console.log("RKC: RavnoKretanje3");
     res.render('pages/ejss_model_RavnoKretanje/RavnoKretanje_Intro_3');
   },
-
-  RavnoKretanje4: function(req, res) {
-    console.log("RKC: RavnoKretanje4");
-    res.render('pages/ejss_model_RavnoKretanje/RavnoKretanje_Intro_4');
-  },
+  
 
   RavnoKretanje: function(req, res) {
     console.log("RKC: RavnoKretanje");
@@ -69,11 +65,7 @@ const methods = {
     console.log("RKC: RavnoKretanje3_EN");
     res.render('pages-en/ejss_model_RigidBodyMotion/RigidBodyMotion_Intro_3');
   },
-
-  RavnoKretanje4_EN: function(req, res) {
-    console.log("RKC: RavnoKretanje4_EN");
-    res.render('pages-en/ejss_model_RigidBodyMotion/RigidBodyMotion_Intro_4');
-  },
+ 
 
   RavnoKretanje_EN: function(req, res) {
     console.log("RKC: RavnoKretanje_EN");

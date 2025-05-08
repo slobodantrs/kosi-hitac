@@ -157,12 +157,12 @@ const slugMap = {
   '/rotacija_diska_intro_4':           '/en/disk_rotation_intro_4',
 
   // Ravno kretanje točka (Rigid Body Motion)
-  '/ravno_kretanje_tocka':               '/en/rigid_body_motion',
-  '/contents_ravno_kretanje_tocka':      '/en/contents_rigid_body_motion',
-  '/simulacija_ravno_kretanje_tocka':    '/en/simulation_rigid_body_motion',
-  '/ravno_kretanje_tocka_intro_1':         '/en/rigid_body_motion_intro_1',
-  '/ravno_kretanje_tocka_intro_2':       '/en/rigid_body_motion_intro_2',
-  '/ravno_kretanje_tocka_Intro_3':       '/en/rigid_body_motion_intro_3'
+  '/ravno_kretanje':               '/en/rigid_body_motion',
+  '/contents_ravno_kretanje':      '/en/contents_rigid_body_motion',
+  '/simulacija_ravno_kretanje':    '/en/simulation_rigid_body_motion',
+  '/ravno_kretanje_intro_1':         '/en/rigid_body_motion_intro_1',
+  '/ravno_kretanje_intro_2':       '/en/rigid_body_motion_intro_2',
+  '/ravno_kretanje_Intro_3':       '/en/rigid_body_motion_intro_3'
 };
 
 
