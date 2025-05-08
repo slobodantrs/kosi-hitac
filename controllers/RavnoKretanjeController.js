@@ -62,17 +62,17 @@ const methods = {
 
   RavnoKretanje2_EN: function(req, res) {
     console.log("RKC: RavnoKretanje2_EN");
-    res.render('pages-en/ejss_model_RigidBodyMotion/rigidBodyMotion_Intro_2');
+    res.render('pages-en/ejss_model_RigidBodyMotion/RigidBodyMotion_Intro_2');
   },
 
   RavnoKretanje3_EN: function(req, res) {
     console.log("RKC: RavnoKretanje3_EN");
-    res.render('pages-en/ejss_model_RigidBodyMotion/rigidBodyMotion_Intro_3');
+    res.render('pages-en/ejss_model_RigidBodyMotion/RigidBodyMotion_Intro_3');
   },
 
   RavnoKretanje4_EN: function(req, res) {
     console.log("RKC: RavnoKretanje4_EN");
-    res.render('pages-en/ejss_model_RigidBodyMotion/rigidBodyMotion_Intro_4');
+    res.render('pages-en/ejss_model_RigidBodyMotion/RigidBodyMotion_Intro_4');
   },
 
   RavnoKretanje_EN: function(req, res) {
@@ -84,7 +84,7 @@ const methods = {
     id: id,
     path1: './RigidBodyMotion_Contents',
     path2: (id === 1)
-      ? './RavnoKretanje_Intro_1'
+      ? './RigidBodyMotion_Intro_1'
       : (id === 2)
         ? './RigidBodyMotion_Intro_2'
         : './RigidBodyMotion_Simulation',
@@ -95,17 +95,17 @@ const methods = {
     console.log('EN path1 > ' + data.path1);
     console.log('EN path2 > ' + data.path2);
 
-    res.render('pages-en/ejss_model_RigidBodyMotion/rigidBodyMotion', data);
+    res.render('pages-en/ejss_model_RigidBodyMotion/RigidBodyMotion', data);
   },
 
   RavnoKretanjeContents_EN: function(req, res) {
     console.log("RKC: RavnoKretanjeContents_EN");
-    res.render('pages-en/ejss_model_RigidBodyMotion/rigidBodyMotion_Contents');
+    res.render('pages-en/ejss_model_RigidBodyMotion/RigidBodyMotion_Contents');
   },
 
   RavnoKretanjeSimulacija_EN: function(req, res) {
     console.log("RKC: RavnoKretanjeSimulacija_EN");
-    res.render('pages-en/ejss_model_RigidBodyMotion/rigidBodyMotion_Simulation');
+    res.render('pages-en/ejss_model_RigidBodyMotion/RigidBodyMotion_Simulation');
   }
 };
 

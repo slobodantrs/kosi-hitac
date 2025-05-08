@@ -206,6 +206,17 @@ router.get('/en/circular_motion_intro_1', KruznoKretanjeMTController.KruznoKreta
 router.get('/en/circular_motion_intro_2', KruznoKretanjeMTController.KruznoKretanjeMT2_EN);
 router.get('/en/simulation_circular_motion', KruznoKretanjeMTController.KruznoKretanjeMT_Simulation_EN);
 
+// ——— ENGLISH VERSION ———
+// Prefiksujemo sa /en/rigid_body_motion
+router.get('/en/rigid_body_motion',          RavnoKretanjeController.RavnoKretanje_EN);
+router.get('/en/rigid_body_motion/:id',      RavnoKretanjeController.RavnoKretanje_EN);
+router.get('/en/contents_rigid_body_motion', RavnoKretanjeController.RavnoKretanjeContents_EN);
+router.get('/en/rigid_body_motion_intro_1',  RavnoKretanjeController.RavnoKretanje1_EN);
+router.get('/en/rigid_body_motion_intro_2',  RavnoKretanjeController.RavnoKretanje2_EN);
+router.get('/en/rigid_body_motion_intro_3',  RavnoKretanjeController.RavnoKretanje3_EN);
+router.get('/en/rigid_body_motion_intro_4',  RavnoKretanjeController.RavnoKretanje4_EN);
+router.get('/en/simulation_rigid_body_motion', RavnoKretanjeController.RavnoKretanjeSimulacija_EN);
+
 
 const path = require('path');
 const options = {
