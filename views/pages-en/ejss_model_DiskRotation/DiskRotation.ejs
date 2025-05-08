@@ -5,9 +5,7 @@
 <head>
 
   <% include ../../partials/head %>
-  <link rel="stylesheet"  type="text/css" href="/_ejs_library/css/ejss.css" />
-  
-    <link rel="stylesheet" type="text/css" href="/_ejs_library/css/ejsContentsLeft.css"></link>
+ 
    
 <!-- AFTER your bootstrap.css, BEFORE any </head> -->
 
@@ -28,16 +26,19 @@
         <% include ../../partials/header %>
       </div>
     </div>
-    <div class="row">
-      <div id="contents" class="intro_1">
+	
+      <div id="contents_disk_rotation" class="intro_1">
         <div class="intro_1">
-          <% include ./DiskRotation_Contents %>
+		<%- include(path1); %>
+      
         </div>
-        <div id="intro" class="intro_2">
-          <% include ./DiskRotation_Intro_1 %>
+        <div id="introduction_disk_rotation" class="intro_2">
+        <%- include(path2); %>
+
         </div>
       </div>
-    </div>
+	
+	
     <div class="row">
       <div class="content">
         <footer>
@@ -50,8 +51,8 @@
   <script>
  
   document.addEventListener('DOMContentLoaded', () => {
-  const introEl = document.getElementById('intro');
-  document.getElementById('contents').addEventListener('click', async e => {
+  const introEl = document.getElementById('introduction_disk_rotation');
+  document.getElementById('contents_disk_rotation').addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
     e.preventDefault();
@@ -74,7 +75,7 @@
     });
     
     // 4) убaci саму симулацију у intro
-    if (a.dataset.id === 'Simulation') {
+    if (a.dataset.id === 'simulation_disk_rotation') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';

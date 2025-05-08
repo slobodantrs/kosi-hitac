@@ -1,7 +1,7 @@
    
     
    
-<script type="text/javascript"><!--//--><![CDATA[//><!--
+<script>
 /* _inputParameters: an object with different values for the model parameters */
 function DiskRotation(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
@@ -1290,7 +1290,12 @@ function RotacijaDiska_View_0 (_topFrame) {
 
     _view._addElement(EJSS_INTERFACE.panel,"narrativePanel2", _view.singleDrawing3DPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel2'
       .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'narrativePanel2'
-      .setProperty("Html","<h2>Opis 3D simulacije</h2> <p>U početku simulacije obrtanje je ravnomerno ubrzano zbog projekcije sile F na tangencijalni pravac u ravni obrtanja diska</p> <p>Može se primetiti da se vektori ugaone brzine W i momenta količine kretanja L menjaju tokom vremena </p> <p>Po prestanku dejstva sile F, intenziteti ovih vektora dalje ostaju konstantni</p> <p>Na početku simulcije na kuglu deluje sila F pod nekim uglom <strong>psi</strong> u odnosu na pravac poliprečnika.  Ova sila se vidi na simulaciji(sila) plavom bojom, deblja linija, dok su tanje linije njene projekcije na normalni i tangentni pravac.</p>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel2'
+      .setProperty("Html",`<h2>Description of the 3D Simulation</h2>
+<p>At the beginning of the simulation, the rotation is uniformly accelerated due to the projection of force F onto the tangential direction in the plane of the disk's rotation.</p>
+<p>It can be observed that the vectors of angular velocity W and angular momentum L change over time.</p>
+<p>Once the force F ceases to act, the magnitudes of these vectors remain constant.</p>
+<p>At the start of the simulation, a force F acts on the sphere at an angle <strong>psi</strong> relative to the radial direction. This force is shown in the simulation (as "force") in blue with a thicker line, while the thinner lines represent its projections onto the normal and tangential directions.</p>
+`) // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel2'
       ;
 
   };
@@ -1299,7 +1304,7 @@ function RotacijaDiska_View_0 (_topFrame) {
 }
 
 
-//--><!]]></script>
+</script>
   
    <div class="container moj-header">
     
