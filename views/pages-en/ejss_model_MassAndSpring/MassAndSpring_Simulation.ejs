@@ -12,10 +12,8 @@
     <title>Masa i opruga</title>
     <link rel="stylesheet"  type="text/css" href="./_ejs_library/css/ejss.css" />
 	<link rel="canonical" href="https://kosi-hitac.onrender.com/simulacija_Masa_i_Opruga" />
-    <script src="./_ejs_library/scripts/common_script.js"></script>
-    <script src="./_ejs_library/scripts/textresizedetector.js"></script>
-    <script src="./_ejs_library/ejsS.v1.min.js"></script>
-<script type="text/javascript"><!--//--><![CDATA[//><!--
+   
+<script>
 /* _inputParameters: an object with different values for the model parameters */
 function MassAndSpring(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
@@ -720,7 +718,7 @@ function MassAndSpring_View_0 (_topFrame) {
 }
 
 
-//--><!]]></script>
+</script>
   </head>
   <body>
    <div class="content-wrapper moj-header">
@@ -732,64 +730,64 @@ function MassAndSpring_View_0 (_topFrame) {
             </header>
         </div>
 
-	  <div class="moj_tekst">
- 
-    <h1><strong>Masa–opruga u horizontalnoj ravni</strong></h1><br>
+	 <div class="moj_tekst">
 
-    <p>
-      Razmatramo sistem u kome je kuglica mase <code>m</code> pričvršćena za jednu kraj opruge sa konstantom krutosti <code>k</code>, dok je drugi kraj opruge učvršćen za čvrstu podlogu. Ovaj sistem leži na horizontalnoj ravni bez trenja, pa se kuglica može slobodno kretati duž ose opruge.
-    </p>
+  <h1><strong>Mass–Spring System on a Horizontal Surface</strong></h1><br>
 
-    <p>
-      Kada primenimo spoljašnju silu <code>F</code> na kuglicu i istegnemo oprugu za udaljenost <code>x</code> od ravnotežnog položaja, opruga reaguje povratnom silom prema Hooke‑ovom zakonu:
-      <br>
-      <code>F<sub>s</sub> = −k·x</code>
-      <br>
-      Pri čemu znak „−“ označava da je sila usmerena suprotno pomeranju, vraćajući sistem ka ravnoteži.
-    </p>
+  <p>
+    We consider a system where a ball of mass <code>m</code> is attached to one end of a spring with stiffness constant <code>k</code>, while the other end of the spring is fixed to a rigid surface. The system rests on a frictionless horizontal surface, allowing the ball to move freely along the spring's axis.
+  </p>
 
-    <p>
-      Kada sila <code>F</code> prestane da deluje, nema više spoljašnjeg uzroka pomeranja, ali povratna sila opruge pokreće kuglicu nazad prema sredini. Zbog inercije, kuglica promašuje ravnotežni položaj i nastavlja dalje na suprotnu stranu, gde je ponovo usporena i vraćena nazad. Ovaj ciklus se ponavlja – kuglica osciluje oko ravnoteže.
-    </p>
+  <p>
+    When an external force <code>F</code> is applied to the ball and stretches the spring by a distance <code>x</code> from the equilibrium position, the spring responds with a restoring force according to Hooke’s law:
+    <br>
+    <code>F<sub>s</sub> = −k·x</code>
+    <br>
+    Here, the minus sign indicates that the force is directed opposite to the displacement, pulling the system back toward equilibrium.
+  </p>
 
-    <p>
-      Jednačina kretanja je data diferencijalnom jednačinom:
-      <br>
-      <code>m·d²x/dt² + k·x = 0</code>
-      <br>
-      Ovo je klasična forma linearno harmonijskog oscilatora. Rešenje je:
-      <br>
-      <code>x(t) = A·cos(ω·t + φ)</code>,
-      <br>
-      gde je <code>ω = √(k/m)</code> ugaona frekvencija, <code>A</code> amplituda oscilacije, a <code>φ</code> fazni pomak.
-    </p>
+  <p>
+    When the force <code>F</code> stops acting, there is no longer any external cause for movement, but the restoring force of the spring pushes the ball back toward the center. Due to inertia, the ball overshoots the equilibrium position and continues to the opposite side, where it is again slowed down and pulled back. This cycle repeats – the ball oscillates around the equilibrium point.
+  </p>
 
-    <p>
-      U harmonijskom oscilatoru energija se naizmenično čuva između potencijalne energije opruge
-      <code>U = ½·k·x²</code>
-      i kinetičke energije kuglice
-      <code>K = ½·m·v²</code>,
-      pri čemu je ukupna energija konstanta.
-    </p>
+  <p>
+    The equation of motion is given by the differential equation:
+    <br>
+    <code>m·d²x/dt² + k·x = 0</code>
+    <br>
+    This is the classical form of a linear harmonic oscillator. The solution is:
+    <br>
+    <code>x(t) = A·cos(ω·t + φ)</code>,
+    <br>
+    where <code>ω = √(k/m)</code> is the angular frequency, <code>A</code> the amplitude of oscillation, and <code>φ</code> the phase shift.
+  </p>
 
-    <h3>Primer animacije:</h3>
-    <div id="sketch-holder"></div>
-    <p class="mt-4">
-      U nastavku možete podešavati parametre mase <code>m</code>, krutosti opruge <code>k</code> i početno istezanje <code>A</code>, kako biste videli kako se menja frekvencija i oblik oscilacija u realnom vremenu.
-    </p>
-	<div class="video-container" style="text-align:center;">
-  <iframe
-    width="560" height="315"
-    src="https://www.youtube.com/embed/-OpQgBYOFao"
-    title="Linijski harmonijski oscilator"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
+  <p>
+    In a harmonic oscillator, energy is continuously exchanged between the spring’s potential energy
+    <code>U = ½·k·x²</code>
+    and the ball’s kinetic energy
+    <code>K = ½·m·v²</code>,
+    while the total energy remains constant.
+  </p>
 
+  <h3>Animation Example:</h3>
+  <div id="sketch-holder"></div>
+  <p class="mt-4">
+    Below you can adjust the values of mass <code>m</code>, spring stiffness <code>k</code>, and initial stretch <code>A</code> to see how the frequency and shape of oscillations change in real time.
+  </p>
+
+  <div class="video-container" style="text-align:center;">
+    <iframe
+      width="560" height="315"
+      src="https://www.youtube.com/embed/-OpQgBYOFao"
+      title="Linear Harmonic Oscillator"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
   </div>
 
+</div>
 
  
 
@@ -800,9 +798,9 @@ function MassAndSpring_View_0 (_topFrame) {
     <br />
     <div id="title_author">
       <hr />
-      <b>Naslov i autor:</b>
+      <b>Title and author:</b>
       <p>
-      Masa i opruga<br />
+      Mass and spring<br />
      <img alt="Logo" src="images/MassAndSpring/MassAndSpring.png" />
       </p>
       <p>
