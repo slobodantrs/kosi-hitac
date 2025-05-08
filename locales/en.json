@@ -41,6 +41,10 @@
 "ravno_Kretanje_Uvod2": "Introduction 2",
 "ravno_Kretanje_Uvod3": "Problem Description 1",
 "ravno_Kretanje_Simulacija": "Simulation",
+ "masa_I_Opruga": "Mass and Spring",
+  "masa_I_Opruga_Uvod1": "Introduction",
+  "masa_I_Opruga_Uvod2": "Problem Description",
+  "masa_I_Opruga_Simulacija": "Simulation",
 
   "slobodan_Pad": "Free Fall",
   "telo": "Phisical Body"

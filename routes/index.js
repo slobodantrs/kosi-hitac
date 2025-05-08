@@ -118,6 +118,27 @@ router.get('/ravno_kretanje_intro_3', RavnoKretanjeController.RavnoKretanje3);
 
 router.get('/simulacija_ravno_kretanje', RavnoKretanjeController.RavnoKretanjeSimulacija);
 
+// routes/index.js
+
+// Masa i opruga
+var MasaIOprugaController = require('../controllers/MasaIOprugaController');
+console.log(`MasaIOprugaController u index.js: `, MasaIOprugaController);
+
+// Intro pages
+router.get('/masa_i_opruga_intro_1', MasaIOprugaController.MasaIOpruga1);
+router.get('/masa_i_opruga_intro_2', MasaIOprugaController.MasaIOpruga2);
+
+// Main dynamic page (optionally with id)
+router.get('/masa_i_opruga', MasaIOprugaController.MasaIOpruga);
+router.get('/masa_i_opruga/:id', MasaIOprugaController.MasaIOpruga);
+
+// Contents partial
+router.get('/contents_masa_i_opruga', MasaIOprugaController.MasaIOprugaContents);
+
+// Simulation page
+router.get('/simulacija_masa_i_opruga', MasaIOprugaController.MasaIOpruga_Simulation);
+
+
 router.get('/en', function(req, res) {
 	
 	res.render('pages-en/index');
