@@ -4,6 +4,9 @@ let canvas;
 let container;
 let path = [];
 
+function getT(key) {
+  return (window.translations && window.translations[key]) || key;
+}
 function setup() {
   canvas = createCanvas(700, 700, P2D);
   container = document.getElementById('kruzni-canvas');
@@ -22,8 +25,11 @@ function draw() {
   noStroke();
   fill(0);
   textSize(24);
-  text('v = const', 20, 30);
-  text('ω = const', 20, 60);
+ // text('v = const', 20, 30);
+ // text('ω = const', 20, 60);
+  // Prikaz konstanti
+text(getT('velocityConst'), 20, 30);
+text(getT('omegaConst'),   20, 60);
 
   // Obeležavanje centra rotacije
   fill(0);
@@ -106,7 +112,7 @@ function drawArrow(x, y, dx, dy, label) {
   textSize(32);
   text(label, x + dx + 10, y + dy + 5);
 }
-
+/*
 function drawLegend() {
   push();
     const startX = width - 300;
@@ -133,5 +139,34 @@ function drawLegend() {
     line(startX, startY + 100, startX + 40, startY + 100);
     noStroke(); fill(0,0,255);
     text('Fn (Fc) – centripetalna sila', startX + 50, startY + 105);
+  pop();
+}
+*/
+function drawLegend() {
+  push();
+    const startX = width - 300;
+    const startY = height - 140;
+    textSize(20);
+    noStroke();
+    fill(0);
+    text(getT('legendTitle'), startX, startY);
+
+    // v – linijska brzina
+    stroke(0,200,0); strokeWeight(3);
+    line(startX, startY + 20, startX + 40, startY + 20);
+    noStroke(); fill(0,200,0);
+    text(getT('legendV'), startX + 50, startY + 25);
+
+    // an – normalno ubrzanje
+    stroke(255,100,0);
+    line(startX, startY + 60, startX + 40, startY + 60);
+    noStroke(); fill(255,100,0);
+    text(getT('legendAN'), startX + 50, startY + 65);
+
+    // Fn (Fc) – centripetalna sila
+    stroke(0,0,255);
+    line(startX, startY + 100, startX + 40, startY + 100);
+    noStroke(); fill(0,0,255);
+    text(getT('legendFc'), startX + 50, startY + 105);
   pop();
 }
