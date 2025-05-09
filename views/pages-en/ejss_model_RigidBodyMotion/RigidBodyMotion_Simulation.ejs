@@ -654,8 +654,8 @@ function RavnoKretanjeTocka_View (_topFrame,_viewNumber,_libraryPath,_codebasePa
 
   if (_libraryPath) _view._setLibraryPath(_libraryPath);
 
-  _view._addDescriptionPage('Uvod','./RavnoKretanjeTocka_Intro_1.html');
-  _view._addDescriptionPage('Zadatak','./RavnoKretanjeTocka_Intro_2.html');
+  _view._addDescriptionPage('Introduction','./RavnoKretanjeTocka_Intro_1.html');
+  _view._addDescriptionPage('Task','./RavnoKretanjeTocka_Intro_2.html');
 
   return _view;
 } // end of main function
@@ -672,7 +672,7 @@ function RavnoKretanjeTocka_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"topLabel", _view.labelPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'topLabel'
-      .setProperty("Text","<h1>Ravno kretanje točka(krutog tela)</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel'
+      .setProperty("Text","<h1>Rigid body motion</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel'
       ;
 
     _view._addElement(EJSS_INTERFACE.wrappedPanel,"wrappedPanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'wrappedPanel'
@@ -718,7 +718,7 @@ function RavnoKretanjeTocka_View_0 (_topFrame) {
       .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'xOsa'
       ;
 
-    _view._addElement(EJSS_DRAWING2D.arrow,"yOsa", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'yOsa'
+    _view._addElement(EJSS_DRAWING2D.arrow,"yAxis", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'yOsa'
       .setProperty("MarkEnd","CURVE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'yOsa'
       .setProperty("SizeX",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'yOsa'
       .setProperty("MarkEndHeight",6) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndHeight' for element 'yOsa'
@@ -904,23 +904,23 @@ function RavnoKretanjeTocka_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.checkBox,"brzineCheckBox", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'brzineCheckBox'
-      .setProperty("Text","vektori brzina") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzineCheckBox'
+      .setProperty("Text","velocity vectors") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzineCheckBox'
       ;
 
     _view._addElement(EJSS_INTERFACE.checkBox,"brzineKomp", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'brzineKomp'
-      .setProperty("Text","vektori komponenti brzina") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzineKomp'
+      .setProperty("Text","velocity component vectors") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzineKomp'
       ;
 
     _view._addElement(EJSS_INTERFACE.checkBox,"brzinePom", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'brzinePom'
-      .setProperty("Text","brzine-pomocne linije") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzinePom'
+      .setProperty("Text","speed-auxiliary lines") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzinePom'
       ;
 
     _view._addElement(EJSS_INTERFACE.checkBox,"ubrzanjeGlChb", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'ubrzanjeGlChb'
-      .setProperty("Text","vektori ubrzanja") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ubrzanjeGlChb'
+      .setProperty("Text","acceleration vectors") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ubrzanjeGlChb'
       ;
 
     _view._addElement(EJSS_INTERFACE.checkBox,"ubrzanjeKomChb", _view.executionPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'ubrzanjeKomChb'
-      .setProperty("Text","ubrzanja -komponente") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ubrzanjeKomChb'
+      .setProperty("Text","acceleration components") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ubrzanjeKomChb'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"narrativePanel", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel'
