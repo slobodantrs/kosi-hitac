@@ -54,6 +54,7 @@
   const introEl = document.getElementById('introduction_projectile_motion');
  // const sadrzaj=document.getElementById('contents_projectile_motion');
   sadrzaj.addEventListener('click', async e => {
+   console.log('addEventListener fired');
     const a = e.target.closest('a[data-id]');
     if (!a) return;
     e.preventDefault();
@@ -78,6 +79,7 @@
     // 4) убaci саму симулацију у uvod_vertikalni_hitac
     if (a.dataset.id === 'simulation_projectile_motion') {
       // simulacija: izvuci njen kontejner
+	 
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
       if (frag) introEl.appendChild(frag);
