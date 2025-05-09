@@ -48,8 +48,11 @@
 <script>
  
   document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOMContentLoaded fired');
+  const sadrzaj = document.getElementById('contents_projectile_motion');
+  console.log('Found #contents_projectile_motion:', sadrzaj);
   const introEl = document.getElementById('introduction_projectile_motion');
-  const sadrzaj=document.getElementById('contents_projectile_motion');
+ // const sadrzaj=document.getElementById('contents_projectile_motion');
   sadrzaj.addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
