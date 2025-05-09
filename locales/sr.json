@@ -53,8 +53,8 @@
 	"velocityConst": "v = const",
     "omegaConst": "ω = const",
     "legendTitle": "Legenda:",
-    "legend.v": "v – linijska brzina",
-    "legend.aN": "an – normalno ubrzanje",
-    "legend.Fc": "Fn (Fc) – centripetalna sila"
+    "legendV": "v – linijska brzina",
+    "legendAN": "an – normalno ubrzanje",
+    "legendFc": "Fn (Fc) – centripetalna sila"
   }
 }

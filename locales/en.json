@@ -54,8 +54,8 @@
 	"velocityConst": "v = const",
     "omegaConst": "ω = const",
     "legendTitle": "Legend:",
-    "legend.v": "v – linear velocity",
-    "legend.aN": "aₙ – normal acceleration",
-    "legend.Fc": "Fₙ (Fₙ) – centripetal force"
+    "legendV": "v – linear velocity",
+    "legendAN": "aₙ – normal acceleration",
+    "legendFc": "Fₙ (Fₙ) – centripetal force"
   }
 }
