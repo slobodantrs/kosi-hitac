@@ -213,7 +213,16 @@ app.use(router);
 
 
 
-
+// PREUSMERENJE STARIH URL-ova NA NOVE
+// Mora da stoji pre: app.use('/', routes);
+app.get('/Kruzno_Kretanje_MT', (req, res) => {
+  res.redirect(301, '/kruzno_kretanje');
+});
+// Ako je indeksirano i sa id, npr. /Kruzno_Kretanje_MT/1
+app.get('/Kruzno_Kretanje_MT/:id', (req, res) => {
+  const id = req.params.id;
+  res.redirect(301, `/kruzno_kretanje/${id}`);
+});
 
 app.use('/', routes);
 
