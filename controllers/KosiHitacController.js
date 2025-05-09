@@ -77,7 +77,7 @@ KosHitac_EN: function(req, res) {
     locale: req.locale
   };
 
-  console.log('ProjectileMotion_EN, id =', id, '→ path2 =', data.path2);
+  console.log('ProjectileMotion_EN, id =', id,'→ path1 =', data.path1, '→ path2 =', data.path2);
   res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion', data);
 },
 
