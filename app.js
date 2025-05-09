@@ -165,12 +165,13 @@ const slugMap = {
   '/ravno_kretanje_intro_3':       '/en/rigid_body_motion_intro_3',
   
   // Masa i opruga (Mass and Spring)
-  '/masa_i_opruga':                   '/en/simulation_mass_and_spring',
-  '/masa_i_opruga/1':                 '/en/simulation_mass_and_spring/1',  // opciono
-  '/masa_i_opruga/2':                 '/en/simulation_mass_and_spring/2',  // opciono
+  '/masa_i_opruga':                   '/en/mass_and_spring',
+  '/masa_i_opruga/1':                 '/en/mass_and_spring/1',  // opciono
+  '/masa_i_opruga/2':                 '/en/mass_and_spring/2',  // opciono
   '/contents_masa_i_opruga':          '/en/contents_mass_and_spring',
-  '/masa_i_opruga_intro_1':           '/en/simulation_mass_and_spring_intro_1',
-  '/masa_i_opruga_intro_2':           '/en/simulation_mass_and_spring_intro_2'
+  '/masa_i_opruga_intro_1':           '/en/mass_and_spring_intro_1',
+  '/masa_i_opruga_intro_2':           '/en/mass_and_spring_intro_2',
+  '/simulacija_masa_i_opruga':        '/en/simulation_mass_and_spring',
 };
 
 

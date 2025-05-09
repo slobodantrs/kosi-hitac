@@ -1,21 +1,11 @@
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-  <head>
-    <title>Contents</title>
-    <base target="_self" />
-    <link rel="stylesheet" type="text/css" href="_ejs_library/css/ejsContentsLeft.css"></link>
-  </head>
-  <body>
-    <h1>Mass and Spring</h1>
-    <h2><b>Contents</b></h2>
+<h2><b>Sadržaj</b></h2>
     <div class="contents">
-	 
-      <div class="intro"><a href="/simulacija/MassAndSpring_Intro_1" target="central">Uvod</a></div>
-      <div class="intro"><a href="/simulacija/MassAndSpring_Intro_2" target="central">Aktivnosti</a></div>
-      <div class="simulation"><a href="/simulacija" target="central">Masa i opruga</a></div>
-	  
+     <div class="intro"><a href="<%= navHref('/masa_i_opruga_intro_1') %>" data-id="mass_and_spring_intro_1"><%= __('nav.masa_I_Opruga_Uvod1') %></a></div>
+      <div class="intro"><a href="<%= navHref('/masa_i_opruga_intro_2') %>" data-id="mass_and_spring_intro_2"><%= __('nav.masa_I_Opruga_Uvod2') %></a></div>
+   
+     
+	  <div class="Simulation"><a href="<%= navHref('/simulacija_masa_i_opruga') %>" data-id="simulation_mass_and_spring" ><%= __('nav.masa_I_Opruga_Simulacija') %></a></div>
     </div>
-    <div class="signature">Kreirano sa  <a href="http://www.um.es/fem/EjsWiki" target="_blank">Easy Java Simulations</a></div>
-  </body>
-</html>
+    <div class="signature">Created with <a href="http://www.um.es/fem/EjsWiki" target="_blank">Easy Java Simulations</a></div>
+  

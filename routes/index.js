@@ -238,6 +238,20 @@ router.get('/en/rigid_body_motion_intro_3',  RavnoKretanjeController.RavnoKretan
 
 router.get('/en/simulation_rigid_body_motion', RavnoKretanjeController.RavnoKretanjeSimulacija_EN);
 
+//Mass and spring English
+// Intro pages
+router.get('/en/mass_and_spring_intro_1', MasaIOprugaController.MasaIOpruga1_EN);
+router.get('/en/mass_and_spring_intro_2', MasaIOprugaController.MasaIOpruga2_EN);
+
+// Main dynamic page (optionally with id)
+router.get('/en/simulation_mass_and_spring', MasaIOprugaController.MasaIOpruga_EN);
+router.get('/en/simulation_mass_and_spring/:id', MasaIOprugaController.MasaIOpruga_EN);
+
+// Contents partial
+router.get('/en/contents_mass_and_spring', MasaIOprugaController.MasaIOprugaContents_EN);
+
+// Simulation page
+router.get('/en/simulation_mass_and_spring', MasaIOprugaController.MasaIOpruga_Simulation_EN);
 
 const path = require('path');
 const options = {

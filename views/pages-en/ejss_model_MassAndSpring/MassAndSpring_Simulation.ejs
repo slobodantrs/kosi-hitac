@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="sr">
 
-
-  <head>
-  <% include ../../partials/head %>
-  <!--% include('partials/head') %-->
-    <meta charset="utf-8" />
-	<meta name="description" content="Interaktivna simulacija masa–opruga u horizontalnoj ravni pomoću p5.js. Istražite harmonijski oscilator, Hooke‑ov zakon, promenu energije i uticaj parametara m i k." />
-<meta name="keywords" content="masa i opruga, harmonijski oscilator, p5.js simulacija, JavaScript animacija, Hooke‑ov zakon, energija opruge, linearni oscilator, fizika, interaktivna simulacija, mehanika" />
-
-    <title>Masa i opruga</title>
-    <link rel="stylesheet"  type="text/css" href="./_ejs_library/css/ejss.css" />
-	<link rel="canonical" href="https://kosi-hitac.onrender.com/simulacija_Masa_i_Opruga" />
    
 <script>
 /* _inputParameters: an object with different values for the model parameters */
@@ -719,16 +706,10 @@ function MassAndSpring_View_0 (_topFrame) {
 
 
 </script>
-  </head>
-  <body>
+  
    <div class="content-wrapper moj-header">
   
-   
-	<div class="col-xs-12 col-md-12 col-lg-12">
-            <header>
-                <% include ../../partials/header %>
-            </header>
-        </div>
+  
 
 	 <div class="moj_tekst">
 
@@ -819,18 +800,13 @@ function MassAndSpring_View_0 (_topFrame) {
   </div>
   </div>
  
-   <footer>
-	<!--% include ('partials/scripts') %-->
-    <!--% include ('partials/footer') %-->
-	<% include ../../partials/scripts %>
-            <% include ../../partials/footer %>
-</footer>
+ 
 
-  
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
+  </div>
+    <script>
       var _model;
       var _scorm;
-      window.addEventListener('load',
+     /* window.addEventListener('load',
         function () { 
           _model =  new MassAndSpring("_topFrame","_ejs_library/",null);
           if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
@@ -842,8 +818,21 @@ function MassAndSpring_View_0 (_topFrame) {
             _model._fontResized(iBase);
           };
           _model.onload();
-        }, false);
-    //--><!]]></script>
-	</div>
-  </body>
-</html>
+        }, false);*/
+		function initMassAndSpringSimulation() {
+    // Постављамо модел у глобалну променљиву
+    _model = new MassAndSpring("_topFrame", "/_ejs_library/", null);
+    if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
+
+    TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
+    TextResizeDetector.USER_INIT_FUNC = function () {
+      var iBase = TextResizeDetector.addEventListener(function(e, args) {
+        _model._fontResized(args[0].iBase, args[0].iSize, args[0].iDelta);
+      }, null);
+      _model._fontResized(iBase);
+    };
+
+    _model.onload();
+  }
+    </script>
+
