@@ -223,6 +223,38 @@ app.get('/Kruzno_Kretanje_MT/:id', (req, res) => {
   const id = req.params.id;
   res.redirect(301, `/kruzno_kretanje/${id}`);
 });
+app.get('/Rotacija_Diska', (req, res) => {
+  res.redirect(301, '/rotacija_diska');
+});
+// Ako je indeksirano i sa id, npr. /Rotacija_Diska/1
+app.get('/Rotacija_Diska/:id', (req, res) => {
+  const id = req.params.id;
+  res.redirect(301, `/rotacija_diska/${id}`);
+});
+app.get('/vertikalan_Hitac', (req, res) => {
+  res.redirect(301, '/vertikalan_hitac');
+});
+// Ako je indeksirano i sa id, npr. /vertikalan_Hitac/1
+app.get('/vertikalan_Hitac/:id', (req, res) => {
+  const id = req.params.id;
+  res.redirect(301, `/vertikalan_hitac/${id}`);
+});
+app.get('/kos_Hitac', (req, res) => {
+  res.redirect(301, '/kosi_hitac');
+});
+// Ako je indeksirano i sa id, npr. /kos_Hitac/1
+app.get('/kos_Hitac/:id', (req, res) => {
+  const id = req.params.id;
+  res.redirect(301, `/kosi_hitac/${id}`);
+});
+app.get('/RavnoKretanjeTocka', (req, res) => {
+  res.redirect(301, '/ravno_kretanje');
+});
+// Ako je indeksirano i sa id, npr. /RavnoKretanjeTocka/1
+app.get('/RavnoKretanjeTocka/:id', (req, res) => {
+  const id = req.params.id;
+  res.redirect(301, `/ravno_kretanje/${id}`);
+});
 
 app.use('/', routes);
 
