@@ -1,4 +1,3 @@
-
 {
   "title": "Kreiranje kompjuterskih simulacija i animacija u fizici",
   "welcome": "Dobrodošli na naš sajt za interaktivne fizičke simulacije.",
@@ -12,42 +11,44 @@
     "p5js": "Uvod u P5JS",
     "animacija_kruznog_kretanja": "Animacija kružnog kretanja",
     "klizanje_tela_niz_strmu_ravan": "Klizanje tela niz strmu ravan",
-	"slobodan_Pad_Uvod1": "Slobodan pad - uvod",
+    "slobodan_Pad_Uvod1": "Slobodan pad - uvod",
     "simulacija_Slobodan_Pad": "Slobodan pad",
     "vertikalan_Hitac": "Vertikalan hitac",
-	"vertikalan_Hitac_Uvod1": "Vertikalan hitac - uvod",
-	
-	"vertikalan_Hitac_Simulacija": "Simulacija",
-	
+    "vertikalan_Hitac_Uvod1": "Vertikalan hitac - uvod",
+    "vertikalan_Hitac_Simulacija": "Simulacija",
     "kosi_Hitac": "Kosi hitac",
-	"kosi_Hitac_Uvod1": "Kosi hitac - Uvod",
-	"kosi_Hitac_Uvod2": "Kosi hitac – Zadatak",	
-	
-	"kosi_Hitac_Simulacija": "Simulacija",
+    "kosi_Hitac_Uvod1": "Kosi hitac - Uvod",
+    "kosi_Hitac_Uvod2": "Kosi hitac – Zadatak",
+    "kosi_Hitac_Simulacija": "Simulacija",
     "kruzno_Kretanje": "Kružno kretanje",
-	"kruzno_Kretanje_Uvod1": "Kružno kretanje - Uvod",
-	"kruzno_Kretanje_Uvod2": "Kružno kretanje – Zadatak",	
-	
-	"kruzno_Kretanje_Simulacija": "Simulacija",
-	
+    "kruzno_Kretanje_Uvod1": "Kružno kretanje - Uvod",
+    "kruzno_Kretanje_Uvod2": "Kružno kretanje – Zadatak",
+    "kruzno_Kretanje_Simulacija": "Simulacija",
     "rotacija_Diska": "Rotacija diska",
+    "rotacija_Diska_Uvod1": "Uvod",
+    "rotacija_Diska_Uvod2": "Zadaci",
+    "rotacija_Diska_Uvod3": "Opis zadatka 1",
+    "rotacija_Diska_Uvod4": "Opis zadatka 2",
+    "rotacija_Diska_Simulacija": "Simulacija",
     "ravno_Kretanje": "Ravno kretanje krutog tela",
-	"simulacije": "Simulacije",
-	"rotacija_Diska_Uvod1": "Uvod",
-	"rotacija_Diska_Uvod2": "Zadaci",
-	"rotacija_Diska_Uvod3": "Opis zadatka 1",
-	"rotacija_Diska_Uvod4": "Opis zadatka 2",
-	"rotacija_Diska_Simulacija": "Simulacija",
-	"ravno_Kretanje_Uvod1": "Uvod",
-	"ravno_Kretanje_Uvod2": "Uvod 2",
-	"ravno_Kretanje_Uvod3": "Opis zadatka 1",	
-	"ravno_Kretanje_Simulacija": "Simulacija",
-	"masa_I_Opruga": "Masa i opruga",
-	"masa_I_Opruga_Uvod1": "Uvod",
-	"masa_I_Opruga_Uvod2": "Opis zadatka",
-	
-	"masa_I_Opruga_Simulacija": "Simulacija",
-	"slobodan_Pad": "Slobodan Pad",
-	"telo":"telo"
+    "ravno_Kretanje_Uvod1": "Uvod",
+    "ravno_Kretanje_Uvod2": "Uvod 2",
+    "ravno_Kretanje_Uvod3": "Opis zadatka 1",
+    "ravno_Kretanje_Simulacija": "Simulacija",
+    "masa_I_Opruga": "Masa i opruga",
+    "masa_I_Opruga_Uvod1": "Uvod",
+    "masa_I_Opruga_Uvod2": "Opis zadatka",
+    "masa_I_Opruga_Simulacija": "Simulacija",
+    "slobodan_Pad": "Slobodan Pad",
+    "telo": "telo"
+  },
+  "animation": {
+    "title": "KRUŽNO KRETANJE:",
+    "instructions": "Instrukcije:",
+    "inputData": "Ulazni podaci",
+    "slowDown": "usporenje:",
+    "infoLabel": "Informacije",
+    "showV": "Prikaz brzine",
+    "showA": "Prikaz ubrzanja"
   }
 }

@@ -292,6 +292,21 @@ border-bottom:solid thick #000;
             };
         });
     </script>
+	
+	<!-- PRE INKLUDIRANJA sketch.js ubaci prevode u JS -->
+    <script>
+      window.translations = {
+        title:       "<%= __('nav.kruznog_kretanja') %>",
+        instructions:"<%= __('nav.kruznog_kretanja_Uvod1') %>",
+        inputData:   "<%= __('nav.kruznog_kretanja_InputData') %>",
+        slowDown:    "<%= __('nav.kruznog_kretanja_Usporeno') %>",
+        infoLabel:   "<%= __('nav.kruznog_kretanja_Info') %>",
+        showV:       "<%= __('nav.kruznog_kretanja_ShowVelocity') %>",
+        showA:       "<%= __('nav.kruznog_kretanja_ShowAcceleration') %>"
+        // Dodaj ovde sve ključeve koje ti sketch.js koristi…
+      };
+      window.userLang = document.documentElement.lang || 'en';
+    </script>
 	  
 <script language="javascript" type="text/javascript" src="js/p5js/KruznoKretanje/KruznoKretanje.js"></script>
 </body>

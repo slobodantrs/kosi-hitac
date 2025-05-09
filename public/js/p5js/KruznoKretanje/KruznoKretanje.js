@@ -16,6 +16,7 @@ var isMobile;
  let rPocetka=4;
  let expression;
  let langFromHTML = document.documentElement.lang; 
+ 
 
 let srLang=["KRUŽNO KRETANJE: ","Instrukcije: ",'Ulazni podaci','pozitivan smer rot.',"usporenje:",'Informacije','Prikaz brzine','Prikaz ubrzanja',
   "<p>Zdravo!</p><p> Podesite poluprečnik kružne putanje,ugaono ubrzanje, &alpha;, ugaonu brzinu &omega; korišćenjem slajdera i pritisnite start dugmeda startujete animaciju!</p>"+
@@ -103,11 +104,21 @@ function createExpressionLang() {
   const lang = (usrlang || '').substring(0, 2).toLowerCase();
   
   // Ako je bilo koja varijanta srpskog jezika (npr. "sr", "sr-rs", "sr-cyrl-rs"...)
-  if (lang.startsWith('sr')) {
+ /* if (lang.startsWith('sr')) {
     exprLang = srLang;
   } else {
     exprLang = enLang;
-  }
+  }*/
+  exprLang = [
+    window.translations.title,
+    window.translations.instructions,
+    window.translations.inputData,
+    window.translations.slowDown,
+    window.translations.infoLabel,
+    window.translations.showV,
+    window.translations.showA,
+    // … ostale stavke po istoj logici …
+  ];
 }
 
 function reset(){
