@@ -54,12 +54,12 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
    // — ENGLISH VERSION —
   KruznoKretanjeMT1_EN: function(req, res) {
     // страница Intro 1
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_11');
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_1');
   },
 
   KruznoKretanjeMT2_EN: function(req, res) {
     // страница Intro 2
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_22');
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Intro_2');
   },
 
   KruznoKretanjeMT_EN: function(req, res) {
@@ -67,29 +67,29 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
     const id = parseInt(req.params.id, 10) || 1;  // ако није prosleђено, узми 1
     const data = {
     id: id,
-    path1: './CircularMotionMT_Contents1',
+    path1: './CircularMotionMT_Contents',
     path2: (id === 1)
-      ? './CircularMotionMT_Intro_11'
+      ? './CircularMotionMT_Intro_1'
       : (id === 2)
-        ? './CircularMotionMT_Intro_22'
-        : './CircularMotionMT_Simulation1',
+        ? './CircularMotionMT_Intro_2'
+        : './CircularMotionMT_Simulation',
     locale: req.locale
   };
 
     console.log(`Circular motion EN ctrl ${id}, ${data.path1}, ${data.path2}`);
 
     // главни EJS шаблон
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT1', data);
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT', data);
   },
 
   KruznoKretanjeMTContents_EN: function(req, res) {
     // садржај странице (partials)
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Contents1');
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Contents');
   },
 
   KruznoKretanjeMT_Simulation_EN: function(req, res) {
     // страница симулације
-    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Simulation1');
+    res.render('pages-en/ejss_model_CircularMotionMT/CircularMotionMT_Simulation');
   }
 
 };
