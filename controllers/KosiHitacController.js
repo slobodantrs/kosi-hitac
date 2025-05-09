@@ -68,7 +68,7 @@ KosHitac_EN: function(req, res) {
   // odredi path1 i path2
   const data = {
     id: id,
-    path1: './ProjectileMotion_Contents',
+    path1: './ProjectileMotion_Contents1',
     path2: (id === 1)
       ? './ProjectileMotion_Intro_1'
       : (id === 2)
@@ -82,7 +82,7 @@ KosHitac_EN: function(req, res) {
 },
 
 KosHitacContents_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Contents');
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Contents1');
 },
 KosHitacSimulacija_EN: function(req, res) {
   res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Simulation');
