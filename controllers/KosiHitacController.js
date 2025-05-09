@@ -73,7 +73,7 @@ KosHitac_EN: function(req, res) {
       ? './ProjectileMotion_Intro_1'
       : (id === 2)
         ? './ProjectileMotion_Intro_2'
-        : './ProjectileMotion_Simulation',
+        : './ProjectileMotion_Simulation1',
     locale: req.locale
   };
 
@@ -85,7 +85,7 @@ KosHitacContents_EN: function(req, res) {
   res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Contents');
 },
 KosHitacSimulacija_EN: function(req, res) {
-  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Simulation');
+  res.render('pages-en/ejss_model_ProjectileMotion/ProjectileMotion_Simulation1');
 }
 
 
