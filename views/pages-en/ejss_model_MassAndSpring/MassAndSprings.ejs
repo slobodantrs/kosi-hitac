@@ -10,7 +10,7 @@
 <meta name="keywords" content="kružno kretanje, ravnomerno kružno kretanje, materijalna tačka, centripetalna sila, normalno ubrzanje, poluprečnik kružnice, simulacija, fizika, interaktivna simulacija, Easy Java Simulation, EJS, dinamika kretanja, teorija kretanja, analiza sila, ubrzanje, brzina, putanja">
 
 <!-- Canonical link -->
-<link rel="canonical" href="https://kosi-hitac.onrender.com/masa_i_opruga">
+<link rel="canonical" href="https://kosi-hitac.onrender.com/mass_and_spring">
 
     <title> Početna strana za Masa i opruga </title>
 	
@@ -27,12 +27,12 @@
 </div>
 
    
-     <div id="contents_masa_opruga" class="intro_1">
+     <div id="contents_mass_and_spring" class="intro_1">
         <div class="intro_1">
 		<%- include(path1); %>
       
         </div>
-        <div id="uvod_masa_opruga" class="intro_2">
+        <div id="introduction_mass_and_spring" class="intro_2">
         <%- include(path2); %>
 
         </div>
@@ -52,8 +52,8 @@
 	<script>
  
   document.addEventListener('DOMContentLoaded', () => {
-  const introEl = document.getElementById('uvod_masa_opruga');
-  document.getElementById('contents_masa_opruga').addEventListener('click', async e => {
+  const introEl = document.getElementById('introduction_mass_and_spring');
+  document.getElementById('contents_mass_and_spring').addEventListener('click', async e => {
     const a = e.target.closest('a[data-id]');
     if (!a) return;
     e.preventDefault();
@@ -76,14 +76,14 @@
     });
     
     // 4) убaci саму симулацију у uvod_slobodan_pad
-    if (a.dataset.id === 'simulacija_masa_opruga') {
+    if (a.dataset.id === 'simulation_mass_and_spring') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
       if (frag) introEl.appendChild(frag);
 	  // 5) иницијализуј симулацију одмах
-   if (typeof initMasaOprugaSimulation === 'function') {
-       initMasaOprugaSimulation();
+   if (typeof initMassAndSpringSimulation === 'function') {
+       initMassAndSpringSimulation();
    }
     } else {
 	 if (window._model && typeof window._model.pause === 'function') {
