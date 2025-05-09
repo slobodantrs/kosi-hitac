@@ -244,8 +244,8 @@ router.get('/en/mass_and_spring_intro_1', MasaIOprugaController.MasaIOpruga1_EN)
 router.get('/en/mass_and_spring_intro_2', MasaIOprugaController.MasaIOpruga2_EN);
 
 // Main dynamic page (optionally with id)
-router.get('/en/simulation_mass_and_spring', MasaIOprugaController.MasaIOpruga_EN);
-router.get('/en/simulation_mass_and_spring/:id', MasaIOprugaController.MasaIOpruga_EN);
+router.get('/en/mass_and_spring', MasaIOprugaController.MasaIOpruga_EN);
+router.get('/en/mass_and_spring/:id', MasaIOprugaController.MasaIOpruga_EN);
 
 // Contents partial
 router.get('/en/contents_mass_and_spring', MasaIOprugaController.MasaIOprugaContents_EN);
