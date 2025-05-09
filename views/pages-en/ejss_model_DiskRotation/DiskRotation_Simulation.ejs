@@ -763,10 +763,10 @@ function RotacijaDiska_View (_topFrame,_viewNumber,_libraryPath,_codebasePath) {
 
   if (_libraryPath) _view._setLibraryPath(_libraryPath);
 
-  _view._addDescriptionPage('Uvod','./RotacijaDiska_Intro_1.html');
-  _view._addDescriptionPage('Zadaci','./RotacijaDiska_Intro_2.html');
-  _view._addDescriptionPage('Opis zadatka 1','./RotacijaDiska_Intro_3.html');
-  _view._addDescriptionPage('Opis zadatka 2','./RotacijaDiska_Intro_4.html');
+  _view._addDescriptionPage('Introduction','./RotacijaDiska_Intro_1.html');
+  _view._addDescriptionPage('Tasks','./RotacijaDiska_Intro_2.html');
+  _view._addDescriptionPage('Task description 1','./RotacijaDiska_Intro_3.html');
+  _view._addDescriptionPage('Task description 2','./RotacijaDiska_Intro_4.html');
 
   return _view;
 } // end of main function
@@ -780,7 +780,7 @@ function RotacijaDiska_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"topLabel3", _view.labelPanel3) // EJsS HtmlView.HtmlView Page: declaration of element 'topLabel3'
-      .setProperty("Text","<h1>Unos veličina</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel3'
+      .setProperty("Text","<h1>Enter Physical Quantities</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel3'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"panelUnos", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'panelUnos'
@@ -904,7 +904,7 @@ function RotacijaDiska_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"ugaoLab", _view.ugaoPan) // EJsS HtmlView.HtmlView Page: declaration of element 'ugaoLab'
-      .setProperty("Text","ugao") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ugaoLab'
+      .setProperty("Text","angle") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ugaoLab'
       ;
 
     _view._addElement(EJSS_INTERFACE.numberField,"ugaoTF", _view.ugaoPan) // EJsS HtmlView.HtmlView Page: declaration of element 'ugaoTF'
@@ -915,7 +915,7 @@ function RotacijaDiska_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"ugaoJed", _view.ugaoPan) // EJsS HtmlView.HtmlView Page: declaration of element 'ugaoJed'
-      .setProperty("Text","st") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ugaoJed'
+      .setProperty("Text","deg") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ugaoJed'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"IPan", _view.panelPrikaz) // EJsS HtmlView.HtmlView Page: declaration of element 'IPan'
@@ -947,7 +947,7 @@ function RotacijaDiska_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"topLabel", _view.labelPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'topLabel'
-      .setProperty("Text","<h1>Rotacija diska 2D prikaz</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel'
+      .setProperty("Text","<h1>Disk rotation 2D view</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel'
       ;
 
     _view._addElement(EJSS_INTERFACE.wrappedPanel,"wrappedPanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'wrappedPanel'
@@ -1064,7 +1064,12 @@ function RotacijaDiska_View_0 (_topFrame) {
 
     _view._addElement(EJSS_INTERFACE.panel,"narrativePanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel'
       .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'narrativePanel'
-      .setProperty("Html","<h2>Opis 2D prikaza simulacije</h2> <p>Na prikazu 2D u stvari predstavlja pogled \"odozgo\" na ravan obrtanja diska.</p> <p>Na proizvoljnu tačku,koja se nalazi na obodu diska deluje sila, pod nekim uglom na radijalni pravac.</p> <p>Ona se može razložiti na dve komponente(projekcije): tangentnu i normalnu(radijalan pravac).</p> <p>Tangentna komponenta sile izaziva ugaono ubrzanje diska, što se može videti na simulaciji.</p>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'
+      .setProperty("Html",`<h2>Description of the 2D Simulation View</h2>
+<p>The 2D view actually represents a "top-down" view of the disk's plane of rotation.</p>
+<p>A force is applied to an arbitrary point located on the edge of the disk, acting at an angle to the radial direction.</p>
+<p>This force can be decomposed into two components (projections): tangential and normal (along the radial direction).</p>
+<p>The tangential component of the force causes angular acceleration of the disk, which can be observed in the simulation.</p>
+`) // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"singleDrawing3DPanel", _view.containerPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'singleDrawing3DPanel'
@@ -1075,7 +1080,7 @@ function RotacijaDiska_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"topLabel2", _view.labelPanel2) // EJsS HtmlView.HtmlView Page: declaration of element 'topLabel2'
-      .setProperty("Text","<h1>Rotacija diska 3D prikaz</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel2'
+      .setProperty("Text","<h1>Disk rotation 3D view</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel2'
       ;
 
     _view._addElement(EJSS_INTERFACE.wrappedPanel,"wrappedPanel2", _view.singleDrawing3DPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'wrappedPanel2'
