@@ -28,12 +28,12 @@
         <div class="intro_1">
 		<%- include(path1); %>
 		<% console.log('contents_projectile_motion:intro1') %>
-      <script>console.log('contents_projectile_motion:intro1',path1)</script>
+      
         </div>
         <div id="introduction_projectile_motion" class="intro_2">
          <%- include(path2); %>
 		 <% console.log('contents_projectile_motion:intro1') %>
-      <script>console.log('contents_projectile_motion:intro1',path1)</script>
+     
 
         </div>
       </div>
@@ -52,10 +52,11 @@
  
   document.addEventListener('DOMContentLoaded', () => {
   console.log('DOMContentLoaded fired');
-  const sadrzaj = document.getElementById('contents_projectile_motion');
-  console.log('Found #contents_projectile_motion:', sadrzaj);
   const introEl = document.getElementById('introduction_projectile_motion');
-
+  const sadrzaj = document.getElementById('contents_projectile_motion');
+  console.log('Found #introduction_projectile_motion:', introEl);
+  
+console.log('Found #contents_projectile_motion:', sadrzaj);
   sadrzaj.addEventListener('click', async e => {
    console.log('addEventListener fired');
     const a = e.target.closest('a[data-id]');
