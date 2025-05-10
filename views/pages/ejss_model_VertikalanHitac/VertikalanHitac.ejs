@@ -69,9 +69,9 @@
       else                 s.textContent = old.textContent;
       document.body.appendChild(s);
     });
-    
+    const id = a.dataset.id;
     // 4) убaci саму симулацију у uvod_vertikalni_hitac
-    if (a.dataset.id === 'simulacija_vertikalan_hitac' || a.dataset.id === 'simulacija_slobodnog_pada') {
+    if (id === 'simulacija_vertikalan_hitac' || id === 'simulacija_slobodnog_pada') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
