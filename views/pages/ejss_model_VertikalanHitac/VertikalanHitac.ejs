@@ -71,7 +71,7 @@
     });
     
     // 4) убaci саму симулацију у uvod_vertikalni_hitac
-    if (a.dataset.id === 'simulacija_vertikalan_hitac') {
+    if (a.dataset.id === 'simulacija_vertikalan_hitac' || a.dataset.id === 'simulacija_slobodnog_pada') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
@@ -79,6 +79,9 @@
 	  // 5) иницијализуј симулацију одмах
    if (typeof initVertikalanHitacSimulation === 'function') {
        initVertikalanHitacSimulation();
+   }
+   else if (typeof initSlobodanPadSimulation === 'function') {
+       initSlobodanPadSimulation();
    }
     } else {
 	 if (window._model && typeof window._model.pause === 'function') {
