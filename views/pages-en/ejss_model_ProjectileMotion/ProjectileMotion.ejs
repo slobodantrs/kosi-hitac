@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
-   <% include ../../partials/head %>
+   <%- include('../../partials/head') %>
     <link rel="canonical" href="https://kosi-hitac.onrender.com/en/projectile_motion" />
 <title>Projectile Motion Simulation – Interactive Physics with EJS</title>
 <meta name="description" content="Explore projectile motion through an interactive simulation created with Easy Java Simulations (EJS). Adjust initial velocity, launch angle, and observe the effects of gravity on the trajectory, velocity, and energy of the projectile." />
 <meta name="keywords" content="projectile motion, physics simulation, parabolic trajectory, Easy Java Simulations, EJS, two-dimensional motion, launch angle, initial velocity, gravity, kinetic energy, potential energy, motion analysis" />
 
-<meta name="author" content="Slobodan Trsek"/>
+<meta name="author" content="Slobodan"/>
 
   </head>
   <body>
@@ -16,7 +16,7 @@
  
   <div class="content-wrapper moj-header">
    
-    <% include ../../partials/header %>
+    <%- include('../../partials/header') %>
 
 </div>
 
@@ -27,10 +27,13 @@
      <div id="contents_projectile_motion" class="intro_1">
         <div class="intro_1">
 		<%- include(path1); %>
-      
+		<% console.log('contents_projectile_motion:intro1') %>
+      <script>console.log('contents_projectile_motion:intro1',path1)</script>
         </div>
         <div id="introduction_projectile_motion" class="intro_2">
          <%- include(path2); %>
+		 <% console.log('contents_projectile_motion:intro1') %>
+      <script>console.log('contents_projectile_motion:intro1',path1)</script>
 
         </div>
       </div>
@@ -40,11 +43,11 @@
    
    <div class="content col-xs-12 col-md-12 col-lg-12">
    <footer>
-	<% include ../../partials/scripts %>
-    <% include ../../partials/footer %>
+	<%- include('../../partials/scripts') %>
+    <%- include ('../../partials/footer') %>
 </footer>
 </div>
-
+</div>
 <script>
  
   document.addEventListener('DOMContentLoaded', () => {
@@ -52,7 +55,7 @@
   const sadrzaj = document.getElementById('contents_projectile_motion');
   console.log('Found #contents_projectile_motion:', sadrzaj);
   const introEl = document.getElementById('introduction_projectile_motion');
- // const sadrzaj=document.getElementById('contents_projectile_motion');
+
   sadrzaj.addEventListener('click', async e => {
    console.log('addEventListener fired');
     const a = e.target.closest('a[data-id]');
@@ -100,6 +103,6 @@
   });
 });
 </script>
-</div>
+
   </body>
 </html>
