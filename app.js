@@ -173,6 +173,8 @@ const slugMap = {
   '/masa_i_opruga_intro_1':           '/en/mass_and_spring_intro_1',
   '/masa_i_opruga_intro_2':           '/en/mass_and_spring_intro_2',
   '/simulacija_masa_i_opruga':        '/en/simulation_mass_and_spring',
+  
+  '/privacy':           '/en/privacy',
 };
 
 

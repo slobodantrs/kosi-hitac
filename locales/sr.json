@@ -65,5 +65,29 @@
     "connect":      "Povežite se",
     "privacy_policy": "Politika privatnosti",
     "terms_of_use":  "Uslovi korišćenja"
+  },
+  "privacy": {
+    "title": "Politika privatnosti",
+    "intro": "Ova politika privatnosti objašnjava kako prikupljamo, koristimo i štitimo vaše lične podatke kada koristite naš sajt.",
+    "data_collection": {
+      "title": "Prikupljanje i obrada podataka",
+      "description": "Prikupljamo minimalne podatke neophodne za funkcionisanje sajta, kao što su IP adresa i informacije o pregledaču. Ovi podaci se koriste isključivo za analizu poseta i poboljšanje korisničkog iskustva."
+    },
+    "cookies": {
+      "title": "Kolačići (Cookies)",
+      "description": "Naš sajt koristi kolačiće za analizu saobraćaja i poboljšanje funkcionalnosti. Korišćenjem sajta pristajete na upotrebu kolačića."
+    },
+    "user_rights": {
+      "title": "Prava korisnika",
+      "description": "Imate pravo da zatražite pristup, ispravku ili brisanje vaših ličnih podataka. Takođe, možete povući svoj pristanak za obradu podataka u bilo kom trenutku."
+    },
+    "data_protection": {
+      "title": "Zaštita podataka",
+      "description": "Preduzimamo odgovarajuće tehničke i organizacione mere kako bismo zaštitili vaše podatke od neovlašćenog pristupa, gubitka ili zloupotrebe."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Za sva pitanja ili zahteve u vezi sa vašim ličnim podacima, možete nas kontaktirati putem e-pošte na: svetprogramiranja23@gmail.com"
+    }
   }
 }

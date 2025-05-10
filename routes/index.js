@@ -144,6 +144,17 @@ router.get('/en', function(req, res) {
 	res.render('pages-en/index');
     
 });
+
+
+const PrivacyController = require('../controllers/PrivacyController');
+console.log('PrivacyController u index.js:', PrivacyController);
+
+// srpska verzija
+router.get('/privacy', PrivacyController.privacy);
+
+// енг верзија
+router.get('/en/privacy', PrivacyController.privacy_EN);
+
 // English - Mass and Spring
 router.get('/en/simulation_MassAndSpring', function(req, res) {
     res.render('pages-en/ejss_model_MassAndSpring/MassAndSpring_Simulation');

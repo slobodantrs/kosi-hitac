@@ -65,5 +65,29 @@
     "connect":      "Connect",
     "privacy_policy": "Privacy Policy",
     "terms_of_use":  "Terms of Use"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "This privacy policy explains how we collect, use, and protect your personal data when you use our website.",
+    "data_collection": {
+      "title": "Data Collection and Processing",
+      "description": "We collect minimal data necessary for the website's functionality, such as IP address and browser information. This data is used solely for traffic analysis and improving user experience."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "Our website uses cookies for traffic analysis and enhancing functionality. By using the site, you consent to the use of cookies."
+    },
+    "user_rights": {
+      "title": "User Rights",
+      "description": "You have the right to request access, correction, or deletion of your personal data. You can also withdraw your consent for data processing at any time."
+    },
+    "data_protection": {
+      "title": "Data Protection",
+      "description": "We implement appropriate technical and organizational measures to protect your data from unauthorized access, loss, or misuse."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "For any questions or requests regarding your personal data, you can contact us via email at: svetprogramiranja23@gmail.com"
+    }
   }
 }
