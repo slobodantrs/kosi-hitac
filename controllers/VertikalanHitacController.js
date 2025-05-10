@@ -60,7 +60,7 @@ VertikalanHitac1_EN: function(req, res) {
   res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow_Intro_1');
 },
 VertikalanHitac2_EN: function(req, res) {
-  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow_Intro_2');
+  res.render('pages-en/ejss_model_VerticalThrow/VerticalThrow_Intro_22');
 },
 
 // Main dynamic page
@@ -72,7 +72,7 @@ VertikalanHitac_EN: function(req, res) {
   id: id,
   path1: './VerticalThrow_Contents',
   path2: (id == 1) ? './VerticalThrow_Intro_1' 
-  : id === 2 ? './VerticalThrow_Intro_2'
+  : id === 2 ? './VerticalThrow_Intro_22'
     : id === 3 ? './VerticalThrow_Simulation'
     /* relат.: идеш горе из V.H. фолдера, па у SlobodanPad */
     : '../ejss_model_VerticalThrow/VerticalThrow_Simulation',
