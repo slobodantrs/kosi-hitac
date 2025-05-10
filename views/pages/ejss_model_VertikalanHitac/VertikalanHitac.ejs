@@ -77,10 +77,10 @@
       introEl.innerHTML = '';
       if (frag) introEl.appendChild(frag);
 	  // 5) иницијализуј симулацију одмах
-   if (typeof initVertikalanHitacSimulation === 'function') {
+   if (id === 'simulacija_vertikalan_hitac' && typeof initVertikalanHitacSimulation === 'function') {
        initVertikalanHitacSimulation();
    }
-   else if (typeof initSlobodanPadSimulation === 'function') {
+   else if (id === 'simulacija_slobodnog_pada' && typeof initSlobodanPadSimulation === 'function') {
        initSlobodanPadSimulation();
    }
     } else {
