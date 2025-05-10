@@ -10,6 +10,7 @@ const morgan = require('morgan');
 
 // 2) init
 const app  = express();
+app.enable('case sensitive routing');
 const PORT = process.env.PORT || 5000;
 
 i18n.configure({
