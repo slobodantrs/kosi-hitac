@@ -110,13 +110,13 @@ function createExpressionLang() {
     exprLang = enLang;
   }*/
   exprLang = [
-    window.translations.title,
-    window.translations.instructions,
-    window.translations.inputData,
-    window.translations.slowDown,
-    window.translations.infoLabel,
-    window.translations.showV,
-    window.translations.showA,
+    window.animation.title,
+    window.animation.instructions,
+    window.animation.inputData,
+    window.animation.slowDown,
+    window.animation.infoLabel,
+    window.animation.showV,
+    window.animation.showA,
     // … ostale stavke po istoj logici …
   ];
 }
