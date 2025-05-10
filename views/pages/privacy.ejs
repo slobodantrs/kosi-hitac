@@ -1,4 +1,24 @@
-<%- include('partials/header', { title: __('privacy.title') }) %>
+
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <% include ../../partials/head %>
+    <meta charset="utf-8" />
+	<link rel="canonical" href="https://kosi-hitac.onrender.com/privacy" />
+    
+
+	
+</head>
+<body>
+
+    <div class="content-wrapper d-flex flex-column">
+	
+        <header>
+            <%- include('../partials/header', { title: __('privacy.title') }) %>
+			
+ 
+        </header>
+
 
 <div class="container my-5">
   <h1><%= __('privacy.title') %></h1>
@@ -21,4 +41,13 @@
   <p><%= __('privacy.contact.description') %></p>
 </div>
 
-<%- include('partials/footer') %>
+
+
+        <footer>
+		     <% include ../partials/scripts %>
+            <% include ../partials/footer %>
+        </footer>
+    </div>
+
+</body>
+</html>

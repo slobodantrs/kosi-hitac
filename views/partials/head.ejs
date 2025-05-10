@@ -97,3 +97,16 @@ Tutorijali za simulacije, Kos hitac, Kružno kretanje, Rotacija krutog tela,
   
 <link rel="alternate" hreflang="sr" href="https://kosi-hitac.onrender.com<%= currentPath.replace(/^\/en/, '') %>" />
 <link rel="alternate" hreflang="en" href="https://kosi-hitac.onrender.com/en<%= currentPath.replace(/^\/en/, '') %>" />
+ <script>
+    // Овде узимамо преводе из i18n словника преко res.__()
+    window.animation = {
+      title:       "<%= __('animation.title') %>",
+      instructions:"<%= __('animation.instructions') %>",
+      inputData:   "<%= __('animation.inputData') %>",
+      slowDown:    "<%= __('animation.slowDown') %>",
+      infoLabel:   "<%= __('animation.infoLabel') %>",
+      showV:       "<%= __('animation.showV') %>",
+      showA:       "<%= __('animation.showA') %>",
+      // додај и друге кључеве по истом обрасцу…
+    };
+  </script>
