@@ -71,7 +71,11 @@ VertikalanHitac_EN: function(req, res) {
 	const data = {
   id: id,
   path1: './VerticalThrow_Contents',
-  path2: (id == 1) ? './VerticalThrow_Intro_1' : './VerticalThrow_Intro_2',
+  path2: (id == 1) ? './VerticalThrow_Intro_1' 
+  : id === 2 ? './VerticalThrow_Intro_2'
+    : id === 3 ? './VerticalThrow_Simulation'
+    /* relат.: идеш горе из V.H. фолдера, па у SlobodanPad */
+    : '../ejss_model_VerticalThrow/VerticalThrow_Simulation',
   locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
 };
 

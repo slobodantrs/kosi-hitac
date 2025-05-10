@@ -73,13 +73,17 @@
     });
     
     // 4) убaci саму симулацију у uvod_vertikalni_hitac
-    if (a.dataset.id === 'simulation_vertical_throw') {
+	const id=a.dataset.id
+    if (id === 'simulation_vertical_throw' || id === 'simulation_free_fall') {
       // simulacija: izvuci njen kontejner
       frag = tmp.querySelector('#_topFrame') || tmp.querySelector('#ejs-container');
       introEl.innerHTML = '';
       if (frag) introEl.appendChild(frag);
 	  // 5) иницијализуј симулацију одмах
-   if (typeof initVerticalThrowSimulation === 'function') {
+   if (id === 'simulation_vertical_throw' && typeof initVerticalThrowSimulation === 'function') {
+       initVerticalThrowSimulation();
+   }
+   else if (id === 'simulation_free_fall' && typeof initVerticalThrowSimulation === 'function') {
        initVerticalThrowSimulation();
    }
     } else {
