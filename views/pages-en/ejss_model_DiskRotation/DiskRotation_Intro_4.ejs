@@ -20,7 +20,7 @@
       For a small time increment <i>dt</i>, the additional angular displacement <i>dφ</i> is
     </p>
     <figure class="text-center my-3">
-      <img src="/images/RotacijaDiska/RD_23.png" alt="Formula for angular displacement under constant angular acceleration" class="img-fluid"/>
+      <img src="/images/RotacijaDiska/RD_23.jpg" alt="Formula for angular displacement under constant angular acceleration" class="img-fluid"/>
       <figcaption>
         <strong>Figure 1.</strong>  
         \(d\varphi = \omega\,dt \;+\; \tfrac12\,\alpha\,dt^2\)
@@ -42,7 +42,7 @@
       This mirrors the translational kinematic formula <i>s = s + v₀·t + ½·a·t²</i>.
     </p>
     <figure class="text-center my-3">
-      <img src="/images/RotacijaDiska/RD_24.png" alt="Discrete update for disc rotation simulation" class="img-fluid"/>
+      <img src="/images/RotacijaDiska/RD_24.jpg" alt="Discrete update for disc rotation simulation" class="img-fluid"/>
       <figcaption>
         <strong>Figure 2.</strong>  
         Iterative update rules for time and angular displacement.
@@ -63,7 +63,7 @@
       where <i>F<sub>t</sub></i> is the tangential component of the force at radius <i>r</i>.
     </p>
     <figure class="text-center my-3">
-      <img src="/images/RotacijaDiska/RD_26.png" alt="Diagram showing force applied at radius creating torque on disc" class="img-fluid"/>
+      <img src="/images/RotacijaDiska/RD_26.jpg" alt="Diagram showing force applied at radius creating torque on disc" class="img-fluid"/>
       <figcaption>
         <strong>Figure 3.</strong>  
         A tangential force <i>F<sub>t</sub></i> acting at radius <i>r</i> produces torque.
@@ -75,10 +75,11 @@
   <section class="mb-5">
     <h2>Moment of Inertia: Measure of Rotational Inertia</h2>
     <p>
-      The rotational analogue of mass in linear motion is the moment of inertia <i>I</i>.  For a rigid body made up of point masses <i>m<sub>i</sub></i> at radii <i>r<sub>i</sub></i>:
+      The rotational analogue of mass in linear motion is the moment of inertia <i>I</i>.  
+	  For a rigid body made up of point masses <i>m<sub>i</sub></i> at radii <i>r<sub>i</sub></i>:
     </p>
     <figure class="text-center my-3">
-      <img src="/images/RotacijaDiska/RD_28.png" alt="Definition of moment of inertia for discrete mass elements" class="img-fluid"/>
+      <img src="/images/RotacijaDiska/RD_28.jpg" alt="Definition of moment of inertia for discrete mass elements" class="img-fluid"/>
       <figcaption>
         <strong>Figure 4.</strong>  
         \(I = \sum_i m_i\,r_i^2\)
@@ -88,7 +89,7 @@
       Summing over all mass elements gives the total <i>I</i>, in units of kg·m².
     </p>
     <figure class="text-center my-3">
-      <img src="/images/RotacijaDiska/RD_29.png" alt="Summation for rigid body moment of inertia" class="img-fluid"/>
+      <img src="/images/RotacijaDiska/RD_29.jpg" alt="Summation for rigid body moment of inertia" class="img-fluid"/>
       <figcaption>
         <strong>Figure 5.</strong>  
         Summing individual contributions yields the body’s moment of inertia.
@@ -98,7 +99,7 @@
       For a uniform solid disc of mass <i>m</i> and radius <i>r</i>, the closed-form result is
     </p>
     <figure class="text-center my-3">
-      <img src="/images/RotacijaDiska/RD_31.png" alt="Moment of inertia of a solid disc formula" class="img-fluid"/>
+      <img src="/images/RotacijaDiska/RD_31.jpg" alt="Moment of inertia of a solid disc formula" class="img-fluid"/>
       <figcaption>
         <strong>Figure 6.</strong>  
         \(I_\text{disc} = \tfrac12\,m\,r^2\)
@@ -113,7 +114,7 @@
       Newton’s second law for rotation relates torque and angular acceleration:
     </p>
     <figure class="text-center my-3">
-      <img src="/images/RotacijaDiska/RD_32.png" alt="Newton’s second law for rotation: torque equals moment of inertia times angular acceleration" class="img-fluid"/>
+      <img src="/images/RotacijaDiska/RD_32.jpg" alt="Newton’s second law for rotation: torque equals moment of inertia times angular acceleration" class="img-fluid"/>
       <figcaption>
         <strong>Figure 7.</strong>  
         \(M = I\,\alpha\)
@@ -123,7 +124,7 @@
       The angular momentum <i>L</i> of the rotating disc is
     </p>
     <figure class="text-center my-3">
-      <img src="/images/RotacijaDiska/RD_33.png" alt="Angular momentum of a rotating rigid body" class="img-fluid"/>
+      <img src="/images/RotacijaDiska/RD_33.jpg" alt="Angular momentum of a rotating rigid body" class="img-fluid"/>
       <figcaption>
         <strong>Figure 8.</strong>  
         \(L = I\,\omega\)
