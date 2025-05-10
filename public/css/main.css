@@ -447,7 +447,7 @@ div#panelSimulacija{
 figure.margine_oko_slike {
               
   margin: 1rem 1rem 1rem 0;     /* razmak desno i dole */
-  width: 600px;            /* slika prirodne širine */
+  width: 100%;            /* slika prirodne širine */
 }
 
 figure.margine_oko_slike img {
@@ -495,7 +495,7 @@ width:100%;  /* ne izlazi iz figure */
 	.margine_oko_slike img{
       /*  margin: 5 auto;*/
     background-size:content;
-        width:90%;
+        width:100%;
         height:auto;
         text-align:center;
     }
