@@ -16,19 +16,23 @@ var methods = {
   
 
   // Главна динамична страница
-  VertikalanHitac: function(req, res) {
-   const id = parseInt(req.params.id, 10) || 1;
-const data = {
-  id: id,
-  path1: './VertikalanHitac_Contents',
-  path2: (id == 1) ? './VertikalanHitac_Intro_1' : './VertikalanHitac_Intro_2',
-  locale: req.locale // ili uzmi iz req.locale ako koristiš i18n
-};
+ VertikalanHitac: function(req, res) {
+  const id = parseInt(req.params.id, 10) || 1;
+  const data = {
+    id: id,
+    path1: './VertikalanHitac_Contents',
+    path2:
+      id === 1 ? './VertikalanHitac_Intro_1'
+    : id === 2 ? './VertikalanHitac_Intro_2'
+    : id === 3 ? './VertikalanHitac_Simulation'
+    /* relат.: идеш горе из V.H. фолдера, па у SlobodanPad */
+    : '../ejss_model_SlobodanPad/SlobodanPad_Simulation',
+    locale: req.locale
+  };
 
-console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
-res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', data);
-
-  },
+  console.log('Render attempt:', 'pages/ejss_model_VertikalanHitac/VertikalanHitac');
+  res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac', data);
+},
 
   VertikalanHitacContents: function(req, res) {
     res.render('pages/ejss_model_VertikalanHitac/VertikalanHitac_Contents');
