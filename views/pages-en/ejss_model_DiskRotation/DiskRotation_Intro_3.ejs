@@ -1,28 +1,106 @@
+<article class="container my-5">
 
-    <div class="container moj-header">
-      
-      <div class="slide">
-        <h1>
-          Disk Rotation, Task 1 Solution
-        </h1>
-        <p>
-          Create a simulation that has two views, 2D and 3D, as shown in the images below:
-        </p>
-        <div class="slide">
-          <img src="/images/RotacijaDiska/DiskRotation_17.jpg"/>
-        </div>
-        <div class="slide">
-          <img src="/images/RotacijaDiska/DiskRotation_18.jpg"/>
-        </div>
-        <div class="slide">
-          <img src="/images/RotacijaDiska/RD_19.jpg"/>
-        </div>
-        <div class="slide">
-          <img src="/images/RotacijaDiska/RD_20.jpg"/>
-        </div>
-        <div class="slide">
-          <img src="/images/RotacijaDiska/RD_21.jpg"/>
-        </div>
-      </div>
-    </div>
-    
+  <header class="mb-4">
+    <h1>Disc Rotation: Task 1 Solution</h1>
+    <p>
+      We present a two-view simulation (2D “top” view and 3D perspective) of a uniformly rotating disc. Each step shows how we track a point on the rim and convert between polar and Cartesian coordinates.
+    </p>
+  </header>
+
+  <!-- 2D vs 3D View -->
+  <section class="mb-5">
+    <h2>2D Top View and 3D Perspective</h2>
+    <p>
+      The simulation renders both a bird’s-eye view (showing the disc’s outline and rotation) and a 3D view (providing depth).
+    </p>
+    <figure class="text-center my-3">
+      <img src="/images/RotacijaDiska/DiskRotation_17.jpg"
+           alt="Side-by-side 2D top view and 3D perspective of a uniformly rotating disc" class="img-fluid"/>
+      <figcaption>
+        <strong>Figure 1.</strong>  
+        2D top view and 3D perspective of the rotating disc.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- Tracking a Point on the Rim -->
+  <section class="mb-5">
+    <h2>Marking a Fixed Point and Its Velocity Vector</h2>
+    <p>
+      We attach a radial line to point <i>M</i> on the rim.  Its instantaneous velocity vector <i>&omega;</i>·<i>r</i> is shown tangentially.
+    </p>
+    <figure class="text-center my-3">
+      <img src="/images/RotacijaDiska/DiskRotation_18.jpg"
+           alt="Disc with a radial marker and its tangential velocity vector" class="img-fluid"/>
+      <figcaption>
+        <strong>Figure 2.</strong>  
+        A radial line to point <i>M</i> and its tangential velocity arrow.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- Discrete Time Steps -->
+  <section class="mb-5">
+    <h2>Angular Displacement Over Small Time Steps</h2>
+    <p>
+      Let time advance in uniform increments <i>dt</i> (e.g. 0.05 s).  The angular displacement per step is <i>d&phi; = &omega;·dt</i>.
+    </p>
+    <figure class="text-center my-3">
+      <img src="/images/RotacijaDiska/RD_19.jpg"
+           alt="Illustration of a fixed point M on the disc and the small angular step dφ" class="img-fluid"/>
+      <figcaption>
+        <strong>Figure 3.</strong>  
+        Point <i>M</i> on the rim and its angular step <i>d&phi;</i>.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- Update Equations -->
+  <section class="mb-5">
+    <h2>Iterative Update Rules</h2>
+    <p>
+      At each iteration:
+    </p>
+    <ul>
+      <li>Time: <i>t ← t + dt</i></li>
+      <li>Angle: <i>&phi; ← &phi; + &omega;·dt</i></li>
+    </ul>
+    <figure class="text-center my-3">
+      <img src="/images/RotacijaDiska/RD_20.jpg"
+           alt="Flowchart showing update of time and angle in the simulation loop" class="img-fluid"/>
+      <figcaption>
+        <strong>Figure 4.</strong>  
+        Updating time and angle at each simulation step.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- Converting to Cartesian Coordinates -->
+  <section class="mb-5">
+    <h2>From Polar to Cartesian Coordinates</h2>
+    <p>
+      To plot point <i>M</i> in the canvas, convert its polar coordinates <i>(r,&phi;)</i> into:
+    </p>
+    <p class="font-italic">
+      x = r·cos(&phi;)  
+      &nbsp;&nbsp;  
+      y = r·sin(&phi;)
+    </p>
+    <figure class="text-center my-3">
+      <img src="/images/RotacijaDiska/RD_21.jpg"
+           alt="Diagram showing conversion from polar (r, φ) to Cartesian (x, y)" class="img-fluid"/>
+      <figcaption>
+        <strong>Figure 5.</strong>  
+        Converting polar coordinates (r,&phi;) into (x,y).
+      </figcaption>
+    </figure>
+  </section>
+
+  <footer class="text-center mt-5">
+    <p class="text-muted small">
+      © 2025 Svet programiranja — All rights reserved.  
+      <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Use</a>
+    </p>
+  </footer>
+
+</article>
