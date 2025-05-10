@@ -58,5 +58,11 @@
     "legendV": "v – linijska brzina",
     "legendAN": "an – normalno ubrzanje",
     "legendFc": "Fn (Fc) – centripetalna sila"
+  },
+  "footer": {
+    "quick_links": "Brze veze",
+    "connect":      "Povežite se",
+    "privacy_policy": "Politika privatnosti",
+    "terms_of_use":  "Uslovi korišćenja"
   }
 }

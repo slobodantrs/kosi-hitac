@@ -58,5 +58,11 @@
     "legendV": "v – linear velocity",
     "legendAN": "aₙ – normal acceleration",
     "legendFc": "Fₙ (Fₙ) – centripetal force"
+  },
+  "footer": {
+    "quick_links": "Quick Links",
+    "connect":      "Connect",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_use":  "Terms of Use"
   }
 }
