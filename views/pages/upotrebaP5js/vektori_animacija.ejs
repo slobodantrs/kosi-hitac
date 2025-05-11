@@ -14,13 +14,43 @@
   <style>
     body { font-family: sans-serif; margin: 0; padding: 0; }
     header, section { padding: 1rem; }
-    header { background: #005f73; color: #fff; }
+    header {  color: #fff; }  <!--background: #005f73;-->
     a { color: #0a9396; }
     #sketch-holder { display: flex; justify-content: center; margin: 1rem 0; }
     canvas { border: 1px solid #333; }
   </style>
+  
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+     .canvasForHTML{
+      width:1280px;
+      height:750px;
+      border: solid thin #0000ff;
+
+    }
+    .inputContainer{
+      margin:10px
+      padding:10px;
+    }
+    .outputResult{
+       font-weight:bold;
+       font-size:16px;
+       color:#ffbb55;
+    }
+    .infoPanel{
+       border:solid thin #555555;
+       background-color:#cccccc;
+    }
+    .p5Canvas{
+      max-height:750px;
+      margin-bottom:auto;
+    }
+  </style>
   <!-- p5.js library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script-->
 </head>
 <body>
   <header>
@@ -56,6 +86,183 @@
       da promenite njihovo položaj i vidite kako se menjaju.
     </p>
   </section>
+  <section>
+  <div class="moj_tekst">
+  <h3 class="okvir_3">Objašnjenje koda: interaktivna vežba sa vektorima</h3>
+
+  <p>
+    U ovoj simulaciji koristimo biblioteku <strong>p5.js</strong> za crtanje dveju strelica-vektora koje možete prevlačiti mišem.
+    Canvas dimenzija je 600×400 piksela, a koordinatni sistem je pomeren tako da se centar platna nalazi u sredini.
+  </p>
+
+  <p><strong>Globalne promenljive</strong>:</p>
+  <ul>
+    <li><code>vectors</code> — niz objekata, svaki sa komponentama <code>vx, vy</code> i bojom <code>col</code>.</li>
+    <li><code>dragging</code> — referenca na trenutno prevlačeni vektor (ili <code>null</code>).</li>
+  </ul>
+
+  <p><strong>setup()</strong>:</p>
+  <ul>
+    <li><code>createCanvas(600, 400)</code> i <code>canvas.parent('sketch-holder')</code> za vezivanje u HTML.</li>
+    <li>Generišemo dva nasumična vektora:<br>
+      <code>vectors.push({ vx: ..., vy: ..., col: ... });</code>
+    </li>
+  </ul>
+
+  <p><strong>draw()</strong>:</p>
+  <ul>
+    <li><code>background(240)</code> čisti platno.</li>
+    <li>Crtamo X i Y ose kroz centar:<br>
+      <code>line(width/2,0, width/2,height); line(0,height/2, width,height/2);</code>
+    </li>
+    <li>Za svaki vektor pozivamo <code>drawVector(v)</code> koji:</li>
+    <ul>
+      <li>translate() u centar, line() od (0,0) do (vx, –vy)</li>
+      <li>trianglom iscrtava glavu strelice</li>
+      <li>ellipse() crta “čvor” na kraju vektora</li>
+    </ul>
+  </ul>
+
+  <p><strong>Interakcija</strong>:</p>
+  <ul>
+    <li><code>mousePressed()</code> — proverava da li je kliknuto unutar kruga radijusa 10 px oko glave vektora; ako jeste, čuva taj vektor u <code>dragging</code>.</li>
+    <li><code>mouseDragged()</code> — dok je miš pritisnut, ažurira <code>dragging.vx</code> i <code>dragging.vy</code> prema trenutnoj poziciji miša.</li>
+    <li><code>mouseReleased()</code> — postavlja <code>dragging = null</code>, prekidajući pomeranje.</li>
+  </ul>
+</div>
+
+<div class="moj_kod">
+<pre><code>
+// glavni niz i promenljiva za prevlačenje
+let vectors = [];
+let dragging = null;
+
+function setup() {
+  const canvas = createCanvas(600, 400);
+  canvas.parent('sketch-holder');
+  // Generiši dva nasumična vektora
+  for (let i = 0; i < 2; i++) {
+    vectors.push({
+      vx: random(-150, 150),
+      vy: random(-100, 100),
+      col: i === 0 ? '#e63946' : '#2a9d8f'
+    });
+  }
+}
+
+function draw() {
+  background(240);
+  stroke(50);
+  // nacrtaj ose kroz centar
+  line(width/2, 0, width/2, height);
+  line(0, height/2, width, height/2);
+  noStroke();
+
+  // prikaži svaki vektor
+  vectors.forEach(v => {
+    drawVector(v);
+  });
+}
+
+function drawVector(v) {
+  push();
+    translate(width/2, height/2);
+    stroke(v.col);
+    strokeWeight(3);
+    line(0, 0, v.vx, -v.vy);
+    // strelica
+    push();
+      translate(v.vx, -v.vy);
+      rotate(-atan2(v.vy, v.vx));
+      fill(v.col);
+      noStroke();
+      triangle(0, 0, -10, 5, -10, -5);
+    pop();
+    // čvor za povlačenje
+    noStroke();
+    fill(v.col);
+    ellipse(v.vx, -v.vy, 12);
+  pop();
+}
+
+function mousePressed() {
+  const mx = mouseX - width/2;
+  const my = -(mouseY - height/2);
+  for (let v of vectors) {
+    if (dist(mx, my, v.vx, v.vy) < 10) {
+      dragging = v;
+      break;
+    }
+  }
+}
+
+function mouseDragged() {
+  if (dragging) {
+    dragging.vx = mouseX - width/2;
+    dragging.vy = -(mouseY - height/2);
+  }
+}
+
+function mouseReleased() {
+  dragging = null;
+}
+</code></pre>
+</div>
+
+  </section>
+  
+  <section>
+  <h1 class="okvir_3">Operacije sa vektorima – aplikacija za vežbanje</h1>
+
+  <p>
+    U ovom kratkom videu je objašnjeno kako da upravljate interaktivnom aplikacijom za vežbanje vektorskih operacija. 
+    Ovde je sažeto objašnjenje koraka:
+  </p>
+
+  <ol>
+    <li>
+      <strong>Podešavanje početnih vektora</strong><br>
+      U okviru plavog panela koristite slider-e da definišete komponente dva vektora (ili njihov poluprečnik i ugaone parametre).
+    </li>
+    <li>
+      <strong>Sabiranje i oduzimanje</strong><br>
+      Klikom na dugme <em>“Saberi”</em> (ili <em>“Oduzmi”</em>) vizuelno ćete spojiti vektore metodom paralelograma ili poligona.
+    </li>
+    <li>
+      <strong>Množenje skalarom</strong><br>
+      Unesite broj u polje <em>“Skalar k”</em> i pritisnite <em>“Primeni k”</em> da skalirate oba vektora.
+    </li>
+    <li>
+      <strong>Redosled operacija</strong><br>
+      Kombinujte više operacija u nizu: nakon svake promene pritisnite <em>“Ažuriraj”</em> da vidite rezultat na platnu.
+    </li>
+    <li>
+      <strong>Kontrole animacije</strong><br>
+      Dugmad <em>Start</em>, <em>Pause</em> i <em>Reset</em> vam omogućavaju da pokrenete, pauzirate ili poništite sve korake.  
+      Check-box je za uključivanje/isključivanje pomagača (mreže, koordinatnog sistema, indeksa vektora).
+    </li>
+  </ol>
+
+  <p>
+    Detaljnije uputstvo, primeri i teorijska objašnjenja pogledajte u video-zapisu:
+  </p>
+  <div class="video-container text-center">
+    <iframe
+      width="560" height="315"
+      src="https://youtu.be/0FUnZs3C6n8"
+      title="Vektorske operacije – uputstvo"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div id="container" class="d-flex flex-column mb-3">
+    <div id="canvasForHTML" class="bd-highlight"></div>
+    <div id="infoPanel" class="bd-highlight infoPanel"></div>
+  </div>
+</section>
+
 
   <section id="sketch-holder"></section>
 <section>
@@ -139,5 +346,6 @@
       dragging = null;
     }
   </script>
+  <script language="javascript" type="text/javascript" src="js/p5js/VektoriOperacije/vektori_operacije.js"></script>
 </body>
 </html>
