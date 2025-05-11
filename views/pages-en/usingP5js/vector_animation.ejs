@@ -14,130 +14,372 @@
   <style>
     body { font-family: sans-serif; margin: 0; padding: 0; }
     header, section { padding: 1rem; }
-    header { background: #005f73; color: #fff; }
+    header {  color: #fff; }  <!--background: #005f73;-->
     a { color: #0a9396; }
     #sketch-holder { display: flex; justify-content: center; margin: 1rem 0; }
     canvas { border: 1px solid #333; }
   </style>
+  
+  <style>
+     body {
+      padding: 0;
+      margin: 0;
+    }
+     .canvasForHTML{
+      width:80%;
+      height:auto;
+      border: solid thin #0000ff;
+
+    }
+    .inputContainer{
+      margin:20px;
+      padding:10px;
+      width:100%;
+    }
+    .outputResult{
+       font-weight:bold;
+       font-size:16px;
+       color:#ffbb55;
+    }
+    .infoPanel{
+       border-top:solid thick #000;
+       border-bottom:solid thick #000;
+       background-color:#fff;
+    }
+    .p5Canvas{
+    
+      margin-bottom:auto;
+    }
+  </style>
   <!-- p5.js library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script-->
 </head>
 <body>
   <header>
   <div class="content-wrapper moj-header">
   <%- include('../../partials/header') %>
-  </div>
-    <h1>Šta je vektor?</h1>
-    <p>
-      Vektor je usmeren segment definisan dužinom (<em>magnitude</em>) i smerom. 
-      Dok brojčane (skalarnе) veličine imaju samo vrednost, vektori opisuju i 
-      koliko i u kom pravcu nešto “gura” ili “se kreće”. Primere i operacije sa 
-      vektorima pogledajte u našem detaljnom vodiču na 
-      <a href="https://www.svetprogramiranja.com/operacije_sa_vektorima.html" target="_blank">
-        SvetProgramiranja: Operacije sa vektorima
-      </a>.
-    </p>
-  </header>
+</div>
+
+<h1>What Is a Vector?</h1>
+<p>
+  A vector is a directed segment defined by its <em>magnitude</em> and direction.
+  Unlike scalar quantities, which have only a value, vectors describe both
+  how much and in which direction something “pushes” or “moves.” See examples
+  and operations on vectors in our detailed guide at
+  <a href="https://www.svetprogramiranja.com/operacije_sa_vektorima.html" target="_blank">
+    SvetProgramiranja: Vector Operations
+  </a>.
+</p>
 
 <div class="container moj-header">
   <section>
-    <h2>Osnovne operacije</h2>
+    <h2>Basic Operations</h2>
     <ul>
-      <li><strong>Sabiranje</strong> vektora: rezultantni vektor dobija se 
-        „glava-na​-rep“ metodom.</li>
-      <li><strong>Skaliranje</strong>: množenjem vektora skalarom menjamo 
-        njegovu dužinu, ali ne i smer.</li>
-      <li><strong>Skalarni (dot) produkt</strong> i <strong>vektorski (cross) 
-        product</strong> služe za izračunavanje uglova i površina u prostoru.</li>
+      <li><strong>Vector addition:</strong> the resultant is obtained by the “tip-to-tail” method.</li>
+      <li><strong>Scaling:</strong> multiplying a vector by a scalar changes its magnitude without altering its direction.</li>
+      <li><strong>Dot product</strong> and <strong>cross product</strong> are used to compute angles and areas in space.</li>
     </ul>
     <p>
-      U nastavku je interaktivni primer u <em>p5.js</em> koji prikazuje dve
-      nasumične vektorske strelice u ravni. Kliknite i povucite glave strelica
-      da promenite njihovo položaj i vidite kako se menjaju.
+      Below is an interactive <em>p5.js</em> example showing two random vectors in the plane.
+      Click and drag the arrowheads to reposition them and see how they change.
     </p>
   </section>
 
   <section id="sketch-holder"></section>
+
+  <section>
+    <div class="moj_tekst">
+      <h3 class="okvir_3">Code Explanation: Interactive Vector Exercise</h3>
+      <p>
+        This simulation uses the <strong>p5.js</strong> library to draw two draggable vector arrows.
+        The canvas is 600×400 pixels, and we shift the coordinate origin to the center.
+      </p>
+
+      <p><strong>Global variables:</strong></p>
+      <ul>
+        <li><code>vectors</code> — array of objects, each with <code>vx, vy</code> and a color <code>col</code>.</li>
+        <li><code>dragging</code> — reference to the currently dragged vector (or <code>null</code>).</li>
+      </ul>
+
+      <p><strong>setup():</strong></p>
+      <ul>
+        <li><code>createCanvas(600, 400)</code> and <code>canvas.parent('sketch-holder')</code> attach it to HTML.</li>
+        <li>Generate two random vectors:<br>
+          <code>vectors.push({ vx: ..., vy: ..., col: ... });</code>
+        </li>
+      </ul>
+
+      <p><strong>draw():</strong></p>
+      <ul>
+        <li><code>background(240)</code> clears the canvas.</li>
+        <li>Draw the X and Y axes through the center:<br>
+          <code>line(width/2, 0, width/2, height); line(0, height/2, width, height/2);</code>
+        </li>
+        <li>For each vector, call <code>drawVector(v)</code> which:
+          <ul>
+            <li>translates to center, draws <code>line(0, 0, vx, –vy)</code></li>
+            <li>draws the arrowhead with <code>triangle()</code></li>
+            <li>draws a “handle” with <code>ellipse()</code></li>
+          </ul>
+        </li>
+      </ul>
+
+      <p><strong>Interaction:</strong></p>
+      <ul>
+        <li><code>mousePressed()</code> — checks if you clicked within 10px of an arrowhead and sets <code>dragging</code>.</li>
+        <li><code>mouseDragged()</code> — while dragging, updates <code>dragging.vx</code> and <code>dragging.vy</code>.</li>
+        <li><code>mouseReleased()</code> — clears <code>dragging</code>, ending the drag.</li>
+      </ul>
+    </div>
+
+    <div class="moj_kod">
+      <pre><code>
+// global array and drag reference
+let vectors = [];
+let dragging = null;
+
+function setup() {
+  const canvas = createCanvas(600, 400);
+  canvas.parent('sketch-holder');
+  // generate two random vectors
+  for (let i = 0; i < 2; i++) {
+    vectors.push({
+      vx: random(-150, 150),
+      vy: random(-100, 100),
+      col: i === 0 ? '#e63946' : '#2a9d8f'
+    });
+  }
+}
+
+function draw() {
+  background(240);
+  stroke(50);
+  // draw axes through center
+  line(width/2, 0, width/2, height);
+  line(0, height/2, width, height/2);
+  noStroke();
+  // draw each vector
+  vectors.forEach(v => drawVector(v));
+}
+
+function drawVector(v) {
+  push();
+    translate(width/2, height/2);
+    stroke(v.col);
+    strokeWeight(3);
+    line(0, 0, v.vx, -v.vy);
+    // arrowhead
+    push();
+      translate(v.vx, -v.vy);
+      rotate(-atan2(v.vy, v.vx));
+      fill(v.col);
+      noStroke();
+      triangle(0, 0, -10, 5, -10, -5);
+    pop();
+    // draggable handle
+    noStroke();
+    fill(v.col);
+    ellipse(v.vx, -v.vy, 12);
+  pop();
+}
+
+function mousePressed() {
+  const mx = mouseX - width/2;
+  const my = -(mouseY - height/2);
+  for (let v of vectors) {
+    if (dist(mx, my, v.vx, v.vy) < 10) {
+      dragging = v;
+      break;
+    }
+  }
+}
+
+function mouseDragged() {
+  if (dragging) {
+    dragging.vx = mouseX - width/2;
+    dragging.vy = -(mouseY - height/2);
+  }
+}
+
+function mouseReleased() {
+  dragging = null;
+}
+      </code></pre>
+    </div>
+  </section>
+</div>
+
+  </section>
+  
+ <section>
+  <h1 class="okvir_3">Vector Operations – Practice App</h1>
+
+  <p>
+    In this brief video, we explain how to use the interactive practice app for vector operations.
+    Here is a concise summary of the steps:
+  </p>
+
+  <ol>
+    <li>
+      <strong>Setting Initial Vectors</strong><br>
+      Use the sliders in the blue panel to define the components of the two vectors (or their magnitude and angle parameters).
+    </li>
+    <li>
+      <strong>Addition and Subtraction</strong><br>
+      Clicking the <em>“Add”</em> (or <em>“Subtract”</em>) button will visually combine the vectors using the parallelogram or polygon method.
+    </li>
+    <li>
+      <strong>Scalar Multiplication</strong><br>
+      Enter a number in the <em>“Scalar k”</em> field and press <em>“Apply k”</em> to scale both vectors.
+    </li>
+    <li>
+      <strong>Operation Sequence</strong><br>
+      Chain multiple operations in sequence: after each change, press <em>“Update”</em> to see the result on the canvas.
+    </li>
+    <li>
+      <strong>Animation Controls</strong><br>
+      The <em>Start</em>, <em>Pause</em>, and <em>Reset</em> buttons allow you to play, pause, or reset the steps.  
+      The checkbox toggles helpers (grid, axes, vector labels) on and off.
+    </li>
+  </ol>
+
+  <p>
+    For more detailed instructions, examples, and theoretical explanations, watch the video:
+  </p>
+
+  <div class="video-container text-center">
+    <iframe
+      id="tutorial-video"
+      width="560" height="315"
+      src=""
+      title="Vector Operations – Tutorial"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<section>
+<div id="container" class="d-flex flex-column bd-highlight mb-3">
+<div id="canvasForHTML" class="d-flex flex-row bd-highlight "></div>
+<div id="infoPanel" class="d-flex flex-row align-items-start justify-content-left flex-wrap  bd-highlight infoPanel"></div>
+</section>
+
+  
 <section>
 <%- include('../../partials/scripts') %>
 <%- include('../../partials/footer') %>
 </section>
 
 </div>
-  <script>
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const iframe = document.getElementById('tutorial-video');
+
+    // Prag širine ispod kojeg smatramo da je mobilni uređaj
+    const mobileBreakpoint = 768;
+
+    // URL-ovi za desktop i mobilni
+    const desktopVideo = 'https://www.youtube.com/embed/0FUnZs3C6n8';
+    const mobileVideo  = 'https://www.youtube.com/embed/D6T1mpE1jVg';
+
+    // Ako je width manje od praga, prikaži mobilnu verziju
+    if (window.innerWidth <= mobileBreakpoint) {
+      iframe.src = mobileVideo;
+    } else {
+      iframe.src = desktopVideo;
+    }
+
+    // (opciono) osveži pri resize-u ekrana
+    window.addEventListener('resize', () => {
+      const isMobile = window.innerWidth <= mobileBreakpoint;
+      iframe.src = isMobile ? mobileVideo : desktopVideo;
+    });
+  });
+</script>
+
+<script>
+  // 1) define your “sketch” as a function that takes a p5 instance `p`
+  function sketch1(p) {
     let vectors = [];
     let dragging = null;
 
-    function setup() {
-      const canvas = createCanvas(600, 400);
-      canvas.parent('sketch-holder');
-      // Generiši dva nasumična vektora
+    p.setup = function() {
+      p.createCanvas(600, 400).parent('sketch-holder');
+      // generate two random vectors
       for (let i = 0; i < 2; i++) {
         vectors.push({
-          x: random(100, width - 100),
-          y: random(100, height - 100),
-          vx: random(-80, 80),
-          vy: random(-80, 80),
+          vx: p.random(-80, 80),
+          vy: p.random(-80, 80),
           col: i === 0 ? '#e63946' : '#2a9d8f'
         });
       }
-    }
+    };
 
-    function draw() {
-      background(240);
-      stroke(50);
-      // nacrtaj ose
-      line(width / 2, 0, width / 2, height);
-      line(0, height / 2, width, height / 2);
-      noStroke();
+    p.draw = function() {
+      p.background(240);
+      p.stroke(50);
+      // draw axes
+      p.line(p.width/2, 0, p.width/2, p.height);
+      p.line(0, p.height/2, p.width, p.height/2);
+      p.noStroke();
 
-      // prikaz i interakcija sa vektorima
-      vectors.forEach(v => {
-        drawVector(v);
-      });
-    }
+      // render and interact with each vector
+      vectors.forEach(v => drawVector(p, v));
+    };
 
-    function drawVector(v) {
-      push();
-        translate(width / 2, height / 2);
-        stroke(v.col);
-        strokeWeight(3);
-        line(0, 0, v.vx, -v.vy);
-        // glava strelice
-        push();
-          translate(v.vx, -v.vy);
-          rotate(-atan2(v.vy, v.vx));
-          triangle(0, 0, -10, 5, -10, -5);
-        pop();
-        // čvor za povlačenje (glava)
-        noStroke();
-        fill(v.col);
-        ellipse(v.vx, -v.vy, 12);
-      pop();
-    }
-
-    function mousePressed() {
-      // proveri da li korisnik kliknuo na glavu nekog vektora
-      const mx = mouseX - width / 2, my = -(mouseY - height / 2);
+    p.mousePressed = function() {
+      const mx = p.mouseX - p.width/2;
+      const my = -(p.mouseY - p.height/2);
       for (let v of vectors) {
-        if (dist(mx, my, v.vx, v.vy) < 10) {
+        if (p.dist(mx, my, v.vx, v.vy) < 10) {
           dragging = v;
           break;
         }
       }
-    }
+    };
 
-    function mouseDragged() {
+    p.mouseDragged = function() {
       if (dragging) {
-        // postavi novu komponentu vektora
-        dragging.vx = mouseX - width / 2;
-        dragging.vy = -(mouseY - height / 2);
+        dragging.vx = p.mouseX - p.width/2;
+        dragging.vy = -(p.mouseY - p.height/2);
       }
-    }
+    };
 
-    function mouseReleased() {
+    p.mouseReleased = function() {
       dragging = null;
+    };
+
+    // helper to draw one vector
+    function drawVector(p, v) {
+      p.push();
+        p.translate(p.width/2, p.height/2);
+        p.stroke(v.col);
+        p.strokeWeight(3);
+        p.line(0, 0, v.vx, -v.vy);
+
+        // arrowhead
+        p.push();
+          p.translate(v.vx, -v.vy);
+          p.rotate(-p.atan2(v.vy, v.vx));
+          p.fill(v.col);
+          p.noStroke();
+          p.triangle(0, 0, -10, 5, -10, -5);
+        p.pop();
+
+        // draggable handle
+        p.noStroke();
+        p.fill(v.col);
+        p.ellipse(v.vx, -v.vy, 12);
+      p.pop();
     }
-  </script>
+  }
+
+  // 2) instantiate *that* sketch inside your container
+  new p5(sketch1, 'sketch-holder');
+</script>
+
+  <script language="javascript" type="text/javascript" src="js/p5js/VektoriOperacije/vektori_operacije.js"></script>
 </body>
 </html>
