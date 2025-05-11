@@ -151,7 +151,7 @@ const PrivacyController = require('../controllers/PrivacyController');
 console.log('PrivacyController u index.js:', PrivacyController);
 
 // srpska verzija
-router.get('/privacy', PrivacyController.privacy);
+router.get('/politika_privatnosti', PrivacyController.privacy);
 
 
 router.get('/en', function(req, res) {

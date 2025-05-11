@@ -179,7 +179,7 @@ const slugMap = {
   '/upotreba_p5js/vektori_animacija/:id':        '/en/usage_p5js/vector_animation/:id',
   
   
-  '/privacy':           '/en/privacy',
+  '/politika_privatnosti':           '/en/privacy',
 };
 
 
