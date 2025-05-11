@@ -8,7 +8,7 @@ module.exports = {
   },
   // English version
   VektoriAnimacija_EN: (req, res) => {
-    res.render('pages-en/upotrebaP5js/vector_animation', {
+    res.render('pages-en/usingP5js/vector_animation', {
       locale: req.getLocale()
     });
   }

@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="<%= locale %>">
 <head>
-  <meta charset="UTF-8" />
+
+    <%- include('../../partials/head') %>
+    <meta charset="utf-8" />
+    <meta name="description" content="Circular animation of an object using the p5.js library in JavaScript. Visual example and explanation of trigonometric functions in animation." />
+    <title>>Uvod u vektore</title>
+    <meta name="keywords" content="p5.js, JavaScript animation, circular motion, sin, cos, trigonometry, animation, visualization, code example" />
+    <link rel="canonical" href="https://kosi-hitac.onrender.com/vektori_animacija" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Uvod u vektore</title>
+  
   <style>
     body { font-family: sans-serif; margin: 0; padding: 0; }
     header, section { padding: 1rem; }
@@ -17,6 +24,9 @@
 </head>
 <body>
   <header>
+  <div class="content-wrapper moj-header">
+  <%- include('../../partials/header') %>
+  </div>
     <h1>Šta je vektor?</h1>
     <p>
       Vektor je usmeren segment definisan dužinom (<em>magnitude</em>) i smerom. 
@@ -29,6 +39,7 @@
     </p>
   </header>
 
+<div class="container moj-header">
   <section>
     <h2>Osnovne operacije</h2>
     <ul>
@@ -47,7 +58,12 @@
   </section>
 
   <section id="sketch-holder"></section>
+<section>
+<%- include('../../partials/scripts') %>
+<%- include('../../partials/footer') %>
+</section>
 
+</div>
   <script>
     let vectors = [];
     let dragging = null;
