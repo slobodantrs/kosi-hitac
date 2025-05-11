@@ -133,78 +133,78 @@
 
 <div class="moj_kod">
 <pre><code>
-// glavni niz i promenljiva za prevlačenje
-let vectors = [];
-let dragging = null;
+<span class="siva">// glavni niz i promenljiva za prevlačenje</span>
+<span class="plava">let</span> <span class="crna">vectors</span> = [];<br>
+<span class="plava">let</span> <span class="crna">dragging</span> = <span class="crvena">null</span>;<br><br>
 
-function setup() {
-  const canvas = createCanvas(600, 400);
-  canvas.parent('sketch-holder');
-  // Generiši dva nasumična vektora
-  for (let i = 0; i < 2; i++) {
-    vectors.push({
-      vx: random(-150, 150),
-      vy: random(-100, 100),
-      col: i === 0 ? '#e63946' : '#2a9d8f'
+<span class="plava">function</span> <span class="zelena">setup</span>() {
+  <span class="plava">const</span> <span class="crna">canvas</span> = <span class="zelena">createCanvas</span>(<span class="narandzasta">600</span>, <span class="narandzasta">400</span>);
+  <span class="crna">canvas</span>.<span class="zelena">parent</span>(<span class="crvena">'sketch-holder'</span>);
+  <span class="siva">// Generiši dva nasumična vektora</span>
+  <span class="plava">for</span> (<span class="plava">let</span> <span class="crna">i</span> = <span class="narandzasta">0</span>; <span class="crna">i</span> &lt; <span class="narandzasta">2</span>; <span class="crna">i</span>++) {
+    <span class="zelena">vectors</span>.<span class="zelena">push</span>({
+      <span class="pink">vx</span>: <span class="zelena">random</span>(<span class="narandzasta">-150</span>, <span class="narandzasta">150</span>),
+      <span class="pink">vy</span>: <span class="zelena">random</span>(<span class="narandzasta">-100</span>, <span class="narandzasta">100</span>),
+      <span class="pink">col</span>: <span class="crna">i</span> === <span class="narandzasta">0</span> ? <span class="crvena">'#e63946'</span> : <span class="crvena">'#2a9d8f'</span>
     });
   }
 }
 
-function draw() {
-  background(240);
-  stroke(50);
-  // nacrtaj ose kroz centar
-  line(width/2, 0, width/2, height);
-  line(0, height/2, width, height/2);
-  noStroke();
+<span class="plava">function</span> <span class="zelena">draw</span>() {
+  <span class="zelena">background</span>(<span class="narandzasta">240</span>);
+  <span class="zelena">stroke</span>(<span class="narandzasta">50</span>);
+  <span class="siva">// nacrtaj ose kroz centar</span>
+  <span class="zelena">line</span>(<span class="zelena">width</span>/<span class="narandzasta">2</span>, <span class="narandzasta">0</span>, <span class="zelena">width</span>/<span class="narandzasta">2</span>, <span class="zelena">height</span>);
+  <span class="zelena">line</span>(<span class="narandzasta">0</span>, <span class="zelena">height</span>/<span class="narandzasta">2</span>, <span class="zelena">width</span>, <span class="zelena">height</span>/<span class="narandzasta">2</span>);
+  <span class="zelena">noStroke</span>();
 
-  // prikaži svaki vektor
-  vectors.forEach(v => {
-    drawVector(v);
+  <span class="siva">// prikaži svaki vektor</span>
+  <span class="crna">vectors</span>.<span class="zelena">forEach</span>(v =&gt; {
+    <span class="zelena">drawVector</span>(v);
   });
 }
 
-function drawVector(v) {
-  push();
-    translate(width/2, height/2);
-    stroke(v.col);
-    strokeWeight(3);
-    line(0, 0, v.vx, -v.vy);
-    // strelica
-    push();
-      translate(v.vx, -v.vy);
-      rotate(-atan2(v.vy, v.vx));
-      fill(v.col);
-      noStroke();
-      triangle(0, 0, -10, 5, -10, -5);
-    pop();
-    // čvor za povlačenje
-    noStroke();
-    fill(v.col);
-    ellipse(v.vx, -v.vy, 12);
-  pop();
+<span class="plava">function</span> <span class="zelena">drawVector</span>(<span class="crna">v</span>) {
+  <span class="zelena">push</span>();
+    <span class="zelena">translate</span>(<span class="crna">width</span>/<span class="narandzasta">2</span>, <span class="crna">height</span>/<span class="narandzasta">2</span>);
+    <span class="zelena">stroke</span>(<span class="crna">v</span>.<span class="crna">col</span>);
+    <span class="zelena">strokeWeight</span>(<span class="narandzasta">3</span>);
+    <span class="zelena">line</span>(<span class="narandzasta">0</span>, <span class="narandzasta">0</span>, <span class="crna">v</span>.<span class="crna">vx</span>, -<span class="crna">v</span>.<span class="crna">vy</span>);
+    <span class="siva">// strelica</span>
+    <span class="zelena">push</span>();
+      <span class="zelena">translate</span>(<span class="crna">v</span>.<span class="crna">vx</span>, -<span class="crna">v</span>.<span class="crna">vy</span>);
+      <span class="zelena">rotate</span>(-<span class="zelena">atan2</span>(<span class="crna">v</span>.<span class="crna">vy</span>, <span class="crna">v</span>.<span class="crna">vx</span>));
+      <span class="zelena">fill</span>(<span class="crna">v</span>.<span class="crna">col</span>);
+      <span class="zelena">noStroke</span>();
+      <span class="zelena">triangle</span>(<span class="narandzasta">0</span>, <span class="narandzasta">0</span>, -<span class="narandzasta">10</span>, <span class="narandzasta">5</span>, -<span class="narandzasta">10</span>, -<span class="narandzasta">5</span>);
+    <span class="zelena">pop</span>();
+    <span class="siva">// čvor za povlačenje</span>
+    <span class="zelena">noStroke</span>();
+    <span class="zelena">fill</span>(<span class="crna">v</span>.<span class="crna">col</span>);
+    <span class="zelena">ellipse</span>(<span class="crna">v</span>.<span class="crna">vx</span>, -<span class="crna">v</span>.<span class="crna">vy</span>, <span class="narandzasta">12</span>);
+  <span class="zelena">pop</span>();
 }
 
-function mousePressed() {
-  const mx = mouseX - width/2;
-  const my = -(mouseY - height/2);
-  for (let v of vectors) {
-    if (dist(mx, my, v.vx, v.vy) < 10) {
-      dragging = v;
-      break;
+<span class="plava">function</span> <span class="zelena">mousePressed</span>() {
+  <span class="plava">const</span> <span class="crna">mx</span> = <span class="crna">mouseX</span> - <span class="crna">width</span>/<span class="narandzasta">2</span>;
+  <span class="plava">const</span> <span class="crna">my</span> = -(<span class="crna">mouseY</span> - <span class="crna">height</span>/<span class="narandzasta">2</span>);
+  <span class="plava">for</span> (<span class="plava">let</span> <span class="crna">v</span> <span class="plava">of</span> <span class="crna">vectors</span>) {
+    <span class="plava">if</span> (<span class="zelena">dist</span>(<span class="crna">mx</span>, <span class="crna">my</span>, <span class="crna">v</span>.<span class="crna">vx</span>, <span class="crna">v</span>.<span class="crna">vy</span>) &lt; <span class="narandzasta">10</span>) {
+      <span class="crna">dragging</span> = <span class="crna">v</span>;
+      <span class="plava">break</span>;
     }
   }
 }
 
-function mouseDragged() {
-  if (dragging) {
-    dragging.vx = mouseX - width/2;
-    dragging.vy = -(mouseY - height/2);
+<span class="plava">function</span> <span class="zelena">mouseDragged</span>() {
+  <span class="plava">if</span> (<span class="crna">dragging</span>) {
+    <span class="crna">dragging</span>.<span class="crna">vx</span> = <span class="crna">mouseX</span> - <span class="crna">width</span>/<span class="narandzasta">2</span>;
+    <span class="crna">dragging</span>.<span class="crna">vy</span> = -(<span class="crna">mouseY</span> - <span class="crna">height</span>/<span class="narandzasta">2</span>);
   }
 }
 
-function mouseReleased() {
-  dragging = null;
+<span class="plava">function</span> <span class="zelena">mouseReleased</span>() {
+  <span class="crna">dragging</span> = <span class="crvena">null</span>;
 }
 </code></pre>
 </div>
@@ -247,14 +247,14 @@ function mouseReleased() {
     Detaljnije uputstvo, primeri i teorijska objašnjenja pogledajte u video-zapisu:
   </p>
   <div class="video-container text-center">
-    <iframe
-      width="560" height="315"
-      src="https://youtu.be/0FUnZs3C6n8"
-      title="Vektorske operacije – uputstvo"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+   <iframe
+  width="560" height="315"
+  src="https://www.youtube.com/embed/0FUnZs3C6n8"
+  title="Vektorske operacije – uputstvo"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
+
   </div>
 
   <div id="container" class="d-flex flex-column mb-3">
