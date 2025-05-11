@@ -250,16 +250,17 @@
   <p>
     Detaljnije uputstvo, primeri i teorijska objašnjenja pogledajte u video-zapisu:
   </p>
-  <div class="video-container text-center">
-   <iframe
-  width="560" height="315"
-  src="https://www.youtube.com/embed/0FUnZs3C6n8"
-  title="Vektorske operacije – uputstvo"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen></iframe>
-
-  </div>
+ <div class="video-container text-center">
+  <iframe
+    id="tutorial-video"
+    width="560" height="315"
+    src=""
+    title="Vektorske operacije – uputstvo"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
 
   <div id="container" class="d-flex flex-column mb-3">
     <div id="canvasForHTML" class="bd-highlight"></div>
@@ -275,7 +276,32 @@
 </section>
 
 </div>
- 
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const iframe = document.getElementById('tutorial-video');
+
+    // Prag širine ispod kojeg smatramo da je mobilni uređaj
+    const mobileBreakpoint = 768;
+
+    // URL-ovi za desktop i mobilni
+    const desktopVideo = 'https://www.youtube.com/embed/0FUnZs3C6n8';
+    const mobileVideo  = 'https://www.youtube.com/embed/D6T1mpE1jVg';
+
+    // Ako je width manje od praga, prikaži mobilnu verziju
+    if (window.innerWidth <= mobileBreakpoint) {
+      iframe.src = mobileVideo;
+    } else {
+      iframe.src = desktopVideo;
+    }
+
+    // (opciono) osveži pri resize-u ekrana
+    window.addEventListener('resize', () => {
+      const isMobile = window.innerWidth <= mobileBreakpoint;
+      iframe.src = isMobile ? mobileVideo : desktopVideo;
+    });
+  });
+</script>
+
 <script>
   // 1) define your “sketch” as a function that takes a p5 instance `p`
   function sketch1(p) {
