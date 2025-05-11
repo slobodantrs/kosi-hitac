@@ -62,23 +62,19 @@
     <h1>Šta je vektor?</h1>
     <p>
       Vektor je usmeren segment definisan dužinom (<em>magnitude</em>) i smerom. 
-      Dok brojčane (skalarnе) veličine imaju samo vrednost, vektori opisuju i 
-      koliko i u kom pravcu nešto “gura” ili “se kreće”. Primere i operacije sa 
+      Dok brojčane (skalarnе) veličine imaju samo vrednost, vektori opisuju i koliko i u kom pravcu nešto “gura” ili “se kreće”. Primere i operacije sa 
       vektorima pogledajte u našem detaljnom vodiču na 
       <a href="https://www.svetprogramiranja.com/operacije_sa_vektorima.html" target="_blank">
         SvetProgramiranja: Operacije sa vektorima
       </a>.
     </p>
   </header>
-
 <div class="container moj-header">
   <section>
     <h2>Osnovne operacije</h2>
     <ul>
-      <li><strong>Sabiranje</strong> vektora: rezultantni vektor dobija se 
-        „glava-na​-rep“ metodom.</li>
-      <li><strong>Skaliranje</strong>: množenjem vektora skalarom menjamo 
-        njegovu dužinu, ali ne i smer.</li>
+      <li><strong>Sabiranje</strong> vektora: rezultantni vektor dobija se „glava-na​-rep“ metodom.</li>
+      <li><strong>Skaliranje</strong>: množenjem vektora skalarom menjamo njegovu dužinu, ali ne i smer.</li>
       <li><strong>Skalarni (dot) produkt</strong> i <strong>vektorski (cross) 
         product</strong> služe za izračunavanje uglova i površina u prostoru.</li>
     </ul>
@@ -271,6 +267,7 @@
 <div id="container" class="d-flex flex-column bd-highlight mb-3">
 <div id="canvasForHTML" class="d-flex flex-row bd-highlight "></div>
 <div id="infoPanel" class="d-flex flex-row align-items-start justify-content-left flex-wrap  bd-highlight infoPanel"></div>
+</div>
 </section>
 
   
@@ -279,7 +276,7 @@
 <%- include('../../partials/footer') %>
 </section>
 
-</div>
+
  <script>
   document.addEventListener('DOMContentLoaded', () => {
     const iframe = document.getElementById('tutorial-video');
