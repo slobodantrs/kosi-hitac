@@ -43,7 +43,8 @@
     "masa_I_Opruga_Uvod2": "Opis zadatka",
     "masa_I_Opruga_Simulacija": "Simulacija",
     "slobodan_Pad": "Slobodan Pad",
-    "telo": "telo"
+    "telo": "telo",
+	"vektori_animacija": "Animacija vektora"
   },
   "animation": {
     "title": "KRUŽNO KRETANJE:",

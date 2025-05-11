@@ -43,7 +43,8 @@
     "masa_I_Opruga_Uvod2": "Problem Description",
     "masa_I_Opruga_Simulacija": "Simulation",
     "slobodan_Pad": "Free Fall",
-    "telo": "Physical Body"
+    "telo": "Physical Body",
+	"vector_animation": "Vector Animation"
   },
   "animation": {
     "title": "CIRCULAR MOTION:",

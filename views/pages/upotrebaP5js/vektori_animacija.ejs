@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uvod u vektore</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    header, section { padding: 1rem; }
+    header { background: #005f73; color: #fff; }
+    a { color: #0a9396; }
+    #sketch-holder { display: flex; justify-content: center; margin: 1rem 0; }
+    canvas { border: 1px solid #333; }
+  </style>
+  <!-- p5.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Šta je vektor?</h1>
+    <p>
+      Vektor je usmeren segment definisan dužinom (<em>magnitude</em>) i smerom. 
+      Dok brojčane (skalarnе) veličine imaju samo vrednost, vektori opisuju i 
+      koliko i u kom pravcu nešto “gura” ili “se kreće”. Primere i operacije sa 
+      vektorima pogledajte u našem detaljnom vodiču na 
+      <a href="https://www.svetprogramiranja.com/operacije_sa_vektorima.html" target="_blank">
+        SvetProgramiranja: Operacije sa vektorima
+      </a>.
+    </p>
+  </header>
+
+  <section>
+    <h2>Osnovne operacije</h2>
+    <ul>
+      <li><strong>Sabiranje</strong> vektora: rezultantni vektor dobija se 
+        „glava-na​-rep“ metodom.</li>
+      <li><strong>Skaliranje</strong>: množenjem vektora skalarom menjamo 
+        njegovu dužinu, ali ne i smer.</li>
+      <li><strong>Skalarni (dot) produkt</strong> i <strong>vektorski (cross) 
+        product</strong> služe za izračunavanje uglova i površina u prostoru.</li>
+    </ul>
+    <p>
+      U nastavku je interaktivni primer u <em>p5.js</em> koji prikazuje dve
+      nasumične vektorske strelice u ravni. Kliknite i povucite glave strelica
+      da promenite njihovo položaj i vidite kako se menjaju.
+    </p>
+  </section>
+
+  <section id="sketch-holder"></section>
+
+  <script>
+    let vectors = [];
+    let dragging = null;
+
+    function setup() {
+      const canvas = createCanvas(600, 400);
+      canvas.parent('sketch-holder');
+      // Generiši dva nasumična vektora
+      for (let i = 0; i < 2; i++) {
+        vectors.push({
+          x: random(100, width - 100),
+          y: random(100, height - 100),
+          vx: random(-80, 80),
+          vy: random(-80, 80),
+          col: i === 0 ? '#e63946' : '#2a9d8f'
+        });
+      }
+    }
+
+    function draw() {
+      background(240);
+      stroke(50);
+      // nacrtaj ose
+      line(width / 2, 0, width / 2, height);
+      line(0, height / 2, width, height / 2);
+      noStroke();
+
+      // prikaz i interakcija sa vektorima
+      vectors.forEach(v => {
+        drawVector(v);
+      });
+    }
+
+    function drawVector(v) {
+      push();
+        translate(width / 2, height / 2);
+        stroke(v.col);
+        strokeWeight(3);
+        line(0, 0, v.vx, -v.vy);
+        // glava strelice
+        push();
+          translate(v.vx, -v.vy);
+          rotate(-atan2(v.vy, v.vx));
+          triangle(0, 0, -10, 5, -10, -5);
+        pop();
+        // čvor za povlačenje (glava)
+        noStroke();
+        fill(v.col);
+        ellipse(v.vx, -v.vy, 12);
+      pop();
+    }
+
+    function mousePressed() {
+      // proveri da li korisnik kliknuo na glavu nekog vektora
+      const mx = mouseX - width / 2, my = -(mouseY - height / 2);
+      for (let v of vectors) {
+        if (dist(mx, my, v.vx, v.vy) < 10) {
+          dragging = v;
+          break;
+        }
+      }
+    }
+
+    function mouseDragged() {
+      if (dragging) {
+        // postavi novu komponentu vektora
+        dragging.vx = mouseX - width / 2;
+        dragging.vy = -(mouseY - height / 2);
+      }
+    }
+
+    function mouseReleased() {
+      dragging = null;
+    }
+  </script>
+</body>
+</html>

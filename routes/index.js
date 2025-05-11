@@ -138,6 +138,21 @@ router.get('/contents_masa_i_opruga', MasaIOprugaController.MasaIOprugaContents)
 // Simulation page
 router.get('/simulacija_masa_i_opruga', MasaIOprugaController.MasaIOpruga_Simulation);
 
+const VektoriController = require('../controllers/VektoriController');
+
+console.log('VektoriController:', VektoriController);
+
+// Serbian
+router.get('/upotreba_p5js/vektori_animacija',           VektoriController.VektoriAnimacija);
+router.get('/upotreba_p5js/vektori_animacija/:id?',     VektoriController.VektoriAnimacija);
+
+
+const PrivacyController = require('../controllers/PrivacyController');
+console.log('PrivacyController u index.js:', PrivacyController);
+
+// srpska verzija
+router.get('/privacy', PrivacyController.privacy);
+
 
 router.get('/en', function(req, res) {
 	
@@ -146,11 +161,6 @@ router.get('/en', function(req, res) {
 });
 
 
-const PrivacyController = require('../controllers/PrivacyController');
-console.log('PrivacyController u index.js:', PrivacyController);
-
-// srpska verzija
-router.get('/privacy', PrivacyController.privacy);
 
 // енг верзија
 router.get('/en/privacy', PrivacyController.privacy_EN);
@@ -263,6 +273,11 @@ router.get('/en/contents_mass_and_spring', MasaIOprugaController.MasaIOprugaCont
 
 // Simulation page
 router.get('/en/simulation_mass_and_spring', MasaIOprugaController.MasaIOpruga_Simulation_EN);
+
+// English
+router.get('/en/usage_p5js/vector_animation',           VektoriController.VektoriAnimacija_EN);
+router.get('/en/usage_p5js/vector_animation/:id?',      VektoriController.VektoriAnimacija_EN);
+
 
 const path = require('path');
 const options = {

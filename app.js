@@ -174,6 +174,11 @@ const slugMap = {
   '/masa_i_opruga_intro_2':           '/en/mass_and_spring_intro_2',
   '/simulacija_masa_i_opruga':        '/en/simulation_mass_and_spring',
   
+  // p5.js → Vector animation
+  '/upotreba_p5js/vektori_animacija':            '/en/usage_p5js/vector_animation',
+  '/upotreba_p5js/vektori_animacija/:id':        '/en/usage_p5js/vector_animation/:id',
+  
+  
   '/privacy':           '/en/privacy',
 };
 
