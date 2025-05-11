@@ -86,7 +86,11 @@
       da promenite njihovo položaj i vidite kako se menjaju.
     </p>
   </section>
+  
+  <section id="sketch-holder"></section>
+
   <section>
+  
   <div class="moj_tekst">
   <h3 class="okvir_3">Objašnjenje koda: interaktivna vežba sa vektorima</h3>
 
@@ -264,88 +268,95 @@
 </section>
 
 
-  <section id="sketch-holder"></section>
+  
 <section>
 <%- include('../../partials/scripts') %>
 <%- include('../../partials/footer') %>
 </section>
 
 </div>
-  <script>
+ 
+<script>
+  // 1) define your “sketch” as a function that takes a p5 instance `p`
+  function sketch1(p) {
     let vectors = [];
     let dragging = null;
 
-    function setup() {
-      const canvas = createCanvas(600, 400);
-      canvas.parent('sketch-holder');
-      // Generiši dva nasumična vektora
+    p.setup = function() {
+      p.createCanvas(600, 400).parent('sketch-holder');
+      // generate two random vectors
       for (let i = 0; i < 2; i++) {
         vectors.push({
-          x: random(100, width - 100),
-          y: random(100, height - 100),
-          vx: random(-80, 80),
-          vy: random(-80, 80),
+          vx: p.random(-80, 80),
+          vy: p.random(-80, 80),
           col: i === 0 ? '#e63946' : '#2a9d8f'
         });
       }
-    }
+    };
 
-    function draw() {
-      background(240);
-      stroke(50);
-      // nacrtaj ose
-      line(width / 2, 0, width / 2, height);
-      line(0, height / 2, width, height / 2);
-      noStroke();
+    p.draw = function() {
+      p.background(240);
+      p.stroke(50);
+      // draw axes
+      p.line(p.width/2, 0, p.width/2, p.height);
+      p.line(0, p.height/2, p.width, p.height/2);
+      p.noStroke();
 
-      // prikaz i interakcija sa vektorima
-      vectors.forEach(v => {
-        drawVector(v);
-      });
-    }
+      // render and interact with each vector
+      vectors.forEach(v => drawVector(p, v));
+    };
 
-    function drawVector(v) {
-      push();
-        translate(width / 2, height / 2);
-        stroke(v.col);
-        strokeWeight(3);
-        line(0, 0, v.vx, -v.vy);
-        // glava strelice
-        push();
-          translate(v.vx, -v.vy);
-          rotate(-atan2(v.vy, v.vx));
-          triangle(0, 0, -10, 5, -10, -5);
-        pop();
-        // čvor za povlačenje (glava)
-        noStroke();
-        fill(v.col);
-        ellipse(v.vx, -v.vy, 12);
-      pop();
-    }
-
-    function mousePressed() {
-      // proveri da li korisnik kliknuo na glavu nekog vektora
-      const mx = mouseX - width / 2, my = -(mouseY - height / 2);
+    p.mousePressed = function() {
+      const mx = p.mouseX - p.width/2;
+      const my = -(p.mouseY - p.height/2);
       for (let v of vectors) {
-        if (dist(mx, my, v.vx, v.vy) < 10) {
+        if (p.dist(mx, my, v.vx, v.vy) < 10) {
           dragging = v;
           break;
         }
       }
-    }
+    };
 
-    function mouseDragged() {
+    p.mouseDragged = function() {
       if (dragging) {
-        // postavi novu komponentu vektora
-        dragging.vx = mouseX - width / 2;
-        dragging.vy = -(mouseY - height / 2);
+        dragging.vx = p.mouseX - p.width/2;
+        dragging.vy = -(p.mouseY - p.height/2);
       }
-    }
+    };
 
-    function mouseReleased() {
+    p.mouseReleased = function() {
       dragging = null;
+    };
+
+    // helper to draw one vector
+    function drawVector(p, v) {
+      p.push();
+        p.translate(p.width/2, p.height/2);
+        p.stroke(v.col);
+        p.strokeWeight(3);
+        p.line(0, 0, v.vx, -v.vy);
+
+        // arrowhead
+        p.push();
+          p.translate(v.vx, -v.vy);
+          p.rotate(-p.atan2(v.vy, v.vx));
+          p.fill(v.col);
+          p.noStroke();
+          p.triangle(0, 0, -10, 5, -10, -5);
+        p.pop();
+
+        // draggable handle
+        p.noStroke();
+        p.fill(v.col);
+        p.ellipse(v.vx, -v.vy, 12);
+      p.pop();
     }
-  </script>
+  }
+
+  // 2) instantiate *that* sketch inside your container
+  new p5(sketch1, 'sketch-holder');
+</script>
+
   <script language="javascript" type="text/javascript" src="js/p5js/VektoriOperacije/vektori_operacije.js"></script>
 </body>
 </html>
