@@ -1,7 +1,7 @@
 <!-- views/partials/footer.ejs -->
 <footer class="bg-light py-4 mt-5">
   <div class="container">
-  <% console.log('Current locale is:', locale); %>
+  
 
     <div class="row">
 
@@ -9,10 +9,10 @@
       <div class="col-md-4 mb-3">
         <h5><%= __('footer.quick_links') %></h5>
         <ul class="list-unstyled">
-          <li><a href="/" class="text-muted"><%= __('nav.home') %></a></li>
-          <li><a href="/o_ejsu" class="text-muted"><%= __('nav.o_ejsu') %></a></li>
-          <li><a href="/kosi_hitac" class="text-muted"><%= __('nav.kosi_Hitac') %></a></li>
-          <li><a href="/ravno_kretanje" class="text-muted"><%= __('nav.ravno_Kretanje') %></a></li>
+          <li><a href="<%= navHref('/') %>" class="text-muted"><%= __('nav.home') %></a></li>
+          <li><a href="<%= navHref('/o_ejsu') %>" class="text-muted"><%= __('nav.o_ejsu') %></a></li>
+          <li><a href="<%= navHref('/kosi_hitac') %>" class="text-muted"><%= __('nav.kosi_Hitac') %></a></li>
+          <li><a href="<%= navHref('/ravno_kretanje') %>" class="text-muted"><%= __('nav.ravno_Kretanje') %></a></li>
         </ul>
       </div>
 
@@ -47,8 +47,8 @@
       <div class="col-md-4 text-md-right">
         <p class="text-muted mb-1">© 2025 Svet programiranja — Kosi Hitac</p>
         <p class="text-muted small mb-0">
-          <a href="/politika_privatnosti" class="text-muted"><%= __('footer.privacy_policy') %></a> ·
-          <a href="/terms" class="text-muted"><%= __('footer.terms_of_use') %></a>
+          <a href="<%= navHref('/politika_privatnosti') %>" class="text-muted"><%= __('footer.privacy_policy') %></a> ·
+          <a href="<%= navHref('/terms') %>" class="text-muted"><%= __('footer.terms_of_use') %></a>
         </p>
       </div>
 
