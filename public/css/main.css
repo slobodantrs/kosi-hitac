@@ -492,9 +492,7 @@ width:100%;  /* ne izlazi iz figure */
 	header{
 		width:100%;
 	}
-	button {
-		font-size:2rem;
-	}
+	
 	.margine_oko_slike img{
       /*  margin: 5 auto;*/
     background-size:content;
@@ -741,8 +739,8 @@ div#executionPanel,div#executionPanel2{
 	height:auto !important;
 }
 div#executionPanel > button,div#executionPanel2 > button{
-	width:4rem !important;
-	height:4rem !important;
+	width:2.5rem !important;
+	height:2.5rem !important;
 	
 }
 div#kontejnerPanel,div#wrappedPanel,div#controlPanel,div#drawingPanel3D,div#wrappedPanel2,div#labelPanel2{
@@ -757,6 +755,11 @@ div#wrappedPanel svg{
 	/*height:80vw !important;*/
 	margin-left: auto!important;
 	margin-right:auto !important;
+	max-width:100%;
+	overflow-x:auto;
+}
+div#panelSimulacija {
+	/*width:100%;*/
 	max-width:100%;
 	overflow-x:auto;
 }
