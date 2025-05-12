@@ -492,6 +492,9 @@ width:100%;  /* ne izlazi iz figure */
 	header{
 		width:100%;
 	}
+	button {
+		font-size:2rem;
+	}
 	.margine_oko_slike img{
       /*  margin: 5 auto;*/
     background-size:content;
