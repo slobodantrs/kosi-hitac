@@ -486,7 +486,7 @@ width:100%;  /* ne izlazi iz figure */
 	body{
 		margin-left:auto;
 		margin-right:auto;
-		font-size:1.2rem;
+		font-size:1.8rem;
 	/*	padding-top: 56px;*/ /* ili tačna visina tvog navbar-a */
 	}
 	header{
@@ -739,8 +739,8 @@ div#executionPanel,div#executionPanel2{
 	height:auto !important;
 }
 div#executionPanel > button,div#executionPanel2 > button{
-	width:2.5rem !important;
-	height:2.5rem !important;
+	width:3rem !important;
+	height:2.7rem !important;
 	
 }
 div#kontejnerPanel,div#wrappedPanel,div#controlPanel,div#drawingPanel3D,div#wrappedPanel2,div#labelPanel2{
