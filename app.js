@@ -210,6 +210,14 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(express.static(path.join(__dirname,'testHTML5')));
 app.use(express.static(path.join(__dirname,'node_modules')));
 app.use(express.static(__dirname));
+// ovo kaže: kad klijent requestuje /org/opensourcephysics/* 
+// serviraj fajlove iz public/_ejs_library/images/org/opensourcephysics/*
+app.use(
+  '/org/opensourcephysics',
+  express.static(
+    path.join(__dirname, 'public', '_ejs_library', 'images', 'org', 'opensourcephysics')
+  )
+);
 
 // 3) robots.txt
 const router = express.Router();
