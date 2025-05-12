@@ -741,8 +741,8 @@ div#executionPanel,div#executionPanel2{
 	height:auto !important;
 }
 div#executionPanel > button,div#executionPanel2 > button{
-	width:2rem !important;
-	height:2rem !important;
+	width:4rem !important;
+	height:4rem !important;
 	
 }
 div#kontejnerPanel,div#wrappedPanel,div#controlPanel,div#drawingPanel3D,div#wrappedPanel2,div#labelPanel2{
