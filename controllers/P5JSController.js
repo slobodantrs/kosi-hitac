@@ -37,7 +37,7 @@ Klizanje_tela_niz_strmu_ravan_EN: function(req, res) {
 // — SRPSKI —
 Animacija_sunce_zemlja_mesec: function(req, res) {
   // ovde nema id varijante, ali možeš dodati ako želiš fragmentiranje
-  res.render('pages/usage_p5js/sunce_zemlja_mesec_animacija', {
+  res.render('pages/upotrebaP5js/sunce_zemlja_mesec_animacija', {
     // podesite odgovarajuće nazive fajlova i podatke 
     pageTitle: 'Animacija Sunce–Zemlja–Mesec',
     locale: req.locale
@@ -46,7 +46,7 @@ Animacija_sunce_zemlja_mesec: function(req, res) {
 
 // — ENGLISH —
 Animacija_sunce_zemlja_mesec_EN: function(req, res) {
-  res.render('pages-en/usage_p5js/sun_earth_moon_animation', {
+  res.render('pages-en/usingP5js/sun_earth_moon_animation', {
     pageTitle: 'Sun–Earth–Moon Animation',
     locale: req.locale
   });
