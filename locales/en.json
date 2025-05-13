@@ -44,7 +44,8 @@
     "masa_I_Opruga_Simulacija": "Simulation",
     "slobodan_Pad": "Free Fall",
     "telo": "Physical Body",
-	"vektori_animacija": "Vector Animation"
+	"vektori_animacija": "Vector Animation",
+	"sunce_Zemlja_Mesec_Animacija": "Sun–Earth–Moon Animation"
   },
   "animation": {
     "title": "CIRCULAR MOTION:",

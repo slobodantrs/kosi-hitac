@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<%= locale %>">
 <head>
-    <% include ../../partials/head %>
+    <%- include('../../partials/head') %>
     <meta charset="utf-8" />
 	<link rel="canonical" href="https://kosi-hitac.onrender.com/animacija_kruznog_kretanja" />
     <meta name="description" content="Kružna animacija objekta pomoću biblioteke p5.js u JavaScript jeziku. Vizuelni primer i objašnjenje trigonometrijskih funkcija u animaciji." />
@@ -15,7 +15,7 @@
     <div class="content-wrapper d-flex flex-column">
 	
         <header>
-            <% include ../../partials/header %>
+            <%- include('../../partials/header') %>
 			 <style>
     body {
       padding: 0;
@@ -254,8 +254,8 @@ border-bottom:solid thick #000;
 </div>
        
         <footer>
-		     <% include ../../partials/scripts %>
-            <% include ../../partials/footer %>
+		     <%- include('../../partials/scripts') %>
+            <%- include('../../partials/footer') %>
         </footer>
     </div>
 

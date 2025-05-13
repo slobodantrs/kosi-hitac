@@ -48,6 +48,7 @@ var P5jsController = require('../controllers/P5JSController');
  router.get('/p5js', P5jsController.Uvod_u_p5js);
  router.get('/animacija_kruznog_kretanja', P5jsController.Animacija_kruznog_kretanja);
  router.get('/klizanje_tela_niz_strmu_ravan', P5jsController.Klizanje_tela_niz_strmu_ravan);
+ router.get('/sunce_zemlja_mesec_animacija', P5jsController.Animacija_sunce_zemlja_mesec);
  
  
  //Slobodan pad
@@ -191,6 +192,8 @@ router.get('/en/p5js', P5jsController.Uvod_u_p5js_EN);
 router.get('/en/p5js', P5jsController.Uvod_u_p5js_EN);
 router.get('/en/circular-motion', P5jsController.Animacija_kruznog_kretanja_EN);
 router.get('/en/inclined-plane-slide', P5jsController.Klizanje_tela_niz_strmu_ravan_EN);
+
+router.get('/en/sun_earth_moon_animation', P5jsController.Animacija_sunce_zemlja_mesec_EN);
 
 // О EJS
 console.log('Registering EN route handler:', OpsteController.O_Ejsu_EN);

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+
+    <%- include('../../partials/head') %>
+    <meta charset="utf-8" />
+    <meta name="description" content="Interaktivna p5.js animacija koja omogućava korisnicima da vizualizuju i manipulišu vektorima u 2D prostoru. Idealno za učenje osnovnih vektorskih operacija kroz praktične primere." />
+    <title>Uvod u vektore</title>
+    <meta name="keywords" content="p5.js, vektori, animacija vektora, interaktivna simulacija, vektorska grafika, sabiranje vektora, skaliranje vektora, edukativna animacija, kreativno kodiranje, fizika, matematika, JavaScript, učenje kroz animaciju,vektorska animacija, interaktivna grafika, vektori, vizualizacija vektora, edukativna animacija, JavaScript, vektorske operacije, p5.js tutorijal" />
+    <link rel="canonical" href="https://kosi-hitac.onrender.com/vektori_animacija" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    header, section { padding: 1rem; }
+    header {  color: #fff; }  <!--background: #005f73;-->
+    a { color: #0a9396; }
+    #sketch-holder { display: flex; justify-content: center; margin: 1rem 0; }
+    canvas { border: 1px solid #333; }
+  </style>
+  
+   <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+     .canvasForHTML{
+      width:940px;
+      height:627px;
+     background:#000; 
+    
+
+    }  
+   
+    .canvasForHTML{
+      width:1280px;
+      height:650px;
+      border: solid thin #0000ff;
+
+    }
+    .inputContainer{
+      margin:10px
+      padding:10px;
+    }
+    .outputResult{
+       font-weight:bold;
+       font-size:16px;
+       color:#ffbb55;
+    }
+
+  
+   
+  </style>
+  <!-- p5.js library -->
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script-->
+</head>
+<body>
+  <header>
+  <div class="content-wrapper moj-header">
+  <%- include('../../partials/header') %>
+  </div>
+    <header>
+  <h1>Sistem Sunce–Zemlja–Mesec</h1>
+  <p>
+    U ovoj 3D animaciji modeliramo Sunce, Zemlju i Mesec kao jednostavan hijerarhijski sistem:
+    Zemlja se okreće oko Sunca, a Mesec oko Zemlje. Svako nebesko telo rotira oko svog
+    „nosioca“ sopstvenom uglovnom brzinom. Za prikaz koristimo <strong>p5.js</strong> u <code>WEBGL</code> režimu,
+    sa teksturama planeta koje daju realističan izgled i prikaz orbita.
+  </p>
+  <p>
+    Fizika u pozadini je kinematička: u svakom frejmu povećavamo ugao pomoću izraza
+    <code>Δθ = ω·Δt</code>, a zatim crtamo svaku sferu u polarnim koordinatama
+    <code>(r·cos θ, r·sin θ)</code> u odnosu na telo oko kog se okreće. Osvetljenje i prikaz putanja
+    pomažu u razumevanju kretanja u prostoru.
+  </p>
+  <p>
+    Detalje o matematici i programiranju ove simulacije možete pronaći na našem vodiču:
+    <a href="https://www.svetprogramiranja.com/java_i_simulacije_u_fizici.html" target="_blank">
+      SvetProgramiranja: Java i simulacije u fizici
+    </a>.
+  </p>
+</header>
+<section class="container moj-header">
+  <h2>Ključni pojmovi</h2>
+  <ul>
+    <li><strong>Hijerarhijske transformacije</strong> – položaj Meseca se računa u odnosu na Zemlju, koja se sama kreće oko Sunca.</li>
+    <li><strong>Uglovna brzina</strong> – svako telo se pomera stalnom brzinom <code>ω</code> pri svakom osvežavanju.</li>
+    <li><strong>Polarne u kartezijeve koordinate</strong> – računanje položaja na osnovu rastojanja i ugla pomoću <code>(x, y, z)</code>.</li>
+    <li><strong>Teksture i osvetljenje</strong> – sfere sa realističnim teksturama i osvetljenjem poboljšavaju vizuelni prikaz.</li>
+  </ul>
+  <p>
+    Ispod se nalazi interaktivni 3D prikaz. Povucite mišem da rotirate kameru i koristite skrol točkić
+    da biste zumirali. Prikazane orbite pomažu u vizuelizaciji kretanja svakog tela.
+  </p>
+</section>
+
+  
+  <section id="sketch-holder" class="canvas-wrapper">
+<div style="text-align:center;">
+<h3> Animacija3D: Rotacija Zemlje oko Sunca </h3>
+<div id="container" class="d-flex flex-column bd-highlight mb-3">
+<div id="canvasForHTML" class="d-flex flex-row bd-highlight "></div>
+
+</div>
+<p>Animacija ne radi? Učitajte stranicu ponovo(refresh)</p>
+<p>&#8592; scroll horizontal &#8594;</p>
+</div>
+</section>
+ <section>
+
+  <div class="moj_tekst">
+    <h3 class="okvir_3">Objašnjenje koda: animacija Sunce–Zemlja–Mesec</h3>
+
+    <p>
+      U ovoj 3D simulaciji koristimo <strong>p5.js</strong> u <code>WEBGL</code> režimu.
+      Model je hijerarhijski: Zemlja orbitira oko Sunca, a Mesec oko Zemlje.
+      Svako telo ima svoju sopstvenu i orbitalnu uglovnu brzinu, a teksture i
+      rasveta poboljšavaju realizam.
+    </p>
+
+    <p><strong>Globalne promenljive:</strong></p>
+    <ul>
+      <li><code>sunIm, earthIm, moonIm, spaceIm</code> — teksture za planete i pozadinu.</li>
+      <li><code>sun, earth, moon</code> — objekti klase <code>Planeta</code> sa parametrima radius, distance, parent, speedRotation, speedOwnRotation i emission.</li>
+      <li><code>glContext</code> — WebGL kontekst za čišćenje Z-buffera nakon crtanja pozadine.</li>
+    </ul>
+
+    <p><strong>preload()</strong>:</p>
+    <ul>
+      <li>Učitavamo slike pozivom <code>loadImage(prefix + "Textures/…")</code>.</li>
+    </ul>
+
+    <p><strong>setup()</strong>:</p>
+    <ul>
+      <li>Određujemo dimenzije platna funkcijom <code>determineSize()</code>, a zatim kreiramo <code>createCanvas(widthS, heightS, WEBGL)</code>.</li>
+      <li>Inicijalizujemo objekte <code>Planeta</code> za Sunce, Zemlju i Mesec.</li>
+      <li>Spremljeni WebGL kontekst (<code>canvasDrawing.GL</code>) služi za čišćenje dubine pre crtanja 2D pozadine.</li>
+    </ul>
+
+    <p><strong>draw()</strong>:</p>
+    <ul>
+      <li>Podešavamo 2D pozadinu uz <code>image(spaceIm,…)</code> i potom čistimo Z-buffer.</li>
+      <li>Postavljamo osnovno osvetljenje (<code>ambientLight(255)</code>) i omogućavamo orbitControl za rotaciju kamere mišem.</li>
+      <li>Hijerarhijski poziv <code>sun.orbit()</code> i <code>sun.show()</code> rekursivno animira i crta sve planete.</li>
+    </ul>
+
+    <p><strong>Klasa <code>Planeta</code></strong>:</p>
+    <ul>
+      <li><code>orbit()</code> — inkrementira uglove <code>angle</code> i <code>angleOwn</code>, pa rekurzivno poziva orbit za decu.</li>
+      <li><code>show()</code> — crta orbitu kao krug, rotira u odnosu na ugao i pozicionira sferu sa teksturom ili materijalom.</li>
+    </ul>
+
+  </div>
+
+  <div class="moj_kod">
+    <h4>zemlja_sunce_mesec_animacija.js</h4>
+    <pre><code>
+<span class="plava">var</span> <span class="crna">canvasDrawing</span>;<br>
+<span class="plava">let</span> <span class="crna">container</span>, <span class="crna">containerMain</span>;<br>
+<span class="plava">let</span> <span class="crna">isMobile</span>;<br>
+<span class="plava">let</span> <span class="crna">widthS, heightS</span>;<br>
+<span class="plava">let</span> <span class="crna">sun, earth, moon</span>;<br>
+<span class="plava">let</span> <span class="crna">sunIm, earthIm, moonIm, spaceIm</span>;<br>
+<span class="plava">let</span> <span class="crna">wEarth</span> = <span class="narandzasta">0.005</span>, <span class="crna">wEarth1</span> = <span class="narandzasta">0.08</span>, <span class="crna">wMoon</span> = <span class="narandzasta">-0.2</span>;<br>
+<span class="plava">let</span> <span class="crna">prefix</span> = <span class="crvena">""</span>;<br>
+<span class="plava">let</span> <span class="crna">glContext</span>;<br><br>
+
+<span class="plava">function</span> <span class="zelena">preload</span>() {<br>
+&nbsp;&nbsp;<span class="crna">sunIm</span>   = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/sun1.jpg"</span>);<br>
+&nbsp;&nbsp;<span class="crna">earthIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/earth1.jpg"</span>);<br>
+&nbsp;&nbsp;<span class="crna">moonIm</span>  = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/moon.jpg"</span>);<br>
+&nbsp;&nbsp;<span class="crna">spaceIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/svemir1.jpg"</span>);<br>
+}
+<br>
+<span class="plava">function</span> <span class="zelena">determineSize</span>() {<br>
+&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">isMobile</span>) { /* … */ } <span class="plava">else</span> { /* … */ }<br>
+}
+<br>
+<span class="plava">function</span> <span class="zelena">setup</span>() {<br>
+&nbsp;&nbsp;<span class="crna">isMobile</span> = window.orientation > <span class="narandzasta">-1</span>;<br>
+&nbsp;&nbsp;<span class="zelena">determineSize</span>();<br>
+&nbsp;&nbsp;<span class="crna">canvasDrawing</span> = <span class="zelena">createCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="crvena">WEBGL</span>);<br>
+&nbsp;&nbsp;<span class="crna">container</span> = document.getElementById(<span class="crvena">'canvasForHTML'</span>);<br>
+&nbsp;&nbsp;<span class="crna">canvasDrawing</span>.<span class="zelena">parent</span>(<span class="crna">container</span>);<br>
+&nbsp;&nbsp;<span class="crna">glContext</span> = <span class="crna">canvasDrawing</span>.<span class="crna">GL</span>;<br>
+&nbsp;&nbsp;<span class="crna">sun</span>   = <span class="cravna">new</span> <span class="zelena">Planeta</span>(/* … */);<br>
+&nbsp;&nbsp;<span class="crna">earth</span> = <span class="cravna">new</span> <span class="zelena">Planeta</span>(/* … */);<br>
+&nbsp;&nbsp;<span class="crna">moon</span>  = <span class="cravna">new</span> <span class="zelena">Planeta</span>(/* … */);<br>
+}
+<br>
+<span class="plava">function</span> <span class="zelena">draw</span>() {<br>
+&nbsp;&nbsp;<span class="cravna">imageMode</span>(<span class="crvena">CENTER</span>);<br>
+&nbsp;&nbsp;<span class="crena">background</span>(<span class="narandzasta">0</span>);<br>
+&nbsp;&nbsp;<span class="crzelaena">push</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">camera</span>(0,0,-<span class="narandzasta">300</span>,0,0,0,0,-<span class="narandzasta">1</span>,0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">image</span>(<span class="crna">spaceIm</span>,0,0, <span class="narandzasta">1.5</span>*<span class="crna">widthS</span>, <span class="narandzasta">1.5</span>*<span class="crna">heightS</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">glContext</span>.<span class="crna">clear</span>(<span class="crna">glContext</span>.<span class="crna">DEPTH_BUFFER_BIT</span>);<br>
+&nbsp;&nbsp;<span class="zelena">pop</span>();<br>
+&nbsp;&nbsp;<span class="crzelaena">noStroke</span>();<br>
+&nbsp;&nbsp;<span class="crzelaena">ambientLight</span>(<span class="narandzasta">255</span>);<br>
+&nbsp;&nbsp;<span class="crzelaena">orbitControl</span>();<br>
+&nbsp;&nbsp;<span class="crzelaena">rotateX</span>(<span class="narandzasta">10</span>*<span class="crvena">PI</span>/<span class="narandzasta">24</span>);<br>
+&nbsp;&nbsp;<span class="crzelaena">rotateY</span>(<span class="crvena">PI</span>/<span class="narandzasta">64</span>);<br>
+&nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">orbit</span>();<br>
+&nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">show</span>();<br>
+}
+<br>
+// … ostatak klase Planeta …
+</code></pre>
+  </div>
+
+  <div class="moj_kod">
+    <h4>index.html</h4>
+    <pre><code>
+<span class="plava">&lt;!DOCTYPE html&gt;</span>
+<span class="plava">&lt;html&gt;</span>
+  <span class="plava">&lt;head&gt;</span>
+    <span class="plava">&lt;meta</span> <span class="crvena">charset=</span><span class="braon">"utf-8"</span><span class="plava">&gt;</span>
+    <span class="plava">&lt;meta</span> <span class="crvena">name=</span><span class="braon">"viewport"</span> <span class="crvena">content=</span><span class="braon">"width=device-width, initial-scale=1.0"</span><span class="plava">&gt;</span>
+
+    <span class="plava">&lt;script</span> <span class="crvena">src=</span><span class="braon">"libraries/p5.min.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
+    <span class="plava">&lt;script</span> <span class="crvena">src=</span><span class="braon">"zemlja_sunce_mesec_animacija.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
+  <span class="plava">&lt;/head&gt;</span>
+
+  <span class="plava">&lt;body&gt;</span>
+    <span class="plava">&lt;div</span> <span class="crvena">id=</span><span class="braon">"canvasForHTML"</span> <span class="crvena">class=</span><span class="braon">"canvasForHTML"</span><span class="plava">&gt;&lt;/div&gt;</span>
+    <span class="plava">&lt;p&gt;</span>Animacija ne radi? Osvežite stranicu. <span class="plava">&lt;/p&gt;</span>
+  <span class="plava">&lt;/body&gt;</span>
+<span class="plava">&lt;/html&gt;</span>
+    </code></pre>
+  </div>
+
+</section>
+
+  
+ 
+<section>
+<div id="container canvas-wrapper" class="d-flex flex-column bd-highlight mb-3">
+<div id="canvasForHTML" class="d-flex flex-row bd-highlight "></div>
+<div id="infoPanel" class="d-flex flex-row align-items-start justify-content-left flex-wrap  bd-highlight infoPanel"></div>
+</div>
+</section>
+
+  
+<section>
+<%- include('../../partials/scripts') %>
+<%- include('../../partials/footer') %>
+</section>
+
+
+
+  <script language="javascript" type="text/javascript" src="js/p5js/ZemljaSunceMesec/sunce_zemlja_mesec_animacija.js"></script>
+</body>
+</html>

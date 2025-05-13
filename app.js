@@ -177,6 +177,7 @@ const slugMap = {
   // p5.js → Vector animation
   '/upotreba_p5js/vektori_animacija':            '/en/usage_p5js/vector_animation',
   '/upotreba_p5js/vektori_animacija/:id':        '/en/usage_p5js/vector_animation/:id',
+   '/sunce_zemlja_mesec_animacija':      '/en/sun_earth_moon_animation',
   
   
   '/politika_privatnosti':           '/en/privacy',
