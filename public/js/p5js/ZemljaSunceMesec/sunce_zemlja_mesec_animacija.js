@@ -58,7 +58,7 @@ function setup() {
 }
  function preload(){
     sunIm=loadImage(prefix+"Textures/sun1.jpg");
-  earthIm=loadImage(prefix+"Textures/earth.jpg", img => {
+  earthIm=loadImage(prefix+"Textures/earth1.jpg", img => {
     img.resize(512, 512);
   });
   moonIm=loadImage(prefix+"Textures/moon.jpg");
