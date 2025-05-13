@@ -29,28 +29,37 @@ var canvasDrawing;
 
  
 function setup() {
- glContext = this._renderer.GL;  // ili: drawingContext = this.drawingContext;
+ 
 
   isMobile = window.orientation > -1;
   determineSize();
   drag = createVector(0, 0);
   canvasDrawing=createCanvas(widthS, heightS, WEBGL);
+  glContext = canvasDrawing && canvasDrawing.GL || null;
+  
   container = document.getElementById('canvasForHTML');
   rSun=widthS/20;
    rEarth= rSun/4;
    rMoon= rEarth/3;
+   
+   // tek sad možemo da konvertujemo NPOT u POT
+  earthIm.resize( rEarth*2, rEarth*2 );
+  moonIm.resize(  rMoon*2, rMoon*2 );
+  sunIm.resize(   rSun*2,  rSun*2  );
+  spaceIm.resize( widthS,  heightS );
+  
   sun=new Planeta( rSun,0,null,sunIm,0,0,color(255));
   earth=new Planeta(rEarth,widthS/3,sun,earthIm,wEarth,wEarth1);
   moon=new Planeta(rMoon,rEarth+rMoon+25,earth,moonIm,wMoon,0);
   canvasDrawing.parent(container);
-  glContext = canvasDrawing.GL;   
+ // glContext = canvasDrawing.GL;   
   smooth(16);
  
 }
  function preload(){
     sunIm=loadImage(prefix+"Textures/sun1.jpg");
   earthIm=loadImage(prefix+"Textures/earth.jpg", img => {
-    img.resize(rEarth*2, rEarth*2);
+    img.resize(512, 512);
   });
   moonIm=loadImage(prefix+"Textures/moon.jpg");
   spaceIm=loadImage(prefix+"Textures/svemir1.jpg");
