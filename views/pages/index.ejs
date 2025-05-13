@@ -3,21 +3,21 @@
 <!DOCTYPE html>
 <html lang="<%= locale %>">
 <head>
-    <% include ../partials/head %>
+    <%- include('../partials/head') %>
 	<meta name="description" content="Simulaciju kreirane korišćenjem alata Easy Java Simulation(EJS). 
 Simulacije koje objašnjavaju i demonstriraju  neke fizičke pojave." />
 <meta name="keywords" content="Simulacije kreirane pomoću alata EJS,Simulacije ejs, easy java simulation, ejs, Ravno kretanje krutog tela,
  kružno kretanje materijalne tačke,simulacija iz fizike,pomoću Java,JavaScript programskog jezika,kreiranje simulacija,JavaScript apleti,Ravno kretanje krutog tela,Rotacija diska
 imulacije kreirane pomoću JAVE,processing java, kreiranje aplikacija java, kreiranje simulacija pomoću Java programskog jezika, kreiranje simulacija javascript" />
 <meta name="author" content="Slobodan Trsek"/>
-	<title><%= __('title') %></title/>
+	<title><%= __('title') %></title>
 </head>
 <body>
 <div class="content-wrapper moj-header">
 <div class="row">
 <header class="moj-header col-xs-12 col-md-12 col-lg-12 nav-fill w-100">
 
-    <% include ../partials/header.ejs %>
+    <%- include('../partials/header.ejs') %>
 	
 	
 </header>
@@ -152,11 +152,11 @@ Za razliku od Jave, JavaScript apleti se mogu izvršavati na skoro svim uređaji
 <div class="row">
 <div class="container jumbotron content col-xs-12 col-md-12 col-lg-12">
      
-	<% include ../partials/scripts %>
+	<%- include('../partials/scripts') %>
 	 
 <script language="javascript" type="text/javascript" src="../js/p5js/HorizontalniHitac/HorizontalniHitac.js"></script>
 <script language="javascript" type="text/javascript" src="../js/p5js/SlobodanPad/SlobodanPad.js"></script>
-    <% include ../partials/footer %>
+    <%- include('../partials/footer') %>
 
 	</div>
 </div>

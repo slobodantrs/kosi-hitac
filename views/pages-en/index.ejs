@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="<%= locale %>">
 <head>
-    <% include ../partials/head %>
+    <%- include('../partials/head') %>
     <meta name="description" content="Simulations created using the Easy Java Simulation (EJS) tool. Demonstrations of various physical phenomena." />
     <meta name="keywords" content="EJS simulations, Easy Java Simulation, physics simulations, Java applets, JavaScript simulations, processing, p5.js, circular motion, projectile motion, free fall, mass-spring system, rigid body motion" />
     <meta name="author" content="Slobodan Trsek" />
@@ -13,7 +13,7 @@
 <div class="content-wrapper moj-header">
   <div class="row">
     <header class="moj-header col-xs-12 col-md-12 col-lg-12 nav-fill w-100">
-      <% include ../partials/header.ejs %>
+      <%- include('../partials/header.ejs') %>
     </header>
   </div>
   
@@ -142,10 +142,10 @@
 
   <div class="row">
     <div class="container jumbotron content col-xs-12 col-md-12 col-lg-12">
-      <% include ../partials/scripts %>
+      <%- include('../partials/scripts') %>
       <script src="../js/p5js/HorizontalniHitac/HorizontalniHitac.js"></script>
       <script src="../js/p5js/SlobodanPad/SlobodanPad.js"></script>
-      <% include ../partials/footer %>
+      <%- include('../partials/footer') %>
     </div>
   </div>
 </div>
