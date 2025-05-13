@@ -32,7 +32,7 @@ Klizanje_tela_niz_strmu_ravan: function(req, res) {
 Klizanje_tela_niz_strmu_ravan_EN: function(req, res) {
   console.log("Klizanje_tela_niz_strmu_ravan_en");
   res.render('pages-en/usingP5js/sliding_down_inclined_plane_animation');
-}
+},
 
 // — SRPSKI —
 Animacija_sunce_zemlja_mesec: function(req, res) {
