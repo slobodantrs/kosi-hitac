@@ -18,8 +18,7 @@ var canvasDrawing;
  let wMoon=-0.2;
  let z=0;
  let dLight=200;
-  var widthS;
- var heightS;
+
  let rSun;
  let rEarth;
  let rMoon;
@@ -51,7 +50,7 @@ function setup() {
  function preload(){
     sunIm=loadImage(prefix+"Textures/sun1.jpg");
   earthIm=loadImage(prefix+"Textures/earth.jpg", img => {
-    img.resize(500, 500);
+    img.resize(rEarth*2, rEarth*2);
   });
   moonIm=loadImage(prefix+"Textures/moon.jpg");
   spaceIm=loadImage(prefix+"Textures/svemir1.jpg");
