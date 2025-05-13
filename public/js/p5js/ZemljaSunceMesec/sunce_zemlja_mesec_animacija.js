@@ -30,7 +30,8 @@ var canvasDrawing;
 
  
 function setup() {
- 
+ glContext = this._renderer.GL;  // ili: drawingContext = this.drawingContext;
+
   isMobile = window.orientation > -1;
   determineSize();
   drag = createVector(0, 0);
