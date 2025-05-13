@@ -57,11 +57,13 @@
   <!--script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script-->
 </head>
 <body>
+ <div class="content-wrapper d-flex flex-column">
   <header>
   <div class="content-wrapper moj-header">
   <%- include('../../partials/header') %>
   </div>
-    <header>
+    </header>
+	<section>
   <h1>Sistem Sunce–Zemlja–Mesec</h1>
   <p>
     U ovoj 3D animaciji modeliramo Sunce, Zemlju i Mesec kao jednostavan hijerarhijski sistem:
@@ -81,7 +83,7 @@
       SvetProgramiranja: Java i simulacije u fizici
     </a>.
   </p>
-</header>
+</section>
 <section class="container moj-header">
   <h2>Ključni pojmovi</h2>
   <ul>
@@ -243,7 +245,7 @@
 </div>
 </section>
 
-  
+  </div>
 <section>
 <%- include('../../partials/scripts') %>
 <%- include('../../partials/footer') %>

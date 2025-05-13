@@ -14,7 +14,7 @@
   <style>
     body { font-family: sans-serif; margin: 0; padding: 0; }
     header, section { padding: 1rem; }
-    header {  color: #fff; }  <!--background: #005f73;-->
+   
     a { color: #0a9396; }
     #sketch-holder { display: flex; justify-content: center; margin: 1rem 0; }
     canvas { border: 1px solid #333; }
@@ -60,7 +60,9 @@
   <div class="content-wrapper moj-header">
   <%- include('../../partials/header') %>
   </div>
-    <header>
+  </header>
+  <div class="content-wrapper d-flex flex-column">
+  <section>  
   <h1>Sistem Sunce–Zemlja–Mesec</h1>
   <p>
     U ovoj 3D animaciji modeliramo Sunce, Zemlju i Mesec kao jednostavan hijerarhijski sistem:
@@ -80,7 +82,7 @@
       SvetProgramiranja: Java i simulacije u fizici
     </a>.
   </p>
-</header>
+</section>
 <section class="container moj-header">
   <h2>Ključni pojmovi</h2>
   <ul>
@@ -110,7 +112,7 @@
  <section>
 
   <div class="moj_tekst">
-    <h3 class="okvir_3">Objašnjenje koda: animacija Sunce–Zemlja–Mesec</h3>
+    <h3>Objašnjenje koda: animacija Sunce–Zemlja–Mesec</h3>
 
     <p>
       U ovoj 3D simulaciji koristimo <strong>p5.js</strong> u <code>WEBGL</code> režimu.
@@ -242,7 +244,7 @@
 </div>
 </section>
 
-  
+  </div>
 <section>
 <%- include('../../partials/scripts') %>
 <%- include('../../partials/footer') %>
