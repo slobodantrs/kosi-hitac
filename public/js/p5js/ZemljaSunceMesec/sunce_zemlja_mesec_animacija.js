@@ -59,7 +59,7 @@ function setup() {
  function preload(){
     sunIm=loadImage(prefix+"Textures/sun1.jpg");
   earthIm=loadImage(prefix+"Textures/earth1.jpg", img => {
-    img.resize(512, 512);
+    img.resize(512, 0);
   });
   moonIm=loadImage(prefix+"Textures/moon.jpg");
   spaceIm=loadImage(prefix+"Textures/svemir1.jpg");
