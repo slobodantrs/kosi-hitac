@@ -66,100 +66,97 @@
   </div>
     </header>
 	<section>
-  <h1>Sistem Sunce–Zemlja–Mesec</h1>
+  <h1>Sun–Earth–Moon System</h1>
   <p>
-    U ovoj 3D animaciji modeliramo Sunce, Zemlju i Mesec kao jednostavan hijerarhijski sistem:
-    Zemlja se okreće oko Sunca, a Mesec oko Zemlje. Svako nebesko telo rotira oko svog
-    „nosioca“ sopstvenom uglovnom brzinom. Za prikaz koristimo <strong>p5.js</strong> u <code>WEBGL</code> režimu,
-    sa teksturama planeta koje daju realističan izgled i prikaz orbita.
+    This 3D animation models the Sun, Earth, and Moon as a simple hierarchical system:
+    the Earth revolves around the Sun, and the Moon revolves around the Earth. Each celestial body rotates around its "parent" with its own angular velocity. The visualization is created using <strong>p5.js</strong> in <code>WEBGL</code> mode,
+    with realistic planet textures and orbit visualization.
   </p>
   <p>
-    Fizika u pozadini je kinematička: u svakom frejmu povećavamo ugao pomoću izraza
-    <code>Δθ = ω·Δt</code>, a zatim crtamo svaku sferu u polarnim koordinatama
-    <code>(r·cos θ, r·sin θ)</code> u odnosu na telo oko kog se okreće. Osvetljenje i prikaz putanja
-    pomažu u razumevanju kretanja u prostoru.
+    The physics behind it is kinematic: in each frame, we update the angle using the expression
+    <code>Δθ = ω·Δt</code>, then draw each sphere in polar coordinates
+    <code>(r·cos θ, r·sin θ)</code> relative to the body it orbits. Lighting and orbit trails help convey the motion in 3D space.
   </p>
   <p>
-    Detalje o matematici i programiranju ove simulacije možete pronaći na našem vodiču:
-    <a href="https://www.svetprogramiranja.com/java_i_simulacije_u_fizici.html" target="_blank">
-      SvetProgramiranja: Java i simulacije u fizici
+    For more details on the mathematics and programming of this simulation using Processing and the Java programming language, check out our guide:
+    <a href="https://www.svetprogramiranja.com/movement_of_3d_objects_in_processing.html" target="_blank">
+      SvetProgramiranja: Movement of 3D Objects in Processing
     </a>.
   </p>
 </section>
 <section class="container moj-header">
-  <h2>Ključni pojmovi</h2>
+  <h2>Key Concepts</h2>
   <ul>
-    <li><strong>Hijerarhijske transformacije</strong> – položaj Meseca se računa u odnosu na Zemlju, koja se sama kreće oko Sunca.</li>
-    <li><strong>Uglovna brzina</strong> – svako telo se pomera stalnom brzinom <code>ω</code> pri svakom osvežavanju.</li>
-    <li><strong>Polarne u kartezijeve koordinate</strong> – računanje položaja na osnovu rastojanja i ugla pomoću <code>(x, y, z)</code>.</li>
-    <li><strong>Teksture i osvetljenje</strong> – sfere sa realističnim teksturama i osvetljenjem poboljšavaju vizuelni prikaz.</li>
+    <li><strong>Hierarchical transformations</strong> – the Moon's position is calculated relative to the Earth, which itself orbits the Sun.</li>
+    <li><strong>Angular velocity</strong> – each body moves at a constant rate <code>ω</code> on every update.</li>
+    <li><strong>Polar to Cartesian coordinates</strong> – positions are computed using distance and angle via <code>(x, y, z)</code>.</li>
+    <li><strong>Textures and lighting</strong> – textured spheres and lighting improve the visual realism.</li>
   </ul>
   <p>
-    Ispod se nalazi interaktivni 3D prikaz. Povucite mišem da rotirate kameru i koristite skrol točkić
-    da biste zumirali. Prikazane orbite pomažu u vizuelizaciji kretanja svakog tela.
+    Below is an interactive 3D visualization. Drag with the mouse to rotate the camera and use the scroll wheel to zoom.
+    Displayed orbits help you understand the movement of each celestial body.
   </p>
 </section>
 
+
   
   <section id="sketch-holder" class="canvas-wrapper">
-<div style="text-align:center;">
-<h3> Animacija3D: Rotacija Zemlje oko Sunca </h3>
-<div id="container" class="d-flex flex-column bd-highlight mb-3">
-<div id="canvasForHTML" class="d-flex flex-row bd-highlight "></div>
-
-</div>
-<p>Animacija ne radi? Učitajte stranicu ponovo(refresh)</p>
-<p>&#8592; scroll horizontal &#8594;</p>
-</div>
+  <div style="text-align:center;">
+    <h3>3D Animation: Earth's Rotation Around the Sun</h3>
+    <div id="container" class="d-flex flex-column bd-highlight mb-3">
+      <div id="canvasForHTML" class="d-flex flex-row bd-highlight "></div>
+    </div>
+    <p>Animation not working? Reload the page (refresh)</p>
+    <p>&#8592; horizontal scroll &#8594;</p>
+  </div>
 </section>
- <section>
 
+<section>
   <div class="moj_tekst">
-    <h3 class="okvir_3">Objašnjenje koda: animacija Sunce–Zemlja–Mesec</h3>
+    <h3 class="okvir_3">Code Explanation: Sun–Earth–Moon Animation</h3>
 
     <p>
-      U ovoj 3D simulaciji koristimo <strong>p5.js</strong> u <code>WEBGL</code> režimu.
-      Model je hijerarhijski: Zemlja orbitira oko Sunca, a Mesec oko Zemlje.
-      Svako telo ima svoju sopstvenu i orbitalnu uglovnu brzinu, a teksture i
-      rasveta poboljšavaju realizam.
+      In this 3D simulation, we use <strong>p5.js</strong> in <code>WEBGL</code> mode.
+      The model is hierarchical: the Earth orbits the Sun, and the Moon orbits the Earth.
+      Each body has its own angular and orbital velocity, with textures and lighting enhancing realism.
     </p>
 
-    <p><strong>Globalne promenljive:</strong></p>
+    <p><strong>Global variables:</strong></p>
     <ul>
-      <li><code>sunIm, earthIm, moonIm, spaceIm</code> — teksture za planete i pozadinu.</li>
-      <li><code>sun, earth, moon</code> — objekti klase <code>Planeta</code> sa parametrima radius, distance, parent, speedRotation, speedOwnRotation i emission.</li>
-      <li><code>glContext</code> — WebGL kontekst za čišćenje Z-buffera nakon crtanja pozadine.</li>
+      <li><code>sunIm, earthIm, moonIm, spaceIm</code> — textures for the planets and background.</li>
+      <li><code>sun, earth, moon</code> — instances of the <code>Planet</code> class with parameters: radius, distance, parent, speedRotation, speedOwnRotation, and emission.</li>
+      <li><code>glContext</code> — the WebGL context used to clear the Z-buffer after drawing the background.</li>
     </ul>
 
     <p><strong>preload()</strong>:</p>
     <ul>
-      <li>Učitavamo slike pozivom <code>loadImage(prefix + "Textures/…")</code>.</li>
+      <li>Images are loaded using <code>loadImage(prefix + "Textures/…")</code>.</li>
     </ul>
 
     <p><strong>setup()</strong>:</p>
     <ul>
-      <li>Određujemo dimenzije platna funkcijom <code>determineSize()</code>, a zatim kreiramo <code>createCanvas(widthS, heightS, WEBGL)</code>.</li>
-      <li>Inicijalizujemo objekte <code>Planeta</code> za Sunce, Zemlju i Mesec.</li>
-      <li>Spremljeni WebGL kontekst (<code>canvasDrawing.GL</code>) služi za čišćenje dubine pre crtanja 2D pozadine.</li>
+      <li>Canvas dimensions are determined using <code>determineSize()</code>, then created with <code>createCanvas(widthS, heightS, WEBGL)</code>.</li>
+      <li>Planet objects for the Sun, Earth, and Moon are initialized.</li>
+      <li>The saved WebGL context (<code>canvasDrawing.GL</code>) is used to clear the depth buffer before drawing the 2D background.</li>
     </ul>
 
     <p><strong>draw()</strong>:</p>
     <ul>
-      <li>Podešavamo 2D pozadinu uz <code>image(spaceIm,…)</code> i potom čistimo Z-buffer.</li>
-      <li>Postavljamo osnovno osvetljenje (<code>ambientLight(255)</code>) i omogućavamo orbitControl za rotaciju kamere mišem.</li>
-      <li>Hijerarhijski poziv <code>sun.orbit()</code> i <code>sun.show()</code> rekursivno animira i crta sve planete.</li>
+      <li>The 2D background is set using <code>image(spaceIm,…)</code>, and then the Z-buffer is cleared.</li>
+      <li>Basic lighting is set with <code>ambientLight(255)</code>, and <code>orbitControl</code> is enabled to allow camera rotation with the mouse.</li>
+      <li>The hierarchical call <code>sun.orbit()</code> and <code>sun.show()</code> recursively animates and draws all planets.</li>
     </ul>
 
-    <p><strong>Klasa <code>Planeta</code></strong>:</p>
+    <p><strong>The <code>Planet</code> class:</strong></p>
     <ul>
-      <li><code>orbit()</code> — inkrementira uglove <code>angle</code> i <code>angleOwn</code>, pa rekurzivno poziva orbit za decu.</li>
-      <li><code>show()</code> — crta orbitu kao krug, rotira u odnosu na ugao i pozicionira sferu sa teksturom ili materijalom.</li>
+      <li><code>orbit()</code> — increments the <code>angle</code> and <code>angleOwn</code> values, and recursively calls <code>orbit</code> for its children.</li>
+      <li><code>show()</code> — draws the orbit as a circle, applies rotation based on the angle, and renders the textured or emissive sphere.</li>
     </ul>
-
   </div>
-
+</section>
+<section>
   <div class="moj_kod">
-    <h4>zemlja_sunce_mesec_animacija.js</h4>
+    <h4>earth_sun_moon_animation.js</h4>
     <pre><code>
 <span class="plava">var</span> <span class="crna">canvasDrawing</span>;<br>
 <span class="plava">let</span> <span class="crna">container</span>, <span class="crna">containerMain</span>;<br>
@@ -211,7 +208,7 @@
 &nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">show</span>();<br>
 }
 <br>
-// … ostatak klase Planeta …
+// … rest of Planeta class …
 </code></pre>
   </div>
 
@@ -225,17 +222,16 @@
     <span class="plava">&lt;meta</span> <span class="crvena">name=</span><span class="braon">"viewport"</span> <span class="crvena">content=</span><span class="braon">"width=device-width, initial-scale=1.0"</span><span class="plava">&gt;</span>
 
     <span class="plava">&lt;script</span> <span class="crvena">src=</span><span class="braon">"libraries/p5.min.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
-    <span class="plava">&lt;script</span> <span class="crvena">src=</span><span class="braon">"zemlja_sunce_mesec_animacija.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
+    <span class="plava">&lt;script</span> <span class="crvena">src=</span><span class="braon">"earth_sun_moon_animation.js"</span><span class="plava">&gt;&lt;/script&gt;</span>
   <span class="plava">&lt;/head&gt;</span>
 
   <span class="plava">&lt;body&gt;</span>
     <span class="plava">&lt;div</span> <span class="crvena">id=</span><span class="braon">"canvasForHTML"</span> <span class="crvena">class=</span><span class="braon">"canvasForHTML"</span><span class="plava">&gt;&lt;/div&gt;</span>
-    <span class="plava">&lt;p&gt;</span>Animacija ne radi? Osvežite stranicu. <span class="plava">&lt;/p&gt;</span>
+    <span class="plava">&lt;p&gt;</span>Animation not working? Please refresh the page. <span class="plava">&lt;/p&gt;</span>
   <span class="plava">&lt;/body&gt;</span>
 <span class="plava">&lt;/html&gt;</span>
     </code></pre>
   </div>
-
 </section>
 
   
