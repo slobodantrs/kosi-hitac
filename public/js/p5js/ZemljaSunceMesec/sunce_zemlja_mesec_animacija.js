@@ -54,7 +54,7 @@ function setup() {
 
   // resize NPOT → POT
  // rSun   = widthS/20;
- rSun=300;
+ rSun=30;
   rEarth = rSun/4;
   rMoon  = rEarth/3;
   earthIm.resize(rEarth*2, rEarth*2);
