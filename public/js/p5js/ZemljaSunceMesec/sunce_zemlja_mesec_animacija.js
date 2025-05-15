@@ -33,19 +33,19 @@ function setup() {
   determineSize();
   drag = createVector(0, 0);
   canvasDrawing = createCanvas(widthS, heightS, WEBGL);
-  const gl = canvasDrawing.GL;
+   glContext = canvasDrawing.GL;
 
   // Прво, направимо и "вежимо" празну (placeholder) текстуру
   // на коју ћемо одмах поставити параметре:
-  const placeholderTex = gl.createTexture();
-  gl.bindTexture(gl.TEXTURE_2D, placeholderTex);
+  const placeholderTex = glContext.createTexture();
+  glContext.bindTexture(glContext.TEXTURE_2D, placeholderTex);
 
   // enforce “clamp-to-edge” on both axes (so NPOT never tries to repeat)
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_WRAP_S, glContext.CLAMP_TO_EDGE);
+  glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_WRAP_T, glContext.CLAMP_TO_EDGE);
   // ensure linear filtering and disable mipmaps on NPOT textures
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_MIN_FILTER, glContext.LINEAR);
+  glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_MAG_FILTER, glContext.LINEAR);
 
   // Сада вратимо p5.js-у да ради своје ствари
   // (ово је еквивалент твојих textureWrap/textMode позива)
