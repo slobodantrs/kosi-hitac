@@ -29,74 +29,48 @@ var canvasDrawing;
 
  
 function setup() {
- 
-
   isMobile = window.orientation > -1;
   determineSize();
   drag = createVector(0, 0);
-  canvasDrawing=createCanvas(widthS, heightS, WEBGL);
-  glContext = canvasDrawing && canvasDrawing.GL || null;
+  canvasDrawing = createCanvas(widthS, heightS, WEBGL);
+  const gl = canvasDrawing.GL;
+
+  // Прво, направимо и "вежимо" празну (placeholder) текстуру
+  // на коју ћемо одмах поставити параметре:
+  const placeholderTex = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, placeholderTex);
+
   // enforce “clamp-to-edge” on both axes (so NPOT never tries to repeat)
-  textureWrap(CLAMP, CLAMP);
-
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
   // ensure linear filtering and disable mipmaps on NPOT textures
-  // (NORMAL maps to LINEAR, and disables mipmaps)
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+  // Сада вратимо p5.js-у да ради своје ствари
+  // (ово је еквивалент твојих textureWrap/textMode позива)
+  textureWrap(CLAMP, CLAMP);
   textureMode(NORMAL);
-  
-  container = document.getElementById('canvasForHTML');
-  rSun=widthS/20;
-   rEarth= rSun/4;
-   rMoon= rEarth/3;
-   
-   // tek sad možemo da konvertujemo NPOT u POT
-  earthIm.resize( rEarth*2, rEarth*2 );
-  moonIm.resize(  rMoon*2, rMoon*2 );
-  sunIm.resize(   rSun*2,  rSun*2  );
-  spaceIm.resize( widthS,  heightS );
-  
- 
-  
- 
 
-  // now that we have a WebGL context, force safe wrapping/filtering
-  // NPOT images only work with CLAMP wrap and no mipmaps:
-  glContext.texParameteri(
-    glContext.TEXTURE_2D,
-    glContext.TEXTURE_WRAP_S,
-    glContext.CLAMP_TO_EDGE
-  );
-  glContext.texParameteri(
-    glContext.TEXTURE_2D,
-    glContext.TEXTURE_WRAP_T,
-    glContext.CLAMP_TO_EDGE
-  );
-  // force nearest filtering (no mipmaps)
-  glContext.texParameteri(
-    glContext.TEXTURE_2D,
-    glContext.TEXTURE_MIN_FILTER,
-    glContext.LINEAR
-  );
-  glContext.texParameteri(
-    glContext.TEXTURE_2D,
-    glContext.TEXTURE_MAG_FILTER,
-    glContext.LINEAR
-  );
-
-  // … then continue with your NPOT→POT resize and object setup …
+  // resize NPOT → POT
+  rSun   = widthS/20;
+  rEarth = rSun/4;
+  rMoon  = rEarth/3;
   earthIm.resize(rEarth*2, rEarth*2);
-  sunIm  .resize(rSun*2,   rSun*2  );
-  moonIm .resize(rMoon*2,  rMoon*2 );
+  moonIm .resize(rMoon*2,  rMoon*2);
+  sunIm  .resize(rSun*2,   rSun*2);
   spaceIm.resize(widthS,   heightS);
 
-  // now your Planeta instances, etc.
-  sun   = new Planeta(rSun, 0,    null, sunIm,   0,    0,    color(255));
-  earth = new Planeta(rEarth, widthS/3, sun, earthIm, wEarth, wEarth1);
-  moon  = new Planeta(rMoon, rEarth+rMoon+25, earth, moonIm, wMoon, 0);
+  // Креирање планета итд.
+  sun   = new Planeta(rSun,        0,     null, sunIm,   0,     0,     color(255));
+  earth = new Planeta(rEarth, widthS/3,   sun, earthIm, wEarth, wEarth1);
+  moon  = new Planeta(rMoon,  rEarth+rMoon+25, earth, moonIm, wMoon, 0);
 
+  container = document.getElementById('canvasForHTML');
   canvasDrawing.parent(container);
   smooth(16);
- 
 }
+
  function preload(){
     sunIm=loadImage(prefix+"Textures/sun.jpg");
   earthIm=loadImage(prefix+"Textures/earth.jpg", img => {
