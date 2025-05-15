@@ -22,7 +22,7 @@ var canvasDrawing;
  let rSun;
  let rEarth;
  let rMoon;
- let prefix="/js/p5js/ZemljaSunceMesec/";
+ let prefix="js/p5js/ZemljaSunceMesec/";
 // let prefix="";
  let glContext;
  
@@ -72,7 +72,7 @@ function setup() {
 }
 
  function preload(){
-    sunIm=loadImage(prefix+"Textures/sun.jpg");
+    sunIm=loadImage(prefix+"Textures/sun2.png");
   earthIm=loadImage(prefix+"Textures/earth.jpg", img => {
     img.resize(512, 0);
   });
