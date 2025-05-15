@@ -48,11 +48,46 @@ function setup() {
   sunIm.resize(   rSun*2,  rSun*2  );
   spaceIm.resize( widthS,  heightS );
   
-  sun=new Planeta( rSun,0,null,sunIm,0,0,color(255));
-  earth=new Planeta(rEarth,widthS/3,sun,earthIm,wEarth,wEarth1);
-  moon=new Planeta(rMoon,rEarth+rMoon+25,earth,moonIm,wMoon,0);
+ 
+  
+ 
+
+  // now that we have a WebGL context, force safe wrapping/filtering
+  // NPOT images only work with CLAMP wrap and no mipmaps:
+  glContext.texParameteri(
+    glContext.TEXTURE_2D,
+    glContext.TEXTURE_WRAP_S,
+    glContext.CLAMP_TO_EDGE
+  );
+  glContext.texParameteri(
+    glContext.TEXTURE_2D,
+    glContext.TEXTURE_WRAP_T,
+    glContext.CLAMP_TO_EDGE
+  );
+  // force nearest filtering (no mipmaps)
+  glContext.texParameteri(
+    glContext.TEXTURE_2D,
+    glContext.TEXTURE_MIN_FILTER,
+    glContext.LINEAR
+  );
+  glContext.texParameteri(
+    glContext.TEXTURE_2D,
+    glContext.TEXTURE_MAG_FILTER,
+    glContext.LINEAR
+  );
+
+  // … then continue with your NPOT→POT resize and object setup …
+  earthIm.resize(rEarth*2, rEarth*2);
+  sunIm  .resize(rSun*2,   rSun*2  );
+  moonIm .resize(rMoon*2,  rMoon*2 );
+  spaceIm.resize(widthS,   heightS);
+
+  // now your Planeta instances, etc.
+  sun   = new Planeta(rSun, 0,    null, sunIm,   0,    0,    color(255));
+  earth = new Planeta(rEarth, widthS/3, sun, earthIm, wEarth, wEarth1);
+  moon  = new Planeta(rMoon, rEarth+rMoon+25, earth, moonIm, wMoon, 0);
+
   canvasDrawing.parent(container);
- // glContext = canvasDrawing.GL;   
   smooth(16);
  
 }
