@@ -73,12 +73,12 @@ function setup() {
 }
 
  function preload(){
-    sunIm=loadImage(prefix+"Textures/sun2.png");
-  earthIm=loadImage(prefix+"Textures/earth.jpg", img => {
+    sunIm=loadImage(prefix+"Textures/sun1.png");
+  earthIm=loadImage(prefix+"Textures/earth1.jpg", img => {
     img.resize(512, 0);
   });
   moonIm=loadImage(prefix+"Textures/moon.jpg");
-  spaceIm=loadImage(prefix+"Textures/space.jpg");
+  spaceIm=loadImage(prefix+"Textures/svemir1.jpg");
  }
  
  function determineSize(){
