@@ -37,7 +37,7 @@ function setup() {
 
   // Прво, направимо и "вежимо" празну (placeholder) текстуру
   // на коју ћемо одмах поставити параметре:
-  const placeholderTex = glContext.createTexture();
+/*  const placeholderTex = glContext.createTexture();
   glContext.bindTexture(glContext.TEXTURE_2D, placeholderTex);
 
   // enforce “clamp-to-edge” on both axes (so NPOT never tries to repeat)
@@ -45,7 +45,7 @@ function setup() {
   glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_WRAP_T, glContext.CLAMP_TO_EDGE);
   // ensure linear filtering and disable mipmaps on NPOT textures
   glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_MIN_FILTER, glContext.LINEAR);
-  glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_MAG_FILTER, glContext.LINEAR);
+  glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_MAG_FILTER, glContext.LINEAR);*/
 
   // Сада вратимо p5.js-у да ради своје ствари
   // (ово је еквивалент твојих textureWrap/textMode позива)
