@@ -29,18 +29,19 @@ var canvasDrawing;
 
  
 function setup() {
- // enforce “clamp-to-edge” on both axes (so NPOT never tries to repeat)
-  textureWrap(CLAMP, CLAMP);
-
-  // ensure linear filtering and disable mipmaps on NPOT textures
-  // (NORMAL maps to LINEAR, and disables mipmaps)
-  textureMode(NORMAL);
+ 
 
   isMobile = window.orientation > -1;
   determineSize();
   drag = createVector(0, 0);
   canvasDrawing=createCanvas(widthS, heightS, WEBGL);
   glContext = canvasDrawing && canvasDrawing.GL || null;
+  // enforce “clamp-to-edge” on both axes (so NPOT never tries to repeat)
+  textureWrap(CLAMP, CLAMP);
+
+  // ensure linear filtering and disable mipmaps on NPOT textures
+  // (NORMAL maps to LINEAR, and disables mipmaps)
+  textureMode(NORMAL);
   
   container = document.getElementById('canvasForHTML');
   rSun=widthS/20;
