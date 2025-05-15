@@ -23,7 +23,7 @@ var canvasDrawing;
  let rSun;
  let rEarth;
  let rMoon;
- let prefix="";
+ let prefix="./";
 // let prefix="";
  let glContext;
  
