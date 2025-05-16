@@ -111,7 +111,7 @@ function draw() {
 
   //ambientLight(255);  
   
-   ambientLight(30); // onemogućimo uniformno globalno svetlo
+   ambientLight(80); // onemogućimo uniformno globalno svetlo
    // 3) Postavimo Sunčev point light u (0,0,0)
   //    (ova svetlost ostaje aktivna dok je ne zamenimo)
   pointLight(255, 255, 230,  0, 0, 0);
@@ -230,7 +230,7 @@ class Planeta{
         if(this.texture != null)
         {
 			specularMaterial(200, 200, 255);   // plavi sjaj vode
-        shininess(100);
+           shininess(200);
           texture(this.texture);
 		  
         }
