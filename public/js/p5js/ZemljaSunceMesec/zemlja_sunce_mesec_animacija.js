@@ -112,8 +112,7 @@ function draw() {
   //ambientLight(255);  
   
  //  ambientLight(0); // onemogućimo uniformno globalno svetlo
-  // Sunce - bela-žuta svetlost na poziciji (0,0,0)
-  pointLight(255, 255, 230, 0, 0, 0); 
+  
  
   
    orbitControl();
@@ -184,7 +183,8 @@ class Planeta{
         fill(this.emission);
 	//	emissiveMaterial(255, 204, 0);   // Sunce samo svetli  
         scale(100);
-      
+       // Sunce - bela-žuta svetlost na poziciji (0,0,0)
+  pointLight(255, 255, 230, 0, 0, 0); 
         pointLight(this.emission, drag.x+dLight, drag.y, z);
         pointLight(this.emission, drag.x-dLight, drag.y, z);
         pointLight(this.emission, drag.x, drag.y+dLight, z);
