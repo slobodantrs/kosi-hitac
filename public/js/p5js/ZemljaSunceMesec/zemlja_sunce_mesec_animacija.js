@@ -112,7 +112,9 @@ function draw() {
   //ambientLight(255);  
   
    ambientLight(0); // onemogućimo uniformno globalno svetlo
-  
+   // 3) Postavimo Sunčev point light u (0,0,0)
+  //    (ova svetlost ostaje aktivna dok je ne zamenimo)
+  pointLight(255, 255, 230,  0, 0, 0);
  
   
    orbitControl();
@@ -202,13 +204,13 @@ class Planeta{
 		  // 1) postavljanje Sunčevog svetla
 		  
           ambientLight(0); // isključujemo globalno ambijentalno svetlo jednom u draw()
-          pointLight(255, 255, 230, 0, 0, 0);
+      /*    pointLight(255, 255, 230, 0, 0, 0);
            pointLight(this.emission, drag.x+dLight, drag.y, z);
         pointLight(this.emission, drag.x-dLight, drag.y, z);
         pointLight(this.emission, drag.x, drag.y+dLight, z);
         pointLight(this.emission, drag.x, drag.y-dLight, z);
         pointLight(this.emission, drag.x, drag.y, z+dLight);
-        pointLight(this.emission, drag.x, drag.y, z-dLight);
+        pointLight(this.emission, drag.x, drag.y, z-dLight);*/
           // 2) emisioni materijal
           emissiveMaterial(255, 204, 0);   // Sunčano-žuta emisija
          // ako želiš da zadržiš mapu boja iz teksture, prebaciti 'texture' u emisiju:
