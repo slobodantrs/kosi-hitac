@@ -155,91 +155,208 @@
   </div>
 </section>
 <section>
-  <div class="moj_kod">
-  <h4>zemlja_sunce_mesec_animacija.js</h4>
+  ```html
+<div class="moj_kod">
+  <h4>earth_sun_moon_animation.js</h4>
   <pre><code>
-<span class="plava">var</span> <span class="crna">canvasDrawing</span>;<br>
-<span class="plava">let</span> <span class="crna">container</span>;<br>
-<span class="plava">let</span> <span class="crna">isMobile</span>;<br>
-<span class="plava">let</span> <span class="crna">widthS, heightS</span>;<br>
-<span class="plava">let</span> <span class="crna">sun, earth, moon</span>;<br>
-<span class="plava">let</span> <span class="crna">sunIm, earthIm, moonIm, spaceIm</span>;<br>
-<span class="plava">let</span> <span class="crna">wEarth</span> = <span class="narandzasta">0.005</span>, <span class="crna">wEarth1</span> = <span class="narandzasta">0.08</span>, <span class="crna">wMoon</span> = <span class="narandzasta">-0.2</span>;<br>
-<span class="plava">let</span> <span class="crna">z</span> = <span class="narandzasta">0</span>, <span class="crna">dLight</span> = <span class="narandzasta">200</span>;<br>
-<span class="plava">let</span> <span class="crna">rSun, rEarth, rMoon</span>;<br>
-<span class="plava">let</span> <span class="crna">prefix</span> = <span class="crvena">"/js/p5js/ZemljaSunceMesec/"</span>;<br>
-<span class="plava">let</span> <span class="crna">glContext</span>;<br><br>
-
-<span class="plava">function</span> <span class="zelena">preload</span>() {<br>
-  &nbsp;&nbsp;<span class="crna">// load planet and background textures</span><br>
-  &nbsp;&nbsp;<span class="crna">sunIm</span>   = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/sun1.jpg"</span>);<br>
-  &nbsp;&nbsp;<span class="crna">earthIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/earth1.jpg"</span>);<br>
-  &nbsp;&nbsp;<span class="crna">moonIm</span>  = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/moon.jpg"</span>);<br>
-  &nbsp;&nbsp;<span class="crna">spaceIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/svemir1.jpg"</span>);<br>
-}<br><br>
-
-<span class="plava">function</span> <span class="zelena">determineSize</span>() {<br>
-  &nbsp;&nbsp;<span class="crna">// adapt canvas size based on device orientation</span><br>
-  &nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">isMobile</span>) {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;/* … mobile sizing logic … */<br>
-  &nbsp;&nbsp;} <span class="plava">else</span> {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;/* … desktop sizing logic … */<br>
-  &nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;<span class="crna">// cap maximum width</span><br>
-  &nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">widthS</span> &gt; <span class="narandzasta">940</span>) {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span> = <span class="narandzasta">940</span>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">627</span>;<br>
-  &nbsp;&nbsp;}<br>
-}<br><br>
-
+<span class="plava">var</span> <span class="crna">canvasDrawing</span>; <span class="siva">// GL canvas for rendering the 3D scene</span><br>
+<span class="plava">let</span> <span class="crna">container</span>, <span class="crna">containerMain</span>; <span class="siva">// HTML elements to hold the canvas</span><br>
+<span class="plava">var</span> <span class="crna">isMobile</span>; <span class="siva">// whether the device is mobile (orientation available)</span><br>
+<span class="plava">var</span> <span class="crna">widthS</span>;<br>
+<span class="plava">var</span> <span class="crna">heightS</span>;<br>
+<span class="plava">let</span> <span class="crna">sun</span>;          <span class="siva">// main object – the Sun</span><br>
+<span class="plava">let</span> <span class="crna">prevMouse</span>;   <span class="siva">// previous mouse position (on press)</span><br>
+<span class="plava">let</span> <span class="crna">zoom</span> = <span class="narandzasta">1</span>;   <span class="siva">// zoom factor for the scene</span><br>
+<span class="plava">let</span> <span class="crna">drag</span>;        <span class="siva">// vector for moving the light source</span><br>
+<span class="plava">let</span> <span class="crna">sunIm</span>, <span class="crna">earthIm</span>, <span class="crna">moonIm</span>, <span class="crna">spaceIm</span>; <span class="siva">// textures for planets and background</span><br>
+<span class="plava">let</span> <span class="crna">wEarth</span> = <span class="narandzasta">0.005</span>, <span class="crna">wEarth1</span> = <span class="narandzasta">0.08</span>, <span class="crna">wMoon</span> = <span class="narandzasta">-0.2</span>; <span class="siva">// rotation speeds (orbit and own axis)</span><br>
+<span class="plava">let</span> <span class="crna">z</span> = <span class="narandzasta">0</span>;       <span class="siva">// light source height</span><br>
+<span class="plava">let</span> <span class="crna">dLight</span> = <span class="narandzasta">200</span>; <span class="siva">// distance of light source from center</span><br>
+<span class="plava">var</span> <span class="crna">rSun</span>, <span class="crna">rEarth</span>, <span class="crna">rMoon</span>; <span class="siva">// radii of the bodies</span><br>
+<span class="plava">let</span> <span class="crna">prefix</span> = <span class="crvena">"/js/p5js/SunceOrbita/"</span>; <span class="siva">// path to the textures folder</span><br>
+<span class="plava">let</span> <span class="crna">glContext</span>;   <span class="siva">// WebGL context for managing the depth buffer</span><br>
+<br>
 <span class="plava">function</span> <span class="zelena">setup</span>() {<br>
-  &nbsp;&nbsp;<span class="crna">// initialize canvas, sizes, and WebGL context</span><br>
-  &nbsp;&nbsp;<span class="crna">isMobile</span> = window.orientation &gt; <span class="narandzasta">-1</span>;<br>
-  &nbsp;&nbsp;<span class="zelena">determineSize</span>();<br>
-  &nbsp;&nbsp;<span class="crna">drag</span> = <span class="zelena">createVector</span>(<span class="narandzasta">0</span>, <span class="narandzasta">0</span>);<br>
-  &nbsp;&nbsp;<span class="crna">canvasDrawing</span> = <span class="zelena">createCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="crvena">WEBGL</span>);<br>
-  &nbsp;&nbsp;<span class="crna">glContext</span> = <span class="crna">canvasDrawing</span>.<span class="crna">GL</span>;<br>
-  &nbsp;&nbsp;<span class="crna">container</span> = document.getElementById(<span class="crvena">'canvasForHTML'</span>);<br>
-  &nbsp;&nbsp;<span class="crna">canvasDrawing</span>.<span class="zelena">parent</span>(<span class="crna">container</span>);<br><br>
-
-  &nbsp;&nbsp;<span class="crna">// compute planet radii based on canvas size</span><br>
-  &nbsp;&nbsp;<span class="crna">rSun</span>   = <span class="crna">widthS</span> / <span class="narandzasta">20</span>;<br>
-  &nbsp;&nbsp;<span class="crna">rEarth</span> = <span class="crna">rSun</span> / <span class="narandzasta">4</span>;<br>
-  &nbsp;&nbsp;<span class="crna">rMoon</span>  = <span class="crna">rEarth</span> / <span class="narandzasta">3</span>;<br><br>
-
-  &nbsp;&nbsp;<span class="crna">// create hierarchical planet objects</span><br>
-  &nbsp;&nbsp;<span class="crna">sun</span>   = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rSun</span>,      <span class="narandzasta">0</span>,     <span class="crna">null</span>, <span class="crna">sunIm</span>,   <span class="narandzasta">0</span>,    <span class="narandzasta">0</span>,    <span class="zelena">color</span>(<span class="narandzasta">255</span>,<span class="narandzasta">204</span>,<span class="narandzasta">10</span>));<br>
-  &nbsp;&nbsp;<span class="crna">earth</span> = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rEarth</span>, <span class="crna">widthS</span>/ <span class="narandzasta">3</span>, <span class="crna">sun</span>,       <span class="crna">earthIm</span>, <span class="crna">wEarth</span>, <span class="crna">wEarth1</span>);<br>
-  &nbsp;&nbsp;<span class="crna">moon</span>  = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rMoon</span>, <span class="crna">rEarth</span> + <span class="crna">rMoon</span> + <span class="narandzasta">25</span>, <span class="crna">earth</span>, <span class="crna">moonIm</span>,   <span class="crna">wMoon</span>,  <span class="narandzasta">0</span>);<br><br>
-
-  &nbsp;&nbsp;<span class="crzna">smooth</span>(<span class="narandzasta">16</span>); <span class="crna">// improve sphere rendering</span><br>
-}<br><br>
-
+&nbsp;&nbsp;<span class="crna">isMobile</span> = window.orientation > <span class="narandzasta">-1</span>; <span class="siva">// check for mobile device</span><br>
+&nbsp;&nbsp;<span class="zelena">determineSize</span>();  <span class="siva">// calculate canvas dimensions</span><br>
+&nbsp;&nbsp;<span class="crna">drag</span> = <span class="zelena">createVector</span>(<span class="narandzasta">0</span>, <span class="narandzasta">0</span>); <span class="siva">// initialize light-drag vector</span><br>
+&nbsp;&nbsp;<span class="crna">canvasDrawing</span> = <span class="zelena">createCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="crvena">WEBGL</span>); <span class="siva">// create WebGL canvas</span><br>
+&nbsp;&nbsp;<span class="crna">container</span> = <span class="zelena">document.getElementById</span>(<span class="crvena">'canvasForHTML'</span>);<br>
+&nbsp;&nbsp;<span class="crna">canvasDrawing</span>.<span class="zelena">parent</span>(<span class="crna">container</span>); <span class="siva">// insert canvas into container</span><br>
+&nbsp;&nbsp;<span class="crna">glContext</span> = <span class="crna">canvasDrawing</span>.<span class="crna">GL</span>; <span class="siva">// obtain WebGL context</span><br>
+<br>
+&nbsp;&nbsp;// compute body radii based on screen width<br>
+&nbsp;&nbsp;<span class="crna">rSun</span> = <span class="crna">widthS</span> / <span class="narandzasta">20</span>;<br>
+&nbsp;&nbsp;<span class="crna">rEarth</span> = <span class="crna">rSun</span> / <span class="narandzasta">4</span>;<br>
+&nbsp;&nbsp;<span class="crna">rMoon</span> = <span class="crna">rEarth</span> / <span class="narandzasta">3</span>;<br>
+<br>
+&nbsp;&nbsp;// create planet instances and set up hierarchy<br>
+&nbsp;&nbsp;<span class="crna">sun</span>   = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rSun</span>, <span class="narandzasta">0</span>, <span class="crvena">null</span>, <span class="crna">sunIm</span>, <span class="narandzasta">0</span>, <span class="narandzasta">0</span>, <span class="crzelaena">color</span>(<span class="narandzasta">255</span>));<br>
+&nbsp;&nbsp;<span class="crna">earth</span> = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rEarth</span>, <span class="crna">widthS</span> / <span class="narandzasta">3</span>, <span class="crna">sun</span>, <span class="crna">earthIm</span>, <span class="crna">wEarth</span>, <span class="crna">wEarth1</span>);<br>
+&nbsp;&nbsp;<span class="crna">moon</span>  = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rMoon</span>, <span class="crna">rEarth</span> + <span class="crna">rMoon</span> + <span class="narandzasta">25</span>, <span class="crna">earth</span>, <span class="crna">moonIm</span>, <span class="crna">wMoon</span>, <span class="narandzasta">0</span>);<br>
+<br>
+&nbsp;&nbsp;<span class="zelena">smooth</span>(<span class="narandzasta">16</span>); <span class="siva">// anti-aliasing for smooth edges</span><br>
+}<br>
+<br>
+<span class="plava">function</span> <span class="zelena">preload</span>() {<br>
+&nbsp;&nbsp;// load all textures before the scene starts<br>
+&nbsp;&nbsp;<span class="crna">sunIm</span>   = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/sun1.jpg"</span>);<br>
+&nbsp;&nbsp;<span class="crna">earthIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/earth1.jpg"</span>);<br>
+&nbsp;&nbsp;<span class="crna">moonIm</span>  = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/moon.jpg"</span>);<br>
+&nbsp;&nbsp;<span class="crna">spaceIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/space.jpg"</span>);<br>
+}<br>
+<br>
+<span class="plava">function</span> <span class="zelena">determineSize</span>() {<br>
+&nbsp;&nbsp;// adjust canvas dimensions based on resolution and orientation<br>
+&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">isMobile</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">displayWidth</span> &gt; <span class="narandzasta">1200</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">2</span> * <span class="crna">displayHeight</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="narandzasta">2</span> * <span class="crna">displayWidth</span> * <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} <span class="plava">else</span> <span class="plava">if</span> (<span class="crna">displayWidth</span> &lt; <span class="crna">displayHeight</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="crna">displayWidth</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">2</span> * <span class="crna">widthS</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} <span class="plava">else</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="narandzasta">2</span> * <span class="crna">displayWidth</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">2</span> * <span class="crna">widthS</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;} <span class="plava">else</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// for desktop use full width<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="crna">displayWidth</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">2</span> * <span class="crna">widthS</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;// cap max width to preserve aspect ratio<br>
+&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">widthS</span> &gt; <span class="narandzasta">940</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="narandzasta">940</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">627</span>;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+<span class="plava">function</span> <span class="zelena">windowResized</span>() {<br>
+&nbsp;&nbsp;<span class="zelena">determineSize</span>(); <span class="siva">// recalculate dimensions</span><br>
+&nbsp;&nbsp;<span class="zelena">resizeCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="crvena">false</span>);<br>
+}<br>
+<br>
 <span class="plava">function</span> <span class="zelena">draw</span>() {<br>
-  &nbsp;&nbsp;<span class="crna">// draw dynamic background and clear depth buffer</span><br>
-  &nbsp;&nbsp;<span class="crna">spaceIm</span>.<span class="zelena">resize</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>);<br>
-  &nbsp;&nbsp;<span class="crzna">imageMode</span>(<span class="crvana">CENTER</span>);<br>
-  &nbsp;&nbsp;<span class="crvana">background</span>(<span class="narandzasta">0</span>);<br>
-  &nbsp;&nbsp;<span class="crevaena">push</span>();<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">camera</span>(<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,-<span class="narandzasta">300</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,-<span class="narandzasta">1</span>,<span class="narandzasta">0</span>);<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">image</span>(<span class="crna">spaceIm</span>, <span class="narandzasta">0</span>,<span class="narandzasta">0</span>, <span class="narandzasta">1.5</span>*<span class="crna">widthS</span>, <span class="narandzasta">1.5</span>*<span class="crna">heightS</span>);<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">glContext</span>.<span class="crna">clear</span>(<span class="crna">glContext</span>.<span class="crna">DEPTH_BUFFER_BIT</span>);<br>
-  &nbsp;&nbsp;<span class="crvana">pop</span>();<br><br>
-
-  &nbsp;&nbsp;<span class="crzelaena">noStroke</span>();<br>
-  &nbsp;&nbsp;<span class="crzelaena">ambientLight</span>(<span class="narandzasta">30</span>); <span class="crna">// low global ambient light</span><br>
-  &nbsp;&nbsp;<span class="crzelaena">pointLight</span>(<span class="narandzasta">255</span>,<span class="narandzasta">255</span>,<span class="narandzasta">230</span>, <span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>); <span class="crna">// Sun as point source</span><br><br>
-
-  &nbsp;&nbsp;<span class="zelena">orbitControl</span>();<br>
-  &nbsp;&nbsp;<span class="zelena">rotateX</span>(<span class="narandzasta">10</span>*<span class="crvena">PI</span>/<span class="narandzasta">24</span>);<br>
-  &nbsp;&nbsp;<span class="zelena">rotateY</span>(<span class="crvena">PI</span>/<span class="narandzasta">64</span>);<br>
-  &nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">orbit</span>();<br>
-  &nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">show</span>();<br>
-}<br><br>
-
-// … <em>rest of the <code>Planeta</code> class with its <code>orbit()</code> and <code>show()</code> methods</em> …
+&nbsp;&nbsp;// set space background and clear depth buffer before 3D drawing<br>
+&nbsp;&nbsp;<span class="crna">spaceIm</span>.<span class="zelena">resize</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>);<br>
+&nbsp;&nbsp;<span class="zelena">imageMode</span>(<span class="crvena">CENTER</span>);<br>
+&nbsp;&nbsp;<span class="zelena">background</span>(<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>);<br>
+&nbsp;&nbsp;<span class="zelena">push</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">camera</span>(<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,-<span class="narandzasta">300</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,-<span class="narandzasta">1</span>,<span class="narandzasta">0</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">image</span>(<span class="crna">spaceIm</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">1.5</span>*<span class="crna">widthS</span>,<span class="narandzasta">1.5</span>*<span class="crna">heightS</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">glContext</span>.<span class="zelena">clear</span>(<span class="crna">glContext</span>.<span class="crna">DEPTH_BUFFER_BIT</span>);<br>
+&nbsp;&nbsp;<span class="plava">pop</span>();<br>
+<br>
+&nbsp;&nbsp;<span class="zelena">noStroke</span>();<br>
+&nbsp;&nbsp;<span class="zelena">ambientLight</span>(<span class="narandzasta">255</span>); <span class="siva">// global ambient light component</span><br>
+&nbsp;&nbsp;<span class="zelena">orbitControl</span>(); <span class="siva">// mouse/touch interactive camera control</span><br>
+&nbsp;&nbsp;<span class="zelena">rotateX</span>(<span class="narandzasta">10</span>*<span class="crvena">PI</span>/<span class="narandzasta">24</span>);<br>
+&nbsp;&nbsp;<span class="zelena">rotateY</span>(<span class="crvena">PI</span>/<span class="narandzasta">64</span>);<br>
+<br>
+&nbsp;&nbsp;// update all bodies’ positions before drawing<br>
+&nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">orbit</span>();<br>
+&nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">show</span>();<br>
+}<br>
+<br>
+<span class="plava">function</span> <span class="zelena">mousePressed</span>() {<br>
+&nbsp;&nbsp;// store mouse position on click for later light adjustments<br>
+&nbsp;&nbsp;<span class="crna">prevMouse</span> = <span class="zelena">createVector</span>(<span class="crzelaena">mouseX</span>, <span class="crzelaena">mouseY</span>);<br>
+&nbsp;&nbsp;// move light along z-axis with arrow keys<br>
+&nbsp;&nbsp;<span class="plava">if</span> (<span class="crzelaena">key</span> == <span class="crvena">"ArrowRight"</span>) { <span class="crna">z</span> += <span class="narandzasta">1</span>; }<br>
+&nbsp;&nbsp;<span class="plava">else</span> <span class="plava">if</span> (<span class="crzelaena">key</span> == <span class="crvena">"ArrowLeft"</span>) { <span class="crna">z</span> -= <span class="narandzasta">1</span>; }<br>
+}<br>
+<br>
+<span class="plava">function</span> <span class="zelena">mouseWheel</span>(<span class="crna">event</span>) {<br>
+&nbsp;&nbsp;// zoom scene with mouse wheel<br>
+&nbsp;&nbsp;<span class="crna">zoom</span> += <span class="crna">event</span>.<span class="crna">delta</span> * <span class="narandzasta">0.0005</span>;<br>
+}<br>
+<br>
+<span class="plava">class</span> <span class="zelena">Planeta</span> {<br>
+&nbsp;&nbsp;<span class="plava">constructor</span>(<span class="crna">radius</span>, <span class="crna">distance</span>, <span class="crna">parent</span>, <span class="crna">texture</span>, <span class="crna">speedRotation</span>, <span class="crna">speedOwnRotation</span>, <span class="crna">emission</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// set up basic body parameters<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">radius</span> = <span class="crna">radius</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">distance</span> = <span class="crna">distance</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">parent</span> = <span class="crna">parent</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">texture</span> = <span class="crna">texture</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">emission</span> = <span class="crna">emission</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// random initial rotations for a dynamic effect<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">angle</span>    = <span class="zelena">random</span>(<span class="narandzasta">2</span>*<span class="crvena">PI</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">angleOwn</span> = <span class="zelena">random</span>(<span class="narandzasta">2</span>*<span class="crvena">PI</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">speedRotation</span>    = <span class="crna">speedRotation</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">speedOwnRotation</span> = <span class="crna">speedOwnRotation</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">children</span> = [];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// add to parent’s children list (scene hierarchy)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">parent</span>) { <span class="crna">parent</span>.<span class="crna">children</span>.<span class="zelena">push</span>(<span class="crna">this</span>); }<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;<span class="zelena">orbit</span>() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// advance orbit and self-rotation angles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">angle</span>    += <span class="crna">this</span>.<span class="crna">speedRotation</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">angleOwn</span> += <span class="crna">this</span>.<span class="crna">speedOwnRotation</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// recursively update children<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">for</span> (<span class="plava">let</span> <span class="crna">planet</span> <span class="plava">of</span> <span class="crna">this</span>.<span class="crna">children</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">planet</span>.<span class="zelena">orbit</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;<span class="zelena">show</span>() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// save current transform matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">push</span>();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 1) draw orbit as a circle in the XY plane<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">push</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">strokeWeight</span>(<span class="narandzasta">0.5</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">stroke</span>(<span class="crzelaena">color</span>(<span class="narandzasta">200</span>,<span class="narandzasta">200</span>,<span class="narandzasta">100</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">noFill</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">ellipse</span>(<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="crna">this</span>.<span class="crna">distance</span>*<span class="narandzasta">2</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pop</span>();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 2) if the body emits light (Sun), set up pointLight sources<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">this</span>.<span class="crna">emission</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">fill</span>(<span class="crna">this</span>.<span class="crna">emission</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">scale</span>(<span class="narandzasta">100</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// six pointLight sources around center for a more realistic effect<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>+<span class="crna">dLight</span>, <span class="crna">drag</span>.<span class="crna">y</span>, <span class="crna">z</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>-<span class="crna">dLight</span>, <span class="crna">drag</span>.<span class="crna">y</span>, <span class="crna">z</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>, <span class="crna">drag</span>.<span class="crna">y</span>+<span class="crna">dLight</span>, <span class="crna">z</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>, <span class="crna">drag</span>.<span class="crna">y</span>-<span class="crna">dLight</span>, <span class="crna">z</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>, <span class="crna">drag</span>.<span class="crna">y</span>, <span class="crna">z</span>+<span class="crna">dLight</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>, <span class="crna">drag</span>.<span class="crna">y</span>, <span class="crna">z</span>-<span class="crna">dLight</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">scale</span>(<span class="narandzasta">0.01</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 3) rotate and position the body relative to its parent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">rotate</span>(-<span class="crna">this</span>.<span class="crna">angle</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">translate</span>(<span class="crna">this</span>.<span class="crna">distance</span>, <span class="narandzasta">0</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">rotate</span>(-<span class="crna">this</span>.<span class="crna">angleOwn</span>);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 4) apply texture or color and draw the sphere<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">this</span>.<span class="crna">emission</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">texture</span>(<span class="crna">this</span>.<span class="crna">texture</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">sphere</span>(<span class="crna">this</span>.<span class="crna">radius</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">ambientLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} <span class="plava">else</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">this</span>.<span class="crna">texture</span> != <span class="crvena">null</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">texture</span>(<span class="crna">this</span>.<span class="crna">texture</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span class="plava">else</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">ambientMaterial</span>(<span class="narandzasta">255</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">sphere</span>(<span class="crna">this</span>.<span class="crna">radius</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 5) recursively draw all satellites (children) of this body<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">for</span> (<span class="plava">let</span> <span class="crna">planet</span> <span class="plava">of</span> <span class="crna">this</span>.<span class="crna">children</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">planet</span>.<span class="zelena">show</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// restore previous transform matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pop</span>();<br>
+&nbsp;&nbsp;}<br>
+}  
 </code></pre>
 </div>
+```
+
 
   <div class="moj_kod">
     <h4>index.html</h4>
