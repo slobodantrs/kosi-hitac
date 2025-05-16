@@ -51,7 +51,7 @@ function setup() {
     sunIm=loadImage(prefix+"Textures/sun1.jpg");
   earthIm=loadImage(prefix+"Textures/earth1.jpg");
   moonIm=loadImage(prefix+"Textures/moon.jpg");
-  spaceIm=loadImage(prefix+"Textures/svemir1.jpg");
+  spaceIm=loadImage(prefix+"Textures/space.jpg");
  }
  
  function determineSize(){
