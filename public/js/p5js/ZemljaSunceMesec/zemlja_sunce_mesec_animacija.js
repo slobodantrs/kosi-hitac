@@ -211,9 +211,10 @@ class Planeta{
         pointLight(this.emission, drag.x, drag.y-dLight, z);
         pointLight(this.emission, drag.x, drag.y, z+dLight);
         pointLight(this.emission, drag.x, drag.y, z-dLight);
+				  scale(10);
           // 2) emisioni materijal
           emissiveMaterial(255, 204, 0);   // Sunčano-žuta emisija
-		  scale(100);
+
          // ako želiš da zadržiš mapu boja iz teksture, prebaciti 'texture' u emisiju:
          texture(this.texture); 
           // sphere će upotrebiti kanale teksture kao emisiju
@@ -223,7 +224,7 @@ class Planeta{
        // povratak na standardne materijale za decu
       //  resetShader(); // ili specularMaterial/ambientMaterial po potrebi
         
-    
+         scale(0.1);
          pop();
         
       }
