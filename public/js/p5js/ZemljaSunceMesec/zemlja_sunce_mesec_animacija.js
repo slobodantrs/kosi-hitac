@@ -111,7 +111,7 @@ function draw() {
 
   //ambientLight(255);  
   
-   ambientLight(80); // onemogućimo uniformno globalno svetlo
+   ambientLight(40); // onemogućimo uniformno globalno svetlo
    // 3) Postavimo Sunčev point light u (0,0,0)
   //    (ova svetlost ostaje aktivna dok je ne zamenimo)
   pointLight(255, 255, 230,  0, 0, 0);
