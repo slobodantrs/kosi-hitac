@@ -205,13 +205,14 @@ class Planeta{
 		  
          // ambientLight(30); // isključujemo globalno ambijentalno svetlo jednom u draw()
      /*    pointLight(255, 255, 230, 0, 0, 0);*/
+	 scale(10);
            pointLight(this.emission, drag.x+dLight, drag.y, z);
         pointLight(this.emission, drag.x-dLight, drag.y, z);
         pointLight(this.emission, drag.x, drag.y+dLight, z);
         pointLight(this.emission, drag.x, drag.y-dLight, z);
         pointLight(this.emission, drag.x, drag.y, z+dLight);
         pointLight(this.emission, drag.x, drag.y, z-dLight);
-				  scale(10);
+				 scale(0.1);  
           // 2) emisioni materijal
           emissiveMaterial(255, 204, 0);   // Sunčano-žuta emisija
 
@@ -224,7 +225,7 @@ class Planeta{
        // povratak na standardne materijale za decu
       //  resetShader(); // ili specularMaterial/ambientMaterial po potrebi
         
-         scale(0.1);
+        
          pop();
         
       }
