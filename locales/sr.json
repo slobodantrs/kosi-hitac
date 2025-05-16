@@ -49,7 +49,9 @@
   },
   "animation": {
     "title": "KRUŽNO KRETANJE:",
-    "instructions": "Instrukcije:",
+    "instructions": "Instrukcije:<p> Podesite poluprečnik kružne putanje,ugaono ubrzanje, &alpha;, ugaonu brzinu &omega; korišćenjem slajdera i pritisnite start dugmeda startujete animaciju!</p>"+
+  "<p> Kliknite na dugme za korak, pauzu, ili dugme za resetovanje, da bi ste uradili jednu iteraciju, pauzirali ili resetovali animaciju! Štiklirajte ili deštiklirajte da bi ste promenili smer rotacije, "+ 
+  "prikazali ili sakrili informacije, prikazali vektore brzine i ubrzanja, ili ih sakrili!</p>",
     "inputData": "Ulazni podaci",
     "slowDown": "usporenje:",
     "infoLabel": "Informacije",
