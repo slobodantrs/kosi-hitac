@@ -184,7 +184,7 @@ class Planeta{
 	//	emissiveMaterial(255, 204, 0);   // Sunce samo svetli  
         scale(100);
        // Sunce - bela-žuta svetlost na poziciji (0,0,0)
-  pointLight(255, 255, 230, 0, 0, 0); 
+       pointLight(255, 255, 230, 0, 0, 0); 
         pointLight(this.emission, drag.x+dLight, drag.y, z);
         pointLight(this.emission, drag.x-dLight, drag.y, z);
         pointLight(this.emission, drag.x, drag.y+dLight, z);
@@ -208,13 +208,15 @@ class Planeta{
       else{
         if(this.texture != null)
         {
+			specularMaterial(0, 100, 255);   // plavi sjaj vode
+        shininess(30);
           texture(this.texture);
+		  
         }
         else{
            ambientMaterial(255);
         }
-    //    specularMaterial(0, 100, 255);   // plavi sjaj vode
-    //    shininess(30);
+        
         sphere(this.radius);
       }
       
