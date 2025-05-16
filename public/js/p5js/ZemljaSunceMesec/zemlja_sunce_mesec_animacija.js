@@ -39,7 +39,7 @@ function setup() {
   rSun=widthS/20;
    rEarth= rSun/4;
    rMoon= rEarth/3;
-  sun=new Planeta( rSun,0,null,sunIm,0,0,color(255));
+  sun=new Planeta( rSun,0,null,sunIm,0,0,color(255,100,100));
   earth=new Planeta(rEarth,widthS/3,sun,earthIm,wEarth,wEarth1);
   moon=new Planeta(rMoon,rEarth+rMoon+25,earth,moonIm,wMoon,0);
   canvasDrawing.parent(container);
@@ -51,7 +51,7 @@ function setup() {
     sunIm=loadImage(prefix+"Textures/sun1.jpg");
   earthIm=loadImage(prefix+"Textures/earth1.jpg");
   moonIm=loadImage(prefix+"Textures/moon.jpg");
-  spaceIm=loadImage(prefix+"Textures/space.jpg");
+  spaceIm=loadImage(prefix+"Textures/svemir2.jpg");
  }
  
  function determineSize(){
