@@ -198,7 +198,9 @@ class Planeta{
       rotate(-this.angleOwn);
       
       if (this.emission) {
+		  push();
 		  // 1) postavljanje Sunčevog svetla
+		  
           ambientLight(0); // isključujemo globalno ambijentalno svetlo jednom u draw()
           pointLight(255, 255, 230, 0, 0, 0);
   
@@ -216,7 +218,7 @@ class Planeta{
      //   texture(this.texture);
      //   sphere(this.radius);
      //   ambientLight(this.emission);
-        
+         pop();
         
       }
       else{
