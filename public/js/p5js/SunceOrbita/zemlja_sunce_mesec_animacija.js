@@ -168,7 +168,7 @@ class Planeta{
     push();
       push();
         strokeWeight(0.5);
-        stroke(20);
+        stroke(color(200,200,100));
         noFill();
         ellipse(0,0,this.distance*2);
        
