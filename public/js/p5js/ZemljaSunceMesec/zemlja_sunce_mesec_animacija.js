@@ -203,7 +203,12 @@ class Planeta{
 		  
           ambientLight(0); // isključujemo globalno ambijentalno svetlo jednom u draw()
           pointLight(255, 255, 230, 0, 0, 0);
-  
+           pointLight(this.emission, drag.x+dLight, drag.y, z);
+        pointLight(this.emission, drag.x-dLight, drag.y, z);
+        pointLight(this.emission, drag.x, drag.y+dLight, z);
+        pointLight(this.emission, drag.x, drag.y-dLight, z);
+        pointLight(this.emission, drag.x, drag.y, z+dLight);
+        pointLight(this.emission, drag.x, drag.y, z-dLight);
           // 2) emisioni materijal
           emissiveMaterial(255, 204, 0);   // Sunčano-žuta emisija
          // ako želiš da zadržiš mapu boja iz teksture, prebaciti 'texture' u emisiju:
