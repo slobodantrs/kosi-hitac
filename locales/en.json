@@ -49,9 +49,7 @@
   },
   "animation": {
     "title": "CIRCULAR MOTION:",
-    "instructions": "Instructions:<p>Hello!</p><p> Addjust radius of the circle,  angular acceleration &alpha;, angular velocity &omega; using sliders and press start button to start animation!</p>"+
-  "<p> Click the step, pause, or reset button to do one iteration, pause loop or restart animation! Tick or untick to change the direction of rotation, "+
-  "show or hide information, show or hide velocity and acceleration vectors!</p>",
+    "instructions": "Instructions:<p>Hello!</p><p> Addjust radius of the circle,  angular acceleration &alpha;, angular velocity &omega; using sliders and press start button to start animation!</p><p> Click the step, pause, or reset button to do one iteration, pause loop or restart animation! Tick or untick to change the direction of rotation, show or hide information, show or hide velocity and acceleration vectors!</p>",
     "inputData": "Input Data",
     "slowDown": "Slow down:",
     "infoLabel": "Information",
