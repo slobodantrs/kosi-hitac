@@ -111,7 +111,7 @@ function draw() {
 
   //ambientLight(255);  
   
-   ambientLight(0); // onemogućimo uniformno globalno svetlo
+   ambientLight(30); // onemogućimo uniformno globalno svetlo
    // 3) Postavimo Sunčev point light u (0,0,0)
   //    (ova svetlost ostaje aktivna dok je ne zamenimo)
   pointLight(255, 255, 230,  0, 0, 0);
@@ -203,7 +203,7 @@ class Planeta{
 		  push();
 		  // 1) postavljanje Sunčevog svetla
 		  
-          ambientLight(0); // isključujemo globalno ambijentalno svetlo jednom u draw()
+         // ambientLight(30); // isključujemo globalno ambijentalno svetlo jednom u draw()
      /*    pointLight(255, 255, 230, 0, 0, 0);*/
            pointLight(this.emission, drag.x+dLight, drag.y, z);
         pointLight(this.emission, drag.x-dLight, drag.y, z);
@@ -222,17 +222,15 @@ class Planeta{
        // povratak na standardne materijale za decu
       //  resetShader(); // ili specularMaterial/ambientMaterial po potrebi
         
-     //   texture(this.texture);
-     //   sphere(this.radius);
-     //   ambientLight(this.emission);
+    
          pop();
         
       }
       else{
         if(this.texture != null)
         {
-			specularMaterial(0, 100, 255);   // plavi sjaj vode
-        shininess(30);
+			specularMaterial(200, 200, 255);   // plavi sjaj vode
+        shininess(100);
           texture(this.texture);
 		  
         }
