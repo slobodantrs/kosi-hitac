@@ -163,149 +163,205 @@
   </div>
 
  <div class="moj_kod">
-  <h4>sunce_zemlja_mesec_animacija.js</h4>
+  <h4>zemlja_sunce_mesec_animacija.js</h4>
   <pre><code>
-<span class="plava">// Glavne promenljive</span><br>
-<span class="plava">var</span> <span class="crna">canvasDrawing</span>;<br>
-<span class="plava">let</span> <span class="crna">container</span>;<br>
-<span class="plava">let</span> <span class="crna">isMobile</span>;<br>
-<span class="plava">let</span> <span class="crna">widthS, heightS</span>;<br>
-<span class="plava">let</span> <span class="crna">sun, earth, moon</span>;<br>
-<span class="plava">let</span> <span class="crna">sunIm, earthIm, moonIm, spaceIm</span>;<br>
-<span class="plava">let</span> <span class="crna">wEarth</span> = <span class="narandzasta">0.005</span>, <span class="crna">wEarth1</span> = <span class="narandzasta">0.08</span>, <span class="crna">wMoon</span> = <span class="narandzasta">-0.2</span>;<br>
-<span class="plava">let</span> <span class="crna">z</span> = <span class="narandzasta">0</span>, <span class="crna">dLight</span> = <span class="narandzasta">200</span>;<br>
-<span class="plava">let</span> <span class="crna">rSun, rEarth, rMoon</span>;<br>
-<span class="plava">let</span> <span class="crna">prefix</span> = <span class="crvena">"/js/p5js/SunceOrbita/"</span>;<br>
-<span class="plava">let</span> <span class="crna">glContext</span>;<br><br>
-
-<span class="plava">// preload(): učitavanje tekstura</span><br>
-<span class="plava">function</span> <span class="zelena">preload</span>() {<br>
-  &nbsp;&nbsp;<span class="crna">sunIm</span>   = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/sun1.jpg"</span>);<br>
-  &nbsp;&nbsp;<span class="crna">earthIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/earth1.jpg"</span>);<br>
-  &nbsp;&nbsp;<span class="crna">moonIm</span>  = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/moon.jpg"</span>);<br>
-  &nbsp;&nbsp;<span class="crna">spaceIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/space.jpg"</span>);<br>
-}<br><br>
-
-<span class="plava">// determineSize(): prilagođavanje dimenzija platna</span><br>
-<span class="plava">function</span> <span class="zelena">determineSize</span>() {<br>
-  &nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">isMobile</span>) {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;// mobilni prikaz<br>
-  &nbsp;&nbsp;} <span class="plava">else</span> {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;// desktop prikaz<br>
-  &nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">widthS</span> &gt; <span class="narandzasta">940</span>) {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span> = <span class="narandzasta">940</span>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">627</span>;<br>
-  &nbsp;&nbsp;}<br>
-}<br><br>
-
-<span class="plava">// setup(): inicijalizacija WebGL canvasa i objekata</span><br>
+<span class="plava">var</span> <span class="crna">canvasDrawing</span>; <span class="siva">// gl platno za crtanje 3D scene</span><br>
+<span class="plava">let</span> <span class="crna">container</span>, <span class="crna">containerMain</span>; <span class="siva">// HTML elementi za smeštaj canvasa</span><br>
+<span class="plava">var</span> <span class="crna">isMobile</span>; <span class="siva">// da li je uređaj mobilni (orientacija != undefined)</span><br>
+<span class="plava">var</span> <span class="crna">widthS</span>;<br>
+<span class="plava">var</span> <span class="crna">heightS</span>;<br>
+<span class="plava">let</span> <span class="crna">sun</span>;          <span class="siva">// glavni objekat - Sunce</span><br>
+<span class="plava">let</span> <span class="crna">prevMouse</span>;   <span class="siva">// prethodna pozicija miša (prilikom pritiska)</span><br>
+<span class="plava">let</span> <span class="crna">zoom</span> = <span class="narandzasta">1</span>;   <span class="siva">// faktor zumiranja scene</span><br>
+<span class="plava">let</span> <span class="crna">drag</span>;        <span class="siva">// vektor za pomeranje svetla</span><br>
+<span class="plava">let</span> <span class="crna">sunIm</span>, <span class="crna">earthIm</span>, <span class="crna">moonIm</span>, <span class="crna">spaceIm</span>; <span class="siva">// teksture za planete i pozadinu</span><br>
+<span class="plava">let</span> <span class="crna">wEarth</span> = <span class="narandzasta">0.005</span>, <span class="crna">wEarth1</span> = <span class="narandzasta">0.08</span>, <span class="crna">wMoon</span> = <span class="narandzasta">-0.2</span>; <span class="siva">// brzine rotacije (orbitna i oko ose)</span><br>
+<span class="plava">let</span> <span class="crna">z</span> = <span class="narandzasta">0</span>;       <span class="siva">// visinska komponenta svetla</span><br>
+<span class="plava">let</span> <span class="crna">dLight</span> = <span class="narandzasta">200</span>; <span class="siva">// udaljenost izvora svetla od centra</span><br>
+<span class="plava">var</span> <span class="crna">rSun</span>, <span class="crna">rEarth</span>, <span class="crna">rMoon</span>; <span class="siva">// poluprečnici tela</span><br>
+<span class="plava">let</span> <span class="crna">prefix</span> = <span class="crvena">"/js/p5js/SunceOrbita/"</span>; <span class="siva">// putanja do foldera sa teksturama</span><br>
+<span class="plava">let</span> <span class="crna">glContext</span>;   <span class="siva">// WebGL kontekst za upravljanje z-buferom</span><br>
+<br>
 <span class="plava">function</span> <span class="zelena">setup</span>() {<br>
-  &nbsp;&nbsp;<span class="crna">isMobile</span> = window.orientation &gt; <span class="narandzasta">-1</span>;<br>
-  &nbsp;&nbsp;<span class="zelena">determineSize</span>();<br>
-  &nbsp;&nbsp;<span class="crna">drag</span> = <span class="zelena">createVector</span>(<span class="narandzasta">0</span>, <span class="narandzasta">0</span>);<br>
-  &nbsp;&nbsp;<span class="crna">canvasDrawing</span> = <span class="zelena">createCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="crvena">WEBGL</span>);<br>
-  &nbsp;&nbsp;<span class="crna">glContext</span> = <span class="crna">canvasDrawing</span>.<span class="crna">GL</span>;<br>
-  &nbsp;&nbsp;<span class="crna">container</span> = document.getElementById(<span class="crvena">'canvasForHTML'</span>);<br>
-  &nbsp;&nbsp;<span class="crna">canvasDrawing</span>.<span class="zelena">parent</span>(<span class="crna">container</span>);<br><br>
-
-  &nbsp;&nbsp;<span class="crna">// računanje radijusa</span><br>
-  &nbsp;&nbsp;<span class="crna">rSun</span>   = <span class="crna">widthS</span> / <span class="narandzasta">20</span>;<br>
-  &nbsp;&nbsp;<span class="crna">rEarth</span> = <span class="crna">rSun</span> / <span class="narandzasta">4</span>;<br>
-  &nbsp;&nbsp;<span class="crna">rMoon</span>  = <span class="crna">rEarth</span> / <span class="narandzasta">3</span>;<br><br>
-
-  &nbsp;&nbsp;<span class="crna">// kreiranje planeta</span><br>
-  &nbsp;&nbsp;<span class="crna">sun</span>   = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rSun</span>,      <span class="narandzasta">0</span>,     <span class="crna">null</span>, <span class="crna">sunIm</span>,   <span class="narandzasta">0</span>, <span class="narandzasta">0</span>, <span class="zelena">color</span>(<span class="narandzasta">255</span>));<br>
-  &nbsp;&nbsp;<span class="crna">earth</span> = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rEarth</span>, <span class="crna">widthS</span>/ <span class="narandzasta">3</span>, <span class="crna">sun</span>,       <span class="crna">earthIm</span>, <span class="crna">wEarth</span>, <span class="crna">wEarth1</span>);<br>
-  &nbsp;&nbsp;<span class="crna">moon</span>  = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rMoon</span>, <span class="crna">rEarth</span> + <span class="crna">rMoon</span> + <span class="narandzasta">25</span>, <span class="crna">earth</span>, <span class="crna">moonIm</span>,   <span class="crna">wMoon</span>,  <span class="narandzasta">0</span>);<br><br>
-
-  &nbsp;&nbsp;<span class="crevaena">smooth</span>(<span class="narandzasta">16</span>);<br>
-}<br><br>
-
-<span class="plava">// windowResized(): ažuriranje veličine pri resize-u</span><br>
+&nbsp;&nbsp;<span class="crna">isMobile</span> = window.orientation > <span class="narandzasta">-1</span>; <span class="siva">// proveri mobilni uređaj</span><br>
+&nbsp;&nbsp;<span class="zelena">determineSize</span>();  <span class="siva">// izračunaj dimenzije canvasa</span><br>
+&nbsp;&nbsp;<span class="crna">drag</span> = <span class="zelena">createVector</span>(<span class="narandzasta">0</span>, <span class="narandzasta">0</span>); <span class="siva">// inicijalizuj vektor za svetlosni drag</span><br>
+&nbsp;&nbsp;<span class="crna">canvasDrawing</span> = <span class="zelena">createCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="crvena">WEBGL</span>); <span class="siva">// kreiraj WebGL canvas</span><br>
+&nbsp;&nbsp;<span class="crna">container</span> = <span class="zelena">document.getElementById</span>(<span class="crvena">'canvasForHTML'</span>);<br>
+&nbsp;&nbsp;<span class="crna">canvasDrawing</span>.<span class="zelena">parent</span>(<span class="crna">container</span>); <span class="siva">// ubači canvas u kontejner</span><br>
+&nbsp;&nbsp;<span class="crna">glContext</span> = <span class="crna">canvasDrawing</span>.<span class="crna">GL</span>; <span class="siva">// preuzmi WebGL kontekst</span><br>
+<br>
+&nbsp;&nbsp;// izračunaj poluprečnike tela na osnovu širine ekrana<br>
+&nbsp;&nbsp;<span class="crna">rSun</span> = <span class="crna">widthS</span> / <span class="narandzasta">20</span>;<br>
+&nbsp;&nbsp;<span class="crna">rEarth</span> = <span class="crna">rSun</span> / <span class="narandzasta">4</span>;<br>
+&nbsp;&nbsp;<span class="crna">rMoon</span> = <span class="crna">rEarth</span> / <span class="narandzasta">3</span>;<br>
+<br>
+&nbsp;&nbsp;// kreiraj instance planeta i postavi hijerarhiju<br>
+&nbsp;&nbsp;<span class="crna">sun</span>   = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rSun</span>, <span class="narandzasta">0</span>, <span class="crvena">null</span>, <span class="crna">sunIm</span>, <span class="narandzasta">0</span>, <span class="narandzasta">0</span>, <span class="crzelaena">color</span>(<span class="narandzasta">255</span>));<br>
+&nbsp;&nbsp;<span class="crna">earth</span> = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rEarth</span>, <span class="crna">widthS</span> / <span class="narandzasta">3</span>, <span class="crna">sun</span>, <span class="crna">earthIm</span>, <span class="crna">wEarth</span>, <span class="crna">wEarth1</span>);<br>
+&nbsp;&nbsp;<span class="crna">moon</span>  = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rMoon</span>, <span class="crna">rEarth</span> + <span class="crna">rMoon</span> + <span class="narandzasta">25</span>, <span class="crna">earth</span>, <span class="crna">moonIm</span>, <span class="crna">wMoon</span>, <span class="narandzasta">0</span>);<br>
+<br>
+&nbsp;&nbsp;<span class="zelena">smooth</span>(<span class="narandzasta">16</span>); <span class="siva">// anti-aliasing za glatke ivice</span><br>
+}<br>
+<br>
+<span class="plava">function</span> <span class="zelena">preload</span>() {<br>
+&nbsp;&nbsp;// učitaj sve teksture pre starta scene<br>
+&nbsp;&nbsp;<span class="crna">sunIm</span>   = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/sun1.jpg"</span>);<br>
+&nbsp;&nbsp;<span class="crna">earthIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/earth1.jpg"</span>);<br>
+&nbsp;&nbsp;<span class="crna">moonIm</span>  = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/moon.jpg"</span>);<br>
+&nbsp;&nbsp;<span class="crna">spaceIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/space.jpg"</span>);<br>
+}<br>
+<br>
+<span class="plava">function</span> <span class="zelena">determineSize</span>() {<br>
+&nbsp;&nbsp;// prilagodi dimenzije canvasa na osnovu rezolucije i orijentacije<br>
+&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">isMobile</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">displayWidth</span> &gt; <span class="narandzasta">1200</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">2</span> * <span class="crna">displayHeight</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="narandzasta">2</span> * <span class="crna">displayWidth</span> * <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} <span class="plava">else</span> <span class="plava">if</span> (<span class="crna">displayWidth</span> &lt; <span class="crna">displayHeight</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="crna">displayWidth</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">2</span> * <span class="crna">widthS</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} <span class="plava">else</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="narandzasta">2</span> * <span class="crna">displayWidth</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">2</span> * <span class="crna">widthS</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;} <span class="plava">else</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// za desktop koristimo full-width<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="crna">displayWidth</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">2</span> * <span class="crna">widthS</span> / <span class="narandzasta">3</span>;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;// ograničenje maksimalne širine radi održavanja proporcija<br>
+&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">widthS</span> &gt; <span class="narandzasta">940</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span>  = <span class="narandzasta">940</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">627</span>;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
 <span class="plava">function</span> <span class="zelena">windowResized</span>() {<br>
-  &nbsp;&nbsp;<span class="zelena">determineSize</span>();<br>
-  &nbsp;&nbsp;<span class="zelena">resizeCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="plava">false</span>);<br>
-}<br><br>
-
-<span class="plava">// draw(): glavni render loop</span><br>
+&nbsp;&nbsp;<span class="zelena">determineSize</span>(); <span class="siva">// ponovo preračunaj dimenzije</span><br>
+&nbsp;&nbsp;<span class="zelena">resizeCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="crvena">false</span>);<br>
+}<br>
+<br>
 <span class="plava">function</span> <span class="zelena">draw</span>() {<br>
-  &nbsp;&nbsp;<span class="crna">// iscrtavanje pozadine i čišćenje Z-buferа</span><br>
-  &nbsp;&nbsp;<span class="crna">spaceIm</span>.<span class="zelena">resize</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>);<br>
-  &nbsp;&nbsp;<span class="crzna">imageMode</span>(<span class="crvana">CENTER</span>);<br>
-  &nbsp;&nbsp;<span class="crvana">background</span>(<span class="narandzasta">0</span>);<br>
-  &nbsp;&nbsp;<span class="crevaena">push</span>();<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">camera</span>(0,0,-<span class="narandzasta">300</span>,0,0,0,0,-<span class="narandzasta">1</span>,0);<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">image</span>(<span class="crna">spaceIm</span>,0,0, <span class="narandzasta">1.5</span>*<span class="crna">widthS</span>, <span class="narandzasta">1.5</span>*<span class="crna">heightS</span>);<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">glContext</span>.<span class="crna">clear</span>(<span class="crna">glContext</span>.<span class="crna">DEPTH_BUFFER_BIT</span>);<br>
-  &nbsp;&nbsp;<span class="crvana">pop</span>();<br><br>
-
-  &nbsp;&nbsp;<span class="crzelaena">noStroke</span>();<br>
-  &nbsp;&nbsp;<span class="crzelaena">ambientLight</span>(<span class="narandzasta">255</span>);<br>
-  &nbsp;&nbsp;<span class="crzelaena">orbitControl</span>();<br>
-  &nbsp;&nbsp;<span class="zelena">rotateX</span>(<span class="narandzasta">10</span>*<span class="crvena">PI</span>/<span class="narandzasta">24</span>);<br>
-  &nbsp;&nbsp;<span class="zelena">rotateY</span>(<span class="crvena">PI</span>/<span class="narandzasta">64</span>);<br>
-  &nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">orbit</span>();<br>
-  &nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">show</span>();<br>
-}<br><br>
-
-<span class="plava">// Klasa Planeta: hijerarhijska reprezentacija nebeskog tela</span><br>
+&nbsp;&nbsp;// postavi pozadinu svemira i očisti Z-bufer pre 3D crtanja<br>
+&nbsp;&nbsp;<span class="crna">spaceIm</span>.<span class="zelena">resize</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>);<br>
+&nbsp;&nbsp;<span class="zelena">imageMode</span>(<span class="crvena">CENTER</span>);<br>
+&nbsp;&nbsp;<span class="zelena">background</span>(<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>);<br>
+&nbsp;&nbsp;<span class="zelena">push</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">camera</span>(<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,-<span class="narandzasta">300</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,-<span class="narandzasta">1</span>,<span class="narandzasta">0</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">image</span>(<span class="crna">spaceIm</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">1.5</span>*<span class="crna">widthS</span>,<span class="narandzasta">1.5</span>*<span class="crna">heightS</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">glContext</span>.<span class="zelena">clear</span>(<span class="crna">glContext</span>.<span class="crna">DEPTH_BUFFER_BIT</span>);<br>
+&nbsp;&nbsp;<span class="plava">pop</span>();<br>
+<br>
+&nbsp;&nbsp;<span class="zelena">noStroke</span>();<br>
+&nbsp;&nbsp;<span class="zelena">ambientLight</span>(<span class="narandzasta">255</span>); <span class="siva">// globalna ambijentalna svetlosna komponenta</span><br>
+&nbsp;&nbsp;<span class="zelena">orbitControl</span>(); <span class="siva">// interaktivno upravljanje kamerom mišem/tačom</span><br>
+&nbsp;&nbsp;<span class="zelena">rotateX</span>(<span class="narandzasta">10</span>*<span class="crvena">PI</span>/<span class="narandzasta">24</span>);<br>
+&nbsp;&nbsp;<span class="zelena">rotateY</span>(<span class="crvena">PI</span>/<span class="narandzasta">64</span>);<br>
+<br>
+&nbsp;&nbsp;// ažuriraj položaje svih tela pre iscrtavanja<br>
+&nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">orbit</span>();<br>
+&nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">show</span>();<br>
+}<br>
+<br>
+<span class="plava">function</span> <span class="zelena">mousePressed</span>() {<br>
+&nbsp;&nbsp;// pamti poziciju miša pri kliku za kasnija svetlosna podešavanja<br>
+&nbsp;&nbsp;<span class="crna">prevMouse</span> = <span class="zelena">createVector</span>(<span class="crzelaena">mouseX</span>, <span class="crzelaena">mouseY</span>);<br>
+&nbsp;&nbsp;// pomeranje svetla u z-osi strelicama<br>
+&nbsp;&nbsp;<span class="plava">if</span> (<span class="crzelaena">key</span> == <span class="crvena">"ArrowRight"</span>) { <span class="crna">z</span> += <span class="narandzasta">1</span>; }<br>
+&nbsp;&nbsp;<span class="plava">else</span> <span class="plava">if</span> (<span class="crzelaena">key</span> == <span class="crvena">"ArrowLeft"</span>) { <span class="crna">z</span> -= <span class="narandzasta">1</span>; }<br>
+}<br>
+<br>
+<span class="plava">function</span> <span class="zelena">mouseWheel</span>(<span class="crna">event</span>) {<br>
+&nbsp;&nbsp;// zumiranje scene točkićem miša<br>
+&nbsp;&nbsp;<span class="crna">zoom</span> += <span class="crna">event</span>.<span class="crna">delta</span> * <span class="narandzasta">0.0005</span>;<br>
+}<br>
+<br>
 <span class="plava">class</span> <span class="zelena">Planeta</span> {<br>
-  &nbsp;&nbsp;<span class="plava">constructor</span>(<span class="crna">radius, distance, parent, texture, speedRotation, speedOwnRotation, emission</span>) {<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.radius</span> = <span class="crna">radius</span>;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.distance</span> = <span class="crna">distance</span>;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.parent</span> = <span class="crna">parent</span>;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.texture</span> = <span class="crna">texture</span>;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.emission</span> = <span class="crna">emission</span>;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.angle</span>     = <span class="crzelena">random</span>(<span class="narandzasta">2</span>*<span class="crvena">PI</span>);<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.angleOwn</span> = <span class="crzelena">random</span>(<span class="narandzasta">2</span>*<span class="crvena">PI</span>);<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.speedRotation</span>     = <span class="crna">speedRotation</span>;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.speedOwnRotation</span> = <span class="crna">speedOwnRotation</span>;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.children</span> = [];<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">parent</span>) { <span class="crna">parent.children.push(this)</span>; }<br>
-  &nbsp;&nbsp;}<br><br>
-
-  &nbsp;&nbsp;<span class="plava">orbit()</span> {<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.angle</span>   += <span class="crna">this.speedRotation</span>;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this.angleOwn</span> += <span class="crna">this.speedOwnRotation</span>;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">for</span> (<span class="plava">let</span> <span class="crna">child</span> <span class="plava">of</span> <span class="crna">this.children</span>) child.orbit();<br>
-  &nbsp;&nbsp;}<br><br>
-
-  &nbsp;&nbsp;<span class="plava">show()</span> {<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">push</span>();<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// crtaj orbitu kao kružnicu<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">strokeWeight</span>(<span class="narandzasta">0.5</span>);<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">stroke</span>(<span class="crvana">color</span>(<span class="narandzasta">200</span>,<span class="narandzasta">200</span>,<span class="narandzasta">100</span>));<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">noFill</span>();<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">ellipse</span>(<span class="narandzasta">0</span>,<span class="narandzasta">0</span>, <span class="crna">this.distance</span>*<span class="narandzasta">2</span>);<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">pop</span>();<br><br>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;// transformacije za poziciju i orijentaciju<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">rotate</span>(-<span class="crna">this.angle</span>);<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">translate</span>(<span class="crna">this.distance</span>,<span class="narandzasta">0</span>);<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">rotate</span>(-<span class="crna">this.angleOwn</span>);<br><br>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">this.emission</span>) {<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// emisiono svetlo sa Sunca kao izvor<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">emissiveMaterial</span>(<span class="narandzasta">255</span>,<span class="narandzasta">204</span>,<span class="narandzasta">10</span>);<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// primeni teksturu kao emisiju<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">texture</span>(<span class="crna">this.texture</span>);<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">sphere</span>(<span class="crna">this.radius</span>);<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;} <span class="plava">else</span> {<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// standardni materijal za Zemlju i Mesec<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">specularMaterial</span>(<span class="narandzasta">200</span>,<span class="narandzasta">200</span>,<span class="narandzasta">255</span>);<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">shininess</span>(<span class="narandzasta">30</span>);<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crzelaena">texture</span>(<span class="crna">this.texture</span>);<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">sphere</span>(<span class="crna">this.radius</span>);<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;// rekurzivno crtanje potomaka<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">for</span> (<span class="plava">let</span> <span class="crna">child</span> <span class="plava">of</span> <span class="crna">this.children</span>) child.show();<br>
-    &nbsp;&nbsp;<span class="crzelaena">pop</span>();<br>
-  }<br>
+&nbsp;&nbsp;<span class="plava">constructor</span>(<span class="crna">radius</span>, <span class="crna">distance</span>, <span class="crna">parent</span>, <span class="crna">texture</span>, <span class="crna">speedRotation</span>, <span class="crna">speedOwnRotation</span>, <span class="crna">emission</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// postavi osnovne parametre tela<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">radius</span> = <span class="crna">radius</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">distance</span> = <span class="crna">distance</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">parent</span> = <span class="crna">parent</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">texture</span> = <span class="crna">texture</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">emission</span> = <span class="crna">emission</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// nasumične početne rotacije za dinamičniji efekat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">angle</span>    = <span class="zelena">random</span>(<span class="narandzasta">2</span>*<span class="crvena">PI</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">angleOwn</span> = <span class="zelena">random</span>(<span class="narandzasta">2</span>*<span class="crvena">PI</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">speedRotation</span>    = <span class="crna">speedRotation</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">speedOwnRotation</span> = <span class="crna">speedOwnRotation</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">children</span> = [];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// dodaj sebe u listu dece roditelja (hijerarhija sistema tela)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">parent</span>) { <span class="crna">parent</span>.<span class="crna">children</span>.<span class="zelena">push</span>(<span class="crna">this</span>); }<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;<span class="zelena">orbit</span>() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// pomeri ugao orbite i rotacije oko ose<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">angle</span>    += <span class="crna">this</span>.<span class="crna">speedRotation</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">this</span>.<span class="crna">angleOwn</span> += <span class="crna">this</span>.<span class="crna">speedOwnRotation</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// rekurzivno ažuriraj decu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">for</span> (<span class="plava">let</span> <span class="crna">planet</span> <span class="plava">of</span> <span class="crna">this</span>.<span class="crna">children</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">planet</span>.<span class="zelena">orbit</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;<span class="zelena">show</span>() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// sačuvaj trenutni matriks transformacije<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">push</span>();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 1) iscrtaj orbitu kao krug u ravni xy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">push</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">strokeWeight</span>(<span class="narandzasta">0.5</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">stroke</span>(<span class="crzelaena">color</span>(<span class="narandzasta">200</span>,<span class="narandzasta">200</span>,<span class="narandzasta">100</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">noFill</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">ellipse</span>(<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="crna">this</span>.<span class="crna">distance</span>*<span class="narandzasta">2</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pop</span>();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 2) ako telo emituje svetlo (sunce), postavi pointLight izvore<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">this</span>.<span class="crna">emission</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">fill</span>(<span class="crna">this</span>.<span class="crna">emission</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">scale</span>(<span class="narandzasta">100</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// šest pointLight izvora oko centra za realističniji efekat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>+<span class="crna">dLight</span>, <span class="crna">drag</span>.<span class="crna">y</span>, <span class="crna">z</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>-<span class="crna">dLight</span>, <span class="crna">drag</span>.<span class="crna">y</span>, <span class="crna">z</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>, <span class="crna">drag</span>.<span class="crna">y</span>+<span class="crna">dLight</span>, <span class="crna">z</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>, <span class="crna">drag</span>.<span class="crna">y</span>-<span class="crna">dLight</span>, <span class="crna">z</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>, <span class="crna">drag</span>.<span class="crna">y</span>, <span class="crna">z</span>+<span class="crna">dLight</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pointLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>, <span class="crna">drag</span>.<span class="crna">x</span>, <span class="crna">drag</span>.<span class="crna">y</span>, <span class="crna">z</span>-<span class="crna">dLight</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">scale</span>(<span class="narandzasta">0.01</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 3) rotiraj i pozicioniraj telo u odnosu na roditelja<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">rotate</span>(-<span class="crna">this</span>.<span class="crna">angle</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">translate</span>(<span class="crna">this</span>.<span class="crna">distance</span>, <span class="narandzasta">0</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">rotate</span>(-<span class="crna">this</span>.<span class="crna">angleOwn</span>);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 4) nanesi teksturu ili boju i izlistaj sferu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">this</span>.<span class="crna">emission</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">texture</span>(<span class="crna">this</span>.<span class="crna">texture</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">sphere</span>(<span class="crna">this</span>.<span class="crna">radius</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">ambientLight</span>(<span class="crna">this</span>.<span class="crna">emission</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} <span class="plava">else</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">this</span>.<span class="crna">texture</span> != <span class="crvena">null</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">texture</span>(<span class="crna">this</span>.<span class="crna">texture</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span class="plava">else</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">ambientMaterial</span>(<span class="narandzasta">255</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">sphere</span>(<span class="crna">this</span>.<span class="crna">radius</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// 5) rekurzivno iscrtaj sve satelite (decу) ovog tela<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="plava">for</span> (<span class="plava">let</span> <span class="crna">planet</span> <span class="plava">of</span> <span class="crna">this</span>.<span class="crna">children</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">planet</span>.<span class="zelena">show</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// vrati prethodni matriks transformacije<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">pop</span>();<br>
+&nbsp;&nbsp;}<br>
 }  
-  </code></pre>
+</code></pre>
 </div>
+
 
   <div class="moj_kod">
     <h4>index.html</h4>
