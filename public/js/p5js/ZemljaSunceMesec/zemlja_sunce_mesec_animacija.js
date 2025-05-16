@@ -113,7 +113,7 @@ function draw() {
   
    ambientLight(0); // onemogućimo uniformno globalno svetlo
   // Sunce - bela-žuta svetlost na poziciji (0,0,0)
- // pointLight(255, 255, 230, 0, 0, 0); 
+  pointLight(255, 255, 230, 0, 0, 0); 
  
   
    orbitControl();
