@@ -15,7 +15,7 @@ var canvasDrawing;
  let spaceIm;
  let wEarth=0.005;
  let wEarth1=0.08;
- let wMoon=-0.2;
+ let wMoon=-0.02;//0.2
  let z=0;
  let dLight=200;
   var widthS;
