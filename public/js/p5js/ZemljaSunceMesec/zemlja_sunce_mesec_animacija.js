@@ -51,7 +51,7 @@ function setup() {
     sunIm=loadImage(prefix+"Textures/sun1.jpg");
   earthIm=loadImage(prefix+"Textures/earth1.jpg");
   moonIm=loadImage(prefix+"Textures/moon.jpg");
-  spaceIm=loadImage(prefix+"Textures/svemir1.jpg");
+  spaceIm=loadImage(prefix+"Textures/space.jpg");
  }
  
  function determineSize(){
@@ -168,7 +168,7 @@ class Planeta{
     push();
       push();
         strokeWeight(0.5);
-        stroke(20);
+        stroke(color(200,200,100));
         noFill();
         ellipse(0,0,this.distance*2);
        
