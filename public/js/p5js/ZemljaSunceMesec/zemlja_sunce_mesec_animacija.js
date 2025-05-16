@@ -213,6 +213,7 @@ class Planeta{
         pointLight(this.emission, drag.x, drag.y, z-dLight);
           // 2) emisioni materijal
           emissiveMaterial(255, 204, 0);   // Sunčano-žuta emisija
+		  scale(100);
          // ako želiš da zadržiš mapu boja iz teksture, prebaciti 'texture' u emisiju:
          texture(this.texture); 
           // sphere će upotrebiti kanale teksture kao emisiju
