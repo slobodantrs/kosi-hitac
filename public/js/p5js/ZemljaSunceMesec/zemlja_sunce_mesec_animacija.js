@@ -111,7 +111,7 @@ function draw() {
 
   //ambientLight(255);  
   
- //  ambientLight(0); // onemogućimo uniformno globalno svetlo
+   ambientLight(0); // onemogućimo uniformno globalno svetlo
   
  
   
