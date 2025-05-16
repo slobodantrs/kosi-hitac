@@ -15,7 +15,7 @@ var canvasDrawing;
  let spaceIm;
  let wEarth=0.005;
  let wEarth1=0.08;
- let wMoon=-0.02;//0.2
+ let wMoon=-0.2;//0.2
  let z=0;
  let dLight=200;
   var widthS;
@@ -180,7 +180,7 @@ class Planeta{
     
       if (this.emission) {
     
-        fill(this.emission);
+   /*     fill(this.emission);
 	//	emissiveMaterial(255, 204, 0);   // Sunce samo svetli  
         scale(100);
        // Sunce - bela-žuta svetlost na poziciji (0,0,0)
@@ -191,16 +191,30 @@ class Planeta{
         pointLight(this.emission, drag.x, drag.y-dLight, z);
         pointLight(this.emission, drag.x, drag.y, z+dLight);
         pointLight(this.emission, drag.x, drag.y, z-dLight);
-        scale(0.01);
+        scale(0.01);*/
       }
       rotate(-this.angle);      
       translate(this.distance,0);
       rotate(-this.angleOwn);
       
       if (this.emission) {
+		  // 1) postavljanje Sunčevog svetla
+          ambientLight(0); // isključujemo globalno ambijentalno svetlo jednom u draw()
+          pointLight(255, 255, 230, 0, 0, 0);
+  
+          // 2) emisioni materijal
+          emissiveMaterial(255, 204, 0);   // Sunčano-žuta emisija
+         // ako želiš da zadržiš mapu boja iz teksture, prebaciti 'texture' u emisiju:
+         texture(this.texture); 
+          // sphere će upotrebiti kanale teksture kao emisiju
+
+         sphere(this.radius);
+  
+       // povratak na standardne materijale za decu
+        resetShader(); // ili specularMaterial/ambientMaterial po potrebi
         
-        texture(this.texture);
-        sphere(this.radius);
+     //   texture(this.texture);
+     //   sphere(this.radius);
      //   ambientLight(this.emission);
         
         
