@@ -163,61 +163,92 @@
   </div>
 
   <div class="moj_kod">
-    <h4>zemlja_sunce_mesec_animacija.js</h4>
-    <pre><code>
+  <h4>zemlja_sunce_mesec_animacija.js</h4>
+  <pre><code>
 <span class="plava">var</span> <span class="crna">canvasDrawing</span>;<br>
-<span class="plava">let</span> <span class="crna">container</span>, <span class="crna">containerMain</span>;<br>
+<span class="plava">let</span> <span class="crna">container</span>;<br>
 <span class="plava">let</span> <span class="crna">isMobile</span>;<br>
 <span class="plava">let</span> <span class="crna">widthS, heightS</span>;<br>
 <span class="plava">let</span> <span class="crna">sun, earth, moon</span>;<br>
 <span class="plava">let</span> <span class="crna">sunIm, earthIm, moonIm, spaceIm</span>;<br>
 <span class="plava">let</span> <span class="crna">wEarth</span> = <span class="narandzasta">0.005</span>, <span class="crna">wEarth1</span> = <span class="narandzasta">0.08</span>, <span class="crna">wMoon</span> = <span class="narandzasta">-0.2</span>;<br>
-<span class="plava">let</span> <span class="crna">prefix</span> = <span class="crvena">""</span>;<br>
+<span class="plava">let</span> <span class="crna">z</span> = <span class="narandzasta">0</span>, <span class="crna">dLight</span> = <span class="narandzasta">200</span>;<br>
+<span class="plava">let</span> <span class="crna">rSun, rEarth, rMoon</span>;<br>
+<span class="plava">let</span> <span class="crna">prefix</span> = <span class="crvena">"/js/p5js/ZemljaSunceMesec/"</span>;<br>
 <span class="plava">let</span> <span class="crna">glContext</span>;<br><br>
 
 <span class="plava">function</span> <span class="zelena">preload</span>() {<br>
-&nbsp;&nbsp;<span class="crna">sunIm</span>   = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/sun1.jpg"</span>);<br>
-&nbsp;&nbsp;<span class="crna">earthIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/earth1.jpg"</span>);<br>
-&nbsp;&nbsp;<span class="crna">moonIm</span>  = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/moon.jpg"</span>);<br>
-&nbsp;&nbsp;<span class="crna">spaceIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/svemir1.jpg"</span>);<br>
-}
-<br>
+  &nbsp;&nbsp;<span class="crna">// Učitavanje tekstura za Sunce, Zemlju, Mesec i pozadinu</span><br>
+  &nbsp;&nbsp;<span class="crna">sunIm</span>   = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/sun1.jpg"</span>);<br>
+  &nbsp;&nbsp;<span class="crna">earthIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/earth1.jpg"</span>);<br>
+  &nbsp;&nbsp;<span class="crna">moonIm</span>  = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/moon.jpg"</span>);<br>
+  &nbsp;&nbsp;<span class="crna">spaceIm</span> = <span class="zelena">loadImage</span>(<span class="crna">prefix</span> + <span class="crvena">"Textures/svemir1.jpg"</span>);<br>
+}<br><br>
+
 <span class="plava">function</span> <span class="zelena">determineSize</span>() {<br>
-&nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">isMobile</span>) { /* … */ } <span class="plava">else</span> { /* … */ }<br>
-}
-<br>
+  &nbsp;&nbsp;<span class="crna">// Određivanje dimenzija platna u zavisnosti od uređaja</span><br>
+  &nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">isMobile</span>) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">// mobilni prikaz</span><br>
+  &nbsp;&nbsp;} <span class="plava">else</span> {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">// desktop prikaz</span><br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;<span class="crna">// ograničenje maksimalne širine</span><br>
+  &nbsp;&nbsp;<span class="plava">if</span> (<span class="crna">widthS</span> &gt; <span class="narandzasta">940</span>) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">widthS</span> = <span class="narandzasta">940</span>;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">heightS</span> = <span class="narandzasta">627</span>;<br>
+  &nbsp;&nbsp;}<br>
+}<br><br>
+
 <span class="plava">function</span> <span class="zelena">setup</span>() {<br>
-&nbsp;&nbsp;<span class="crna">isMobile</span> = window.orientation > <span class="narandzasta">-1</span>;<br>
-&nbsp;&nbsp;<span class="zelena">determineSize</span>();<br>
-&nbsp;&nbsp;<span class="crna">canvasDrawing</span> = <span class="zelena">createCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="crvena">WEBGL</span>);<br>
-&nbsp;&nbsp;<span class="crna">container</span> = document.getElementById(<span class="crvena">'canvasForHTML'</span>);<br>
-&nbsp;&nbsp;<span class="crna">canvasDrawing</span>.<span class="zelena">parent</span>(<span class="crna">container</span>);<br>
-&nbsp;&nbsp;<span class="crna">glContext</span> = <span class="crna">canvasDrawing</span>.<span class="crna">GL</span>;<br>
-&nbsp;&nbsp;<span class="crna">sun</span>   = <span class="cravna">new</span> <span class="zelena">Planeta</span>(/* … */);<br>
-&nbsp;&nbsp;<span class="crna">earth</span> = <span class="cravna">new</span> <span class="zelena">Planeta</span>(/* … */);<br>
-&nbsp;&nbsp;<span class="crna">moon</span>  = <span class="cravna">new</span> <span class="zelena">Planeta</span>(/* … */);<br>
-}
-<br>
+  &nbsp;&nbsp;<span class="crna">// Inicijalizacija WebGL platna i parametara</span><br>
+  &nbsp;&nbsp;<span class="crna">isMobile</span> = window.orientation &gt; <span class="narandzasta">-1</span>;<br>
+  &nbsp;&nbsp;<span class="zelena">determineSize</span>();<br>
+  &nbsp;&nbsp;<span class="crna">drag</span> = <span class="zelena">createVector</span>(<span class="narandzasta">0</span>, <span class="narandzasta">0</span>);<br>
+  &nbsp;&nbsp;<span class="crna">canvasDrawing</span> = <span class="zelena">createCanvas</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>, <span class="crvena">WEBGL</span>);<br>
+  &nbsp;&nbsp;<span class="crna">glContext</span> = <span class="crna">canvasDrawing</span>.<span class="crna">GL</span>;<br>
+  &nbsp;&nbsp;<span class="crna">container</span> = document.getElementById(<span class="crvena">'canvasForHTML'</span>);<br>
+  &nbsp;&nbsp;<span class="crna">canvasDrawing</span>.<span class="zelena">parent</span>(<span class="crna">container</span>);<br><br>
+
+  &nbsp;&nbsp;<span class="crna">// Izračunavanje radijusa planeta</span><br>
+  &nbsp;&nbsp;<span class="crna">rSun</span>   = <span class="crna">widthS</span> / <span class="narandzasta">20</span>;<br>
+  &nbsp;&nbsp;<span class="crna">rEarth</span> = <span class="crna">rSun</span> / <span class="narandzasta">4</span>;<br>
+  &nbsp;&nbsp;<span class="crna">rMoon</span>  = <span class="crna">rEarth</span> / <span class="narandzasta">3</span>;<br><br>
+
+  &nbsp;&nbsp;<span class="crna">// Kreiranje hijerarhijskih objekata Planeta</span><br>
+  &nbsp;&nbsp;<span class="crna">sun</span>   = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rSun</span>,      <span class="narandzasta">0</span>,     <span class="crna">null</span>, <span class="crna">sunIm</span>,   <span class="narandzasta">0</span>,    <span class="narandzasta">0</span>,    <span class="zelena">color</span>(<span class="narandzasta">255</span>,<span class="narandzasta">204</span>,<span class="narandzasta">10</span>));<br>
+  &nbsp;&nbsp;<span class="crna">earth</span> = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rEarth</span>, <span class="crna">widthS</span>/ <span class="narandzasta">3</span>, <span class="crna">sun</span>,       <span class="crna">earthIm</span>, <span class="crna">wEarth</span>, <span class="crna">wEarth1</span>);<br>
+  &nbsp;&nbsp;<span class="crna">moon</span>  = <span class="cravna">new</span> <span class="zelena">Planeta</span>(<span class="crna">rMoon</span>, <span class="crna">rEarth</span> + <span class="crna">rMoon</span> + <span class="narandzasta">25</span>, <span class="crna">earth</span>, <span class="crna">moonIm</span>,   <span class="crna">wMoon</span>,  <span class="narandzasta">0</span>);<br><br>
+
+  &nbsp;&nbsp;<span class="crevaena">smooth</span>(<span class="narandzasta">16</span>); <span class="crna">// glađe crtanje sfera</span><br>
+}<br><br>
+
 <span class="plava">function</span> <span class="zelena">draw</span>() {<br>
-&nbsp;&nbsp;<span class="cravna">imageMode</span>(<span class="crvena">CENTER</span>);<br>
-&nbsp;&nbsp;<span class="crena">background</span>(<span class="narandzasta">0</span>);<br>
-&nbsp;&nbsp;<span class="crzelaena">push</span>();<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">camera</span>(0,0,-<span class="narandzasta">300</span>,0,0,0,0,-<span class="narandzasta">1</span>,0);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">image</span>(<span class="crna">spaceIm</span>,0,0, <span class="narandzasta">1.5</span>*<span class="crna">widthS</span>, <span class="narandzasta">1.5</span>*<span class="crna">heightS</span>);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">glContext</span>.<span class="crna">clear</span>(<span class="crna">glContext</span>.<span class="crna">DEPTH_BUFFER_BIT</span>);<br>
-&nbsp;&nbsp;<span class="zelena">pop</span>();<br>
-&nbsp;&nbsp;<span class="crzelaena">noStroke</span>();<br>
-&nbsp;&nbsp;<span class="crzelaena">ambientLight</span>(<span class="narandzasta">255</span>);<br>
-&nbsp;&nbsp;<span class="crzelaena">orbitControl</span>();<br>
-&nbsp;&nbsp;<span class="crzelaena">rotateX</span>(<span class="narandzasta">10</span>*<span class="crvena">PI</span>/<span class="narandzasta">24</span>);<br>
-&nbsp;&nbsp;<span class="crzelaena">rotateY</span>(<span class="crvena">PI</span>/<span class="narandzasta">64</span>);<br>
-&nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">orbit</span>();<br>
-&nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">show</span>();<br>
-}
-<br>
-// … ostatak klase Planeta …
+  &nbsp;&nbsp;<span class="crna">// Iscrtavanje 2D pozadine i čišćenje Z-buferа</span><br>
+  &nbsp;&nbsp;<span class="crna">spaceIm</span>.<span class="zelena">resize</span>(<span class="crna">widthS</span>, <span class="crna">heightS</span>);<br>
+  &nbsp;&nbsp;<span class="crzna">imageMode</span>(<span class="crvana">CENTER</span>);<br>
+  &nbsp;&nbsp;<span class="crvana">background</span>(<span class="narandzasta">0</span>);<br>
+  &nbsp;&nbsp;<span class="crevaena">push</span>();<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">camera</span>(<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,-<span class="narandzasta">300</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>,-<span class="narandzasta">1</span>,<span class="narandzasta">0</span>);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="zelena">image</span>(<span class="crna">spaceIm</span>, <span class="narandzasta">0</span>,<span class="narandzasta">0</span>, <span class="narandzasta">1.5</span>*<span class="crna">widthS</span>, <span class="narandzasta">1.5</span>*<span class="crna">heightS</span>);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="crna">glContext</span>.<span class="crna">clear</span>(<span class="crna">glContext</span>.<span class="crna">DEPTH_BUFFER_BIT</span>);<br>
+  &nbsp;&nbsp;<span class="crvana">pop</span>();<br><br>
+
+  &nbsp;&nbsp;<span class="crzelaena">noStroke</span>();<br>
+  &nbsp;&nbsp;<span class="crzelaena">ambientLight</span>(<span class="narandzasta">30</span>); <span class="crna">// slabo ambijentalno svetlo</span><br>
+  &nbsp;&nbsp;<span class="crzelaena">pointLight</span>(<span class="narandzasta">255</span>,<span class="narandzasta">255</span>,<span class="narandzasta">230</span>, <span class="narandzasta">0</span>,<span class="narandzasta">0</span>,<span class="narandzasta">0</span>); <span class="crna">// Sunce kao tačkasto svetlo</span><br><br>
+
+  &nbsp;&nbsp;<span class="zelena">orbitControl</span>();<br>
+  &nbsp;&nbsp;<span class="zelena">rotateX</span>(<span class="narandzasta">10</span>*<span class="crvena">PI</span>/<span class="narandzasta">24</span>);<br>
+  &nbsp;&nbsp;<span class="zelena">rotateY</span>(<span class="crvena">PI</span>/<span class="narandzasta">64</span>);<br>
+  &nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">orbit</span>();<br>
+  &nbsp;&nbsp;<span class="crna">sun</span>.<span class="zelena">show</span>();<br>
+}<br><br>
+
+// … <em>nastavak klase <code>Planeta</code> sa metodama <code>orbit()</code> i <code>show()</code></em> …
 </code></pre>
-  </div>
+</div>
+
+
 
   <div class="moj_kod">
     <h4>index.html</h4>

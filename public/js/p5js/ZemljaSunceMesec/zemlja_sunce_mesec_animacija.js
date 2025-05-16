@@ -24,7 +24,7 @@ var canvasDrawing;
  let rEarth;
  let rMoon;
  let prefix="/js/p5js/ZemljaSunceMesec/";
-// let prefix="";
+
  let glContext;
  
 
@@ -109,9 +109,9 @@ function draw() {
    
    noStroke();
 
-  //ambientLight(255);  
+ 
   
-   ambientLight(40); // onemogućimo uniformno globalno svetlo
+   ambientLight(30); // onemogućimo uniformno globalno svetlo
    // 3) Postavimo Sunčev point light u (0,0,0)
   //    (ova svetlost ostaje aktivna dok je ne zamenimo)
   pointLight(255, 255, 230,  0, 0, 0);
@@ -180,21 +180,7 @@ class Planeta{
        
       pop();
     
-  //    if (this.emission) {
-    
-   /*     fill(this.emission);
-	//	emissiveMaterial(255, 204, 0);   // Sunce samo svetli  
-        scale(100);
-       // Sunce - bela-žuta svetlost na poziciji (0,0,0)
-       pointLight(255, 255, 230, 0, 0, 0); 
-        pointLight(this.emission, drag.x+dLight, drag.y, z);
-        pointLight(this.emission, drag.x-dLight, drag.y, z);
-        pointLight(this.emission, drag.x, drag.y+dLight, z);
-        pointLight(this.emission, drag.x, drag.y-dLight, z);
-        pointLight(this.emission, drag.x, drag.y, z+dLight);
-        pointLight(this.emission, drag.x, drag.y, z-dLight);
-        scale(0.01);*/
- //     }
+  
       rotate(-this.angle);      
       translate(this.distance,0);
       rotate(-this.angleOwn);
@@ -204,7 +190,7 @@ class Planeta{
 		  // 1) postavljanje Sunčevog svetla
 		  
          // ambientLight(30); // isključujemo globalno ambijentalno svetlo jednom u draw()
-     /*    pointLight(255, 255, 230, 0, 0, 0);*/
+   
 	 scale(10);
            pointLight(this.emission, drag.x+dLight, drag.y, z);
         pointLight(this.emission, drag.x-dLight, drag.y, z);
@@ -212,7 +198,8 @@ class Planeta{
         pointLight(this.emission, drag.x, drag.y-dLight, z);
         pointLight(this.emission, drag.x, drag.y, z+dLight);
         pointLight(this.emission, drag.x, drag.y, z-dLight);
-				 scale(0.1);  
+				 scale(0.1); 
+				 
           // 2) emisioni materijal
           emissiveMaterial(255, 204, 0);   // Sunčano-žuta emisija
 
