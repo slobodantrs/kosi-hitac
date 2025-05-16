@@ -13,6 +13,14 @@ const app  = express();
 app.enable('case sensitive routing');
 const PORT = process.env.PORT || 5000;
 
+
+// 1) Ovde ubaci COOP/COEP middleware
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  next();
+});
+
 i18n.configure({
   locales: ['sr','en'],
   directory: path.join(__dirname,'locales'),
