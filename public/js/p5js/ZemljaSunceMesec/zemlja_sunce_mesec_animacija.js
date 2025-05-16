@@ -213,7 +213,7 @@ class Planeta{
          sphere(this.radius);
   
        // povratak na standardne materijale za decu
-        resetShader(); // ili specularMaterial/ambientMaterial po potrebi
+      //  resetShader(); // ili specularMaterial/ambientMaterial po potrebi
         
      //   texture(this.texture);
      //   sphere(this.radius);
