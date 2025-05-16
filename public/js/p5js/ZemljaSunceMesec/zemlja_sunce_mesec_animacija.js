@@ -178,7 +178,7 @@ class Planeta{
        
       pop();
     
-      if (this.emission) {
+  //    if (this.emission) {
     
    /*     fill(this.emission);
 	//	emissiveMaterial(255, 204, 0);   // Sunce samo svetli  
@@ -192,7 +192,7 @@ class Planeta{
         pointLight(this.emission, drag.x, drag.y, z+dLight);
         pointLight(this.emission, drag.x, drag.y, z-dLight);
         scale(0.01);*/
-      }
+ //     }
       rotate(-this.angle);      
       translate(this.distance,0);
       rotate(-this.angleOwn);
