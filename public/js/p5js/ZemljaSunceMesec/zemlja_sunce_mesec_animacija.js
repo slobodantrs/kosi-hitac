@@ -39,7 +39,7 @@ function setup() {
   rSun=widthS/20;
    rEarth= rSun/4;
    rMoon= rEarth/3;
-  sun=new Planeta( rSun,0,null,sunIm,0,0,color(255));
+  sun=new Planeta( rSun,0,null,sunIm,0,0,color(255, 204, 0));
   earth=new Planeta(rEarth,widthS/3,sun,earthIm,wEarth,wEarth1);
   moon=new Planeta(rMoon,rEarth+rMoon+25,earth,moonIm,wMoon,0);
   canvasDrawing.parent(container);
@@ -110,9 +110,11 @@ function draw() {
    noStroke();
 
   //ambientLight(255);  
- ambientLight(0); // onemogućimo uniformno globalno svetlo
+  
+   ambientLight(0); // onemogućimo uniformno globalno svetlo
   // Sunce - bela-žuta svetlost na poziciji (0,0,0)
-  pointLight(255, 255, 230, 0, 0, 0); 
+ // pointLight(255, 255, 230, 0, 0, 0); 
+ 
   
    orbitControl();
 
@@ -180,6 +182,7 @@ class Planeta{
       if (this.emission) {
     
         fill(this.emission);
+		emissiveMaterial(255, 204, 0);   // Sunce samo svetli  
         scale(100);
       
         pointLight(this.emission, drag.x+dLight, drag.y, z);
@@ -198,7 +201,7 @@ class Planeta{
         
         texture(this.texture);
         sphere(this.radius);
-        ambientLight(this.emission);
+     //   ambientLight(this.emission);
         
         
       }
@@ -210,7 +213,8 @@ class Planeta{
         else{
            ambientMaterial(255);
         }
-        
+        specularMaterial(0, 100, 255);   // plavi sjaj vode
+        shininess(30);
         sphere(this.radius);
       }
       
