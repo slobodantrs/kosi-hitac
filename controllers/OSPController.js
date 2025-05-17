@@ -1,5 +1,5 @@
 // controllers/OSPController.js
-module.exports = {
+methods = {
   Uvod_U_Osp(req, res) {
     res.render('pages/OSP/uvod_u_osp', {
       locale: req.getLocale(),
