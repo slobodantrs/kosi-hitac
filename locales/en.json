@@ -45,7 +45,9 @@
     "slobodan_Pad": "Free Fall",
     "telo": "Physical Body",
 	"vektori_animacija": "Vector Animation",
-	"sunce_Zemlja_Mesec_Animacija": "Sun–Earth–Moon Animation"
+	"sunce_Zemlja_Mesec_Animacija": "Sun–Earth–Moon Animation",
+	"osp_introduction": "Introduction to OSP",
+	"simulation_tools": "Simulation Tools",
   },
   "animation": {
     "title": "CIRCULAR MOTION:",
@@ -61,6 +63,12 @@
     "legendV": "v – linear velocity",
     "legendAN": "aₙ – normal acceleration",
     "legendFc": "Fₙ (Fₙ) – centripetal force"
+  },
+  "osp": {
+    "title": "Introduction to OSP (Open Source Physics)",
+    "description": "OSP is a community-driven project providing free, open‑source physics simulations and tools. Learn about its core components like Tracker, EJS, and the OSP libraries.",
+    "link_text": "Learn more about OSP",
+    "link_href": "/en/osp_introduction"
   },
   "footer": {
     "quick_links": "Quick Links",

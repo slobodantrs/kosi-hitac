@@ -147,6 +147,9 @@ console.log('VektoriController:', VektoriController);
 router.get('/upotreba_p5js/vektori_animacija',           VektoriController.VektoriAnimacija);
 router.get('/upotreba_p5js/vektori_animacija/:id?',     VektoriController.VektoriAnimacija);
 
+// Serbian
+router.get('/uvod_u_osp', OSPController.Uvod_U_Osp);
+
 
 const PrivacyController = require('../controllers/PrivacyController');
 console.log('PrivacyController u index.js:', PrivacyController);
@@ -281,6 +284,8 @@ router.get('/en/simulation_mass_and_spring', MasaIOprugaController.MasaIOpruga_S
 router.get('/en/usage_p5js/vector_animation',           VektoriController.VektoriAnimacija_EN);
 router.get('/en/usage_p5js/vector_animation/:id?',      VektoriController.VektoriAnimacija_EN);
 
+// English
+router.get('/en/osp_introduction', OSPController.Uvod_U_Osp_EN);
 
 const path = require('path');
 const options = {

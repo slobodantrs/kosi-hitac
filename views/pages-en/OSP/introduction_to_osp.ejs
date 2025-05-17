@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <% include ../../partials/head %>
+	<title>Open Source Physics (OSP) – Open-Source Physics</title>
+<link rel="canonical" href="https://kosi-hitac.onrender.com/en/osp_introduction" />
+<meta name="description" content="Open Source Physics (OSP) is a community-driven project providing free, open-source tools and simulations for teaching and learning physics through computational modeling. Explore Tracker, Web EJS, OSP libraries, and other resources for interactive educational simulations." />
+<meta name="keywords" content="Open Source Physics, OSP, open-source physics, simulations, computational physics, Tracker, Easy Java Simulations, Web EJS, video analysis, educational tools" />
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../../partials/header %>
+            </header>
+        </div>
+    </div>
+  <div class="row">
+  <div class="moj_tekst">
+  <h2>OSP (Open Source Physics) – Open-Source Physics</h2>
+
+  <p>
+    Open-Source Physics (OSP) is a community-driven project, originally supported by the National Science Foundation and the American Association of Physics Teachers, whose goal is to provide free, open-source curricular materials and software tools for teaching and learning physics through computational modeling.
+    <a href="https://www.compadre.org/osp/" target="_blank">compadre.org</a>
+  </p>
+
+  <p>Its flagship resources include:</p>
+  <ul>
+    <li><strong>Tracker</strong> – a video-analysis and modeling tool that allows students to track objects frame by frame and build Newtonian models directly on the video.
+      <a href="https://physlets.org/tracker/" target="_blank">opensourcephysics.github.io</a>
+    </li>
+    <li><strong>EJS (Easy Java Simulations)</strong> – a framework for creating interactive Java (and now JavaScript) simulations without deep programming expertise.
+      <a href="https://www.compadre.org/osp/" target="_blank">compadre.org</a>
+    </li>
+    <li><strong>Curriculum Packages</strong> – collections of simulations, worksheets, and guided activities organized by topic.</li>
+    <li><strong>Programming Libraries</strong> – Java (and JavaScript) libraries for reusable components to build custom computational-physics applications.</li>
+  </ul>
+
+  <p>
+    OSP has grown from a simple Java simulation framework into a comprehensive, web-accessible ecosystem of tools for learning and researching physics.
+    Its history mirrors the evolution of educational technology: from desktop Java applications to modern JavaScript cloud-based solutions.
+  </p>
+
+  <p>
+    You can create physical-phenomenon simulations as desktop applications in Java, using Swing and AWT for the graphical interface;
+    this capability has been significantly extended by additional libraries in <code>org.opensourcephysics</code>.
+  </p>
+
+  <h3>Overview of Core Classes in <code>org.opensourcephysics.display</code></h3>
+  <hr>
+
+  <h4>1. Dataset</h4>
+  <p><strong>What it does:</strong> Stores and displays a series of points (x, y).</p>
+  <p><strong>Usage:</strong> Use it to “feed” data into a plot and have it automatically drawn on a drawing panel (e.g. <code>PlottingPanel</code>).</p>
+  <p><strong>Key methods/features:</strong></p>
+  <ul>
+    <li><code>add(x, y)</code> — adds a new data point.</li>
+    <li><code>clear()</code> — clears all data.</li>
+    <li>It also extends <code>AbstractTableModel</code>, so the data can be displayed in a Swing table.</li>
+  </ul>
+
+  <hr>
+  <h4>2. PlottingPanel</h4>
+  <p><strong>What it does:</strong> A panel for drawing Cartesian plots with axes, title, and multiple datasets.</p>
+  <p><strong>Usage:</strong> The main class for creating 2D plots. Instantiate with axis labels and title, call <code>addDrawable(dataset)</code>, then <code>render()</code> or enable automatic refreshing.</p>
+  <p><strong>Key methods/features:</strong></p>
+  <ul>
+    <li><code>setPreferredMinMax(xmin, xmax, ymin, ymax)</code> — manually set axis ranges.</li>
+    <li><code>createPolarType1(...)</code> — static constructors for special panel types (polar plot, alternative axis styles).</li>
+  </ul>
+
+  <hr>
+  <h4>3. DrawingPanel</h4>
+  <p><strong>What it does:</strong> A general panel for 2D drawing of any <code>Drawable</code> objects (lines, circles, text, datasets, etc.).</p>
+  <p><strong>Usage:</strong> If you don’t want the full plot frame, you can draw shapes directly by adding <code>Drawable</code> objects with <code>addDrawable(...)</code>.</p>
+  <p><strong>Key methods:</strong></p>
+  <ul>
+    <li><code>addDrawable(Drawable d)</code></li>
+    <li><code>setPreferredMinMax(...)</code></li>
+    <li><code>clearDrawables()</code></li>
+  </ul>
+
+  <hr>
+  <h4>4. Trail</h4>
+  <p><strong>What it does:</strong> A specialized <code>Drawable</code> that draws the trajectory of a point through a series of steps.</p>
+  <p><strong>Usage:</strong> Ideal for motion simulations where you want to display the path of an object over time.</p>
+
+  <hr>
+  <h4>5. DataFunction</h4>
+  <p><strong>What it does:</strong> A <code>Dataset</code> that computes values by evaluating a function f(x).</p>
+  <p><strong>Usage:</strong> Use it to plot an analytic function rather than discrete data points.</p>
+
+  <hr>
+  <h4>6. XMLControl</h4>
+  <p><strong>What it does:</strong> A tool for serializing and loading objects to and from XML.</p>
+  <p><strong>Usage:</strong> Enables saving simulation settings, model parameters, or even complete <code>Dataset</code>/<code>PlottingPanel</code> instances in human-readable XML files.</p>
+
+  <hr>
+  <h4>7. Numerical Classes: ODE and RungeKutta</h4>
+  <p><strong>What they do:</strong> Base classes for solving ordinary differential equations (ODEs).</p>
+  <p><strong>Usage:</strong> In dynamics simulations (e.g., the planetary system or harmonic oscillator) use implementations like <code>RK4</code> or <code>EulerSolver</code>, which require you to implement the <code>ODE</code> interface with <code>getState()</code> and <code>getRate()</code> methods.</p>
+
+  <h3>Typical Usage Workflow</h3>
+  <ol>
+    <li><strong>Model (numerics):</strong> Write a class implementing <code>org.opensourcephysics.numerics.ODE</code> or a simpler numerical method.</li>
+    <li><strong>Visualization:</strong> Create one or more <code>Dataset</code> (or <code>Trail</code>) objects and add them to a <code>PlottingPanel</code>.</li>
+    <li><strong>Control & interaction:</strong> Use <code>XMLControl</code> to save/load parameters, connect GUI controls (sliders, buttons) to model variables, and call <code>panel.render()</code> on each simulation step.</li>
+  </ol>
+
+  <h3>How Active Is OSP Today?</h3>
+  <p><strong>Recent Updates:</strong></p>
+  <ul>
+    <li>Web EJS and Tracker Online (a pure-JavaScript version of Tracker) were released in early 2025, enabling OSP materials to run immediately on Chromebooks and tablets without requiring a Java install.</li>
+    <li>New curricular materials continue to be added (e.g., “Using Tracker Online, Web EJS, and ComPADRE” on March 24, 2025; “Acoustics Supplement” on April 15, 2025).</li>
+  </ul>
+  <p><strong>Community Engagement:</strong></p>
+  <ul>
+    <li>Multiple new discussion threads appear each month on the OSP forums (most recently in May 2025), indicating an active user base exchanging technical questions and answers.</li>
+    <li>Tracker alone has over 2 million users in 31 languages, with version 6 released in February 2025.</li>
+  </ul>
+  <p><strong>Broader Ecosystem:</strong></p>
+  <ul>
+    <li>The term “open-source physics” now also includes high-performance C++ engines like Project Chrono and AI-driven physics simulators (e.g., NVIDIA Newton), reflecting the growing importance of open tools in both education and research.</li>
+  </ul>
+  <p>
+    <strong>Conclusion:</strong> OSP remains highly relevant in 2025 as a leading repository for computational physics education. Its tools are actively maintained and evolving (with JS-based versions for modern browsers), thousands of educators worldwide rely on its simulations and video-analysis software, and the community continually contributes new materials and support.
+  </p>
+
+  <h3>History of OSP</h3>
+  <ol>
+    <li><strong>Origins (late 1990s):</strong> The idea emerged under the leadership of Prof. Wolfgang Christian and Dr. Francisco Esquembre at Davidson College, aiming to enrich physics education with interactive simulations and video analysis.</li>
+    <li><strong>First-generation tools (2001–2005):</strong>
+      <ul>
+        <li>Easy Java Simulations (EJS) appeared around 2003: a Java environment for quickly creating and customizing physics simulations.</li>
+        <li>NSF and AAPT began supporting development and dissemination.</li>
+      </ul>
+    </li>
+    <li><strong>Tracker & community growth (2006–2012):</strong>
+      <ul>
+        <li>2006: Tracker was released – a tool for motion video analysis.</li>
+        <li>By 2010: the ComPADRE forum and repository expanded, lowering barriers for global participation.</li>
+      </ul>
+    </li>
+    <li><strong>Shift to JavaScript and Web EJS (2015–2020):</strong>
+      <ul>
+        <li>EJS gained a Web EJS version (pure-JS), allowing simulations to run directly in modern browsers.</li>
+        <li>Tracker Online (JS edition) removed the need for a desktop Java runtime.</li>
+      </ul>
+    </li>
+    <li><strong>Today’s phase (2021–2025):</strong>
+      <ul>
+        <li>OSP now includes Web EJS, Tracker Online, and a rich set of guides, exercises, and ready-made simulations.</li>
+        <li>A global community of teachers and students regularly publishes new resources and updates.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>Useful Resources</h3>
+  <p><strong>Main Tools & Platforms:</strong></p>
+  <ul>
+    <li><a href="https://www.um.es/fem/EjsWiki/" target="_blank">Easy Java/JavaScript Simulations (EJS/EJSS)</a> – a tool for creating Java and JavaScript simulations.</li>
+    <li><a href="https://physlets.org/tracker/" target="_blank">Tracker Video Analysis</a> – a tool for motion analysis from video.</li>
+    <li><a href="https://www.opensourcephysics.org/" target="_blank">OSP Java Library</a> – Java libraries for custom physics simulations.</li>
+    <li><a href="https://www.compadre.org/osp/" target="_blank">Web EJS Simulations Gallery</a> – ready-to-run JavaScript simulations in the browser.</li>
+  </ul>
+
+  <p><strong>Documentation & Tutorials:</strong></p>
+  <ul>
+    <li><a href="https://www.um.es/fem/EjsWiki/Main/Documentation" target="_blank">EJS/EJSS Guides & Tutorials</a> (PDF, video).</li>
+    <li><a href="https://www.youtube.com/user/OpenSourcePhysics" target="_blank">Tracker Tutorials</a> (YouTube channel).</li>
+    <li><a href="https://www.compadre.org/osp/document/ServeFile.cfm?ID=9993&DocID=1451" target="_blank">OSP User Documentation & Examples</a> (Java simulations).</li>
+  </ul>
+
+  <p><strong>Ready-Made Simulations & Curriculum Units:</strong></p>
+  <ul>
+    <li><a href="https://www.compadre.org/osp/" target="_blank">OSP Collection on ComPADRE</a> – hundreds of simulations across physics topics.</li>
+    <li><a href="https://iwant2study.org/ospsg/index.php" target="_blank">Singapore OSP Simulations</a> – localized and customized simulations.</li>
+  </ul>
+
+  <p><strong>Communities & Forums:</strong></p>
+  <ul>
+    <li><a href="https://www.compadre.org/osp/forum/" target="_blank">OSP @ ComPADRE Community Forum</a> – support and simulation-sharing forum.</li>
+    <li><a href="https://github.com/OpenSourcePhysics" target="_blank">OSP GitHub (unofficial)</a> – examples and additional libraries.</li>
+    <li><a href="https://groups.google.com/g/ejs-users" target="_blank">Google Group: EJS Community</a> – discussions and support for EJS users.</li>
+  </ul>
+
+  <h3>JavaScript (Web EJS) vs. OSP Java Libraries</h3>
+  <p>Most of today’s new OSP simulations use JavaScript (Web EJS) instead of the legacy Java platform, for several reasons:</p>
+  <ol>
+    <li><strong>Browser support:</strong>
+      <ul>
+        <li>Java applets or desktop Java apps require a JRE or plugin, which modern browsers no longer support.</li>
+        <li>JavaScript simulations run directly in any modern browser without extra installs.</li>
+      </ul>
+    </li>
+    <li><strong>Distribution & access:</strong>
+      <ul>
+        <li>Web EJS simulations launch via a single URL on tablets and Chromebooks.</li>
+        <li>Java packages often get blocked by security settings.</li>
+      </ul>
+    </li>
+    <li><strong>Tools & libraries:</strong>
+      <ul>
+        <li>OSP Java libraries (<code>org.opensourcephysics</code>) remain powerful, but development has largely shifted to JS (EJSS, p5.js + ports).</li>
+        <li>Java versions are still maintained (Tracker Desktop, EJS Eclipse plugin), but see fewer new extensions.</li>
+      </ul>
+    </li>
+    <li><strong>Performance & ecosystem:</strong>
+      <ul>
+        <li>JS runtimes (V8, SpiderMonkey) + WebGL can render complex 3D scenes effectively.</li>
+        <li>Fast development cycle, rich npm ecosystem, easy integration with web services and frameworks.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>Recommendations</h3>
+  <ul>
+    <li>For new projects and curricular materials: adopt JavaScript/Web EJS.</li>
+    <li>If you already have substantial Java code: plan a gradual migration to JS.</li>
+    <li>Hybrid approach: use Tracker Desktop (Java) for video analysis, and Web EJS or p5.js + OSP-JS libraries for simulations.</li>
+  </ul>
+
+  <p><strong>Conclusion:</strong> Although OSP’s Java libraries are not deprecated, modern simulation development is predominantly in JavaScript. For maximum accessibility and long-term sustainability, focusing on Web EJS/JS solutions is best.</p>
+</div>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <% include ../../partials/scripts %>
+            <% include ../../partials/footer %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

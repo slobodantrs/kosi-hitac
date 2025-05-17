@@ -2,11 +2,10 @@
 <html lang="<%= locale %>">
 <head>
     <% include ../../partials/head %>
-	<title>O alatu P5.js (Processing)</title>
-	<link rel="canonical" href="https://kosi-hitac.onrender.com/p5js" />
-	<meta name="description" content="Saznajte kako koristiti p5.js za kreiranje interaktivnih simulacija fizičkih pojava. Pored p5.js, istražite i druge alate poput Easy JavaScript Simulation (EJS) za razvoj edukativnih animacija.">
-    <meta name="keywords" content="p5.js, JavaScript animacija, fizičke simulacije, interaktivne simulacije, Easy JavaScript Simulation, EJS, edukativne animacije, programiranje, vizualizacija, fizika">
-
+	<title>Open Source Physics (OSP) – Fizika otvorenog koda</title>
+<link rel="canonical" href="https://kosi-hitac.onrender.com/uvod_u_osp" />
+<meta name="description" content="Open Source Physics (OSP) je zajednički projekat koji pruža besplatne, otvorene alate i simulacije za nastavu i učenje fizike putem računarskog modeliranja. Upoznajte Tracker, Web EJS, OSP biblioteke i druge resurse za interaktivne edukativne simulacije." />
+<meta name="keywords" content="Open Source Physics, OSP, fizika otvorenog koda, simulacije, računarska fizika, Tracker, Easy Java Simulations, Web EJS, video analiza, edukativni alati" />
 
 </head>
 <body>
@@ -20,60 +19,212 @@
     </div>
   <div class="row">
   <div class="moj_tekst">
-  <h2>OSP (Open Source Physics) — Fizika otvorenog koda</h2>
-  <p><strong>Fizika otvorenog koda</strong> (OSP) je projekat vođen zajednicom, prvobitno podržan od strane Nacionalne naučne fondacije (NSF) i Američkog udruženja nastavnika fizike (AAPT), sa ciljem da obezbedi besplatne, otvoreno‑izvorne nastavne materijale i softverske alate za učenje fizike kroz računarske simulacije i modelovanje. [<em>Compadre.org</em>]</p>
-  
-  <h3>Ključni resursi</h3>
+  <h2>OSP (Open Source Physics) – Fizika otvorenog koda</h2>
+
+  <p>
+    Fizika otvorenog koda (OSP) je projekat vođen zajednicom, prvobitno podržan od strane Nacionalne naučne fondacije i Američkog udruženja nastavnika fizike, čiji je cilj da obezbedi besplatne nastavne materijale otvorenog koda i softverske alate za nastavu i učenje fizike putem računarstva i kompjuterskog modeliranja.
+    <a href="https://www.compadre.org/osp/" target="_blank">compadre.org</a>
+  </p>
+
+  <p>Njegovi vodeći resursi uključuju:</p>
   <ul>
-    <li><strong>Tracker</strong> – alat za video‑analizu i modelovanje pokreta direktno na snimcima.  
+    <li><strong>Tracker</strong> – alat za video-analizu i modeliranje koji omogućava učenicima da prate objekte okvir po kadar i da prave Njutnove modele direktno na video snimku.
       <a href="https://physlets.org/tracker/" target="_blank">opensourcephysics.github.io</a>
     </li>
-    <li><strong>EJS (Easy Java Simulations)</strong> – framework za kreiranje interaktivnih Java i JavaScript simulacija bez dubokog programerskog znanja.  
-      <a href="https://www.compadre.org/osp/" target="_blank">Compadre.org</a>
+    <li><strong>EJS (Easy Java Simulations)</strong> – framework za kreiranje interaktivnih Java (a sada i JavaScript) simulacija bez duboke ekspertize u programiranju.
+      <a href="https://www.compadre.org/osp/" target="_blank">compadre.org</a>
     </li>
-    <li><strong>Curriculum Packages</strong> – tematske kolekcije simulacija, radnih listova i vođenih aktivnosti.</li>
-    <li><strong>Programming Libraries</strong> – Java i JavaScript biblioteke za izradu sopstvenih fizičkih simulacija.</li>
+    <li><strong>Curriculum Packages</strong> – zbirke simulacija, radnih listova i vođenih aktivnosti organizovanih po temama.</li>
+    <li><strong>Programming Libraries</strong> – Java (i JavaScript) biblioteke za višekratnu upotrebu pri pravljenju prilagođenih aplikacija za računarsku fiziku.</li>
   </ul>
-  
-  <h3>Kratka istorija</h3>
-  <ol>
-    <li><strong>Početci (krajem 1990‑ih)</strong> – ideju pokreću prof. Wolfgang Christian i dr. Francisco Esquembre.</li>
-    <li><strong>Prva generacija (2001–2005)</strong> – pojavljivanje EJS; podrška NSF i AAPT.</li>
-    <li><strong>Tracker i rast (2006–2012)</strong> – objavljivanje Tracker alata za video‑analizu.</li>
-    <li><strong>Web‑izdanja (2015–2020)</strong> – razvoj Web EJS i Tracker Online (čisti JS).</li>
-    <li><strong>Savremeni period (2021–2025)</strong> – Web EJS, Tracker Online, aktivna globalna zajednica.</li>
-  </ol>
-  
-  <h3>Ključne klase u <code>org.opensourcephysics.display</code></h3>
+
+  <p>
+    OSP je od jednostavnog Java-okvira za simulacije prerastao u sveobuhvatan, web-pristupačan ekosistem alata za učenje i istraživanje fizike. 
+    Njegova istorija prati evoluciju obrazovnih tehnologija: od desktop Java aplikacija do modernih JavaScript rešenja u oblaku.
+  </p>
+
+  <p>
+    Kreiranje simulacija fizičkih pojava je moguće za desktop aplikacije pomoću Jave u osnovnoj verziji, gde se grafički deo aplikacija kreira pomoću Swing i AWT paketa, 
+    međutim, ova funkcionalnost je znatno proširena korišćenjem dodatnih biblioteka iz <code>org.opensourcephysics</code>.
+  </p>
+
+  <h3>Pregled osnovnih klasa iz paketa <code>org.opensourcephysics.display</code></h3>
+  <hr>
+
+  <h4>1. Dataset</h4>
+  <p><strong>Šta radi:</strong> Čuva i prikazuje niz tačaka (x, y).</p>
+  <p><strong>Upotreba:</strong> Možete ga koristiti da “nahranite” grafikon podacima i da ih automatski iscrta na nekom crtačkom panelu (npr. <code>PlottingPanel</code>).</p>
+  <p><strong>Ključne metode/karakteristike:</strong></p>
   <ul>
-    <li><strong>Dataset</strong> – čuva niz tačaka (x,y) i crta ih na <code>PlottingPanel</code>.</li>
-    <li><strong>PlottingPanel</strong> – panel za crtanje 2D grafikona sa osama i naslovom.</li>
-    <li><strong>DrawingPanel</strong> – generički 2D panel za crtanje linija, krugova, teksta.</li>
-    <li><strong>Trail</strong> – crta putanju objekta kroz niz koraka (“trag”).</li>
-    <li><strong>DataFunction</strong> – <code>Dataset</code> koji izračunava vrednosti <code>f(x)</code>.</li>
-    <li><strong>XMLControl</strong> – serijalizacija i učitavanje parametara simulacije iz XML‑a.</li>
-    <li><strong>ODE &amp; RungeKutta</strong> – baze za rešavanje običnih diferencijalnih jednačina.</li>
+    <li><code>add(x, y)</code> — dodaje novu tačku.</li>
+    <li><code>clear()</code> — briše sve podatke.</li>
+    <li>Takođe nasleđuje <code>AbstractTableModel</code>, pa se podaci mogu prikazati i u Swing tabeli.</li>
   </ul>
-  
-  <h3>Tipičan tok rada</h3>
-  <ol>
-    <li><strong>Model</strong> – implementacija <code>org.opensourcephysics.numerics.ODE</code> ili numeričke metode.</li>
-    <li><strong>Vizuelizacija</strong> – kreiranje <code>Dataset</code> ili <code>Trail</code> i dodavanje u <code>PlottingPanel</code>.</li>
-    <li><strong>Interakcija</strong> – korišćenje <code>XMLControl</code> za parametre i GUI kontrole, pozivanje <code>render()</code>.</li>
-  </ol>
-  
-  <h3>Aktuelnost OSP‑a</h3>
+
+  <hr>
+  <h4>2. PlottingPanel</h4>
+  <p><strong>Šta radi:</strong> Panel za crtanje kartezijanskih grafikona sa osama, naslovom i više dataset-ova.</p>
+  <p><strong>Upotreba:</strong> Glavna klasa za izradu 2D grafikona. Kreirate instancu sa nazivima osa i naslovom, pozivate <code>addDrawable(dataset)</code> i zatim <code>render()</code> ili pustite automatsko osvežavanje.</p>
+  <p><strong>Ključne metode/karakteristike:</strong></p>
   <ul>
-    <li>2025: Objavljene Web‑verzije EJS i Tracker Online.</li>
-    <li>Mesečno se pojavljuju nove teme na forumu.</li>
-    <li>Preko 2 M korisnika Tracker alata.</li>
+    <li><code>setPreferredMinMax(xmin, xmax, ymin, ymax)</code> — ručno podešavanje opsega osa.</li>
+    <li><code>createPolarType1(...)</code> — statički konstruktori za specijalne vrste panela (polarni graf, različiti stilovi osa).</li>
   </ul>
-  
-  <p>OSP i danas ostaje jedan od vodećih resursa za obrazovanje iz računarske fizike, sa bogatim ekosistemom alata i aktivnom zajednicom.</p>
+
+  <hr>
+  <h4>3. DrawingPanel</h4>
+  <p><strong>Šta radi:</strong> Opšti panel za 2D crtanje bilo kojih <code>Drawable</code> objekata (linije, krugovi, tekst, dataset-ovi...).</p>
+  <p><strong>Upotreba:</strong> Ako ne želite sve “oko” grafikona, možete direktno crtati poligone, linije i druge oblike koristeći <code>addDrawable(...)</code>.</p>
+  <p><strong>Ključne metode:</strong></p>
+  <ul>
+    <li><code>addDrawable(Drawable d)</code></li>
+    <li><code>setPreferredMinMax(...)</code></li>
+    <li><code>clearDrawables()</code></li>
+  </ul>
+
+  <hr>
+  <h4>4. Trail</h4>
+  <p><strong>Šta radi:</strong> Specijalizovani <code>Drawable</code> koji crta putanju tačke kroz niz koraka — tj. “trag” (trajectory).</p>
+  <p><strong>Upotreba:</strong> Idealno za simulacije kretanja gde želite da istovremeno iscrtate putanju objekta.</p>
+
+  <hr>
+  <h4>5. DataFunction</h4>
+  <p><strong>Šta radi:</strong> <code>Dataset</code> koji vrednosti računa evaluacijom funkcije f(x).</p>
+  <p><strong>Upotreba:</strong> Ako želite da grafički prikažete analitičku funkciju, a ne diskretne tačke.</p>
+
+  <hr>
+  <h4>6. XMLControl</h4>
+  <p><strong>Šta radi:</strong> Alat za serijalizaciju i učitavanje objekata iz XML-a.</p>
+  <p><strong>Upotreba:</strong> Omogućava da čitljivim XML fajlovima sačuvate postavke simulacije, parametre modela ili čak kompletne <code>Dataset</code>/<code>PlottingPanel</code> instance.</p>
+
+  <hr>
+  <h4>7. Numeričke klase: ODE i RungeKutta</h4>
+  <p><strong>Šta rade:</strong> Baze za rešavanje običnih diferencijalnih jednačina (ODE).</p>
+  <p><strong>Upotreba:</strong> U simulacijama dinamike tela (npr. planetski sistem, harmonijski oscilator) koristite klase poput <code>RK4</code> ili <code>EulerSolver</code>, koje zahtevaju da implementirate interfejs <code>ODE</code> sa metodama <code>getState()</code> i <code>getRate()</code>.</p>
+
+  <h3>Kako ih obično koristite zajedno</h3>
+  <ol>
+    <li><strong>Model (numerika):</strong> napišete klasu koja implementira <code>org.opensourcephysics.numerics.ODE</code> ili neku jednostavniju numeričku metodu.</li>
+    <li><strong>Vizuelizacija:</strong> kreirate jedan ili više <code>Dataset</code> objekata (ili <code>Trail</code>) i ubacite ih u <code>PlottingPanel</code>.</li>
+    <li><strong>Kontrola i interakcija:</strong> koristite <code>XMLControl</code> da sačuvate/učitate parametre, povežete GUI kontrole (klizače, dugmad) sa promenljivama modela, i pozovete <code>panel.render()</code> pri svakoj iteraciji simulacije.</li>
+  </ol>
+
+  <h3>Koliko je OSP danas aktivan?</h3>
+  <p><strong>Najnovija ažuriranja:</strong></p>
+  <ul>
+    <li>Web EJS i Tracker Online (čista JavaScript verzija Trackera) objavljeni su početkom 2025. godine, što omogućava da se OSP materijali odmah pokreću na Chromebook uređajima i tabletima bez potrebe za instalacijom Jave.</li>
+    <li>Novi nastavni materijali se i dalje dodaju (npr. “Korišćenje Tracker Online, Web EJS i ComPADRE” 24. marta 2025.; “Akustični dodatak” 15. aprila 2025.).</li>
+  </ul>
+  <p><strong>Angažovanje zajednice:</strong></p>
+  <ul>
+    <li>Na OSP forumima svakog meseca se otvaraju više novih tema (najnovije u maju 2025), što ukazuje na aktivnu bazu korisnika koja postavlja i odgovara na tehnička pitanja.</li>
+    <li>Samo Tracker alat broji preko 2 miliona korisnika na 31 jeziku, a verzija 6 je objavljena februara 2025.</li>
+  </ul>
+  <p><strong>Širi ekosistem:</strong></p>
+  <ul>
+    <li>Pojam “open-source fizika” danas obuhvata i visokoperformantne C++ engine-e kao što je Project Chrono, kao i AI-pokretane fizičke simulatore (npr. NVIDIA Newton engine).</li>
+  </ul>
+  <p>
+    <strong>Zaključak:</strong> OSP je i dalje izuzetno relevantan u 2025. godini kao jedan od vodećih resursa za obrazovanje iz računarske fizike. Njegovi alati se aktivno održavaju i razvijaju (sada sa JS-verzijama za moderne pregledače), hiljade nastavnika širom sveta oslanjaju se na njegove simulacije i softver za video-analizu, a zajednica konstantno doprinosi novim materijalima i podrškom.
+  </p>
+
+  <h3>Istorijat OSP-a</h3>
+  <ol>
+    <li><strong>Početci (krajem 1990-ih):</strong> Inicijalna ideja rodila se pod vođstvom prof. Wolfganga Christiana i dr Francisca Esquembrea na Davidson College. Cilj je bio da se studentsko učenje fizike obogati interaktivnim simulacijama i video-analizom.</li>
+    <li><strong>Prva generacija alata (2001–2005):</strong>
+      <ul>
+        <li>Easy Java Simulations (EJS) se pojavljuje oko 2003: Java-okruženje za brzo kreiranje prilagođenih simulacija.</li>
+        <li>NSF i AAPT počinju podršku razvoju i širenju materijala.</li>
+      </ul>
+    </li>
+    <li><strong>Tracker i rast zajednice (2006–2012):</strong>
+      <ul>
+        <li>2006: objavljen Tracker – alat za video-analizu kretanja.</li>
+        <li>Do 2010: forum i repozitorijum na ComPADRE rastu, privlačeći učesnike iz celog sveta.</li>
+      </ul>
+    </li>
+    <li><strong>Širenje JavaScript-a i Web EJS (2015–2020):</strong>
+      <ul>
+        <li>EJS dobija Web EJS verziju (pure-JS), simulacije se pokreću direktno u modernim pregledačima.</li>
+        <li>Tracker Online (JS-izdanje), bez potrebe za desktop Java runtime-om.</li>
+      </ul>
+    </li>
+    <li><strong>Današnja faza (2021–2025):</strong>
+      <ul>
+        <li>OSP paket obuhvata Web EJS, Tracker Online i bogat set priručnika, vežbi i gotovih simulacija.</li>
+        <li>Globalna zajednica nastavnika i studenata stalno objavljuje nove resurse i nadogradnje.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>Korisni resursi</h3>
+  <p><strong>Glavni alati i platforme:</strong></p>
+  <ul>
+    <li><a href="https://www.um.es/fem/EjsWiki/" target="_blank">Easy Java/JavaScript Simulations (EJS/EJSS)</a> – alat za kreiranje simulacija u Javi i JavaScript-u.</li>
+    <li><a href="https://physlets.org/tracker/" target="_blank">Tracker Video Analysis</a> – alat za analizu kretanja iz video snimaka.</li>
+    <li><a href="https://www.opensourcephysics.org/" target="_blank">OSP Java Library</a> – Java biblioteke za prilagođene fizičke simulacije.</li>
+    <li><a href="https://www.compadre.org/osp/" target="_blank">Web EJS Simulations Gallery</a> – gotove JavaScript simulacije direktno u browseru.</li>
+  </ul>
+
+  <p><strong>Dokumentacija i tutorijali:</strong></p>
+  <ul>
+    <li><a href="https://www.um.es/fem/EjsWiki/Main/Documentation" target="_blank">EJS/EJSS vodiči i tutorijali</a> (PDF, video).</li>
+    <li><a href="https://www.youtube.com/user/OpenSourcePhysics" target="_blank">Tracker tutorijali</a> (YouTube kanal).</li>
+    <li><a href="https://www.compadre.org/osp/document/ServeFile.cfm?ID=9993&DocID=1451" target="_blank">OSP korisnička dokumentacija i primeri</a> (Java simulacije).</li>
+  </ul>
+
+  <p><strong>Gotove simulacije i nastavne jedinice:</strong></p>
+  <ul>
+    <li><a href="https://www.compadre.org/osp/" target="_blank">OSP Collection on ComPADRE</a> – stotine simulacija iz različitih oblasti fizike.</li>
+    <li><a href="https://iwant2study.org/ospsg/index.php" target="_blank">Singapore OSP Simulations</a> – lokalizovane i prilagođene simulacije.</li>
+  </ul>
+
+  <p><strong>Zajednice i forumi:</strong></p>
+  <ul>
+    <li><a href="https://www.compadre.org/osp/forum/" target="_blank">OSP @ ComPADRE Community Forum</a> – forum za podršku i deljenje simulacija.</li>
+    <li><a href="https://github.com/OpenSourcePhysics" target="_blank">OSP GitHub (neoficijelni)</a> – primera i dodatne biblioteke.</li>
+    <li><a href="https://groups.google.com/g/ejs-users" target="_blank">Google Grupa: EJS Community</a> – diskusije i podrška za EJS korisnike.</li>
+  </ul>
+
+  <h3>JavaScript (Web EJS) vs. OSP Java biblioteke</h3>
+  <p>Većina nove generacije OSP simulacija danas koristi JavaScript (Web EJS) umesto stare Java-platforme, iz nekoliko razloga:</p>
+  <ol>
+    <li><strong>Podrška u browserima:</strong>
+      <ul>
+        <li>Java applet ili desktop Java aplikacije zahtevaju JRE ili plugin, a moderni browseri to više ne podržavaju.</li>
+        <li>JavaScript simulacije rade direktno u svakom savremenom browseru bez dodatnih instalacija.</li>
+      </ul>
+    </li>
+    <li><strong>Distribucija i pristup:</strong>
+      <ul>
+        <li>Web EJS simulacije se pokreću jednim URL-om na tabletima i Chromebook-ima.</li>
+        <li>Java paketi se često blokiraju zbog sigurnosnih podešavanja.</li>
+      </ul>
+    </li>
+    <li><strong>Alati i biblioteke:</strong>
+      <ul>
+        <li>OSP Java biblioteke (<code>org.opensourcephysics</code>) su moćne, ali razvoj se pretežno seli na JS (EJSS, p5.js + portovi).</li>
+        <li>Java verzije se još održavaju (Tracker Desktop, EJS Eclipse plug-in), ali manje se razvijaju.</li>
+      </ul>
+    </li>
+    <li><strong>Performanse i ekosistem:</strong>
+      <ul>
+        <li>JS runtime (V8, SpiderMonkey) + WebGL može da renderuje složene 3D scene.</li>
+        <li>Brzi razvoj, bogat npm ekosistem, lako povezivanje sa web-servisima i framework-ima.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>Preporuke</h3>
+  <ul>
+    <li>Za nove projekte i nastavne materijale: pređite na JavaScript/Web EJS.</li>
+    <li>Ako već imate značajan Java kod: planirajte postepenu migraciju ka JS.</li>
+    <li>Hibridni pristup: Tracker Desktop (Java) za video-analizu, a Web EJS ili p5.js + OSP-JS biblioteke za simulacije.</li>
+  </ul>
+
+  <p><strong>Zaključak:</strong> Iako OSP Java biblioteke nisu odložene, savremeni razvoj simulacija je pretežno u JavaScript-u. Za maksimalnu dostupnost i dugoročnu održivost, najbolje je orijentisati se na Web EJS / JS rešenja.</p>
 </div>
 
-  
-  </div>
   
 
     <div class="row">

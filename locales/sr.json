@@ -45,7 +45,10 @@
     "slobodan_Pad": "Slobodan Pad",
     "telo": "telo",
 	"vektori_animacija": "Animacija vektora",
-	"sunce_Zemlja_Mesec_Animacija": "Animacija Sunce–Zemlja–Mesec"
+	"sunce_Zemlja_Mesec_Animacija": "Animacija Sunce–Zemlja–Mesec",
+	"uvod_u_osp": "Uvod u OSP",
+	"simulation_tools": "Alati za simulacije",
+	
   },
   "animation": {
     "title": "KRUŽNO KRETANJE:",
@@ -61,6 +64,12 @@
     "legendV": "v – linijska brzina",
     "legendAN": "an – normalno ubrzanje",
     "legendFc": "Fn (Fc) – centripetalna sila"
+  },
+  "osp": {
+    "title": "Uvod u OSP (Open Source Physics)",
+    "description": "OSP je zajednički vođen projekt za besplatne, otvorene alate i simulacije iz fizike. Upoznajte se sa glavnim komponentama kao što su Tracker, EJS i OSP biblioteke.",
+    "link_text": "Saznajte više o OSP-u",
+    "link_href": "/uvod_u_osp"
   },
   "footer": {
     "quick_links": "Brze veze",

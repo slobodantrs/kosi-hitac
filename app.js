@@ -186,7 +186,10 @@ const slugMap = {
   '/upotreba_p5js/vektori_animacija':            '/en/usage_p5js/vector_animation',
   '/upotreba_p5js/vektori_animacija/:id':        '/en/usage_p5js/vector_animation/:id',
    '/sunce_zemlja_mesec_animacija':      '/en/sun_earth_moon_animation',
-  
+   
+  // **OVO SU NOVE OSP STRANE**
+  '/uvod_u_osp':                     '/en/osp_introduction',
+
   
   '/politika_privatnosti':           '/en/privacy',
 };
