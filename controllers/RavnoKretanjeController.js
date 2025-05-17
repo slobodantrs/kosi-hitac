@@ -55,7 +55,7 @@ const methods = {
   // — ENGLISH VERSION —
   RavnoKretanje1_EN: function(req, res) {
     console.log("RKC: RavnoKretanje1_EN");
-    res.render('pages-en/ejss_model_RigidBodyMotion/rigidBodyMotion_Intro_1');
+    res.render('pages-en/ejss_model_RigidBodyMotion/RigidBodyMotion_Intro_1');
   },
 
   RavnoKretanje2_EN: function(req, res) {

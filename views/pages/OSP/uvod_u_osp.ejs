@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <% include ../../partials/head %>
+	<title>O alatu P5.js (Processing)</title>
+	<link rel="canonical" href="https://kosi-hitac.onrender.com/p5js" />
+	<meta name="description" content="Saznajte kako koristiti p5.js za kreiranje interaktivnih simulacija fizičkih pojava. Pored p5.js, istražite i druge alate poput Easy JavaScript Simulation (EJS) za razvoj edukativnih animacija.">
+    <meta name="keywords" content="p5.js, JavaScript animacija, fizičke simulacije, interaktivne simulacije, Easy JavaScript Simulation, EJS, edukativne animacije, programiranje, vizualizacija, fizika">
+
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../../partials/header %>
+            </header>
+        </div>
+    </div>
+  <div class="row">
+  <div class="moj_tekst">
+  <h2>OSP (Open Source Physics) — Fizika otvorenog koda</h2>
+  <p><strong>Fizika otvorenog koda</strong> (OSP) je projekat vođen zajednicom, prvobitno podržan od strane Nacionalne naučne fondacije (NSF) i Američkog udruženja nastavnika fizike (AAPT), sa ciljem da obezbedi besplatne, otvoreno‑izvorne nastavne materijale i softverske alate za učenje fizike kroz računarske simulacije i modelovanje. [<em>Compadre.org</em>]</p>
+  
+  <h3>Ključni resursi</h3>
+  <ul>
+    <li><strong>Tracker</strong> – alat za video‑analizu i modelovanje pokreta direktno na snimcima.  
+      <a href="https://physlets.org/tracker/" target="_blank">opensourcephysics.github.io</a>
+    </li>
+    <li><strong>EJS (Easy Java Simulations)</strong> – framework za kreiranje interaktivnih Java i JavaScript simulacija bez dubokog programerskog znanja.  
+      <a href="https://www.compadre.org/osp/" target="_blank">Compadre.org</a>
+    </li>
+    <li><strong>Curriculum Packages</strong> – tematske kolekcije simulacija, radnih listova i vođenih aktivnosti.</li>
+    <li><strong>Programming Libraries</strong> – Java i JavaScript biblioteke za izradu sopstvenih fizičkih simulacija.</li>
+  </ul>
+  
+  <h3>Kratka istorija</h3>
+  <ol>
+    <li><strong>Početci (krajem 1990‑ih)</strong> – ideju pokreću prof. Wolfgang Christian i dr. Francisco Esquembre.</li>
+    <li><strong>Prva generacija (2001–2005)</strong> – pojavljivanje EJS; podrška NSF i AAPT.</li>
+    <li><strong>Tracker i rast (2006–2012)</strong> – objavljivanje Tracker alata za video‑analizu.</li>
+    <li><strong>Web‑izdanja (2015–2020)</strong> – razvoj Web EJS i Tracker Online (čisti JS).</li>
+    <li><strong>Savremeni period (2021–2025)</strong> – Web EJS, Tracker Online, aktivna globalna zajednica.</li>
+  </ol>
+  
+  <h3>Ključne klase u <code>org.opensourcephysics.display</code></h3>
+  <ul>
+    <li><strong>Dataset</strong> – čuva niz tačaka (x,y) i crta ih na <code>PlottingPanel</code>.</li>
+    <li><strong>PlottingPanel</strong> – panel za crtanje 2D grafikona sa osama i naslovom.</li>
+    <li><strong>DrawingPanel</strong> – generički 2D panel za crtanje linija, krugova, teksta.</li>
+    <li><strong>Trail</strong> – crta putanju objekta kroz niz koraka (“trag”).</li>
+    <li><strong>DataFunction</strong> – <code>Dataset</code> koji izračunava vrednosti <code>f(x)</code>.</li>
+    <li><strong>XMLControl</strong> – serijalizacija i učitavanje parametara simulacije iz XML‑a.</li>
+    <li><strong>ODE &amp; RungeKutta</strong> – baze za rešavanje običnih diferencijalnih jednačina.</li>
+  </ul>
+  
+  <h3>Tipičan tok rada</h3>
+  <ol>
+    <li><strong>Model</strong> – implementacija <code>org.opensourcephysics.numerics.ODE</code> ili numeričke metode.</li>
+    <li><strong>Vizuelizacija</strong> – kreiranje <code>Dataset</code> ili <code>Trail</code> i dodavanje u <code>PlottingPanel</code>.</li>
+    <li><strong>Interakcija</strong> – korišćenje <code>XMLControl</code> za parametre i GUI kontrole, pozivanje <code>render()</code>.</li>
+  </ol>
+  
+  <h3>Aktuelnost OSP‑a</h3>
+  <ul>
+    <li>2025: Objavljene Web‑verzije EJS i Tracker Online.</li>
+    <li>Mesečno se pojavljuju nove teme na forumu.</li>
+    <li>Preko 2 M korisnika Tracker alata.</li>
+  </ul>
+  
+  <p>OSP i danas ostaje jedan od vodećih resursa za obrazovanje iz računarske fizike, sa bogatim ekosistemom alata i aktivnom zajednicom.</p>
+</div>
+
+  
+  </div>
+  
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <% include ../../partials/scripts %>
+            <% include ../../partials/footer %>
+        </div>
+    </div>
+</div>
+</body>
+</html>
