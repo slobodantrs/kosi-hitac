@@ -76,6 +76,22 @@
           <li><a class="dropdown-item" href="<%= navHref('/ravno_kretanje') %>"><%= __('nav.ravno_Kretanje') %></a></li>
         </ul>
       </li>
+	  <li class="nav-item dropdown dropdown-submenu">
+           <a class="nav-link dropdown-toggle text-light w-100" id="dropdownSimTools" role="button"  data-bs-toggle="dropdown"  aria-expanded="false">
+		   <%= __('nav.simulation_tools') %>
+           </a>
+			  <ul class="dropdown-menu submenu" aria-labelledby="dropdownSimTools">
+				<li>
+				  <a class="dropdown-item"
+					 href="<%= navHref('/uvod_u_osp') %>">
+					<%= __('nav.uvod_u_osp') %>
+				  </a>
+				</li>
+				<!-- Kasnije možete dodati i Web EJS, OSP online, itd. -->
+				
+			  </ul>
+          </li>
+
 
     </ul>
   </div>
@@ -148,7 +164,8 @@
           </ul>
         </li>
 		<li class="nav-item dropdown dropdown-submenu">
-           <a class="nav-link dropdown-toggle text-light w-100" id="dropdownSimTools" role="button"  data-bs-toggle="dropdown"  aria-expanded="false">   <%= __('nav.simulation_tools') %>
+           <a class="nav-link dropdown-toggle text-light w-100" id="dropdownSimTools" role="button"  data-bs-toggle="dropdown"  aria-expanded="false">
+		   <%= __('nav.simulation_tools') %>
            </a>
 			  <ul class="dropdown-menu submenu" aria-labelledby="dropdownSimTools">
 				<li>
@@ -158,14 +175,7 @@
 				  </a>
 				</li>
 				<!-- Kasnije možete dodati i Web EJS, OSP online, itd. -->
-				<!--
-				<li>
-				  <a class="dropdown-item"
-					 href="<%= navHref('/web_ejs_introduction') %>">
-					<%= __('nav.web_ejs_introduction') %>
-				  </a>
-				</li>
-				-->
+				
 			  </ul>
           </li>
 
