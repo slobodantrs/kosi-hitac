@@ -148,6 +148,7 @@ router.get('/upotreba_p5js/vektori_animacija',           VektoriController.Vekto
 router.get('/upotreba_p5js/vektori_animacija/:id?',     VektoriController.VektoriAnimacija);
 
 // Serbian
+var OSPController = require('../controllers/OSPController');
 router.get('/uvod_u_osp', OSPController.Uvod_U_Osp);
 
 
