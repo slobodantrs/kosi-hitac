@@ -125,6 +125,15 @@
     "vertikalan_hitac": {
       "description": "Interaktivna simulacija vertikalnog hica i slobodnog pada: istražite kretanje tela pod uticajem gravitacije, pratite brzinu, ubrzanje i maksimalnu visinu.",
       "keywords": "vertikalan hitac, slobodan pad, gravitacija, visina, ubrzanje, simulacija"
+    },
+	"ravno_kretanje": {
+      "description": "Interaktivna simulacija ravnog kretanja krutog tela, uključujući kotrljanje bez klizanja, trenutni pol brzina i ubrzanje tačaka. Vizualizacija pomoću Easy Java Simulation (EJS).",
+      "keywords": "ravno kretanje, kruto telo, kotrljanje bez klizanja, trenutni pol brzina, ubrzanje, simulacija, EJS, fizika, mehanika"
+    },
+
+    "rotacija_diska": {
+      "description": "Interaktivna simulacija rotacije diska oko fiksne ose. Upoznajte se sa momentom sile, momentom inercije, ugaonom brzinom, centripetalnim ubrzanjem i zakonom očuvanja momenta impulsa uz vizuelna objašnjenja.",
+      "keywords": "rotacija diska, kruto telo, kružno kretanje, moment inercije, ugaona brzina, centripetalno ubrzanje, moment sile, zakon očuvanja momenta impulsa, rotaciona dinamika, simulacija, EJS"
     }
   
   }
