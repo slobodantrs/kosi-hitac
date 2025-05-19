@@ -232,77 +232,72 @@
 Ево једног минималног примера како да покренете OSP у Maven пројекту у IntelliJ IDEA:
   </p>
   </div>
-  <div class="moj_tekst"> <h3>1. POM.xml (Maven конфигурација)</h3> <pre><code class="language-xml"> &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt; &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt; &lt;groupId&gt;com.example.osp&lt;/groupId&gt; &lt;artifactId&gt;osp-demo&lt;/artifactId&gt; &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-<dependencies>
-<dependency>
-<groupId>org.opensourcephysics</groupId>
-<artifactId&gt>osp-core</artifactId>
-<version>1.7.0</version> <!-- проверите најновију верзију на Maven Central -->
-</dependency>
-</dependencies>
-</project>
-</code></pre>
+ <div class="moj_tekst">
+  <h3>Kratak primer OSP у Maven пројекту</h3>
+  <p>
+    Ovde ćemo pokazati kako da konfigurišete Maven projekat i napravite jednostavan
+    <em>Free Fall</em> primer koristeći OSP biblioteke.
+  </p>
+</div>
 
-<h3>2. Једноставан пример: crtanje слободног пада</h3> <pre><code class="language-java"> // File: src/main/java/com/example/osp/FreeFallDemo.java
-package com.example.osp;
+<div class="moj_kod">
+  <h4>pom.xml</h4>
+  <pre><code>
+&lt;<span class="zelena">project</span> xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+  &lt;<span class="zelena">modelVersion</span>&gt;<span class="narandzasta">4.0.0</span>&lt;/<span class="zelena">modelVersion</span>&gt;
+  &lt;<span class="zelena">groupId</span>&gt;<span class="crvena">com.example.osp</span>&lt;/<span class="zelena">groupId</span>&gt;
+  &lt;<span class="zelena">artifactId</span>&gt;<span class="crvena">osp-demo</span>&lt;/<span class="zelena">artifactId</span>&gt;
+  &lt;<span class="zelena">version</span>&gt;<span class="narandzasta">1.0-SNAPSHOT</span>&lt;/<span class="zelena">version</span>&gt;
 
-import org.opensourcephysics.display.;
-import org.opensourcephysics.controls.;
-import org.opensourcephysics.frames.*;
+  &lt;<span class="zelena">dependencies</span>&gt;
+    &lt;<span class="zelena">dependency</span>&gt;
+      &lt;<span class="zelena">groupId</span>&gt;<span class="crvena">org.opensourcephysics</span>&lt;/<span class="zelena">groupId</span>&gt;
+      &lt;<span class="zelena">artifactId</span>&gt;<span class="crvena">osp-core</span>&lt;/<span class="zelena">artifactId</span>&gt;
+      &lt;<span class="zelena">version</span>&gt;<span class="narandzasta">1.7.0</span>&lt;/<span class="zelena">version</span>&gt;  
+    &lt;/<span class="zelena">dependency</span>&gt;
+  &lt;/<span class="zelena">dependencies</span>&gt;
+&lt;/<span class="zelena">project</span>&gt;
+  </code></pre>
+</div>
 
-// Класа која имплементира ODE за слободан пад
-public class FreeFallModel implements ODE {
-double g = 9.81; // убрзање слободног пада
-public double[] getState() { return state; }
-public double[] getRate() {
-double[] rate = new double[2];
-rate[0] = velocity;
-rate[1] = -g;
-return rate;
+<div class="moj_kod">
+  <h4>FreeFallDemo.java</h4>
+  <pre><code>
+<span class="siva">// Uvodni komentar: implementacija slobodnog pada
+</span>
+<span class="plava">package</span> <span class="crvena">com.example.osp</span>;
+
+<span class="plava">import</span> org.opensourcephysics.display.<span class="crvena">Trail</span>;
+<span class="plava">import</span> org.opensourcephysics.display.<span class="crvena">PlottingPanel</span>;
+
+/* Још мало објашњења у сивој боји */
+
+<span class="plava">public class</span> <span class="zelena">FreeFallDemo</span> {
+  <span class="plava">public static void</span> <span class="zelена">main</span>(<span class="plava">String</span>[] <span class="narandzasta">args</span>) {
+    <span class="narandzasta">double</span> <span class="crна">g</span> = <span class="narandzasta">9.81</span>; <span class="siva">// ubrzanje slobodnog pada</span>
+    <span class="crна">Trail</span> <span class="crна">trail</span> = <span class="plava">new</span> <span class="crна">Trail</span>();
+    <span class="crна">PlottingPanel</span> <span class="crна">panel</span> = <span class="plava">new</span> <span class="crна">PlottingPanel</span>(
+      <span class="lizкcра">"Visina (m)"</span>, <span class="lizкcра">"Vreme (s)"</span>, <span class="lizкcра">"Slobodni pad"</span>
+    );
+    <span class="crна">panel</span>.addDrawable(trail);
+
+    <span class="plava">double</span> <span class="crна">dt</span> = <span class="narandzasta">0.01</span>;
+    <span class="plава">double</span> <span class="crна">height</span> = <span class="narandzasta">20</span>, <span class="crна">velocity</span> = <span class="narandzasta">0</span>;
+    <span class="plava">for</span>(<span class="plава">double</span> <span class="crна">t</span> = <span class="narandzasta">0</span>; <span class="crна">t</span> &lt;= <span class="narandzasta">5</span>; <span class="crна">t</span> += <span class="crна">dt</span>) {
+      height += velocity * dt;  
+      velocity += -g * dt;      
+      trail.addPoint(t, height);
+    }
+
+    <span class="plava">new</span> <span class="crна">OSPFrame</span>(panel).setVisible(<span class="true">true</span>);
+  }
 }
-public void initialize(InteractiveControl control) { }
-public void reset() { }
+  </code></pre>
+</div>
 
-double[] state = {0, 20}; // почетна висина 0 m, брзина 20 m/s
-double velocity = state[1];
-}
-
-// Главна класа за визуализацију
-public class FreeFallDemo {
-public static void main(String[] args) {
-// Направимо модел
-FreeFallModel model = new FreeFallModel();
-// Подесимо траил за трагање путање
-Trail trail = new Trail();
-Frame plottingFrame = new PlottingPanel("Height (m)", "Time (s)", "Free Fall");
-((PlottingPanel)plottingFrame).addDrawable(trail);
-
-// Покренимо итерације
-double dt = 0.01;
-for(double t=0; t<=5; t+=dt) {
-  model.getRate(); // израчунавање derivative
-  model.state[0] += model.getRate()[0]*dt; // h = h + v * dt
-  model.state[1] += model.getRate()[1]*dt; // v = v + a * dt
-  trail.addPoint(t, model.state[0]);
-}
-
-// Прикажи прозор
-new OSPFrame(plottingFrame).setVisible(true);
-}
-}
-</code></pre>
-
-<p> <strong>Шта смо урадили?</strong> 
-<ul> 
-<li>У <code>pom.xml</code> додали зависност за <code>osp-core</code>.</li>
- <li>Имплементирали ODE за слободан пад (брзина и убрзање).</li>
- <li>Користили <code>Trail</code> и <code>PlottingPanel</code> за цртање графика.</li> 
- <li>У <code>main</code> петљи рачунали стање и ажурирали графикон.</li> 
- </ul>
- </p>
- <p> Када у IntelliJ-у увезете овај Maven пројекат, само покрените 
- <code>FreeFallDemo.main()</code> и видећете интерактивни прозор са графиком слободног пада. </p> 
- </div>
 
     <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-12">
