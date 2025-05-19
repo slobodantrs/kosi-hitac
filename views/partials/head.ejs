@@ -41,11 +41,11 @@ https://kosi-hitac.onrender.com/ -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<meta name="description" content="Istražite interaktivne simulacije iz fizike kreirane pomoću Java i JavaScript programskih 
+<meta name="description" content="<%= pageDescription || 'Istražite interaktivne simulacije iz fizike kreirane pomoću Java i JavaScript programskih 
 jezika koristeći alat Easy JavaScript Simulation (EJS). Na našem sajtu nudimo detaljna uputstva i primere za kreiranje
  vizualnih simulacija uz minimalno kodiranje. Saznajte više o različitim alatima za simulacije, uključujući Processing i p5.js, 
- i pronađite praktične primene u obrazovanju i nauci. Otkrijte kako EJS, deo Open Source Physics projekta, olakšava kreiranje simulacija na različitim platformama." />
- <meta name="keywords" content="Simulacije iz fizike,
+ i pronađite praktične primene u obrazovanju i nauci. Otkrijte kako EJS, deo Open Source Physics projekta, olakšava kreiranje simulacija na različitim platformama.' %>" />
+ <meta name="keywords" content="<%= pageKeywords || 'Simulacije iz fizike,
 Easy JavaScript Simulation (EJS),
 Open Source Physics,
 Java simulacije,
@@ -58,7 +58,7 @@ Naučne simulacije,
 Java programiranje,
 JavaScript programiranje,
 Tutorijali za simulacije, Kos hitac, Kružno kretanje, Rotacija krutog tela,
- Ravno kretanje krutog tela, Kompjuterske simulacije, kompjuterske simulacije u fizici, Masa i opruga, Ravno kretanje točka," />
+ Ravno kretanje krutog tela, Kompjuterske simulacije, kompjuterske simulacije u fizici, Masa i opruga, Ravno kretanje točka' %>" />
 	<meta name="author" content="Slobodan Tršek" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<base href="/">
@@ -94,7 +94,8 @@ Tutorijali za simulacije, Kos hitac, Kružno kretanje, Rotacija krutog tela,
   <script src="/_ejs_library/ejsS.v1.min.js"></script>
 
   <!-- 2) ово су кључна WebGL проширења за 3D -->
-  
+<link rel="alternate" hreflang="x-default"
+      href="https://kosi-hitac.onrender.com/" />  
 <link rel="alternate" hreflang="sr" href="https://kosi-hitac.onrender.com<%= currentPath.replace(/^\/en/, '') %>" />
 <link rel="alternate" hreflang="en" href="https://kosi-hitac.onrender.com/en<%= currentPath.replace(/^\/en/, '') %>" />
 <!-- Font Awesome -->

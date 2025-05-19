@@ -100,5 +100,15 @@
       "title": "Kontakt",
       "description": "Za sva pitanja ili zahteve u vezi sa vašim ličnim podacima, možete nas kontaktirati putem e-pošte na: svetprogramiranja23@gmail.com"
     }
+  },
+  "meta": {
+    "slobodan_pad": {
+      "description": "Interaktivna simulacija slobodnog pada koja prikazuje kako se objekat kreće pod dejstvom gravitacije (g=9,81 m/s²) bez otpora vazduha. Podesite početnu visinu i brzinu da biste istražili osnovne zakone",
+      "keywords": "Opis simulacije slobodnog pada,Opis simulacije, slobodnog pada,slobodan pad, free fall simulation, gravitacija, fizika, interaktivna simulacija, EJS, JavaScript edukativni alat, osnovni zakoni kretanja, obrazovne simulacije"
+    },
+    "kosi_hitac": {
+      "description": "Interaktivna simulacija kosog hica – istražite kretanje tela pod uglom u gravitacionom polju. Upoznajte teoriju, analizirajte formule i vizualizujte putanju pomoću alata Easy Java Simulations (EJS).",
+      "keywords": "kosi hitac, simulacija kosog hica, kretanje tela pod uglom, fizika, gravitaciono polje, domet, maksimalna visina, Easy Java Simulations, EJS, interaktivna simulacija, obrazovanje, fizika srednje škole,Kos hitac, easy java simulation, ejs"
+    }
   }
 }

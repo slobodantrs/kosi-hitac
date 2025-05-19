@@ -99,5 +99,15 @@
       "title": "Contact",
       "description": "For any questions or requests regarding your personal data, you can contact us via email at: svetprogramiranja23@gmail.com"
     }
+  },
+  "meta": {
+    "free_fall": {
+      "description": "Interactive free fall simulation: visualize an object dropping under gravity, adjust initial height and velocity, and explore fundamental motion laws in real-time animation.",
+      "keywords": "free fall simulation, gravity, physics, interactive simulation, initial height, initial velocity, motion laws, educational tool, JavaScript, p5.js"
+    },
+    "projectile_motion": {
+      "description": "Explore projectile motion through an interactive simulation created with Easy Java Simulations (EJS). Adjust initial velocity, launch angle, and observe the effects of gravity on the trajectory, velocity, and energy of the projectile.",
+      "keywords": "projectile motion, physics simulation, parabolic trajectory, Easy Java Simulations, EJS, two-dimensional motion, launch angle, initial velocity, gravity, kinetic energy, potential energy, motion analysis"
+    }
   }
 }

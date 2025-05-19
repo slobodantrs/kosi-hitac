@@ -17,7 +17,13 @@ var methods = {
     res.path1 = './slobodanPad_Contents';
     res.path2 = (id == 2) ? './slobodanPad_Intro_2' : './SlobodanPad_Intro_1';
     console.log(`Slobodan pad kontroler ${id}, ${res.path1}, ${res.path2}`);
-    res.render('pages/ejss_model_SlobodanPad/SlobodanPad', res);
+    res.render('pages/ejss_model_SlobodanPad/SlobodanPad', {
+    id: res.id,
+    path1: res.path1,
+    path2: res.path2,
+    pageDescription: res.__('meta.slobodan_pad.description'),
+    pageKeywords: res.__('meta.slobodan_pad.keywords')
+  });
   },
   SlobodanPadContents: function(req, res) {
 	   console.log("SPC: SlobodanPadContents");
@@ -50,7 +56,13 @@ var methods = {
       ? './freeFall_Intro_2'
       : './freeFall_Intro_1';
     console.log(`Free fall controller EN ${id}, ${res.path1}, ${res.path2}`);
-    res.render('pages-en/ejss_model_FreeFall/FreeFall', res);
+    res.render('pages-en/ejss_model_FreeFall/FreeFall', {
+    id: res.id,
+    path1: res.path1,
+    path2: res.path2,
+    pageDescription: res.__('meta.free_fall.description'),
+    pageKeywords: res.__('meta.free_fall.keywords')
+  });
   },
 
   // Free Fall contents

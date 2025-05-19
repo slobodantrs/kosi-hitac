@@ -22,8 +22,11 @@ var methods = {
       : (id === 2)
         ? './KosiHitac_Intro_2'
         : './KosiHitac_Simulation',
-    locale: req.locale
+    locale: req.locale,
+    pageDescription: res.__('meta.kosi_hitac.description'),
+    pageKeywords: res.__('meta.kosi_hitac.keywords')
   };
+
 	  console.log('id=>'+id);
 	  
 	 
@@ -77,7 +80,9 @@ KosHitac_EN: function(req, res) {
       : (id === 2)
         ? './ProjectileMotion_Intro_2'
         : './ProjectileMotion_Simulation',
-    locale: req.locale
+    locale: req.locale,
+    pageDescription: res.__('meta.projectile_motion.description'),
+    pageKeywords: res.__('meta.projectile_motion.keywords')
   };
 
   console.log('ProjectileMotion_EN, id =', id,'→ path1 =', data.path1, '→ path2 =', data.path2);
