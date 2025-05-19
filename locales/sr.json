@@ -109,6 +109,23 @@
     "kosi_hitac": {
       "description": "Interaktivna simulacija kosog hica – istražite kretanje tela pod uglom u gravitacionom polju. Upoznajte teoriju, analizirajte formule i vizualizujte putanju pomoću alata Easy Java Simulations (EJS).",
       "keywords": "kosi hitac, simulacija kosog hica, kretanje tela pod uglom, fizika, gravitaciono polje, domet, maksimalna visina, Easy Java Simulations, EJS, interaktivna simulacija, obrazovanje, fizika srednje škole,Kos hitac, easy java simulation, ejs"
+    },
+    "kosi_hitac": {
+      "description": "Interaktivna simulacija kosog hica – istražite kretanje tela pod uglom u gravitacionom polju. Upoznajte teoriju, analizirajte formule i vizualizujte putanju pomoću Easy Java Simulations (EJS).",
+      "keywords": "kosi hitac, simulacija kosog hica, parabolično kretanje, fizika, EJS"
+    },
+    "kruzno_kretanje": {
+      "description": "Interaktivna simulacija ravnomernog kružnog kretanja materijalne tačke. Analizirajte sile i ubrzanja, i istražite kako brzina i poluprečnik utiču na dinamiku kretanja.",
+      "keywords": "kružno kretanje, centripetalna sila, ubrzanje, poluprečnik, simulacija, fizika"
+    },
+    "masa_i_opruga": {
+      "description": "Interaktivna simulacija harmonijskog oscilatora: masa na opruzi bez trenja. Analizirajte sile, energiju i oscilacije u realnom vremenu pomoću EJS alata.",
+      "keywords": "masa i opruga, harmonijski oscilator, Hookeov zakon, oscilacije, potencijalna energija"
+    },
+    "vertikalan_hitac": {
+      "description": "Interaktivna simulacija vertikalnog hica i slobodnog pada: istražite kretanje tela pod uticajem gravitacije, pratite brzinu, ubrzanje i maksimalnu visinu.",
+      "keywords": "vertikalan hitac, slobodan pad, gravitacija, visina, ubrzanje, simulacija"
     }
+  
   }
 }

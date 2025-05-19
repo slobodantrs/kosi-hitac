@@ -108,6 +108,22 @@
     "projectile_motion": {
       "description": "Explore projectile motion through an interactive simulation created with Easy Java Simulations (EJS). Adjust initial velocity, launch angle, and observe the effects of gravity on the trajectory, velocity, and energy of the projectile.",
       "keywords": "projectile motion, physics simulation, parabolic trajectory, Easy Java Simulations, EJS, two-dimensional motion, launch angle, initial velocity, gravity, kinetic energy, potential energy, motion analysis"
+    },
+    "projectile_motion": {
+      "description": "Explore projectile motion through an interactive simulation created with Easy Java Simulations (EJS). Adjust launch angle and initial velocity, and observe gravity’s effect on trajectory.",
+      "keywords": "projectile motion, parabolic trajectory, physics simulation, EJS, launch angle"
+    },
+    "circular_motion": {
+      "description": "Simulation of uniform circular motion of a material point. Analyze centripetal acceleration, forces, and how speed and radius affect dynamics.",
+      "keywords": "circular motion, centripetal acceleration, radius, physics simulation"
+    },
+    "mass_and_spring": {
+      "description": "Interactive mass-and-spring (harmonic oscillator) simulation. Study Hooke’s law, kinetic and potential energy exchanges in real time with EJS.",
+      "keywords": "mass and spring, harmonic oscillator, Hooke’s law, energy exchange, physics simulation"
+    },
+    "vertical_throw": {
+      "description": "Interactive vertical throw simulation: learn about upward motion under gravity, maximum height, velocity, and displacement in real time.",
+      "keywords": "vertical throw, upward motion, maximum height, kinematics, physics simulation"
     }
   }
 }
