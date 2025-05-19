@@ -5,10 +5,20 @@ const router = express.Router();
 
 
  // index page 
- router.get('/', function(req, res) {
+/* router.get('/', function(req, res) {
 	console.log(`Correct!!!!!`);
 	res.render('pages/index');
     //res.render('pages/ejss_model_MassAndSpring/MassAndSpring_Simulation.xhtml');
+});*/
+// index page 
+router.get('/', function(req, res) {
+  console.log(`Correct!!!!!`);
+  res.render('pages/index', {
+    locale:         req.locale,           // da bi <html lang> radio
+    currentPath:    req.path,             // da bi hreflang linkovi radili
+    pageDescription: res.__('meta.home.description'),
+    pageKeywords:    res.__('meta.home.keywords')
+  });
 });
 
 
@@ -18,23 +28,7 @@ const router = express.Router();
 	res.render('pages/testHTML5/index');
     //res.render('pages/ejss_model_MassAndSpring/MassAndSpring_Simulation.xhtml');
 });
-/*
-router.get('/simulacija_Masa_i_Opruga', function(req, res) {
-	console.log(`Correct!!!!!`);
-	//res.render('pages/simulacija');
-    res.render('pages/ejss_model_MassAndSpring/MassAndSpring_Simulation');
-});
-router.get('/simulacija_Masa_i_Opruga/MassAndSpring_Intro_1', function(req, res) {
-	console.log(`simulacija_Masa_i_Opruga/MassAndSpring_Intro_1!!!!!`);
-	
-    res.render('pages/ejss_model_MassAndSpring/MassAndSpring_Intro_1');
-});
-router.get('/simulacija_Masa_i_Opruga/MassAndSpring_Intro_2', function(req, res) {
-	console.log(`Correct!!!!!`);
-	
-    res.render('pages/ejss_model_MassAndSpring/MassAndSpring_Intro_2');
-});
-*/
+
 // about page 
 var OpsteController = require('../controllers/OpsteController');
  router.get('/o_ejsu', OpsteController.O_Ejsu);
