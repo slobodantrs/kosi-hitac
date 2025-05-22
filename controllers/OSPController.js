@@ -38,8 +38,8 @@ IDE_Environment_Osp_EN(req, res) {
 
   // **New Pendulum Pages**
   Klatno_Primer_Osp(req, res) {
-    console.log('Render attempt:', 'pages/ODE/primer_osp_matematicko_klatno');
-    res.render('pages/ODE/primer_osp_matematicko_klatno', {
+    console.log('Render attempt:', 'pages/OSP/primer_osp_matematicko_klatno');
+    res.render('pages/OSP/primer_osp_matematicko_klatno', {
       locale: req.getLocale(),
       title:    res.__('osp.pendulum.title'),
       metaDesc: res.__('osp.pendulum.metaDescription')
@@ -47,8 +47,8 @@ IDE_Environment_Osp_EN(req, res) {
   },
 
   Pendulum_Example_Osp_EN(req, res) {
-    console.log('Render attempt:', 'pages-en/ODE/example_osp_mathematics_pendulum');
-    res.render('pages-en/ODE/example_osp_mathematics_pendulum', {
+    console.log('Render attempt:', 'pages-en/OSP/example_osp_mathematics_pendulum');
+    res.render('pages-en/OSP/example_osp_mathematics_pendulum', {
       locale: req.getLocale(),
       title:    res.__('osp.pendulum.title'),
       metaDesc: res.__('osp.pendulum.metaDescription')
