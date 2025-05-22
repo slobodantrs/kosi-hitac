@@ -47,8 +47,8 @@
 	"vektori_animacija": "Animacija vektora",
 	"sunce_Zemlja_Mesec_Animacija": "Animacija Sunce–Zemlja–Mesec",
 	"uvod_u_osp": "Uvod u OSP",
-	"simulation_tools": "Alati za simulacije",
-	"ide_okruzenje_osp": "Priprema okruženja za simulacije"
+	"simulation_tools": "Alati za simulacije"
+	
 	
 	
   },
@@ -72,6 +72,13 @@
     "description": "OSP je zajednički vođen projekt za besplatne, otvorene alate i simulacije iz fizike. Upoznajte se sa glavnim komponentama kao što su Tracker, EJS i OSP biblioteke.",
     "link_text": "Saznajte više o OSP-u",
     "link_href": "/uvod_u_osp"
+  },
+  "ide_osp": {
+    "title": "IDE okruženje za OSP",
+    "metaDescription": "Upoznajte se sa razvojnim okruženjem za Open Source Physics (OSP), uključujući Easy Java Simulations (EJS), Tracker i OSP biblioteke.",
+    "description": "Open Source Physics (OSP) pruža besplatne alate za simulacije u fizici. IDE okruženje uključuje Easy Java Simulations (EJS), Tracker i OSP biblioteke koje omogućavaju kreiranje i prilagođavanje interaktivnih simulacija.",
+    "link_text": "Saznajte više o OSP IDE okruženju",
+    "link_href": "/ide_okruzenje_osp"
   },
   "footer": {
     "quick_links": "Brze veze",
@@ -103,6 +110,7 @@
       "description": "Za sva pitanja ili zahteve u vezi sa vašim ličnim podacima, možete nas kontaktirati putem e-pošte na: svetprogramiranja23@gmail.com"
     }
   },
+  
   "meta": {
     "slobodan_pad": {
       "description": "Interaktivna simulacija slobodnog pada koja prikazuje kako se objekat kreće pod dejstvom gravitacije (g=9,81 m/s²) bez otpora vazduha. Podesite početnu visinu i brzinu da biste istražili osnovne zakone",

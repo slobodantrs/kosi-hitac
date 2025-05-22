@@ -47,8 +47,7 @@
 	"vektori_animacija": "Vector Animation",
 	"sunce_Zemlja_Mesec_Animacija": "Sun–Earth–Moon Animation",
 	"osp_introduction": "Introduction to OSP",
-	"simulation_tools": "Simulation Tools",
-	"ide_okruzenje_osp": "Preparing the environment for simulations"
+	"simulation_tools": "Simulation Tools"
   },
   "animation": {
     "title": "CIRCULAR MOTION:",
@@ -70,6 +69,13 @@
     "description": "OSP is a community-driven project providing free, open‑source physics simulations and tools. Learn about its core components like Tracker, EJS, and the OSP libraries.",
     "link_text": "Learn more about OSP",
     "link_href": "/en/osp_introduction"
+  },
+  "ide_osp": {
+    "title": "IDE Environment for OSP",
+    "metaDescription": "Learn about the development environment for Open Source Physics (OSP), including Easy Java Simulations (EJS), Tracker, and OSP libraries.",
+    "description": "Open Source Physics (OSP) provides free tools for physics simulations. The IDE environment includes Easy Java Simulations (EJS), Tracker, and OSP libraries that enable the creation and customization of interactive simulations.",
+    "link_text": "Learn more about the OSP IDE environment",
+    "link_href": "/ide_environment_osp"
   },
   "footer": {
     "quick_links": "Quick Links",
