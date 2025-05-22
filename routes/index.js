@@ -146,7 +146,7 @@ var OSPController = require('../controllers/OSPController');
 router.get('/uvod_u_osp', OSPController.Uvod_U_Osp);
 router.get('/osp/ide_okruzenje', OSPController.IDE_Okruzenje_Osp);
 // OSP pendulum examples
-router.get('/primer_osp_matematicko_klatno', OSP.Klatno_Primer_Osp);
+router.get('/primer_osp_matematicko_klatno', OSPController.Klatno_Primer_Osp);
 
 
 
@@ -287,7 +287,7 @@ router.get('/en/usage_p5js/vector_animation/:id?',      VektoriController.Vektor
 // English
 router.get('/en/osp_introduction', OSPController.Uvod_U_Osp_EN);
 router.get('/en/osp/ide_environment', OSPController.IDE_Environment_Osp_EN);
-router.get('/en/ode/example_osp_mathematics_pendulum',           OSP.Pendulum_Example_Osp_EN);
+router.get('/en/ode/example_osp_mathematics_pendulum', OSPController.Pendulum_Example_Osp_EN);
 
 const path = require('path');
 const options = {
