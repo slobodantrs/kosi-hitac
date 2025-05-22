@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <% include ../../partials/head %>
+	<title>Open Source Physics (OSP) – Fizika otvorenog koda</title>
+<!-- Canonical URL -->
+<link rel="canonical" href="https://kosi-hitac.onrender.com/osp/ide_okruzenje" />
+
+<!-- Meta opis -->
+<meta name="description" content="Detaljan vodič za podešavanje IntelliJ IDEA okruženja za izradu Open Source Physics simulacija: instalacija IDE-a, konfiguracija JDK-a, dodavanje OSP i ACM biblioteka, kreiranje prvog Java projekta." />
+
+<!-- Ključne reči -->
+<meta name="keywords" content="Open Source Physics, OSP, IntelliJ IDEA, IDE podešavanje, JDK konfiguracija, OSP biblioteke, ACM biblioteka, java simulacije, razvojno okruženje, tutorijal" />
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../../partials/header %>
+            </header>
+        </div>
+    </div>
+ 
+<div class="moj_tekst">
+  <h1>Creating a Simple Pendulum Simulation Using the OSP Library</h1>
+  <p>
+    This part of the guide demonstrates how to create a simple simulation of a mathematical pendulum using Open Source Physics (.jar) packages,
+    after setting up IntelliJ IDEA and integrating the OSP libraries.
+    We will walk through the project structure, necessary imports, and explain how to display pendulum oscillations in real time.
+  </p>
+
+  <h2>What Will Be Covered</h2>
+  <ul>
+    <li><strong>Importing and Organizing OSP .jar Files</strong><br>
+      A brief reminder on downloading and adding <code>org.opensourcephysics.*</code> packages to IntelliJ IDEA.
+    </li>
+    <li><strong>Project Structure for OSP Simulation</strong><br>
+      Where to place the main class in the <code>src</code> directory and how to organize the package.
+    </li>
+    <li><strong>Basic Imports and Initialization</strong><br>
+      Using <code>SimulationControl</code>, <code>PlotFrame</code>, and other OSP classes to set up the pendulum visualization.
+    </li>
+    <li><strong>Numerical Integration</strong><br>
+      Defining the ODE system for the oscillations and solving it using OSP’s Runge–Kutta or Euler solvers.
+    </li>
+    <li><strong>Display and Animation</strong><br>
+      Updating the pendulum's position on a <code>PlotFrame</code> or a custom <code>DrawingPanel</code> in a loop.
+    </li>
+  </ul>
+
+  <p>
+    After this introduction, you will be ready to implement and further customize the simulation—add control elements, change parameters,
+    or even expand the pendulum into 3D using WebEJS or the p5.js port of OSP.
+  </p>
+</div>
+
+
+
+
+<div class="moj_tekst">
+  <h2>Basic Setup in IntelliJ IDEA</h2>
+  <p>
+    Before diving into simulation development or other Java projects, it is essential to properly configure your development environment.
+    The following steps will guide you through the basic IntelliJ IDEA setup: from JDK integration and plugin installation to customizing keyboard shortcuts and themes.
+  </p>
+
+  <h3>1. Configuring the JDK</h3>
+  <p>
+    The first and most important step is to add the locally installed Java Development Kit (JDK) to IntelliJ IDEA. This enables compiling and running your Java applications.
+  </p>
+  <ol>
+    <li>
+      Open:
+      <ul>
+        <li><strong>Windows:</strong> <code>File → Settings → Build, Execution, Deployment → SDKs</code></li>
+        <li><strong>Linux/macOS:</strong> <code>IntelliJ IDEA → Preferences → Build, Execution, Deployment → SDKs</code></li>
+      </ul>
+    </li>
+    <li>Click on <code>+ → Add SDK → JDK</code>.</li>
+    <li>Select the path to your JDK’s root folder (the one containing <code>bin</code>, <code>lib</code>, etc.):
+      <ul>
+        <li><code>C:\Program Files\Java\jdk-11.0.12</code> (Windows)</li>
+        <li><code>/usr/lib/jvm/java-11-openjdk</code> (Linux)</li>
+      </ul>
+    </li>
+    <li>Be sure to enter a descriptive name, e.g., “Java 11”, and click <strong>OK</strong>.</li>
+    <li>Finally, go to <code>Project Structure → Project</code> and under <strong>Project SDK</strong> select the JDK you just added.</li>
+  </ol>
+
+  <h3>2. Installing Plugins</h3>
+  <p>
+    To work with other languages and tools within IntelliJ IDEA, you need to install the appropriate plugins.
+  </p>
+  <ol>
+    <li>Open <code>File → Settings → Plugins</code> (or <code>IntelliJ IDEA → Preferences → Plugins</code>).</li>
+    <li>Use the search bar to find the desired language or tool (e.g., “Scala”, “Python”, “Docker”).</li>
+    <li>Click <strong>Install</strong>, then <strong>Restart IDE</strong> when installation completes.</li>
+  </ol>
+
+  <h3>3. Customizing Keyboard Shortcuts and Theme</h3>
+  <p>
+    IntelliJ IDEA allows you to choose from multiple predefined keymaps and visual themes, so your workspace is as comfortable as possible.
+  </p>
+  <ol>
+    <li>Keymap: <code>Settings → Keymap</code> – choose “Default”, “Eclipse”, “Visual Studio” or another layout.</li>
+    <li>Theme: <code>Settings → Appearance &amp; Behavior → Theme</code> – select “Darcula” (dark) or “IntelliJ Light”.</li>
+  </ol>
+
+  <h3>4. Menu Shortcut (Linux)</h3>
+  <p>
+    If you installed IntelliJ IDEA from a <code>.tar.gz</code> package, the IDE will offer to create a desktop entry for easier launching from the GUI menu the first time it runs.
+  </p>
+  <p>
+    If the IDE does not offer this automatically:
+  </p>
+  <ol>
+    <li>Open a terminal and create a script:
+      <pre><code>sudo tee /usr/local/bin/idea << 'EOF'
+#!/usr/bin/env bash
+/opt/idea-community/bin/idea.sh "$@"
+EOF
+sudo chmod +x /usr/local/bin/idea
+</code></pre>
+    </li>
+    <li>You can now launch IntelliJ using the <code>idea</code> command or find it in your desktop environment’s applications menu.</li>
+  </ol>
+</div>
+
+<div class="moj_tekst">
+  <h2>Versions and Documentation</h2>
+  <p>
+    The current stable version of the OSP libraries is <strong>6.3.0</strong> (February 2025).
+    Previously widely used versions include 6.2.x and 6.1.x (e.g., 6.1.7 from June 2024).
+  </p>
+  <p>
+    Full user manuals and technical documentation are available on the ComPADRE website.
+    Additionally, online JavaDoc is published for all OSP packages and classes within the OpenSourcePhysics domain.
+    To get started, visit the <a href="https://www.compadre.org/osp/" target="_blank">ComPADRE Programming – Documentation</a> section and the “OSP User’s Guide”.
+  </p>
+
+  <h3>Download Sources</h3>
+  <ul>
+    <li><a href="https://www.compadre.org/osp/" target="_blank">ComPADRE Open Source Physics</a> – official .jar archives and PDF manuals</li>
+    <li><a href="http://psrc.aapt.org/osp/" target="_blank">AAPT/PSRC</a> – mirror .jar packages and example files</li>
+    <li><a href="https://github.com/opensourcephysics/osp-core" target="_blank">GitHub OSP Core Repository</a> – source code for custom builds</li>
+  </ul>
+
+  <h3>Installing a Single OSP JAR File</h3>
+  <p>
+    It is sufficient to include just one archive – either <code>osp.jar</code> or <code>osp-guide.jar</code> – in your project.
+  </p>
+  <ol>
+    <li>
+      <strong>Download the JAR file:</strong><br>
+      If <code>osp_guide.jar</code> is not already on your machine, download it from ComPADRE:<br>
+      <a href="https://www.compadre.org/osp/document/ServeFile.cfm?ID=7153&DocID=352&Attachment=1" target="_blank">osp_guide.jar</a><br>
+      Save it in a <code>libs/</code> folder within your project directory.
+    </li>
+    <li>
+      <strong>Add it to IntelliJ IDEA:</strong>
+      <ul>
+        <li>Go to <code>File → Project Structure…</code> (or press <code>Ctrl+Alt+Shift+S</code>).</li>
+        <li>Select your module, then open the <strong>Dependencies</strong> tab.</li>
+        <li>Click <strong>+</strong> → <em>JARs or directories…</em>, locate <code>libs/osp-guide.jar</code>, confirm, and set the scope to <strong>Compile</strong>.</li>
+        <li>Click <strong>Apply</strong> and <strong>OK</strong>.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>Optional: Global Library</h3>
+  <p>
+    To use the same OSP JAR archive across multiple projects without duplication, you can register it as a global library:
+  </p>
+  <ol>
+    <li>Open <code>File → Project Structure… → Platform Settings → Global Libraries</code>.</li>
+    <li>Click <strong>+</strong> → <em>Java</em> and select <code>osp-guide.jar</code>.</li>
+    <li>Save the change; the library will appear under Global Libraries.</li>
+    <li>In each project, go to <strong>Modules → Dependencies</strong>, click <strong>+</strong> → <em>Library → Global Library</em>, and select <code>osp-guide</code>.</li>
+  </ol>
+
+  <p>
+    After this setup, IntelliJ will place OSP classes on the project’s classpath, making it possible to use:
+  </p>
+  <pre><code>import org.opensourcephysics.controls.*;
+import org.opensourcephysics.display.*;</code></pre>
+</div>
+
+
+
+<div class="moj_tekst">
+  <h2>Creating a Java Project and Integrating OSP Libraries</h2>
+  <p>
+    The following steps describe how to create a new Java project in IntelliJ IDEA, 
+    how to add Open Source Physics (.jar) libraries to it, and finally, how to implement an example simulation 
+    of a mathematical pendulum.
+  </p>
+
+  <h3>1. Creating a New Java Project</h3>
+  <ol>
+    <li>Launch IntelliJ IDEA.</li>
+    <li>On the welcome screen, choose <strong>New Project</strong>.</li>
+    <li>Select <strong>Java</strong> and an already installed JDK (e.g., Java 11).</li>
+    <li>Click <strong>Next</strong>, enter a project name (e.g., <em>AnimatedPendulum</em>), and click <strong>Finish</strong>.</li>
+  </ol>
+
+  <h3>2. Adding OSP Libraries</h3>
+  <p>
+    Downloaded .jar files from the OSP distribution (e.g., <code>osp.jar</code> 
+    or <code>osp-guide.jar</code>) can be included in the project as follows:
+  </p>
+  <ol>
+    <li>Right-click the module or “External Libraries” and select <strong>Open Module Settings</strong> (<code>F4</code>).</li>
+    <li>Switch to the <strong>Libraries</strong> tab and click <strong>+</strong> → <em>Java</em>.</li>
+    <li>Select the downloaded .jar files and confirm the scope as <strong>Compile</strong>.</li>
+    <li>Click <strong>Apply</strong> and <strong>OK</strong>.</li>
+  </ol>
+
+  <h3>3. Package Structure</h3>
+  <p>
+    It is recommended to create a package inside the <code>src</code> folder, for example <code>pendulum</code>,
+    which will contain all the classes related to the simulation.
+  </p>
+
+  <div>
+    <figure>
+      <img 
+        src="public/images/OSP/AnimacijaKlatna.jpg" 
+        alt="Mathematical pendulum animation" 
+      />
+      <figcaption>Animation of the mathematical pendulum</figcaption>
+    </figure>
+  </div>
+</div>
+<div class="moj_kod"> <pre><code> <span class="plava">package</span> <span class="crna">pendulum</span>;<br><br>
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.display.Circle</span>;<br>
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.display.Trail</span>;<br>
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.display.DrawingFrame</span>;<br>
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.display.DrawingPanel</span>;<br>
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.numerics.ODE</span>;<br>
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.numerics.ODESolver</span>;<br>
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.numerics.Euler</span>;<br><br>
+
+<span class="siva">/**</span><br>
+<span class="siva"> * This class represents a simple mathematical pendulum simulation using</span><br>
+<span class="siva"> * the Open Source Physics (OSP) library.</span><br>
+<span class="siva"> */</span><br>
+<span class="plava">public class</span> <span class="zelena">AnimatedPendulum</span> <span class="plava">implements</span> <span class="zelena">ODE</span> {<br><br>
+
+<span class="siva"> // The state vector: [θ (angle), ω (angular velocity), t (time)]</span><br>
+<span class="narandzasta">double</span>[] state = <span class="crvena">new</span> <span class="narandzasta">double</span>[<span class="crvena">3</span>];<br><br>
+
+<span class="siva"> // Gravitational acceleration (in m/s<span class="crvena">^2</span>)</span><br>
+<span class="narandzasta">final double</span> gravity = <span class="crvena">9.81</span>;<br><br>
+
+<span class="siva"> // Length of the pendulum rod (in meters)</span><br>
+<span class="narandzasta">final double</span> length = <span class="crvena">8.0</span>;<br><br>
+
+<span class="siva"> /**</span><br>
+<span class="siva"> * Constructor initializes the pendulum with an initial angle,</span><br>
+<span class="siva"> * angular velocity, and time.</span><br>
+<span class="siva"> */</span><br>
+<span class="plava">public</span> <span class="zelena">AnimatedPendulum</span>() {<br>
+state[<span class="crvena">0</span>] = <span class="zelena">Math</span>.<span class="zelena">PI</span> / <span class="crvena">4</span>; <span class="siva">// Initial angle (45°)</span><br>
+state[<span class="crvena">1</span>] = <span class="crvena">0</span>;<br>
+state[<span class="crvena">2</span>] = <span class="crvena">0</span>;<br>
+}<br><br>
+
+<span class="siva"> /** Returns the current state of the system. */</span><br>
+<span class="plava">@Override</span><br>
+<span class="narandzasta">public double</span>[] <span class="zelena">getState</span>() {<br>
+<span class="plava">return</span> state;<br>
+}<br><br>
+
+<span class="siva"> /**</span><br>
+<span class="siva"> * Computes the rate of change for the state variables.</span><br>
+<span class="siva"> * dθ/dt = ω</span><br>
+<span class="siva"> * dω/dt = -(g/L) * sin(θ)</span><br>
+<span class="siva"> * dt/dt = 1</span><br>
+<span class="siva"> */</span><br>
+<span class="plava">@Override</span><br>
+<span class="narandzasta">public void</span> <span class="zelena">getRate</span>(<span class="narandzasta">double</span>[] state, <span class="narandzasta">double</span>[] rate) {<br>
+rate[<span class="crvena">0</span>] = state[<span class="crvena">1</span>];<br>
+rate[<span class="crvena">1</span>] = - (gravity / length) * <span class="zelena">Math</span>.<span class="zelena">sin</span>(state[<span class="crvena">0</span>]);<br>
+rate[<span class="crvena">2</span>] = <span class="crvena">1</span>;<br>
+}<br><br>
+
+<span class="siva"> /** Main method that sets up and runs the animation loop. */</span><br>
+<span class="plava">public static void</span> <span class="zelena">main</span>(<span class="narandzasta">String</span>[] args) {<br>
+<span class="siva">// Create the pendulum model</span><br>
+<span class="zelena">AnimatedPendulum</span> model = <span class="crvena">new</span> <span class="zelena">AnimatedPendulum</span>();<br><br>
+<span class="siva">// Choose Euler solver</span><br>
+<span class="zelena">ODESolver</span> solver = <span class="crvena">new</span> <span class="zelena">Euler</span>(model);<br><br>
+
+<span class="siva">// Set up drawing panel and frame</span><br>
+<span class="zelena">DrawingPanel</span> panel = <span class="crvena">new</span> <span class="zelena">DrawingPanel</span>();<br>
+<span class="zelena">DrawingFrame</span> frame = <span class="crvena">new</span> <span class="zelena">DrawingFrame</span>(<span class="crvena">"Pendulum Animation"</span>, panel);<br>
+frame.<span class="zelena">setDefaultCloseOperation</span>(<span class="zelena">DrawingFrame</span>.<span class="zelena">EXIT_ON_CLOSE</span>);<br>
+frame.<span class="zelena">setVisible</span>(<span class="plava">true</span>);<br><br>
+
+<span class="siva">// Trail for the rod</span><br>
+<span class="zelena">Trail</span> rod = <span class="crvena">new</span> <span class="zelena">Trail</span>();<br>
+rod.<span class="zelena">setConnected</span>(<span class="plava">true</span>);<br><br>
+
+<span class="siva">// Circle for the bob</span><br>
+<span class="zelena">Circle</span> bob = <span class="crvena">new</span> <span class="zelena">Circle</span>(<span class="crvena">0</span>, <span class="crvena">0</span>, <span class="crvena">15</span>);<br><br>
+
+<span class="siva">// Add to panel</span><br>
+panel.<span class="zelena">addDrawable</span>(rod);<br>
+panel.<span class="zelena">addDrawable</span>(bob);<br><br>
+
+<span class="siva">// Time step</span><br>
+<span class="narandzasta">double</span> dt = <span class="crvena">0.02</span>;<br>
+solver.<span class="zelena">initialize</span>(dt);<br><br>
+
+<span class="siva">// Animation loop</span><br>
+<span class="plava">while</span> (<span class="plava">true</span>) {<br>
+  solver.<span class="zelena">step</span>();<br>
+  <span class="narandzasta">double</span> theta = model.state[<span class="crvena">0</span>];<br>
+  <span class="narandzasta">double</span> x = model.length * <span class="zelena">Math</span>.<span class="zelena">sin</span>(theta);<br>
+  <span class="narandzasta">double</span> y = -model.length * <span class="zelena">Math</span>.<span class="zelena">cos</span>(theta);<br><br>
+
+  <span class="siva">// Update rod</span><br>
+  rod.<span class="zelena">clear</span>();<br>
+  rod.<span class="zelena">addPoint</span>(<span class="crvena">0</span>, <span class="crvena">0</span>);<br>
+  rod.<span class="zelena">addPoint</span>(x, y);<br><br>
+
+  <span class="siva">// Update bob</span><br>
+  bob.<span class="zelena">setX</span>(x);<br>
+  bob.<span class="zelena">setY</span>(y);<br><br>
+
+  <span class="siva">// Render</span><br>
+  frame.<span class="zelena">render</span>();<br><br>
+
+  <span class="siva">// Control speed</span><br>
+  <span class="plava">try</span> {<br>
+    <span class="zelena">Thread</span>.<span class="zelena">sleep</span>((<span class="narandzasta">int</span>)(dt * <span class="crvena">1000</span>));<br>
+  } <span class="plava">catch</span>(<span class="narandzasta">InterruptedException</span> e) {<br>
+    <span class="plava">break</span>;<br>
+  }<br>
+}<br>
+
+ 
+ }<br>
+}
+</code></pre>
+
+</div>
+
+
+
+
+
+ 
+<div class="moj_tekst"> <h3>Code Explanation</h3> <p> The <span class="code">AnimatedPendulum</span> class implements the <span class="code">ODE</span> interface.
+ To understand what that entails, let’s first look at the <code>ODE</code> interface itself: </p> <h4>What is the <span class="code">ODE</span> interface in OSP?</h4>
+ <p> In the Open Source Physics (OSP) library, <span class="code">ODE</span> is an interface used to model dynamic systems via 
+ <strong>ordinary differential equations</strong> (ODEs). </p> <p>It requires two methods:</p>
+ <div class="moj_kod"> <span class="plava">public interface</span> 
+ <span class="crna">ODE</span> {<br> &nbsp;&nbsp;<span class="crna">double</span>[] <span class="zelena">getState</span>();<br>
+ &nbsp;&nbsp;<span class="crna">void</span> <span class="zelena">getRate</span>(<span class="crna">double</span>[] state, <span class="crna">double</span>[] rate);<br>
+ } </div> <h4>Method Breakdown:</h4> 
+ <ul>
+ <li> 
+ <span class="code">double[] getState()</span><br>
+ Returns the array representing the current system state. For our pendulum: angle <em>θ</em>, angular velocity <em>ω</em>, and time <em>t</em>.<br>
+ Example: <span class="code">state = [θ, ω, t]</span> </li>
+ <li> <span class="code">void getRate(double[] state, double[] rate)</span><br>
+ Computes the time derivatives of each state variable:<br> <ul> <li><span class="code">rate[0] = ω</span> – angle changes at angular velocity</li> 
+ <li><span class="code">rate[1] = - (g / L) * sin(θ)</span> – angular velocity changes per gravitational torque</li> 
+ <li><span class="code">rate[2] = 1</span> – time advances at a constant rate</li> </ul> </li> </ul> 
+ <p> In <span class="code">AnimatedPendulum</span> we define a <span class="code">double[] state</span>
+ of length 3, storing <em>θ</em>, <em>ω</em>, and <em>t</em>. We initialize <span class="code">state[0]</span> to π/4 radians, and the others to 0. </p>
+ <p> In the <span class="code">main</span> method we create: </p> <ul> <li><strong>model</strong> – an instance of <span class="code">AnimatedPendulum</span></li> 
+ <li><strong>solver</strong> – an <span class="code">Euler</span> solver implementing <span class="code">ODESolver</span></li>
+ <li><strong>panel</strong> – a <span class="code">DrawingPanel</span> for rendering</li> 
+ <li><strong>frame</strong> – a <span class="code">DrawingFrame</span> window displaying that panel</li>
+ </ul>
+ <p> We then add two drawable objects to the panel: </p>
+ <ul>
+ <li><span class="code">rod</span> – a <span class="code">Trail</span> representing the pendulum rod</li>
+ <li><span class="code">bob</span> – a <span class="code">Circle</span> representing the pendulum bob</li>
+ </ul> 
+ <p> Inside the infinite loop, we call <span class="code">solver.step()</span> to advance the state, compute the new <em>x</em> and <em>y</em> positions, update the
+ <span class="code">rod</span> and <span class="code">bob</span> accordingly, and then render via <span class="code">frame.render()</span>. A brief 
+ <span class="code">Thread.sleep()</span> controls animation speed. </p>
+ <p> This cycle simulates our physical pendulum in real time, solving its ODEs and updating the visualization at each time step. </p> 
+ </div>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <% include ../../partials/scripts %>
+            <% include ../../partials/footer %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

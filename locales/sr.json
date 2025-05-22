@@ -47,7 +47,8 @@
 	"vektori_animacija": "Animacija vektora",
 	"sunce_Zemlja_Mesec_Animacija": "Animacija Sunce–Zemlja–Mesec",
 	"uvod_u_osp": "Uvod u OSP",
-	"simulation_tools": "Alati za simulacije"
+	"simulation_tools": "Alati za simulacije",
+	"primer_matematicko_klatno": "Mat. klatno (primer)"
 	
 	
 	
@@ -71,7 +72,11 @@
     "title": "Uvod u OSP (Open Source Physics)",
     "description": "OSP je zajednički vođen projekt za besplatne, otvorene alate i simulacije iz fizike. Upoznajte se sa glavnim komponentama kao što su Tracker, EJS i OSP biblioteke.",
     "link_text": "Saznajte više o OSP-u",
-    "link_href": "/uvod_u_osp"
+    "link_href": "/uvod_u_osp",
+	"pendulum": {
+      "title":       "Primer: Matematičko klatno u OSP",
+      "metaDescription": "Kratak vodič za simulaciju matematičkog klatna koristeći OSP Java biblioteke."
+    }
   },
   "ide_osp": {
     "title": "IDE okruženje za OSP",

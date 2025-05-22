@@ -82,15 +82,16 @@
            </a>
 			  <ul class="dropdown-menu submenu" aria-labelledby="dropdownSimTools">
 				<li>
-				  <a class="dropdown-item"
-					 href="<%= navHref('/uvod_u_osp') %>">
+				  <a class="dropdown-item" href="<%= navHref('/uvod_u_osp') %>">
 					<%= __('nav.uvod_u_osp') %>
 				  </a>
 				</li>
 				<li>
-				  <a href="<%= __('ide_osp.link_href') %>"><%= __('ide_osp.link_text') %></a>
+				  <a class="dropdown-item" href="<%= __('ide_osp.link_href') %>"><%= __('ide_osp.link_text') %></a>
 
 				</li>
+				 <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="<%= slug('/primer_osp_matematicko_klatno') %>"><%= __('nav.primer_matematicko_klatno') %></a></li>
 				<!-- Kasnije možete dodati i Web EJS, OSP online, itd. -->
 				
 			  </ul>
@@ -179,9 +180,11 @@
 				  </a>
 				</li>
 				<li>
-				  <a href="<%= __('ide_osp.link_href') %>"><%= __('ide_osp.link_text') %></a>
+				  <a class="dropdown-item" href="<%= __('ide_osp.link_href') %>"><%= __('ide_osp.link_text') %></a>
 
 				</li>
+				 <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="<%= slug('/primer_osp_matematicko_klatno') %>"><%= __('nav.primer_matematicko_klatno') %></a></li>
 				<!-- Kasnije možete dodati i Web EJS, OSP online, itd. -->
 				
 			  </ul>

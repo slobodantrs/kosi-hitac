@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <% include ../../partials/head %>
+	<title>Open Source Physics (OSP) – Fizika otvorenog koda</title>
+<!-- Canonical URL -->
+<link rel="canonical" href="https://kosi-hitac.onrender.com/osp/ide_okruzenje" />
+
+<!-- Meta opis -->
+<meta name="description" content="Detaljan vodič za podešavanje IntelliJ IDEA okruženja za izradu Open Source Physics simulacija: instalacija IDE-a, konfiguracija JDK-a, dodavanje OSP i ACM biblioteka, kreiranje prvog Java projekta." />
+
+<!-- Ključne reči -->
+<meta name="keywords" content="Open Source Physics, OSP, IntelliJ IDEA, IDE podešavanje, JDK konfiguracija, OSP biblioteke, ACM biblioteka, java simulacije, razvojno okruženje, tutorijal" />
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../../partials/header %>
+            </header>
+        </div>
+    </div>
+ 
+  <div class="moj_tekst"> <h1>Kreiranje simulacije matematičkog klatna korišćenjem OSP biblioteke</h1>
+  <p> Ovaj deo vodiča prikazuje kako da, nakon što ste podesili IntelliJ IDEA i integrisali OSP biblioteke,
+  napravite jednostavnu simulaciju matematičkog klatna koristeći Open Source Physics (.jar) pakete.
+  Proći ćemo kroz strukturu projekta, neophodne import-e, i objasniti kako da prikažete oscilacije klatna u realnom vremenu. </p>
+  <h2>Šta će biti obrađeno</h2> <ul> <li><strong>Uvoz i organizacija OSP .jar fajlova</strong><br> 
+  Kratak podsetnik na preuzimanje i dodavanje <code>org.opensourcephysics.*</code> paketa u IntelliJ IDEA.</li> 
+  <li><strong>Struktura projekta za OSP simulaciju</strong><br> Gde u <code>src</code> direktorijumu smestiti glavnu klasu i kako organizovati package.</li>
+  <li><strong>Osnovni imports i inicijalizacija</strong><br> Korišćenje <code>SimulationControl</code>,
+  <code>PlotFrame</code> i drugih klasa iz OSP-a za postavljanje slike klatna.</li>
+  <li><strong>Numerička integracija</strong><br> Definisanje ODE sistema za oscilacije i rešavanje pomoću OSP-ovih Runge–Kutta ili Euler solvera.</li>
+  <li><strong>Prikaz i animacija</strong><br> Ažuriranje položaja klatna na <code>PlotFrame</code> ili custom <code>DrawingPanel</code> u petlji.</li> 
+  </ul> <p> Nakon ovog uvoda, bićete spremni da implementirate i detaljnije prilagodite simulaciju—dodate kontrolne elemente, promenljive parametre 
+  ili čak proširite klatno u 3D koristeći WebEJS ili p5.js port OSP-a. </p>
+  </div>
+
+
+
+
+
+
+<div class="moj_tekst">
+  <h2>Osnovna podešavanja u IntelliJ IDEA</h2>
+  <p>
+    Pre nego što se upustite u razvoj vaših simulacija ili drugih Java projekata, neophodno je da pravilno podesite razvojno okruženje. 
+    Sledeći koraci će vas provesti kroz osnovna podešavanja IntelliJ IDEA: od integracije JDK-a, preko instalacije dodatnih plugin-ova, 
+    do prilagođavanja tastaturskih prečica i teme.
+  </p>
+
+  <h3>1. Konfiguracija JDK-a</h3>
+  <p>
+    Prvi i najvažniji korak je dodavanje lokalno instaliranog Java Development Kita (JDK) u IntelliJ IDEA. Ovo omogućava kompajliranje 
+    i pokretanje vaših Java aplikacija.
+  </p>
+  <ol>
+    <li>
+      Otvorite:
+      <ul>
+        <li><strong>Windows:</strong> <code>File → Settings → Build, Execution, Deployment → SDKs</code></li>
+        <li><strong>Linux/macOS:</strong> <code>IntelliJ IDEA → Preferences → Build, Execution, Deployment → SDKs</code></li>
+      </ul>
+    </li>
+    <li>Kliknite na znak <code>+ → Add SDK → JDK</code>.</li>
+    <li>Izaberite putanju do root foldera vašeg JDK-a (onog koji sadrži pod-foldere <code>bin</code>, <code>lib</code> itd.):  
+      <ul>
+        <li><code>C:\Program Files\Java\jdk-11.0.12</code> (Windows)</li>
+        <li><code>/usr/lib/jvm/java-11-openjdk</code> (Linux)</li>
+      </ul>
+    </li>
+    <li>Obavezno unesite deskriptivni naziv, npr. “Java 11”, i kliknite <strong>OK</strong>.</li>
+    <li>Konačno, idite na <code>Project Structure → Project</code> i u polju <strong>Project SDK</strong> izaberite upravo dodat JDK.</li>
+  </ol>
+
+  <h3>2. Instalacija plugin-ova</h3>
+  <p>
+    Da biste radili sa drugim jezicima i alatima unutar IntelliJ IDEA, potrebno je da instalirate odgovarajuće plugin-ove.
+  </p>
+  <ol>
+    <li>Otvorite <code>File → Settings → Plugins</code> (ili <code>IntelliJ IDEA → Preferences → Plugins</code>).</li>
+    <li>U pretrazi ukucajte željeni jezik ili alat (npr. “Scala”, “Python”, “Docker”).</li>
+    <li>Kliknite <strong>Install</strong>, zatim <strong>Restart IDE</strong> kada se instalacija završi.</li>
+  </ol>
+
+  <h3>3. Prilagođavanje tastaturskih prečica i teme</h3>
+  <p>
+    IntelliJ IDEA omogućava izbor između više preddefinisanih keymap-ova i grafičkih tema, kako bi radno okruženje bilo što prijatnije.
+  </p>
+  <ol>
+    <li>Keymap: <code>Settings → Keymap</code> – izaberite “Default”, “Eclipse”, “Visual Studio” ili drugi layout.</li>
+    <li>Tema: <code>Settings → Appearance &amp; Behavior → Theme</code> – odaberite “Darcula” (tamna) ili “IntelliJ Light”.</li>
+  </ol>
+
+  <h3>4. Prečica u meniju (Linux)</h3>
+  <p>
+    Ako ste instalirali IntelliJ IDEA iz <code>.tar.gz</code> paketa, prilikom prvog pokretanja IDE će vam ponuditi da kreira 
+    desktop entry za brže pokretanje sa GUI menija.
+  </p>
+  <p>
+    U slučaju da IDE ne ponudi automatski:
+  </p>
+  <ol>
+    <li>Otvorite terminal i kreirajte skriptu:
+      <pre><code>sudo tee /usr/local/bin/idea << 'EOF'
+#!/usr/bin/env bash
+/opt/idea-community/bin/idea.sh "$@"
+EOF
+sudo chmod +x /usr/local/bin/idea
+</code></pre>
+    </li>
+    <li>Sada možete da pokrenete IntelliJ komandno sa <code>idea</code> ili ga pronađite u aplikacijama vašeg desktop okruženja.</li>
+  </ol>
+ 
+
+</div>
+
+<div class="moj_tekst"> <h2>Verzije i dokumentacija</h2> <p> Trenutno je stabilna verzija OSP biblioteka <strong>6.3.0</strong> (februar 2025).
+ Ranije često korišćene verzije su 6.2.x i 6.1.x (npr. 6.1.7 iz juna 2024). </p> <p> Kompletni korisnički priručnici i tehnička dokumentacija dostupni su na sajtu ComPADRE.
+ Takođe je objavljen online JavaDoc za sve OSP pakete i klase u okviru OpenSourcePhysics domena.
+ Za početak pogledajte odeljak <a href="https://www.compadre.org/osp/" target="_blank">ComPADRE Programming – Documentation</a> i “OSP User’s Guide”. </p>
+ <h3>Izvori za preuzimanje</h3> <ul> <li><a href="https://www.compadre.org/osp/" target="_blank">ComPADRE Open Source Physics</a> – zvanične .jar arhive i PDF priručnici</li>
+ <li><a href="http://psrc.aapt.org/osp/" target="_blank">AAPT/PSRC</a> – mirror .jar paketi i primeri</li> 
+ <li><a href="https://github.com/opensourcephysics/osp-core" target="_blank">GitHub OSP Core Repository</a> – izvorni kod za sopstvenu izgradnju</li> 
+ </ul> <h3>Instalacija jednog OSP JAR fajla</h3> <p> Dovoljno je uključiti jedan arhiv – <code>osp.jar</code> ili <code>osp-guide.jar</code> – u projekat. </p>
+ <ol> <li> <strong>Preuzimanje JAR fajla:</strong><br> Ako <code>osp_guide.jar</code> nije već na računaru, preuzmite ga sa ComPADRE:<br> 
+ <a href="https://www.compadre.org/osp/document/ServeFile.cfm?ID=7153&DocID=352&Attachment=1" target="_blank">osp_guide.jar</a>
+ <br> Sačuvajte ga u fascikli <code>libs/</code> unutar vašeg projekta. </li> 
+ <li> <strong>Dodavanje u IntelliJ IDEA:</strong>
+ <ul> <li>Otvorite <code>File → Project Structure…</code> (ili <code>Ctrl+Alt+Shift+S</code>).</li> 
+ <li>Izaberite svoj modul, pa karticu <strong>Dependencies</strong>.</li> 
+ <li>Kliknite na <strong>+</strong> &rarr; <em>JARs or directories…</em>, pronađite <code>libs/osp-guide.jar</code>,
+ potvrdite i izaberite opseg <strong>Compile</strong>.</li> <li>Kliknite <strong>Apply</strong> i <strong>OK</strong>.</li> 
+ </ul> </li> </ol> <h3>Opcionalno: Globalna biblioteka</h3> <p> Da biste istu OSP JAR arhivu koristili u više projekata bez dupliranja, 
+ možete je registrovati kao globalnu biblioteku: </p> <ol> <li>Otvorite <code>File → Project Structure… → Platform Settings → Global Libraries</code>.</li>
+ <li>Kliknite na <strong>+</strong> &rarr; <em>Java</em> i izaberite <code>osp-guide.jar</code>.</li> 
+ <li>Sačuvajte promenu; knjižnica će se pojaviti pod Global Libraries.</li> <li>U svakom projektu odaberite <strong>Modules → Dependencies</strong>, 
+ kliknite <strong>+</strong> &rarr; <em>Library → Global Library</em> i izaberite <code>osp-guide</code>.</li> </ol> <p> Nakon ovoga,
+ IntelliJ će smestiti OSP klase na classpath projekta, pa je moguće koristiti: </p> 
+ <pre><code>import org.opensourcephysics.controls.*;<br>import org.opensourcephysics.display.*;</code></pre> 
+ </div>
+
+
+
+<div class="moj_tekst"> <h2>Kreiranje Java projekta i integracija OSP biblioteka</h2> 
+<p> U sledećim koracima je opisano kako se u IntelliJ IDEA kreira novi Java projekat, zatim kako se u njega dodaju Open Source Physics (.jar) biblioteke, 
+i na kraju prikazuje primer simulacije matematičkog klatna. </p> <h3>1. Kreiranje novog Java projekta</h3>
+ <ol> <li>Pokrenite IntelliJ IDEA.</li> <li>Na ekranu dobrodošlice izaberite <strong>New Project</strong>.</li> 
+ <li>Odaberite <strong>Java</strong> i već instalirani JDK (npr. Java 11).</li> <li>Kliknite <strong>Next</strong>,
+ unesite naziv projekta (npr. <em>AnimiranoKlatno</em>) i kliknite <strong>Finish</strong>.</li> </ol>
+ <h3>2. Dodavanje OSP biblioteka</h3> <p> Preuzeti .jar fajlovi iz OSP distribucije (npr. <code>osp.jar</code>
+ ili <code>osp-guide.jar</code>) mogu se uključiti u projekat na sledeći način: </p> <ol>
+ <li>Desni klik na modul ili na “External Libraries” i izaberite <strong>Open Module Settings</strong> (<code>F4</code>).</li>
+ <li>Prebacite se na karticu <strong>Libraries</strong> i kliknite na <strong>+</strong> → <em>Java</em>.</li> 
+ <li>Selektujte preuzete .jar fajlove i prihvatite opseg <strong>Compile</strong>.</li> <li>Kliknite <strong>Apply</strong> 
+ i <strong>OK</strong>.</li> </ol> <h3>3. Struktura paketa</h3> <p> Preporučuje se da se u okviru <code>src</code> kreira paket, npr. <code>klatno</code>,
+ u kojem će se nalaziti sve klase vezane za simulaciju. </p> 
+ 
+ 
+  <div>
+    <figure>
+      <img 
+        src="public/images/OSP/AnimacijaKlatna.jpg" 
+        alt="Animacija matematičkog klatna" 
+      />
+      <figcaption>Animacija matematičkog klatna</figcaption>
+    </figure>
+  </div>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ <div class="moj_kod"> <pre><code> <span class="plava">package</span> <span class="crna">klatno</span>;
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.display.Circle</span>;
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.display.Trail</span>;
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.display.DrawingFrame</span>;
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.display.DrawingPanel</span>;
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.numerics.ODE</span>;
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.numerics.ODESolver</span>;
+<span class="plava">import</span> <span class="zelena">org.opensourcephysics.numerics.Euler</span>;
+
+<span class="plava">public class</span> <span class="crna">AnimiranoKlatno</span> <span class="plava">implements</span> <span class="crna">ODE</span> {
+
+<span class="narandzasta">private</span> <span class="crna">double</span>[] <span class="pink">state</span> = <span class="zelena">new</span> <span class="crna">double</span>[<span class="narandzasta">3</span>]; <span class="siva">// [theta, omega, time]</span>
+<span class="narandzasta">private final</span> <span class="crna">double</span> <span class="pink">g</span> = <span class="crvena">9.81</span>;
+<span class="narandzasta">private final</span> <span class="crna">double</span> <span class="pink">L</span> = <span class="crvena">1.0</span>;
+
+<span class="plava">public</span> <span class="crna">AnimiranoKlatno</span>() {
+<span class="pink">state</span>[<span class="narandzasta">0</span>] = Math.<span class="zelena">PI</span> / <span class="narandzasta">4</span>; <span class="siva">// initial angle</span>
+<span class="pink">state</span>[<span class="narandzasta">1</span>] = <span class="narandzasta">0</span>; <span class="siva">// initial angular velocity</span>
+<span class="pink">state</span>[<span class="narandzasta">2</span>] = <span class="narandzasta">0</span>; <span class="siva">// initial time</span>
+}
+
+<span class="plava">@Override</span>
+<span class="plava">public</span> <span class="crna">double</span>[] <span class="zelena">getState</span>() {
+<span class="plava">return</span> <span class="pink">state</span>;
+}
+
+<span class="plava">@Override</span>
+<span class="plava">public void</span> <span class="zelena">getRate</span>(<span class="crna">double</span>[] <span class="pink">s</span>, <span class="crna">double</span>[] <span class="pink">r</span>) {
+<span class="pink">r</span>[<span class="narandzasta">0</span>] = <span class="pink">s</span>[<span class="narandzasta">1</span>];
+<span class="pink">r</span>[<span class="narandzasta">1</span>] = -(<span class="pink">g</span> / <span class="pink">L</span>) * Math.<span class="zelena">sin</span>(<span class="pink">s</span>[<span class="narandzasta">0</span>]);
+<span class="pink">r</span>[<span class="narandzasta">2</span>] = <span class="narandzasta">1</span>;
+}
+
+<span class="plava">public static void</span> <span class="zelena">main</span>(<span class="crna">String</span>[] <span class="crna">args</span>) {
+<span class="crna">AnimiranoKlatno</span> <span class="pink">model</span> = <span class="zelena">new</span> <span class="crna">AnimiranoKlatno</span>();
+<span class="crna">ODESolver</span> <span class="pink">solver</span> = <span class="zelena">new</span> <span class="crna">Euler</span>(<span class="pink">model</span>);
+
+
+<span class="siva">// 1) Create panel and frame</span>
+<span class="crna">DrawingPanel</span> <span class="pink">panel</span> = <span class="zelena">new</span> <span class="crna">DrawingPanel</span>();
+<span class="crna">DrawingFrame</span> <span class="pink">frame</span> = <span class="zelena">new</span> <span class="crna">DrawingFrame</span>("Pendulum Animation", <span class="pink">panel</span>);
+<span class="pink">frame</span>.<span class="zelena">setDefaultCloseOperation</span>(<span class="crna">DrawingFrame</span>.<span class="crzna">EXIT_ON_CLOSE</span>);
+<span class="pink">frame</span>.<span class="zelena">setVisible</span>(<span class="plava">true</span>);
+
+<span class="siva">// 2) Prepare rod and bob</span>
+<span class="crna">Trail</span> <span class="pink">rod</span> = <span class="zelena">new</span> <span class="crna">Trail</span>();
+<span class="pink">rod</span>.<span class="zelena">setConnected</span>(<span class="plava">true</span>);
+
+<span class="crna">Circle</span> <span class="pink">bob</span> = <span class="zelena">new</span> <span class="crna">Circle</span>(<span class="narandzasta">0</span>, <span class="narandzasta">0</span>, <span class="narandzasta">5</span>);
+
+<span class="pink">panel</span>.<span class="zelena">addDrawable</span>(<span class="pink">rod</span>);
+<span class="pink">panel</span>.<span class="zelena">addDrawable</span>(<span class="pink">bob</span>);
+
+<span class="siva">// 3) Initialize solver and run loop</span>
+<span class="narandzasta">double</span> <span class="pink">dt</span> = <span class="narandzasta">0.02</span>;
+<span class="pink">solver</span>.<span class="zelena">initialize</span>(<span class="pink">dt</span>);
+
+<span class="plava">while</span> (<span class="plava">true</span>) {
+  <span class="pink">solver</span>.<span class="zelena">step</span>();
+
+  <span class="narandzasta">double</span> <span class="pink">theta</span> = <span class="pink">model</span>.<span class="pink">state</span>[<span class="narandzasta">0</span>];
+  <span class="narandzasta">double</span> <span class="pink">x</span> = <span class="pink">model</span>.<span class="pink">L</span> * Math.<span class="zelena">sin</span>(<span class="pink">theta</span>);
+  <span class="narandzasta">double</span> <span class="pink">y</span> = -<span class="pink">model</span>.<span class="pink">L</span> * Math.<span class="zelena">cos</span>(<span class="pink">theta</span>);
+
+  <span class="pink">rod</span>.<span class="zelena">clear</span>();
+  <span class="pink">rod</span>.<span class="zelena">addPoint</span>(<span class="narandzasta">0</span>, <span class="narandzasta">0</span>);
+  <span class="pink">rod</span>.<span class="zelena">addPoint</span>(<span class="pink">x</span>, <span class="pink">y</span>);
+
+  <span class="pink">bob</span>.<span class="zelena">setX</span>(<span class="pink">x</span>);
+  <span class="pink">bob</span>.<span class="zelena">setY</span>(<span class="pink">y</span>);
+
+  <span class="pink">frame</span>.<span class="zelena">render</span>();
+
+  <span class="plava">try</span> {
+    <span class="crzelaena">Thread</span>.<span class="zelena">sleep</span>((<span class="karpink">int</span>)(<span class="pink">dt</span> * <span class="narandzasta">1000</span>));
+  } <span class="plava">catch</span> (<span class="crna">InterruptedException</span> <span class="crna">ex</span>) {
+    <span class="plava">break</span>;
+  }
+}
+}
+}
+</code></pre>
+
+</div>
+
+  <div>
+    <figure>
+      <img 
+        src="public/images/OSP/AnimiranoKlatno.jpg" 
+        alt="Animacija matematičkog klatna sa kodom" 
+      />
+      <figcaption>Animacija matematičkog klatna sa kod-om</figcaption>
+    </figure>
+  </div>
+ 
+ </div>
+ 
+ 
+ 
+<div class="moj_tekst">
+  <h3>Objašnjenje koda</h3>
+
+  <p>
+    Klasa <span class="code">AnimiranoKlatno</span> implementira interfejs <span class="code">ODE</span>. Da bismo razumeli šta to znači, prvo ćemo se osvrnuti na sam interfejs ODE:
+  </p>
+
+  <h4>Šta je <span class="code">ODE</span> u OSP biblioteci?</h4>
+
+  <p>
+    U Open Source Physics (OSP) biblioteci, <span class="code">ODE</span> predstavlja interfejs koji se koristi za modelovanje dinamičkih sistema pomoću <strong>običnih diferencijalnih jednačina</strong> (eng. <em>Ordinary Differential Equations</em>).
+  </p>
+
+  <p>On zahteva implementaciju sledećih metoda:</p>
+
+  <div class="moj_kod">
+    <span class="kljucna">public interface</span> <span class="tip">ODE</span> {<br>
+    &nbsp;&nbsp;<span class="tip">double</span>[] <span class="funkcija">getState</span>();<br>
+    &nbsp;&nbsp;<span class="tip">void</span> <span class="funkcija">getRate</span>(<span class="tip">double</span>[] state, <span class="tip">double</span>[] rate);<br>
+    }
+  </div>
+
+  <h4>Objašnjenje metoda:</h4>
+
+  <ul>
+    <li>
+      <span class="code">double[] getState()</span><br>
+      Vraća niz koji predstavlja trenutno stanje sistema. U primeru matematičkog klatna, to su: ugao <em>θ</em>, ugaona brzina <em>ω</em> i vreme <em>t</em>.<br>
+      Primer: <span class="code">state = [θ, ω, t]</span>
+    </li>
+    <li>
+      <span class="code">void getRate(double[] state, double[] rate)</span><br>
+      Izračunava izvode trenutnih stanja – tj. promene stanja u odnosu na vreme:
+      <ul>
+        <li><span class="code">rate[0] = ω</span> – ugao se menja u odnosu na ugaonu brzinu</li>
+        <li><span class="code">rate[1] = - (g / L) * sin(θ)</span> – ugaona brzina se menja u skladu s ubrzanjem</li>
+        <li><span class="code">rate[2] = 1</span> – vreme raste konstantno</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>
+    U klasi <span class="code">AnimiranoKlatno</span> nalazi se niz <span class="code">state</span> dužine 3, koji čuva vrednosti ugla <em>θ</em>, ugaone brzine <em>ω</em> i vremena <em>t</em>. Početni ugao postavljen je na <span class="code">π / 4</span> radijana, brzina na 0, a početno vreme takođe na 0.
+  </p>
+
+  <p>
+    U glavnoj metodi (<span class="code">main</span>) se kreiraju sledeći objekti:
+  </p>
+  <ul>
+    <li><strong>model</strong> – instanca klase <span class="code">AnimiranoKlatno</span></li>
+    <li><strong>solver</strong> – instanca klase <span class="code">Euler</span>, koja rešava diferencijalne jednačine numerički</li>
+    <li><strong>panel</strong> – objekat klase <span class="code">DrawingPanel</span> na kojem se vrši iscrtavanje</li>
+    <li><strong>frame</strong> – prozor (instanca <span class="code">DrawingFrame</span>) koji prikazuje sadržaj panela</li>
+  </ul>
+
+  <p>
+    Na panel se dodaju dva grafička objekta:
+  </p>
+  <ul>
+    <li><span class="code">rod</span> – instanca klase <span class="code">Trail</span>, koristi se za prikazanje "niti" koja spaja klatno i oslonac</li>
+    <li><span class="code">bob</span> – instanca klase <span class="code">Circle</span>, predstavlja kuglicu na kraju klatna</li>
+  </ul>
+
+  <p>
+    U beskonačnoj petlji poziva se solver da izračuna sledeće stanje sistema, zatim se grafika ažurira tako da se pozicije kuglice i linije prikažu u skladu sa novim izračunatim koordinatama. Linija se crta od koordinatnog početka do trenutne pozicije kuglice, a kuglica se pozicionira na odgovarajuću tačku. Svaki korak se zatim prikazuje korisniku pomoću metode <span class="code">frame.render()</span>.
+  </p>
+
+  <p>
+    Ovaj princip omogućava simulaciju fizičkog sistema koji se menja u realnom vremenu u skladu sa diferencijalnim jednačinama koje opisuju njegovo ponašanje.
+  </p>
+</div>
+
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <% include ../../partials/scripts %>
+            <% include ../../partials/footer %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

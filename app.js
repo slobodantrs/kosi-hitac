@@ -190,6 +190,9 @@ const slugMap = {
   // **OVO SU NOVE OSP STRANE**
   '/uvod_u_osp':                     '/en/osp_introduction',
   '/osp/ide_okruzenje': '/en/osp/ide_environment',
+  // OSP pendulum
+  '/primer_osp_matematicko_klatno':               '/en/ode/example_osp_mathematics_pendulum',
+
   
   '/politika_privatnosti':           '/en/privacy',
 };
