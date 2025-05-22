@@ -75,7 +75,9 @@
     "link_href": "/uvod_u_osp",
 	"pendulum": {
       "title":       "Primer: Matematičko klatno u OSP",
-      "metaDescription": "Kratak vodič za simulaciju matematičkog klatna koristeći OSP Java biblioteke."
+      "metaDescription": "Kratak vodič za simulaciju matematičkog klatna koristeći OSP Java biblioteke.",
+	  "link_text": "Mat. klatno (primer)",
+      "link_href": "/osp/primer_osp_matematicko_klatno"
     }
   },
   "ide_osp": {

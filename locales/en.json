@@ -72,7 +72,10 @@
     "link_href": "/en/osp_introduction",
 	"pendulum": {
       "title":       "Example: Mathematical Pendulum in OSP",
-      "metaDescription": "A quick guide to simulating a mathematical pendulum using the OSP Java libraries."
+      "metaDescription": "A quick guide to simulating a mathematical pendulum using the OSP Java libraries.",
+	  "link_text": "Math Pendulum Example",
+      "link_href": "/en/osp/example_osp_mathematics_pendulum"
+	
     }
   },
   "ide_osp": {
