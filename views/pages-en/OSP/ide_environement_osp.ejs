@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <% include ../../partials/head %>
+	<title>Open Source Physics (OSP) – Fizika otvorenog koda</title>
+<link rel="canonical" href="https://kosi-hitac.onrender.com/ide_environement_osp" />
+<meta name="description" content="Open Source Physics (OSP) je zajednički projekat koji pruža besplatne, otvorene alate i simulacije za nastavu i učenje fizike putem računarskog modeliranja. Upoznajte Tracker, Web EJS, OSP biblioteke i druge resurse za interaktivne edukativne simulacije." />
+<meta name="keywords" content="Open Source Physics, OSP, fizika otvorenog koda, simulacije, računarska fizika, Tracker, Easy Java Simulations, Web EJS, video analiza, edukativni alati" />
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../../partials/header %>
+            </header>
+        </div>
+    </div>
+  
+ <div class="moj_tekst">
+  <h1>Setting Up the Environment for Creating OSP Simulations</h1>
+  <p>
+    In this tutorial you will learn how to prepare your development environment for building physics simulations in Java using IntelliJ IDEA and the ACM library, before moving on to the OSP framework itself. The goal is to guide you step by step through the entire process—from installing the IDE, to creating a new project, to writing your first application that simulates a pendulum without using any OSP classes.
+  </p>
+  <h2>What You Will Learn</h2>
+  <ul>
+    <li><strong>Installing and Configuring IntelliJ IDEA</strong><br>
+        Downloading the Community or Ultimate edition, setting up the JDK, and basic settings for Java projects.</li>
+    <li><strong>Adding the ACM Library (<code>acm.jar</code>)</strong><br>
+        How to download and link <code>acm.jar</code> in your project to use the graphical and interactive components provided by the ACM (Stanford CS) library.</li>
+    <li><strong>Creating a Java Project from Scratch</strong><br>
+        Directory structure, module and dependency setup, and your first “Hello, World!” program.</li>
+    <li><strong>Developing the Mathematical Pendulum Simulation</strong><br>
+        Defining the pendulum’s differential equations, numerical integration (Euler or Runge–Kutta method), and graphically displaying the pendulum’s motion using <code>GraphicsProgram</code>.</li>
+    <li><strong>Running and Testing</strong><br>
+        How to create a run configuration in IntelliJ, launch your application, and verify the accuracy of the simulation.</li>
+  </ul>
+  <p>
+    Once you have successfully mastered this introductory section, you will be ready to move on to using the Open Source Physics (OSP) libraries and creating more advanced 2D and 3D simulations.
+  </p>
+</div>
+
+
+
+<div class="moj_tekst">
+  <h2>Installing Tools for OSP (IntelliJ IDEA)</h2>
+
+  <h3>Free Editions of IntelliJ IDEA</h3>
+  <ol>
+    <li><strong>Community Edition</strong> – open-source, supports Java, Kotlin, Groovy, Scala, Android development.</li>
+    <li><strong>Educational Edition</strong> – based on Community, with additional learning and practice tools.</li>
+  </ol>
+
+  <h3>Download and Installation</h3>
+  <ol>
+    <li>
+      <h4>Windows</h4>
+      <ol>
+        <li>Go to  
+          <a href="https://www.jetbrains.com/idea/download" target="_blank">https://www.jetbrains.com/idea/download</a>  
+          or for the Educational edition:  
+          <a href="https://www.jetbrains.com/edu-products/download/#section=idea" target="_blank">https://www.jetbrains.com/edu-products/download/#section=idea</a>.
+        </li>
+        <li>Select the <strong>Community Edition</strong> and click <em>Download</em> for Windows.</li>
+        <li>Run the downloaded <code>.exe</code> file and follow the installer steps:
+          <ul>
+            <li>Next → Accept → Next → Install</li>
+            <li>At the end, leave the “Run IntelliJ IDEA Community Edition” checkbox checked and click Finish.</li>
+          </ul>
+        </li>
+        <li>On first launch:
+          <ul>
+            <li>No license is required for Community Edition.</li>
+            <li>It’s recommended to choose the Dark or Light theme.</li>
+            <li>IntelliJ will detect installed JDKs; if you don’t have a JDK, download one (e.g. Zulu/OpenJDK) and in the IDE select  
+              <code>Configure → Project SDK → Add SDK</code>, then point to the JDK folder.</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+
+    <li>
+      <h4>Linux</h4>
+      <p><strong>A) Using the official .tar.gz</strong></p>
+      <ol>
+        <li>Go to  
+          <a href="https://www.jetbrains.com/idea/download" target="_blank">https://www.jetbrains.com/idea/download</a>  
+          and download the “.tar.gz” for the Community Edition.</li>
+        <li>In a terminal, run:
+          <pre><code>cd ~/Downloads
+tar -xzf ideaIC-*.tar.gz
+sudo mv idea-IC-* /opt/idea-community
+</code></pre>
+        </li>
+        <li>Create a launcher script:
+          <pre><code>sudo tee /usr/local/bin/idea << 'EOF'
+#!/usr/bin/env bash
+/opt/idea-community/bin/idea.sh "$@"
+EOF
+sudo chmod +x /usr/local/bin/idea
+</code></pre>
+          You can now launch IntelliJ by typing <code>idea</code> in your terminal.
+        </li>
+      </ol>
+
+      <p><strong>B) Using Snap (Ubuntu, Mint…)</strong></p>
+      <pre><code>sudo snap install intellij-idea-community --classic</code></pre>
+    </li>
+  </ol>
+
+  <h3>Installing the Educational Edition</h3>
+  <ol>
+    <li>On the download page, click the <em>Other versions</em> tab and choose the <strong>Educational Edition</strong>.</li>
+    <li>To add integrated learning tools in the Community Edition, go to  
+      <code>File → Settings → Plugins</code>, search for “Educational” and install the JetBrains Academy or Educational plugin.</li>
+    <li>After restarting, you will see a <em>Learn</em> menu for interactive courses and exercises.</li>
+  </ol>
+
+  <div>
+    <figure>
+      <a href="public/images/OSP/IntellijIdeaIDE_za_edukaciju_Strana_dobrodoslice.jpg">
+        <img 
+          src="public/images/OSP/IntellijIdeaIDE_za_edukaciju_Strana_dobrodoslice.jpg" 
+          alt="IntelliJ IDEA Educational Edition – Welcome Screen"
+        />
+      </a>
+      <figcaption>IntelliJ IDEA Educational Edition – Welcome Screen</figcaption>
+    </figure>
+  </div>
+</div>
+
+
+<div class="moj_tekst">
+  <h2>Basic Settings in IntelliJ IDEA</h2>
+  <p>
+    Before diving into developing your simulations or any other Java projects, you need to properly configure your IDE.  
+    The following steps will guide you through the essential IntelliJ IDEA settings: from integrating the JDK, to installing additional plugins, and customizing keyboard shortcuts and themes.
+  </p>
+
+  <h3>1. Configuring the JDK</h3>
+  <p>
+    The first and most important step is to add your locally installed Java Development Kit (JDK) to IntelliJ IDEA.  
+    This enables compilation and execution of your Java applications.
+  </p>
+  <ol>
+    <li>
+      Open the SDK settings:
+      <ul>
+        <li><strong>Windows:</strong> <code>File → Settings → Build, Execution, Deployment → SDKs</code></li>
+        <li><strong>Linux/macOS:</strong> <code>IntelliJ IDEA → Preferences → Build, Execution, Deployment → SDKs</code></li>
+      </ul>
+    </li>
+    <li>Click the <code>+ → Add SDK → JDK</code> button.</li>
+    <li>Select the root folder of your JDK (the one containing <code>bin</code>, <code>lib</code>, etc.):
+      <ul>
+        <li><code>C:\Program Files\Java\jdk-11.0.12</code> (Windows)</li>
+        <li><code>/usr/lib/jvm/java-11-openjdk</code> (Linux)</li>
+      </ul>
+    </li>
+    <li>Give it a descriptive name, for example “Java 11”, and click <strong>OK</strong>.</li>
+    <li>Finally, go to <code>Project Structure → Project</code> and in the <strong>Project SDK</strong> field select the JDK you just added.</li>
+  </ol>
+
+  <h3>2. Installing Plugins</h3>
+  <p>
+    To work with other languages and tools inside IntelliJ IDEA, install the appropriate plugins.
+  </p>
+  <ol>
+    <li>Open <code>File → Settings → Plugins</code> (or <code>IntelliJ IDEA → Preferences → Plugins</code>).</li>
+    <li>In the search box, type the name of the language or tool you need (e.g. “Scala”, “Python”, “Docker”).</li>
+    <li>Click <strong>Install</strong>, then <strong>Restart IDE</strong> when installation completes.</li>
+  </ol>
+
+  <h3>3. Customizing Keymaps and Theme</h3>
+  <p>
+    IntelliJ IDEA lets you choose among predefined keymaps and UI themes to make your workspace more comfortable.
+  </p>
+  <ol>
+    <li>Keymap: <code>Settings → Keymap</code> – select “Default”, “Eclipse”, “Visual Studio”, or another layout.</li>
+    <li>Theme: <code>Settings → Appearance &amp; Behavior → Theme</code> – choose “Darcula” (dark) or “IntelliJ Light.”</li>
+  </ol>
+
+  <h3>4. Creating a Desktop Entry (Linux)</h3>
+  <p>
+    If you installed IntelliJ IDEA via the <code>.tar.gz</code> archive, on its first launch the IDE will offer to create a desktop entry 
+    for quick access from your application menu.
+  </p>
+  <p>
+    If that prompt does not appear automatically:
+  </p>
+  <ol>
+    <li>Open a terminal and create the launcher script:
+      <pre><code>sudo tee /usr/local/bin/idea << 'EOF'
+#!/usr/bin/env bash
+/opt/idea-community/bin/idea.sh "$@"
+EOF
+sudo chmod +x /usr/local/bin/idea
+</code></pre>
+    </li>
+    <li>You can now start IntelliJ by running <code>idea</code> or find it in your desktop environment’s applications menu.</li>
+  </ol>
+</div>
+
+<div class="moj_tekst">
+  <h3>Procedure for Configuring the JDK in IntelliJ IDEA</h3>
+  <p>
+    To ensure your Java project in IntelliJ IDEA runs without errors, you need to correctly add and configure the Java Development Kit (JDK).  
+    Below is a detailed step-by-step guide walking you through the entire process, from opening the settings to selecting the new Project SDK.
+  </p>
+  <ol>
+    <li>
+      <strong>Open Settings:</strong>
+      <ul>
+        <li><strong>Windows:</strong> select <code>File → Settings</code></li>
+        <li><strong>Linux/macOS:</strong> select <code>IntelliJ IDEA → Preferences</code></li>
+      </ul>
+    </li>
+    <li>
+      <strong>Open Project Structure:</strong><br>
+      Within the settings, find and select <code>Project Structure</code> (or press <code>Ctrl+Alt+Shift+S</code>).
+    </li>
+    <li>
+      <strong>Add a New SDK:</strong><br>
+      Click the <code>+</code> icon next to the SDK list and choose <code>JDK</code>.
+    </li>
+    <li>
+      <strong>Locate the JDK Installation:</strong><br>
+      Navigate to the root directory of your JDK installation—the one containing the <code>bin</code> and <code>lib</code> subfolders. For example:
+      <ul>
+        <li><code>C:\Program Files\Java\jdk-11.0.12</code> (Windows)</li>
+        <li><code>/usr/lib/jvm/java-11-openjdk</code> (Linux)</li>
+      </ul>
+      <p><strong>Important:</strong> Make sure to select the JDK’s root folder, not a subdirectory.</p>
+    </li>
+    <li>
+      <strong>Define the SDK Name:</strong><br>
+      Enter a descriptive name, such as <em>Java 11</em>, and click <code>OK</code>.
+    </li>
+    <li>
+      <strong>Set the Project SDK:</strong><br>
+      Open <code>Project Structure → Project</code> again and in the <em>Project SDK</em> dropdown select the JDK you just added (e.g., Java 11).
+    </li>
+  </ol>
+  <p>
+    After these steps, IntelliJ will use the selected JDK to compile and run your Java applications.  
+    You are now ready to continue working on your simulations or other Java projects.
+  </p>
+  
+  <div>
+    <figure>
+      <img 
+        src="public/images/OSP/ProjectStrukture.jpg" 
+        alt="Project Structure window in IntelliJ IDEA" 
+      />
+      <figcaption>Project Structure window in IntelliJ IDEA</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="moj_tekst">
+  <h2>Creating a Java Project Without the OSP Library</h2>
+
+  <p>
+    In the following section, we will guide you through setting up a brand-new Java project in IntelliJ IDEA
+    without relying on the OSP libraries. Instead, we’ll use <code>acm.jar</code> from the Stanford Java Task Force,
+    which is ideal for simple graphical and educational applications.
+  </p>
+
+  <h3>1. Creating a New Java Project</h3>
+  <p>
+    First, we’ll set up the basic project structure inside IntelliJ IDEA.
+  </p>
+  <ol>
+    <li>
+      On the Welcome screen, click <strong>New Project</strong>.
+    </li>
+    <li>
+      In the <em>New Project</em> dialog choose:
+      <ul>
+        <li><strong>Language:</strong> Java</li>
+        <li><strong>Build System:</strong> IntelliJ (Maven/Gradle not required)</li>
+        <li><strong>Project SDK:</strong> select the JDK 11 you configured earlier</li>
+      </ul>
+      Then click <strong>Next</strong> and <strong>Finish</strong>.
+    </li>
+    <li>
+      IntelliJ will open an empty project with a default <code>src</code> directory.
+    </li>
+  </ol>
+
+  <hr />
+
+  <h3>2. Adding the <code>acm.jar</code> Library</h3>
+  <p>
+    The ACM library makes it easy to draw and use interactive GUI components for educational purposes. Follow these steps to download and include it:
+  </p>
+  <ol>
+    <li>
+      Download <code>acm.jar</code> from the Stanford site:
+      <ul>
+        <li>Visit the <a href="http://cs.stanford.edu/people/eroberts/jtf/" target="_blank">Stanford Java Task Force</a></li>
+        <li>Under <strong>Java Libraries</strong>, click the <code>acm.jar</code> link directly:
+          <a href="http://cs.stanford.edu/people/eroberts/jtf/acm.jar" target="_blank">acm.jar</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      In IntelliJ IDEA:
+      <ul>
+        <li>Right-click your project module → <em>Open Module Settings</em>.</li>
+        <li>Under <strong>Dependencies</strong>, click <code>+ → JARs or directories…</code>.</li>
+        <li>Select the downloaded <code>acm.jar</code> and confirm with <strong>Compile</strong> scope.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <hr />
+
+  <h3>3. Brief Introduction to <code>acm.jar</code></h3>
+  <p>
+    <code>acm.jar</code> is a library developed by the Stanford team as part of the book  
+    <em>The Art and Science of Java</em> (Eric Roberts). It’s designed for students to build simple graphical applications.
+  </p>
+  <ul>
+    <li><strong>GraphicsProgram:</strong> base class for drawing on a canvas.</li>
+    <li><strong>ConsoleProgram:</strong> interactive text input/output.</li>
+    <li><strong>DialogProgram:</strong> basic dialog window.</li>
+  </ul>
+  <p>
+    Main advantages:
+    <ul>
+      <li>Simplified GUI components (window, canvas, buttons).</li>
+      <li>Easy drawing of lines, circles, and text.</li>
+      <li>Rapid development of educational simulations.</li>
+    </ul>
+  </p>
+
+  <h3>4. Example Java Application Using <code>acm.jar</code></h3>
+  <p>
+    The following code shows a simple <code>GraphicsProgram</code> that draws a circle on the screen:
+  </p>
+  <pre><code>import acm.program.*;
+import acm.graphics.*;
+
+public class PendulumWithoutOSP extends GraphicsProgram {
+    public void run() {
+        GOval circle = new GOval(100, 100, 50, 50);
+        add(circle);
+    }
+    public static void main(String[] args) {
+        new PendulumWithoutOSP().start(args);
+    }
+}
+  </code></pre>
+
+  <p>
+    After running successfully, a window with a circle will appear. From there, you can implement the pendulum animation
+    using numerical integration and periodic screen updates.
+  </p>
+
+  <div>
+    <p>
+      For more information on physics simulations using Swing and AWT, visit:
+    </p>
+    <ul>
+      <li>
+        <a href="https://www.svetprogramiranja.com/java_i_simulacije_u_fizici.html" target="_blank">
+          Svet programiranja: Java and Physics Simulations
+        </a>
+      </li>
+      <li>
+        <a href="https://introcs.cs.princeton.edu/java/stdlib/" target="_blank">
+          Princeton CS: Java Standard Library (includes <code>acm.jar</code>)
+        </a>
+      </li>
+      <li>
+        <a href="http://cs.stanford.edu/people/eroberts/jtf/" target="_blank">
+          Stanford Java Task Force – download <code>acm.jar</code>
+        </a>
+      </li>
+      <li>
+        <a href="https://cs.stanford.edu/people/eroberts/jtf/javadoc/" target="_blank">
+          Stanford ACM JavaDoc – reference for <code>GraphicsProgram</code>, <code>GLine</code>, <code>GOval</code>, etc.
+        </a>
+      </li>
+      <li>
+        <a href="https://docs.oracle.com/javase/tutorial/uiswing/" target="_blank">
+          Oracle Swing Tutorial – official documentation for Swing and AWT
+        </a>
+      </li>
+    </ul>
+    <p>
+      These resources cover everything from library downloads and introductions to JavaDocs and advanced GUI tutorials.
+    </p>
+  </div>
+</div>
+
+
+
+<div class="moj_kod">
+  <pre><code>
+<span class="plava">import</span> <span class="zelena">acm.program.*</span>;
+<span class="plava">import</span> <span class="zelena">acm.graphics.*</span>;
+<span class="plava">import</span> <span class="zelena">java.awt.*</span>;
+
+<span class="plava">public class</span> <span class="crna">PendulumSimulation</span> <span class="plava">extends</span> <span class="crna">GraphicsProgram</span> {
+  
+  <span class="narandzasta">private static final</span> <span class="crna">int</span> <span class="pink">PENDULUM_LENGTH</span> = <span class="crvena">200</span>;
+  <span class="narandzasta">private static final</span> <span class="crna">double</span> <span class="pink">PERIOD</span> = <span class="crvena">2000</span>; <span class="siva">// in milliseconds</span>
+  <span class="narandzasta">private static final</span> <span class="crna">double</span> <span class="pink">AMPLITUDE</span> = <span class="crvena">100</span>;
+
+  <span class="narandzasta">private</span> <span class="crna">GLine</span> <span class="pink">rod</span>;
+  <span class="narandzasta">private</span> <span class="crna">GOval</span> <span class="pink">bob</span>;
+
+  <span class="plava">public void</span> <span class="zelena">run</span>() {
+      <span class="zelena">setSize</span>(<span class="crvena">400</span>, <span class="crvena">400</span>);
+
+      <span class="narandzasta">int</span> <span class="pink">centerX</span> = <span class="zelena">getWidth</span>() / <span class="crvena">2</span>;
+      <span class="narandzasta">int</span> <span class="pink">topY</span> = <span class="crvena">50</span>;
+
+      <span class="siva">// create pendulum bob</span>
+      <span class="pink">bob</span> = <span class="zelena">new</span> <span class="crna">GOval</span>(<span class="crvena">20</span>, <span class="crvena">20</span>);
+      <span class="pink">bob</span>.<span class="zelena">setFilled</span>(<span class="plava">true</span>);
+      <span class="pink">bob</span>.<span class="zelena">setColor</span>(<span class="crna">Color</span>.<span class="crvena">RED</span>);
+      <span class="zelena">add</span>(<span class="pink">bob</span>);
+
+      <span class="siva">// create pendulum rod</span>
+      <span class="pink">rod</span> = <span class="zelena">new</span> <span class="crna">GLine</span>(<span class="crvena">0</span>, <span class="crvena">0</span>, <span class="crvena">0</span>, <span class="crvena">0</span>);
+      <span class="zelena">add</span>(<span class="pink">rod</span>);
+
+      <span class="plava">while</span> (<span class="plava">true</span>) {
+          <span class="narandzasta">long</span> <span class="pink">time</span> = <span class="crna">System</span>.<span class="crzelaena">currentTimeMillis</span>() % (<span class="narandzasta">long</span>)<span class="pink">PERIOD</span>;
+          <span class="narandzasta">double</span> <span class="pink">angle</span> = <span class="pink">AMPLITUDE</span> * <span class="crzelaena">Math</span>.<span class="zelena">sin</span>(<span class="narandzasta">2</span> * <span class="crzelaena">Math</span>.<span class="crzna">PI</span> * <span class="pink">time</span> / <span class="pink">PERIOD</span>);
+
+          <span class="narandzasta">double</span> <span class="pink">x</span> = <span class="pink">centerX</span> + <span class="pink">PENDULUM_LENGTH</span> * <span class="crzelaena">Math</span>.<span class="zelena">sin</span>(<span class="crzelaena">Math</span>.<span class="zelena">toRadians</span>(<span class="pink">angle</span>));
+          <span class="narandzasta">double</span> <span class="pink">y</span> = <span class="pink">topY</span> + <span class="pink">PENDULUM_LENGTH</span> * <span class="crzelaena">Math</span>.<span class="zelena">cos</span>(<span class="crzelaena">Math</span>.<span class="zelena">toRadians</span>(<span class="pink">angle</span>));
+
+          <span class="pink">bob</span>.<span class="zelena">setLocation</span>(<span class="pink">x</span> - <span class="pink">bob</span>.<span class="zelena">getWidth</span>()/<span class="crvena">2</span>, <span class="pink">y</span> - <span class="pink">bob</span>.<span class="zelena">getHeight</span>()/<span class="crvena">2</span>);
+          <span class="pink">rod</span>.<span class="zelena">setStartPoint</span>(<span class="pink">centerX</span>, <span class="pink">topY</span>);
+          <span class="pink">rod</span>.<span class="zelena">setEndPoint</span>(<span class="pink">x</span>, <span class="pink">y</span>);
+
+          <span class="zelena">pause</span>(<span class="crvena">10</span>);
+      }
+  }
+  <span class="siva">/** Entry point for launching the application */</span>
+<span class="plava">public static void</span> <span class="zelena">main</span>(<span class="crna">String</span>[] <span class="crna">args</span>) {
+    <span class="plava">new</span> <span class="crna">PendulumSimulation</span>().<span class="zelena">start</span>(<span class="crna">args</span>);
+}
+}
+</code></pre>
+</div>
+
+ <div>
+  <figure>
+    <a href="public/images/OSP/MatematickoKlatnoAcm.jpg">
+      <img 
+        src="public/images/OSP/MatematickoKlatnoAcm.jpg" 
+        alt="Simulacija matematičkog klatna korišćenjem acm.jar biblioteke"
+      />
+    </a>
+    <figcaption>IntellijIdeaIDE_za_edukaciju_Strana_dobrodoslice</figcaption>
+  </figure>
+</div>
+
+<div class="moj_tekst">
+  <h2>Explanation of the Mathematical Pendulum Simulation Code</h2>
+  <p>
+    Below is an overview of the main parts of the code and an explanation of what happens when you extend the ACM class <code>GraphicsProgram</code>,
+    as well as how the animation of the pendulum is set up and executed in the <code>run()</code> method.
+  </p>
+
+  <h3>Main Method and Extending <code>GraphicsProgram</code></h3>
+  <p>
+    In the <code>public static void main(String[] args)</code> method, we create an object of the <code>MatematickoKlatno</code> class and call 
+    <code>start(args)</code>. This triggers the ACM application lifecycle:
+  </p>
+  <ul>
+    <li><strong><code>init()</code></strong> – initialization before <code>run()</code> is executed.</li>
+    <li><strong><code>run()</code></strong> – the main animation logic.</li>
+    <li><strong><code>start()</code> and <code>stop()</code></strong> – called when the program starts and stops.</li>
+  </ul>
+
+  <h3>Static Variables and Class Members</h3>
+  <p>
+    At the beginning of the class, we define constants to control the pendulum's behavior:
+  </p>
+  <ul>
+    <li><code>PENDULUM_LENGTH</code> – length of the pendulum in pixels.</li>
+    <li><code>PERIOD</code> – oscillation period in milliseconds.</li>
+    <li><code>AMPLITUDE</code> – maximum angle or displacement in pixels.</li>
+  </ul>
+  <p>
+    Next, we declare graphical objects:
+    <code>GLine string</code> for the pendulum string and <code>GOval ball</code> for the pendulum bob.
+  </p>
+
+  <h3>The <code>run()</code> Method – Setup and Main Loop</h3>
+  <ol>
+    <li><strong>Window setup:</strong>
+      <code>setSize(600, 600)</code> defines the dimensions of the main window.</li>
+    <li><strong>Object initialization:</strong>  
+      We create a <code>GOval</code> and <code>GLine</code>, set their properties and add them to the canvas using <code>add(...)</code>.</li>
+    <li><strong>Start the animation:</strong> a <code>while(true)</code> loop continuously calculates positions and updates the display.</li>
+  </ol>
+
+  <h3>Details of the <code>while(true)</code> Loop</h3>
+  <ol>
+    <li>
+      <strong>Read current time:</strong><br>
+      <code>long time = System.currentTimeMillis() % (long)PERIOD;</code><br>
+      Gets the current time within a single oscillation period.
+    </li>
+    <li>
+      <strong>Calculate the angle:</strong><br>
+      <code>double angle = AMPLITUDE * Math.sin(2 * Math.PI * time / PERIOD);</code><br>
+      A sine function creates smooth oscillation.
+    </li>
+    <li>
+      <strong>Convert to coordinates:</strong><br>
+      <code>
+        double x = centerX + PENDULUM_LENGTH * Math.sin(Math.toRadians(angle));<br>
+        double y = topY + PENDULUM_LENGTH * Math.cos(Math.toRadians(angle));
+      </code><br>
+      Trigonometry is used to determine the precise position of the bob.
+    </li>
+    <li>
+      <strong>Update the graphics:</strong><br>
+      <code>
+        ball.setLocation(x - ball.getWidth() / 2, y - ball.getHeight() / 2);<br>
+        string.setStartPoint(centerX, topY);<br>
+        string.setEndPoint(x, y);
+      </code>
+    </li>
+    <li>
+      <strong>Control animation speed:</strong><br>
+      <code>pause(10);</code> introduces a short delay for smooth rendering.
+    </li>
+  </ol>
+
+  <h3>The <code>GraphicsProgram</code> Class</h3>
+  <p>
+    The <code>GraphicsProgram</code> class from the ACM library automatically creates a GUI window and a canvas, 
+    invokes <code>init()</code> and <code>run()</code>, and provides convenient methods:
+  </p>
+  <ul>
+    <li><code>add(GObject obj)</code> / <code>remove(GObject obj)</code></li>
+    <li><code>getWidth()</code> / <code>getHeight()</code></li>
+    <li><code>pause(int ms)</code></li>
+    <li><code>addMouseListeners()</code>, <code>addKeyListeners()</code></li>
+    <li><code>setSize(width, height)</code>, <code>setBackground(Color)</code></li>
+  </ul>
+
+  <h3>The <code>GLine</code> and <code>GOval</code> Classes</h3>
+  <ul>
+    <li>
+      <strong><code>GLine</code></strong><br>
+      A line between two points:
+      <ul>
+        <li><code>new GLine(x1, y1, x2, y2)</code></li>
+        <li><code>setStartPoint(x, y)</code>, <code>setEndPoint(x, y)</code></li>
+      </ul>
+    </li>
+    <li>
+      <strong><code>GOval</code></strong><br>
+      An oval or circle:
+      <ul>
+        <li><code>new GOval(width, height)</code></li>
+        <li><code>setFilled(true/false)</code>, <code>setColor(Color)</code></li>
+        <li><code>setLocation(x, y)</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>
+    By extending these classes, you get a fast and simple way to draw and animate in Java applications.
+  </p>
+</div>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <% include ../../partials/scripts %>
+            <% include ../../partials/footer %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

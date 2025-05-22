@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <% include ../../partials/head %>
+	<title>Open Source Physics (OSP) – Fizika otvorenog koda</title>
+<link rel="canonical" href="https://kosi-hitac.onrender.com/ide_okruzenje_osp" />
+<meta name="description" content="Open Source Physics (OSP) je zajednički projekat koji pruža besplatne, otvorene alate i simulacije za nastavu i učenje fizike putem računarskog modeliranja. Upoznajte Tracker, Web EJS, OSP biblioteke i druge resurse za interaktivne edukativne simulacije." />
+<meta name="keywords" content="Open Source Physics, OSP, fizika otvorenog koda, simulacije, računarska fizika, Tracker, Easy Java Simulations, Web EJS, video analiza, edukativni alati" />
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../../partials/header %>
+            </header>
+        </div>
+    </div>
+  <div class="row">
+  <div class="moj_tekst">
+  <h1>Podešavanje okruženja i za kreiranje OSP simulacija</h1>
+  <p>
+    U ovom tutorijalu ćete naučiti kako da pripremite razvojno okruženje za izradu fizičkih simulacija u Javi, koristeći IntelliJ IDEA i ACM biblioteku, pre nego što pređemo na sam OSP framework. Cilj je da korak po korak prođete kroz ceo proces – od instalacije IDE-a, preko kreiranja novog projekta, do pisanja prve aplikacije koja simulira matematičko klatno bez upotrebe OSP klasa.
+  </p>
+  <h2>Šta ćete naučiti</h2>
+  <ul>
+    <li><strong>Instalacija i konfiguracija IntelliJ IDEA</strong><br>
+        Preuzimanje Community ili Ultimate verzije, podešavanje JDK-a i osnovnih podešavanja za Java projekte.</li>
+    <li><strong>Dodavanje ACM biblioteke (acm.jar)</strong><br>
+        Kako da skinete i povežete <code>acm.jar</code> u vaš projekat, kako biste koristili grafičke i interaktivne komponente koje pruža ACM (Stanford CS) biblioteka.</li>
+    <li><strong>Kreiranje Java projekta od nule</strong><br>
+        Struktura direktorijuma, podešavanje modula i zavisnosti, prvi „Hello, World!“ program.</li>
+    <li><strong>Razvijanje simulacije matematičkog klatna</strong><br>
+        Definisanje diferencijalnih jednačina klatna, numerička integracija (Eulerova ili Runge–Kutta metoda), i grafički prikaz pomeranja klatna koristeći ACM <code>GraphicsProgram</code>.</li>
+    <li><strong>Pokretanje i testiranje</strong><br>
+        Kako da kreirate run konfiguraciju u IntelliJ-u, pokrenete vašu aplikaciju i verifikujete tačnost simulacije.</li>
+  </ul>
+  <p>
+    Nakon što uspešno savladate ovaj uvodni deo, bićete spremni za prelazak na korišćenje Open Source Physics (OSP) biblioteka i kreiranje naprednijih 2D i 3D simulacija.
+  </p>
+</div>
+<div class="moj_tekst">
+  <h2>Instalacija alata za OSP (IntelliJ IDEA)</h2>
+
+  <h3>Besplatne verzije IntelliJ IDEA</h3>
+  <ol>
+    <li><strong>Community Edition</strong> – open-source, podržava Java, Kotlin, Groovy, Scala, Android razvoj.</li>
+    <li><strong>Educational Edition</strong> – zasnovana na Community, sa dodatnim alatima za učenje i vežbanje.</li>
+  </ol>
+
+  <h3>Preuzimanje i instalacija</h3>
+  <ol>
+    <li>
+      <h4>Windows</h4>
+      <ol>
+        <li>Otiđite na  
+          <a href="https://www.jetbrains.com/idea/download" target="_blank">https://www.jetbrains.com/idea/download</a>  
+          ili za Educational edition na  
+          <a href="https://www.jetbrains.com/edu-products/download/#section=idea" target="_blank">https://www.jetbrains.com/edu-products/download/#section=idea</a>.
+        </li>
+        <li>Izaberite <strong>Community Edition</strong> i kliknite <em>Download</em> za Windows.</li>
+        <li>Pokrenite skinuti <code>.exe</code> fajl i pratite korake instalera:
+          <ul>
+            <li>Next → Accept → Next → Install</li>
+            <li>Na kraju ostavite kvačicu na “Run IntelliJ IDEA Community Edition” i kliknite Finish.</li>
+          </ul>
+        </li>
+        <li>Pri prvom pokretanju:
+          <ul>
+            <li>Ne treba licenca za Community Edition.</li>
+            <li>Preporučeno je da odaberete Dark ili Light temu.</li>
+            <li>IntelliJ će detektovati instalirane JDK-ove; ako nemate JDK, preuzmite npr. Zulu/OpenJDK i u IDE-u odaberite  
+              <code>Configure → Project SDK → Add SDK</code> i navedite putanju do JDK.</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+
+    <li>
+      <h4>Linux</h4>
+      <p><strong>A) Preko zvaničnog .tar.gz</strong></p>
+      <ol>
+        <li>Otiđite na  
+          <a href="https://www.jetbrains.com/idea/download" target="_blank">https://www.jetbrains.com/idea/download</a>  
+          i preuzmite “.tar.gz” za Community Edition.</li>
+        <li>U terminalu pokrenite:
+          <pre><code>cd ~/Downloads
+tar -xzf ideaIC-*.tar.gz
+sudo mv idea-IC-* /opt/idea-community
+</code></pre>
+        </li>
+        <li>Kreirajte launcher skriptu:
+          <pre><code>sudo tee /usr/local/bin/idea << 'EOF'
+#!/usr/bin/env bash
+/opt/idea-community/bin/idea.sh "$@"
+EOF
+sudo chmod +x /usr/local/bin/idea
+</code></pre>
+          Sada možete pokretati IntelliJ komandno sa <code>idea</code>.
+        </li>
+      </ol>
+
+      <p><strong>B) Preko Snap (Ubuntu, Mint…)</strong></p>
+      <pre><code>sudo snap install intellij-idea-community --classic</code></pre>
+    </li>
+  </ol>
+
+  <h3>Instalacija Educational Edition</h3>
+  <ol>
+    <li>Na stranici za preuzimanje kliknite na tab <em>Other versions</em> i izaberite <strong>Educational Edition</strong>.</li>
+    <li>Da biste dobili integrisane alate za učenje, u Community Edition-u idite na  
+      <code>File → Settings → Plugins</code>, pretražite “Educational” i instalirajte JetBrains Academy ili Educational plugin.</li>
+    <li>Posle restartovanja, imaćete meni <em>Learn</em> za interaktivne kurseve i zadatke.</li>
+  </ol>
+  <div>
+  <figure>
+    <a href="public/images/OSP/IntellijIdeaIDE_za_edukaciju_Strana_dobrodoslice.jpg">
+      <img 
+        src="public/images/OSP/IntellijIdeaIDE_za_edukaciju_Strana_dobrodoslice.jpg" 
+        alt="IntelliJ IDEA IDE za edukaciju – Strana dobrodošlice"
+      />
+    </a>
+    <figcaption>IntellijIdeaIDE_za_edukaciju_Strana_dobrodoslice</figcaption>
+  </figure>
+</div>
+
+</div>
+<div class="moj_tekst">
+  <h2>Osnovna podešavanja u IntelliJ IDEA</h2>
+  <p>
+    Pre nego što se upustite u razvoj vaših simulacija ili drugih Java projekata, neophodno je da pravilno podesite razvojno okruženje. 
+    Sledeći koraci će vas provesti kroz osnovna podešavanja IntelliJ IDEA: od integracije JDK-a, preko instalacije dodatnih plugin-ova, 
+    do prilagođavanja tastaturskih prečica i teme.
+  </p>
+
+  <h3>1. Konfiguracija JDK-a</h3>
+  <p>
+    Prvi i najvažniji korak je dodavanje lokalno instaliranog Java Development Kita (JDK) u IntelliJ IDEA. Ovo omogućava kompajliranje 
+    i pokretanje vaših Java aplikacija.
+  </p>
+  <ol>
+    <li>
+      Otvorite:
+      <ul>
+        <li><strong>Windows:</strong> <code>File → Settings → Build, Execution, Deployment → SDKs</code></li>
+        <li><strong>Linux/macOS:</strong> <code>IntelliJ IDEA → Preferences → Build, Execution, Deployment → SDKs</code></li>
+      </ul>
+    </li>
+    <li>Kliknite na znak <code>+ → Add SDK → JDK</code>.</li>
+    <li>Izaberite putanju do root foldera vašeg JDK-a (onog koji sadrži pod-foldere <code>bin</code>, <code>lib</code> itd.):  
+      <ul>
+        <li><code>C:\Program Files\Java\jdk-11.0.12</code> (Windows)</li>
+        <li><code>/usr/lib/jvm/java-11-openjdk</code> (Linux)</li>
+      </ul>
+    </li>
+    <li>Obavezno unesite deskriptivni naziv, npr. “Java 11”, i kliknite <strong>OK</strong>.</li>
+    <li>Konačno, idite na <code>Project Structure → Project</code> i u polju <strong>Project SDK</strong> izaberite upravo dodat JDK.</li>
+  </ol>
+
+  <h3>2. Instalacija plugin-ova</h3>
+  <p>
+    Da biste radili sa drugim jezicima i alatima unutar IntelliJ IDEA, potrebno je da instalirate odgovarajuće plugin-ove.
+  </p>
+  <ol>
+    <li>Otvorite <code>File → Settings → Plugins</code> (ili <code>IntelliJ IDEA → Preferences → Plugins</code>).</li>
+    <li>U pretrazi ukucajte željeni jezik ili alat (npr. “Scala”, “Python”, “Docker”).</li>
+    <li>Kliknite <strong>Install</strong>, zatim <strong>Restart IDE</strong> kada se instalacija završi.</li>
+  </ol>
+
+  <h3>3. Prilagođavanje tastaturskih prečica i teme</h3>
+  <p>
+    IntelliJ IDEA omogućava izbor između više preddefinisanih keymap-ova i grafičkih tema, kako bi radno okruženje bilo što prijatnije.
+  </p>
+  <ol>
+    <li>Keymap: <code>Settings → Keymap</code> – izaberite “Default”, “Eclipse”, “Visual Studio” ili drugi layout.</li>
+    <li>Tema: <code>Settings → Appearance &amp; Behavior → Theme</code> – odaberite “Darcula” (tamna) ili “IntelliJ Light”.</li>
+  </ol>
+
+  <h3>4. Prečica u meniju (Linux)</h3>
+  <p>
+    Ako ste instalirali IntelliJ IDEA iz <code>.tar.gz</code> paketa, prilikom prvog pokretanja IDE će vam ponuditi da kreira 
+    desktop entry za brže pokretanje sa GUI menija.
+  </p>
+  <p>
+    U slučaju da IDE ne ponudi automatski:
+  </p>
+  <ol>
+    <li>Otvorite terminal i kreirajte skriptu:
+      <pre><code>sudo tee /usr/local/bin/idea << 'EOF'
+#!/usr/bin/env bash
+/opt/idea-community/bin/idea.sh "$@"
+EOF
+sudo chmod +x /usr/local/bin/idea
+</code></pre>
+    </li>
+    <li>Sada možete da pokrenete IntelliJ komandno sa <code>idea</code> ili ga pronađite u aplikacijama vašeg desktop okruženja.</li>
+  </ol>
+ 
+
+</div>
+
+<div class="moj_tekst">
+  <h3>Postupak podešavanja JDK-a u IntelliJ IDEA</h3>
+  <p>
+    Da bi vaš Java projekat u IntelliJ IDEA radio bez grešaka, neophodno je da pravilno dodate i konfigurišete Java Development Kit (JDK). 
+    U nastavku sledi detaljan i korak–po–korak vodič koji će vas provesti kroz ceo proces, od otvaranja podešavanja pa sve do izbora novog 
+    Project SDK.
+  </p>
+  <ol>
+    <li>
+      <strong>Pokretanje podešavanja:</strong>
+      <ul>
+        <li><strong>Windows:</strong> izaberite <code>File → Settings</code></li>
+        <li><strong>Linux/macOS:</strong> izaberite <code>IntelliJ IDEA → Preferences</code></li>
+      </ul>
+    </li>
+    <li>
+      <strong>Otvaranje strukture projekta:</strong><br>
+      U okviru podešavanja pronađite i izaberite <code>Project Structure</code> (ili pritisnite <code>Ctrl+Alt+Shift+S</code>).
+    </li>
+    <li>
+      <strong>Dodavanje novog SDK-a:</strong><br>
+      Kliknite na znak <code>+</code> pored liste SDK-ova i odaberite <code>JDK</code>.
+    </li>
+    <li>
+      <strong>Lociranje JDK instalacije:</strong><br>
+      Pronađite root direktorijum vaše JDK instalacije, odnosno onaj koji sadrži pod-foldere <code>bin</code> i <code>lib</code>.  
+      Na primer:
+      <ul>
+        <li><code>C:\Program Files\Java\jdk-11.0.12</code> (Windows)</li>
+        <li><code>/usr/lib/jvm/java-11-openjdk</code> (Linux)</li>
+      </ul>
+      <p><strong>Važno:</strong> Budite sigurni da birate korenski folder JDK-a, a ne pod-direktorijume.</p>
+    </li>
+    <li>
+      <strong>Definisanje naziva SDK-a:</strong><br>
+      U polje za naziv unesite nešto opisno, na primer <em>Java 11</em>, i kliknite <code>OK</code>.
+    </li>
+    <li>
+      <strong>Postavljanje Project SDK:</strong><br>
+      Ponovo otvorite <code>Project Structure → Project</code> i u okviru <em>Project SDK</em> izaberite upravo dodat JDK (npr. Java 11).
+    </li>
+  </ol>
+  <p>
+    Nakon ovih koraka, IntelliJ će koristiti izabrani JDK za kompajliranje i pokretanje vaših Java aplikacija.  
+    Sada ste spremni da dalje radite na svojim simulacijama ili drugim projektima u Java okruženju.
+  </p>
+  
+  <div>
+  <figure>
+    <img 
+      src="public/images/OSP/ProjectStrukture.jpg" 
+      alt="Prozor za podešavanje Project Structure u IntelliJ IDEA" 
+    />
+    <figcaption>Project Structure prozor u IntelliJ IDEA</figcaption>
+  </figure>
+</div>
+
+</div>
+
+<div class="moj_tekst">
+  <h2>Kreiranje Java projekta bez OSP biblioteke</h2>
+
+  <p>
+    U sledećem odeljku vodićemo vas kroz proces podešavanja potpuno novog Java projekta u IntelliJ IDEA, 
+    bez oslanjanja na OSP biblioteke. Umesto toga, koristićemo <code>acm.jar</code> iz Stanford Java Task Force-a, 
+    koja je idealna za jednostavne grafičke i obrazovne aplikacije.
+  </p>
+
+  <h3>1. Kreiranje novog Java projekta</h3>
+  <p>
+    Prvo ćemo postaviti osnovnu strukturu samog projekta unutar IntelliJ IDEA.
+  </p>
+  <ol>
+    <li>
+      Na ekranu dobrodošlice kliknite na <strong>New Project</strong>.
+    </li>
+    <li>
+      U dijalogu <em>New Project</em> izaberite:
+      <ul>
+        <li><strong>Language:</strong> Java</li>
+        <li><strong>Build System:</strong> IntelliJ (nije neophodno koristiti Maven ili Gradle)</li>
+        <li><strong>Project SDK:</strong> odaberite prethodno podešen JDK 11</li>
+      </ul>
+      Zatim kliknite <strong>Next</strong> pa <strong>Finish</strong>.
+    </li>
+    <li>
+      IntelliJ će otvoriti prazan projekat sa podrazumevanim direktorijumom <code>src</code>.
+    </li>
+  </ol>
+
+  <hr />
+
+  <h3>2. Dodavanje <code>acm.jar</code> biblioteke</h3>
+  <p>
+    ACM biblioteka olakšava crtanje i interaktivne GUI komponente u obrazovne svrhe. Slede koraci za preuzimanje i uključivanje:
+  </p>
+  <ol>
+    <li>
+      Preuzmite <code>acm.jar</code> sa Stanford sajta:
+      <ul>
+        <li>Posetite <a href="http://cs.stanford.edu/people/eroberts/jtf/" target="_blank">Stanford Java Task Force</a></li>
+        <li>U sekciji <strong>Java Libraries</strong> kliknite na link <code>acm.jar</code> direktno:  
+          <a href="http://cs.stanford.edu/people/eroberts/jtf/acm.jar" target="_blank">acm.jar</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      U IntelliJ IDEA:
+      <ul>
+        <li>Desni klik na modul projekta → <em>Open Module Settings</em>.</li>
+        <li>U sekciji <strong>Dependencies</strong> kliknite na <code>+ → JARs or directories…</code>.</li>
+        <li>Odaberite preuzeti <code>acm.jar</code> i potvrdite <strong>Compile</strong> scope.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <hr />
+
+  <h3>3. Kratak uvod u <code>acm.jar</code></h3>
+  <p>
+    <code>acm.jar</code> je bibliotekа koju je razvio Tim na Stanfordu kao deo knjige  
+    <em>The Art and Science of Java</em> (Eric Roberts). Namenjena je studentima za jednostavne grafičke aplikacije.
+  </p>
+  <ul>
+    <li><strong>GraphicsProgram:</strong> bazna klasa za crtanje na platnu.</li>
+    <li><strong>ConsoleProgram:</strong> interaktivni tekstualni ulaz/izlaz.</li>
+    <li><strong>DialogProgram:</strong> osnovni dijaloški prozor.</li>
+  </ul>
+  <p>
+    Glavne prednosti:
+    <ul>
+      <li>Pojednostavljene GUI komponente (prozor, Canvas, dugmad).</li>
+      <li>Jednostavno crtanje linija, krugova i teksta.</li>
+      <li>Brza implementacija obrazovnih simulacija.</li>
+    </ul>
+  </p>
+
+  <h3>4. Primer Java aplikacije sa <code>acm.jar</code></h3>
+  <p>
+    Sledeći kod prikazuje jednostavan <code>GraphicsProgram</code> koji crta krug na ekranu:
+  </p>
+  <pre><code>import acm.program.*;
+import acm.graphics.*;
+
+public class KlatnoBezOSP extends GraphicsProgram {
+    public void run() {
+        GOval kuglica = new GOval(100, 100, 50, 50);
+        add(kuglica);
+    }
+    public static void main(String[] args) {
+        new KlatnoBezOSP().start(args);
+    }
+}
+  </code></pre>
+
+  <p>
+    Nakon uspešnog pokretanja, pojaviće se prozor sa krugom. Dalje, možete implementirati animaciju matematičkog 
+    klatna pomoću numeričke integracije i periodičnog obnavljanja ekrana.
+  </p>
+
+ <div class="moj_tekst">
+  <p>
+    Za više informacija o simulacijama u fizici sa Swing i AWT, posetite:
+  </p>
+  <ul>
+    <li>
+      <a href="https://www.svetprogramiranja.com/java_i_simulacije_u_fizici.html" target="_blank">
+        Svet programiranja: Java i simulacije u fizici
+      </a>
+    </li>
+    <li>
+      <a href="https://introcs.cs.princeton.edu/java/stdlib/" target="_blank">
+        Princeton CS: Java Standard Library (uključuje <code>acm.jar</code>)
+      </a>
+    </li>
+    <li>
+      <a href="http://cs.stanford.edu/people/eroberts/jtf/" target="_blank">
+        Stanford Java Task Force – preuzmite <code>acm.jar</code>
+      </a>
+    </li>
+    <li>
+      <a href="https://cs.stanford.edu/people/eroberts/jtf/javadoc/" target="_blank">
+        Stanford ACM JavaDoc – referentni priručnik za <code>GraphicsProgram</code>, <code>GLine</code>, <code>GOval</code> i dr.
+      </a>
+    </li>
+    <li>
+      <a href="https://docs.oracle.com/javase/tutorial/uiswing/" target="_blank">
+        Oracle Swing Tutorial – zvanična dokumentacija za Swing i AWT
+      </a>
+    </li>
+  </ul>
+  <p>
+    Ove stranice sadrže sve – od preuzimanja i uvođenja u biblioteke, do referentnih JavaDoc stranica i tutorijala za napredne GUI tehnike.
+  </p>
+</div>
+
+</div>
+<div class="moj_kod">
+  <pre><code>
+<span class="plava">import</span> <span class="zelena">acm.program.*</span>;
+<span class="plava">import</span> <span class="zelena">acm.graphics.*</span>;
+<span class="plava">import</span> <span class="zelena">java.awt.*</span>;
+
+<span class="plava">public class</span> <span class="crna">MatematickoKlatno</span> <span class="plava">extends</span> <span class="crna">GraphicsProgram</span> {
+  
+  <span class="narandzasta">private static final</span> <span class="crna">int</span> <span class="pink">DUZINA_KLATNA</span> = <span class="crvena">200</span>;
+  <span class="narandzasta">private static final</span> <span class="crna">double</span> <span class="pink">PERIOD</span> = <span class="crvena">2000</span>; <span class="siva">// u milisekundama</span>
+  <span class="narandzasta">private static final</span> <span class="crna">double</span> <span class="pink">AMPLITUDA</span> = <span class="crvena">100</span>;
+
+  <span class="narandzasta">private</span> <span class="crna">GLine</span> <span class="pink">nit</span>;
+  <span class="narandzasta">private</span> <span class="crna">GOval</span> <span class="pink">kugla</span>;
+
+  <span class="plava">public void</span> <span class="zelena">run</span>() {
+      <span class="zelena">setSize</span>(<span class="crvena">400</span>, <span class="crvena">400</span>);
+
+      <span class="narandzasta">int</span> sredinaX = <span class="zelena">getWidth</span>() / <span class="crvena">2</span>;
+      <span class="narandzasta">int</span> vrhY = <span class="crvena">50</span>;
+
+      <span class="siva">// Kugla klatna</span>
+      <span class="pink">kugla</span> = <span class="zelena">new</span> <span class="crna">GOval</span>(<span class="crvena">20</span>, <span class="crvena">20</span>);
+      <span class="pink">kugla</span>.<span class="zelena">setFilled</span>(<span class="plava">true</span>);
+      <span class="pink">kugla</span>.<span class="zelena">setColor</span>(<span class="crna">Color</span>.<span class="crvena">RED</span>);
+      <span class="zelena">add</span>(<span class="pink">kugla</span>);
+
+      <span class="siva">// Nit klatna</span>
+      <span class="pink">nit</span> = <span class="zelena">new</span> <span class="crna">GLine</span>(<span class="crvena">0</span>, <span class="crvena">0</span>, <span class="crvena">0</span>, <span class="crvena">0</span>);
+      <span class="zelena">add</span>(<span class="pink">nit</span>);
+
+      <span class="plava">while</span> (<span class="plava">true</span>) {
+          <span class="narandzasta">long</span> vreme = <span class="crna">System</span>.<span class="crzelaena">currentTimeMillis</span>() % (<span class="narandzasta">long</span>)<span class="pink">PERIOD</span>;
+          <span class="narandzasta">double</span> ugao = <span class="pink">AMPLITUDA</span> * <span class="crzelaena">Math</span>.<span class="zelena">sin</span>(<span class="narandzasta">2</span> * <span class="crzelaena">Math</span>.<span class="crzna">PI</span> * vreme / <span class="pink">PERIOD</span>);
+
+          <span class="narandzasta">double</span> x = sredinaX + <span class="pink">DUZINA_KLATNA</span> * <span class="crzelaena">Math</span>.<span class="zelena">sin</span>(<span class="crzelaena">Math</span>.<span class="zelena">toRadians</span>(ugao));
+          <span class="narandzasta">double</span> y = vrhY + <span class="pink">DUZINA_KLATNA</span> * <span class="crzelaena">Math</span>.<span class="zelena">cos</span>(<span class="crzelaena">Math</span>.<span class="zelena">toRadians</span>(ugao));
+
+          <span class="pink">kugla</span>.<span class="zelena">setLocation</span>(x - <span class="pink">kugla</span>.<span class="zelena">getWidth</span>()/<span class="crvena">2</span>, y - <span class="pink">kugla</span>.<span class="zelena">getHeight</span>()/<span class="crvena">2</span>);
+          <span class="pink">nit</span>.<span class="zelena">setStartPoint</span>(sredinaX, vrhY);
+          <span class="pink">nit</span>.<span class="zelena">setEndPoint</span>(x, y);
+
+          <span class="zelena">pause</span>(<span class="crvena">10</span>);
+      }
+  }
+  <span class="siva">/** Pokretač aplikacije kada idemo iz IDE-a ili komandne linije */</span>
+<span class="plava">public</span> <span class="plava">static</span> <span class="plava">void</span> <span class="zelena">main</span>(<span class="crna">String</span>[] <span class="crna">args</span>) {
+    <span class="plava">new</span> <span class="crna">MatematickoKlatno</span>().<span class="zelena">start</span>(<span class="crna">args</span>);
+}
+}
+</code></pre>
+</div>
+ <div>
+  <figure>
+    <a href="public/images/OSP/MatematickoKlatnoAcm.jpg">
+      <img 
+        src="public/images/OSP/MatematickoKlatnoAcm.jpg" 
+        alt="Simulacija matematičkog klatna korišćenjem acm.jar biblioteke"
+      />
+    </a>
+    <figcaption>IntellijIdeaIDE_za_edukaciju_Strana_dobrodoslice</figcaption>
+  </figure>
+</div>
+<div class="moj_tekst">
+  <h2>Objašnjenje koda simulacije Matematičkog klatna</h2>
+  <p>
+    U nastavku je pregled glavnih delova koda i objašnjenje šta se dešava kada nasleđujete ACM-ovu klasu <code>GraphicsProgram</code> 
+    i kako se u metodi <code>run()</code> postavlja i pokreće animacija klatna.
+  </p>
+
+  <h3>Main metoda i nasleđivanje <code>GraphicsProgram</code></h3>
+  <p>
+    Metodom <code>public static void main(String[] args)</code> kreiramo objekat klase <code>MatematickoKlatno</code> i pozivamo 
+    <code>start(args)</code>. To pokreće ACM-ov životni ciklus:
+  </p>
+  <ul>
+    <li><strong><code>init()</code></strong> – inicijalizacija pre <code>run()</code>.</li>
+    <li><strong><code>run()</code></strong> – glavni kod animacije.</li>
+    <li><strong><code>start()</code> i <code>stop()</code></strong> – pozivi pri pokretanju i gašenju programa.</li>
+  </ul>
+
+  <h3>Statičke promenljive i članovi klase</h3>
+  <p>
+    Na početku klase definišu se konstante kojima kontrolišemo klatno:
+  </p>
+  <ul>
+    <li><code>DUZINA_KLATNA</code> – dužina klatna u pikselima.</li>
+    <li><code>PERIOD</code> – period oscilacije u milisekundama.</li>
+    <li><code>AMPLITUDA</code> – maksimalni ugao ili pomeraj u pikselima.</li>
+  </ul>
+  <p>
+    Zatim se deklarišu grafički objekti:
+    <code>GLine nit</code> za nit klatna i <code>GOval kugla</code> za samu kuglu.
+  </p>
+
+  <h3>Metoda <code>run()</code> – podešavanje i glavni tok</h3>
+  <ol>
+    <li><strong>Podešavanje prozora:</strong>
+      <code>setSize(600, 600)</code> definiše dimenzije glavnog prozora.</li>
+    <li><strong>Inicijalizacija objekata:</strong>  
+      Kreiraju se <code>GOval</code> i <code>GLine</code>, podešavaju boje i dodaju na platno metodom <code>add(...)</code>.</li>
+    <li><strong>Pokretanje animacije:</strong> <code>while(true)</code> petlja stalno izračunava položaj i osvežava prikaz.</li>
+  </ol>
+
+  <h3>Detalji <code>while(true)</code> petlje</h3>
+  <ol>
+    <li>
+      <strong>Čitanje vremena:</strong><br>
+      <code>long vreme = System.currentTimeMillis() % (long)PERIOD;</code><br>
+      Dobijamo trenutno vreme unutar jednog perioda oscilacije.
+    </li>
+    <li>
+      <strong>Izračunavanje ugla:</strong><br>
+      <code>double ugao = AMPLITUDA * Math.sin(2*Math.PI*vreme/PERIOD);</code><br>
+      Sinusna funkcija daje glatko oscilovanje.
+    </li>
+    <li>
+      <strong>Preračunavanje koordinata:</strong><br>
+      <code>
+        double x = sredinaX + DUZINA_KLATNA*Math.sin(Math.toRadians(ugao));<br>
+        double y = vrhY    + DUZINA_KLATNA*Math.cos(Math.toRadians(ugao));
+      </code><br>
+      Trigonometrijom određujemo tačnu poziciju kugle.
+    </li>
+    <li>
+      <strong>Ažuriranje grafike:</strong><br>
+      <code>
+        kugla.setLocation(x - kugla.getWidth()/2, y - kugla.getHeight()/2);<br>
+        nit.setStartPoint(sredinaX, vrhY);<br>
+        nit.setEndPoint(x, y);
+      </code>
+    </li>
+    <li>
+      <strong>Kontrola brzine:</strong><br>
+      <code>pause(10);</code> uvodi kratku pauzu radi glatke animacije.
+    </li>
+  </ol>
+
+  <h3>Klasa <code>GraphicsProgram</code></h3>
+  <p>
+    <code>GraphicsProgram</code> iz ACM biblioteke automatski kreira GUI prozor i primerak <em>canvas</em>-a, 
+    pokreće <code>init()</code> i <code>run()</code>, te pruža metode:
+  </p>
+  <ul>
+    <li><code>add(GObject obj)</code> / <code>remove(GObject obj)</code></li>
+    <li><code>getWidth()</code> / <code>getHeight()</code></li>
+    <li><code>pause(int ms)</code></li>
+    <li><code>addMouseListeners()</code>, <code>addKeyListeners()</code></li>
+    <li><code>setSize(width, height)</code>, <code>setBackground(Color)</code></li>
+  </ul>
+
+  <h3>Klase <code>GLine</code> i <code>GOval</code></h3>
+  <ul>
+    <li>
+      <strong><code>GLine</code></strong><br>
+      Linija između dve tačke:
+      <ul>
+        <li><code>new GLine(x1,y1,x2,y2)</code></li>
+        <li><code>setStartPoint(x,y)</code>, <code>setEndPoint(x,y)</code></li>
+      </ul>
+    </li>
+    <li>
+      <strong><code>GOval</code></strong><br>
+      Oval/krug:
+      <ul>
+        <li><code>new GOval(width,height)</code></li>
+        <li><code>setFilled(true/false)</code>, <code>setColor(Color)</code></li>
+        <li><code>setLocation(x,y)</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>
+    Nasleđivanjem ovih klasa dobijate brz i jednostavan način za crtanje i animaciju u Java aplikacijama.
+  </p>
+</div>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <% include ../../partials/scripts %>
+            <% include ../../partials/footer %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

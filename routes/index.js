@@ -144,6 +144,9 @@ router.get('/upotreba_p5js/vektori_animacija/:id?',     VektoriController.Vektor
 // Serbian
 var OSPController = require('../controllers/OSPController');
 router.get('/uvod_u_osp', OSPController.Uvod_U_Osp);
+router.get('/osp/ide-okruzenje', OSPController.IDE_Okruzenje_Osp);
+
+
 
 
 const PrivacyController = require('../controllers/PrivacyController');
@@ -281,6 +284,7 @@ router.get('/en/usage_p5js/vector_animation/:id?',      VektoriController.Vektor
 
 // English
 router.get('/en/osp_introduction', OSPController.Uvod_U_Osp_EN);
+router.get('/en/osp/ide-environment', OSPController.IDE_Environment_Osp_EN);
 
 const path = require('path');
 const options = {
