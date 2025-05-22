@@ -75,7 +75,7 @@
     "metaDescription": "Learn about the development environment for Open Source Physics (OSP), including Easy Java Simulations (EJS), Tracker, and OSP libraries.",
     "description": "Open Source Physics (OSP) provides free tools for physics simulations. The IDE environment includes Easy Java Simulations (EJS), Tracker, and OSP libraries that enable the creation and customization of interactive simulations.",
     "link_text": "Learn more about the OSP IDE environment",
-    "link_href": "/ide_environment_osp"
+    "link_href": "/en/osp/ide_environment"
   },
   "footer": {
     "quick_links": "Quick Links",

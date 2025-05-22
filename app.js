@@ -189,7 +189,7 @@ const slugMap = {
    
   // **OVO SU NOVE OSP STRANE**
   '/uvod_u_osp':                     '/en/osp_introduction',
-  '/osp/ide-okruzenje': '/en/osp/ide-environment',
+  '/osp/ide_okruzenje': '/en/osp/ide_environment',
   
   '/politika_privatnosti':           '/en/privacy',
 };
