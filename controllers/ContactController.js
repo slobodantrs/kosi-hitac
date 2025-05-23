@@ -2,7 +2,7 @@
 var methods = {
   // Prikaz srpske verzije
   show: function(req, res) {
-    res.render('pages/contact', {
+    res.render('pages/kontakt', {
       locale: req.locale // prosledi locale ako ti treba u šablonu
     });
   },
