@@ -2,15 +2,13 @@
 <html lang="<%= locale %>">
 <head>
     <% include ../../partials/head %>
-	<title>Open Source Physics (OSP) – Fizika otvorenog koda</title>
-<!-- Canonical URL -->
-<link rel="canonical" href="https://kosi-hitac.onrender.com/osp/ide_okruzenje" />
+	<title>Creating a Simple Pendulum Simulation Using the OSP Library</title>
+	
+<link rel="canonical" href="https://kosi-hitac.onrender.com/en/osp/example_osp_mathematics_pendulum" />
 
-<!-- Meta opis -->
-<meta name="description" content="Detaljan vodič za podešavanje IntelliJ IDEA okruženja za izradu Open Source Physics simulacija: instalacija IDE-a, konfiguracija JDK-a, dodavanje OSP i ACM biblioteka, kreiranje prvog Java projekta." />
+<meta name="description" content="Interactive mathematical pendulum simulation built with the Open Source Physics (OSP) Java libraries. An Euler solver numerically computes and animates the pendulum’s motion in real time." />
 
-<!-- Ključne reči -->
-<meta name="keywords" content="Open Source Physics, OSP, IntelliJ IDEA, IDE podešavanje, JDK konfiguracija, OSP biblioteke, ACM biblioteka, java simulacije, razvojno okruženje, tutorijal" />
+<meta name="keywords" content="Open Source Physics, OSP, pendulum simulation, mathematical pendulum, Java physics simulation, OSP Java library, Euler solver, dynamic system modeling, physics animation, interactive simulation" />
 
 </head>
 <body>
@@ -350,7 +348,15 @@ solver.<span class="zelena">initialize</span>(dt);<br><br>
 
 
 
-
+ <div>
+    <figure>
+      <img 
+        src="public/images/OSP/AnimatedPendulum.jpg" 
+        alt="Mathematical pendulum animation with source code" 
+      />
+      <figcaption>Mathematical pendulum animation with source code</figcaption>
+    </figure>
+  </div>
 
  
 <div class="moj_tekst"> <h3>Code Explanation</h3> <p> The <span class="code">AnimatedPendulum</span> class implements the <span class="code">ODE</span> interface.
