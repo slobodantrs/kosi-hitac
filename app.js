@@ -195,6 +195,8 @@ const slugMap = {
 
   
   '/politika_privatnosti':           '/en/privacy',
+  // Kontakt stranica
+  '/kontakt':          '/en/contact',
 };
 
 

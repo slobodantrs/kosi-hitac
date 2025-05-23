@@ -164,7 +164,10 @@ router.get('/en', function(req, res) {
     
 });
 
-
+// in routes/index.js
+const ContactController = require('../controllers/ContactController');
+router.get('/kontakt', ContactController.show);
+router.get('/en/contact', ContactController.show_EN);
 
 // енг верзија
 router.get('/en/privacy', PrivacyController.privacy_EN);

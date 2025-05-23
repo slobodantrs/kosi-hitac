@@ -48,7 +48,8 @@
 	"sunce_Zemlja_Mesec_Animacija": "Sun–Earth–Moon Animation",
 	"osp_introduction": "Introduction to OSP",
 	"simulation_tools": "Simulation Tools",
-	"primer_matematicko_klatno": "Math Pendulum Example"
+	"primer_matematicko_klatno": "Math Pendulum Example",
+	"contact": "Contact"
   },
   "animation": {
     "title": "CIRCULAR MOTION:",
@@ -89,7 +90,8 @@
     "quick_links": "Quick Links",
     "connect":      "Connect",
     "privacy_policy": "Privacy Policy",
-    "terms_of_use":  "Terms of Use"
+    "terms_of_use":  "Terms of Use",
+	"contact": "Contact"
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -115,6 +117,35 @@
       "description": "For any questions or requests regarding your personal data, you can contact us via email at: svetprogramiranja23@gmail.com"
     }
   },
+  "contact": {
+  "meta": {
+    "description": "Get in touch for questions about physics simulations, ACM and OSP libraries.",
+    "keywords": "contact, OSP, ACM, simulations, physics, support"
+  },
+  "title": "Contact Us",
+  "intro": "For more information, suggestions, or technical support, please reach out via the channels below:",
+  "address": {
+    "title": "Address",
+    "text": "Bulevar Kralja Aleksandra 73, Belgrade, Serbia"
+  },
+  "email": {
+    "title": "Email",
+    "address": "info@kosi-hitac.onrender.com"
+  },
+  "phone": {
+    "title": "Phone",
+    "number": "+381112345678"
+  },
+  "form": {
+    "title": "Send Us a Message",
+    "intro": "Fill out the form below and we will get back to you as soon as possible.",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Message",
+    "submit": "Send"
+  }
+},
+
   "meta": {
     "free_fall": {
       "description": "Interactive free fall simulation: visualize an object dropping under gravity, adjust initial height and velocity, and explore fundamental motion laws in real-time animation.",

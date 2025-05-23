@@ -48,7 +48,8 @@
 	"sunce_Zemlja_Mesec_Animacija": "Animacija Sunce–Zemlja–Mesec",
 	"uvod_u_osp": "Uvod u OSP",
 	"simulation_tools": "Alati za simulacije",
-	"primer_matematicko_klatno": "Mat. klatno (primer)"
+	"primer_matematicko_klatno": "Mat. klatno (primer)",
+	"contact": "Kontakt"
 	
 	
 	
@@ -91,7 +92,8 @@
     "quick_links": "Brze veze",
     "connect":      "Povežite se",
     "privacy_policy": "Politika privatnosti",
-    "terms_of_use":  "Uslovi korišćenja"
+    "terms_of_use":  "Uslovi korišćenja",
+	"contact": "Kontakt"
   },
   "privacy": {
     "title": "Politika privatnosti",
@@ -117,6 +119,35 @@
       "description": "Za sva pitanja ili zahteve u vezi sa vašim ličnim podacima, možete nas kontaktirati putem e-pošte na: svetprogramiranja23@gmail.com"
     }
   },
+  "contact": {
+  "meta": {
+    "description": "Kontaktirajte nas za pitanja o interaktivnim simulacijama u fizici, ACM i OSP bibliotekama.",
+    "keywords": "kontakt, OSP, ACM, simulacije, fizika, podrška, pitanja"
+  },
+  "title": "Kontakt",
+  "intro": "Za sve dodatne informacije, sugestije ili tehničku podršku, slobodno nas kontaktirajte putem sledećih kanala:",
+  "address": {
+    "title": "Adresa",
+    "text": "Bulevar Kralja Aleksandra 73, Beograd, Srbija"
+  },
+  "email": {
+    "title": "E-pošta",
+    "address": "info@kosi-hitac.onrender.com"
+  },
+  "phone": {
+    "title": "Telefon",
+    "number": "+381112345678"
+  },
+  "form": {
+    "title": "Pošaljite poruku",
+    "intro": "Ispunite formular ispod i odgovorićemo vam u najkraćem roku.",
+    "name": "Vaše ime",
+    "email": "Vaša e-pošta",
+    "message": "Poruka",
+    "submit": "Pošalji"
+  }
+},
+
   
   "meta": {
     "slobodan_pad": {
