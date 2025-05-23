@@ -1,14 +1,18 @@
 // controllers/ContactController.js
 var methods = {
-show = (req, res) => {
-  res.render('pages/contact');
-},
+  // Prikaz srpske verzije
+  show: function(req, res) {
+    res.render('pages/contact', {
+      locale: req.locale // prosledi locale ako ti treba u šablonu
+    });
+  },
 
- // Prikaz engleske verzije
+  // Prikaz engleske verzije
   show_EN: function(req, res) {
     res.render('pages-en/contact', {
       locale: req.locale
     });
   }
 };
+
 module.exports = methods;
