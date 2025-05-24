@@ -148,6 +148,27 @@
   }
 },
 
+"about": {
+    "title": "O nama",
+    "meta": {
+      "description": "Saznajte ko stoji iza Kosi-Hitac: od letnjih kampova u Idvoru do modernih p5.js simulacija.",
+      "keywords": "o nama, simulacije fizike, p5.js, Easy Java Simulations, Mihajlo Pupin, Idvor kamp"
+    },
+    "intro": "Dobrodošli na Kosi-Hitac, platformu za interaktivne 3D animacije i simulacije iz fizike.",
+    "history": {
+      "title": "Naše poreklo",
+      "text": "Ovaj sajt je nastao iz želje da se dugogodišnje iskustvo rada u Centru za talente “Mihajlo Pupin” u Pančevu prenese na moderne web-tehnologije."
+    },
+    "inspiration": {
+      "title": "Inspiracija iz Idvora",
+      "text": "Na letnjim kampovima u Idvoru naši fizičari su kreirali Java simulacije pomoću Easy Java Simulations alata. To iskustvo je danas osnova naših web-simulacija."
+    },
+    "mission": {
+      "title": "Naša misija",
+      "text": "Cilj je da vas upoznamo sa mogućnostima pravljenja kompjuterskih simulacija iz fizike danas – jednostavno, interaktivno i besplatno."
+    }
+  },
+
   
   "meta": {
     "slobodan_pad": {

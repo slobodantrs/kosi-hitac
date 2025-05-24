@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+  <%- include('../partials/head') %>
+  <meta charset="utf-8" />
+  <link rel="canonical" href="https://kosi-hitac.onrender.com/o-nama" />
+
+  <!-- Dynamic meta tags from translations -->
+  <meta name="description" content="<%= __('about.meta.description') %>" />
+  <meta name="keywords"    content="<%= __('about.meta.keywords') %>" />
+  <title><%= __('about.title') %> | Kosi-Hitac</title>
+</head>
+<body>
+  <div class="content-wrapper d-flex flex-column">
+
+    <header>
+      <%- include('../partials/header', { title: __('about.title') }) %>
+    </header>
+
+    <div class="container my-5">
+      <h1><%= __('about.title') %></h1>
+
+      <p><%= __('about.intro') %></p>
+
+      <h2><%= __('about.history.title') %></h2>
+      <p><%= __('about.history.text') %></p>
+
+      <h2><%= __('about.inspiration.title') %></h2>
+      <p>
+        <%= __('about.inspiration.text') %>
+        <a href="https://www.rctpupin.edu.rs/index.php/predmeti-blog/programirane/kamp-u-idvoru" target="_blank" rel="noopener">
+          Kamp u Idvoru
+        </a>.
+      </p>
+
+      <h2><%= __('about.mission.title') %></h2>
+      <p><%= __('about.mission.text') %></p>
+    </div>
+
+    <footer>
+      <%- include('../partials/scripts') %>
+      <%- include('../partials/footer') %>
+    </footer>
+  </div>
+</body>
+</html>

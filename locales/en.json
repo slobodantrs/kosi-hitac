@@ -146,6 +146,27 @@
   }
 },
 
+"about": {
+    "title": "About Us",
+    "meta": {
+      "description": "Learn about the team behind Kosi-Hitac: from the Idvor summer camp roots to modern p5.js physics simulations.",
+      "keywords": "about us, physics simulations, p5.js, Easy Java Simulations, Mihajlo Pupin, Idvor camp"
+    },
+    "intro": "Welcome to Kosi-Hitac, your platform for interactive 3D animations and physics simulations.",
+    "history": {
+      "title": "Our Origins",
+      "text": "This site emerged from a desire to carry forward years of work at the Mihajlo Pupin Center for Talents in Pančevo into modern web technologies."
+    },
+    "inspiration": {
+      "title": "Inspiration from Idvor",
+      "text": "At summer camps in Idvor, our physicists built Java simulations using the Easy Java Simulations toolkit. That experience now powers our web-based simulations."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text": "We aim to introduce you to the possibilities of building computer-based physics simulations today – easy, interactive, and free."
+    }
+  },
+
   "meta": {
     "free_fall": {
       "description": "Interactive free fall simulation: visualize an object dropping under gravity, adjust initial height and velocity, and explore fundamental motion laws in real-time animation.",

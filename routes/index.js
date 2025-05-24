@@ -169,6 +169,10 @@ const ContactController = require('../controllers/ContactController');
 router.get('/kontakt', ContactController.show);
 router.get('/en/contact', ContactController.show_EN);
 
+// O nama / About Us
+router.get('/o-nama',        ONamaController.show);
+router.get('/en/about-us',   ONamaController.show_EN);
+
 // енг верзија
 router.get('/en/privacy', PrivacyController.privacy_EN);
 
