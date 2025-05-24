@@ -3,7 +3,7 @@
 var methods = {
   // Serbian “O nama”
   show: function(req, res) {
-    res.render('pages/o-nama', {
+    res.render('pages/o_nama', {
       locale: req.getLocale(),
       title:  res.__('about.title'),
       metaDesc: res.__('about.meta.description')
