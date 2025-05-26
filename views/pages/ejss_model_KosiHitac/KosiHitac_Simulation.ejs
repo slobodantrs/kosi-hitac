@@ -1,6 +1,5 @@
 
 <script>
-
 /* _inputParameters: an object with different values for the model parameters */
 function KosiHitac(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
@@ -61,12 +60,7 @@ var _stringProperties = {};
   var y; // EjsS Model.Variables.promenljjive.y
   var vx; // EjsS Model.Variables.promenljjive.vx
   var vy; // EjsS Model.Variables.promenljjive.vy
-  var v0; // EjsS Model.Variables.promenljjive.v0
-  var thetaDeg; // EjsS Model.Variables.promenljjive.thetaDeg
   var v; // EjsS Model.Variables.promenljjive.v
-  var v0x; // EjsS Model.Variables.promenljjive.v0x
-  var v0y; // EjsS Model.Variables.promenljjive.v0y
-  var thetaPoc; // EjsS Model.Variables.promenljjive.thetaPoc
   var theta; // EjsS Model.Variables.promenljjive.theta
   var t; // EjsS Model.Variables.promenljjive.t
   var dt; // EjsS Model.Variables.promenljjive.dt
@@ -74,23 +68,7 @@ var _stringProperties = {};
   var yv; // EjsS Model.Variables.promenljjive.yv
   var dx; // EjsS Model.Variables.promenljjive.dx
   var dy; // EjsS Model.Variables.promenljjive.dy
-  var H; // EjsS Model.Variables.promenljjive.H
-  var D; // EjsS Model.Variables.promenljjive.D
-  var HMax; // EjsS Model.Variables.promenljjive.HMax
   var css; // EjsS Model.Variables.promenljjive.css
-  var navise; // EjsS Model.Variables.promenljjive.navise
-  var responsiveCss; // EjsS Model.Variables.promenljjive.responsiveCss
-  var cssPodaci; // EjsS Model.Variables.promenljjive.cssPodaci
-  var prikazHMax; // EjsS Model.Variables.promenljjive.prikazHMax
-  var kraj; // EjsS Model.Variables.promenljjive.kraj
-  var razmeraV; // EjsS Model.Variables.promenljjive.razmeraV
-  var tP; // EjsS Model.Variables.promenljjive.tP
-  var HMaxRac; // EjsS Model.Variables.promenljjive.HMaxRac
-  var cssLab; // EjsS Model.Variables.promenljjive.cssLab
-
-  var pomocneLinijePrikaz; // EjsS Model.Variables.logicke.pomocneLinijePrikaz
-  var prikazVxVy; // EjsS Model.Variables.logicke.prikazVxVy
-  var prikazV; // EjsS Model.Variables.logicke.prikazV
 
   var g; // EjsS Model.Variables.konstante.g
   var PI; // EjsS Model.Variables.konstante.PI
@@ -108,12 +86,7 @@ var _stringProperties = {};
       y : y,
       vx : vx,
       vy : vy,
-      v0 : v0,
-      thetaDeg : thetaDeg,
       v : v,
-      v0x : v0x,
-      v0y : v0y,
-      thetaPoc : thetaPoc,
       theta : theta,
       t : t,
       dt : dt,
@@ -121,22 +94,7 @@ var _stringProperties = {};
       yv : yv,
       dx : dx,
       dy : dy,
-      H : H,
-      D : D,
-      HMax : HMax,
       css : css,
-      navise : navise,
-      responsiveCss : responsiveCss,
-      cssPodaci : cssPodaci,
-      prikazHMax : prikazHMax,
-      kraj : kraj,
-      razmeraV : razmeraV,
-      tP : tP,
-      HMaxRac : HMaxRac,
-      cssLab : cssLab,
-      pomocneLinijePrikaz : pomocneLinijePrikaz,
-      prikazVxVy : prikazVxVy,
-      prikazV : prikazV,
       g : g,
       PI : PI
     };
@@ -150,12 +108,7 @@ var _stringProperties = {};
       y : y,
       vx : vx,
       vy : vy,
-      v0 : v0,
-      thetaDeg : thetaDeg,
       v : v,
-      v0x : v0x,
-      v0y : v0y,
-      thetaPoc : thetaPoc,
       theta : theta,
       t : t,
       dt : dt,
@@ -163,22 +116,7 @@ var _stringProperties = {};
       yv : yv,
       dx : dx,
       dy : dy,
-      H : H,
-      D : D,
-      HMax : HMax,
       css : css,
-      navise : navise,
-      responsiveCss : responsiveCss,
-      cssPodaci : cssPodaci,
-      prikazHMax : prikazHMax,
-      kraj : kraj,
-      razmeraV : razmeraV,
-      tP : tP,
-      HMaxRac : HMaxRac,
-      cssLab : cssLab,
-      pomocneLinijePrikaz : pomocneLinijePrikaz,
-      prikazVxVy : prikazVxVy,
-      prikazV : prikazV,
       g : g,
       PI : PI
     };
@@ -189,12 +127,7 @@ var _stringProperties = {};
     if(typeof json.y != "undefined") y = json.y;
     if(typeof json.vx != "undefined") vx = json.vx;
     if(typeof json.vy != "undefined") vy = json.vy;
-    if(typeof json.v0 != "undefined") v0 = json.v0;
-    if(typeof json.thetaDeg != "undefined") thetaDeg = json.thetaDeg;
     if(typeof json.v != "undefined") v = json.v;
-    if(typeof json.v0x != "undefined") v0x = json.v0x;
-    if(typeof json.v0y != "undefined") v0y = json.v0y;
-    if(typeof json.thetaPoc != "undefined") thetaPoc = json.thetaPoc;
     if(typeof json.theta != "undefined") theta = json.theta;
     if(typeof json.t != "undefined") t = json.t;
     if(typeof json.dt != "undefined") dt = json.dt;
@@ -202,22 +135,7 @@ var _stringProperties = {};
     if(typeof json.yv != "undefined") yv = json.yv;
     if(typeof json.dx != "undefined") dx = json.dx;
     if(typeof json.dy != "undefined") dy = json.dy;
-    if(typeof json.H != "undefined") H = json.H;
-    if(typeof json.D != "undefined") D = json.D;
-    if(typeof json.HMax != "undefined") HMax = json.HMax;
     if(typeof json.css != "undefined") css = json.css;
-    if(typeof json.navise != "undefined") navise = json.navise;
-    if(typeof json.responsiveCss != "undefined") responsiveCss = json.responsiveCss;
-    if(typeof json.cssPodaci != "undefined") cssPodaci = json.cssPodaci;
-    if(typeof json.prikazHMax != "undefined") prikazHMax = json.prikazHMax;
-    if(typeof json.kraj != "undefined") kraj = json.kraj;
-    if(typeof json.razmeraV != "undefined") razmeraV = json.razmeraV;
-    if(typeof json.tP != "undefined") tP = json.tP;
-    if(typeof json.HMaxRac != "undefined") HMaxRac = json.HMaxRac;
-    if(typeof json.cssLab != "undefined") cssLab = json.cssLab;
-    if(typeof json.pomocneLinijePrikaz != "undefined") pomocneLinijePrikaz = json.pomocneLinijePrikaz;
-    if(typeof json.prikazVxVy != "undefined") prikazVxVy = json.prikazVxVy;
-    if(typeof json.prikazV != "undefined") prikazV = json.prikazV;
     if(typeof json.g != "undefined") g = json.g;
     if(typeof json.PI != "undefined") PI = json.PI;
   };
@@ -227,12 +145,7 @@ var _stringProperties = {};
     if(typeof json.y != "undefined") y = json.y;
     if(typeof json.vx != "undefined") vx = json.vx;
     if(typeof json.vy != "undefined") vy = json.vy;
-    if(typeof json.v0 != "undefined") v0 = json.v0;
-    if(typeof json.thetaDeg != "undefined") thetaDeg = json.thetaDeg;
     if(typeof json.v != "undefined") v = json.v;
-    if(typeof json.v0x != "undefined") v0x = json.v0x;
-    if(typeof json.v0y != "undefined") v0y = json.v0y;
-    if(typeof json.thetaPoc != "undefined") thetaPoc = json.thetaPoc;
     if(typeof json.theta != "undefined") theta = json.theta;
     if(typeof json.t != "undefined") t = json.t;
     if(typeof json.dt != "undefined") dt = json.dt;
@@ -240,22 +153,7 @@ var _stringProperties = {};
     if(typeof json.yv != "undefined") yv = json.yv;
     if(typeof json.dx != "undefined") dx = json.dx;
     if(typeof json.dy != "undefined") dy = json.dy;
-    if(typeof json.H != "undefined") H = json.H;
-    if(typeof json.D != "undefined") D = json.D;
-    if(typeof json.HMax != "undefined") HMax = json.HMax;
     if(typeof json.css != "undefined") css = json.css;
-    if(typeof json.navise != "undefined") navise = json.navise;
-    if(typeof json.responsiveCss != "undefined") responsiveCss = json.responsiveCss;
-    if(typeof json.cssPodaci != "undefined") cssPodaci = json.cssPodaci;
-    if(typeof json.prikazHMax != "undefined") prikazHMax = json.prikazHMax;
-    if(typeof json.kraj != "undefined") kraj = json.kraj;
-    if(typeof json.razmeraV != "undefined") razmeraV = json.razmeraV;
-    if(typeof json.tP != "undefined") tP = json.tP;
-    if(typeof json.HMaxRac != "undefined") HMaxRac = json.HMaxRac;
-    if(typeof json.cssLab != "undefined") cssLab = json.cssLab;
-    if(typeof json.pomocneLinijePrikaz != "undefined") pomocneLinijePrikaz = json.pomocneLinijePrikaz;
-    if(typeof json.prikazVxVy != "undefined") prikazVxVy = json.prikazVxVy;
-    if(typeof json.prikazV != "undefined") prikazV = json.prikazV;
     if(typeof json.g != "undefined") g = json.g;
     if(typeof json.PI != "undefined") PI = json.PI;
   };
@@ -285,35 +183,13 @@ var _stringProperties = {};
   _model.addToReset(function() {
     x = 0.5; // EjsS Model.Variables.promenljjive.x
     y = 0.5; // EjsS Model.Variables.promenljjive.y
-    vx = 0; // EjsS Model.Variables.promenljjive.vx
-    vy = 0; // EjsS Model.Variables.promenljjive.vy
-    v0 = 25; // EjsS Model.Variables.promenljjive.v0
-    thetaDeg = 35; // EjsS Model.Variables.promenljjive.thetaDeg
-    v = v0; // EjsS Model.Variables.promenljjive.v
-    v0x = 0; // EjsS Model.Variables.promenljjive.v0x
-    v0y = 0; // EjsS Model.Variables.promenljjive.v0y
-    theta = 0; // EjsS Model.Variables.promenljjive.theta
+    v = 25; // EjsS Model.Variables.promenljjive.v
+    theta = 0.6; // EjsS Model.Variables.promenljjive.theta
     t = 0.0; // EjsS Model.Variables.promenljjive.t
     dt = 0.001; // EjsS Model.Variables.promenljjive.dt
-    H = 0.1; // EjsS Model.Variables.promenljjive.H
-    D = 0; // EjsS Model.Variables.promenljjive.D
-    HMax = 0; // EjsS Model.Variables.promenljjive.HMax
-    css = {   "display": "flex",   "margin": "0px",   "vertical-align": "center",   "gap": "8px",   "flex-direction": "row",   "justify-content": "flex-start",   "align-items": "flex-start" }; // EjsS Model.Variables.promenljjive.css
-    navise = true; // EjsS Model.Variables.promenljjive.navise
-    responsiveCss = {display:'flex', flexDirection:'row', gap:'2px'}; // EjsS Model.Variables.promenljjive.responsiveCss
-    cssPodaci = {display:'flex', flexDirection:'column', gap:'8px'}; // EjsS Model.Variables.promenljjive.cssPodaci
-    prikazHMax = false; // EjsS Model.Variables.promenljjive.prikazHMax
-    kraj = false; // EjsS Model.Variables.promenljjive.kraj
-    razmeraV = 0.5; // EjsS Model.Variables.promenljjive.razmeraV
-    tP = 0; // EjsS Model.Variables.promenljjive.tP
-    HMaxRac = 0; // EjsS Model.Variables.promenljjive.HMaxRac
-    cssLab = {display: 'inline-block', "text-align": 'left'}; // EjsS Model.Variables.promenljjive.cssLab
-  });
-
-  _model.addToReset(function() {
-    pomocneLinijePrikaz = false; // EjsS Model.Variables.logicke.pomocneLinijePrikaz
-    prikazVxVy = false; // EjsS Model.Variables.logicke.prikazVxVy
-    prikazV = false; // EjsS Model.Variables.logicke.prikazV
+    xv = x + v*Math.cos(theta); // EjsS Model.Variables.promenljjive.xv
+    yv = y + v*Math.sin(theta); // EjsS Model.Variables.promenljjive.yv
+    css = {"display":"inline-block", "margin":"10px", "vertical-align": "top"}; // EjsS Model.Variables.promenljjive.css
   });
 
   _model.addToReset(function() {
@@ -333,83 +209,13 @@ var _stringProperties = {};
     _model.setStepsPerDisplay(5);
   });
 
-  function odrediDometIHMax () {  // > CustomCode.odrediDometIHMax:1
-    console.log("function odrediDometIHMax()");  // > CustomCode.odrediDometIHMax:2
-    _model.D=x;  // > CustomCode.odrediDometIHMax:3
-    console.log("x="+x);  // > CustomCode.odrediDometIHMax:4
-    console.log("D="+_model.D);  // > CustomCode.odrediDometIHMax:5
-    prikazHMax=true;  // > CustomCode.odrediDometIHMax:6
-    _view._update();  // > CustomCode.odrediDometIHMax:7
-      // > CustomCode.odrediDometIHMax:8
-  }  // > CustomCode.odrediDometIHMax:9
-  // ova promenljiva sada postaje globalna  // > CustomCode.odrediDometIHMax:10
-  function updateStyle() {  // > CustomCode.odrediDometIHMax:11
-    console.log("function updateStyle()");  // > CustomCode.odrediDometIHMax:12
-    // Sakupi svoj CSS u objekat umesto stringa  // > CustomCode.odrediDometIHMax:13
-    var isMobile = window.innerWidth < 768;  // > CustomCode.odrediDometIHMax:14
-      // > CustomCode.odrediDometIHMax:15
-    var styles = {  // > CustomCode.odrediDometIHMax:16
-      display: 'flex',  // > CustomCode.odrediDometIHMax:17
-      gap: '8px',  // > CustomCode.odrediDometIHMax:18
-      flexDirection: isMobile ? 'column' : 'row'  // > CustomCode.odrediDometIHMax:19
-    };  // > CustomCode.odrediDometIHMax:20
-    var styles2={  // > CustomCode.odrediDometIHMax:21
-    "display": "flex",  // > CustomCode.odrediDometIHMax:22
-    "margin": "0px",  // > CustomCode.odrediDometIHMax:23
-    "vertical-align": "center",  // > CustomCode.odrediDometIHMax:24
-    "gap": "8px",  // > CustomCode.odrediDometIHMax:25
-    "flex-direction": isMobile ? 'row' : 'column',  // > CustomCode.odrediDometIHMax:26
-    "justify-content": "flex-start",  // > CustomCode.odrediDometIHMax:27
-    "align-items": "flex-start",  // > CustomCode.odrediDometIHMax:28
-    "flex-wrap": "wrap"  // > CustomCode.odrediDometIHMax:29
-  };  // > CustomCode.odrediDometIHMax:30
-        // > CustomCode.odrediDometIHMax:31
-        // > CustomCode.odrediDometIHMax:32
-    responsiveCss=styles;  // > CustomCode.odrediDometIHMax:33
-    cssPodaci=styles2;  // > CustomCode.odrediDometIHMax:34
-    // Pronađi pravi DOM element:  // > CustomCode.odrediDometIHMax:35
-    // wrappedPanel je EJSS ControlElement, a njegova .element  // > CustomCode.odrediDometIHMax:36
-    // je pravi HTMLDivElement  // > CustomCode.odrediDometIHMax:37
-    var panelDom = _view.wrappedPanel;  // > CustomCode.odrediDometIHMax:38
-    if (panelDom) {  // > CustomCode.odrediDometIHMax:39
-      // Postavi inline style  // > CustomCode.odrediDometIHMax:40
-       // > CustomCode.odrediDometIHMax:41
-      Object.assign(panelDom.getStyle(), styles);       // > CustomCode.odrediDometIHMax:42
-          // > CustomCode.odrediDometIHMax:43
-      console.log("Applied styles:", styles);  // > CustomCode.odrediDometIHMax:44
-    } else {  // > CustomCode.odrediDometIHMax:45
-      console.warn("wrappedPanel.element nije dostupan");  // > CustomCode.odrediDometIHMax:46
-    }  // > CustomCode.odrediDometIHMax:47
-  }  // > CustomCode.odrediDometIHMax:48
-  // ovde pozovemo updateStyle i primenimo ga  // > CustomCode.odrediDometIHMax:49
-  function __viewReady() {  // > CustomCode.odrediDometIHMax:50
-    updateStyle();  // > CustomCode.odrediDometIHMax:51
-    // baci listener za resize  // > CustomCode.odrediDometIHMax:52
-    window.addEventListener('resize', updateStyle);  // > CustomCode.odrediDometIHMax:53
-  }  // > CustomCode.odrediDometIHMax:54
-
   _model.addToInitialization(function() {
     if (!__pagesEnabled["inicijalizacija"]) return;
-    y=H;  // > Initialization.inicijalizacija:1
-    v=v0;  // > Initialization.inicijalizacija:2
-    theta=thetaDeg*Math.PI/180;  // > Initialization.inicijalizacija:3
-    thetaPoc=theta;  // > Initialization.inicijalizacija:4
-    vx =  v* Math.cos(theta);  // > Initialization.inicijalizacija:5
-    vy = v * Math.sin(theta);  // > Initialization.inicijalizacija:6
-    v0x=vx;  // > Initialization.inicijalizacija:7
-    v0y=vy;  // > Initialization.inicijalizacija:8
-    xv = x //+ v* Math.cos(theta);  // > Initialization.inicijalizacija:9
-    yv = y //+ v * Math.sin(theta);  // > Initialization.inicijalizacija:10
-    D=0;  // > Initialization.inicijalizacija:11
-    navise=true;  // > Initialization.inicijalizacija:12
-    prikazHMax=false;  // > Initialization.inicijalizacija:13
-    updateStyle();  // > Initialization.inicijalizacija:14
-    window.addEventListener("resize", updateStyle);  // > Initialization.inicijalizacija:15
-    kraj=false;  // > Initialization.inicijalizacija:16
-    //D=v0*v0*Math.sin(2*theta)/g  // > Initialization.inicijalizacija:17
-    HMaxRac=H+v0y*v0y/(2*g);  // > Initialization.inicijalizacija:18
-    tP=(v0y/g)+Math.sqrt(v0y*v0y+2*g*H)/g;  // > Initialization.inicijalizacija:19
-    D=v0x*tP;  // > Initialization.inicijalizacija:20
+    vx =  v* Math.cos(theta);  // > Initialization.inicijalizacija:1
+    vy = v * Math.sin(theta);  // > Initialization.inicijalizacija:2
+    xv = x + v* Math.cos(theta);;  // > Initialization.inicijalizacija:3
+    yv = y + v * Math.sin(theta);  // > Initialization.inicijalizacija:4
+    _view.v_marker.setProperty("Display","block");  // > Initialization.inicijalizacija:5
   });
 
   _model.addToEvolution(function() {
@@ -423,31 +229,17 @@ var _stringProperties = {};
     theta = Math.atan2(vy, vx);  // > Evolution.evolucija:7
     if (y <= 0)   // > Evolution.evolucija:8
     {  // > Evolution.evolucija:9
-      _model.D=x;  // > Evolution.evolucija:10
-      odrediDometIHMax();  // > Evolution.evolucija:11
-      _view._update();  // > Evolution.evolucija:12
-        // > Evolution.evolucija:13
-      if(!kraj){  // > Evolution.evolucija:14
-        kraj=true;  // > Evolution.evolucija:15
-        }  // > Evolution.evolucija:16
-    }  // > Evolution.evolucija:17
-    if(navise && vy<0){  // > Evolution.evolucija:18
-      HMax=y;  // > Evolution.evolucija:19
-      console.log("vy="+vy);  // > Evolution.evolucija:20
-      navise=false;  // > Evolution.evolucija:21
-    }  // > Evolution.evolucija:22
-    if(_model.isPaused())  // > Evolution.evolucija:23
-    console.log("Pauza");  // > Evolution.evolucija:24
-         // > Evolution.evolucija:25
+      _pause();  // > Evolution.evolucija:10
+    }  // > Evolution.evolucija:11
+    if(_model.isPaused())  // > Evolution.evolucija:12
+    _model._println("Pauza");  // > Evolution.evolucija:13
+         // > Evolution.evolucija:14
   });
 
   _model.addToFixedRelations(function() { _isPaused = _model.isPaused(); _isPlaying = _model.isPlaying(); });
 
   _model.addToFixedRelations(function() {
     if (!__pagesEnabled["vektorBrzine"]) return;
-    if(kraj){  // > FixedRelations.vektorBrzine:1
-      _model._pause();  // > FixedRelations.vektorBrzine:2
-      }  // > FixedRelations.vektorBrzine:3
   });
 
   _model.addToFixedRelations(function() { _isPaused = _model.isPaused(); _isPlaying = _model.isPlaying(); });
@@ -473,15 +265,13 @@ var _stringProperties = {};
         case -10 : break; // make Lint happy
         default :
         case 0:
-          _view.wrappedPanel.linkProperty("CSS",  function() { return responsiveCss; }, function(_v) { responsiveCss = _v; } ); // HtmlView Page linking property 'CSS' for element 'wrappedPanel'
           _view.drawingPanel.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'drawingPanel'
           _view.Lopta.linkProperty("X",  function() { return x; }, function(_v) { x = _v; } ); // HtmlView Page linking property 'X' for element 'Lopta'
           _view.Lopta.linkProperty("Y",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'Y' for element 'Lopta'
           _view.v_brzina.linkProperty("Transformation",  function() { return theta; }, function(_v) { theta = _v; } ); // HtmlView Page linking property 'Transformation' for element 'v_brzina'
-          _view.v_brzina.linkProperty("SizeX",  function() { return v*razmeraV; } ); // HtmlView Page linking property 'SizeX' for element 'v_brzina'
+          _view.v_brzina.linkProperty("SizeX",  function() { return v*0.1; } ); // HtmlView Page linking property 'SizeX' for element 'v_brzina'
           _view.v_brzina.linkProperty("X",  function() { return x; }, function(_v) { x = _v; } ); // HtmlView Page linking property 'X' for element 'v_brzina'
           _view.v_brzina.linkProperty("Y",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'Y' for element 'v_brzina'
-          _view.v_brzina.linkProperty("Visibility",  function() { return prikazV; }, function(_v) { prikazV = _v; } ); // HtmlView Page linking property 'Visibility' for element 'v_brzina'
           _view.v_marker.linkProperty("X",  function() { return xv; }, function(_v) { xv = _v; } ); // HtmlView Page linking property 'X' for element 'v_marker'
           _view.v_marker.linkProperty("Y",  function() { return yv; }, function(_v) { yv = _v; } ); // HtmlView Page linking property 'Y' for element 'v_marker'
           _view.v_marker.setAction("OnDrag", function(_data,_info) {
@@ -491,74 +281,7 @@ var _stringProperties = {};
   theta = Math.atan2(dy, dx);
 
 }); // HtmlView Page setting action 'OnDrag' for element 'v_marker'
-          _view.trag.linkProperty("InputX",  function() { return x; }, function(_v) { x = _v; } ); // HtmlView Page linking property 'InputX' for element 'trag'
-          _view.trag.linkProperty("InputY",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'InputY' for element 'trag'
-          _view.HMaxText.linkProperty("X",  function() { return x/2-20; } ); // HtmlView Page linking property 'X' for element 'HMaxText'
-          _view.HMaxText.linkProperty("Y",  function() { return y+40; } ); // HtmlView Page linking property 'Y' for element 'HMaxText'
-          _view.HMaxText.linkProperty("Text",  function() { return "HMax.="+HMax.toFixed(2)+"m"; } ); // HtmlView Page linking property 'Text' for element 'HMaxText'
-          _view.HMaxText.linkProperty("Visibility",  function() { return prikazHMax; }, function(_v) { prikazHMax = _v; } ); // HtmlView Page linking property 'Visibility' for element 'HMaxText'
-          _view.pravac.linkProperty("Rotate",  function() { return thetaPoc; }, function(_v) { thetaPoc = _v; } ); // HtmlView Page linking property 'Rotate' for element 'pravac'
-          _view.pravac.linkProperty("Attributes",  function() { return { "stroke-dasharray":"5, 5, 5, 5" }; } ); // HtmlView Page linking property 'Attributes' for element 'pravac'
-          _view.pravac.linkProperty("Y",  function() { return H; }, function(_v) { H = _v; } ); // HtmlView Page linking property 'Y' for element 'pravac'
-          _view.pravac.linkProperty("Visibility",  function() { return pomocneLinijePrikaz; }, function(_v) { pomocneLinijePrikaz = _v; } ); // HtmlView Page linking property 'Visibility' for element 'pravac'
-          _view.vX.linkProperty("SizeX",  function() { return vx*razmeraV; } ); // HtmlView Page linking property 'SizeX' for element 'vX'
-          _view.vX.linkProperty("X",  function() { return x; }, function(_v) { x = _v; } ); // HtmlView Page linking property 'X' for element 'vX'
-          _view.vX.linkProperty("Y",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'Y' for element 'vX'
-          _view.vX.linkProperty("Visibility",  function() { return prikazVxVy; }, function(_v) { prikazVxVy = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vX'
-          _view.vY.linkProperty("X",  function() { return x; }, function(_v) { x = _v; } ); // HtmlView Page linking property 'X' for element 'vY'
-          _view.vY.linkProperty("Y",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'Y' for element 'vY'
-          _view.vY.linkProperty("Visibility",  function() { return prikazVxVy; }, function(_v) { prikazVxVy = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vY'
-          _view.vY.linkProperty("SizeY",  function() { return vy*razmeraV; } ); // HtmlView Page linking property 'SizeY' for element 'vY'
-          _view.DometText.linkProperty("X",  function() { return x/2-20; } ); // HtmlView Page linking property 'X' for element 'DometText'
-          _view.DometText.linkProperty("Y",  function() { return y+30; } ); // HtmlView Page linking property 'Y' for element 'DometText'
-          _view.DometText.linkProperty("Text",  function() { return "Domet: "+x.toFixed(2)+"m"; } ); // HtmlView Page linking property 'Text' for element 'DometText'
-          _view.DometText.linkProperty("Visibility",  function() { return prikazHMax; }, function(_v) { prikazHMax = _v; } ); // HtmlView Page linking property 'Visibility' for element 'DometText'
-          _view.vTxt.linkProperty("X",  function() { return x+vx*razmeraV-3; } ); // HtmlView Page linking property 'X' for element 'vTxt'
-          _view.vTxt.linkProperty("Y",  function() { return y+vy*razmeraV+2; } ); // HtmlView Page linking property 'Y' for element 'vTxt'
-          _view.vTxt.linkProperty("Visibility",  function() { return prikazV; }, function(_v) { prikazV = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vTxt'
-          _view.vxTxt.linkProperty("X",  function() { return x+vx*razmeraV-5; } ); // HtmlView Page linking property 'X' for element 'vxTxt'
-          _view.vxTxt.linkProperty("Y",  function() { return y+4; } ); // HtmlView Page linking property 'Y' for element 'vxTxt'
-          _view.vxTxt.linkProperty("Visibility",  function() { return prikazVxVy; }, function(_v) { prikazVxVy = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vxTxt'
-          _view.vyTxt.linkProperty("X",  function() { return x-5; } ); // HtmlView Page linking property 'X' for element 'vyTxt'
-          _view.vyTxt.linkProperty("Y",  function() { return y+razmeraV*vy+2; } ); // HtmlView Page linking property 'Y' for element 'vyTxt'
-          _view.vyTxt.linkProperty("Visibility",  function() { return prikazVxVy; }, function(_v) { prikazVxVy = _v; } ); // HtmlView Page linking property 'Visibility' for element 'vyTxt'
-          _view.tDometTxt.linkProperty("X",  function() { return x/2-20; } ); // HtmlView Page linking property 'X' for element 'tDometTxt'
-          _view.tDometTxt.linkProperty("Y",  function() { return y+10; } ); // HtmlView Page linking property 'Y' for element 'tDometTxt'
-          _view.tDometTxt.linkProperty("Text",  function() { return "Vreme padanja:"+tP.toFixed(2)+"s"; } ); // HtmlView Page linking property 'Text' for element 'tDometTxt'
-          _view.tDometTxt.linkProperty("Visibility",  function() { return prikazHMax; }, function(_v) { prikazHMax = _v; } ); // HtmlView Page linking property 'Visibility' for element 'tDometTxt'
-          _view.podaciPanel.linkProperty("CSS",  function() { return cssPodaci; }, function(_v) { cssPodaci = _v; } ); // HtmlView Page linking property 'CSS' for element 'podaciPanel'
-          _view.panel1.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panel1'
-          _view.vremeLab.linkProperty("CSS",  function() { return cssLab; }, function(_v) { cssLab = _v; } ); // HtmlView Page linking property 'CSS' for element 'vremeLab'
-          _view.vreme.linkProperty("Value",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'Value' for element 'vreme'
-          _view.panel2.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panel2'
-          _view.brzinaLab.linkProperty("CSS",  function() { return cssLab; }, function(_v) { cssLab = _v; } ); // HtmlView Page linking property 'CSS' for element 'brzinaLab'
-          _view.brzina.linkProperty("Value",  function() { return v0; }, function(_v) { v0 = _v; } ); // HtmlView Page linking property 'Value' for element 'brzina'
-          _view.brzina.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'brzina'
-          _view.panel3.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panel3'
-          _view.ugaoLab.linkProperty("CSS",  function() { return cssLab; }, function(_v) { cssLab = _v; } ); // HtmlView Page linking property 'CSS' for element 'ugaoLab'
-          _view.ugao.linkProperty("Value",  function() { return thetaDeg; }, function(_v) { thetaDeg = _v; } ); // HtmlView Page linking property 'Value' for element 'ugao'
-          _view.ugao.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'ugao'
-          _view.panelH.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panelH'
-          _view.labelH.linkProperty("CSS",  function() { return cssLab; }, function(_v) { cssLab = _v; } ); // HtmlView Page linking property 'CSS' for element 'labelH'
-          _view.HTF.linkProperty("Value",  function() { return H; }, function(_v) { H = _v; } ); // HtmlView Page linking property 'Value' for element 'HTF'
-          _view.HTF.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'HTF'
-          _view.panelDomet.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panelDomet'
-          _view.LabelD3.linkProperty("CSS",  function() { return cssLab; }, function(_v) { cssLab = _v; } ); // HtmlView Page linking property 'CSS' for element 'LabelD3'
-          _view.DTF2.linkProperty("Value",  function() { return D; }, function(_v) { D = _v; } ); // HtmlView Page linking property 'Value' for element 'DTF2'
-          _view.DTF2.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'DTF2'
-          _view.panelHMax.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panelHMax'
-          _view.LabelHMax.linkProperty("CSS",  function() { return cssLab; }, function(_v) { cssLab = _v; } ); // HtmlView Page linking property 'CSS' for element 'LabelHMax'
-          _view.HMaxTF.linkProperty("Value",  function() { return HMaxRac; }, function(_v) { HMaxRac = _v; } ); // HtmlView Page linking property 'Value' for element 'HMaxTF'
-          _view.HMaxTF.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'HMaxTF'
-          _view.panelTPada.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panelTPada'
-          _view.LabelTPada.linkProperty("CSS",  function() { return cssLab; }, function(_v) { cssLab = _v; } ); // HtmlView Page linking property 'CSS' for element 'LabelTPada'
-          _view.TPadaTF.linkProperty("Value",  function() { return tP; }, function(_v) { tP = _v; } ); // HtmlView Page linking property 'Value' for element 'TPadaTF'
-          _view.TPadaTF.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'TPadaTF'
           _view.plottingPanel.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'plottingPanel'
-          _view.plottingPanel.linkProperty("TRMessage",  function() { return "x="+x.toFixed(2)+"m"; } ); // HtmlView Page linking property 'TRMessage' for element 'plottingPanel'
-          _view.plottingPanel.linkProperty("BLMessage",  function() { return "vy="+vy.toFixed(2)+"m"; } ); // HtmlView Page linking property 'BLMessage' for element 'plottingPanel'
-          _view.plottingPanel.linkProperty("TLMessage",  function() { return "y="+y.toFixed(2)+"m"; } ); // HtmlView Page linking property 'TLMessage' for element 'plottingPanel'
-          _view.plottingPanel.linkProperty("BRMessage",  function() { return "vx="+vx.toFixed(2)+"m"; } ); // HtmlView Page linking property 'BRMessage' for element 'plottingPanel'
           _view.polozajY.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'polozajY'
           _view.polozajY.linkProperty("InputY",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'InputY' for element 'polozajY'
           _view.dugmadNavigacija.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'dugmadNavigacija'
@@ -566,9 +289,15 @@ var _stringProperties = {};
           _view.playPauseButton.linkProperty("State",  function() { return _isPaused; } ); // HtmlView Page linking property 'State' for element 'playPauseButton'
           _view.playPauseButton.setAction("OnClick", _play); // HtmlView Page setting action 'OnClick' for element 'playPauseButton'
           _view.resetBtn.setAction("OnClick", _reset); // HtmlView Page setting action 'OnClick' for element 'resetBtn'
-          _view.checkBoxPomLinije.linkProperty("Checked",  function() { return pomocneLinijePrikaz; }, function(_v) { pomocneLinijePrikaz = _v; } ); // HtmlView Page linking property 'Checked' for element 'checkBoxPomLinije'
-          _view.checkBoxKomponenteV.linkProperty("Checked",  function() { return prikazVxVy; }, function(_v) { prikazVxVy = _v; } ); // HtmlView Page linking property 'Checked' for element 'checkBoxKomponenteV'
-          _view.checkBoxPrikazV.linkProperty("Checked",  function() { return prikazV; }, function(_v) { prikazV = _v; } ); // HtmlView Page linking property 'Checked' for element 'checkBoxPrikazV'
+          _view.panel1.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panel1'
+          _view.vreme.linkProperty("Value",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'Value' for element 'vreme'
+          _view.panel2.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panel2'
+          _view.brzinaLab.linkProperty("CSS",  function() { return {padding:5}; } ); // HtmlView Page linking property 'CSS' for element 'brzinaLab'
+          _view.brzina.linkProperty("Value",  function() { return v; }, function(_v) { v = _v; } ); // HtmlView Page linking property 'Value' for element 'brzina'
+          _view.brzina.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'brzina'
+          _view.panel3.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panel3'
+          _view.ugao.linkProperty("Value",  function() { return theta; }, function(_v) { theta = _v; } ); // HtmlView Page linking property 'Value' for element 'ugao'
+          _view.ugao.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'ugao'
           break;
       } // end of switch
     }; // end of new reset
@@ -584,6 +313,7 @@ var _stringProperties = {};
   _selectView(_model._autoSelectView(_getViews())); // this includes _model.reset()
   return _model;
 }
+
 function KosHitac_View (_topFrame,_viewNumber,_libraryPath,_codebasePath) {
   var _view;
   switch(_viewNumber) {
@@ -618,31 +348,23 @@ function KosHitac_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_DRAWING2D.drawingPanel,"drawingPanel", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'drawingPanel'
-      .setProperty("Height",400) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'drawingPanel'
-      .setProperty("Width",500) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'drawingPanel'
-      .setProperty("Background","rgba(200,220,208,1)") // EJsS HtmlView.HtmlView Page: setting property 'Background' for element 'drawingPanel'
-      .setProperty("GuttersLineColor","Blue") // EJsS HtmlView.HtmlView Page: setting property 'GuttersLineColor' for element 'drawingPanel'
-      .setProperty("SquareAspect",true) // EJsS HtmlView.HtmlView Page: setting property 'SquareAspect' for element 'drawingPanel'
-      .setProperty("MaximumY",50.0) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'drawingPanel'
-      .setProperty("GuttersLineWidth",5) // EJsS HtmlView.HtmlView Page: setting property 'GuttersLineWidth' for element 'drawingPanel'
-      .setProperty("MaximumX",50) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'drawingPanel'
-      .setProperty("MinimumX",-1.0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'drawingPanel'
-      .setProperty("MinimumY",-5.0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumY' for element 'drawingPanel'
+      .setProperty("Height","100%") // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'drawingPanel'
+      .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'drawingPanel'
+      .setProperty("MinimumX",0.0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'drawingPanel'
+      .setProperty("MinimumY",0.0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumY' for element 'drawingPanel'
       .setProperty("AutoScaleY",false) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleY' for element 'drawingPanel'
-      .setProperty("AutoScaleX",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'drawingPanel'
-      .setProperty("GraphicsMode","SVG") // EJsS HtmlView.HtmlView Page: setting property 'GraphicsMode' for element 'drawingPanel'
+      .setProperty("AutoScaleX",false) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'drawingPanel'
+      .setProperty("MaximumY",40.0) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'drawingPanel'
+      .setProperty("MaximumX",100) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'drawingPanel'
       ;
 
     _view._addElement(EJSS_DRAWING2D.shape,"Lopta", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'Lopta'
-      .setProperty("SizeX",20) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'Lopta'
-      .setProperty("PixelSize",true) // EJsS HtmlView.HtmlView Page: setting property 'PixelSize' for element 'Lopta'
-      .setProperty("SizeY",20) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'Lopta'
+      .setProperty("SizeX",1) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'Lopta'
+      .setProperty("SizeY",1) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'Lopta'
       ;
 
     _view._addElement(EJSS_DRAWING2D.arrow,"v_brzina", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'v_brzina'
-      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'v_brzina'
       .setProperty("SizeY",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'v_brzina'
-      .setProperty("LineWidth",3) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'v_brzina'
       ;
 
     _view._addElement(EJSS_DRAWING2D.shape,"v_marker", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'v_marker'
@@ -653,280 +375,18 @@ function KosHitac_View_0 (_topFrame) {
       .setProperty("PixelSize",true) // EJsS HtmlView.HtmlView Page: setting property 'PixelSize' for element 'v_marker'
       ;
 
-    _view._addElement(EJSS_DRAWING2D.arrow,"xAxes", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'xAxes'
-      .setProperty("MarkEnd","TRIANGLE") // EJsS HtmlView.HtmlView Page: setting property 'MarkEnd' for element 'xAxes'
-      .setProperty("SizeX",450) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'xAxes'
-      .setProperty("MarkStartWidth",10) // EJsS HtmlView.HtmlView Page: setting property 'MarkStartWidth' for element 'xAxes'
-      .setProperty("X",0) // EJsS HtmlView.HtmlView Page: setting property 'X' for element 'xAxes'
-      .setProperty("LineColor","Black") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'xAxes'
-      .setProperty("Y",0) // EJsS HtmlView.HtmlView Page: setting property 'Y' for element 'xAxes'
-      .setProperty("MarkStart","CIRCLE") // EJsS HtmlView.HtmlView Page: setting property 'MarkStart' for element 'xAxes'
-      .setProperty("PixelSize",true) // EJsS HtmlView.HtmlView Page: setting property 'PixelSize' for element 'xAxes'
-      .setProperty("SizeY",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'xAxes'
-      .setProperty("MarkEndWidth",20) // EJsS HtmlView.HtmlView Page: setting property 'MarkEndWidth' for element 'xAxes'
-      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'xAxes'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.arrow,"yOsa", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'yOsa'
-      .setProperty("SizeX",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'yOsa'
-      .setProperty("X",0) // EJsS HtmlView.HtmlView Page: setting property 'X' for element 'yOsa'
-      .setProperty("LineColor","Black") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'yOsa'
-      .setProperty("Y",0) // EJsS HtmlView.HtmlView Page: setting property 'Y' for element 'yOsa'
-      .setProperty("SizeY",350) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'yOsa'
-      .setProperty("PixelSize",true) // EJsS HtmlView.HtmlView Page: setting property 'PixelSize' for element 'yOsa'
-      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'yOsa'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.trail,"trag", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'trag'
-      .setProperty("Connected",true) // EJsS HtmlView.HtmlView Page: setting property 'Connected' for element 'trag'
-      .setProperty("LineColor","Magenta") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'trag'
-      .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'trag'
-      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'trag'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.text,"HMaxText", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'HMaxText'
-      .setProperty("FontSize",15) // EJsS HtmlView.HtmlView Page: setting property 'FontSize' for element 'HMaxText'
-      .setProperty("Font","normal bold 15px Georgia, serif") // EJsS HtmlView.HtmlView Page: setting property 'Font' for element 'HMaxText'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.segment,"pravac", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'pravac'
-      .setProperty("SizeX",50) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'pravac'
-      .setProperty("X",0) // EJsS HtmlView.HtmlView Page: setting property 'X' for element 'pravac'
-      .setProperty("LineColor","Magenta") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'pravac'
-      .setProperty("SizeY",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'pravac'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.arrow,"vX", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vX'
-      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'vX'
-      .setProperty("SizeY",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeY' for element 'vX'
-      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'vX'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.arrow,"vY", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vY'
-      .setProperty("SizeX",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'vY'
-      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'vY'
-      .setProperty("LineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'vY'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.text,"DometText", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'DometText'
-      .setProperty("FontSize",15) // EJsS HtmlView.HtmlView Page: setting property 'FontSize' for element 'DometText'
-      .setProperty("Font","normal bold 15px Georgia, serif") // EJsS HtmlView.HtmlView Page: setting property 'Font' for element 'DometText'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.text,"vTxt", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vTxt'
-      .setProperty("FontSize",15) // EJsS HtmlView.HtmlView Page: setting property 'FontSize' for element 'vTxt'
-      .setProperty("Text","v[m/s]") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'vTxt'
-      .setProperty("Font","normal bold 15px Georgia, serif") // EJsS HtmlView.HtmlView Page: setting property 'Font' for element 'vTxt'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.text,"vxTxt", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vxTxt'
-      .setProperty("FontSize",15) // EJsS HtmlView.HtmlView Page: setting property 'FontSize' for element 'vxTxt'
-      .setProperty("OutlineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'OutlineColor' for element 'vxTxt'
-      .setProperty("Text","vx[m/s]") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'vxTxt'
-      .setProperty("Font","normal normal 15px Georgia, serif") // EJsS HtmlView.HtmlView Page: setting property 'Font' for element 'vxTxt'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.text,"vyTxt", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'vyTxt'
-      .setProperty("FontSize",15) // EJsS HtmlView.HtmlView Page: setting property 'FontSize' for element 'vyTxt'
-      .setProperty("OutlineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'OutlineColor' for element 'vyTxt'
-      .setProperty("Text","vy[m/s]") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'vyTxt'
-      .setProperty("Font","normal normal 16px Georgia, serif") // EJsS HtmlView.HtmlView Page: setting property 'Font' for element 'vyTxt'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.text,"tDometTxt", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'tDometTxt'
-      .setProperty("FontSize",16) // EJsS HtmlView.HtmlView Page: setting property 'FontSize' for element 'tDometTxt'
-      .setProperty("Font","normal bold 16px Georgia, serif") // EJsS HtmlView.HtmlView Page: setting property 'Font' for element 'tDometTxt'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.panel,"podaciPanel", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'podaciPanel'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.panel,"panel1", _view.podaciPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'panel1'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'panel1'
-      .setProperty("Width",250) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panel1'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"vremeLab", _view.panel1) // EJsS HtmlView.HtmlView Page: declaration of element 'vremeLab'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'vremeLab'
-      .setProperty("Width",150) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'vremeLab'
-      .setProperty("Text","t=") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'vremeLab'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.numberField,"vreme", _view.panel1) // EJsS HtmlView.HtmlView Page: declaration of element 'vreme'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'vreme'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'vreme'
-      .setProperty("Format","0.00s") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'vreme'
-      .setProperty("Editable",false) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'vreme'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"labelVremeJed", _view.panel1) // EJsS HtmlView.HtmlView Page: declaration of element 'labelVremeJed'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'labelVremeJed'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'labelVremeJed'
-      .setProperty("Text","s") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelVremeJed'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.panel,"panel2", _view.podaciPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'panel2'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'panel2'
-      .setProperty("Width",250) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panel2'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"brzinaLab", _view.panel2) // EJsS HtmlView.HtmlView Page: declaration of element 'brzinaLab'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'brzinaLab'
-      .setProperty("Width",150) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'brzinaLab'
-      .setProperty("Text","v=") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzinaLab'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.numberField,"brzina", _view.panel2) // EJsS HtmlView.HtmlView Page: declaration of element 'brzina'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'brzina'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'brzina'
-      .setProperty("Format","0.00m/s") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'brzina'
-      .setProperty("Editable",true) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'brzina'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"labelBrzinaJed", _view.panel2) // EJsS HtmlView.HtmlView Page: declaration of element 'labelBrzinaJed'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'labelBrzinaJed'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'labelBrzinaJed'
-      .setProperty("Text","m/s") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelBrzinaJed'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.panel,"panel3", _view.podaciPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'panel3'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'panel3'
-      .setProperty("Width",250) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panel3'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"ugaoLab", _view.panel3) // EJsS HtmlView.HtmlView Page: declaration of element 'ugaoLab'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'ugaoLab'
-      .setProperty("Width",150) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'ugaoLab'
-      .setProperty("Text","theta=") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ugaoLab'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.numberField,"ugao", _view.panel3) // EJsS HtmlView.HtmlView Page: declaration of element 'ugao'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'ugao'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'ugao'
-      .setProperty("Format","0.00") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'ugao'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"labelUgaoJed", _view.panel3) // EJsS HtmlView.HtmlView Page: declaration of element 'labelUgaoJed'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'labelUgaoJed'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'labelUgaoJed'
-      .setProperty("Text","deg") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelUgaoJed'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.panel,"panelH", _view.podaciPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'panelH'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'panelH'
-      .setProperty("Width",250) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panelH'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"labelH", _view.panelH) // EJsS HtmlView.HtmlView Page: declaration of element 'labelH'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'labelH'
-      .setProperty("Width",150) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'labelH'
-      .setProperty("Text","H=") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelH'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.numberField,"HTF", _view.panelH) // EJsS HtmlView.HtmlView Page: declaration of element 'HTF'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'HTF'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'HTF'
-      .setProperty("Format","0.00") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'HTF'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"jedH", _view.panelH) // EJsS HtmlView.HtmlView Page: declaration of element 'jedH'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'jedH'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'jedH'
-      .setProperty("Text","m") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'jedH'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.panel,"panelDomet", _view.podaciPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'panelDomet'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'panelDomet'
-      .setProperty("Width",250) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panelDomet'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"LabelD3", _view.panelDomet) // EJsS HtmlView.HtmlView Page: declaration of element 'LabelD3'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'LabelD3'
-      .setProperty("Width",150) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'LabelD3'
-      .setProperty("Text","Domet rac. =") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'LabelD3'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.numberField,"DTF2", _view.panelDomet) // EJsS HtmlView.HtmlView Page: declaration of element 'DTF2'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'DTF2'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'DTF2'
-      .setProperty("Format","0.00") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'DTF2'
-      .setProperty("Editable",false) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'DTF2'
-      .setProperty("Visibility",true) // EJsS HtmlView.HtmlView Page: setting property 'Visibility' for element 'DTF2'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"DJed2", _view.panelDomet) // EJsS HtmlView.HtmlView Page: declaration of element 'DJed2'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'DJed2'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'DJed2'
-      .setProperty("Text","m") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'DJed2'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.panel,"panelHMax", _view.podaciPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'panelHMax'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'panelHMax'
-      .setProperty("Width",250) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panelHMax'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"LabelHMax", _view.panelHMax) // EJsS HtmlView.HtmlView Page: declaration of element 'LabelHMax'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'LabelHMax'
-      .setProperty("Width",150) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'LabelHMax'
-      .setProperty("Text","HMax=") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'LabelHMax'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.numberField,"HMaxTF", _view.panelHMax) // EJsS HtmlView.HtmlView Page: declaration of element 'HMaxTF'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'HMaxTF'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'HMaxTF'
-      .setProperty("Format","0.00") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'HMaxTF'
-      .setProperty("Editable",false) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'HMaxTF'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"HMaxJed", _view.panelHMax) // EJsS HtmlView.HtmlView Page: declaration of element 'HMaxJed'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'HMaxJed'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'HMaxJed'
-      .setProperty("Text","m") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'HMaxJed'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.panel,"panelTPada", _view.podaciPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'panelTPada'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'panelTPada'
-      .setProperty("Width",250) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panelTPada'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"LabelTPada", _view.panelTPada) // EJsS HtmlView.HtmlView Page: declaration of element 'LabelTPada'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'LabelTPada'
-      .setProperty("Width",150) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'LabelTPada'
-      .setProperty("Text","vr. pada rac. =") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'LabelTPada'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.numberField,"TPadaTF", _view.panelTPada) // EJsS HtmlView.HtmlView Page: declaration of element 'TPadaTF'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'TPadaTF'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'TPadaTF'
-      .setProperty("Format","0.00") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'TPadaTF'
-      .setProperty("Editable",false) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'TPadaTF'
-      ;
-
-    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"TPadaJed", _view.panelTPada) // EJsS HtmlView.HtmlView Page: declaration of element 'TPadaJed'
-      .setProperty("Height",30) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'TPadaJed'
-      .setProperty("Width",50) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'TPadaJed'
-      .setProperty("Text","s") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'TPadaJed'
-      ;
-
     _view._addElement(EJSS_DRAWING2D.plottingPanel,"plottingPanel", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'plottingPanel'
-      .setProperty("Height",400) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'plottingPanel'
-      .setProperty("Width",500) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'plottingPanel'
-      .setProperty("ShowCoordinates",true) // EJsS HtmlView.HtmlView Page: setting property 'ShowCoordinates' for element 'plottingPanel'
-      .setProperty("Title","Visina po vremenu") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel'
-      .setProperty("AxisXShow",true) // EJsS HtmlView.HtmlView Page: setting property 'AxisXShow' for element 'plottingPanel'
-      .setProperty("XAutoStepMin",0.5) // EJsS HtmlView.HtmlView Page: setting property 'XAutoStepMin' for element 'plottingPanel'
-      .setProperty("MaximumY",15) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'plottingPanel'
-      .setProperty("MaximumX",5) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'plottingPanel'
+      .setProperty("Height","100%") // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'plottingPanel'
+      .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'plottingPanel'
       .setProperty("MinimumX",0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'plottingPanel'
       .setProperty("MinimumY",-0.1) // EJsS HtmlView.HtmlView Page: setting property 'MinimumY' for element 'plottingPanel'
-      .setProperty("AxisYShow",true) // EJsS HtmlView.HtmlView Page: setting property 'AxisYShow' for element 'plottingPanel'
       .setProperty("TitleY","Y(m)") // EJsS HtmlView.HtmlView Page: setting property 'TitleY' for element 'plottingPanel'
       .setProperty("AutoScaleY",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleY' for element 'plottingPanel'
       .setProperty("TitleX","Vreme(s)") // EJsS HtmlView.HtmlView Page: setting property 'TitleX' for element 'plottingPanel'
       .setProperty("AutoScaleX",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'plottingPanel'
-      .setProperty("GridXLineColor","LightGray") // EJsS HtmlView.HtmlView Page: setting property 'GridXLineColor' for element 'plottingPanel'
-      .setProperty("TitleFont","normal bold 15px Georgia, serif") // EJsS HtmlView.HtmlView Page: setting property 'TitleFont' for element 'plottingPanel'
-      .setProperty("GridXShow",true) // EJsS HtmlView.HtmlView Page: setting property 'GridXShow' for element 'plottingPanel'
+      .setProperty("Title","Visina po vremenu") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel'
+      .setProperty("MaximumY",15) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'plottingPanel'
+      .setProperty("MaximumX",5) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'plottingPanel'
       ;
 
     _view._addElement(EJSS_DRAWING2D.trail,"polozajY", _view.plottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'polozajY'
@@ -947,16 +407,51 @@ function KosHitac_View_0 (_topFrame) {
       .setProperty("ImageUrl","/org/opensourcephysics/resources/controls/images/reset.gif") // EJsS HtmlView.HtmlView Page: setting property 'ImageUrl' for element 'resetBtn'
       ;
 
-    _view._addElement(EJSS_INTERFACE.checkBox,"checkBoxPomLinije", _view.dugmadNavigacija) // EJsS HtmlView.HtmlView Page: declaration of element 'checkBoxPomLinije'
-      .setProperty("Text","pom linije") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'checkBoxPomLinije'
+    _view._addElement(EJSS_INTERFACE.panel,"panel1", _view.dugmadNavigacija) // EJsS HtmlView.HtmlView Page: declaration of element 'panel1'
       ;
 
-    _view._addElement(EJSS_INTERFACE.checkBox,"checkBoxKomponenteV", _view.dugmadNavigacija) // EJsS HtmlView.HtmlView Page: declaration of element 'checkBoxKomponenteV'
-      .setProperty("Text","vx i vy") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'checkBoxKomponenteV'
+    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"vremeLab", _view.panel1) // EJsS HtmlView.HtmlView Page: declaration of element 'vremeLab'
+      .setProperty("Text","vreme=") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'vremeLab'
       ;
 
-    _view._addElement(EJSS_INTERFACE.checkBox,"checkBoxPrikazV", _view.dugmadNavigacija) // EJsS HtmlView.HtmlView Page: declaration of element 'checkBoxPrikazV'
-      .setProperty("Text","prikazV") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'checkBoxPrikazV'
+    _view._addElement(EJSS_INTERFACE.numberField,"vreme", _view.panel1) // EJsS HtmlView.HtmlView Page: declaration of element 'vreme'
+      .setProperty("Format","0.00s") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'vreme'
+      .setProperty("Editable",false) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'vreme'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"labelVremeJed", _view.panel1) // EJsS HtmlView.HtmlView Page: declaration of element 'labelVremeJed'
+      .setProperty("Text","s") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelVremeJed'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.panel,"panel2", _view.dugmadNavigacija) // EJsS HtmlView.HtmlView Page: declaration of element 'panel2'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"brzinaLab", _view.panel2) // EJsS HtmlView.HtmlView Page: declaration of element 'brzinaLab'
+      .setProperty("Text","brzina=") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'brzinaLab'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.numberField,"brzina", _view.panel2) // EJsS HtmlView.HtmlView Page: declaration of element 'brzina'
+      .setProperty("Format","0.00m/s") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'brzina'
+      .setProperty("Editable",true) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'brzina'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"labelBrzinaJed", _view.panel2) // EJsS HtmlView.HtmlView Page: declaration of element 'labelBrzinaJed'
+      .setProperty("Text","m/s") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelBrzinaJed'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.panel,"panel3", _view.dugmadNavigacija) // EJsS HtmlView.HtmlView Page: declaration of element 'panel3'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"ugaoLab", _view.panel3) // EJsS HtmlView.HtmlView Page: declaration of element 'ugaoLab'
+      .setProperty("Text","theta=") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'ugaoLab'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.numberField,"ugao", _view.panel3) // EJsS HtmlView.HtmlView Page: declaration of element 'ugao'
+      .setProperty("Format","0.00rad") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'ugao'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.imageAndTextButton,"labelUgaoJed", _view.panel3) // EJsS HtmlView.HtmlView Page: declaration of element 'labelUgaoJed'
+      .setProperty("Text","rad") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'labelUgaoJed'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"narrativePanel", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel'
@@ -966,6 +461,8 @@ function KosHitac_View_0 (_topFrame) {
   };
 
   return _view;
+}
+
 
 
 </script>
