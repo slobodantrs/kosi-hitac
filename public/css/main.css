@@ -435,7 +435,7 @@ div#_topFrame div#wrappedPanel{
 }
 div#wrappedPanel svg{
 	width:100% !important;
-	height:40vw !important;
+	height:auto;/*40vw !important;*/
 	margin-left: auto!important;
 	margin-right:auto !important;
 }
