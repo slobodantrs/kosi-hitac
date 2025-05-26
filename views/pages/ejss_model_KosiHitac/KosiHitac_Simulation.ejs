@@ -2,7 +2,7 @@
 <script>
 
 /* _inputParameters: an object with different values for the model parameters */
-function KosHitac(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
+function KosiHitac(_topFrame,_libraryPath,_codebasePath, _inputParameters) {
   var _model = EJSS_CORE.createAnimationLMS();
   var _view;
   var _isPlaying = false;
@@ -1011,7 +1011,7 @@ function KosHitac_View_0 (_topFrame) {
 		// Функција коју ћемо позвати након динамичког учитавања скрипти и контейнера
   function initKosiHitacSimulation() {
     // Постављамо модел у глобалну променљиву
-    _model = new KosHitac("_topFrame", "/_ejs_library/", null);
+    _model = new KosiHitac("_topFrame", "/_ejs_library/", null);
     if (typeof _isApp !== "undefined" && _isApp) _model.setRunAlways(true);
 
     TextResizeDetector.TARGET_ELEMENT_ID = 'intro';
