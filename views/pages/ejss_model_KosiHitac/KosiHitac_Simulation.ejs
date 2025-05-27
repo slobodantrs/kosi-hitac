@@ -436,9 +436,14 @@ var _stringProperties = {};
         // > CustomCode.odrediDometIHMax:44
 		
 		console.log("_view.drawingPanel =", _view.drawingPanel);
-console.log("Available methods on drawingPanel:", Object.keys(_view.drawingPanel));
+//console.log("Available methods on drawingPanel:", Object.keys(_view.drawingPanel));
+const rect = _view.drawingPanel.getInnerRect();
+const panelPxHeight = rect.height;
+const panelPxWidth  = rect.width;
+console.log("InnerRect height =", panelPxHeight, "width =", panelPxWidth);
 
-		alert("Evo me u updateStyle, panel visine: " + _view.drawingPanel.getPixelHeight());
+
+		alert("Evo me u updateStyle, panel visine: " + "InnerRect height ="+ panelPxHeight+ "width ="+ panelPxWidth);
 
 		
     responsiveCss=styles;  // > CustomCode.odrediDometIHMax:45
