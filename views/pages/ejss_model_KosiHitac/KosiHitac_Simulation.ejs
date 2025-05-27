@@ -590,6 +590,7 @@ var _stringProperties = {};
           _view.checkBoxKomponenteV.linkProperty("Checked",  function() { return prikazVxVy; }, function(_v) { prikazVxVy = _v; } ); // HtmlView Page linking property 'Checked' for element 'checkBoxKomponenteV'
           _view.checkBoxPrikazV.linkProperty("Checked",  function() { return prikazV; }, function(_v) { prikazV = _v; } ); // HtmlView Page linking property 'Checked' for element 'checkBoxPrikazV'
           _view.wrappedPanel.linkProperty("CSS",  function() { return cssWrapped; }, function(_v) { cssWrapped = _v; } ); // HtmlView Page linking property 'CSS' for element 'wrappedPanel'
+          _view.containerDrawing.linkProperty("CSS",  function() { return responsiveCss; }, function(_v) { responsiveCss = _v; } ); // HtmlView Page linking property 'CSS' for element 'containerDrawing'
           _view.drawingPanel.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'drawingPanel'
           _view.Lopta.linkProperty("X",  function() { return xGeom; }, function(_v) { xGeom = _v; } ); // HtmlView Page linking property 'X' for element 'Lopta'
           _view.Lopta.linkProperty("Y",  function() { return yGeom; }, function(_v) { yGeom = _v; } ); // HtmlView Page linking property 'Y' for element 'Lopta'
@@ -643,14 +644,6 @@ var _stringProperties = {};
           _view.XAxesTxt.linkProperty("Y",  function() { return HMaxRac*(1/10.0)*razGeom; } ); // HtmlView Page linking property 'Y' for element 'XAxesTxt'
           _view.YAxesTxt.linkProperty("X",  function() { return D/20*razGeom; } ); // HtmlView Page linking property 'X' for element 'YAxesTxt'
           _view.YAxesTxt.linkProperty("Y",  function() { return (HMaxRac*7/6.0)*razGeom; } ); // HtmlView Page linking property 'Y' for element 'YAxesTxt'
-          _view.containerDrawing.linkProperty("CSS",  function() { return responsiveCss; }, function(_v) { responsiveCss = _v; } ); // HtmlView Page linking property 'CSS' for element 'containerDrawing'
-          _view.plottingPanel.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'plottingPanel'
-          _view.plottingPanel.linkProperty("TRMessage",  function() { return "x="+x.toFixed(2)+"m"; } ); // HtmlView Page linking property 'TRMessage' for element 'plottingPanel'
-          _view.plottingPanel.linkProperty("BLMessage",  function() { return "vy="+vy.toFixed(2)+"m/s"; } ); // HtmlView Page linking property 'BLMessage' for element 'plottingPanel'
-          _view.plottingPanel.linkProperty("TLMessage",  function() { return "y="+y.toFixed(2)+"m"; } ); // HtmlView Page linking property 'TLMessage' for element 'plottingPanel'
-          _view.plottingPanel.linkProperty("BRMessage",  function() { return "vx="+vx.toFixed(2)+"m/s"; } ); // HtmlView Page linking property 'BRMessage' for element 'plottingPanel'
-          _view.polozajY.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'polozajY'
-          _view.polozajY.linkProperty("InputY",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'InputY' for element 'polozajY'
           _view.podaciPanel.linkProperty("CSS",  function() { return cssPodaci; }, function(_v) { cssPodaci = _v; } ); // HtmlView Page linking property 'CSS' for element 'podaciPanel'
           _view.panel1.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'panel1'
           _view.vremeLab.linkProperty("CSS",  function() { return cssLab; }, function(_v) { cssLab = _v; } ); // HtmlView Page linking property 'CSS' for element 'vremeLab'
@@ -693,6 +686,13 @@ var _stringProperties = {};
           _view.TPadaTF.linkProperty("Value",  function() { return tP; }, function(_v) { tP = _v; } ); // HtmlView Page linking property 'Value' for element 'TPadaTF'
           _view.TPadaTF.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'TPadaTF'
           _view.TPadaJed.linkProperty("CSS",  function() { return cssTF; }, function(_v) { cssTF = _v; } ); // HtmlView Page linking property 'CSS' for element 'TPadaJed'
+          _view.plottingPanel.linkProperty("CSS",  function() { return css; }, function(_v) { css = _v; } ); // HtmlView Page linking property 'CSS' for element 'plottingPanel'
+          _view.plottingPanel.linkProperty("TRMessage",  function() { return "x="+x.toFixed(2)+"m"; } ); // HtmlView Page linking property 'TRMessage' for element 'plottingPanel'
+          _view.plottingPanel.linkProperty("BLMessage",  function() { return "vy="+vy.toFixed(2)+"m/s"; } ); // HtmlView Page linking property 'BLMessage' for element 'plottingPanel'
+          _view.plottingPanel.linkProperty("TLMessage",  function() { return "y="+y.toFixed(2)+"m"; } ); // HtmlView Page linking property 'TLMessage' for element 'plottingPanel'
+          _view.plottingPanel.linkProperty("BRMessage",  function() { return "vx="+vx.toFixed(2)+"m/s"; } ); // HtmlView Page linking property 'BRMessage' for element 'plottingPanel'
+          _view.polozajY.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'polozajY'
+          _view.polozajY.linkProperty("InputY",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'InputY' for element 'polozajY'
           break;
       } // end of switch
     }; // end of new reset
@@ -765,8 +765,14 @@ function KosHitac_View_0 (_topFrame) {
     _view._addElement(EJSS_INTERFACE.wrappedPanel,"wrappedPanel", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'wrappedPanel'
       ;
 
-    _view._addElement(EJSS_DRAWING2D.drawingPanel,"drawingPanel", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'drawingPanel'
-      .setProperty("Height",500) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'drawingPanel'
+    _view._addElement(EJSS_INTERFACE.panel,"containerDrawing", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'containerDrawing'
+      .setProperty("Height","auto") // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'containerDrawing'
+      .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'containerDrawing'
+      .setProperty("BorderColor","rgba(0,0,128,1)") // EJsS HtmlView.HtmlView Page: setting property 'BorderColor' for element 'containerDrawing'
+      .setProperty("BorderWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'BorderWidth' for element 'containerDrawing'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.drawingPanel,"drawingPanel", _view.containerDrawing) // EJsS HtmlView.HtmlView Page: declaration of element 'drawingPanel'
       .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'drawingPanel'
       .setProperty("Background","rgba(255,255,255,1)") // EJsS HtmlView.HtmlView Page: setting property 'Background' for element 'drawingPanel'
       .setProperty("GuttersLineColor","Blue") // EJsS HtmlView.HtmlView Page: setting property 'GuttersLineColor' for element 'drawingPanel'
@@ -910,40 +916,6 @@ function KosHitac_View_0 (_topFrame) {
       .setProperty("Font","normal bold 18px ") // EJsS HtmlView.HtmlView Page: setting property 'Font' for element 'YAxesTxt'
       ;
 
-    _view._addElement(EJSS_INTERFACE.panel,"containerDrawing", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'containerDrawing'
-      .setProperty("Height","auto") // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'containerDrawing'
-      .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'containerDrawing'
-      .setProperty("BorderColor","rgba(0,0,128,1)") // EJsS HtmlView.HtmlView Page: setting property 'BorderColor' for element 'containerDrawing'
-      .setProperty("BorderWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'BorderWidth' for element 'containerDrawing'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.plottingPanel,"plottingPanel", _view.containerDrawing) // EJsS HtmlView.HtmlView Page: declaration of element 'plottingPanel'
-      .setProperty("Height",400) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'plottingPanel'
-      .setProperty("Width",500) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'plottingPanel'
-      .setProperty("ShowCoordinates",true) // EJsS HtmlView.HtmlView Page: setting property 'ShowCoordinates' for element 'plottingPanel'
-      .setProperty("Title","Visina po vremenu") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel'
-      .setProperty("AxisXShow",true) // EJsS HtmlView.HtmlView Page: setting property 'AxisXShow' for element 'plottingPanel'
-      .setProperty("XAutoStepMin",0.5) // EJsS HtmlView.HtmlView Page: setting property 'XAutoStepMin' for element 'plottingPanel'
-      .setProperty("MaximumY",15) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'plottingPanel'
-      .setProperty("MaximumX",5) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'plottingPanel'
-      .setProperty("MinimumX",0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'plottingPanel'
-      .setProperty("MinimumY",-0.1) // EJsS HtmlView.HtmlView Page: setting property 'MinimumY' for element 'plottingPanel'
-      .setProperty("AxisYShow",true) // EJsS HtmlView.HtmlView Page: setting property 'AxisYShow' for element 'plottingPanel'
-      .setProperty("TitleY","Y(m)") // EJsS HtmlView.HtmlView Page: setting property 'TitleY' for element 'plottingPanel'
-      .setProperty("AutoScaleY",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleY' for element 'plottingPanel'
-      .setProperty("TitleX","Vreme(s)") // EJsS HtmlView.HtmlView Page: setting property 'TitleX' for element 'plottingPanel'
-      .setProperty("AutoScaleX",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'plottingPanel'
-      .setProperty("GridXLineColor","LightGray") // EJsS HtmlView.HtmlView Page: setting property 'GridXLineColor' for element 'plottingPanel'
-      .setProperty("TitleFont","normal bold 15px Georgia, serif") // EJsS HtmlView.HtmlView Page: setting property 'TitleFont' for element 'plottingPanel'
-      .setProperty("GridXShow",true) // EJsS HtmlView.HtmlView Page: setting property 'GridXShow' for element 'plottingPanel'
-      ;
-
-    _view._addElement(EJSS_DRAWING2D.trail,"polozajY", _view.plottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'polozajY'
-      .setProperty("Maximum",10000) // EJsS HtmlView.HtmlView Page: setting property 'Maximum' for element 'polozajY'
-      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'polozajY'
-      .setProperty("NoRepeat",false) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'polozajY'
-      ;
-
     _view._addElement(EJSS_INTERFACE.panel,"podaciPanel", _view.containerDrawing) // EJsS HtmlView.HtmlView Page: declaration of element 'podaciPanel'
       ;
 
@@ -1063,6 +1035,33 @@ function KosHitac_View_0 (_topFrame) {
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"TPadaJed", _view.panelTPada) // EJsS HtmlView.HtmlView Page: declaration of element 'TPadaJed'
       .setProperty("Text","s") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'TPadaJed'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.plottingPanel,"plottingPanel", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'plottingPanel'
+      .setProperty("Height",400) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'plottingPanel'
+      .setProperty("Width",500) // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'plottingPanel'
+      .setProperty("ShowCoordinates",true) // EJsS HtmlView.HtmlView Page: setting property 'ShowCoordinates' for element 'plottingPanel'
+      .setProperty("Title","Visina po vremenu") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel'
+      .setProperty("AxisXShow",true) // EJsS HtmlView.HtmlView Page: setting property 'AxisXShow' for element 'plottingPanel'
+      .setProperty("XAutoStepMin",0.5) // EJsS HtmlView.HtmlView Page: setting property 'XAutoStepMin' for element 'plottingPanel'
+      .setProperty("MaximumY",15) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'plottingPanel'
+      .setProperty("MaximumX",5) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'plottingPanel'
+      .setProperty("MinimumX",0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'plottingPanel'
+      .setProperty("MinimumY",-0.1) // EJsS HtmlView.HtmlView Page: setting property 'MinimumY' for element 'plottingPanel'
+      .setProperty("AxisYShow",true) // EJsS HtmlView.HtmlView Page: setting property 'AxisYShow' for element 'plottingPanel'
+      .setProperty("TitleY","Y(m)") // EJsS HtmlView.HtmlView Page: setting property 'TitleY' for element 'plottingPanel'
+      .setProperty("AutoScaleY",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleY' for element 'plottingPanel'
+      .setProperty("TitleX","Vreme(s)") // EJsS HtmlView.HtmlView Page: setting property 'TitleX' for element 'plottingPanel'
+      .setProperty("AutoScaleX",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'plottingPanel'
+      .setProperty("GridXLineColor","LightGray") // EJsS HtmlView.HtmlView Page: setting property 'GridXLineColor' for element 'plottingPanel'
+      .setProperty("TitleFont","normal bold 15px Georgia, serif") // EJsS HtmlView.HtmlView Page: setting property 'TitleFont' for element 'plottingPanel'
+      .setProperty("GridXShow",true) // EJsS HtmlView.HtmlView Page: setting property 'GridXShow' for element 'plottingPanel'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.trail,"polozajY", _view.plottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'polozajY'
+      .setProperty("Maximum",10000) // EJsS HtmlView.HtmlView Page: setting property 'Maximum' for element 'polozajY'
+      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'polozajY'
+      .setProperty("NoRepeat",false) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'polozajY'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"narrativePanel", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel'
