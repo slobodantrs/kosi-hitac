@@ -728,8 +728,8 @@ svg#drawingPanel{
 }
 svg#drawingPanel path{
 	width:100% !important;
-/*	height:auto !important;*/
-height:500px !important;
+	height:auto !important;
+
 	display:inline-block;
 }
 div#executionPanel,div#executionPanel2{
@@ -737,8 +737,8 @@ div#executionPanel,div#executionPanel2{
 }
 #myPanel{
 	width:100% !important;
-	/*height:auto !important;*/
-	height:500px !important;
+	height:auto !important;
+	
 }
 div#executionPanel > button,div#executionPanel2 > button{
 	width:3rem !important;
