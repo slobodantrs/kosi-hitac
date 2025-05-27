@@ -425,7 +425,7 @@ nav .container-fluid{
 	  height:100vw! important;
   }
   div#wrappedPanel{
-	width:40% !important;
+	width:100%;
 	height:auto !important;
 	margin-left: auto!important;
 	margin-right:auto !important;
