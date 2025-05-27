@@ -721,8 +721,8 @@ img{
 }
 svg#drawingPanel{
 	width:100% !important;
-	height:auto !important;
-	
+	 height: 80vw !important;    /* postavite visinu, npr. 60% širine ekrana */
+    max-height: 500px;           /* opcionalno ograničenje */
 	text-align:center;
 	display:inline-block;
 }
