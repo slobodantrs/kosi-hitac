@@ -440,11 +440,8 @@ var _stringProperties = {};
   const canvasElem = _view.drawingPanel.getElement 
     ? _view.drawingPanel.getElement() 
     : _view.drawingPanel.element; // fallback
-  // canvasElem je obično <canvas> ili div koji sadrži canvas
-  const realWidth  = canvasElem.clientWidth;
-  const realHeight = canvasElem.clientHeight;
-  console.log("Canvas CSS size:", realWidth, "×", realHeight);
-	alert("Canvas CSS size:"+ realWidth+ "×", realHeight);
+  
+	alert("Canvas CSS size:"+ canvasElem);
 		
 
 		
