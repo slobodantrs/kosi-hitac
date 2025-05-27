@@ -1,5 +1,5 @@
 
-	
+ <div class="moj_tekst">	
     <p><strong>Kosi hitac je kretanje koje se sastoji od kretanja nekog tela u ravni, brzinom V<sub>0</sub> po pravcu koji zaklapa vektor brzine sa osom x.</strong></p>
 <p>Kosi hitac je složeno kretanje koje se može podeliti na dva nezavisna kretanja, vertikalno i horizontalno. Dok je 
 
@@ -22,4 +22,89 @@ gravitacione sile koja vuće kuglu prema dole (slobodni pad). Na površini zemlj
 <p>Najveća postignuta visina <strong>H<sub>Max</sub>=v<sub>0</sub>²*(sin(α))²/(2*g)</strong></p>
 
 <p>Domet <strong>D=v<sub>0</sub>²*sin(2*α)/g</strong></p>
- 
+ <h2>Kosi hitac sa početne visine H0</h2>
+ <p>Posmatrajmo sledeću simulaciju kosog hica prikazanoj na slici 1</p>
+ <div>
+ <figure class="margine_oko_slike">
+ <img src="images/KosHitac/SimulacijaKosogHica.jpg" alt="Simulacija kosog hica"></img>
+ <figcaption>Slika 1. Simulacija kosog hica kreirana pomoću EjsS-a</figcaption>
+ </figure>
+ </div>
+
+  <h3>Određivanje dometa i maksimalne visine</h3>
+
+  <h4>1. Ukupno vreme leta \(t_D\)</h4>
+  <p>
+    Horizontalni domet definisan je kao
+  </p>
+  <p style="text-align: center;">
+    <code>D = v<sub>0x</sub> · t<sub>D</sub></code>
+  </p>
+  <p>
+    gde je <code>v<sub>0x</sub> = v₀ cos θ</code> horizontalna komponenta početne brzine. Ukupno vreme leta <code>t<sub>D</sub></code> može se izraziti kao:
+  </p>
+  <p style="text-align: center;">
+    <code>t<sub>D</sub> = 2·t₁ + t<sub>P</sub></code>
+  </p>
+  <p>
+    – <strong>t₁</strong> je vreme penjanja od početne visine <code>H₀</code> do vrha oscilacije (i isto vreme spuštanja nazad na tu visinu),  
+    – <strong>t<sub>P</sub></strong> je vreme pada sa visine <code>H₀</code> na tlo.
+  </p>
+
+  <h4>2. Vreme penjanja i spuštanja do iste visine</h4>
+  <p>
+    Penjanje do vrha pod dejstvom gravitacije zadovoljava  
+  </p>
+  <p style="text-align: center;">
+    <code>0 = v<sub>0y</sub> – g·t₁</code>  
+    ⇒ <code>t₁ = v<sub>0y</sub> / g</code>
+  </p>
+
+  <h4>3. Vreme pada sa visine \(H₀\)</h4>
+  <p>
+    Pad sa visine <code>H₀</code>, pri kojem je brzina pri početku pada <code>–v<sub>0y</sub></code>, rešava se iz kvadratne jednačine:
+  </p>
+  <p style="text-align: center;">
+    <code>
+      ½·g·t<sub>P</sub><sup>2</sup> + v<sub>0y</sub>·t<sub>P</sub> – H₀ = 0
+    </code>
+  </p>
+  <p>
+    Rešenje (pozitivni koren) je:
+  </p>
+  <p style="text-align: center;">
+    <code>
+      t<sub>P</sub> = (–v<sub>0y</sub> + √(v<sub>0y</sub><sup>2</sup> + 2·g·H₀)) / g
+    </code>
+  </p>
+
+  <h4>4. Konačno vreme leta</h4>
+  <p>
+    Ubacivanjem u formulu za <code>t<sub>D</sub></code> dobija se:
+  </p>
+  <p style="text-align: center;">
+    <code>
+      t<sub>D</sub> = 2·(v<sub>0y</sub>/g) + (–v<sub>0y</sub> + √(v<sub>0y</sub><sup>2</sup> + 2·g·H₀)) / g  
+      = (v<sub>0y</sub> + √(v<sub>0y</sub><sup>2</sup> + 2·g·H₀)) / g
+    </code>
+  </p>
+
+  <h4>5. Domet</h4>
+  <p style="text-align: center;">
+    <strong>D = v<sub>0x</sub> · t<sub>D</sub></strong>
+  </p>
+
+  <h4>6. Maksimalna visina \(H<sub>max</sub>\)</h4>
+  <p>
+    Visina penjanja (od <code>H₀</code> do vrha) data je formulom iz jednoliko usporenog kretanja:
+  </p>
+  <p style="text-align: center;">
+    <code>ΔH = v<sub>0y</sub><sup>2</sup> / (2·g)</code>
+  </p>
+  <p>
+    Dakle, konačna maksimalna visina:
+  </p>
+  <p style="text-align: center;">
+    <strong>H<sub>max</sub> = H₀ + v<sub>0y</sub><sup>2</sup> / (2·g)</strong>
+  </p>
+</div>
