@@ -736,7 +736,8 @@ div#executionPanel,div#executionPanel2{
 }
 #myPanel{
 	width:100% !important;
-	height:auto !important;
+	/*height:auto !important;*/
+	height:500px !important;
 }
 div#executionPanel > button,div#executionPanel2 > button{
 	width:3rem !important;
