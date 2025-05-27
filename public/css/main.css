@@ -528,6 +528,8 @@ width:100%;  /* ne izlazi iz figure */
     overflow-x: auto;      /* scrollbar kad je canvas širi od roditelja */
     box-sizing: border-box;
     margin: 1rem 0;
+	flex: 1 1 auto;
+	overflow-y: visible; 
   }
   .canvas-wrapper .canvasForHTML {
     /* granica i visina po potrebi */
