@@ -728,7 +728,8 @@ svg#drawingPanel{
 }
 svg#drawingPanel path{
 	width:100% !important;
-	height:auto !important;
+/*	height:auto !important;*/
+height:500px !important;
 	display:inline-block;
 }
 div#executionPanel,div#executionPanel2{
