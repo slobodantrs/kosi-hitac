@@ -345,7 +345,7 @@ var _stringProperties = {};
     HMax = 0; // EjsS Model.Variables.promenljjive.HMax
     css = {   "display": "flex",   "margin": "0px","max-width": "100%",   "overflow-x": "auto",   "vertical-align": "center",   "gap": "8px",   "flex-direction": "row",   "justify-content": "flex-start",   "align-items": "flex-start",   "max-height": "500px",   "overflow-y": "auto" }; // EjsS Model.Variables.promenljjive.css
     navise = true; // EjsS Model.Variables.promenljjive.navise
-    responsiveCss = {display:'flex', flexDirection:'row', gap:'2px'}; // EjsS Model.Variables.promenljjive.responsiveCss
+    responsiveCss = {display:'flex', flexDirection:'column', gap:'2px'}; // EjsS Model.Variables.promenljjive.responsiveCss
     cssPodaci = {display:'flex', flexDirection:'column', gap:'2px',width: '450px'}; // EjsS Model.Variables.promenljjive.cssPodaci
     prikazHMax = false; // EjsS Model.Variables.promenljjive.prikazHMax
     kraj = false; // EjsS Model.Variables.promenljjive.kraj
@@ -445,7 +445,7 @@ var _stringProperties = {};
        // > CustomCode.odrediDometIHMax:53
       Object.assign(panelDom.getStyle(), styles);       // > CustomCode.odrediDometIHMax:54
           // > CustomCode.odrediDometIHMax:55
-      console.log("Applied styles:", styles);  // > CustomCode.odrediDometIHMax:56
+    //  console.log("Applied styles:", styles);  // > CustomCode.odrediDometIHMax:56
     } else {  // > CustomCode.odrediDometIHMax:57
       console.warn("wrappedPanel.element nije dostupan");  // > CustomCode.odrediDometIHMax:58
     }  // > CustomCode.odrediDometIHMax:59
@@ -512,7 +512,7 @@ var _stringProperties = {};
         else{  // > Initialization.inicijalizacija:51
           razmeraV=razGeom*v0/50;  // > Initialization.inicijalizacija:52
           }  // > Initialization.inicijalizacija:53
-          console.log("razmeraV="+(razmeraV));  // > Initialization.inicijalizacija:54
+         // console.log("razmeraV="+(razmeraV));  // > Initialization.inicijalizacija:54
   });
 
   _model.addToEvolution(function() {
@@ -536,7 +536,7 @@ var _stringProperties = {};
     }  // > Evolution.evolucija:17
     if(navise && vy<0){  // > Evolution.evolucija:18
       HMax=y;  // > Evolution.evolucija:19
-      console.log("vy="+vy);  // > Evolution.evolucija:20
+    //  console.log("vy="+vy);  // > Evolution.evolucija:20
       navise=false;  // > Evolution.evolucija:21
     }  // > Evolution.evolucija:22
     if(_model.isPaused())  // > Evolution.evolucija:23
@@ -552,7 +552,7 @@ var _stringProperties = {};
     yGeom=y*razGeom;  // > FixedRelations.vektorBrzine:2
     xvGeom=xv*razGeom;  // > FixedRelations.vektorBrzine:3
     yvGeom=yv*razGeom;  // > FixedRelations.vektorBrzine:4
-    console.log("v="+(v*razmeraV));  // > FixedRelations.vektorBrzine:5
+    //console.log("v="+(v*razmeraV));  // > FixedRelations.vektorBrzine:5
     if(kraj){  // > FixedRelations.vektorBrzine:6
       _model._pause();  // > FixedRelations.vektorBrzine:7
       }  // > FixedRelations.vektorBrzine:8
