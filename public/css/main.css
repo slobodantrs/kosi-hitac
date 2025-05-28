@@ -525,7 +525,7 @@ width:100%;  /* ne izlazi iz figure */
   /* --- kontejner za canvas --- */
   .canvas-wrapper {
     width: 100%;
-	min-width:0;
+	
     overflow-x: auto;      /* scrollbar kad je canvas širi od roditelja */
     box-sizing: border-box;
     margin: 1rem 0;
@@ -539,8 +539,8 @@ width:100%;  /* ne izlazi iz figure */
   }
   .canvas-wrapper .canvasForHTML canvas {
     display: block;
- /*   max-width: 100% !important;   skaluje canvas da ne prelazi roditelja */
-    width: 450px;
+    max-width: 100% !important;  /* skaluje canvas da ne prelazi roditelja */
+    width: 100%;
 	min-width:0;
     height: auto !important;
   }
@@ -724,11 +724,12 @@ img{
 #_topFrame{
 	font-size:1rem !important;
 	width:100% !important;
+	min-width:0;
 }
 svg#drawingPanel{
 	width:100% !important;
-	 height: 80vw !important;    /* postavite visinu, npr. 60% širine ekrana */
-    max-height: 500px;           /* opcionalno ograničenje */
+	 height: 120vw !important;    /* postavite visinu, npr. 60% širine ekrana */
+  /*  max-height: 500px; */          /* opcionalno ograničenje */
 	text-align:center;
 	display:inline-block;
 }
@@ -752,11 +753,12 @@ div#executionPanel > button,div#executionPanel2 > button{
 	
 }
 div#kontejnerPanel,div#wrappedPanel,div#controlPanel,div#drawingPanel3D,div#wrappedPanel2,div#labelPanel2{
-	max-width:100% !important;
+	/*max-width:100% !important;*/
 	/*height:80vw !important;*/
 	margin-left: auto!important;
 	margin-right:auto !important;
-	overflow-x:auto;
+	overflow:auto;
+	width:800px;
 }
 div#wrappedPanel svg{
 	width:100% !important;
