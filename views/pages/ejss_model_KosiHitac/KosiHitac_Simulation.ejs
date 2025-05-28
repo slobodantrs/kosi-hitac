@@ -75,6 +75,7 @@ var _stringProperties = {};
   var dy; // EjsS Model.Variables.promenljjive.dy
   var H; // EjsS Model.Variables.promenljjive.H
   var D; // EjsS Model.Variables.promenljjive.D
+  var DZnak; // EjsS Model.Variables.promenljjive.DZnak
   var HMax; // EjsS Model.Variables.promenljjive.HMax
   var css; // EjsS Model.Variables.promenljjive.css
   var navise; // EjsS Model.Variables.promenljjive.navise
@@ -132,6 +133,7 @@ var _stringProperties = {};
       dy : dy,
       H : H,
       D : D,
+      DZnak : DZnak,
       HMax : HMax,
       css : css,
       navise : navise,
@@ -183,6 +185,7 @@ var _stringProperties = {};
       dy : dy,
       H : H,
       D : D,
+      DZnak : DZnak,
       HMax : HMax,
       css : css,
       navise : navise,
@@ -231,6 +234,7 @@ var _stringProperties = {};
     if(typeof json.dy != "undefined") dy = json.dy;
     if(typeof json.H != "undefined") H = json.H;
     if(typeof json.D != "undefined") D = json.D;
+    if(typeof json.DZnak != "undefined") DZnak = json.DZnak;
     if(typeof json.HMax != "undefined") HMax = json.HMax;
     if(typeof json.css != "undefined") css = json.css;
     if(typeof json.navise != "undefined") navise = json.navise;
@@ -278,6 +282,7 @@ var _stringProperties = {};
     if(typeof json.dy != "undefined") dy = json.dy;
     if(typeof json.H != "undefined") H = json.H;
     if(typeof json.D != "undefined") D = json.D;
+    if(typeof json.DZnak != "undefined") DZnak = json.DZnak;
     if(typeof json.HMax != "undefined") HMax = json.HMax;
     if(typeof json.css != "undefined") css = json.css;
     if(typeof json.navise != "undefined") navise = json.navise;
@@ -342,6 +347,7 @@ var _stringProperties = {};
     dt = 0.001; // EjsS Model.Variables.promenljjive.dt
     H = 0; // EjsS Model.Variables.promenljjive.H
     D = 0; // EjsS Model.Variables.promenljjive.D
+    DZnak = 0; // EjsS Model.Variables.promenljjive.DZnak
     HMax = 0; // EjsS Model.Variables.promenljjive.HMax
     css = {   "display": "flex",   "margin": "0px","max-width": "100%",   "overflow-x": "auto",   "vertical-align": "center",   "gap": "8px",   "flex-direction": "row",   "justify-content": "flex-start",   "align-items": "flex-start",   "max-height": "500px",   "overflow-y": "auto" }; // EjsS Model.Variables.promenljjive.css
     navise = true; // EjsS Model.Variables.promenljjive.navise
@@ -463,56 +469,61 @@ var _stringProperties = {};
     prikazV=true;  // > Initialization.inicijalizacija:2
     //thetaDeg=35;  // > Initialization.inicijalizacija:3
     y=H;  // > Initialization.inicijalizacija:4
-    v=v0;  // > Initialization.inicijalizacija:5
-    theta=thetaDeg*Math.PI/180;  // > Initialization.inicijalizacija:6
-    thetaPoc=theta;  // > Initialization.inicijalizacija:7
-    vx =  v* Math.cos(theta);  // > Initialization.inicijalizacija:8
-    vy = v * Math.sin(theta);  // > Initialization.inicijalizacija:9
-    v0x=vx;  // > Initialization.inicijalizacija:10
-    v0y=vy;  // > Initialization.inicijalizacija:11
-    xv = x //+ v* Math.cos(theta);  // > Initialization.inicijalizacija:12
-    yv = y //+ v * Math.sin(theta);  // > Initialization.inicijalizacija:13
-    D=0;  // > Initialization.inicijalizacija:14
-    navise=true;  // > Initialization.inicijalizacija:15
-    prikazHMax=false;  // > Initialization.inicijalizacija:16
-    updateStyle();  // > Initialization.inicijalizacija:17
-    window.addEventListener("resize", updateStyle);  // > Initialization.inicijalizacija:18
-    kraj=false;  // > Initialization.inicijalizacija:19
-    //D=v0*v0*Math.sin(2*theta)/g  // > Initialization.inicijalizacija:20
-    HMaxRac=H+v0y*v0y/(2*g);  // > Initialization.inicijalizacija:21
-    tP=(v0y/g)+Math.sqrt(v0y*v0y+2*g*H)/g;  // > Initialization.inicijalizacija:22
-    D=v0x*tP;  // > Initialization.inicijalizacija:23
-    raz=D/50;  // > Initialization.inicijalizacija:24
-    if(raz<1){  // > Initialization.inicijalizacija:25
-      raz=1;  // > Initialization.inicijalizacija:26
-      }  // > Initialization.inicijalizacija:27
-      if(D>5 && D <20){  // > Initialization.inicijalizacija:28
-    razGeom=400/D;  // > Initialization.inicijalizacija:29
-    }  // > Initialization.inicijalizacija:30
-    else if(D>20){  // > Initialization.inicijalizacija:31
-        // > Initialization.inicijalizacija:32
-    razGeom=400+D/20;  // > Initialization.inicijalizacija:33
-      }  // > Initialization.inicijalizacija:34
-    else{  // > Initialization.inicijalizacija:35
-      razGeom=400*5/D;  // > Initialization.inicijalizacija:36
-      }  // > Initialization.inicijalizacija:37
-    xGeom=x*razGeom;  // > Initialization.inicijalizacija:38
-    yGeom=y*razGeom;  // > Initialization.inicijalizacija:39
-    xvGeom=xv*razGeom;  // > Initialization.inicijalizacija:40
-    yvGeom=yv*razGeom;  // > Initialization.inicijalizacija:41
-    if(v0>=100){  // > Initialization.inicijalizacija:42
-        razmeraV=razGeom*razGeom/v0;  // > Initialization.inicijalizacija:43
-        }  // > Initialization.inicijalizacija:44
-        else if(v0>=50 && v0<100){  // > Initialization.inicijalizacija:45
-        razmeraV=razGeom*100/v0;  // > Initialization.inicijalizacija:46
-        }  // > Initialization.inicijalizacija:47
-    else if(v0>8 && v0<50){  // > Initialization.inicijalizacija:48
-        razmeraV=razGeom*8/(2*v0);  // > Initialization.inicijalizacija:49
-        }  // > Initialization.inicijalizacija:50
-        else{  // > Initialization.inicijalizacija:51
-          razmeraV=razGeom*v0/50;  // > Initialization.inicijalizacija:52
-          }  // > Initialization.inicijalizacija:53
-         // console.log("razmeraV="+(razmeraV));  // > Initialization.inicijalizacija:54
+    if(v0<0){  // > Initialization.inicijalizacija:5
+      console.log("v0 mora biti pozitivno");  // > Initialization.inicijalizacija:6
+      v0=Math.abs(v0);  // > Initialization.inicijalizacija:7
+    }  // > Initialization.inicijalizacija:8
+    v=v0;  // > Initialization.inicijalizacija:9
+    theta=thetaDeg*Math.PI/180;  // > Initialization.inicijalizacija:10
+    thetaPoc=theta;  // > Initialization.inicijalizacija:11
+    vx =  v* Math.cos(theta);  // > Initialization.inicijalizacija:12
+    vy = v * Math.sin(theta);  // > Initialization.inicijalizacija:13
+    v0x=vx;  // > Initialization.inicijalizacija:14
+    v0y=vy;  // > Initialization.inicijalizacija:15
+    xv = x //+ v* Math.cos(theta);  // > Initialization.inicijalizacija:16
+    yv = y //+ v * Math.sin(theta);  // > Initialization.inicijalizacija:17
+    D=0;  // > Initialization.inicijalizacija:18
+    navise=true;  // > Initialization.inicijalizacija:19
+    prikazHMax=false;  // > Initialization.inicijalizacija:20
+    updateStyle();  // > Initialization.inicijalizacija:21
+    window.addEventListener("resize", updateStyle);  // > Initialization.inicijalizacija:22
+    kraj=false;  // > Initialization.inicijalizacija:23
+    //D=v0*v0*Math.sin(2*theta)/g  // > Initialization.inicijalizacija:24
+    HMaxRac=H+v0y*v0y/(2*g);  // > Initialization.inicijalizacija:25
+    tP=(v0y/g)+Math.sqrt(v0y*v0y+2*g*H)/g;  // > Initialization.inicijalizacija:26
+    DZnak=v0x*tP;  // > Initialization.inicijalizacija:27
+    D=Math.abs(DZnak);  // > Initialization.inicijalizacija:28
+    raz=Math.abs(D)/50;  // > Initialization.inicijalizacija:29
+    if(Math.abs(raz)<1){  // > Initialization.inicijalizacija:30
+      raz=1;  // > Initialization.inicijalizacija:31
+      }  // > Initialization.inicijalizacija:32
+      if(D>5 && D <20){  // > Initialization.inicijalizacija:33
+    razGeom=400/D;  // > Initialization.inicijalizacija:34
+    }  // > Initialization.inicijalizacija:35
+    else if(D>20){  // > Initialization.inicijalizacija:36
+        // > Initialization.inicijalizacija:37
+    razGeom=400+D/20;  // > Initialization.inicijalizacija:38
+      }  // > Initialization.inicijalizacija:39
+    else{  // > Initialization.inicijalizacija:40
+      razGeom=400*5/D;  // > Initialization.inicijalizacija:41
+      }  // > Initialization.inicijalizacija:42
+    xGeom=x*razGeom;  // > Initialization.inicijalizacija:43
+    yGeom=y*razGeom;  // > Initialization.inicijalizacija:44
+    xvGeom=xv*razGeom;  // > Initialization.inicijalizacija:45
+    yvGeom=yv*razGeom;  // > Initialization.inicijalizacija:46
+    if(v0>=100){  // > Initialization.inicijalizacija:47
+        razmeraV=razGeom*razGeom/v0;  // > Initialization.inicijalizacija:48
+        }  // > Initialization.inicijalizacija:49
+        else if(v0>=50 && v0<100){  // > Initialization.inicijalizacija:50
+        razmeraV=razGeom*100/v0;  // > Initialization.inicijalizacija:51
+        }  // > Initialization.inicijalizacija:52
+    else if(v0>8 && v0<50){  // > Initialization.inicijalizacija:53
+        razmeraV=razGeom*8/(2*v0);  // > Initialization.inicijalizacija:54
+        }  // > Initialization.inicijalizacija:55
+        else{  // > Initialization.inicijalizacija:56
+          razmeraV=razGeom*v0/50;  // > Initialization.inicijalizacija:57
+          }  // > Initialization.inicijalizacija:58
+         // console.log("razmeraV="+(razmeraV));  // > Initialization.inicijalizacija:59
   });
 
   _model.addToEvolution(function() {
@@ -608,7 +619,7 @@ var _stringProperties = {};
   theta = Math.atan2(dy, dx);
 
 }); // HtmlView Page setting action 'OnDrag' for element 'v_marker'
-          _view.xAxes.linkProperty("SizeX",  function() { return (D*6/5.0)*razGeom; } ); // HtmlView Page linking property 'SizeX' for element 'xAxes'
+          _view.xAxes.linkProperty("SizeX",  function() { return (Math.abs(D)*6/5.0)*razGeom; } ); // HtmlView Page linking property 'SizeX' for element 'xAxes'
           _view.yOsa.linkProperty("SizeY",  function() { return (HMaxRac*5/6.0)*razGeom; } ); // HtmlView Page linking property 'SizeY' for element 'yOsa'
           _view.trag.linkProperty("InputX",  function() { return xGeom; }, function(_v) { xGeom = _v; } ); // HtmlView Page linking property 'InputX' for element 'trag'
           _view.trag.linkProperty("InputY",  function() { return yGeom; }, function(_v) { yGeom = _v; } ); // HtmlView Page linking property 'InputY' for element 'trag'
@@ -773,6 +784,7 @@ function KosHitac_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_DRAWING2D.drawingPanel,"drawingPanel", _view.containerDrawing) // EJsS HtmlView.HtmlView Page: declaration of element 'drawingPanel'
+      .setProperty("Height",500) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'drawingPanel'
       .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'drawingPanel'
       .setProperty("Background","rgba(255,255,255,1)") // EJsS HtmlView.HtmlView Page: setting property 'Background' for element 'drawingPanel'
       .setProperty("GuttersLineColor","Blue") // EJsS HtmlView.HtmlView Page: setting property 'GuttersLineColor' for element 'drawingPanel'
@@ -945,7 +957,7 @@ function KosHitac_View_0 (_topFrame) {
       ;
 
     _view._addElement(EJSS_INTERFACE.numberField,"brzina", _view.panel2) // EJsS HtmlView.HtmlView Page: declaration of element 'brzina'
-      .setProperty("Format","0.00m/s") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'brzina'
+      .setProperty("Format","0.00") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'brzina'
       .setProperty("Editable",true) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'brzina'
       ;
 
@@ -1072,7 +1084,6 @@ function KosHitac_View_0 (_topFrame) {
 
   return _view;
 }
-
 
 
 </script>
