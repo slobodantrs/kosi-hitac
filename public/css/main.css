@@ -525,11 +525,13 @@ width:100%;  /* ne izlazi iz figure */
   /* --- kontejner za canvas --- */
   .canvas-wrapper {
     width: 100%;
+	min-width:0;
     overflow-x: auto;      /* scrollbar kad je canvas širi od roditelja */
     box-sizing: border-box;
     margin: 1rem 0;
 	flex: 1 1 auto;
 	overflow-y: visible; 
+	
   }
   .canvas-wrapper .canvasForHTML {
     /* granica i visina po potrebi */
@@ -537,7 +539,9 @@ width:100%;  /* ne izlazi iz figure */
   }
   .canvas-wrapper .canvasForHTML canvas {
     display: block;
-    max-width: 100% !important;  /* skaluje canvas da ne prelazi roditelja */
+ /*   max-width: 100% !important;   skaluje canvas da ne prelazi roditelja */
+    width: 450px;
+	min-width:0;
     height: auto !important;
   }
 	
