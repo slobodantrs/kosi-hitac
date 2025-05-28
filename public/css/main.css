@@ -115,6 +115,11 @@ font-weight: bold;
 .komentar{
    color: #aaa;
 }
+.kvadratni_koren{
+	border-top:1px solid black;
+	width:150px;
+	height:1em
+	}
 
 .video-container {
   position: relative;
