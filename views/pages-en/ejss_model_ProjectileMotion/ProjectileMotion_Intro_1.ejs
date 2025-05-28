@@ -1,22 +1,164 @@
+<div class="moj_tekst">
+  <h2>Projectile Motion – Simulation Introduction</h2>
+  <p>
+    <strong>Projectile motion describes the two-dimensional trajectory of an object launched with initial speed <sub>V₀</sub> at some angle to the horizontal.</strong>
+  </p>
+  <p>
+    This motion can be viewed as the combination of two independent components: one horizontal and one vertical. The horizontal component remains constant throughout the flight, while the vertical component decreases by <code>g·t</code> due to gravity pulling the object downward (free fall). At Earth’s surface, the gravitational acceleration is approximately <code>g = 9.81 m/s²</code>.
+  </p>
+</div>
 
-<p><strong>Projectile motion is the motion of an object moving in a plane, with an initial velocity V<sub>0</sub> at an angle to the x-axis.</strong></p>
 
-<p>Projectile motion is a complex motion that can be divided into two independent components: vertical and horizontal. 
-While the horizontal component of the motion remains constant throughout, the vertical component decreases by g·t due 
-to the gravitational force pulling the ball downward (free fall). On the Earth's surface, gravitational acceleration is approximately g = 9.81 m/s².</p>
+<div class="moj_tekst">
+  <h2>Applications of Projectile Motion</h2>
+  <p>
+    Projectile motion isn’t just a textbook example in kinematics—it plays a key role in many everyday activities and sports. Here are a few highlights that show why understanding the trajectory of a launched object matters:
+  </p>
+  <ul>
+    <li>
+      <strong>Ball sports:</strong> When serving in volleyball, the ball follows a precise parabolic path before crossing the net. Adjusting the launch angle and force correctly ensures the serve clears the net and lands in the opponent’s court. Learn more about the perfect serve technique at  
+      <a href="https://www.svetprogramiranja.com/odbojka_ispravan_servis_preko_mreze_uputstvo.html" target="_blank" rel="noopener noreferrer">
+        SvetProgramiranja: Volleyball – proper over-net serve
+      </a>.
+    </li>
+    <li>
+      <strong>Ballistics and safety:</strong> In designing firearms or fire-hose nozzles, engineers must predict exactly where a stream of water or projectile will land to maximize effectiveness and minimize risk.
+    </li>
+    <li>
+      <strong>Engineering and irrigation:</strong> When creating water fountains or irrigation systems, the launch angle of water jets determines how far the spray will reach the fields, ensuring even coverage.
+    </li>
+    <li>
+      <strong>Theme parks:</strong> The design of water slides and rides often relies on projectile principles so that riders descend safely into the splash pool at just the right spot.
+    </li>
+  </ul>
+  <p>
+    In each case, applying the basic equations for horizontal and vertical motion allows for accurate trajectory predictions, optimal launch angles, and precise range control—whether you’re scoring a point in a game or watering crops with pinpoint accuracy.
+  </p>
+</div>
+<div class="moj_tekst">
+  <h3>Key Equations for Projectile Motion</h3>
 
-<p>The following formulas describe projectile motion:</p>
+  <p>
+    Horizontal velocity component:
+    <strong>v<sub>0x</sub> = v<sub>0</sub> · cos α</strong>
+  </p>
 
-<p>Velocity in the x-direction: <strong>v<sub>0X</sub> = v<sub>0</sub> · cos(α)</strong></p>
+  <p>
+    Vertical velocity component:
+    <strong>v<sub>0y</sub> = v<sub>0</sub> · sin α − g·t</strong>
+  </p>
 
-<p>Velocity in the y-direction: <strong>v<sub>0Y</sub> = v<sub>0</sub> · sin(α) - g·t</strong></p>
+  <p>
+    Horizontal displacement:
+    <strong>x = v<sub>0</sub> · t · cos α</strong>
+  </p>
 
-<p>Distance traveled in the x-direction: <strong>x = v<sub>0</sub> · t · cos(α)</strong></p>
+  <p>
+    Vertical displacement:
+    <strong>y = v<sub>0</sub> · t · sin α − ½·g·t²</strong>
+  </p>
 
-<p>Distance traveled in the y-direction: <strong>y = v<sub>0</sub> · t · sin(α) - (g·t²)/2</strong></p>
+  <p>
+    Time to reach maximum height:
+    <strong>t<sub>top</sub> = (v<sub>0</sub> · sin α) / g</strong>
+  </p>
 
-<p>Time to reach the highest point of the trajectory: <strong>t = v<sub>0</sub> · sin(α) / g</strong></p>
+  <p>
+    Maximum height (above launch point):
+    <strong>H<sub>max</sub> = (v<sub>0</sub>² · sin² α) / (2·g)</strong>
+  </p>
 
-<p>Maximum height reached: <strong>H<sub>Max</sub> = (v<sub>0</sub>² · sin²(α)) / (2·g)</strong></p>
+  <p>
+    Range (from same launch height):
+    <strong>D = (v<sub>0</sub>² · sin 2α) / g</strong>
+  </p>
 
-<p>Range: <strong>D = (v<sub>0</sub>² · sin(2·α)) / g</strong></p>
+  <h2>Projectile Launched from Initial Height H₀</h2>
+  <p>
+    Consider the simulation shown in Figure 1:
+  </p>
+  <figure class="margine_oko_slike">
+    <img src="images/KosHitac/SimulacijaKosogHica.jpg" alt="Projectile motion simulation">
+    <figcaption>Figure 1. Projectile motion simulation built with EjsS</figcaption>
+  </figure>
+  <p>
+    Here a projectile starts at height <code>H0</code> above ground with initial speed <code>v0</code> at angle θ above the horizontal. Try the interactive version on the
+    <a href="<%= navHref('/simulacija_kosi_hitac') %>" data-id="simulacija_kosi_hitac">
+      <strong><%= __('nav.kosi_Hitac_Simulacija') %></strong>
+    </a>
+    page.
+  </p>
+
+  <h2><strong>Determining Range and Maximum Height</strong></h2>
+
+  <h4>1. Total flight time <code>t<sub>D</sub></code></h4>
+  <p>
+    The horizontal range is
+  </p>
+  <p style="text-align: center;">
+    <code>D = v<sub>0x</sub> · t<sub>D</sub></code>
+  </p>
+  <p>
+    where <code>v<sub>0x</sub> = v<sub>0</sub> cos θ</code>. The total flight time
+  </p>
+  <p style="text-align: center;">
+    <code>t<sub>D</sub> = 2·t1 + t<sub>P</sub></code>
+  </p>
+  <p>
+    – <strong>t1</strong> is the time to rise from <code>H0</code> to the apex (and the same time to descend back to <code>H0</code>),<br>
+    – <strong>t<sub>P</sub></strong> is the time to fall from <code>H0</code> to the ground.
+  </p>
+
+  <h4>2. Ascent and descent to the same height</h4>
+  <p>
+    From vertical motion with initial upward speed <code>v<sub>0y</sub></code>:
+  </p>
+  <p style="text-align: center;">
+    <code>0 = v<sub>0y</sub> − g·t₁  ⇒  t₁ = (v<sub>0y</sub>) / g</code>
+  </p>
+
+  <h4>3. Fall time from height <code>H₀</code></h4>
+  <p>
+    Falling from <code>H₀</code> with initial downward speed <code>v<sub>0y</sub></code> solves
+  </p>
+  <p style="text-align: center;">
+    <code>½·g·t<sub>P</sub>² + v<sub>0y</sub>·t<sub>P</sub> − H₀ = 0</code>
+  </p>
+  <p>
+    The positive root is:
+  </p>
+  <p style="text-align: center;">
+    <code>t<sub>P</sub> = (−v<sub>0y</sub> + √<span class="kvadratni_koren">v<sub>0y</sub>² + 2·g·H0</span>) / g</code>
+  </p>
+
+  <h4>4. Final flight time</h4>
+  <p>
+    Substituting gives
+  </p>
+  <p style="text-align: center;">
+    <code>
+      t<sub>D</sub> = 2·(v<sub>0y</sub>/g) + (−v<sub>0y</sub> + √<span class="kvadratni_koren">v<sub>0y</sub>² + 2·g·H0</span>)/g  
+      = (v<sub>0y</sub> + √<span class="kvadratni_koren">v<sub>0y</sub>² + 2·g·H0</span>) / g
+    </code>
+  </p>
+
+  <h4>5. Range</h4>
+  <p style="text-align: center;">
+    <strong>D = v<sub>0x</sub> · t<sub>D</sub></strong>
+  </p>
+
+  <h4>6. Maximum height above ground</h4>
+  <p>
+    The rise above <code>H0</code> is
+  </p>
+  <p style="text-align: center;">
+    <code>ΔH = (v<sub>0y</sub>²) / (2·g)</code>
+  </p>
+  <p>
+    Hence total maximum height:
+  </p>
+  <p style="text-align: center;">
+    <strong>H<sub>max</sub> = H0 + (v<sub>0y</sub>²) / (2·g)</strong>
+  </p>
+</div>
+
