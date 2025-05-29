@@ -476,7 +476,10 @@ width:100%;  /* ne izlazi iz figure */
   border-radius: 5px;
   font-weight: bold;
 }
-
+.simulacija_okvir{
+	width:100%;
+	margin: 5px 10px 10px 5px;
+}
 
 }
 @media screen and (max-width: 1200px) {
