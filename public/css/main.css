@@ -389,10 +389,7 @@ nav .container-fluid{
   .mobile{
 	  display:none !important;
   }
-  .simulacija_okvir{
-	width:120vw;
-    overflow: auto;	
-}
+  
   .link-simulacije{
 	display:inline-block;
 	width:25vw;
@@ -567,6 +564,10 @@ width:100%;  /* ne izlazi iz figure */
 	  display:block !important;
 	   height: max-content;
   }
+  .simulacija_okvir{
+	width:120vw;
+    overflow: auto;	
+}
   .link-simulacije{
 	  width:100%;
 	  height: 105vw;
