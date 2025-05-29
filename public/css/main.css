@@ -565,7 +565,8 @@ width:100%;  /* ne izlazi iz figure */
 	   height: max-content;
   }
   .simulacija_okvir{
-	width:120vw;
+	width:auto;
+	min-height:80vw;
     overflow: auto;	
 }
   .link-simulacije{
