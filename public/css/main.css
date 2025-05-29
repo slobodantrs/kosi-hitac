@@ -477,8 +477,9 @@ width:100%;  /* ne izlazi iz figure */
   font-weight: bold;
 }
 .simulacija_okvir{
-	width:100%;
-	margin: 5px 10px 10px 5px;
+	width:90%;
+	margin: 5px;
+	padding:10px;
 }
 
 .moj_tekst ul {
