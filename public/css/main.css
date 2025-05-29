@@ -481,6 +481,16 @@ width:100%;  /* ne izlazi iz figure */
 	margin: 5px 10px 10px 5px;
 }
 
+.moj_tekst ul {
+    
+    margin-left: 2vw; /* Dodaje razmak sa leve strane za ul listu */
+	padding-left: 2vw; /* Dodaje razmak sa leve strane za ul listu */
+}
+
+.moj_tekst ul li, .moj_tekst ol li {
+    margin-left: 5vw; /* Dodaje razmak sa leve strane za li stavke u obe vrste lista */
+}
+
 }
 @media screen and (max-width: 1200px) {
   .banner-wrap {
