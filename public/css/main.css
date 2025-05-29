@@ -389,7 +389,7 @@ nav .container-fluid{
   .mobile{
 	  display:none !important;
   }
-  .simulation{
+  .simulacija_okvir{
 	width:120vw;
     overflow: auto;	
 }
