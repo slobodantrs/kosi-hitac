@@ -389,7 +389,7 @@ nav .container-fluid{
   .mobile{
 	  display:none !important;
   }
-  .Simulation{
+  .simulation{
 	width:120vw;
     overflow: auto;	
 }
