@@ -1,9 +1,10 @@
 body{
-background:#f0f1f2;
+/*background:#f0f1f2;*/
+background:ffffff;
 padding:5px 10px;
 margin-left:7rem;
 margin-right:7rem;
-color:darkblue;
+color:#00008F;
 }
 
 .content-wrapper {
@@ -35,10 +36,10 @@ header .container {
 }
 
 p{
-	color:darkblue;
+	color:#00008F;
 }
 .moj_tekst code{
-  font-size: 16px;
+  font-size: 18px;
  color:#00008B;
 }
 .moj_tekst ol {
@@ -956,7 +957,7 @@ figure.margine_oko_slike {
 }
 @media screen and (max-width: 767px) {
   body {
-   font-size: 14px !important;
+   font-size: 16px !important;
     background-position: top center;
     background-attachment: inherit;
 	box-sizing:border-box;
