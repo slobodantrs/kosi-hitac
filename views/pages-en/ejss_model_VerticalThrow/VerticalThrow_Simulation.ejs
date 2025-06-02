@@ -490,7 +490,7 @@ var _stringProperties = {};
 
   function _selectView(_viewNumber) {
     _view = null;
-    _view = new vertikalanHitac3D_View(_topFrame,_viewNumber,_libraryPath,_codebasePath);
+    _view = new verticalThrow3D_View(_topFrame,_viewNumber,_libraryPath,_codebasePath);
     var _view_super_reset = _view._reset;
     _view._reset = function() {
       _view_super_reset();
@@ -610,46 +610,46 @@ var _stringProperties = {};
   _selectView(_model._autoSelectView(_getViews())); // this includes _model.reset()
   return _model;
 }
-function vertikalanHitac3D_View (_topFrame,_viewNumber,_libraryPath,_codebasePath) {
+function verticalThrow3D_View (_topFrame,_viewNumber,_libraryPath,_codebasePath) {
   var _view;
   switch(_viewNumber) {
     case -10 : break; // make Lint happy
     default :
-    case 0: _view = vertikalanHitac3D_View_0 (_topFrame); break;
+    case 0: _view = verticalThrow3D_View_0 (_topFrame); break;
   } // end of switch
 
   if (_codebasePath) _view._setResourcePath(_codebasePath);
 
   if (_libraryPath) _view._setLibraryPath(_libraryPath);
 
-  _view._addDescriptionPage('opis vertikalnog hica','./vertikalanHitac3D_Intro_1.html');
+  _view._addDescriptionPage('opis vertikalnog hica','./verticalThrow3D_Intro_1.html');
 
   return _view;
 } // end of main function
 
-function vertikalanHitac3D_View_0 (_topFrame) {
+function verticalThrow3D_View_0 (_topFrame) {
   var _view = EJSS_CORE.createView(_topFrame);
 
   _view._reset = function() {
     _view._clearAll();
     _view._addElement(EJSS_INTERFACE.panel,"singleDrawingPanel", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'singleDrawingPanel'
-      .setProperty("Html","<h1>Simulacija vertikalnog hica</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'singleDrawingPanel'
+      .setProperty("Html","<h1>Vertical shot simulation</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'singleDrawingPanel'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"labelPanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'labelPanel'
       .setProperty("CSS","{text-align:center}") // EJsS HtmlView.HtmlView Page: setting property 'CSS' for element 'labelPanel'
-      .setProperty("Html","<div class=\"moj_tekst\">   <h1>Vertikalni hitac</h1>   <p>     Ovo je vrlo jednostavna simulacija vertikalnog hica. Prikazuje kretanje u jednoj dimenziji      (vertikalnoj) tela mase <code>m</code> (lopta).   </p>   <p>     Telo je bačeno sa površine Zemlje nekom početnom brzinom <code>v<sub>0</sub></code>.      Na telo deluje samo sila zemljine teže <code>G = m·g</code>.   </p>   <p>     Telo će se kretati vertikalno naviše i pri tome se trenutna brzina izračunava iterativno      svakih <code>Δt</code> sekundi po formuli      <strong>v = v<sub>0</sub> − g·t</strong>. Pošto pratimo promenu brzine u diskretnim koracima      od <code>Δt</code>, a početna brzina u tekućoj iteraciji zapravo je krajnja brzina izračunata      za prethodnu iteraciju, u tabu „Evolution“ koristi se formula:     <strong>v = v − g·Δt</strong>,      gde je <code>g</code> gravitaciono ubrzanje (<code>9.81 m/s²</code>).   </p>   <p>     Telo će dostići neku maksimalnu visinu <code>H<sub>max</sub></code>, a zatim će početi da pada      istim ubrzanjem <code>g</code>. Prilikom pada, trenutna brzina se izračunava po formuli:     <strong>v = v + g·Δt</strong>.   </p>      <p>     Na ovoj strani nalazi se <strong>interaktivna simulacija vertikalnog hica</strong> koju možete      isprobati. U kontrol panelu unesite:   </p>   <ul>     <li><code>H<sub>0</sub></code> – početna visina bacanja (m)</li>     <li><code>v<sub>0</sub></code> – početna brzina (m/s)</li>     <li><code>m</code> – masa tela (kg)</li>   </ul>   <p>     Nakon unosa kliknite na dugme <em>Start</em> da biste pokrenuli simulaciju. Simulacija prikazuje:   </p>   <ol>     <li>       <strong>3D prikaz vertikalnog hica:</strong> (animacija kretanja lopte gore-dole u prostoru)     </li>     <li>       <strong>2D prikaz na Plotting Panelu:</strong> visina tela u zavisnosti od vremena (<code>y(t)</code>).     </li>     <li>       <strong>Dijagram brzine:</strong> brzina tela (<code>v(t)</code>) na drugom Plotting Panelu.     </li>     <li>       <strong>Potencijalna i kinetička energija:</strong> na trećem Plotting Panelu vidite        kako se potencijalna energija (<em>m·g·y</em>) i kinetička energija (<em>½·m·v²</em>)        menjaju tokom vremena.     </li>   </ol>   <p>     Istražite kako promena <code>H<sub>0</sub></code>, <code>v<sub>0</sub></code> i <code>m</code>      utiču na kretanje lopte i raspodelu energije. Zabavite se i učite!   </p> </div>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'labelPanel'
+      .setProperty("Html","<div class=\"moj_tekst\">  <p>  This is a very simple vertical shot simulation. It shows movement in one dimension  (vertical) body of mass <code>m</code> (ball).  </p>  <p>  A body is thrown from the surface of the Earth with some initial velocity <code>v<sub>0</sub></code>.  Only the earth's gravity <code>G = m·g</code> acts on the body.  </p>  <p>  The body will move vertically upwards and the current velocity is calculated iteratively  every <code>Δt</code> seconds according to the formula  <strong>v = v<sub>0</sub> − g·t</strong>. Since we monitor the velocity change in discrete steps  of <code>Δt</code>, and the initial velocity in the current iteration is actually the final velocity calculated  for the previous iteration, in the \"Evolution\" tab, the formula is used:  <strong>v = v − g·Δt</strong>,  where <code>g</code> is the gravitational acceleration (<code>9.81 m/s²</code>).  </p>  <p>  The body will reach some maximum height <code>H<sub>max</sub></code> and then it will start to fall  with the same acceleration <code>g</code>. When falling, the instantaneous speed is calculated by the formula:  <strong>v = v + g·Δt</strong>.  </p>  <p>  On this page there is an <strong>interactive vertical shot simulation</strong> that you can  try it out. In the control panel, enter:  </p>  <ul>  <li><code>H<sub>0</sub></code> – initial throw height (m)</li>  <li><code>v<sub>0</sub></code> – initial speed (m/s)</li>  <li><code>m</code> – body mass (kg)</li>  </ul>  <p>  After entering, click the <em>Start</em> button to start the simulation. The simulation shows:  </p>  <ol>  <li>  <strong>3D view of a vertical shot:</strong> (animation of the movement of the ball up and down in space)  </li>  <li>  <strong>2D display on the Plotting Panel:</strong> body height depending on time (<code>y(t)</code>).  </li>  <li>  <strong>Velocity Plot:</strong> body velocity (<code>v(t)</code>) on the second Plotting Panel.  </li>  <li>  <strong>Potential and kinetic energy:</strong> on the third Plotting Panel you see  how potential energy (<em>m·g·y</em>) and kinetic energy (<em>½·m·v²</em>)  they change over time.  </li>  </ol>  <p>  Explore how changing <code>H<sub>0</sub></code>, <code>v<sub>0</sub></code> and <code>m</code>  affect the movement of the ball and the distribution of energy. Have fun and learn!  </p> </div>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'labelPanel'
       ;
 
     _view._addElement(EJSS_INTERFACE.imageAndTextButton,"topLabel", _view.labelPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'topLabel'
-      .setProperty("Text","<h1>Kontrolni meni</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel'
+      .setProperty("Text","<h1>Control menu</h1>") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'topLabel'
       ;
 
     _view._addElement(EJSS_INTERFACE.wrappedPanel,"wrappedPanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'wrappedPanel'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"podaciPanel", _view.wrappedPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'podaciPanel'
-      .setProperty("Html","<h3>Podaci</h3>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'podaciPanel'
+      .setProperty("Html","<h3>Data</h3>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'podaciPanel'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"panelH0", _view.podaciPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'panelH0'
@@ -830,7 +830,7 @@ function vertikalanHitac3D_View_0 (_topFrame) {
       .setProperty("YFixedTick",0) // EJsS HtmlView.HtmlView Page: setting property 'YFixedTick' for element 'plottingPanel'
       .setProperty("XTickStep",1) // EJsS HtmlView.HtmlView Page: setting property 'XTickStep' for element 'plottingPanel'
       .setProperty("GraphicsMode","Canvas") // EJsS HtmlView.HtmlView Page: setting property 'GraphicsMode' for element 'plottingPanel'
-      .setProperty("Title","Vertikalan hitac") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel'
+      .setProperty("Title","Vertical throw") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel'
       .setProperty("Enabled",true) // EJsS HtmlView.HtmlView Page: setting property 'Enabled' for element 'plottingPanel'
       .setProperty("SquareAspect",true) // EJsS HtmlView.HtmlView Page: setting property 'SquareAspect' for element 'plottingPanel'
       .setProperty("MaximumY",10) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'plottingPanel'
@@ -981,7 +981,7 @@ function vertikalanHitac3D_View_0 (_topFrame) {
       .setProperty("GridXLineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'GridXLineWidth' for element 'plottingPanel2'
       .setProperty("GraphicsMode","Canvas") // EJsS HtmlView.HtmlView Page: setting property 'GraphicsMode' for element 'plottingPanel2'
       .setProperty("GridXShow",true) // EJsS HtmlView.HtmlView Page: setting property 'GridXShow' for element 'plottingPanel2'
-      .setProperty("Title","Grafik zavisnosti brzine od vremena") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel2'
+      .setProperty("Title","Graph of the dependence of speed on time") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel2'
       .setProperty("SquareAspect",false) // EJsS HtmlView.HtmlView Page: setting property 'SquareAspect' for element 'plottingPanel2'
       .setProperty("YTicks",10) // EJsS HtmlView.HtmlView Page: setting property 'YTicks' for element 'plottingPanel2'
       .setProperty("MaximumY",10) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'plottingPanel2'
@@ -1023,7 +1023,7 @@ function vertikalanHitac3D_View_0 (_topFrame) {
       .setProperty("GridXLineWidth",1) // EJsS HtmlView.HtmlView Page: setting property 'GridXLineWidth' for element 'plottingPanel22'
       .setProperty("GraphicsMode","Canvas") // EJsS HtmlView.HtmlView Page: setting property 'GraphicsMode' for element 'plottingPanel22'
       .setProperty("GridXShow",true) // EJsS HtmlView.HtmlView Page: setting property 'GridXShow' for element 'plottingPanel22'
-      .setProperty("Title","Potencijalna i kinetička energija.") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel22'
+      .setProperty("Title","Potential and kinetic energy.") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel22'
       .setProperty("SquareAspect",false) // EJsS HtmlView.HtmlView Page: setting property 'SquareAspect' for element 'plottingPanel22'
       .setProperty("YTicks",10) // EJsS HtmlView.HtmlView Page: setting property 'YTicks' for element 'plottingPanel22'
       .setProperty("MaximumY",10) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'plottingPanel22'
@@ -1060,7 +1060,7 @@ function vertikalanHitac3D_View_0 (_topFrame) {
 
     _view._addElement(EJSS_INTERFACE.panel,"narrativePanel", _view.singleDrawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'narrativePanel'
       .setProperty("CSS","{margin-top:20px}") // EJsS HtmlView.HtmlView Page: setting property 'CSS' for element 'narrativePanel'
-      .setProperty("Html","<div class=\"moj_tekst\">   <h1>Opis</h1>   <p>     Kada pokrenete simulaciju, primetićete u donjem delu tri zasebna 2D grafikona („Plotting Panel“):   </p>   <ol>     <li>       <strong>Dijagram visine (<code>y(t)</code>):</strong> Prikazuje kako se visina tela menja tokom vremena. Na horizontalnoj osi je vreme (<code>t</code>), a na vertikalnoj – visina (<code>y</code>). Prvih trenutaka telo se diže, pa se u jednom trenutku zaustavlja na maksimalnoj visini <code>H<sub>max</sub></code>, a zatim počinje da pada. Oblik parabole jasno ukazuje na usporavanje pri usponu (zbog negativne ubrzane sile) i ubrzavanje pri padu.     </li>     <li>       <strong>Dijagram brzine (<code>v(t)</code>):</strong> Ovaj grafikon pokazuje trenutnu brzinu tela tokom vremena. Na početku, kada je telo bačeno nagore, brzina je pozitivna i opada sve do nule u trenutku kada dostigne <code>H<sub>max</sub></code>. Nakon toga, brzina postaje negativna (usmerena ka zemlji) i raste u apsolutnoj vrednosti, jer gravitacija ubrzava telo ka dole. Vrednost <code>v = 0</code> tačno označava trenutak kada telo prestaje da se penje i počinje da pada.     </li>     <li>       <strong>Dijagram energije:</strong> Na trećem grafiku videćete dve krive:       <ul>         <li>           <em>Potencijalna energija</em> (<code>E<sub>p</sub> = m·g·y</code>): raste kako telo ide gore (jer se <code>y</code> povećava), a dostiže maksimum kada je <code>y = H<sub>max</sub></code>. Zatim, kako telo pada, <code>E<sub>p</sub></code> se smanjuje.         </li>         <li>           <em>Kinetička energija</em> (<code>E<sub>k</sub> = ½·m·v²</code>): najveća je u trenucima kada je brzina tela maksimalna. Na samom početku <code>E<sub>k</sub></code> je <code>½·m·v<sub>0</sub>²</code>. Kako telo usporava pri usponu, <code>E<sub>k</sub></code> opada, da bi u trenutku kada <code>v = 0</code> (na <code>H<sub>max</sub></code>) bila nula. Tokom pada, <code>v</code> postaje negativna ali kvadrat brzine raste, pa <code>E<sub>k</sub></code> raste dok telo ponovo ne dostigne tlo.         </li>       </ul>     </li>   </ol>   <p>     Na grafiku energije primetićete da je zbir <em>potencijalne</em> i <em>kinetičke</em> energije približno konstantan (osim malih numeričkih odstupanja), jer ukupna mehanička energija u ovom idealnom sistemu (bez otpora vazduha) ostaje sačuvana:   </p>   <p style=\"text-align: center;\">     <code>E<sub>uk</sub> = E<sub>p</sub> + E<sub>k</sub> ≃ konstantno</code>   </p>   <p>     Pregledom dijagrama brzine i energije lako je razumeti kako se energija „prebacuje“ između kinetičke i potencijalne:   </p>   <ul>     <li>       <strong>Uspon:</strong> Kinetička energija se postepeno pretvara u potencijalnu. Brzina opada, pa <code>E<sub>k</sub></code> opada, a visina raste, pa <code>E<sub>p</sub></code> raste.     </li>     <li>       <strong>Na vrhu (<code>H<sub>max</sub></code>):</strong> Brzina je nula, <code>E<sub>k</sub> = 0</code>, i sva energija je potencijalna (<code>E<sub>p</sub> = m·g·H<sub>max</sub></code>).     </li>     <li>       <strong>Pad:</strong> Potencijalna energija se pretvara nazad u kinetičku. Visina opada, pa <code>E<sub>p</sub></code> opada, a brzina raste u apsolutnoj vrednosti, pa <code>E<sub>k</sub></code> raste.     </li>     <li>       <strong>Dolazak na tlo:</strong> Potencijalna energija je minimalna (<code>y = 0</code> ⇒ <code>E<sub>p</sub> = 0</code>), a kinetička je maksimalna (<code>v = –v<sub>0</sub></code> u idealnom slučaju).     </li>   </ul>   <p>     Koristite ove grafikone da biste detaljno pratili kako se energija menja tokom cele simulacije. Ovo pomaže da vizuelno shvatite osnovni princip očuvanja energije i parabolično kretanje pri vertikalnom hitcu.   </p> </div>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'
+      .setProperty("Html","<div class=\"moj_tekst\">  <h1>Description</h1>  <p>  When you start the simulation, you will notice in the bottom part three separate 2D graphs (\"Plotting Panel\"):  </p>  <ol>  <li>  <strong>Height Chart (<code>y(t)</code>):</strong> Shows how body height changes over time. Time (<code>t</code>) is on the horizontal axis, and height (<code>y</code>) on the vertical axis. In the first moments, the body rises, then at one point it stops at the maximum height <code>H<sub>max</sub></code>, and then it starts to fall. The shape of the parabola clearly indicates the deceleration during the ascent (due to the negative acceleration force) and the acceleration during the descent.  </li>  <li>  <strong>Velocity Graph (<code>v(t)</code>):</strong> This graph shows the instantaneous velocity of a body over time. At the beginning, when the body is thrown upwards, the velocity is positive and decreases until it reaches zero when it reaches <code>H<sub>max</sub></code>. After that, the velocity becomes negative (directed towards the earth) and increases in absolute value, because gravity accelerates the body downwards. The value <code>v = 0</code> exactly marks the moment when the body stops climbing and starts falling.  </li>  <li>  <strong>Energy Diagram:</strong> On the third graph you will see two curves:  <ul>  <li>  <em>Potential energy</em> (<code>E<sub>p</sub> = m·g·y</code>): increases as the body goes up (because <code>y</code> increases), and reaches a maximum when <code>y = H<sub>max</sub></code>. Then, as the body falls, <code>E<sub>p</sub></code> decreases.  </li>  <li>  <em>Kinetic energy</em> (<code>E<sub>k</sub> = ½·m·v²</code>): it is the highest at the moments when the speed of the body is maximum. At the very beginning <code>E<sub>k</sub></code> is <code>½·m·v<sub>0</sub>²</code>. As the body decelerates during ascent, <code>E<sub>k</sub></code> decreases, to be zero at the moment <code>v = 0</code> (at <code>H<sub>max</sub></code>). During the fall, <code>v</code> becomes negative but the square of the velocity increases, so <code>E<sub>k</sub></code> increases until the body reaches the ground again.  </li>  </ul>  </li>  </ol>  <p>  On the energy graph, you will notice that the sum of <em>potential</em> and <em>kinetic</em> energy is approximately constant (except for small numerical deviations), because the total mechanical energy in this ideal system (without air resistance) remains conserved:  </p>  <p style=\"text-align: center;\">  <code>E<sub>uk</sub> = E<sub>p</sub> + E<sub>k</sub> ≃ constant</code>  </p>  <p>  By looking at the velocity-energy diagram, it is easy to understand how energy is \"switched\" between kinetic and potential:  </p>  <ul>  <li>  <strong>Rise:</strong> Kinetic energy is gradually converted into potential energy. Speed ​​decreases, so <code>E<sub>k</sub></code> decreases, and height increases, so <code>E<sub>p</sub></code> increases.  </li>  <li>  <strong>At the top (<code>H<sub>max</sub></code>):</strong> Velocity is zero, <code>E<sub>k</sub> = 0</code>, and all energy is potential (<code>E<sub>p</sub> = m·g·H<sub>max</sub></code>).  </li>  <li>  <strong>Fall:</strong> Potential energy is converted back into kinetic energy. Altitude decreases, so <code>E<sub>p</sub></code> decreases, and speed increases in absolute value, so <code>E<sub>k</sub></code> increases.  </li>  <li>  <strong>Arriving on the ground:</strong> Potential energy is minimum (<code>y = 0</code> ⇒ <code>E<sub>p</sub> = 0</code>), and kinetic energy is maximum (<code>v = –v<sub>0</sub></code> in the ideal case).  </li>  </ul>  <p>  Use these graphs to track in detail how the energy changes throughout the simulation. This helps to visually understand the basic principle of conservation of energy and the parabolic motion of a vertical shot.  </p> </div>") // EJsS HtmlView.HtmlView Page: setting property 'Html' for element 'narrativePanel'
       ;
 
   };
@@ -1082,7 +1082,7 @@ function vertikalanHitac3D_View_0 (_topFrame) {
     <br />
     <div id="title_author">
       <hr />
-      <b>Autor simulacije:</b>
+      <b>Autor of simulation:</b>
       <p>
       </p>
       <p>
