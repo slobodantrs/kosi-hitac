@@ -177,10 +177,7 @@
       "description": "Explore projectile motion through an interactive simulation created with Easy Java Simulations (EJS). Adjust initial velocity, launch angle, and observe the effects of gravity on the trajectory, velocity, and energy of the projectile.",
       "keywords": "projectile motion, physics simulation, parabolic trajectory, Easy Java Simulations, EJS, two-dimensional motion, launch angle, initial velocity, gravity, kinetic energy, potential energy, motion analysis"
     },
-    "projectile_motion": {
-      "description": "Explore projectile motion through an interactive simulation created with Easy Java Simulations (EJS). Adjust launch angle and initial velocity, and observe gravity’s effect on trajectory.",
-      "keywords": "projectile motion, parabolic trajectory, physics simulation, EJS, launch angle"
-    },
+    
     "circular_motion": {
       "description": "Simulation of uniform circular motion of a material point. Analyze centripetal acceleration, forces, and how speed and radius affect dynamics.",
       "keywords": "circular motion, centripetal acceleration, radius, physics simulation"
@@ -190,9 +187,10 @@
       "keywords": "mass and spring, harmonic oscillator, Hooke’s law, energy exchange, physics simulation"
     },
     "vertical_throw": {
-      "description": "Interactive vertical throw simulation: learn about upward motion under gravity, maximum height, velocity, and displacement in real time.",
-      "keywords": "vertical throw, upward motion, maximum height, kinematics, physics simulation"
+       "description": "Interactive vertical throw simulation: learn about upward motion under gravity, maximum height, velocity, and displacement in real time.",
+       "keywords": "vertical throw, upward motion, maximum height, free fall, kinematics, gravity, energy conservation, potential energy, kinetic energy, physics simulation, projectile motion, interactive learning"
     },
+
 	"rigid_body_motion": {
       "description": "Explore the simulation of rigid body motion, focusing on rolling without slipping. Understand translational and rotational movements, instantaneous centers of velocity, and acceleration vectors through interactive visualizations created with Easy Java Simulation (EJS).",
       "keywords": "rigid body motion, rolling without slipping, translational motion, rotational motion, instantaneous center of velocity, angular velocity, angular acceleration, acceleration vectors, Easy Java Simulation, physics simulation"
