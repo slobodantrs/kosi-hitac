@@ -180,10 +180,7 @@
       "description": "Interaktivna simulacija kosog hica – istražite kretanje tela pod uglom u gravitacionom polju. Upoznajte teoriju, analizirajte formule i vizualizujte putanju pomoću alata Easy Java Simulations (EJS).",
       "keywords": "kosi hitac, simulacija kosog hica, kretanje tela pod uglom, fizika, gravitaciono polje, domet, maksimalna visina, Easy Java Simulations, EJS, interaktivna simulacija, obrazovanje, fizika srednje škole,Kos hitac, easy java simulation, ejs"
     },
-    "kosi_hitac": {
-      "description": "Interaktivna simulacija kosog hica – istražite kretanje tela pod uglom u gravitacionom polju. Upoznajte teoriju, analizirajte formule i vizualizujte putanju pomoću Easy Java Simulations (EJS).",
-      "keywords": "kosi hitac, simulacija kosog hica, parabolično kretanje, fizika, EJS"
-    },
+   
     "kruzno_kretanje": {
       "description": "Interaktivna simulacija ravnomernog kružnog kretanja materijalne tačke. Analizirajte sile i ubrzanja, i istražite kako brzina i poluprečnik utiču na dinamiku kretanja.",
       "keywords": "kružno kretanje, centripetalna sila, ubrzanje, poluprečnik, simulacija, fizika"
@@ -194,7 +191,8 @@
     },
     "vertikalan_hitac": {
       "description": "Interaktivna simulacija vertikalnog hica i slobodnog pada: istražite kretanje tela pod uticajem gravitacije, pratite brzinu, ubrzanje i maksimalnu visinu.",
-      "keywords": "vertikalan hitac, slobodan pad, gravitacija, visina, ubrzanje, simulacija"
+      "keywords": "vertikalan hitac, slobodan pad, gravitacija, visina, ubrzanje, brzina, kinetička energija, potencijalna energija, zakon očuvanja energije, fizika, interaktivna simulacija, edukacija, kretanje tela, 3D simulacija, dijagrami brzine, energija, ejs, javascript"
+
     },
 	"ravno_kretanje": {
       "description": "Interaktivna simulacija ravnog kretanja krutog tela, uključujući kotrljanje bez klizanja, trenutni pol brzina i ubrzanje tačaka. Vizualizacija pomoću Easy Java Simulation (EJS).",
