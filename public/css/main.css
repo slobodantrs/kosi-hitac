@@ -785,7 +785,9 @@ div#kontejnerPanel,div#wrappedPanel,div#controlPanel,div#drawingPanel3D,div#wrap
 	margin-left: auto!important;
 	margin-right:auto !important;
 	overflow:auto;
-	width:100vw;
+	width: calc(100vw - 4rem);
+  margin: 0 2rem;  /* po 2rem s lijeve i desne strane */
+  box-sizing: border-box;
 }
 div#wrappedPanel svg{
 	width:100% !important;
