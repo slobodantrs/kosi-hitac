@@ -1,3 +1,5 @@
+
+<div class="moj_tekst">
 <h1>Vertikalan hitac-uvod</h1>
 
 <p><strong>Vertikalan hitac naviše je kretanje nekog tela, bačenog naviše nekom pocetnom brzinom V<sub>0</sub> u gravitacionom polju zemlje. Drugim recima
@@ -12,6 +14,217 @@ Na površini zemlje gravitociono ubrzanje iznosi približno g=9.81m/s²   </p>
       <img src="images/VertikalanHitac/VertikalanHitac1.png" alt="vertikalan hitac"/>
    
     </div>
+
+	
+	
+	
+  <h2>Određivanje maksimalne visine</h2>
+  
+  <p>
+    Pretpostavimo da imamo vertikalan hitac naviše i da je telu saopštena neka početna brzina <code>v<sub>0</sub></code>.
+    Da bismo odredili maksimalnu visinu pri vertikalnom hitcu, možemo se poslužiti ili formulama za ravnomerno usporeno kretanje,
+    ili principom zakon o očuvanju energije.
+  </p>
+  
+  <h3>Zakon o očuvanju energije</h3>
+  <p>
+    Ukupna mehanička energija tela mase <code>m</code> pri visini <code>H</code> iznosi zbir potencijalne i kinetičke energije:
+  </p>
+  <pre><code>E = E<sub>p</sub> + E<sub>k</sub></code></pre>
+  
+  <p>
+    Gde je:
+  </p>
+  <ul>
+    <li>
+      <strong>Potencijalna energija</strong> pri visini <code>H</code>:
+      <br>
+      <pre><code>E<sub>p</sub> = m · g · H</code></pre>
+      (<code>g</code> je gravitaciono ubrzanje, približno <code>9.81 m/s²</code>).
+    </li>
+    <li>
+      <strong>Kinetička energija</strong> tela koje se kreće brzinom <code>v</code>:
+      <br>
+      <pre><code>E<sub>k</sub> = ½ · m · v²</code></pre>
+    </li>
+  </ul>
+  
+  <p>
+    Na vrhu putanje (maksimalna visina), vertikalna brzina postaje nula (<code>v = 0</code>), pa je kinetička energija tu jednaka nuli.  
+    U trenutku ispuštanja (visina <code>H = 0</code>), sav skupljena energija je bila u obliku kinetičke energije:
+  </p>
+  <pre><code>E<sub>total</sub> (početno) = ½ · m · v<sub>0</sub>²</code></pre>
+  
+  <p>
+    Kako telo ide naviše, njegova kinetička energija opada dok se harmonično pretvara u potencijalnu.
+Ovo se može videti na dijagramu kinetičke i potencijalne energije, simulacije u Ejss-u(vidi sliku 2).
+	U najvišoj tački (<code>H<sub>max</sub></code>),
+    kinetika je potpuno iskorišćena za podizanje u visinu, pa važi:
+  </p>
+  <pre><code>½ · m · v<sub>0</sub>² = m · g · H<sub>max</sub></code></pre>
+  
+  <p>
+    Iz te jednačine odmah dobijamo formulu za maksimalnu visinu:
+  </p>
+  <pre><code>
+H<sub>max</sub> = v<sub>0</sub>² / (2 · g)
+  </code></pre>
+  
+  <h3>Primenom kinematičkih jednačina</h3>
+  <p>
+    Alternativno, možemo koristiti i kinematičku jednačinu za ravnomerno usporeno kretanje (u vertikalnom smeru).  
+    Ignorišući vazdušni otpor, vertikalna komponenta ubrzanja iznosi <code>−g</code>.  
+    Početna brzina uvertikalnom smeru je <code>v<sub>0</sub></code>, a na vrhu putanje brzina postaje nula.
+  </p>
+  
+  <p style="text-align: center;">
+    <code>v² = v<sub>0</sub>² − 2 · g · ΔH</code>
+  </p>
+  <p>
+    U vrhu putanje, <code>v = 0</code>, pa je:
+  </p>
+  <pre><code>0 = v<sub>0</sub>² − 2 · g · H<sub>max</sub></code></pre>
+  <p>
+    i odatle imamo:
+  </p>
+  <pre><code>H<sub>max</sub> = v<sub>0</sub>² / (2 · g)</code></pre>
+  
+  <h3>Zaključak</h3>
+  <p>
+    Bez obzira koristimo li zakon o očuvanju energije ili kinematičke formule, konačni rezultat za maksimalnu visinu kod vertikalnog hica je isti:
+  </p>
+  <pre><code>H<sub>max</sub> = \frac{v<sub>0</sub>²}{2 · g}</code></pre>
+  <p>
+    Ovaj izraz pokazuje da brzina <code>v<sub>0</sub></code> kvadratom utiče na visinu do koje telo može da se popne, dok veće gravitaciono ubrzanje <code>g</code>
+    smanjuje maksimalnu visinu.
+  </p>
+
+<div>
+	  <a href="<%= navHref('/simulacija_vertikalan_hitac') %>" data-id="simulacija_vertikalan_hitac" >
+	  <figure class="margine_oko_slike">
+ 
+	 
+ <img src="images/VertikalanHitac/SimulacijaVertikalnogHica.jpg" alt="Simulacija vertikalnog hica"></img>
+ <figcaption>Slika 2. Simulacija vertikalnog hica</figcaption>
+ </figure>
+ </a>
+	  </div>
+
+ 
+ 
+ 
+  <h3>Padanje tela posle dostizanja maksimalne visine <code>H<sub>max</sub></code></h3>
+  <p>
+    Kada se telo baci vertikalno naviše, ono se usporava pod uticajem gravitacije dok na vrhu putanje ne dostigne brzinu jednaku <code>0</code>. 
+    Ta visina se označava kao <code>H<sub>max</sub></code>. U tom trenutku telo kratko miruje, a zatim se vraća prema zemlji. 
+    Dalji nastavak kretanja može se smatrati slobodnim padom iz ulazne visine <code>H<sub>max</sub></code>,  
+    jer je brzina u vertikalnom smeru jednaka <code>0</code> i deluje samo gravitacija.
+  </p>
+  <p>
+    Drugim rečima, nakon što brzina dopadne <code>v = 0</code> na visini <code>H<sub>max</sub></code>, 
+    telo odmah počinje da ubrzano pada nadole prema tlu istim principom kao kod slobodnog pada iz neke visine <code>H<sub>0</sub></code>. 
+    U tom momentu, sve kinetičke i potencijalne energije su raspoređene na:  
+  </p>
+  <ul>
+    <li>
+      <strong>Potencijalna energija:</strong>  
+      <code>E<sub>p</sub> = m · g · H<sub>max</sub></code>, jer je telo na najvišoj tački putanje.
+    </li>
+    <li>
+      <strong>Kinetička energija:</strong>  
+      <code>E<sub>k</sub> = 0</code>, budući da je trenutna brzina <code>v = 0</code>.
+    </li>
+  </ul>
+  <p>
+    Od momenta kada telo počne da pada sa <code>H<sub>max</sub></code>, važe sve formule i zaključci koje smo već naveli za slobodan pad iz zadate visine. 
+    To znači da će telo preći identičan put naniže i dostići brzinu pri udaru <code>v = √[2 · g · H<sub>max</sub>]</code>, 
+    baš kao da je ispušteno neposredno sa visine <code>H<sub>max</sub></code>.
+  </p>
+
+
+ 
+ 
+  <h3>Brzina tela pri padu. Kinetička i potencijalna energija pri padu.</h3>
+
+  <p>
+    Kada telo ispustimo iz visine <code>H<sub>0</sub></code> bez početne brzine, ono se ubrzava pod dejstvom gravitacije.  
+    U svakom trenutku, deo ukupne mehaničke energije tela je još uvek u obliku potencijalne energije, dok je ostatak pretvoren u kinetičku energiju.  
+    Sledeći podaci objašnjavaju kako se brzina menja tokom slobodnog pada i kako se energija raspodeljuje.
+  </p>
+
+  <h4>1. Potencijalna energija na visini <code>h</code></h4>
+  <p>
+    U trenutku kada se telo nalazi na visini <code>h</code> iznad tla (gde je <code>0 ≤ h ≤ H<sub>0</sub></code>), njegova potencijalna energija iznosi:
+  </p>
+  <pre><code>E<sub>p</sub>(h) = m · g · h</code></pre>
+  <p>
+    Kako telo pada, <code>h</code> se smanjuje, pa se potencijalna energija umanjuje proporcionalno visini.
+  </p>
+
+  <h4>2. Kinetička energija i brzina pri visini <code>h</code></h4>
+  <p>
+    Pošto se ukupna mehanička energija tela očuva (ako zanemarimo otpor vazduha), važi:
+  </p>
+  <pre><code>E<sub>total</sub> = E<sub>p</sub>(h) + E<sub>k</sub>(h) = const = m · g · H<sub>0</sub></code></pre>
+  <p>
+    Kinetička energija tela u trenutku kada je na visini <code>h</code> glasi:
+  </p>
+  <pre><code>E<sub>k</sub>(h) = m · g · (H<sub>0</sub> − h)</code></pre>
+  <p>
+    Iz kinetičke energije možemo izraziti brzinu <code>v(h)</code>:
+  </p>
+  <pre><code>½ · m · v(h)² = m · g · (H<sub>0</sub> − h)  
+⇒  
+v(h) = √[2 · g · (H<sub>0</sub> − h)]</code></pre>
+  <p>
+    Dakle, što je <code>h</code> manja (telo bliže tlu), to je veća brzina – na samom dnu (<code>h = 0</code>) brzina dostiže:
+  </p>
+  <pre><code>v<sub>krit</sub> = √[2 · g · H<sub>0</sub>]</code></pre>
+
+  <h4>3. Kretanje i kretanje kroz visine</h4>
+  <p>
+    U klasičnom opisu, brzina u toku slobodnog pada zavisi od vremena <code>t</code> prošlog od trenutka ispuštanja:
+  </p>
+  <pre><code>v(t) = g · t</code></pre>
+  <p>
+    Visina tela u tom trenutku je:
+  </p>
+  <pre><code>h(t) = H<sub>0</sub> − ½ · g · t²</code></pre>
+  <p>
+    Kada <code>h(t) = 0</code> (telo stigne do tla), vreme pada <code>t<sub>p</sub></code> dobijamo iz:
+  </p>
+  <pre><code>0 = H<sub>0</sub> − ½ · g · t<sub>p</sub>²  
+⇒  
+t<sub>p</sub> = √[2 · H<sub>0</sub> / g]</code></pre>
+  <p>
+    Po tom vremenu, brzina tela dostiže:
+  </p>
+  <pre><code>v<sub>p</sub> = g · t<sub>p</sub> = √[2 · g · H<sub>0</sub>]</code></pre>
+
+  <h4>4. Prikaz energije kroz vremenski tok</h4>
+  <p>
+    - U početnom trenutku (<code>t = 0</code>), sav energija je u obliku potencijalne: <code>E<sub>p</sub> = m · g · H<sub>0</sub>, E<sub>k</sub> = 0</code>.<br>
+    - Kako telo pada, <code>E<sub>p</sub></code> opada linearno sa visinom, a <code>E<sub>k</sub></code> raste tako da je zbir konstantan.<br>
+    - U bilo kom trenutku <code>t</code> i visini <code>h(t)</code> važi:
+  </p>
+  <pre><code>
+E<sub>p</sub>(t) = m · g · h(t)  
+E<sub>k</sub>(t) = ½ · m · [v(t)]² = ½ · m · (g · t)²  
+E<sub>total</sub> = m · g · H<sub>0</sub>   (konstantno)
+  </code></pre>
+
+  <h4>5. Zaključak</h4>
+  <p>
+    Dakle, pri slobodnom padu tela:  
+    - Brzina raste dokle god telo ne stigne do tla, prateći formulu <code>v = √[2 · g · (H<sub>0</sub> − h)]</code> ili <code>v(t) = g · t</code>.<br>
+    - Potencijalna energija se pretvara u kinetičku, ali zbir obe energije ostaje nepromenjen (<code>E<sub>p</sub> + E<sub>k</sub> = const</code>), sve dok ne dođe do udara o podlogu.<br>
+    - Na samom tlu (<code>h = 0</code>), telo dostiže najveću kinetičku energiju <code>½ · m · [√(2 · g · H<sub>0</sub>)]² = m · g · H<sub>0</sub></code>.
+  </p>
+
+
+ 
+ 
+<h3>Brzina tela pri padu. Kineti;ka i potencijalna energija pri padu.</h3>
 
 <p>Sledece formule opisuju vertikalan hitac:</p>
 
@@ -30,7 +243,7 @@ Na površini zemlje gravitociono ubrzanje iznosi približno g=9.81m/s²   </p>
 
 
 
-
+</div>
 
 
 
