@@ -748,6 +748,10 @@ img{
 	height:max-content;
 	text-align:justify;
 }
+.okvir_slika{
+	margin-top:20px;
+	margin-bottom: 20px;
+}
 #_topFrame{
 	font-size:1rem !important;
 	width:100% !important;
