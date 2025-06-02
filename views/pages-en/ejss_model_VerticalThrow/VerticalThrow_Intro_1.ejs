@@ -1,3 +1,4 @@
+<div class="moj_tekst">
 <p><strong>Vertical upward motion is the movement of an object thrown upward with an initial velocity V<sub>0</sub> in the Earth's gravitational field. 
 In other words, it is the motion of an object along the Y-axis in the XOY plane under the influence of gravity, with velocity V, where the initial 
 velocity V<sub>0</sub> forms a 90° angle with the X-axis.</strong></p>
@@ -10,12 +11,221 @@ On the Earth's surface, the gravitational acceleration is approximately g = 9.81
   <img src="images/VertikalanHitac/VertikalanHitac1.png" alt="vertical throw"/>
 </div>
 
-<p>The following formulas describe vertical upward motion:</p>
 
-<p>Velocity in the direction of the y-axis: <strong>v<sub>0Y</sub> = v<sub>0</sub> * sin(a) - g * t</strong></p>
 
-<p>Displacement along the y-axis: <strong>y = v<sub>0</sub> * t - g * t² / 2</strong></p>
 
-<p>Time required to reach the highest point of the trajectory: <strong>t = v<sub>0</sub> / g</strong></p>
+<h2>Determining Maximum Height</h2>
 
-<p>Maximum height reached: <strong>H<sub>Max</sub> = v<sub>0</sub>² / (2 * g)</strong></p>
+<p>
+  Let's assume we have a vertical upward throw, and the object is given an initial velocity <code>v<sub>0</sub></code>.
+  To determine the maximum height during vertical motion, we can use either the equations of uniformly decelerated motion,
+  or the principle of conservation of mechanical energy.
+</p>
+
+<h3>Conservation of Energy</h3>
+<p>
+  The total mechanical energy of a body with mass <code>m</code> at height <code>H</code> is the sum of its potential and kinetic energy:
+</p>
+<pre><code>E = E<sub>p</sub> + E<sub>k</sub></code></pre>
+
+<p>
+  Where:
+</p>
+<ul>
+  <li>
+    <strong>Potential energy</strong> at height <code>H</code>:
+    <br>
+    <pre><code>E<sub>p</sub> = m · g · H</code></pre>
+    (<code>g</code> is the gravitational acceleration, approximately <code>9.81 m/s²</code>).
+  </li>
+  <li>
+    <strong>Kinetic energy</strong> of the object moving at speed <code>v</code>:
+    <br>
+    <pre><code>E<sub>k</sub> = ½ · m · v²</code></pre>
+  </li>
+</ul>
+
+<p>
+  At the top of the trajectory (maximum height), the vertical speed becomes zero (<code>v = 0</code>), so the kinetic energy is also zero.  
+  At the moment of release (height <code>H = 0</code>), all the energy is in the form of kinetic energy:
+</p>
+<pre><code>E<sub>total</sub> (initial) = ½ · m · v<sub>0</sub>²</code></pre>
+
+<p>
+  As the object ascends, its kinetic energy decreases and is converted into potential energy.
+  This transformation can be observed in the energy diagrams of the simulation (see figure 2).
+  At the highest point (<code>H<sub>max</sub></code>), all kinetic energy has been transformed into height:
+</p>
+<pre><code>½ · m · v<sub>0</sub>² = m · g · H<sub>max</sub></code></pre>
+
+<p>
+  From this equation, we can directly derive the formula for the maximum height:
+</p>
+<pre><code>
+H<sub>max</sub> = v<sub>0</sub>² / (2 · g)
+</code></pre>
+
+<h3>Using Kinematic Equations</h3>
+<p>
+  Alternatively, we can use the kinematic equation for uniformly decelerated motion (in the vertical direction).  
+  Ignoring air resistance, the vertical acceleration is <code>−g</code>.  
+  The initial vertical velocity is <code>v<sub>0</sub></code>, and at the top of the motion the velocity becomes zero.
+</p>
+
+<p style="text-align: center;">
+  <code>v² = v<sub>0</sub>² − 2 · g · ΔH</code>
+</p>
+<p>
+  At the top of the trajectory, <code>v = 0</code>, so:
+</p>
+<pre><code>0 = v<sub>0</sub>² − 2 · g · H<sub>max</sub></code></pre>
+<p>
+  and therefore:
+</p>
+<pre><code>H<sub>max</sub> = v<sub>0</sub>² / (2 · g)</code></pre>
+
+<h3>Conclusion</h3>
+<p>
+  Regardless of whether we use the conservation of energy or kinematic equations, the final result for the maximum height in vertical motion is the same:
+</p>
+<pre><code>H<sub>max</sub> = \frac{v<sub>0</sub>²}{2 · g}</code></pre>
+<p>
+  This expression shows that the square of the initial speed <code>v<sub>0</sub></code> significantly influences the maximum height an object can reach,
+  while a higher gravitational acceleration <code>g</code> reduces the maximum height.
+</p>
+
+
+
+<div class="okvir_slika">
+	  <a href="<%= navHref('/simulacija_vertikalan_hitac') %>" data-id="simulacija_vertikalan_hitac" >
+	  <figure class="margine_oko_slike">
+ 
+	 
+ <img src="images/VertikalanHitac/SimulacijaVertikalnogHica.jpg" alt="Simulacija vertikalnog hica"></img>
+ <figcaption>Slika 2. Simulacija vertikalnog hica</figcaption>
+ </figure>
+ </a>
+	  </div>
+
+<h3>Falling of the Body After Reaching the Maximum Height <code>H<sub>max</sub></code></h3>
+<p>
+  When an object is thrown vertically upward, it slows down under the influence of gravity until it reaches zero velocity at the top of its trajectory.  
+  This height is denoted as <code>H<sub>max</sub></code>. At that moment, the object momentarily comes to rest, and then begins to fall back down toward the ground.  
+  The further motion can be considered a free fall from the height <code>H<sub>max</sub></code>,  
+  since the vertical velocity is <code>0</code> and only gravity acts on the object.
+</p>
+<p>
+  In other words, after the velocity drops to <code>v = 0</code> at height <code>H<sub>max</sub></code>,  
+  the object immediately starts accelerating downward toward the ground,  
+  following the same principle as in free fall from a given height <code>H<sub>0</sub></code>.  
+  At that moment, the total mechanical energy is distributed as:
+</p>
+<ul>
+  <li>
+    <strong>Potential energy:</strong>  
+    <code>E<sub>p</sub> = m · g · H<sub>max</sub></code>, since the object is at the highest point of the trajectory.
+  </li>
+  <li>
+    <strong>Kinetic energy:</strong>  
+    <code>E<sub>k</sub> = 0</code>, because the velocity at that moment is <code>v = 0</code>.
+  </li>
+</ul>
+<p>
+  From the moment the object starts falling from <code>H<sub>max</sub></code>, all formulas and conclusions  
+  we already mentioned for free fall from a given height apply.  
+  This means the object will cover the same distance downward and reach an impact velocity  
+  of <code>v = √[2 · g · H<sub>max</sub>]</code>, just as if it had been dropped directly from height <code>H<sub>max</sub></code>.
+</p>
+
+
+
+<h3>Object's Speed During a Fall. Kinetic and Potential Energy During Free Fall</h3>
+
+<p>
+  When an object is released from a height <code>H<sub>0</sub></code> with no initial velocity, it accelerates due to gravity.  
+  At any given moment, part of the total mechanical energy of the object remains as potential energy, while the rest is converted into kinetic energy.  
+  The following data explains how speed changes during free fall and how energy is distributed.
+</p>
+
+<h4>1. Potential Energy at Height <code>h</code></h4>
+<p>
+  At a moment when the object is at height <code>h</code> above the ground (where <code>0 ≤ h ≤ H<sub>0</sub></code>), its potential energy is:
+</p>
+<pre><code>E<sub>p</sub>(h) = m · g · h</code></pre>
+<p>
+  As the object falls, <code>h</code> decreases, and the potential energy decreases proportionally with the height.
+</p>
+
+<h4>2. Kinetic Energy and Speed at Height <code>h</code></h4>
+<p>
+  Since the total mechanical energy of the object is conserved (neglecting air resistance), the following holds:
+</p>
+<pre><code>E<sub>total</sub> = E<sub>p</sub>(h) + E<sub>k</sub>(h) = const = m · g · H<sub>0</sub></code></pre>
+<p>
+  The kinetic energy of the object when it is at height <code>h</code> is:
+</p>
+<pre><code>E<sub>k</sub>(h) = m · g · (H<sub>0</sub> − h)</code></pre>
+<p>
+  From the kinetic energy, we can express the speed <code>v(h)</code>:
+</p>
+<pre><code>½ · m · v(h)² = m · g · (H<sub>0</sub> − h)  
+⇒  
+v(h) = √[2 · g · (H<sub>0</sub> − h)]</code></pre>
+<p>
+  Therefore, the smaller the <code>h</code> (the closer the object is to the ground), the greater the speed. At the ground level (<code>h = 0</code>), the speed reaches:
+</p>
+<pre><code>v<sub>critical</sub> = √[2 · g · H<sub>0</sub>]</code></pre>
+
+<h4>3. Motion Over Time</h4>
+<p>
+  In classical mechanics, the speed during free fall depends on the time <code>t</code> elapsed since the object was released:
+</p>
+<pre><code>v(t) = g · t</code></pre>
+<p>
+  The height of the object at that moment is:
+</p>
+<pre><code>h(t) = H<sub>0</sub> − ½ · g · t²</code></pre>
+<p>
+  When <code>h(t) = 0</code> (the object reaches the ground), the fall time <code>t<sub>fall</sub></code> is obtained from:
+</p>
+<pre><code>0 = H<sub>0</sub> − ½ · g · t<sub>fall</sub>²  
+⇒  
+t<sub>fall</sub> = √[2 · H<sub>0</sub> / g]</code></pre>
+<p>
+  At this time, the speed of the object is:
+</p>
+<pre><code>v<sub>fall</sub> = g · t<sub>fall</sub> = √[2 · g · H<sub>0</sub>]</code></pre>
+
+<h4>4. Energy Over Time</h4>
+<p>
+  - At the initial moment (<code>t = 0</code>), all energy is in the form of potential energy: <code>E<sub>p</sub> = m · g · H<sub>0</sub>, E<sub>k</sub> = 0</code>.<br>
+  - As the object falls, <code>E<sub>p</sub></code> decreases linearly with height, and <code>E<sub>k</sub></code> increases so that the total remains constant.<br>
+  - At any moment <code>t</code> and height <code>h(t)</code>, we have:
+</p>
+<pre><code>
+E<sub>p</sub>(t) = m · g · h(t)  
+E<sub>k</sub>(t) = ½ · m · [v(t)]² = ½ · m · (g · t)²  
+E<sub>total</sub> = m · g · H<sub>0</sub>   (constant)
+</code></pre>
+
+<h4>5. Conclusion</h4>
+<p>
+  Thus, during the free fall of an object:  
+  - Speed increases continuously until the object reaches the ground, following the formula <code>v = √[2 · g · (H<sub>0</sub> − h)]</code> or <code>v(t) = g · t</code>.<br>
+  - Potential energy is converted into kinetic energy, but the total energy remains constant (<code>E<sub>p</sub> + E<sub>k</sub> = const</code>) until impact.<br>
+  - At the ground level (<code>h = 0</code>), the object reaches its maximum kinetic energy <code>½ · m · [√(2 · g · H<sub>0</sub>)]² = m · g · H<sub>0</sub></code>.
+</p>
+
+<h2>Vertical Projectile Motion – Speed and Height</h2>
+
+<p>The following formulas describe vertical projectile motion:</p>
+
+<p>Vertical velocity component: <strong>v<sub>0Y</sub> = v<sub>0</sub> · sin(α) − g · t</strong></p>
+
+<p>Vertical displacement over time: <strong>y = v<sub>0</sub> · t − (g · t²) / 2</strong></p>
+
+<p>Time to reach the highest point: <strong>t = v<sub>0</sub> / g</strong></p>
+
+<p>Maximum height reached: <strong>H<sub>Max</sub> = v<sub>0</sub>² / (2 · g)</strong></p>
+
+</div>
