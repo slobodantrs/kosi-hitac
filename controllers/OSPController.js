@@ -70,5 +70,7 @@ IDE_Environment_Osp_EN(req, res) {
       title:   res.__('osp.web_ejs.title'),
       metaDesc: res.__('osp.web_ejs.metaDescription')
     });
+  }
+	
 };
 module.exports = methods;
