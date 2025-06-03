@@ -80,6 +80,12 @@
       "metaDescription": "Kratak vodič za simulaciju matematičkog klatna koristeći OSP Java biblioteke.",
 	  "link_text": "Mat. klatno (primer)",
       "link_href": "/osp/primer_osp_matematicko_klatno"
+    },
+	
+    "web_ejs": {
+      "title": "Uvod u Web EJS",
+      "metaDescription": "Naučite kako da koristite Web EJS (Easy JavaScript Simulations) za izradu interaktivnih simulacija direktno u browseru.",
+	 "link_text": "Web Ejs-uvod"
     }
   },
   "ide_osp": {

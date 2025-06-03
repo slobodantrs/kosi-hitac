@@ -54,5 +54,21 @@ IDE_Environment_Osp_EN(req, res) {
       metaDesc: res.__('osp.pendulum.metaDescription')
     });
   },
+  Uvod_U_Web_Ejs(req, res) {
+    console.log('Render attempt:', 'pages/OSP/uvod_u_web_ejs');
+    res.render('pages/OSP/uvod_u_web_ejs', {
+      locale:  req.getLocale(),
+      title:   res.__('osp.web_ejs.title'),
+      metaDesc: res.__('osp.web_ejs.metaDescription')
+    });
+  },
+
+  Uvod_U_Web_Ejs_EN(req, res) {
+    console.log('Render attempt:', 'pages-en/OSP/introduction_to_web_ejs');
+    res.render('pages-en/OSP/introduction_to_web_ejs', {
+      locale:  req.getLocale(),
+      title:   res.__('osp.web_ejs.title'),
+      metaDesc: res.__('osp.web_ejs.metaDescription')
+    });
 };
 module.exports = methods;

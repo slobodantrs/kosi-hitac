@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <% include ../../partials/head %>
+	<title>Web ejs-introduction</title>
+<link rel="canonical" href="https://kosi-hitac.onrender.com/en/osp/web_ejs_introduction" />
+<meta name="description" content="Open Source Physics (OSP) je zajednički projekat koji pruža besplatne, otvorene alate i simulacije za nastavu i učenje fizike putem računarskog modeliranja. Upoznajte Tracker, Web EJS, OSP biblioteke i druge resurse za interaktivne edukativne simulacije." />
+<meta name="keywords" content="Open Source Physics, OSP, fizika otvorenog koda, simulacije, računarska fizika, Tracker, Easy Java Simulations, Web EJS, video analiza, edukativni alati" />
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../../partials/header %>
+            </header>
+        </div>
+    </div>
+  
+
+ <div class="moj_tekst">
+  <h1>Web EJS (Easy JavaScript Simulations) – Introduction</h1>
+
+  <h2>History and Origins</h2>
+  <p>The EJS (Easy Java Simulations) tool was created in the early 2000s at the University of Murcia (Spain) under the leadership of Prof. Francisco Esquembre. Initially, it was a Java-based program that enabled educators to easily create interactive simulations without advanced programming skills. With the rise of web technologies and the decline of Java applet support, in 2014, Felix García Clemente joined the project to develop a new version that generates JavaScript simulations that work on all devices (including mobile). Today’s version is known as <em>Web EJS</em> or <em>EJS 5</em> (stable release 5.1), and development continues within the <strong>Open Source Physics (OSP)</strong> project.</p>
+
+  <h2>What is EJS and what is it used for</h2>
+  <p><em>EJS</em> is a <strong>free authoring tool</strong> (licensed under GNU GPL) that allows teachers and students to create interactive simulations in Java or JavaScript format without advanced coding. It offers a graphical interface (“drag & drop”) to define variables, equations, and view elements (graphs, tables, drawings, etc.), allowing users to focus on the model, while the tool generates the simulation code.</p>
+  <p>For example, the user inputs physical equations or system rules, and EJS translates them into JavaScript code and renders the simulation in real time. This reduces the need for manual programming and speeds up simulation development. EJS supports 2D and 3D graphics, numerical solvers (Runge-Kutta, etc.), and the visualization of results through graphs and animations, making it suitable for education and research.</p>
+  <img src="/images/Kos-hitac-O-Ejsu/HtmlView1.png" alt="EJS graphical interface" style="max-width:100%; margin: 10px 0;">
+
+  <h2>Key features and advantages over older (desktop) versions</h2>
+  <ul>
+    <li><strong>Free and open-source:</strong> EJS is an open-source tool (GPL license) freely available to everyone.</li>
+    <li><strong>Accessibility for non-programmers:</strong> It targets teachers and students with limited programming experience – the tool allows simulation building using predefined components and equations.</li>
+    <li><strong>Web output (HTML5/JS):</strong> Generates simulations as standard HTML/JavaScript pages that work in modern browsers and on mobile devices.</li>
+    <li><strong>Flexible distribution:</strong> Simulations can be exported as standalone HTML pages or embedded into e-books (ePub) and even MacOS widgets.</li>
+    <li><strong>Rich library of examples:</strong> A large collection of ready-made EJS models (physics, chemistry, economics, biology, etc.) is shared by the community. Documentation and tutorials further support learning.</li>
+  </ul>
+  <img src="/images/Kos-hitac-O-Ejsu/ExportOptionEjs.jpg" alt="Simulation export options" style="max-width:100%; margin: 10px 0;">
+
+  <h2>Application Areas</h2>
+  <p>EJS is most commonly used for creating simulations in educational settings, especially in natural and technical sciences. Key areas of application include:</p>
+  <ul>
+    <li><strong>Physics and engineering:</strong> simulations of kinematics, dynamics, oscillations, orbital mechanics, optics, waves, etc.</li>
+    <li><strong>Chemistry and biology:</strong> simulations of chemical reactions, gas dispersion, biological processes, etc.</li>
+    <li><strong>Social and economic sciences:</strong> agent-based models, demography, economics, epidemiology.</li>
+    <li><strong>Educational tools:</strong> interactive demonstrations, virtual labs, simulations embedded in e-textbooks.</li>
+  </ul>
+
+  <h2>Practical Simulation Example</h2>
+  <p>One basic example of physical modeling in EJS is the <em>free fall of a body in 3D space</em>. This simulation shows how an object (e.g. a ball) falls under the influence of gravity, without air resistance, in a three-dimensional environment. The camera can be rotated to observe the fall from different angles, and the animation realistically scales the position of the body over time.</p>
+  <p>The user can modify the initial height, mass of the object, and gravity, as well as enable trajectory display and a graph of velocity versus time. This interactive visualization helps students better understand basic motion and the laws of dynamics.</p>
+  <img src="/images/Kos-hitac-O-Ejsu/FreeFall.png" alt="Free fall simulation in 3D space" style="max-width:100%; margin: 10px 0;">
+
+  <h2>Future development and usage perspectives</h2>
+  <p>EJS is actively being developed. Version 5.3 introduced support for ePub and macOS widgets, and the upcoming version 6.0 includes a new editor and plugin system. Plans include separating Java and JavaScript versions, integrating with e-learning platforms, and adding support for data analysis from simulations.</p>
+
+  <h2>Resources</h2>
+  <ul>
+    <li><strong>Official site and documentation:</strong> <a href="https://www.um.es/fem/EjsWiki/Main/HomePage" target="_blank">EJS Wiki (um.es)</a></li>
+    <li><strong>GitLab project:</strong> <a href="https://gitlab.com/ejsS" target="_blank">https://gitlab.com/ejsS</a></li>
+    <li><strong>Open Source Physics (ComPADRE):</strong> A collection of EJS simulations with dozens of examples from various fields.</li>
+  </ul>
+
+  <h2>Examples of Simulations Created with EJS</h2>
+  <p>Below you can see some examples of simulations created using EJS:</p>
+  <div class="row">
+    <div class="desktop d-flex justify-content-around flex-wrap align-content-center">
+      <% include ./Simulations_Contents %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mobile d-flex flex-column col-xs-12 col-md-12 col-lg-12">
+      <% include ./Simulations_Contents %>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <% include ../../partials/scripts %>
+            <% include ../../partials/footer %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

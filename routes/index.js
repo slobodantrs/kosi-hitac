@@ -148,6 +148,8 @@ router.get('/osp/ide_okruzenje', OSPController.IDE_Okruzenje_Osp);
 // OSP pendulum examples
 router.get('/osp/primer_osp_matematicko_klatno', OSPController.Klatno_Primer_Osp);
 
+// Uvod u Web EJS (srpska verzija)
+router.get('/osp/uvod_u_web_ejs', OSPController.Uvod_U_Web_Ejs);
 
 
 
@@ -296,6 +298,9 @@ router.get('/en/usage_p5js/vector_animation/:id?',      VektoriController.Vektor
 router.get('/en/osp_introduction', OSPController.Uvod_U_Osp_EN);
 router.get('/en/osp/ide_environment', OSPController.IDE_Environment_Osp_EN);
 router.get('/en/osp/example_osp_mathematics_pendulum', OSPController.Pendulum_Example_Osp_EN);
+
+// Uvod u Web EJS (engleska verzija)
+router.get('/en/osp/web_ejs_introduction', OSPController.Uvod_U_Web_Ejs_EN);
 
 const path = require('path');
 const options = {

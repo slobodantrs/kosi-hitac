@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <% include ../../partials/head %>
+	<title>Web ejs-uvod</title>
+<link rel="canonical" href="https://kosi-hitac.onrender.com/osp/uvod_u_web_ejs" />
+<meta name="description" content="Open Source Physics (OSP) je zajednički projekat koji pruža besplatne, otvorene alate i simulacije za nastavu i učenje fizike putem računarskog modeliranja. Upoznajte Tracker, Web EJS, OSP biblioteke i druge resurse za interaktivne edukativne simulacije." />
+<meta name="keywords" content="Open Source Physics, OSP, fizika otvorenog koda, simulacije, računarska fizika, Tracker, Easy Java Simulations, Web EJS, video analiza, edukativni alati" />
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <header>
+                <% include ../../partials/header %>
+            </header>
+        </div>
+    </div>
+  
+
+ <div class="moj_tekst">
+  <h1>Web EJS (Easy JavaScript Simulations) – Uvod</h1>
+
+  <h2>Istorija i poreklo</h2>
+  <p>Alat EJS (Easy Java Simulations) kreiran je početkom 2000-ih na Univerzitetu Murcije (Španija) pod vođstvom prof. Francisca Esquembrea. Prvobitno je bio Java-program koji je omogućavao nastavnicima da lako prave interaktivne simulacije bez velikog programerskog znanja. S razvojem web-tehnologija i opadanjem podrške za Java-aplete, 2014. godine Felix García Clemente pridružio se radu na novoj verziji koja generiše JavaScript simulacije koje rade na svim uređajima (uključujući mobilne). Današnja verzija poznata je kao <em>Web EJS</em> ili <em>EJS 5</em> (stable release 5.1), a razvoj se nastavlja unutar <strong>Open Source Physics (OSP)</strong> projekta.</p>
+ 
+
+  <h2>Šta je EJS i čemu služi</h2>
+  <p><em>EJS</em> je <strong>besplatan autorski alat</strong> (licenca GNU GPL) koji nastavnicima i učenicima omogućava da bez naprednog programiranja naprave interaktivne simulacije u Java ili JavaScript formatu. Alat ima grafički interfejs („drag & drop“) za definisanje varijabli, jednačina i elemenata pogleda (grafici, tabele, crteži itd.), tako da se korisnik fokusira na model pojave, a sam alat generiše kod simulacije.</p>
+  <p>Na primer, korisnik unosi fizikalne jednačine ili pravila sistema, a EJS ih prevodi u JavaScript kod i renderuje simulaciju u realnom vremenu. Time se smanjuje potreba za ručnim programiranjem i ubrzava izrada simulacija. EJS podržava 2D i 3D crtanje, numeričke solve­re (Runge-Kutta, itd.) i prikaz rezultata grafikama i animacijama, što ga čini pogodnim za obrazovanje i istraživanje.</p>
+  <img src="/images/Kos-hitac-O-Ejsu/HtmlView1.png" alt="EJS grafički interfejs" style="max-width:100%; margin: 10px 0;">
+
+  <h2>Ključne mogućnosti i prednosti u odnosu na stare verzije (desktop EJS)</h2>
+  <ul>
+    <li><strong>Besplatan i otvoren kod:</strong> EJS je open-source alat (GPL licenca) dostupan svima i besplatno.</li>
+    <li><strong>Pristupačnost za ne-programere:</strong> Ciljna grupa su nastavnici i učenici sa ograničenim znanjem programiranja – alat dozvoljava jednostavno sastavljanje simulacije pomoću gotovih komponenti i definisanih jednačina.</li>
+    <li><strong>Veb-izlaz (HTML5/JS):</strong> Generiše simulacije kao standardne HTML/JavaScript stranice koje rade u savremenim pregledačima i na mobilnim uređajima.</li>
+    <li><strong>Fleksibilna distribucija:</strong> Simulacije se mogu izvesti kao samostalne HTML stranice ili integrisati u elektronske knjige (ePub) i čak MacOS widgete.</li>
+    <li><strong>Bogata biblioteka primera:</strong> Postoji velika baza gotovih EJS modela (fizika, hemija, ekonomija, biologija, itd.) koju zajednica deli. Dokumentacija i vodiči dodatno olakšavaju učenje alata.</li>
+  </ul>
+  <img src="/images/Kos-hitac-O-Ejsu/ExportOptionEjs.jpg" alt="Mogućnosti izvoza simulacija" style="max-width:100%; margin: 10px 0;">
+
+  <h2>Polja primene</h2>
+  <p>EJS se najčešće koristi za kreiranje simulacija u edukativnom kontekstu, naročito u prirodnim i tehničkim naukama. Neke od najznačajnijih oblasti primene su:</p>
+  <ul>
+    <li><strong>Fizika i inženjering:</strong> simulacije kinematike, dinamike, oscilacija, orbitalne mehanike, optike, talasa itd.</li>
+    <li><strong>Hemija i biologija:</strong> simulacije hemijskih reakcija, disperzije gasova, bioloških procesa itd.</li>
+    <li><strong>Društvene i ekonomske nauke:</strong> agentni modeli, demografija, ekonomija, epidemiologija.</li>
+    <li><strong>Obrazovni alati:</strong> interaktivne demonstracije, virtuelne laboratorije, simulacije integrisane u e-udžbenike.</li>
+  </ul>
+  
+
+ <h2>Praktičan primer simulacije</h2>
+<p>Jedan od osnovnih primera fizikalnog modelovanja u EJS-u je <em>slobodan pad tela u 3D prostoru</em>. Ova simulacija prikazuje kako objekat (npr. kugla) pada pod dejstvom sile gravitacije, bez otpora vazduha, u trodimenzionalnom prostoru. Kamera se može rotirati kako bi se posmatrao pad iz različitih uglova, a simulacija koristi realističnu animaciju i skaliranje položaja tela u vremenu.</p>
+<p>Korisnik može menjati početnu visinu, masu tela i gravitaciju, kao i uključiti prikaz putanje i grafik brzine u odnosu na vreme. Ova interaktivna vizualizacija omogućava učenicima bolje razumevanje osnovnog kretanja i zakonâ dinamike.</p>
+<img src="/images/Kos-hitac-O-Ejsu/FreeFall.png" alt="Simulacija slobodnog pada u 3D prostoru" style="max-width:100%; margin: 10px 0;">
+
+
+  <h2>Perspektive razvoja i upotrebe</h2>
+  <p>EJS je aktivno u razvoju. Verzija 5.3 donela je podršku za ePub, macOS widgete, a najavljena verzija 6.0 uključuje novi editor i plugin sistem. Planira se razdvajanje Java i JavaScript verzije, integracija sa e-platformama i podrška za analizu podataka iz simulacija.</p>
+  
+
+  <h2>Resursi</h2>
+  <ul>
+    <li><strong>Zvanični sajt i dokumentacija:</strong> <a href="https://www.um.es/fem/EjsWiki/Main/HomePage" target="_blank">EJS Wiki (um.es)</a></li>
+    <li><strong>GitLab projekat:</strong> <a href="https://gitlab.com/ejsS" target="_blank">https://gitlab.com/ejsS</a></li>
+    <li><strong>Open Source Physics (ComPADRE):</strong> Kolekcija EJS simulacija sa desetinama primera iz raznih oblasti.</li>
+  </ul>
+  
+  <h2>Primeri simulacija kreiranih u Ejs-u</h2>
+  <p>U nastavku pogledajte neke primere simulacija kreiranih pomoću Ejss-a</p> 
+  <div class="row">
+	<div class="desktop d-flex justify-content-around flex-wrap align-content-center">
+	
+	<% include ./Simulations_Contents %>
+	</div>
+	</div>
+	<div class="row">
+	<div class="mobile d-flex flex-column col-xs-12 col-md-12 col-lg-12">
+	
+	<% include ./Simulations_Contents %>
+	</div>
+	</div>
+	
+</div>
+
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <% include ../../partials/scripts %>
+            <% include ../../partials/footer %>
+        </div>
+    </div>
+</div>
+</body>
+</html>
