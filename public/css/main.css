@@ -460,9 +460,11 @@ figure.margine_oko_slike {
 
 figure.margine_oko_slike img {
   display: block;         /* za centrirani caption */
-  max-width: 70vw;  
+  max-width: 60vw;  
 width:100%;  /* ne izlazi iz figure */
   height: auto;
+  margin-left:auto;
+  margin-right:auto;
 }
 .language-switcher {
   position: absolute;
