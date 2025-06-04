@@ -451,20 +451,19 @@ div#panelSimulacija{
 	max-width:100%;
 	overflow-x:auto;
 }
-/* DESKTOP (širina > 767px) */
 figure.margine_oko_slike {
-              
-  margin: 1rem 1rem 1rem 0;     /* razmak desno i dole */
-  width: 100%;            /* slika prirodne širine */
+  margin: 1rem auto;   /* gore-dole 1rem, automatsko centriranje levo-desno */
+  width: 60vw;         /* zauzima najviše 60% širine ekrana */
+  max-width: 100%;     /* ne prelazi širinu roditeljskog kontejnera */
 }
 
+/* Stilovi za <img> unutar figure */
 figure.margine_oko_slike img {
-  display: block;         /* za centrirani caption */
-  max-width: 60vw;  
-width:100%;  /* ne izlazi iz figure */
-  height: auto;
-  margin-left:auto;
-  margin-right:auto;
+  display: block;      /* omogućava margin: auto da centriraju sliku */
+  width: 100%;         /* slika raste da popuni čitav <figure> */
+  height: auto;        /* zadržava proporcije */
+  margin: 0 auto;      /* centriranje ukoliko je <img> manja od figure */
+  max-width: 60vw;     /* nikada ne prelazi 60% širine ekrana */
 }
 .language-switcher {
   position: absolute;
@@ -483,6 +482,11 @@ width:100%;  /* ne izlazi iz figure */
 	width:90%;
 	margin: 5px;
 	padding:10px;
+}
+.okvir_slika{
+	
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .moj_tekst ul {
@@ -753,6 +757,8 @@ img{
 .okvir_slika{
 	margin-top:20px;
 	margin-bottom: 20px;
+	margin-left:auto;
+	margin-right:auto;
 }
 #_topFrame{
 	font-size:1rem !important;
