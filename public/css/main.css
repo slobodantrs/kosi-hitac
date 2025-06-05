@@ -465,6 +465,9 @@ figure.margine_oko_slike img {
   margin: 0 auto;      /* centriranje ukoliko je <img> manja od figure */
   max-width: 60vw;     /* nikada ne prelazi 60% širine ekrana */
 }
+.glavni_naslov{
+	margin-bottom:30px;
+}
 .language-switcher {
   position: absolute;
   top: 10px;

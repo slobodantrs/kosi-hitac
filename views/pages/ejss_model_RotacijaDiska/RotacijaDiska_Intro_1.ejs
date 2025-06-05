@@ -1,18 +1,24 @@
 
 <div class="container moj-header">
  
-    <h1>
+    <h1 class="glavni_naslov">
       Rotaciono kretanje krutog tela-Rotacija diska
     </h1>
     <p>
       Kruto telo &#8211; telo koje ima stalan oblik i zapreminu (prilikom kretanja 
-      ne menja ni oblik ni zapreminu).
+      ne menja ni oblik ni zapreminu).To je zapravo idealizovani koncept u mehanici koji predstavlja skup tačaka čije
+	  se međusobne udaljenosti tokom kretanja — tj. deformacija — ne menjaju. 
+	  Drugim rečima, kad kažemo da je „telo kruto,“ podrazumevamo da je svaka dva proizvoljna njegova dela 
+	  (tačke) razmaknuti fiksnom udaljenošću, bez obzira na sile koje deluju na telo. 
+	  U realnosti sva materija malo elastično popušta, ali u okviru analize kretanja 
+	  (naročito u klasičnoj mehanici) najčešće modeliramo predmete kao kruta tela kako bismo zanemarili deformacije.
     </p>
     <p>
       Kruto telo mo&#382;e da se posmatra kao da je sastavljeno od velikog broja 
       sitnih delova koji su obele&#382;eni ta&#269;kama.
     </p>
     <p>
+	Kretanje krutog tela možemo posmatrati kao kombinaciju — ili posebne slučajeve — translacije i rotacije. U nastavku su najvažnije kategorije.
       Podela kretanja prema na&#269;inu kretanja pojedinih ta&#269;aka krutog tela:
     </p>
     <ul>
@@ -26,18 +32,32 @@
     <h3>
       Translatorno kretanje
     </h3>
-    <ul>
-      <ol>
-        pri kretanju krutog tela svi njegovi deli&#263;i kre&#263;u se na isti na&#269;in i 
-        opisuju iste putanje
-      </ol>
-      <ol>
-        putanje ta&#269;aka su paralelne
-      </ol>
-      <ol>
-        za isto vreme prelaze iste puteve &#8211; brzine su im iste
-      </ol>
-    </ul>
+   <div class="moj_tekst">
+  <h3>Translacija krutog tela</h3>
+
+  <p>
+    Translacija je kretanje kod kojeg se svaka tačka tela pomera uprav paralelno istoj putanji.
+  </p>
+
+  <p>
+    <strong>Paralelna translacija</strong> (često zovu „čista“ translacija): Svi delovi tela prate istu vektorsku pomerajnu.
+  </p>
+
+  <p>
+    Na primer, ako ceo predmet klizi pravo po stolu tako da se ne okreće, tada kažemo da telo vrši paralelnu translaciju.
+  </p>
+
+  <p>
+    Matematika: Ako je početna pozicija neke tačke <code>r₀</code>, a brzina tela je <code>v</code> (pomeranje konstantne brzine), onda je pozicija u trenutku <code>t</code>:
+  </p>
+
+  <pre><code>r(t) = r<sub>0</sub> + v · t</code></pre>
+
+  <p>
+    Svi pikseli/tačke se pomeraju jednako.
+  </p>
+</div>
+
     <div>
       <img src="./images/RotacijaDiska/TranslatornoKretanje.png"/>
       <img src="./images/RotacijaDiska/TranslatornoKretanje.png"/>
@@ -47,7 +67,7 @@
       Rotaciono kretanje
     </h3>
     <p>
-      deli&#263;i krutog tela se kre&#263;u po kru&#382;nim putanjama, a sve te kru&#382;nice le&#382;e 
+      Deli&#263;i krutog tela se kre&#263;u po kru&#382;nim putanjama, a sve te kru&#382;nice le&#382;e 
       u ravnima koje su me&#273;usobno paralelne
     </p>
     <p>
@@ -129,5 +149,174 @@
     <div>
       <img src="./images/RotacijaDiska/RotacijaDiska2.png"/>
     </div>
+	
+	
+	<div class="moj_tekst">
+  <h2 class="okvir_3">Rotacija diska</h2>
+
+  <h3>1. Cilj i zadatak simulacije</h3>
+  <p>
+    U ovoj lekciji ćemo kreirati interaktivnu simulaciju rotacije diska. Disk ima masu <code>m</code> i poluprečnik <code>r</code>. 
+    Dva osnovna slučaja kretanja koje prikazaćemo su:
+  </p>
+  <ol>
+    <li><strong>Ravnomerno obrtanje</strong> – disk se okreće konstantnom ugaonom brzinom <code>ω</code>.</li>
+    <li><strong>Ravnomerno ubrzano obrtanje</strong> – disk počinje iz stanja mirovanja i ubrzava pod dejstvom konstantnog ugaonog 
+    ubrzanja <code>α</code>.</li>
+  </ol>
+  <p>
+    Koraci simulacije obuhvataju:
+    <ul>
+      <li>Ažuriranje vremena: <code>t = t + Δt</code>.</li>
+      <li>Ažuriranje ugaonog pomeraja: <code>Δφ = ω · Δt</code> (za ravnomerno obrtanje) ili 
+        <code>Δφ = ω·Δt + (α·Δt²)/2</code> (za ravnomerno ubrzano obrtanje).</li>
+      <li>Ažuriranje ugla: <code>φ = φ + Δφ</code>.</li>
+      <li>Izračunavanje položaja tačke <code>M</code> na obodu diska u dekartovim koordinatama:</li>
+      <pre><code>
+x = r · cos(φ)
+y = r · sin(φ)
+      </code></pre>
+      <li>Ponavljanje koraka svakih <code>Δt = 0.05 s</code> dok se simulacija ne zaustavi.</li>
+    </ul>
+  </p>
+
+  <h3>2. Ravnomerno obrtanje</h3>
+  <p>
+    Kada disk rotira ravnomerno, ugaona brzina <code>ω</code> je konstantna. U svakom koraku vremena <code>Δt</code>:
+  </p>
+  <ul>
+    <li><strong>Promena vremena:</strong> <code>t = t + Δt</code></li>
+    <li><strong>Promena položaja:</strong> <code>Δφ = ω · Δt</code>, pa je novi ugao <code>φ = φ + Δφ</code>.</li>
+    <li><strong>Koordinate tačke <code>M</code> na obodu diska:</strong></li>
+    <pre><code>
+x = r · cos(φ)
+y = r · sin(φ)
+    </code></pre>
+  </ul>
+  <p>
+    U svakom trenutku crtam poziciju tačke <code>M</code> u 2D ravan (na <code>DrawingPanel</code>) i prikazujem 3D modeli diska koje možete rotirati kamerom. 
+    Ovako učenik može vizuelno pratiti kako se svaka tačka diska kreće kružno istim ubrzanjem.
+  </p>
+
+  <h3>3. Ravnomerno ubrzano obrtanje</h3>
+  <p>
+    Sada hajde da uvedemo <em>ugaono ubrzanje</em> <code>α</code>. Disk počinje iz mirovanja (ili početne ugaone brzine <code>ω<sub>0</sub></code>) i ubrzava. 
+    Ugaono ubrzanje se definiše kao:
+    <pre><code>α = dω/dt  [rad/s²]</code></pre>
+  </p>
+  <p>
+    Tokom istog vremenskog intervala <code>Δt</code>, ugaoni pomeraj <code>Δφ</code> raste jer se ugaona brzina menja:
+    <pre><code>Δφ = ω·Δt + (α·Δt²)/2</code></pre>
+    Pri čemu je <code>ω</code> trenutna ugaona brzina u datom koraku, a posle ovog koraka imače novu vrednost 
+    <code>ω = ω + α·Δt</code>.
+  </p>
+  <ul>
+    <li><strong>Promena vremena:</strong> <code>t = t + Δt</code></li>
+    <li><strong>Promena ugla:</strong> 
+      <pre><code>φ = φ + ω·Δt + (α·Δt²)/2</code></pre>
+    </li>
+    <li><strong>Ažuriranje ugaone brzine:</strong> <code>ω = ω + α·Δt</code></li>
+    <li><strong>Koordinate tačke <code>M</code>:</strong>
+      <pre><code>
+x = r · cos(φ)
+y = r · sin(φ)
+      </code></pre>
+    </li>
+  </ul>
+  <p>
+    Ovde vidimo analogiju sa translatornim kretanjem:
+    <pre><code>s = s<sub>0</sub> + v<sub>0</sub>·t + (a·t²)/2</code></pre>
+    samo što u rotaciji zamenjujemo <code>s</code> sa <code>φ</code>, <code>v<sub>0</sub></code> sa <code>ω</code> i <code>a</code> sa <code>α</code>.
+  </p>
+
+  <h3>4. Moment sile i moment inercije</h3>
+  <p>
+    Da bi disk ubrzavao, mora da deluje spoljna sila. Međutim, na disk deluje raspodela sila, a ne samo jedna tačka. Bitan je <em>moment sile</em> 
+    koja proizvodi tangencijalnu komponentu <code>F<sub>t</sub></code>. Za tačku <code>M</code> na rastojanju <code>r</code> od osi rotacije, 
+    moment sile je:
+    <pre><code>M = F<sub>t</sub> · r  [N·m]</code></pre>
+  </p>
+  <p>
+    Normalna komponenta <code>F<sub>n</sub></code> prolazi kroz osu rotacije, pa njen moment iznosi nula. Dakle, samo tangencijalna komponenta doprinosi obrtanju.
+  </p>
+  <p>
+    Mera inertnosti kod kružnog kretanja je <em>moment inercije</em> <code>I</code>. Za disk je:
+    <pre><code>I = (m·r²)/2</code></pre>
+    gde je <code>m</code> masa diska, a <code>r</code> njegov poluprečnik.
+  </p>
+  <p>
+    <strong>Drugi Njutnov zakon za rotaciju</strong> glasi:
+    <pre><code>M = I · α</code></pre>
+  </p>
+  <p>
+    Takođe, <em>moment količine kretanja</em> (rotacioni zamajac) diska oko fiksne ose je:
+    <pre><code>L = I · ω</code></pre>
+    Gde <code>ω</code> predstavlja ugaonu brzinu diska.
+  </p>
+
+  <h3>5. Praktičan primer simulacije u EJS-u</h3>
+  <p>
+    U interaktivnom okruženju EJS, simulacija rotacije diska prikazuje sledeće komponente:
+  </p>
+  <ul>
+    <li>
+      <strong>3D prikaz diska</strong> koji se kotrlja ili ubrzava oko vertikalne ose. Kamera se može rotirati kako bi se posmatralo kretanje iz različitih uglova.
+    </li>
+    <li>
+      <strong>2D „Top View“ (gornja projekcija)</strong> na <code>PlottingPanel</code> gde se vidi kružna putanja tačke <code>M</code> u ravni.
+    </li>
+    <li>
+      <strong>Grafik ugaone brzine <code>ω</code> u funkciji vremena</strong> na drugom <code>PlottingPanel</code>.
+    </li>
+    <li>
+      <strong>Grafici kinetičke i potencijalne energije diska</strong> u odnosu na vreme na trećem <code>PlottingPanel</code>, 
+      gde se jasno vidi prelaz energije od kinetičke do potencijalne i obrnuto kod ravnomerno ubrzanog kretanja.
+    </li>
+  </ul>
+  <p>
+    Korisnik ima kontrolu nad parametrima:
+    <ul>
+      <li>Poluprečnik <code>r</code> i masa <code>m</code> diska.</li>
+      <li>Početna ugaona brzina <code>ω<sub>0</sub></code> ili ugaono ubrzanje <code>α</code>.</li>
+      <li>Vremenski korak <code>Δt</code> kojim se simulacija ažurira.</li>
+    </ul>
+    Kada promenite željene vrednosti i pritisnete „Start“, vidite kako se disk okreće ili ubrzava, te kako se menjaju grafikoni u realnom vremenu.
+  </p>
+
+  <h3>6. Zašto je rotacija diska zanimljiva</h3>
+  <p>
+    <ul>
+      <li>
+        <strong>Nastavnici</strong> mogu demonstrirati princip očuvanja momenta količine kretanja i energija, 
+        kao i primenu drugog Njutnovog zakona za rotaciju.
+      </li>
+      <li>
+        <strong>Učenici</strong> dobijaju vizuelno i interaktivno objašnjenje kako se tangencijalna sila utiče na ubrzanje, 
+        kako moment inercije zavisi od raspodele mase i zašto je veća masa ili veći poluprečnik – teže ubrzavanje.
+      </li>
+      <li>
+        <strong>Ljubitelji fizike</strong> uživaju u detaljnoj analizi prelaska energije od kinetičke (rotacione) u potencijalnu (ako bismo disk podignuli), 
+        te proučavanju stabilnih i nestabilnih tačaka rotacije.
+      </li>
+    </ul>
+  </p>
+
+  <h3>7. Zaključak</h3>
+  <p>
+    Rotacija diska je odličan primer za razumevanje dinamičkih zakona u rotacionom kretanju. 
+    Kroz simulaciju u EJS-u možete istražiti:
+  </p>
+  <ul>
+    <li>Kako se ugaono ubrzanje menja kada se poveća ili smanji momenat sile <code>M</code>.</li>
+    <li>Kako moment inercije <code>I</code> diska zavisi od mase i poluprečnika (<code>I = m·r²/2</code>).</li>
+    <li>Kako energija prelazi sa kutne (rotacione) na kinetičku (kod tačke na obodu) i nazad.</li>
+    <li>Kako analogija sa translatornim kretanjem pomaže pri izračunavanju ugla <code>φ</code> i ugaone brzine <code>ω</code> tokom vremena.</li>
+  </ul>
+  <p>
+    Proučavanje rotacije diska kroz interaktivnu simulaciju ne samo da čini učenje dinamičkih zakona zabavnim, već i omogućava duboko razumevanje 
+    kako sile i momenti utiču na realne objekte u svakodnevnom životu i inženjerskim primenama.
+  </p>
+</div>
+
   </div>
  
