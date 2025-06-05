@@ -91,6 +91,155 @@
       <div>
         <img src="/images/RotacijaDiska/RotacijaDiska2.png"/>
       </div>
+	  
+	  <div class="moj_tekst">
+  <h2 class="okvir_3">Disk Rotation</h2>
+
+  <h3>1. Objective and Simulation Task</h3>
+  <p>
+    In this lesson, we will create an interactive simulation of a rotating disk. The disk has mass <code>m</code> and radius <code>r</code>. 
+    The two main motion cases we will demonstrate are:
+  </p>
+  <ol>
+    <li><strong>Uniform Rotation</strong> – the disk spins with a constant angular velocity <code>ω</code>.</li>
+    <li><strong>Uniformly Accelerated Rotation</strong> – the disk starts from rest and accelerates under a constant angular acceleration 
+    <code>α</code>.</li>
+  </ol>
+  <p>
+    The simulation steps include:
+    <ul>
+      <li>Updating time: <code>t = t + Δt</code>.</li>
+      <li>Updating the angular displacement: <code>Δφ = ω · Δt</code> (for uniform rotation) or 
+        <code>Δφ = ω·Δt + (α·Δt²)/2</code> (for uniformly accelerated rotation).</li>
+      <li>Updating the angle: <code>φ = φ + Δφ</code>.</li>
+      <li>Computing the position of point <code>M</code> on the disk’s rim in Cartesian coordinates:</li>
+      <pre><code>
+x = r · cos(φ)
+y = r · sin(φ)
+      </code></pre>
+      <li>Repeating these steps every <code>Δt = 0.05 s</code> until the simulation stops.</li>
+    </ul>
+  </p>
+
+  <h3>2. Uniform Rotation</h3>
+  <p>
+    When the disk rotates uniformly, the angular velocity <code>ω</code> is constant. At each time step <code>Δt</code>:
+  </p>
+  <ul>
+    <li><strong>Time update:</strong> <code>t = t + Δt</code></li>
+    <li><strong>Position update:</strong> <code>Δφ = ω · Δt</code>, so the new angle is <code>φ = φ + Δφ</code>.</li>
+    <li><strong>Coordinates of point <code>M</code> on the rim:</strong></li>
+    <pre><code>
+x = r · cos(φ)
+y = r · sin(φ)
+    </code></pre>
+  </ul>
+  <p>
+    At each instant, we draw the position of point <code>M</code> in the 2D plane (on a <code>DrawingPanel</code>) and display a 3D model of the disk that you can rotate with the camera. 
+    This allows students to visually follow how every point on the disk moves in a circular path with the same angular velocity.
+  </p>
+
+  <h3>3. Uniformly Accelerated Rotation</h3>
+  <p>
+    Now let’s introduce an <em>angular acceleration</em> <code>α</code>. The disk begins from rest (or an initial angular velocity <code>ω<sub>0</sub></code>) and accelerates. 
+    Angular acceleration is defined as:
+    <pre><code>α = dω/dt  [rad/s²]</code></pre>
+  </p>
+  <p>
+    Over the same time interval <code>Δt</code>, the angular displacement <code>Δφ</code> increases because the angular velocity changes:
+    <pre><code>Δφ = ω·Δt + (α·Δt²)/2</code></pre>
+    Here, <code>ω</code> is the current angular velocity in that step, and after this step it updates as 
+    <code>ω = ω + α·Δt</code>.
+  </p>
+  <ul>
+    <li><strong>Time update:</strong> <code>t = t + Δt</code></li>
+    <li><strong>Angle update:</strong> 
+      <pre><code>φ = φ + ω·Δt + (α·Δt²)/2</code></pre>
+    </li>
+    <li><strong>Angular velocity update:</strong> <code>ω = ω + α·Δt</code></li>
+    <li><strong>Coordinates of point <code>M</code>:</strong>
+      <pre><code>
+x = r · cos(φ)
+y = r · sin(φ)
+      </code></pre>
+    </li>
+  </ul>
+  <p>
+    Notice the analogy with linear motion:
+    <pre><code>s = s<sub>0</sub> + v<sub>0</sub>·t + (a·t²)/2</code></pre>
+    except that in rotation we replace <code>s</code> with <code>φ</code>, <code>v<sub>0</sub></code> with <code>ω</code>, and <code>a</code> with <code>α</code>.
+  </p>
+
+  <h3>4. Torque and Moment of Inertia</h3>
+  <p>
+    For the disk to accelerate, an external force must act. However, the disk experiences a distribution of forces, not just at a single point. What matters is the <em>torque</em> 
+    produced by the tangential component <code>F<sub>t</sub></code>. For point <code>M</code> at distance <code>r</code> from the rotation axis, the torque is:
+    <pre><code>τ = F<sub>t</sub> · r  [N·m]</code></pre>
+  </p>
+  <p>
+    The normal component <code>F<sub>n</sub></code> passes through the rotation axis, so its torque is zero. Therefore, only the tangential force contributes to rotation.
+  </p>
+  <p>
+    The measure of inertia in circular motion is the <em>moment of inertia</em> <code>I</code>. For a solid disk:
+    <pre><code>I = (m·r²)/2</code></pre>
+    where <code>m</code> is the disk’s mass and <code>r</code> is its radius.
+  </p>
+  <p>
+    <strong>Newton’s Second Law for Rotation</strong> states:
+    <pre><code>τ = I · α</code></pre>
+  </p>
+  <p>
+    Also, the <em>angular momentum</em> of the disk about a fixed axis is:
+    <pre><code>L = I · ω</code></pre>
+    where <code>ω</code> is the disk’s angular velocity.
+  </p>
+
+  <h3>5. Practical Simulation Example in EJS</h3>
+  <p>
+    In the EJS environment, the rotating disk simulation includes:
+  </p>
+  <ul>
+    <li>
+      <strong>3D view of the disk</strong> spinning or accelerating around its vertical axis. The camera can be rotated to view the motion from different angles.
+    </li>
+    <li>
+      <strong>2D “Top View” projection</strong> on a <code>PlottingPanel</code> showing the circular trajectory of point <code>M</code> in the plane.
+    </li>
+    <li>
+      <strong>Graph of angular velocity <code>ω</code> over time</strong> on a second <code>PlottingPanel</code>.
+    </li>
+    <li>
+      <strong>Graphs of the disk’s kinetic and potential energy</strong> versus time on a third <code>PlottingPanel</code>, 
+      illustrating energy transfer from rotational kinetic to potential and back in uniformly accelerated motion.
+    </li>
+  </ul>
+  <p>
+    The user can adjust parameters:
+    <ul>
+      <li>Disk radius <code>r</code> and mass <code>m</code>.</li>
+      <li>Initial angular velocity <code>ω<sub>0</sub></code> or angular acceleration <code>α</code>.</li>
+      <li>Time step <code>Δt</code> for the simulation updates.</li>
+    </ul>
+    When you change these values and press “Start,” you see the disk rotate or accelerate, and the charts update in real time.
+  </p>
+
+  <h3>6. Conclusion</h3>
+  <p>
+    Disk rotation is an excellent example for understanding dynamic laws in rotational motion. 
+    Through the EJS simulation, you can explore:
+  </p>
+  <ul>
+    <li>How angular acceleration changes when you increase or decrease the torque <code>τ</code>.</li>
+    <li>How the moment of inertia <code>I</code> of the disk depends on mass and radius (<code>I = m·r²/2</code>).</li>
+    <li>How energy transfers between rotational kinetic energy and potential energy (if the disk were lifted).</li>
+    <li>How the analogy with linear motion helps calculate the angle <code>φ</code> and angular velocity <code>ω</code> over time.</li>
+  </ul>
+  <p>
+    Studying disk rotation via an interactive simulation not only makes learning dynamics laws engaging, but also provides a deep understanding 
+    of how torques and moments affect real-world objects in everyday life and engineering applications.
+  </p>
+</div>
+
     </div>
 
    
