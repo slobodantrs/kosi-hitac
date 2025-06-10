@@ -191,7 +191,7 @@ const slugMap = {
   '/uvod_u_osp':                     '/en/osp_introduction',
   '/osp/ide_okruzenje': '/en/osp/ide_environment',
   // OSP pendulum
-  '/osp/primer_osp_matematicko_klatno':               '/en/osp/example_osp_mathematics_pendulum',
+  '/osp/primer_osp_matematicko_klatno':   '/en/osp/example_osp_mathematics_pendulum',
    
   '/osp/uvod_u_web_ejs':          '/en/osp/web_ejs_introduction',
   
