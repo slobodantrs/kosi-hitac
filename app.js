@@ -60,8 +60,8 @@ app.locals.pretty = true;     // kad koristiš HTML prettifier
 
 app.use(cookieParser());
 app.use(i18n.init);
-console.log('SR catalog:', i18n.getCatalog('sr'));
-console.log('EN catalog:', i18n.getCatalog('en'));
+//console.log('SR catalog:', i18n.getCatalog('sr'));
+//console.log('EN catalog:', i18n.getCatalog('en'));
 
 //  –––––––––––––––––––––––––––––––––––––––––––––––––
 // 1) Промена језика преко ?lang=xx и чување у cookies
