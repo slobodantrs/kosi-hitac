@@ -208,7 +208,24 @@
     "rotacija_diska": {
       "description": "Interaktivna simulacija rotacije diska oko fiksne ose. Upoznajte se sa momentom sile, momentom inercije, ugaonom brzinom, centripetalnim ubrzanjem i zakonom očuvanja momenta impulsa uz vizuelna objašnjenja.",
       "keywords": "rotacija diska, kruto telo, kružno kretanje, moment inercije, ugaona brzina, centripetalno ubrzanje, moment sile, zakon očuvanja momenta impulsa, rotaciona dinamika, simulacija, EJS"
+    },
+	"o_ejsu": {
+      "description": "Saznajte više o Easy Java Simulations (EJS) — alatu za kreiranje interaktivnih simulacija iz fizike i drugih nauka. Pogledajte primere, prednosti i kako se koristi u obrazovanju.",
+      "keywords": "EJS, Easy Java Simulations, simulacije, interaktivne simulacije, fizika, obrazovanje, Java, EJS tutorijal, EJS primeri, EJS u nastavi"
+    },
+    "o_ejsu_primer": {
+      "description": "Praktičan primer korišćenja Easy Java Simulations (EJS) za kreiranje interaktivnih simulacija u fizici. Upoznajte se sa osnovama i napravite svoju prvu simulaciju.",
+      "keywords": "EJS, Easy Java Simulations, primer, interaktivne simulacije, fizika, edukacija, programiranje, simulacija, Java, učenje kroz praksu"
+    },
+    "o_ejsu_primer_napredno": {
+      "description": "Napredni primer simulacije u Easy Java Simulations (EJS) prikazuje kako koristiti složenije funkcije za modelovanje fizičkih pojava, uključujući višestruke varijable i interaktivne kontrole.",
+      "keywords": "Easy Java Simulations, EJS, napredna simulacija, fizičke simulacije, interaktivna fizika, modeliranje, Java simulacije, edukativni softver, EJS tutorijal, simulacija kretanja"
+    },
+    "o_ejsu_primer_napredno_2": {
+      "description": "Napredni primer kreiranja 3D simulacije rotacije diska u EJS-u. Uključuje detaljan prikaz objekata, kamera i interfejsa za vizualizaciju fizikalnih osobina.",
+      "keywords": "EJS, 3D simulacija, rotacija diska, Drawing3DPanel, Arrow3D, kamera, interfejs, fizika, edukacija, p5.js"
     }
+	
   
   }
 }
