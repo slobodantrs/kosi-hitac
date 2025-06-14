@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const proxy        = require('express-http-proxy');
 const i18n         = require('i18n');
 const routes       = require('./routes');
-const isProd = (process.env.NODE_ENV === 'production');
+const isProd = (process.env.NODE_ENV === 'developement');
 const morgan = require('morgan');
 
 // 2) init
@@ -294,14 +294,14 @@ app.get('/RavnoKretanjeTocka/:id', (req, res) => {
   const id = req.params.id;
   res.redirect(301, `/ravno_kretanje/${id}`);
 });
-
+/*
 app.use((req, res) => {
   res.status(404).render('404', {
     url: req.originalUrl,
     lang: req.getLocale()
   });
 });
-
+*/
 
 app.use('/', routes);
 
