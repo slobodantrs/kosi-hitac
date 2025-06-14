@@ -191,7 +191,7 @@ app.use((req, res, next) => {
   console.log('  req.originalUrl=', req.originalUrl);
   console.log('  req.path=', req.path);
   console.log('  req.cookies.lang BEFORE=', req.cookies.lang);
-  console.log('  req.getLocale BEFORE i18n init?=', req.getLocale());
+  console.log('  req.getLocale BEFORE =', req.getLocale());
   
   
  
@@ -251,7 +251,8 @@ app.use((req, res, next) => {
     chosenLocale: newLocale,
     originalUrl: req.originalUrl
   });
-
+ console.log('  After res.locals.locale', res.locals.locale);
+ console.log('  req.getLocale AFTER =', req.getLocale());
   next();
 });
 
