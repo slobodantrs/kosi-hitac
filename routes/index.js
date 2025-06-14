@@ -13,12 +13,13 @@ const router = express.Router();
 // index page 
 router.get('/', function(req, res) {
   console.log(`Correct!!!!!`);
-  res.render('pages/index', {
+  res.render('pages/index');
+ /* res.render('pages/index', {
     locale:         req.locale,           // da bi <html lang> radio
     currentPath:    req.path,             // da bi hreflang linkovi radili
     pageDescription: res.__('meta.pocetna.description'),
     pageKeywords:    res.__('meta.pocetna.keywords')
-  });
+  });*/
 });
 
 
@@ -166,13 +167,13 @@ router.get('/politika_privatnosti', PrivacyController.privacy);
 
 router.get('/en', function(req, res) {
 	
-	//res.render('pages-en/index');
-	res.render('pages-en/index', {
+	res.render('pages-en/index');
+/*	res.render('pages-en/index', {
     locale:         req.locale,           // da bi <html lang> radio
     currentPath:    req.path,             // da bi hreflang linkovi radili
     pageDescription: res.__('meta.home.description'),
     pageKeywords:    res.__('meta.home.keywords')
-  });
+  });*/
     
 });
 
