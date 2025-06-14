@@ -69,6 +69,13 @@ app.use(i18n.init);
 
 app.use((req, res, next) => {
   // POSLE ovog bloka koji čuva lang iz ?lang=xx u kolačić ...
+  console.log('>> jezički middleware, pre setLocale: req.path=', req.path, 'cookie lang=', req.cookies.lang);
+  console.log('==== Language middleware start ====');
+  console.log('  req.originalUrl=', req.originalUrl);
+  console.log('  req.path=', req.path);
+  console.log('  req.cookies.lang BEFORE=', req.cookies.lang);
+  console.log('  req.getLocale BEFORE i18n init?=', req.getLocale());
+  
   if (req.query.lang) {// 1) Промена језика преко ?lang=xx и чување у cookies
     res.cookie('lang', req.query.lang, {
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 дана
@@ -78,6 +85,7 @@ app.use((req, res, next) => {
     req.setLocale(req.query.lang);
   }// Ako URL počinje sa '/en/' ili je tačno '/en'
   else if (req.path === '/en' || req.path.startsWith('/en/')) {
+	  console.log('Promena jezika: req.path: '+req.path );
     res.cookie('lang', 'en', { maxAge: 30*24*60*60*1000, httpOnly: true });
     
     req.setLocale('en');
