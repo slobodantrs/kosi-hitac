@@ -75,10 +75,7 @@ app.use((req, res, next) => {
   }
 //	console.log("Cookie lang:", req.cookies.lang);
 //console.log("i18n.getLocale BEFORE:", req.getLocale());
-/*if (req.cookies.lang && req.getLocale() !== req.cookies.lang) {
-  req.setLocale(req.cookies.lang);
-  console.log("FORCING locale to cookie:", req.cookies.lang);
-}*/
+
   // POSLE ovog bloka koji čuva lang iz ?lang=xx u kolačić ...
 //  console.log('>> jezički middleware, pre setLocale: req.path=', req.path, 'cookie lang=', req.cookies.lang);
  // console.log('==== Language middleware start ====');
@@ -102,6 +99,11 @@ app.use((req, res, next) => {
     res.cookie('lang', 'en', { maxAge: 30*24*60*60*1000, httpOnly: true });
     res.locals.currentPath = req.path;
     req.setLocale('en');
+	
+	if (req.cookies.lang && req.getLocale() !== req.cookies.lang) {
+      req.setLocale(req.cookies.lang);
+      console.log("FORCING locale to cookie:", req.cookies.lang);
+     }
 	res.locals.locale = req.getLocale();
 	console.log('engleski: res.locals.currentPath: '+res.locals.currentPath );
 	console.log('app.js>> req.getLocale() =', req.getLocale());
