@@ -66,15 +66,17 @@ app.use(i18n.init);
 //  –––––––––––––––––––––––––––––––––––––––––––––––––
 // 1) Промена језика преко ?lang=xx и чување у cookies
 
-console.log("Cookie lang:", req.cookies.lang);
+
+
+
+app.use((req, res, next) => {
+	
+	console.log("Cookie lang:", req.cookies.lang);
 console.log("i18n.getLocale BEFORE:", req.getLocale());
 if (req.cookies.lang && req.getLocale() !== req.cookies.lang) {
   req.setLocale(req.cookies.lang);
   console.log("FORCING locale to cookie:", req.cookies.lang);
 }
-
-
-app.use((req, res, next) => {
   // POSLE ovog bloka koji čuva lang iz ?lang=xx u kolačić ...
   console.log('>> jezički middleware, pre setLocale: req.path=', req.path, 'cookie lang=', req.cookies.lang);
   console.log('==== Language middleware start ====');
@@ -237,6 +239,8 @@ app.use((req, res, next) => {
     }
     return srPath;
   };
+  res.locals.currentPath = req.path;
+
   console.log('res.locals.currentPath: '+res.locals.currentPath );
   next();
 });
