@@ -9,6 +9,8 @@
 <% 
   const isEn = locale === 'en';
   const key = currentPath; 
+  <p style="color:green;">DEBUG key: <%= key %></p>
+  <p style="color:green;">DEBUG locale: <%= locale %></p>
   const target = isEn
     // if we’re on an /en/... URL, look it up in the inverse map, fall back to stripping "/en"
     ? (slugMapInverse[key] || key.replace(/^\/en/, '') || '/')
