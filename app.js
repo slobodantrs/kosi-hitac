@@ -87,6 +87,7 @@ if (req.cookies.lang && req.getLocale() !== req.cookies.lang) {
   if (req.path.startsWith('/css') || req.path.startsWith('/js') || req.path.startsWith('/images')) {
     return next();
   }
+  
   if (req.query.lang) {// 1) Промена језика преко ?lang=xx и чување у cookies
     res.cookie('lang', req.query.lang, {
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 дана
@@ -98,12 +99,13 @@ if (req.cookies.lang && req.getLocale() !== req.cookies.lang) {
   else if (req.path === '/en' || req.path.startsWith('/en/')) {
 	  console.log('Promena jezika: req.path: '+req.path );
     res.cookie('lang', 'en', { maxAge: 30*24*60*60*1000, httpOnly: true });
-    
+    res.locals.currentPath = req.path;
     req.setLocale('en');
 	console.log('engleski: res.locals.currentPath: '+res.locals.currentPath );
   }
   else {
     // OVDE SILOM nameštamo српски
+	res.locals.currentPath = req.path;
     req.setLocale('sr');
 	console.log('srpski: res.locals.currentPath: '+res.locals.currentPath );
 	
@@ -239,7 +241,7 @@ app.use((req, res, next) => {
     }
     return srPath;
   };
-  res.locals.currentPath = req.path;
+  
 
   console.log('res.locals.currentPath: '+res.locals.currentPath );
   next();
