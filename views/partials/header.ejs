@@ -4,24 +4,24 @@
           height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 
-<%
+
+
+
+<% 
   const isEn = locale === 'en';
-  const key = currentPath;
-  console.log('isEn='+isEn);
-  let target;
-  if (isEn) {
-    target = slugMapInverse[key] || key.replace(/^\/en/, '') || '/';
-  } else {
-    
-      target = key; // ne postoji engleski slug, ostani na srpskom
-   
-  }
+  const key = currentPath; 
+  
+  const target = isEn
+    // if we’re on an /en/... URL, look it up in the inverse map, fall back to stripping "/en"
+    ? (slugMapInverse[key] || key.replace(/^\/en/, '') || '/')
+    // if we’re on a Serbian URL, map it to English via slugMap
+    : (slugMap[key]    || ('/en' + key));
+	
+	
 %>
-
-
 <p style="color:green;">DEBUG key: <%= key %></p>
   <p style="color:green;">DEBUG locale: <%= locale %></p>
-<p style="color:red;">DEBUG target: <%= target %></p>
+
 <nav class="desktop-nav nav-container navbar-expand-lg primary d-flex flex-row p-2 align-items-end" role="navigation">
   <div class="collapse navbar-collapse" id="topNavBar">
     <ul class="d-flex align-items-center nav navbar-nav">
