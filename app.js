@@ -112,14 +112,14 @@ app.use((req, res, next) => {
   else {
     newLocale = i18n.getLocale(); // ili 'sr'
   }
-console.log('Postavi locale na request-u',newLocale);
+console.log('Postavi locale na request-u newLocale',newLocale);
   // Postavi locale na request-u
   req.setLocale(newLocale);
-  console.log('Postavi locale na request-u',newLocale);
-  console.log('Postavi locale na request-u',req.getLocale());
+  console.log('Postavljen locale na request-u newLocale=',newLocale);
+  console.log('Postavi locale na request-u req.getLocale()',req.getLocale());
   // Za EJS view-je:
   res.locals.locale = newLocale;
-console.log('Posle postavke responsa locale na newLocale: ',res.locals.locale);
+console.log('Posle postavke responsa locale na newLocale, res.locals.locale: ',res.locals.locale);
   // Zapiši kolačić za buduće zahteve, ako se razlikuje od onog postojećeg
   // (Možeš i uvek pisati, to je ok; browser će overwritovati)
   res.cookie('lang', newLocale, {
