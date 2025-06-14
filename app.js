@@ -66,6 +66,13 @@ app.use(i18n.init);
 //  –––––––––––––––––––––––––––––––––––––––––––––––––
 // 1) Промена језика преко ?lang=xx и чување у cookies
 
+console.log("Cookie lang:", req.cookies.lang);
+console.log("i18n.getLocale BEFORE:", req.getLocale());
+if (req.cookies.lang && req.getLocale() !== req.cookies.lang) {
+  req.setLocale(req.cookies.lang);
+  console.log("FORCING locale to cookie:", req.cookies.lang);
+}
+
 
 app.use((req, res, next) => {
   // POSLE ovog bloka koji čuva lang iz ?lang=xx u kolačić ...
@@ -75,7 +82,9 @@ app.use((req, res, next) => {
   console.log('  req.path=', req.path);
   console.log('  req.cookies.lang BEFORE=', req.cookies.lang);
   console.log('  req.getLocale BEFORE i18n init?=', req.getLocale());
-  
+  if (req.path.startsWith('/css') || req.path.startsWith('/js') || req.path.startsWith('/images')) {
+    return next();
+  }
   if (req.query.lang) {// 1) Промена језика преко ?lang=xx и чување у cookies
     res.cookie('lang', req.query.lang, {
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 дана
