@@ -116,7 +116,7 @@ console.log('Postavi locale na request-u',newLocale);
   // Postavi locale na request-u
   req.setLocale(newLocale);
   console.log('Postavi locale na request-u',newLocale);
-  console.log('Postavi locale na request-u',req.getLocale();
+  console.log('Postavi locale na request-u',req.getLocale());
   // Za EJS view-je:
   res.locals.locale = newLocale;
 console.log('Posle postavke responsa locale na newLocale: ',res.locals.locale);
