@@ -16,8 +16,8 @@ router.get('/', function(req, res) {
   res.render('pages/index', {
     locale:         req.locale,           // da bi <html lang> radio
     currentPath:    req.path,             // da bi hreflang linkovi radili
-    pageDescription: res.__('meta.home.description'),
-    pageKeywords:    res.__('meta.home.keywords')
+    pageDescription: res.__('meta.pocetna.description'),
+    pageKeywords:    res.__('meta.pocetna.keywords')
   });
 });
 
@@ -35,6 +35,10 @@ var OpsteController = require('../controllers/OpsteController');
  router.get('/o_ejsu_primer', OpsteController.O_Ejsu_primer);
  router.get('/o_ejsu_primer_napredno', OpsteController.O_Ejsu_primer_napredno);
  router.get('/o_ejsu_primer_napredno_2', OpsteController.O_Ejsu_primer_napredno_2);
+ 
+ 
+
+
 
  
  // p5js 
@@ -162,7 +166,13 @@ router.get('/politika_privatnosti', PrivacyController.privacy);
 
 router.get('/en', function(req, res) {
 	
-	res.render('pages-en/index');
+	//res.render('pages-en/index');
+	res.render('pages-en/index', {
+    locale:         req.locale,           // da bi <html lang> radio
+    currentPath:    req.path,             // da bi hreflang linkovi radili
+    pageDescription: res.__('meta.home.description'),
+    pageKeywords:    res.__('meta.home.keywords')
+  });
     
 });
 
@@ -194,11 +204,7 @@ router.get('/en/p5js', P5jsController.Uvod_u_p5js_EN);
  router.get('en/animacija_kruznog_kretanja', P5jsController.Animacija_kruznog_kretanja_EN);
  router.get('en/klizanje_tela_niz_strmu_ravan', P5jsController.Klizanje_tela_niz_strmu_ravan_EN);
  
- console.log('Registering EN route handler:', OpsteController.O_Ejsu_EN);
- router.get('/en/o_ejsu', OpsteController.O_Ejsu_EN);
- router.get('/en/o_ejsu_primer', OpsteController.O_Ejsu_primer_EN);
- router.get('/en/o_ejsu_primer_napredno', OpsteController.O_Ejsu_primer_napredno_EN);
- router.get('/en/o_ejsu_primer_napredno_2', OpsteController.O_Ejsu_primer_napredno_2_EN);
+
  
  // p5js animations
  console.log('Registering EN route handler:', P5jsController.Uvod_u_p5js_EN);

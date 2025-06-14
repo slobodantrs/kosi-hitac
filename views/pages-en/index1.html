@@ -1,0 +1,153 @@
+
+<!-- views/pages-en/index.ejs -->
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+    <%- include('../partials/head') %>
+    
+	
+	<meta name="author" content="Slobodan Trsek" />
+    <title><%= __('title') %></title>
+</head>
+<body>
+<div class="content-wrapper moj-header">
+  <div class="row">
+    <header class="moj-header col-xs-12 col-md-12 col-lg-12 nav-fill w-100">
+      <%- include('../partials/header') %>
+    </header>
+  </div>
+  
+  
+
+
+  <div class="d-flex flex-column justify-content-start">
+    <div class="d-flex flex-column justify-content-center m-3 p-3">
+      <h1 class="text-center"><%= __('title') %></h1>
+      <h4 class="text-center"><%= __('welcome') %></h4>
+    </div>
+  </div>
+
+  <div class="d-flex flex-column p-2 section">
+   <p>
+  This site is dedicated to creating computer simulations in physics using various programming tools—including Java and JavaScript—with a special focus on 
+  <a href="https://www.svetprogramiranja.com/introduction_to_processing.html"><strong>Processing</strong></a> 
+  and the Easy JavaScript Simulation (EJS) tool.
+</p>
+<p>
+  Easy JavaScript Simulation (EJS) is an open-source tool, part of the Open Source Physics project, designed to simplify the creation of interactive, visual simulations with minimal coding. 
+  It’s ideal for physicists, students, and researchers.
+</p>
+<p>
+  We also cover the use of Easy JavaScript Simulation System (EJSS), another open-source component of the same project, which enables you to build simulations in JavaScript.
+</p>
+<p>
+  Whether you choose Java (file extension <strong>.ejs</strong>) or JavaScript (extension <strong>.ejss</strong>), EJS/EJSS lets you focus on physics rather than boilerplate code.
+</p>
+<p>
+  Java-based simulations require a Java Virtual Machine (JVM) installed on your computer (part of the Java Runtime Environment or JDK). 
+  In contrast, JavaScript applets run in virtually any modern browser—on desktop, Android, or iOS—without additional installation.
+</p>
+<div class="external-resource">
+  <h3>Interested in learning more about Java simulations in physics?</h3>
+  <p>
+    Visit <a href="https://www.svetprogramiranja.com/java_i_simulacije_u_fizici.html" target="_blank" rel="noopener noreferrer">Svet programiranja</a> to explore how Java and the OSP library facilitate the creation of interactive simulations that aid in understanding complex physical phenomena.
+  </p>
+</div>
+
+<h2>What’s New on Our Site?</h2>
+<ul>
+  <li>
+    <strong>Creating Simulations in Java &amp; JavaScript:</strong> Step-by-step guides on using EJS for both languages.
+  </li>
+  <li>
+    <strong>.ejs vs. .ejss Files:</strong> Learn the differences and when to use each format.
+  </li>
+  <li>
+    <strong>Practical Examples &amp; Tutorials:</strong> Ready-to-use simulation templates you can adapt for your own projects.
+  </li>
+  <li>
+    <strong>Educational &amp; Scientific Applications:</strong> Discover how EJS is used in teaching, research, and even game development.
+  </li>
+</ul>
+
+
+
+    <h2>What’s New on Our Site?</h2>
+    <ul>
+      <li><strong>Dual-language EJS simulations:</strong> Step-by-step guides for creating simulations in both Java and JavaScript.</li>
+      <li><strong>File format insights:</strong> Differences between .ejs and .ejss files and their platform uses.</li>
+      <li><strong>Practical tutorials:</strong> Ready-to-use examples you can adapt for your own projects.</li>
+      <li><strong>Educational & scientific applications:</strong> Learn how EJS enhances teaching, research, and game development.</li>
+    </ul>
+
+    <h2>Why Use EJS?</h2>
+    <ul>
+      <li><strong>Simplicity:</strong> Rapid simulation creation with minimal code.</li>
+      <li><strong>Versatility:</strong> Supports both Java and JavaScript implementations.</li>
+      <li><strong>Cross-platform:</strong> JavaScript simulations run on almost any device.</li>
+      <li><strong>Open Source:</strong> Part of the Open Source Physics community.</li>
+    </ul>
+
+    <h2>Available Simulations</h2>
+    <ul>
+      <li>Mass–Spring System</li>
+      <li>Free Fall</li>
+      <li>Vertical Launch</li>
+      <li>Projectile Motion</li>
+      <li>Circular Motion of a Particle</li>
+      <li>Rotating Disk</li>
+      <li>Rigid Body (Wheel) Motion</li>
+    </ul>
+
+    <h2>Additional Resources</h2>
+    <ul>
+      <li><strong>Java & Eclipse IDE:</strong> Tutorials on creating simulations with Java and the OSP library.</li>
+      <li><strong>Processing & p5.js:</strong> Guides for JavaScript-based animations using p5.js.</li>
+    </ul>
+    <p>To start, download the latest EJS version and explore our tutorial library.</p>
+    <p>For more Java programming resources, visit <a href="https://www.svetprogramiranja.com"><strong>Svet programiranja</strong></a>.</p>
+  </div>
+
+  <div class="row">
+    <div class="desktop d-flex justify-content-around flex-wrap align-content-center">
+      <% include ./Simulations_Contents %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mobile d-flex flex-column col-xs-12 col-md-12 col-lg-12">
+      <% include ./Simulations_Contents %>
+    </div>
+  </div>
+
+  <div class="d-flex flex-column p-3 section">
+    <h2 class="text-center">Java & Eclipse IDE Simulations</h2>
+    <p>The <a href="https://www.svetprogramiranja.com/java_lessons.html"><strong>Java</strong></a> language with the OSP (Open Source Physics) library enables advanced simulation creation. Java simulations (.ejs) allow fine control over physics, while minimizing boilerplate code.</p>
+    <p>If you are comfortable programming in Java and prefer IDEs like Eclipse, you can use standard Java libraries (e.g., javax.swing) to build custom simulation apps or even 2D/3D games.</p>
+    <p>Read more on: <a href="https://www.svetprogramiranja.com/java_i_simulacije_u_fizici.html"><strong>Java and simulations in physics</strong></a>.</p>
+  </div>
+
+  <div class="d-flex flex-column p-3 section">
+    <h2 class="text-center">Free Fall Simulation</h2>
+    <p>This simulation is built with JavaScript and the p5.js library.</p>
+    <div id="canvasForHTMLSlobodanPad" class="d-flex flex-row justify-content-center bd-highlight mb-3 okvir_animacija"></div>
+    <p>Looking for a Processing/Java version? See our <a href="https://www.svetprogramiranja.com/projectile_motion_in_processing.html"><strong>projectile motion in Processing</strong></a> tutorial.</p>
+  </div>
+
+  <div class="d-flex flex-column p-3 section">
+    <h2 class="text-center">Horizontal Launch Simulation</h2>
+    <p>This simulation is created with JavaScript and p5.js.</p>
+    <div id="canvasForHTMLHorizontalniHitac" class="d-flex flex-column justify-content-center bd-highlight mb-3 okvir_animacija"></div>
+    <p>Learn how to build it in Processing/Java: <a href="https://www.svetprogramiranja.com/projectile_motion_in_processing.html"><strong>Processing projectile motion</strong></a>.</p>
+  </div>
+
+  <div class="row">
+    <div class="container jumbotron content col-xs-12 col-md-12 col-lg-12">
+      <%- include('../partials/scripts') %>
+      <script src="../js/p5js/HorizontalniHitac/HorizontalniHitac.js"></script>
+      <script src="../js/p5js/SlobodanPad/SlobodanPad.js"></script>
+      <%- include('../partials/footer') %>
+    </div>
+  </div>
+</div>
+</body>
+</html>

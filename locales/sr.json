@@ -178,6 +178,10 @@
 
   
   "meta": {
+	 "pocetna": {
+      "description": "Interaktivna simulacija slobodnog pada koja prikazuje kako se objekat kreće pod dejstvom gravitacije (g=9,81 m/s²) bez otpora vazduha. Podesite početnu visinu i brzinu da biste istražili osnovne zakone",
+      "keywords": "Simulacije kreirane pomoću alata EJS,Simulacije ejs, easy java simulation, ejs, Ravno kretanje krutog tela, kružno kretanje materijalne tačke,simulacija iz fizike,pomoću Java,JavaScript programskog jezika,kreiranje simulacija,JavaScript apleti,Ravno kretanje krutog tela,Rotacija diska,simulacije kreirane pomoću JAVE,processing java, kreiranje aplikacija java, kreiranje simulacija pomoću Java programskog jezika, kreiranje simulacija javascript"
+    }, 
     "slobodan_pad": {
       "description": "Interaktivna simulacija slobodnog pada koja prikazuje kako se objekat kreće pod dejstvom gravitacije (g=9,81 m/s²) bez otpora vazduha. Podesite početnu visinu i brzinu da biste istražili osnovne zakone",
       "keywords": "Opis simulacije slobodnog pada,Opis simulacije, slobodnog pada,slobodan pad, free fall simulation, gravitacija, fizika, interaktivna simulacija, EJS, JavaScript edukativni alat, osnovni zakoni kretanja, obrazovne simulacije"
