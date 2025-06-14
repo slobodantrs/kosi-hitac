@@ -71,57 +71,77 @@ app.use(i18n.init);
 
 app.use((req, res, next) => {
 	if (req.path.startsWith('/css') || req.path.startsWith('/js') || req.path.startsWith('/images')) {
-    return next();
-  }
-//	console.log("Cookie lang:", req.cookies.lang);
-//console.log("i18n.getLocale BEFORE:", req.getLocale());
+      return next();
+    }
+	
 
   // POSLE ovog bloka koji čuva lang iz ?lang=xx u kolačić ...
-//  console.log('>> jezički middleware, pre setLocale: req.path=', req.path, 'cookie lang=', req.cookies.lang);
- // console.log('==== Language middleware start ====');
- // console.log('  req.originalUrl=', req.originalUrl);
- // console.log('  req.path=', req.path);
- // console.log('  req.cookies.lang BEFORE=', req.cookies.lang);
- // console.log('  req.getLocale BEFORE i18n init?=', req.getLocale());
+  console.log('>> jezički middleware, pre setLocale: req.path=', req.path, 'cookie lang=', req.cookies.lang);
+  console.log('==== Language middleware start ====');
+  console.log('  req.originalUrl=', req.originalUrl);
+  console.log('  req.path=', req.path);
+  console.log('  req.cookies.lang BEFORE=', req.cookies.lang);
+  console.log('  req.getLocale BEFORE i18n init?=', req.getLocale());
   
   
-  if (req.query.lang) {// 1) Промена језика преко ?lang=xx и чување у cookies
-    res.cookie('lang', req.query.lang, {
-      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 дана
-      httpOnly: true
-    });
-	console.log('Promena jezika preko ?lang=xx: req.query.lang: '+req.query.lang );
-    req.setLocale(req.query.lang);
-	res.locals.locale = req.getLocale();
-  }// Ako URL počinje sa '/en/' ili je tačno '/en'
-  else if (req.path === '/en' || req.path.startsWith('/en/')) {
-	  console.log('Promena jezika: req.path: '+req.path );
-    res.cookie('lang', 'en', { maxAge: 30*24*60*60*1000, httpOnly: true });
-    res.locals.currentPath = req.path;
-    req.setLocale('en');
-	
-	if (req.cookies.lang && req.getLocale() !== req.cookies.lang) {
-      req.setLocale(req.cookies.lang);
-      console.log("FORCING locale to cookie:", req.cookies.lang);
-     }
-	res.locals.locale = req.getLocale();
-	console.log('engleski: res.locals.currentPath: '+res.locals.currentPath );
-	console.log('app.js>> req.getLocale() =', req.getLocale());
-  console.log('app.js>> res.locals.locale =', res.locals.locale);
+ 
+  
+  
+  let newLocale = null;
+  if (req.query.lang) {
+    newLocale = req.query.lang; // očekuje 'sr' ili 'en'
   }
+ else if (req.path === '/en' || req.path.startsWith('/en/')) {
+    newLocale = 'en';
+  }
+  // 3.3) Ako URL počinje sa '/sr' (ako imaš takvu potrebu), možeš slično
+  else if (req.path === '/sr' || req.path.startsWith('/sr/')) {
+    newLocale = 'sr';
+  }
+  // 3.4) Inače, iz kolačića (ako je prethodno postavljen)
+  else if (req.cookies.lang) {
+    newLocale = req.cookies.lang;
+  }
+  // 3.5) Ako ništa od navedenog, koristi default iz konfiguracije i18n (npr. 'sr')
   else {
-    // OVDE SILOM nameštamo српски
-	res.locals.currentPath = req.path;
-    req.setLocale('sr');
-	res.locals.locale = req.getLocale();
-	console.log('srpski: res.locals.currentPath: '+res.locals.currentPath );
-	console.log('app.js>> req.getLocale() =', req.getLocale());
-  console.log('app.js>> res.locals.locale =', res.locals.locale);
-	
+    newLocale = i18n.getLocale(); // ili 'sr'
   }
-  //res.locals.locale = req.getLocale();
 
-  
+  // Postavi locale na request-u
+  req.setLocale(newLocale);
+  // Za EJS view-je:
+  res.locals.locale = newLocale;
+
+  // Zapiši kolačić za buduće zahteve, ako se razlikuje od onog postojećeg
+  // (Možeš i uvek pisati, to je ok; browser će overwritovati)
+  res.cookie('lang', newLocale, {
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    httpOnly: true
+  });
+
+  // currentPath za navigaciju / slugMap:
+  res.locals.currentPath = req.originalUrl; // ili req.path, po potrebi
+
+  // Ostali res.locals:
+  res.locals.__ = res.__;         // za i18n u view-ju
+  res.locals.slugMap = slugMap;
+  res.locals.slugMapInverse = slugMapInverse;
+  res.locals.navHref = function(srPath) {
+    if (res.locals.locale === 'en') {
+      return slugMap[srPath] || '/';
+    }
+    return srPath;
+  };
+
+  // Debug (samo tokom razvoja)
+  console.log('Language middleware:', {
+    path: req.path,
+    queryLang: req.query.lang,
+    cookieLang: req.cookies.lang,
+    chosenLocale: newLocale,
+    originalUrl: req.originalUrl
+  });
+
   next();
 });
 
