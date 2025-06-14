@@ -93,7 +93,7 @@ var methods = {
     };
     console.log('Render attempt: pages-en/about-ejs/example_easy_java_simulation_advanced_2, locale=', req.locale);
     res.render('pages-en/about-ejs/example_easy_java_simulation_advanced_2', data);
-  },
+  }
 
 };
 
