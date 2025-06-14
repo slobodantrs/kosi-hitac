@@ -91,8 +91,8 @@ app.use((req, res, next) => {
   }
   res.locals.locale = req.getLocale();
 
- // console.log('app.js>> req.getLocale() =', req.getLocale());
- // console.log('app.js>> res.locals.locale =', res.locals.locale);
+  console.log('app.js>> req.getLocale() =', req.getLocale());
+  console.log('app.js>> res.locals.locale =', res.locals.locale);
   next();
 });
 
