@@ -74,18 +74,19 @@ app.use((req, res, next) => {
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 дана
       httpOnly: true
     });
+	console.log('Promena jezika: req.query.lang: '+req.query.lang );
     req.setLocale(req.query.lang);
   }// Ako URL počinje sa '/en/' ili je tačno '/en'
   else if (req.path === '/en' || req.path.startsWith('/en/')) {
     res.cookie('lang', 'en', { maxAge: 30*24*60*60*1000, httpOnly: true });
     
     req.setLocale('en');
-	
+	console.log('engleski: res.locals.currentPath: '+res.locals.currentPath );
   }
   else {
     // OVDE SILOM nameštamo српски
     req.setLocale('sr');
-	//console.log('srpski: res.locals.currentPath: '+res.locals.currentPath );
+	console.log('srpski: res.locals.currentPath: '+res.locals.currentPath );
 	
   }
   res.locals.locale = req.getLocale();
