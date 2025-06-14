@@ -97,10 +97,12 @@ app.use((req, res, next) => {
   }
  else if (req.path === '/en' || req.path.startsWith('/en/')) {
     newLocale = 'en';
+	console.log('Promena na engleski');
   }
   // 3.3) Ako URL počinje sa '/sr' (ako imaš takvu potrebu), možeš slično
   else if (req.path === '/sr' || req.path.startsWith('/sr/')) {
     newLocale = 'sr';
+	console.log('Promena na srpski');
   }
   // 3.4) Inače, iz kolačića (ako je prethodno postavljen)
   else if (req.cookies.lang) {
@@ -110,7 +112,7 @@ app.use((req, res, next) => {
   else {
     newLocale = i18n.getLocale(); // ili 'sr'
   }
-
+console.log('Postavi locale na request-u',newLocale);
   // Postavi locale na request-u
   req.setLocale(newLocale);
   // Za EJS view-je:
