@@ -7,16 +7,14 @@
 <%
   const isEn = locale === 'en';
   const key = currentPath;
-
+  console.log('isEn='+isEn);
   let target;
   if (isEn) {
     target = slugMapInverse[key] || key.replace(/^\/en/, '') || '/';
   } else {
-    if (slugMap[key]) {
-      target = slugMap[key];
-    } else {
+    
       target = key; // ne postoji engleski slug, ostani na srpskom
-    }
+   
   }
 %>
 
