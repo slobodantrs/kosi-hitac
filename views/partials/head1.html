@@ -1,0 +1,117 @@
+
+
+<!-- views/partials/head.ejs -->
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CY7MHR5MD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6CY7MHR5MD');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5922755666309688"
+     crossorigin="anonymous"></script>
+
+
+<!-- Default Statcounter code for Kosi-Hitac
+https://kosi-hitac.onrender.com/ -->
+<script type="text/javascript">
+  var sc_project=12833628; 
+  var sc_invisible=1; 
+  var sc_security="79630a2f"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+  href="https://statcounter.com/" target="_blank"><img
+  class="statcounter"
+  src="https://c.statcounter.com/12833628/0/79630a2f/1/"
+  alt="Web Analytics"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+  <!-- End of Statcounter Code -->
+
+
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<% if (locale === 'en') { %>
+  <meta name="description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : 'Explore interactive physics simulations created with Java and JavaScript using Easy JavaScript Simulation (EJS), Processing, and p5.js. Perfect for students, educators, and science enthusiasts.' %>" />
+  <meta name="keywords"    content="<%= typeof pageKeywords    !== 'undefined' ? pageKeywords    : 'Physics simulations, Easy JavaScript Simulation, Open Source Physics, Java simulations, JavaScript simulations, Processing, p5.js, Interactive simulations, Educational tools, Science simulations' %>" />
+  <meta http-equiv="content-language" content="en" />
+<% } else { %>
+  <meta name="description" content="<%= typeof pageDescription !== 'undefined' ? pageDescription : 'Istražite interaktivne simulacije iz fizike pomoću Java, JavaScript i alata poput Easy JavaScript Simulation (EJS) i Processing. Idealno za nastavnike, učenike i ljubitelje fizike.' %>" />
+  <meta name="keywords"    content="<%= typeof pageKeywords    !== 'undefined' ? pageKeywords    : 'Simulacije iz fizike, Easy JavaScript Simulation, Open Source Physics, Java simulacije, JavaScript simulacije, Processing, p5.js, Interaktivne simulacije, Obrazovni alati' %>" />
+  <meta http-equiv="content-language" content="sr" />
+<% } %>
+
+<link rel="alternate" hreflang="sr" href="https://kosi-hitac.onrender.com<%= currentPath.replace(/^\/en/, '') %>" />
+<link rel="alternate" hreflang="en" href="https://kosi-hitac.onrender.com/en<%= currentPath.replace(/^\/en/, '') %>" />
+<link rel="alternate" hreflang="x-default" href="https://kosi-hitac.onrender.com<%= currentPath.replace(/^\/en/, '') %>" />
+
+<meta name="author" content="Slobodan Tršek" />
+<base href="/" />
+
+<!-- CSS (load bootstrap from a CDN) -->
+<!--link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link-->
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"></link>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-grid.min.css"></link>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-grid.css"></link>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-reboot.min.css"></link>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-reboot.css"></link>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Add icon library -->
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
+<link rel="stylesheet" type="text/css" href="../_ejs_library/css/ejsContentsLeft.css"></link>
+<link rel="stylesheet" type="text/css" href="../css/main.css"></link>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$$']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']]
+    }
+  };
+</script>
+<!-- 1) основни EJS скриптови -->
+  <link rel="stylesheet" href="/_ejs_library/css/ejss.css">
+  <script src="/_ejs_library/scripts/common_script.js"></script>
+  <script src="/_ejs_library/scripts/textresizedetector.js"></script>
+  <script src="/_ejs_library/ejsS.v1.min.js"></script>
+
+  <!-- 2) ово су кључна WebGL проширења за 3D -->
+<link rel="alternate" hreflang="x-default"
+      href="https://kosi-hitac.onrender.com/" />  
+<link rel="alternate" hreflang="sr" href="https://kosi-hitac.onrender.com<%= currentPath.replace(/^\/en/, '') %>" />
+<link rel="alternate" hreflang="en" href="https://kosi-hitac.onrender.com/en<%= currentPath.replace(/^\/en/, '') %>" />
+<!-- Font Awesome -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  
+ <script>
+    // Овде узимамо преводе из i18n словника преко res.__()
+    window.animation = {
+      title:       "<%= __('animation.title') %>",
+      instructions:"<%= __('animation.instructions') %>",
+      inputData:   "<%= __('animation.inputData') %>",
+      slowDown:    "<%= __('animation.slowDown') %>",
+      infoLabel:   "<%= __('animation.infoLabel') %>",
+      showV:       "<%= __('animation.showV') %>",
+      showA:       "<%= __('animation.showA') %>",
+      // додај и друге кључеве по истом обрасцу…
+    };
+  </script>
+  <script language="javascript" type="text/javascript" src="/js/p5js/libraries/p5.min.js"></script>
