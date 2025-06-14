@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const proxy        = require('express-http-proxy');
 const i18n         = require('i18n');
 const routes       = require('./routes');
-const isProd = (process.env.NODE_ENV === 'developement');
+const isProd = (process.env.NODE_ENV === 'production');
 const morgan = require('morgan');
 
 // 2) init
@@ -220,7 +220,7 @@ app.use((req, res, next) => {
     }
     return srPath;
   };
-  //console.log('res.locals.currentPath: '+res.locals.currentPath );
+  console.log('res.locals.currentPath: '+res.locals.currentPath );
   next();
 });
 
