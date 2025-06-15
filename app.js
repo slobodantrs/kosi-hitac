@@ -232,7 +232,9 @@ console.log('Posle postavke responsa locale na newLocale, res.locals.locale: ',r
   res.locals.locale         = req.getLocale();
   res.locals.__             = res.__;
   
-  res.locals.currentPath = req.originalUrl; // ili req.path, po potrebi
+  //res.locals.currentPath = req.originalUrl; // ili req.path, po potrebi
+  res.locals.currentPath = req.path;
+
   res.locals.slugMap        = slugMap;
   res.locals.slugMapInverse = slugMapInverse;
   res.locals.navHref = function(srPath) {
