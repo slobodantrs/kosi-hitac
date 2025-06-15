@@ -185,8 +185,7 @@
     "projectile_motion": {
       "description": "Explore projectile motion through an interactive simulation created with Easy Java Simulations (EJS). Adjust initial velocity, launch angle, and observe the effects of gravity on the trajectory, velocity, and energy of the projectile.",
       "keywords": "projectile motion, physics simulation, parabolic trajectory, Easy Java Simulations, EJS, two-dimensional motion, launch angle, initial velocity, gravity, kinetic energy, potential energy, motion analysis"
-    },
-    
+    },    
     "circular_motion": {
       "description": "Simulation of uniform circular motion of a material point. Analyze centripetal acceleration, forces, and how speed and radius affect dynamics.",
       "keywords": "circular motion, centripetal acceleration, radius, physics simulation"
@@ -212,18 +211,18 @@
 	"about_ejs": {
       "description": "A step-by-step guide to installing and using Easy Java/JavaScript Simulation (EJS/EJSS) for creating interactive physics simulations with minimal programming knowledge.",
       "keywords": "Easy Java Simulation,EJSS tutorial,install EJS,Easy JavaScript Simulation,open source physics,create physics simulations,JavaScript physics applet,EJS installation guide,EjsConsole,workspace folder,EJSS sources folder,EJSS output folder,physics animation,interactive simulations,Java simulations,JavaScript simulations,education tool for physics,EJSS MVC architecture"
-    },
+    }, 
     "about_ejs_example": {
-      "description": "Projectile motion simulation example. An interactive animation created using Easy JavaScript Simulation  (EJSS) showing the parabolic trajectory of an object.",
-      "keywords": "projectile motion simulation,EJSS example,Easy JavaScript Simulation,HtmlView EJSS,variables in EJSS,EJSS console,initial velocity,angle in degrees and radians,velocity components x y,	Evolution page EJSS,2D motion,parabolic path,physics simulation,2D Shape,Drawable elements,EJSS tutorial"
-    },
+      "description": "Projectile motion simulation example. An interactive animation created using Easy JavaScript Simulation  EJSS showing the parabolic trajectory of an object.",
+      "keywords": ""
+	  },
     "about_ejs_example_advanced": {
-      "description": "CREATING A SIMULATION OF DISK ROTATION using EJS with 2D and 3D visual representation and detailed 	 configuration of graphical properties.",
-      "keywords": "disk rotation simulation,EJS simulation,Java programming language,constant angular velocity,rotating disk,rotation around a fixed axis,2D drawing panel,3D view,EJS variables,polar and Cartesian coordinates,rotation in a plane,graphical object properties,trail visualization,model-view connection,HtmlView,EJS advanced examples,physics simulation"
+      "description": "",
+      "keywords": ""
     },
     "about_ejs_example_advanced_2": {
-      "description": "An advanced example of creating a 3D simulation of disk rotation in EJS. Includes a detailed view of objects, cameras and interfaces for visualizing physical properties.",
-      "keywords": "EJS, 3D simulation, disk rotation, Drawing3DPanel, Arrow3D, camera, interface, physics, education, p5.js"
+      "description": "",
+      "keywords": ""
     }
   }
 }
