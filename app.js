@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 5000;
 i18n.configure({
   locales: ['sr','en'],
   directory: path.join(__dirname,'locales'),
-  defaultLocale: 'en',
+  defaultLocale: 'sr',
   queryParameter: 'lang',
   cookie: 'lang',
   objectNotation: true,   
