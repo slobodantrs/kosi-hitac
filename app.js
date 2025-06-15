@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 5000;
 i18n.configure({
   locales: ['sr','en'],
   directory: path.join(__dirname,'locales'),
-  defaultLocale: 'sr',
+  defaultLocale: 'en',
   queryParameter: 'lang',
   cookie: 'lang',
   objectNotation: true,   
@@ -33,8 +33,8 @@ i18n.configure({
 });
 
 const fs = require('fs');
-//console.log('>>> i18n.getLocales()  =', i18n.getLocales());
-//console.log('>>> expecting in:', path.join(__dirname,'locales'));
+console.log('>>> i18n.getLocales()  =', i18n.getLocales());
+console.log('>>> expecting in:', path.join(__dirname,'locales'));
 try {
  // console.log('>>> actual files:', fs.readdirSync(path.join(__dirname,'locales')));
 } catch(e) {
