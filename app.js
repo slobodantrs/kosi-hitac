@@ -200,23 +200,28 @@ app.use((req, res, next) => {
   let newLocale = null;
   if (req.query.lang) {
     newLocale = req.query.lang; // očekuje 'sr' ili 'en'
+	console.log(' if  req.query.lang =', req.query.lang);
   }
  else if (req.path === '/en' || req.path.startsWith('/en/')) {
     newLocale = 'en';
 	console.log('Promena na engleski');
+	console.log('1 else if  newLocale =', newLocale);
   }
   // 3.3) Ako URL počinje sa '/sr' (ako imaš takvu potrebu), možeš slično
   else if (req.path === '/sr' || req.path.startsWith('/sr/')) {
     newLocale = 'sr';
 	console.log('Promena na srpski');
+	console.log('2 else if  newLocale =', newLocale);
   }
   // 3.4) Inače, iz kolačića (ako je prethodno postavljen)
   else if (req.cookies.lang) {
     newLocale = req.cookies.lang;
+	console.log('3 iz cookie else if  newLocale =', newLocale);
   }
   // 3.5) Ako ništa od navedenog, koristi default iz konfiguracije i18n (npr. 'sr')
   else {
     newLocale = i18n.getLocale(); // ili 'sr'
+	console.log(' else   newLocale =', newLocale);
   }
 console.log('Postavi locale na request-u newLocale',newLocale);
   // Postavi locale na request-u
