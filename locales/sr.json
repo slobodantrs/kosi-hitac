@@ -228,7 +228,28 @@
     "o_ejsu_primer_napredno_2": {
       "description": "Napredni primer kreiranja 3D simulacije rotacije diska u EJS-u. Uključuje detaljan prikaz objekata, kamera i interfejsa za vizualizaciju fizikalnih osobina.",
       "keywords": "EJS, 3D simulacija, rotacija diska, Drawing3DPanel, Arrow3D, kamera, interfejs, fizika, edukacija, p5.js"
-    }
+    },
+	"opis_p5js": {
+    "description": "Saznajte kako koristiti p5.js za kreiranje interaktivnih simulacija fizičkih pojava. Pored p5.js, istražite i druge alate poput Easy JavaScript Simulation (EJS) za razvoj edukativnih animacija.",
+    "keywords": "p5.js, JavaScript animacija, fizičke simulacije, interaktivne simulacije, Easy JavaScript Simulation, EJS, edukativne animacije, programiranje, vizualizacija, fizika"
+  },
+  "kruzno_kretanje_animacija_p5js": {
+    "description": "Kružna animacija objekta pomoću biblioteke p5.js u JavaScript jeziku. Vizuelni primer i objašnjenje trigonometrijskih funkcija u animaciji.",
+    "keywords": "p5.js, JavaScript animacija, kružno kretanje, sin, cos, trigonometrija, animacija, vizualizacija, primer koda, EJS, fizika, projektilno kretanje, ugaoni pomak, ugaona brzina, centripetalna sila, period rotacije, fizika učenja, STEM edukacija, interaktivna simulacija, obrazovni alat, digitalni eksperimenti, p5js tutorial, edukativni sadržaj, web animacija, fizika na mreži"
+  },
+  "klizanje_tela_niz_strmu_ravan_animacija": {
+    "description": "Animacija tela koje klizi niz strmu ravan pomoću biblioteke p5.js u JavaScript jeziku. Vizuelni primer i objašnjenje trigonometrijskih funkcija i kinematike na nagibu.",
+    "keywords": "p5.js, JavaScript animacija, klizanje tela, strma ravan, nagib, trigonometrija, animacija, vizualizacija, primer koda, EJS, fizika, komponenta težine, sila trenja, ugao nagiba, fizika učenja, STEM edukacija, interaktivna simulacija, obrazovni alat, digitalni eksperimenti, p5js tutorial, edukativni sadržaj, web animacija, fizika na mreži"
+  },
+  "vektori_animacija": {
+  "description": "Interaktivna p5.js animacija koja omogućava korisnicima da vizualizuju i manipulišu vektorima u 2D prostoru. Idealno za učenje osnovnih vektorskih operacija kroz praktične primere.",
+  "keywords": "p5.js, vektori, animacija vektora, interaktivna simulacija, vektorska grafika, sabiranje vektora, skaliranje vektora, edukativna animacija, kreativno kodiranje, fizika, matematika, JavaScript, učenje kroz animaciju, vektorska animacija, interaktivna grafika, vizualizacija vektora, vektorske operacije, p5.js tutorijal"
+},
+"sunce_zemlja_mesec_animacija": {
+  "description": "Interaktivna 3D animacija sistema Sunce–Zemlja–Mesec izrađena u p5.js biblioteci. Vizualizujte orbitalna kretanja i rotacije nebeskih tela kroz edukativnu simulaciju sa realističnim teksturama i osvetljenjem.",
+  "keywords": "p5.js, Sunce Zemlja Mesec, 3D animacija, interaktivna simulacija, orbitalna mehanika, edukativna fizika, JavaScript, kreativno kodiranje, vizualizacija astronomije, WEBGL, rotacija planeta, hijerarhijsko modelovanje"
+}
+
 	
   
   }

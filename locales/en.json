@@ -223,6 +223,28 @@
     "about_ejs_example_advanced_2": {
       "description": "An advanced example of creating a 3D simulation of disk rotation in EJS. Includes a detailed view of objects, cameras and interfaces for visualizing physical properties.",
       "keywords": "EJS, 3D simulation, disk rotation, Drawing3DPanel, Arrow3D, camera, interface, physics, education, p5.js"
-    }
+    },
+	"p5js_usage": {
+    "description": "Learn how to use p5.js to create interactive simulations of physical phenomena. Besides p5.js, explore other tools like Easy JavaScript Simulation (EJS) for developing educational animations.",
+    "keywords": "p5.js, JavaScript animation, physical simulations, interactive simulations, Easy JavaScript Simulation, EJS, educational animations, programming, visualization, physics"
+  },
+  "circular_motion_animation_p5js": {
+    "description": "Circular animation of an object using the p5.js library in JavaScript. A visual example and explanation of trigonometric functions in animation.",
+    "keywords": "p5.js, JavaScript animation, circular motion, sin, cos, trigonometry, animation, visualization, code example, EJS, physics, projectile motion, angular displacement, angular velocity, centripetal force, rotation period, physics learning, STEM education, interactive simulation, educational tool, digital experiments, p5js tutorial, educational content, web animation, online physics"
+  },
+  "sliding_body_incline_animation": {
+    "description": "Animation of a body sliding down an inclined plane using p5.js in JavaScript. A visual example and explanation of trigonometric functions and kinematics on an incline.",
+    "keywords": "p5.js, JavaScript animation, sliding on incline, inclined plane, trigonometry, animation, visualization, code example, EJS, physics, kinematics, gravity component, friction, angle of incline, physics learning, STEM education, interactive simulation, educational tool, digital experiments, p5js tutorial, educational content, web animation, online physics"
+  },
+  "vector_animation": {
+  "description": "Interactive p5.js animation that allows users to visualize and manipulate vectors in 2D space. Ideal for learning basic vector operations through practical examples.",
+  "keywords": "p5.js, vectors, vector animation, interactive simulation, vector graphics, vector addition, vector scaling, educational animation, creative coding, physics, mathematics, JavaScript, learning through animation, vector visualization, interactive graphics, vector operations, p5.js tutorial"
+},
+"sun_earth_moon_animation": {
+  "description": "Interactive 3D animation of the Sun–Earth–Moon system built with p5.js library. Visualize orbital movements and rotations of celestial bodies through an educational simulation with realistic textures and lighting.",
+  "keywords": "p5.js, Sun Earth Moon, 3D animation, interactive simulation, orbital mechanics, educational physics, JavaScript, creative coding, astronomy visualization, WEBGL, planet rotation, hierarchical modeling"
+}
+
+
   }
 }
