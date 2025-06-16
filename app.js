@@ -208,7 +208,7 @@ app.use((req, res, next) => {
 	console.log('1 else if  newLocale =', newLocale);
   }
   // 3.3) Ako URL počinje sa '/sr' (ako imaš takvu potrebu), možeš slično
-  else if (req.path === '/sr' || req.path.startsWith('/sr/')) {
+  else if (req.path === '/' || req.path.startsWith('/')) {
     newLocale = 'sr';
 	console.log('Promena na srpski');
 	console.log('2 else if  newLocale =', newLocale);
