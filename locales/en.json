@@ -214,15 +214,15 @@
     }, 
     "about_ejs_example": {
       "description": "Projectile motion simulation example. An interactive animation created using Easy JavaScript Simulation  EJSS showing the parabolic trajectory of an object.",
-      "keywords": ""
+      "keywords": "EJS, Easy Java Simulations, example, interactive simulations, physics, education, programming, simulation, Java, learning by doing"
 	  },
     "about_ejs_example_advanced": {
-      "description": "",
-      "keywords": ""
+      "description": "An advanced simulation example in Easy Java Simulations (EJS) shows how to use more complex functions to model physical phenomena, including multiple variables and interactive controls.",
+      "keywords": "Easy Java Simulations, EJS, advanced simulation, physics simulations, interactive physics, modeling, Java simulations, educational software, EJS tutorial, motion simulation"
     },
     "about_ejs_example_advanced_2": {
-      "description": "",
-      "keywords": ""
+      "description": "An advanced example of creating a 3D simulation of disk rotation in EJS. Includes a detailed view of objects, cameras and interfaces for visualizing physical properties.",
+      "keywords": "EJS, 3D simulation, disk rotation, Drawing3DPanel, Arrow3D, camera, interface, physics, education, p5.js"
     }
   }
 }
