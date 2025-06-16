@@ -243,7 +243,24 @@
 "sun_earth_moon_animation": {
   "description": "Interactive 3D animation of the Sun–Earth–Moon system built with p5.js library. Visualize orbital movements and rotations of celestial bodies through an educational simulation with realistic textures and lighting.",
   "keywords": "p5.js, Sun Earth Moon, 3D animation, interactive simulation, orbital mechanics, educational physics, JavaScript, creative coding, astronomy visualization, WEBGL, planet rotation, hierarchical modeling"
+},
+"intro_open_source_physics": {
+  "description": "Open Source Physics (OSP) is a collaborative project providing free, open-source tools and simulations for teaching and learning physics via computational modeling. Discover Tracker, Web EJS, OSP libraries, and other resources for interactive educational simulations.",
+  "keywords": "Open Source Physics, OSP, open-source physics, simulations, computational physics, Tracker, Easy Java Simulations, Web EJS, video analysis, educational tools"
+},
+"osp_ide_setup": {
+  "description": "A detailed guide to setting up IntelliJ IDEA environment for building Open Source Physics simulations: installing the IDE, configuring the JDK, adding OSP and ACM libraries, and creating the first Java project.",
+  "keywords": "Open Source Physics, OSP, IntelliJ IDEA, IDE setup, JDK configuration, OSP libraries, ACM library, Java simulations, development environment, tutorial"
+},
+"osp_pendulum_example": {
+  "description": "Interactive simulation of a mathematical pendulum built with Open Source Physics (OSP) Java libraries. A numeric Euler solver animates the pendulum’s motion and displays its trajectory in real time.",
+  "keywords": "Open Source Physics, OSP, pendulum simulation, mathematical pendulum, Java physics simulation, OSP Java library, Euler solver, dynamic systems modeling, physics animation, interactive simulation"
+},
+"intro_web_ejs_templates": {
+  "description": "Introduction to EJS templates through examples and explanations for dynamic content generation in Node.js web applications.",
+  "keywords": "EJS, introduction to EJS, EJS tutorial, Node.js templates, dynamic pages, EJS examples, web programming, server-side JavaScript, Express EJS, EJS include"
 }
+
 
 
   }

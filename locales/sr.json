@@ -248,7 +248,24 @@
 "sunce_zemlja_mesec_animacija": {
   "description": "Interaktivna 3D animacija sistema Sunce–Zemlja–Mesec izrađena u p5.js biblioteci. Vizualizujte orbitalna kretanja i rotacije nebeskih tela kroz edukativnu simulaciju sa realističnim teksturama i osvetljenjem.",
   "keywords": "p5.js, Sunce Zemlja Mesec, 3D animacija, interaktivna simulacija, orbitalna mehanika, edukativna fizika, JavaScript, kreativno kodiranje, vizualizacija astronomije, WEBGL, rotacija planeta, hijerarhijsko modelovanje"
+},
+"uvod_u_osp": {
+  "description": "Open Source Physics (OSP) je zajednički projekat koji pruža besplatne, otvorene alate i simulacije za nastavu i učenje fizike putem računarskog modeliranja. Upoznajte Tracker, Web EJS, OSP biblioteke i druge resurse za interaktivne edukativne simulacije.",
+  "keywords": "Open Source Physics, OSP, fizika otvorenog koda, simulacije, računarska fizika, Tracker, Easy Java Simulations, Web EJS, video analiza, edukativni alati"
+},
+"ide_okruzenje_osp": {
+  "description": "Detaljan vodič za podešavanje IntelliJ IDEA okruženja za izradu Open Source Physics simulacija: instalacija IDE-a, konfiguracija JDK-a, dodavanje OSP i ACM biblioteka, kreiranje prvog Java projekta.",
+  "keywords": "Open Source Physics, OSP, IntelliJ IDEA, IDE podešavanje, JDK konfiguracija, OSP biblioteke, ACM biblioteka, java simulacije, razvojno okruženje, tutorijal"
+},
+"primer_osp_matematicko_klatno": {
+  "description": "Interaktivna simulacija matematičkog klatna izrađena pomoću Open Source Physics (OSP) Java biblioteka. Numerički Eulerov solver animira kretanje klatna i prikazuje njegovu putanju u realnom vremenu.",
+  "keywords": "Open Source Physics, OSP, simulacija klatna, matematičko klatno, Java simulacija fizike, OSP Java biblioteka, Eulerov solver, modelovanje dinamičkih sistema, animacija fizike, interaktivna simulacija"
+},
+"uvod_u_web_ejs": {
+  "description": "Uvod u EJS šablone kroz primere i objašnjenja za dinamičko generisanje sadržaja u Node.js web aplikacijama.",
+  "keywords": "EJS, uvod u EJS, EJS tutorijal, Node.js šabloni, dinamičke stranice, EJS primeri, web programiranje, JavaScript server-side, Express EJS, EJS include"
 }
+
 
 	
   
