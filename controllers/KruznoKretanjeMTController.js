@@ -21,7 +21,9 @@ var methods = {
       : (id === 2)
         ? './KruznoKretanjeMT_Intro_2'
         : './KruznoKretanjeMT_Simulation',
-    locale: req.locale
+    locale: req.locale,	
+	pageDescription: res.__('meta.kruzno_kretanje.description'),
+      pageKeywords:    res.__('meta.kruzno_kretanje.keywords')
   };
 	  console.log('id=>'+id);
 	  
@@ -73,7 +75,9 @@ console.log('Render attempt:', 'pages/ejss_model_KruznoKretanjeMT/KruznoKretanje
       : (id === 2)
         ? './CircularMotionMT_Intro_2'
         : './CircularMotionMT_Simulation',
-    locale: req.locale
+    locale: req.locale,
+	pageDescription: res.__('meta.circular_motion.description'),
+      pageKeywords:    res.__('meta.circular_motion.keywords')
   };
 
     console.log(`Circular motion EN ctrl ${id}, ${data.path1}, ${data.path2}`);

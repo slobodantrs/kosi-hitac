@@ -193,7 +193,7 @@
    
     "kruzno_kretanje": {
       "description": "Interaktivna simulacija ravnomernog kružnog kretanja materijalne tačke. Analizirajte sile i ubrzanja, i istražite kako brzina i poluprečnik utiču na dinamiku kretanja.",
-      "keywords": "kružno kretanje, centripetalna sila, ubrzanje, poluprečnik, simulacija, fizika"
+      "keywords": "kružno kretanje, centripetalno ubrzanje, poluprečnik, simulacija fizike, p5.js, JavaScript animacija, HTML5 platno, ugaona brzina, ravnomerno kružno kretanje, vektorska animacija, obrazovna fizika, interaktivna simulacija, sinus-kosinusno kretanje, periodično kretanje, grafika u realnom vremenu"
     },
     "masa_i_opruga": {
       "description": "Interaktivna simulacija harmonijskog oscilatora: masa na opruzi bez trenja. Analizirajte sile, energiju i oscilacije u realnom vremenu pomoću EJS alata.",

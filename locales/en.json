@@ -188,8 +188,8 @@
     },    
     "circular_motion": {
       "description": "Simulation of uniform circular motion of a material point. Analyze centripetal acceleration, forces, and how speed and radius affect dynamics.",
-      "keywords": "circular motion, centripetal acceleration, radius, physics simulation"
-    },
+      "keywords": "circular motion, centripetal acceleration, radius, physics simulation, p5.js, JavaScript animation, HTML5 canvas, angular velocity, uniform circular motion, vector animation, educational physics, interactive simulation, sine cosine motion, periodic motion, real-time graphics"
+	  },
     "mass_and_spring": {
       "description": "Interactive mass-and-spring (harmonic oscillator) simulation. Study Hooke’s law, kinetic and potential energy exchanges in real time with EJS.",
       "keywords": "mass and spring, harmonic oscillator, Hooke’s law, energy exchange, physics simulation"
