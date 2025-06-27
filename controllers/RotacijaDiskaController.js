@@ -38,7 +38,9 @@ var methods = {
         : (id === 4)
           ? './RotacijaDiska_Intro_4'
           : './RotacijaDiska_Simulation',
-  locale: req.locale
+  locale: req.locale,
+  pageDescription: res.__('meta.rotacija_diska.description'),
+      pageKeywords:    res.__('meta.rotacija_diska.keywords')
 };
 
     console.log('id => ' + id);
@@ -94,7 +96,9 @@ const data = {
         : (id === 4)
           ? './DiskRotation_Intro_4'
           : './DiskRotation_Simulation',
-  locale: req.locale
+  locale: req.locale,
+  pageDescription: res.__('meta.disc_rotation.description'),
+      pageKeywords:    res.__('meta.disc_rotation.keywords')
 };
 
 console.log('EN id =>', id);
