@@ -32,7 +32,9 @@ const methods = {
 		 : (id === 3)
 		 ? './RavnoKretanje_Intro_3'
         : './RavnoKretanje_Simulation',
-    locale: req.locale
+    locale: req.locale,
+	 pageDescription: res.__('meta.ravno_kretanje.description'),
+      pageKeywords:    res.__('meta.ravno_kretanje.keywords')
   };
 
     console.log('id => ' + id);
@@ -83,7 +85,9 @@ const methods = {
         ? './RigidBodyMotion_Intro_2'
 		: (id === 3) ? './RigidBodyMotion_Intro_3'
         : './RigidBodyMotion_Simulation',
-    locale: req.locale
+    locale: req.locale,
+	pageDescription: res.__('meta.rigid_body_motion.description'),
+      pageKeywords:    res.__('meta.rigid_body_motion.keywords')
   };
 
     console.log('EN id => ' + id);

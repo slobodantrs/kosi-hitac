@@ -204,7 +204,7 @@
       "keywords": "rigid body motion, rolling without slipping, translational motion, rotational motion, instantaneous center of velocity, angular velocity, angular acceleration, acceleration vectors, Easy Java Simulation, physics simulation"
     },
 
-    "disk_rotation": {
+    "disc_rotation": {
       "description": "Explore the simulation of a rigid body's rotation around a fixed axis, exemplified by a disk. This interactive model demonstrates angular velocity, angular acceleration, and centripetal acceleration, created using the Easy Java Simulations (EJS) tool.",
       "keywords": "rigid body, circular motion, disk rotation, rotational motion, angular velocity, angular acceleration, centripetal acceleration, angular displacement, Easy Java Simulations, EJS, physics simulation, rotational dynamics, moment of inertia, rotational kinematics"
     },
